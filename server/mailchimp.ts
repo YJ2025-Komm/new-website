@@ -53,10 +53,10 @@ export class MailchimpService {
       if (!response.ok) {
         const errorData = await response.json();
         
-        // Handle duplicate email gracefully
+        // Handle duplicate email by throwing a specific error
         if (errorData.title === 'Member Exists') {
           console.log(`Subscriber already exists in Mailchimp: ${entry.email}`);
-          return;
+          throw new Error('Member Exists');
         }
         
         console.error('Mailchimp API error:', errorData);

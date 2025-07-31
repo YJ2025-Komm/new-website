@@ -16,43 +16,44 @@ export async function registerRoutes(app: Express): Promise<Server> {
     console.error("Google Sheets initialization failed:", error);
   }
 
-  // Waitlist registration endpoint
+  // Waitlist registration endpoint - Save directly to Mailchimp only
   app.post("/api/waitlist", async (req, res) => {
     try {
       // Validate request body
       const validatedData = insertWaitlistEntrySchema.parse(req.body);
       
-      // Check if email already exists
-      const existingEntry = await storage.getWaitlistEntryByEmail(validatedData.email);
-      if (existingEntry) {
-        return res.status(400).json({ 
-          message: "This email is already on the waitlist" 
+      // Add directly to Mailchimp (it handles duplicate detection)
+      try {
+        await mailchimpService.addSubscriber(validatedData);
+        
+        res.status(201).json({ 
+          message: "Successfully added to waitlist",
+          email: validatedData.email 
+        });
+      } catch (mailchimpError) {
+        console.error("Mailchimp error:", mailchimpError);
+        
+        const errorMessage = mailchimpError instanceof Error ? mailchimpError.message : String(mailchimpError);
+        
+        // Handle specific Mailchimp errors
+        if (errorMessage.includes('Member Exists')) {
+          return res.status(400).json({ 
+            message: "This email is already on the waitlist" 
+          });
+        }
+        
+        if (errorMessage.includes('looks fake or invalid')) {
+          return res.status(400).json({ 
+            message: "Please enter a valid email address" 
+          });
+        }
+        
+        // Generic error
+        res.status(500).json({ 
+          message: "Failed to add to waitlist. Please try again." 
         });
       }
       
-      // Create waitlist entry in database
-      const entry = await storage.createWaitlistEntry(validatedData);
-      
-      // Also add to Google Sheets
-      try {
-        await googleSheetsService.addWaitlistEntry(validatedData);
-      } catch (sheetsError) {
-        console.error("Google Sheets error (continuing anyway):", sheetsError);
-        // Don't fail the request if Google Sheets fails
-      }
-      
-      // Also add to Mailchimp
-      try {
-        await mailchimpService.addSubscriber(validatedData);
-      } catch (mailchimpError) {
-        console.error("Mailchimp error (continuing anyway):", mailchimpError);
-        // Don't fail the request if Mailchimp fails
-      }
-      
-      res.status(201).json({ 
-        message: "Successfully added to waitlist",
-        id: entry.id 
-      });
     } catch (error) {
       if (error instanceof z.ZodError) {
         return res.status(400).json({ 
@@ -68,11 +69,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get waitlist count (optional endpoint)
+  // Get waitlist count from Mailchimp
   app.get("/api/waitlist/count", async (req, res) => {
     try {
-      const count = await storage.getWaitlistCount();
-      res.json({ count });
+      const audienceInfo = await mailchimpService.getAudienceInfo();
+      res.json({ count: audienceInfo.stats.member_count });
     } catch (error) {
       console.error("Error getting waitlist count:", error);
       res.status(500).json({ 

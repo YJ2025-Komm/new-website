@@ -60,10 +60,9 @@ Preferred communication style: Simple, everyday language.
 1. User fills out waitlist form on landing page
 2. Client-side validation using React Hook Form + Zod
 3. API request to `/api/waitlist` endpoint
-4. Server validates data and checks for existing email
-5. Database insertion via Drizzle ORM
-6. Automatic sync to Mailchimp audience for email marketing
-7. Success/error feedback to user via toast notifications
+4. Server validates data and saves directly to Mailchimp audience
+5. Mailchimp handles duplicate detection and email validation
+6. Success/error feedback to user via toast notifications
 
 ### API Endpoints
 - `POST /api/waitlist` - Register new waitlist entry
