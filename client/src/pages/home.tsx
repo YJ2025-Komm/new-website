@@ -81,8 +81,9 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         {/* Background Elements */}
         <div className="hero-gradient absolute inset-0 z-0"></div>
-        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-pulse-soft"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-violet-500/5 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse-soft"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-300/5 via-purple-300/5 to-pink-300/5 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '0.5s'}}></div>
         
         <div className="relative z-10 max-w-6xl mx-auto text-center">
           {/* Logo/Brand */}
@@ -207,7 +208,7 @@ export default function Home() {
       </section>
 
       {/* Why It Matters Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-b from-slate-50/50 to-blue-50/30">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
@@ -273,7 +274,7 @@ export default function Home() {
       </section>
 
       {/* Core Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-violet-50/30 to-pink-50/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
@@ -577,7 +578,7 @@ export default function Home() {
       </section>
 
       {/* Positioning Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-green-50/20 to-cyan-50/30">
         <div className="max-w-4xl mx-auto">
           <Card className="glass-strong rounded-3xl p-8 sm:p-12 text-center border-0">
             <CardContent className="pt-0">
@@ -601,7 +602,7 @@ export default function Home() {
       </section>
 
       {/* Waitlist Section */}
-      <section id="waitlist" className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="waitlist" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50/20 to-indigo-50/30">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
@@ -634,7 +635,7 @@ export default function Home() {
                       id="fullName"
                       {...form.register("fullName")}
                       placeholder="Enter your full name"
-                      className="w-full px-4 py-4 bg-slate-800/50 border border-slate-600 rounded-xl text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-4 bg-white/80 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm"
                     />
                     {form.formState.errors.fullName && (
                       <p className="text-red-400 text-sm mt-2">
@@ -653,7 +654,7 @@ export default function Home() {
                       type="email"
                       {...form.register("email")}
                       placeholder="Enter your email address"
-                      className="w-full px-4 py-4 bg-slate-800/50 border border-slate-600 rounded-xl text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-4 bg-white/80 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm"
                     />
                     {form.formState.errors.email && (
                       <p className="text-red-400 text-sm mt-2">
@@ -681,7 +682,7 @@ export default function Home() {
                     )}
                   </Button>
                   
-                  <p className="text-center text-sm text-slate-400 mt-6">
+                  <p className="text-center text-sm text-slate-500 mt-6">
                     🔒 Your information is secure and will never be shared.
                   </p>
                 </form>
