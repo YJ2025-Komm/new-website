@@ -3,8 +3,19 @@ import { storage } from "./storage";
 import type { WaitlistEntry } from "@shared/schema";
 
 export function registerAdminRoutes(app: Express) {
+  // API endpoint for raw data
+  app.get("/api/admin/waitlist", async (req, res) => {
+    try {
+      const entries = await storage.getAllWaitlistEntries();
+      res.json(entries);
+    } catch (error) {
+      console.error("Error fetching waitlist entries:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
   // Admin endpoint to view all waitlist entries
-  app.get("/admin/waitlist", async (req, res) => {
+  app.get("/api/admin/dashboard", async (req, res) => {
     try {
       // In a real app, you'd add authentication here
       const entries = await storage.getAllWaitlistEntries();
@@ -104,14 +115,5 @@ export function registerAdminRoutes(app: Express) {
     }
   });
 
-  // API endpoint for raw data
-  app.get("/admin/api/waitlist", async (req, res) => {
-    try {
-      const entries = await storage.getAllWaitlistEntries();
-      res.json(entries);
-    } catch (error) {
-      console.error("Error fetching waitlist entries:", error);
-      res.status(500).json({ message: "Internal server error" });
-    }
-  });
+
 }
