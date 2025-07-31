@@ -1,6 +1,6 @@
 import { users, waitlistEntries, type User, type InsertUser, type WaitlistEntry, type InsertWaitlistEntry } from "@shared/schema";
 import { db } from "./db";
-import { eq, count } from "drizzle-orm";
+import { eq, count, desc } from "drizzle-orm";
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
@@ -10,6 +10,7 @@ export interface IStorage {
   getWaitlistEntryByEmail(email: string): Promise<WaitlistEntry | undefined>;
   createWaitlistEntry(insertWaitlistEntry: InsertWaitlistEntry): Promise<WaitlistEntry>;
   getWaitlistCount(): Promise<number>;
+  getAllWaitlistEntries(): Promise<WaitlistEntry[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -47,6 +48,11 @@ export class DatabaseStorage implements IStorage {
   async getWaitlistCount(): Promise<number> {
     const [result] = await db.select({ count: count() }).from(waitlistEntries);
     return result.count;
+  }
+
+  async getAllWaitlistEntries(): Promise<WaitlistEntry[]> {
+    const entries = await db.select().from(waitlistEntries).orderBy(waitlistEntries.createdAt);
+    return entries;
   }
 }
 
