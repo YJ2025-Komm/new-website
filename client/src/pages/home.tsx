@@ -108,12 +108,12 @@ export default function Home() {
               </h2>
               
               <p className="text-xl sm:text-2xl text-slate-600 mb-8 leading-relaxed">
-                The visibility intelligence tool that helps brands track and improve their presence in AI-generated search results across ChatGPT, Gemini, Perplexity, and Claude.
+                Track and improve your brand's presence across AI search platforms like ChatGPT, Gemini, and Perplexity.
               </p>
               
               <div className="glass-strong rounded-2xl p-6 mb-8">
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Just as SEO tools helped brands rank on Google, GeoRankers helps brands track and improve their presence in AI search—the next major discovery channel.
+                  The SEO tool for AI search—monitor visibility and optimize your presence in the future of discovery.
                 </p>
               </div>
             </div>
