@@ -28,6 +28,10 @@ import {
   Loader2,
   CheckCircle
 } from "lucide-react";
+import geminiLogo from "@assets/Gemini_1753958628531.png";
+import grokLogo from "@assets/Grok_1753958628535.png";
+import openaiLogo from "@assets/Open Ai_1753958628536.png";
+import perplexityLogo from "@assets/Perplexity_1753958628538.png";
 
 export default function Home() {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -72,13 +76,13 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen text-slate-50 overflow-x-hidden">
+    <div className="min-h-screen text-slate-900 overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         {/* Background Elements */}
         <div className="hero-gradient absolute inset-0 z-0"></div>
-        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse-soft"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-violet-500/10 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-pulse-soft"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-violet-500/5 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
         
         <div className="relative z-10 max-w-6xl mx-auto text-center">
           {/* Logo/Brand */}
@@ -102,12 +106,12 @@ export default function Home() {
                 </span>
               </h2>
               
-              <p className="text-xl sm:text-2xl text-slate-300 mb-8 leading-relaxed">
+              <p className="text-xl sm:text-2xl text-slate-600 mb-8 leading-relaxed">
                 The visibility intelligence tool that helps brands track and improve their presence in AI-generated search results across ChatGPT, Gemini, Perplexity, and Claude.
               </p>
               
               <div className="glass-strong rounded-2xl p-6 mb-8">
-                <p className="text-lg text-slate-200 leading-relaxed">
+                <p className="text-lg text-slate-700 leading-relaxed">
                   Just as SEO tools helped brands rank on Google, GeoRankers helps brands track and improve their presence in AI search—the next major discovery channel.
                 </p>
               </div>
@@ -133,34 +137,42 @@ export default function Home() {
                   </defs>
                   
                   {/* Central GeoRankers hub */}
-                  <circle cx="200" cy="150" r="40" fill="url(#bgGradient)" stroke="rgba(59, 130, 246, 0.5)" strokeWidth="2" filter="url(#glow)"/>
-                  <text x="200" y="155" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold">GeoRankers</text>
+                  <circle cx="200" cy="150" r="40" fill="url(#bgGradient)" stroke="rgba(59, 130, 246, 0.8)" strokeWidth="2" filter="url(#glow)"/>
+                  <text x="200" y="155" textAnchor="middle" fill="#1e293b" fontSize="12" fontWeight="bold">GeoRankers</text>
                   
-                  {/* AI Platform nodes */}
+                  {/* AI Platform nodes with logos */}
                   {/* ChatGPT */}
-                  <circle cx="100" cy="80" r="25" fill="rgba(16, 163, 127, 0.2)" stroke="rgba(16, 163, 127, 0.8)" strokeWidth="2"/>
-                  <text x="100" y="85" textAnchor="middle" fill="#10a37f" fontSize="10" fontWeight="bold">ChatGPT</text>
+                  <circle cx="100" cy="80" r="25" fill="rgba(255, 255, 255, 0.9)" stroke="rgba(16, 163, 127, 0.8)" strokeWidth="2"/>
+                  <foreignObject x="85" y="65" width="30" height="30">
+                    <img src={openaiLogo} alt="OpenAI" className="w-full h-full object-contain" />
+                  </foreignObject>
                   <line x1="125" y1="90" x2="175" y2="130" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="2" strokeDasharray="5,5">
                     <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
                   </line>
                   
                   {/* Gemini */}
-                  <circle cx="300" cy="80" r="25" fill="rgba(66, 133, 244, 0.2)" stroke="rgba(66, 133, 244, 0.8)" strokeWidth="2"/>
-                  <text x="300" y="85" textAnchor="middle" fill="#4285f4" fontSize="10" fontWeight="bold">Gemini</text>
+                  <circle cx="300" cy="80" r="25" fill="rgba(255, 255, 255, 0.9)" stroke="rgba(66, 133, 244, 0.8)" strokeWidth="2"/>
+                  <foreignObject x="285" y="65" width="30" height="30">
+                    <img src={geminiLogo} alt="Gemini" className="w-full h-full object-contain" />
+                  </foreignObject>
                   <line x1="275" y1="90" x2="225" y2="130" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="2" strokeDasharray="5,5">
                     <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="0.5s"/>
                   </line>
                   
                   {/* Perplexity */}
-                  <circle cx="100" cy="220" r="25" fill="rgba(168, 85, 247, 0.2)" stroke="rgba(168, 85, 247, 0.8)" strokeWidth="2"/>
-                  <text x="100" y="225" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="bold">Perplexity</text>
+                  <circle cx="100" cy="220" r="25" fill="rgba(255, 255, 255, 0.9)" stroke="rgba(20, 184, 166, 0.8)" strokeWidth="2"/>
+                  <foreignObject x="85" y="205" width="30" height="30">
+                    <img src={perplexityLogo} alt="Perplexity" className="w-full h-full object-contain" />
+                  </foreignObject>
                   <line x1="125" y1="210" x2="175" y2="170" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="2" strokeDasharray="5,5">
                     <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="1s"/>
                   </line>
                   
-                  {/* Claude */}
-                  <circle cx="300" cy="220" r="25" fill="rgba(255, 107, 107, 0.2)" stroke="rgba(255, 107, 107, 0.8)" strokeWidth="2"/>
-                  <text x="300" y="225" textAnchor="middle" fill="#ff6b6b" fontSize="10" fontWeight="bold">Claude</text>
+                  {/* Grok */}
+                  <circle cx="300" cy="220" r="25" fill="rgba(255, 255, 255, 0.9)" stroke="rgba(0, 0, 0, 0.8)" strokeWidth="2"/>
+                  <foreignObject x="285" y="205" width="30" height="30">
+                    <img src={grokLogo} alt="Grok" className="w-full h-full object-contain" />
+                  </foreignObject>
                   <line x1="275" y1="210" x2="225" y2="170" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="2" strokeDasharray="5,5">
                     <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="1.5s"/>
                   </line>
@@ -176,8 +188,8 @@ export default function Home() {
                   </circle>
                   
                   {/* Labels */}
-                  <text x="200" y="30" textAnchor="middle" fill="rgba(255,255,255,0.8)" fontSize="12" fontWeight="bold">AI Search Monitoring</text>
-                  <text x="200" y="290" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="10">Real-time Brand Visibility Tracking</text>
+                  <text x="200" y="30" textAnchor="middle" fill="rgba(30, 41, 59, 0.8)" fontSize="12" fontWeight="bold">AI Search Monitoring</text>
+                  <text x="200" y="290" textAnchor="middle" fill="rgba(71, 85, 105, 0.6)" fontSize="10">Real-time Brand Visibility Tracking</text>
                 </svg>
               </div>
             </div>
@@ -201,7 +213,7 @@ export default function Home() {
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
               Why <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search</span> Matters
             </h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               The search landscape is rapidly evolving, and traditional SEO strategies aren't enough anymore.
             </p>
           </div>
@@ -212,8 +224,8 @@ export default function Home() {
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <Brain className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-slate-50">AI-Powered Answers</h3>
-                <p className="text-slate-300">AI is replacing traditional keyword search with contextual, generative answers</p>
+                <h3 className="text-xl font-bold mb-4 text-slate-900">AI-Powered Answers</h3>
+                <p className="text-slate-600">AI is replacing traditional keyword search with contextual, generative answers</p>
               </CardContent>
             </Card>
             
@@ -222,8 +234,8 @@ export default function Home() {
                 <div className="w-16 h-16 bg-gradient-to-r from-violet-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <ShieldCheck className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-slate-50">User Trust</h3>
-                <p className="text-slate-300">Users trust those AI answers—often without clicking to verify</p>
+                <h3 className="text-xl font-bold mb-4 text-slate-900">User Trust</h3>
+                <p className="text-slate-600">Users trust those AI answers—often without clicking to verify</p>
               </CardContent>
             </Card>
             
@@ -232,15 +244,15 @@ export default function Home() {
                 <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <EyeOff className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-slate-50">Invisible Brands</h3>
-                <p className="text-slate-300">If your brand is missing in AI responses, you're invisible in the new search paradigm</p>
+                <h3 className="text-xl font-bold mb-4 text-slate-900">Invisible Brands</h3>
+                <p className="text-slate-600">If your brand is missing in AI responses, you're invisible in the new search paradigm</p>
               </CardContent>
             </Card>
           </div>
           
           <Card className="glass-strong rounded-3xl p-8 sm:p-12 text-center border-0">
             <CardContent className="pt-0">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-slate-50">GeoRankers gives brands back their control and visibility</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-slate-900">GeoRankers gives brands back their control and visibility</h3>
               <div className="grid sm:grid-cols-3 gap-6 text-lg">
                 <div className="flex items-center justify-center">
                   <Search className="w-5 h-5 text-blue-400 mr-3" />
@@ -267,7 +279,7 @@ export default function Home() {
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
               Core <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Features</span>
             </h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Everything you need to monitor and improve your AI search visibility
             </p>
           </div>
@@ -281,42 +293,42 @@ export default function Home() {
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-violet-500 rounded-xl flex items-center justify-center mr-4">
                       <span className="text-white font-bold">1</span>
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-50">AI Search Presence Checker</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">AI Search Presence Checker</h3>
                   </div>
-                  <p className="text-lg text-slate-300 mb-6">
-                    Enter your brand name or website to check if it appears in answers from ChatGPT, Gemini, Perplexity, and Claude. Results display whether you are mentioned, and where.
+                  <p className="text-lg text-slate-600 mb-6">
+                    Enter your brand name or website to check if it appears in answers from ChatGPT, Gemini, Perplexity, and Grok. Results display whether you are mentioned, and where.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
                     <Card className="glass rounded-xl p-4 text-center border-0 hover:bg-green-500/10 transition-colors">
                       <CardContent className="pt-0">
-                        <div className="w-8 h-8 bg-[#10a37f] rounded-lg flex items-center justify-center mx-auto mb-2">
-                          <span className="text-white font-bold text-sm">GP</span>
+                        <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-2 shadow-sm">
+                          <img src={openaiLogo} alt="OpenAI" className="w-8 h-8 object-contain" />
                         </div>
-                        <div className="text-sm text-slate-300 font-medium">ChatGPT</div>
+                        <div className="text-sm text-slate-700 font-medium">ChatGPT</div>
                       </CardContent>
                     </Card>
                     <Card className="glass rounded-xl p-4 text-center border-0 hover:bg-blue-500/10 transition-colors">
                       <CardContent className="pt-0">
-                        <div className="w-8 h-8 bg-[#4285f4] rounded-lg flex items-center justify-center mx-auto mb-2">
-                          <span className="text-white font-bold text-sm">G</span>
+                        <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-2 shadow-sm">
+                          <img src={geminiLogo} alt="Gemini" className="w-8 h-8 object-contain" />
                         </div>
-                        <div className="text-sm text-slate-300 font-medium">Gemini</div>
+                        <div className="text-sm text-slate-700 font-medium">Gemini</div>
                       </CardContent>
                     </Card>
-                    <Card className="glass rounded-xl p-4 text-center border-0 hover:bg-violet-500/10 transition-colors">
+                    <Card className="glass rounded-xl p-4 text-center border-0 hover:bg-teal-500/10 transition-colors">
                       <CardContent className="pt-0">
-                        <div className="w-8 h-8 bg-[#a855f7] rounded-lg flex items-center justify-center mx-auto mb-2">
-                          <Search className="w-4 h-4 text-white" />
+                        <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-2 shadow-sm">
+                          <img src={perplexityLogo} alt="Perplexity" className="w-8 h-8 object-contain" />
                         </div>
-                        <div className="text-sm text-slate-300 font-medium">Perplexity</div>
+                        <div className="text-sm text-slate-700 font-medium">Perplexity</div>
                       </CardContent>
                     </Card>
-                    <Card className="glass rounded-xl p-4 text-center border-0 hover:bg-orange-500/10 transition-colors">
+                    <Card className="glass rounded-xl p-4 text-center border-0 hover:bg-gray-500/10 transition-colors">
                       <CardContent className="pt-0">
-                        <div className="w-8 h-8 bg-[#ff6b35] rounded-lg flex items-center justify-center mx-auto mb-2">
-                          <span className="text-white font-bold text-sm">C</span>
+                        <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-2 shadow-sm">
+                          <img src={grokLogo} alt="Grok" className="w-8 h-8 object-contain" />
                         </div>
-                        <div className="text-sm text-slate-300 font-medium">Claude</div>
+                        <div className="text-sm text-slate-700 font-medium">Grok</div>
                       </CardContent>
                     </Card>
                   </div>
@@ -325,16 +337,16 @@ export default function Home() {
                   <CardContent className="pt-0">
                     <div className="space-y-4">
                       <div className="flex items-center">
-                        <div className="w-3 h-3 bg-green-400 rounded-full mr-3"></div>
-                        <span className="text-slate-300">Your brand mentioned in 3/4 platforms</span>
+                        <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                        <span className="text-slate-700">Your brand mentioned in 3/4 platforms</span>
                       </div>
                       <div className="flex items-center">
-                        <div className="w-3 h-3 bg-yellow-400 rounded-full mr-3"></div>
-                        <span className="text-slate-300">Appearing in top 3 recommendations</span>
+                        <div className="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
+                        <span className="text-slate-700">Appearing in top 3 recommendations</span>
                       </div>
                       <div className="flex items-center">
-                        <div className="w-3 h-3 bg-red-400 rounded-full mr-3"></div>
-                        <span className="text-slate-300">Missing from Claude responses</span>
+                        <div className="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
+                        <span className="text-slate-700">Missing from Grok responses</span>
                       </div>
                     </div>
                   </CardContent>
@@ -349,21 +361,21 @@ export default function Home() {
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <Card className="glass-strong rounded-2xl p-6 order-2 lg:order-1 border-0">
                   <CardContent className="pt-0">
-                    <h4 className="font-bold mb-4 text-slate-50">Sample Prompts:</h4>
+                    <h4 className="font-bold mb-4 text-slate-900">Sample Prompts:</h4>
                     <div className="space-y-3 text-sm">
                       <Card className="glass rounded-lg p-3 border-0">
                         <CardContent className="pt-0 p-0">
-                          <span className="text-slate-300">"What are the best customer engagement tools in 2025?"</span>
+                          <span className="text-slate-700">"What are the best customer engagement tools in 2025?"</span>
                         </CardContent>
                       </Card>
                       <Card className="glass rounded-lg p-3 border-0">
                         <CardContent className="pt-0 p-0">
-                          <span className="text-slate-300">"Which AI platforms are best for small businesses?"</span>
+                          <span className="text-slate-700">"Which AI platforms are best for small businesses?"</span>
                         </CardContent>
                       </Card>
                       <Card className="glass rounded-lg p-3 border-0">
                         <CardContent className="pt-0 p-0">
-                          <span className="text-slate-300">"Top CRM solutions for startups"</span>
+                          <span className="text-slate-700">"Top CRM solutions for startups"</span>
                         </CardContent>
                       </Card>
                     </div>
@@ -374,9 +386,9 @@ export default function Home() {
                     <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
                       <span className="text-white font-bold">2</span>
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-50">Prompt Engine (LLM Search Simulation)</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Prompt Engine (LLM Search Simulation)</h3>
                   </div>
-                  <p className="text-lg text-slate-300 mb-6">
+                  <p className="text-lg text-slate-600 mb-6">
                     Simulates how real users ask AI by generating diverse prompts. The engine feeds these prompts to LLMs and extracts brand mentions from responses.
                   </p>
                 </div>
@@ -392,9 +404,9 @@ export default function Home() {
                   <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-red-500 rounded-xl flex items-center justify-center mr-4">
                     <span className="text-white font-bold">3</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-50">AI Visibility Score (Signal Tracker)</h3>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">AI Visibility Score (Signal Tracker)</h3>
                 </div>
-                <p className="text-lg text-slate-300 mb-8">
+                <p className="text-lg text-slate-600 mb-8">
                   A simple score built on multiple factors to give you a clear picture of your AI search presence.
                 </p>
               </div>
@@ -403,29 +415,29 @@ export default function Home() {
                 <Card className="glass-strong rounded-xl p-6 text-center border-0">
                   <CardContent className="pt-0">
                     <Hash className="w-8 h-8 text-blue-400 mb-4 mx-auto" />
-                    <h4 className="font-bold mb-2 text-slate-50">Mention Count</h4>
-                    <p className="text-sm text-slate-300">Number of AI tools that mention your brand</p>
+                    <h4 className="font-bold mb-2 text-slate-900">Mention Count</h4>
+                    <p className="text-sm text-slate-600">Number of AI tools that mention your brand</p>
                   </CardContent>
                 </Card>
                 <Card className="glass-strong rounded-xl p-6 text-center border-0">
                   <CardContent className="pt-0">
                     <Star className="w-8 h-8 text-violet-400 mb-4 mx-auto" />
-                    <h4 className="font-bold mb-2 text-slate-50">Mention Type</h4>
-                    <p className="text-sm text-slate-300">Top pick, listed, or side reference</p>
+                    <h4 className="font-bold mb-2 text-slate-900">Mention Type</h4>
+                    <p className="text-sm text-slate-600">Top pick, listed, or side reference</p>
                   </CardContent>
                 </Card>
                 <Card className="glass-strong rounded-xl p-6 text-center border-0">
                   <CardContent className="pt-0">
                     <Tag className="w-8 h-8 text-pink-400 mb-4 mx-auto" />
-                    <h4 className="font-bold mb-2 text-slate-50">Source Quality</h4>
-                    <p className="text-sm text-slate-300">G2, Reddit, YouTube, etc.</p>
+                    <h4 className="font-bold mb-2 text-slate-900">Source Quality</h4>
+                    <p className="text-sm text-slate-600">G2, Reddit, YouTube, etc.</p>
                   </CardContent>
                 </Card>
                 <Card className="glass-strong rounded-xl p-6 text-center border-0">
                   <CardContent className="pt-0">
                     <Repeat className="w-8 h-8 text-green-400 mb-4 mx-auto" />
-                    <h4 className="font-bold mb-2 text-slate-50">Frequency</h4>
-                    <p className="text-sm text-slate-300">Appearance across prompt variants</p>
+                    <h4 className="font-bold mb-2 text-slate-900">Frequency</h4>
+                    <p className="text-sm text-slate-600">Appearance across prompt variants</p>
                   </CardContent>
                 </Card>
               </div>
@@ -441,24 +453,24 @@ export default function Home() {
                   <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl flex items-center justify-center mr-4">
                     <span className="text-white font-bold">4</span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-50">Competitor Comparison</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900">Competitor Comparison</h3>
                 </div>
-                <p className="text-slate-300 mb-4">
+                <p className="text-slate-600 mb-4">
                   Add your top competitors and instantly benchmark your AI visibility against theirs.
                 </p>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center p-3 glass rounded-lg">
-                    <span className="text-slate-300">Your Brand</span>
+                    <span className="text-slate-600">Your Brand</span>
                     <div className="flex items-center">
                       <div className="w-20 h-2 bg-gradient-to-r from-blue-500 to-violet-500 rounded-full mr-2"></div>
-                      <span className="text-sm text-slate-300">85%</span>
+                      <span className="text-sm text-slate-600">85%</span>
                     </div>
                   </div>
                   <div className="flex justify-between items-center p-3 glass rounded-lg">
-                    <span className="text-slate-300">Competitor A</span>
+                    <span className="text-slate-600">Competitor A</span>
                     <div className="flex items-center">
                       <div className="w-16 h-2 bg-gray-500 rounded-full mr-2"></div>
-                      <span className="text-sm text-slate-300">72%</span>
+                      <span className="text-sm text-slate-600">72%</span>
                     </div>
                   </div>
                 </div>
@@ -472,28 +484,28 @@ export default function Home() {
                   <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mr-4">
                     <span className="text-white font-bold">5</span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-50">Source Breakdown</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900">Source Breakdown</h3>
                 </div>
-                <p className="text-slate-300 mb-4">
+                <p className="text-slate-600 mb-4">
                   Uncover the sources AI tools are referencing when they mention your brand.
                 </p>
                 <div className="grid grid-cols-3 gap-3">
                   <Card className="glass text-center p-3 rounded-lg border-0">
                     <CardContent className="pt-0 p-0">
                       <Star className="w-4 h-4 text-yellow-400 mb-1 mx-auto" />
-                      <div className="text-xs text-slate-300">G2</div>
+                      <div className="text-xs text-slate-600">G2</div>
                     </CardContent>
                   </Card>
                   <Card className="glass text-center p-3 rounded-lg border-0">
                     <CardContent className="pt-0 p-0">
                       <div className="text-sm text-orange-400 mb-1">R</div>
-                      <div className="text-xs text-slate-300">Reddit</div>
+                      <div className="text-xs text-slate-600">Reddit</div>
                     </CardContent>
                   </Card>
                   <Card className="glass text-center p-3 rounded-lg border-0">
                     <CardContent className="pt-0 p-0">
                       <div className="text-sm text-red-400 mb-1">▶</div>
-                      <div className="text-xs text-slate-300">YouTube</div>
+                      <div className="text-xs text-slate-600">YouTube</div>
                     </CardContent>
                   </Card>
                 </div>
@@ -513,23 +525,23 @@ export default function Home() {
                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center mr-4">
                     <span className="text-white font-bold">6</span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-50">Actionable Recommendations</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900">Actionable Recommendations</h3>
                 </div>
-                <p className="text-slate-300 mb-4">
+                <p className="text-slate-600 mb-4">
                   Based on your visibility profile, GeoRankers recommends:
                 </p>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center">
                     <Check className="w-4 h-4 text-green-400 mr-2" />
-                    <span className="text-slate-300">Platforms to optimize (e.g., G2, Capterra)</span>
+                    <span className="text-slate-600">Platforms to optimize (e.g., G2, Capterra)</span>
                   </li>
                   <li className="flex items-center">
                     <Check className="w-4 h-4 text-green-400 mr-2" />
-                    <span className="text-slate-300">Types of content to create</span>
+                    <span className="text-slate-600">Types of content to create</span>
                   </li>
                   <li className="flex items-center">
                     <Check className="w-4 h-4 text-green-400 mr-2" />
-                    <span className="text-slate-300">Improve AI-generated answer influence</span>
+                    <span className="text-slate-600">Improve AI-generated answer influence</span>
                   </li>
                 </ul>
               </CardContent>
@@ -542,20 +554,20 @@ export default function Home() {
                   <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center mr-4">
                     <span className="text-white font-bold">7</span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-50">Report Export + Alerts</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900">Report Export + Alerts</h3>
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <Download className="w-5 h-5 text-blue-400 mr-3" />
-                    <span className="text-slate-300">Downloadable visibility reports</span>
+                    <span className="text-slate-600">Downloadable visibility reports</span>
                   </div>
                   <div className="flex items-center">
                     <Bell className="w-5 h-5 text-violet-400 mr-3" />
-                    <span className="text-slate-300">Set alerts for visibility changes</span>
+                    <span className="text-slate-600">Set alerts for visibility changes</span>
                   </div>
                   <div className="flex items-center">
                     <TrendingUp className="w-5 h-5 text-pink-400 mr-3" />
-                    <span className="text-slate-300">Monitor competitor spikes</span>
+                    <span className="text-slate-600">Monitor competitor spikes</span>
                   </div>
                 </div>
               </CardContent>
@@ -569,15 +581,15 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <Card className="glass-strong rounded-3xl p-8 sm:p-12 text-center border-0">
             <CardContent className="pt-0">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-slate-50">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-slate-900">
                 Your <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Visibility Platform</span>
               </h2>
-              <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+              <p className="text-xl text-slate-600 mb-8 leading-relaxed">
                 GeoRankers combines LLM prompt analysis, brand intelligence, and source tracking to help modern brands win attention in the new era of search.
               </p>
               <Card className="glass rounded-2xl p-6 mb-8 border-0">
                 <CardContent className="pt-0">
-                  <p className="text-lg font-medium text-slate-200">
+                  <p className="text-lg font-medium text-slate-700">
                     <Lightbulb className="w-5 h-5 text-yellow-400 mr-2 inline" />
                     Think: Ahrefs + G2 + ChatGPT visibility monitor — all in one.
                   </p>
@@ -595,7 +607,7 @@ export default function Home() {
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
               Join the <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Waitlist</span>
             </h2>
-            <p className="text-xl text-slate-300">
+            <p className="text-xl text-slate-600">
               Be among the first to take control of your AI search presence
             </p>
           </div>
@@ -610,12 +622,12 @@ export default function Home() {
                     </div>
                   </div>
                   <h3 className="text-xl font-bold text-green-400 mb-2">Welcome to the waitlist!</h3>
-                  <p className="text-slate-300">We'll notify you as soon as GeoRankers is ready for you.</p>
+                  <p className="text-slate-600">We'll notify you as soon as GeoRankers is ready for you.</p>
                 </div>
               ) : (
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <div>
-                    <Label htmlFor="fullName" className="block text-sm font-medium text-slate-300 mb-2">
+                    <Label htmlFor="fullName" className="block text-sm font-medium text-slate-600 mb-2">
                       Full Name *
                     </Label>
                     <Input
@@ -633,7 +645,7 @@ export default function Home() {
                   </div>
                   
                   <div>
-                    <Label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
+                    <Label htmlFor="email" className="block text-sm font-medium text-slate-600 mb-2">
                       Email Address *
                     </Label>
                     <Input
