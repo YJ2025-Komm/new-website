@@ -1,21 +1,27 @@
 import { InsertWaitlistEntry } from "@shared/schema";
 
 export class GoogleSheetsService {
-  private apiKey: string;
-  private spreadsheetId: string;
+  private webAppUrl: string;
 
   constructor() {
-    this.apiKey = process.env.GOOGLE_SHEETS_API_KEY!;
-    this.spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID!;
-
-    if (!this.apiKey || !this.spreadsheetId) {
-      throw new Error('Google Sheets API key and spreadsheet ID are required');
-    }
+    // We'll use a Google Apps Script Web App URL instead of direct API
+    // This is because Google Sheets API requires OAuth2/Service Account auth for writing
+    this.webAppUrl = process.env.GOOGLE_APPS_SCRIPT_URL || '';
     
-    console.log(`Google Sheets service initialized with spreadsheet ID: ${this.spreadsheetId.substring(0, 10)}...`);
+    if (!this.webAppUrl) {
+      console.log('Google Apps Script URL not configured. Form data will only save to database.');
+      console.log('To enable Google Sheets integration, set up a Google Apps Script web app.');
+    } else {
+      console.log('Google Sheets service initialized with Apps Script web app integration');
+    }
   }
 
   async addWaitlistEntry(entry: InsertWaitlistEntry): Promise<void> {
+    if (!this.webAppUrl) {
+      console.log('Google Sheets integration not configured - skipping');
+      return;
+    }
+
     const timestamp = new Date().toLocaleString('en-US', {
       timeZone: 'America/New_York',
       year: 'numeric',
@@ -25,36 +31,29 @@ export class GoogleSheetsService {
       minute: '2-digit',
       second: '2-digit'
     });
-    
-    // Prepare the row data
-    const values = [
-      [timestamp, entry.fullName, entry.email]
-    ];
-
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.spreadsheetId}/values/Sheet1:append?valueInputOption=USER_ENTERED&key=${this.apiKey}`;
 
     try {
       console.log(`Attempting to add entry to Google Sheets: ${entry.email}`);
       
-      const response = await fetch(url, {
+      const response = await fetch(this.webAppUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          values: values
+          timestamp,
+          fullName: entry.fullName,
+          email: entry.email
         })
       });
 
       if (!response.ok) {
         const errorText = await response.text();
-        console.error(`Google Sheets API error: ${response.status} - ${errorText}`);
-        throw new Error(`Google Sheets API error: ${response.status} - ${errorText}`);
+        console.error(`Google Apps Script error: ${response.status} - ${errorText}`);
+        throw new Error(`Google Apps Script error: ${response.status} - ${errorText}`);
       }
 
-      const result = await response.json();
       console.log(`Successfully added entry to Google Sheets: ${entry.email} at ${timestamp}`);
-      console.log('Google Sheets response:', result);
     } catch (error) {
       console.error('Error adding to Google Sheets:', error);
       throw error;
@@ -62,41 +61,12 @@ export class GoogleSheetsService {
   }
 
   async initializeSheet(): Promise<void> {
-    // Add headers if the sheet is empty
-    const headers = ['Timestamp', 'Full Name', 'Email'];
+    if (!this.webAppUrl) {
+      console.log('Google Sheets integration not configured - skipping initialization');
+      return;
+    }
     
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.spreadsheetId}/values/Sheet1!A1:C1?key=${this.apiKey}`;
-
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-
-      // If no data exists, add headers
-      if (!data.values || data.values.length === 0) {
-        await this.addHeaders(headers);
-      }
-    } catch (error) {
-      console.error('Error checking sheet headers:', error);
-      // Continue without failing - headers might already exist
-    }
-  }
-
-  private async addHeaders(headers: string[]): Promise<void> {
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.spreadsheetId}/values/Sheet1!A1:C1?valueInputOption=RAW&key=${this.apiKey}`;
-
-    try {
-      await fetch(url, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          values: [headers]
-        })
-      });
-    } catch (error) {
-      console.error('Error adding headers:', error);
-    }
+    console.log('Google Sheets service ready for use');
   }
 }
 
