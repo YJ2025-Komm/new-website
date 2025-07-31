@@ -11,19 +11,31 @@ export class GoogleSheetsService {
     if (!this.apiKey || !this.spreadsheetId) {
       throw new Error('Google Sheets API key and spreadsheet ID are required');
     }
+    
+    console.log(`Google Sheets service initialized with spreadsheet ID: ${this.spreadsheetId.substring(0, 10)}...`);
   }
 
   async addWaitlistEntry(entry: InsertWaitlistEntry): Promise<void> {
-    const timestamp = new Date().toISOString();
+    const timestamp = new Date().toLocaleString('en-US', {
+      timeZone: 'America/New_York',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
     
     // Prepare the row data
     const values = [
       [timestamp, entry.fullName, entry.email]
     ];
 
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.spreadsheetId}/values/Sheet1:append?valueInputOption=RAW&key=${this.apiKey}`;
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.spreadsheetId}/values/Sheet1:append?valueInputOption=USER_ENTERED&key=${this.apiKey}`;
 
     try {
+      console.log(`Attempting to add entry to Google Sheets: ${entry.email}`);
+      
       const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -36,10 +48,13 @@ export class GoogleSheetsService {
 
       if (!response.ok) {
         const errorText = await response.text();
+        console.error(`Google Sheets API error: ${response.status} - ${errorText}`);
         throw new Error(`Google Sheets API error: ${response.status} - ${errorText}`);
       }
 
-      console.log('Successfully added entry to Google Sheets');
+      const result = await response.json();
+      console.log(`Successfully added entry to Google Sheets: ${entry.email} at ${timestamp}`);
+      console.log('Google Sheets response:', result);
     } catch (error) {
       console.error('Error adding to Google Sheets:', error);
       throw error;
