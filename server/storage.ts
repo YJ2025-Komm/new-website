@@ -1,12 +1,19 @@
-import { users, type User, type InsertUser } from "@shared/schema";
+import { users, waitlistEntries, type User, type InsertUser, type WaitlistEntry, type InsertWaitlistEntry } from "@shared/schema";
 import { db } from "./db";
-import { eq } from "drizzle-orm";
+import { eq, count } from "drizzle-orm";
 
-// keep IStorage the same
+export interface IStorage {
+  getUser(id: string): Promise<User | undefined>;
+  getUserByUsername(username: string): Promise<User | undefined>;
+  createUser(insertUser: InsertUser): Promise<User>;
+  
+  getWaitlistEntryByEmail(email: string): Promise<WaitlistEntry | undefined>;
+  createWaitlistEntry(insertWaitlistEntry: InsertWaitlistEntry): Promise<WaitlistEntry>;
+  getWaitlistCount(): Promise<number>;
+}
 
-// rewrite MemStorage to DatabaseStorage
 export class DatabaseStorage implements IStorage {
-  async getUser(id: number): Promise<User | undefined> {
+  async getUser(id: string): Promise<User | undefined> {
     const [user] = await db.select().from(users).where(eq(users.id, id));
     return user || undefined;
   }
@@ -22,6 +29,24 @@ export class DatabaseStorage implements IStorage {
       .values(insertUser)
       .returning();
     return user;
+  }
+
+  async getWaitlistEntryByEmail(email: string): Promise<WaitlistEntry | undefined> {
+    const [entry] = await db.select().from(waitlistEntries).where(eq(waitlistEntries.email, email));
+    return entry || undefined;
+  }
+
+  async createWaitlistEntry(insertWaitlistEntry: InsertWaitlistEntry): Promise<WaitlistEntry> {
+    const [entry] = await db
+      .insert(waitlistEntries)
+      .values(insertWaitlistEntry)
+      .returning();
+    return entry;
+  }
+
+  async getWaitlistCount(): Promise<number> {
+    const [result] = await db.select({ count: count() }).from(waitlistEntries);
+    return result.count;
   }
 }
 

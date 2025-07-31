@@ -92,22 +92,94 @@ export default function Home() {
           </div>
           
           {/* Hero Content */}
-          <div className="glass rounded-3xl p-8 sm:p-12 mb-12 animate-float">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              Own Your Presence in{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
-                AI Search
-              </span>
-            </h2>
-            
-            <p className="text-xl sm:text-2xl text-slate-300 mb-8 leading-relaxed max-w-4xl mx-auto">
-              The visibility intelligence tool that helps brands track and improve their presence in AI-generated search results across ChatGPT, Gemini, Perplexity, and Claude.
-            </p>
-            
-            <div className="glass-strong rounded-2xl p-6 mb-8 max-w-3xl mx-auto">
-              <p className="text-lg text-slate-200 leading-relaxed">
-                Just as SEO tools helped brands rank on Google, GeoRankers helps brands track and improve their presence in AI search—the next major discovery channel.
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
+            {/* Left side - Text content */}
+            <div className="glass rounded-3xl p-8 sm:p-12 animate-float">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                Own Your Presence in{' '}
+                <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
+                  AI Search
+                </span>
+              </h2>
+              
+              <p className="text-xl sm:text-2xl text-slate-300 mb-8 leading-relaxed">
+                The visibility intelligence tool that helps brands track and improve their presence in AI-generated search results across ChatGPT, Gemini, Perplexity, and Claude.
               </p>
+              
+              <div className="glass-strong rounded-2xl p-6 mb-8">
+                <p className="text-lg text-slate-200 leading-relaxed">
+                  Just as SEO tools helped brands rank on Google, GeoRankers helps brands track and improve their presence in AI search—the next major discovery channel.
+                </p>
+              </div>
+            </div>
+
+            {/* Right side - Hero diagram */}
+            <div className="glass rounded-3xl p-8 animate-float" style={{animationDelay: '0.5s'}}>
+              <div className="relative">
+                <svg viewBox="0 0 400 300" className="w-full h-auto">
+                  {/* Background */}
+                  <defs>
+                    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="rgba(59, 130, 246, 0.1)" />
+                      <stop offset="100%" stopColor="rgba(168, 85, 247, 0.1)" />
+                    </linearGradient>
+                    <filter id="glow">
+                      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                      <feMerge> 
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  
+                  {/* Central GeoRankers hub */}
+                  <circle cx="200" cy="150" r="40" fill="url(#bgGradient)" stroke="rgba(59, 130, 246, 0.5)" strokeWidth="2" filter="url(#glow)"/>
+                  <text x="200" y="155" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold">GeoRankers</text>
+                  
+                  {/* AI Platform nodes */}
+                  {/* ChatGPT */}
+                  <circle cx="100" cy="80" r="25" fill="rgba(16, 163, 127, 0.2)" stroke="rgba(16, 163, 127, 0.8)" strokeWidth="2"/>
+                  <text x="100" y="85" textAnchor="middle" fill="#10a37f" fontSize="10" fontWeight="bold">ChatGPT</text>
+                  <line x1="125" y1="90" x2="175" y2="130" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="2" strokeDasharray="5,5">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+                  </line>
+                  
+                  {/* Gemini */}
+                  <circle cx="300" cy="80" r="25" fill="rgba(66, 133, 244, 0.2)" stroke="rgba(66, 133, 244, 0.8)" strokeWidth="2"/>
+                  <text x="300" y="85" textAnchor="middle" fill="#4285f4" fontSize="10" fontWeight="bold">Gemini</text>
+                  <line x1="275" y1="90" x2="225" y2="130" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="2" strokeDasharray="5,5">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+                  </line>
+                  
+                  {/* Perplexity */}
+                  <circle cx="100" cy="220" r="25" fill="rgba(168, 85, 247, 0.2)" stroke="rgba(168, 85, 247, 0.8)" strokeWidth="2"/>
+                  <text x="100" y="225" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="bold">Perplexity</text>
+                  <line x1="125" y1="210" x2="175" y2="170" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="2" strokeDasharray="5,5">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="1s"/>
+                  </line>
+                  
+                  {/* Claude */}
+                  <circle cx="300" cy="220" r="25" fill="rgba(255, 107, 107, 0.2)" stroke="rgba(255, 107, 107, 0.8)" strokeWidth="2"/>
+                  <text x="300" y="225" textAnchor="middle" fill="#ff6b6b" fontSize="10" fontWeight="bold">Claude</text>
+                  <line x1="275" y1="210" x2="225" y2="170" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="2" strokeDasharray="5,5">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+                  </line>
+                  
+                  {/* Data flow indicators */}
+                  <circle cx="50" cy="150" r="3" fill="#10a37f">
+                    <animate attributeName="cx" values="50;180" dur="3s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="1;0" dur="3s" repeatCount="indefinite"/>
+                  </circle>
+                  <circle cx="350" cy="150" r="3" fill="#4285f4">
+                    <animate attributeName="cx" values="350;220" dur="3s" repeatCount="indefinite" begin="0.75s"/>
+                    <animate attributeName="opacity" values="1;0" dur="3s" repeatCount="indefinite" begin="0.75s"/>
+                  </circle>
+                  
+                  {/* Labels */}
+                  <text x="200" y="30" textAnchor="middle" fill="rgba(255,255,255,0.8)" fontSize="12" fontWeight="bold">AI Search Monitoring</text>
+                  <text x="200" y="290" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="10">Real-time Brand Visibility Tracking</text>
+                </svg>
+              </div>
             </div>
           </div>
           
@@ -215,28 +287,36 @@ export default function Home() {
                     Enter your brand name or website to check if it appears in answers from ChatGPT, Gemini, Perplexity, and Claude. Results display whether you are mentioned, and where.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
-                    <Card className="glass rounded-xl p-4 text-center border-0">
+                    <Card className="glass rounded-xl p-4 text-center border-0 hover:bg-green-500/10 transition-colors">
                       <CardContent className="pt-0">
-                        <div className="text-2xl text-green-400 mb-2">🤖</div>
-                        <div className="text-sm text-slate-300">ChatGPT</div>
+                        <div className="w-8 h-8 bg-[#10a37f] rounded-lg flex items-center justify-center mx-auto mb-2">
+                          <span className="text-white font-bold text-sm">GP</span>
+                        </div>
+                        <div className="text-sm text-slate-300 font-medium">ChatGPT</div>
                       </CardContent>
                     </Card>
-                    <Card className="glass rounded-xl p-4 text-center border-0">
+                    <Card className="glass rounded-xl p-4 text-center border-0 hover:bg-blue-500/10 transition-colors">
                       <CardContent className="pt-0">
-                        <div className="text-2xl text-blue-400 mb-2">💎</div>
-                        <div className="text-sm text-slate-300">Gemini</div>
+                        <div className="w-8 h-8 bg-[#4285f4] rounded-lg flex items-center justify-center mx-auto mb-2">
+                          <span className="text-white font-bold text-sm">G</span>
+                        </div>
+                        <div className="text-sm text-slate-300 font-medium">Gemini</div>
                       </CardContent>
                     </Card>
-                    <Card className="glass rounded-xl p-4 text-center border-0">
+                    <Card className="glass rounded-xl p-4 text-center border-0 hover:bg-violet-500/10 transition-colors">
                       <CardContent className="pt-0">
-                        <Search className="w-6 h-6 text-violet-400 mb-2 mx-auto" />
-                        <div className="text-sm text-slate-300">Perplexity</div>
+                        <div className="w-8 h-8 bg-[#a855f7] rounded-lg flex items-center justify-center mx-auto mb-2">
+                          <Search className="w-4 h-4 text-white" />
+                        </div>
+                        <div className="text-sm text-slate-300 font-medium">Perplexity</div>
                       </CardContent>
                     </Card>
-                    <Card className="glass rounded-xl p-4 text-center border-0">
+                    <Card className="glass rounded-xl p-4 text-center border-0 hover:bg-orange-500/10 transition-colors">
                       <CardContent className="pt-0">
-                        <div className="text-2xl text-pink-400 mb-2">🤖</div>
-                        <div className="text-sm text-slate-300">Claude</div>
+                        <div className="w-8 h-8 bg-[#ff6b35] rounded-lg flex items-center justify-center mx-auto mb-2">
+                          <span className="text-white font-bold text-sm">C</span>
+                        </div>
+                        <div className="text-sm text-slate-300 font-medium">Claude</div>
                       </CardContent>
                     </Card>
                   </div>
