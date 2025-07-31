@@ -39,15 +39,15 @@ Preferred communication style: Simple, everyday language.
 ├── client/          # React frontend application
 ├── server/          # Express.js backend API
 ├── shared/          # Shared TypeScript types and schemas
-├── migrations/      # Database migration files
 └── attached_assets/ # Product documentation and assets
 ```
 
 ### Core Features
 1. **Landing Page**: Modern, responsive design showcasing GeoRankers features
-2. **Waitlist System**: Email collection with duplicate prevention
+2. **Waitlist System**: Email collection with duplicate prevention and Mailchimp integration
 3. **Component Library**: Comprehensive UI components from shadcn/ui
 4. **Form Validation**: Type-safe forms with Zod schemas
+5. **Email Marketing Integration**: Automatic Mailchimp sync for new subscribers
 
 ### Database Schema
 - **Users Table**: Basic user authentication structure (username, password)
@@ -62,11 +62,16 @@ Preferred communication style: Simple, everyday language.
 3. API request to `/api/waitlist` endpoint
 4. Server validates data and checks for existing email
 5. Database insertion via Drizzle ORM
-6. Success/error feedback to user via toast notifications
+6. Automatic sync to Mailchimp audience for email marketing
+7. Success/error feedback to user via toast notifications
 
 ### API Endpoints
 - `POST /api/waitlist` - Register new waitlist entry
 - `GET /api/waitlist/count` - Get total waitlist count
+
+### External Integrations
+- **Mailchimp**: Automatic subscriber sync with proper error handling for duplicates and invalid emails
+- **Google Sheets**: Optional integration (currently configured but not active)
 
 ## External Dependencies
 
