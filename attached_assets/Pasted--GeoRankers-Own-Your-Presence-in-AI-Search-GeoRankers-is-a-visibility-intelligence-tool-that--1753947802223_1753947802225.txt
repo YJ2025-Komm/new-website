@@ -1,0 +1,81 @@
+**GeoRankers: Own Your Presence in AI Search**
+
+GeoRankers is a visibility intelligence tool that helps brands understand how they show up in AI-generated search results across platforms like ChatGPT, Gemini, Perplexity, and Claude.
+
+Just as SEO tools helped brands rank on Google, GeoRankers helps brands track and improve their presence in AI search—the next major discovery channel.
+
+As people increasingly ask LLMs for recommendations (e.g., "Best CRM for small businesses"), most brands have no idea whether they’re being mentioned, ignored, or misrepresented in those answers. GeoRankers solves that.
+
+---
+
+**Why It Matters**
+
+* AI is replacing traditional keyword search with contextual, generative answers
+* Users trust those AI answers—often without clicking to verify
+* If your brand is missing in AI responses, you’re invisible in the new search paradigm
+
+GeoRankers gives brands back their control and visibility—helping them:
+
+* Know where they’re being surfaced
+* See how competitors are doing
+* Take action to improve their AI search presence
+
+---
+
+**Core Features**
+
+**1. AI Search Presence Checker**
+Enter your brand name or website to check if it appears in answers from:
+
+* ChatGPT
+* Gemini
+* Perplexity
+* Claude
+
+Results display whether you are mentioned, and where.
+
+**2. Prompt Engine (LLM Search Simulation)**
+Simulates how real users ask AI by generating diverse prompts like:
+
+* "What are the best customer engagement tools in 2025?"
+* "Which AI platforms are best for small businesses?"
+
+The engine feeds these prompts to LLMs and extracts brand mentions from responses.
+
+**3. AI Visibility Score (Signal Tracker)**
+A simple score built on:
+
+* Number of AI tools that mention your brand
+* Type of mention (top pick, listed, side reference)
+* Quality of source referenced (G2, Reddit, YouTube, etc.)
+* Frequency of appearance across different prompt variants
+
+**4. Competitor Comparison**
+Add your top competitors and instantly benchmark your AI visibility against theirs.
+
+**5. Source Breakdown**
+Uncover the sources AI tools are referencing when they mention your brand:
+
+* G2, Capterra, Medium, Reddit, Product Hunt, YouTube, etc.
+* Know where to double down with reviews, backlinks, or content.
+
+**6. Actionable Recommendations**
+Based on your visibility profile, GeoRankers recommends:
+
+* Platforms to optimize (e.g., G2, Capterra)
+* Types of content to create (e.g., product comparisons, customer stories)
+* Suggestions to improve your influence on AI-generated answers
+
+**7. Report Export + Alerts**
+
+* Downloadable visibility reports
+* Set alerts when your brand drops in visibility or when competitors spike
+
+---
+
+**Positioning**
+
+GeoRankers is your AI Search Visibility Platform.
+It combines LLM prompt analysis, brand intelligence, and source tracking to help modern brands win attention in the new era of search.
+
+> Think: Ahrefs + G2 + ChatGPT visibility monitor — all in one.
