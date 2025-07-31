@@ -3,8 +3,17 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertWaitlistEntrySchema } from "@shared/schema";
 import { z } from "zod";
+import { googleSheetsService } from "./google-sheets";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Initialize Google Sheets (add headers if needed)
+  try {
+    await googleSheetsService.initializeSheet();
+    console.log("Google Sheets initialized successfully");
+  } catch (error) {
+    console.error("Google Sheets initialization failed:", error);
+  }
+
   // Waitlist registration endpoint
   app.post("/api/waitlist", async (req, res) => {
     try {
@@ -19,8 +28,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
-      // Create waitlist entry
+      // Create waitlist entry in database
       const entry = await storage.createWaitlistEntry(validatedData);
+      
+      // Also add to Google Sheets
+      try {
+        await googleSheetsService.addWaitlistEntry(validatedData);
+      } catch (sheetsError) {
+        console.error("Google Sheets error (continuing anyway):", sheetsError);
+        // Don't fail the request if Google Sheets fails
+      }
       
       res.status(201).json({ 
         message: "Successfully added to waitlist",
