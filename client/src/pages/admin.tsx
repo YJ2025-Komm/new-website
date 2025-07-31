@@ -1,8 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, Copy, Users, Calendar, Clock } from "lucide-react";
+import { Download, Copy, Users, Calendar, Clock, Mail, RefreshCw } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { apiRequest, queryClient } from "@/lib/queryClient";
 
 interface WaitlistEntry {
   id: string;
@@ -16,6 +17,35 @@ export default function AdminPage() {
   
   const { data: entries = [], isLoading, error } = useQuery<WaitlistEntry[]>({
     queryKey: ['/api/admin/waitlist'],
+  });
+
+  const { data: mailchimpInfo } = useQuery({
+    queryKey: ['/api/admin/mailchimp-info'],
+  });
+
+  const syncMutation = useMutation({
+    mutationFn: async () => {
+      const response = await fetch('/api/admin/sync-mailchimp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (!response.ok) throw new Error('Sync failed');
+      return response.json();
+    },
+    onSuccess: (data: any) => {
+      toast({
+        title: "Mailchimp Sync Complete",
+        description: `${data.success} subscribers synced, ${data.errors} errors`,
+      });
+      queryClient.invalidateQueries({ queryKey: ['/api/admin/mailchimp-info'] });
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Sync Failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
   });
 
   const exportCSV = () => {
@@ -93,7 +123,7 @@ export default function AdminPage() {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
+        <div className="grid md:grid-cols-4 gap-6 mb-8">
           <Card className="glass">
             <CardContent className="pt-6">
               <div className="flex items-center">
@@ -129,6 +159,20 @@ export default function AdminPage() {
               </div>
             </CardContent>
           </Card>
+
+          <Card className="glass">
+            <CardContent className="pt-6">
+              <div className="flex items-center">
+                <Mail className="w-8 h-8 text-orange-500 mr-4" />
+                <div>
+                  <div className="text-3xl font-bold text-slate-900">
+                    {(mailchimpInfo as any)?.member_count || '---'}
+                  </div>
+                  <div className="text-slate-600">Mailchimp Subscribers</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Action Buttons */}
@@ -140,6 +184,14 @@ export default function AdminPage() {
           <Button onClick={copyAllEmails} variant="outline">
             <Copy className="w-4 h-4 mr-2" />
             Copy All Emails
+          </Button>
+          <Button 
+            onClick={() => syncMutation.mutate()} 
+            disabled={syncMutation.isPending}
+            className="bg-orange-500 hover:bg-orange-600"
+          >
+            <RefreshCw className="w-4 h-4 mr-2" />
+            {syncMutation.isPending ? 'Syncing...' : 'Sync to Mailchimp'}
           </Button>
         </div>
 

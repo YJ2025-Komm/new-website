@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { insertWaitlistEntrySchema } from "@shared/schema";
 import { z } from "zod";
 import { googleSheetsService } from "./google-sheets";
+import { mailchimpService } from "./mailchimp";
 import { registerAdminRoutes } from "./admin-routes";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -38,6 +39,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } catch (sheetsError) {
         console.error("Google Sheets error (continuing anyway):", sheetsError);
         // Don't fail the request if Google Sheets fails
+      }
+      
+      // Also add to Mailchimp
+      try {
+        await mailchimpService.addSubscriber(validatedData);
+      } catch (mailchimpError) {
+        console.error("Mailchimp error (continuing anyway):", mailchimpError);
+        // Don't fail the request if Mailchimp fails
       }
       
       res.status(201).json({ 

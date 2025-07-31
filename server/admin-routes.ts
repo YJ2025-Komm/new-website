@@ -1,5 +1,6 @@
 import type { Express } from "express";
 import { storage } from "./storage";
+import { mailchimpService } from "./mailchimp";
 import type { WaitlistEntry } from "@shared/schema";
 
 export function registerAdminRoutes(app: Express) {
@@ -115,5 +116,43 @@ export function registerAdminRoutes(app: Express) {
     }
   });
 
+  // Sync existing subscribers to Mailchimp
+  app.post("/api/admin/sync-mailchimp", async (req, res) => {
+    try {
+      const entries = await storage.getAllWaitlistEntries();
+      const result = await mailchimpService.syncExistingSubscribers(entries);
+      
+      res.json({
+        message: "Sync completed",
+        success: result.success,
+        errors: result.errors,
+        total: entries.length
+      });
+    } catch (error) {
+      console.error("Error syncing to Mailchimp:", error);
+      res.status(500).json({ 
+        message: "Sync failed", 
+        error: error instanceof Error ? error.message : String(error) 
+      });
+    }
+  });
+
+  // Get Mailchimp audience info
+  app.get("/api/admin/mailchimp-info", async (req, res) => {
+    try {
+      const info = await mailchimpService.getAudienceInfo();
+      res.json({
+        name: info.name,
+        member_count: info.stats.member_count,
+        id: info.id
+      });
+    } catch (error) {
+      console.error("Error fetching Mailchimp info:", error);
+      res.status(500).json({ 
+        message: "Failed to fetch audience info", 
+        error: error instanceof Error ? error.message : String(error) 
+      });
+    }
+  });
 
 }
