@@ -293,161 +293,232 @@ export default function Home() {
           {/* Feature 1: Predictive AI Search Forecasting */}
           <Card className="glass rounded-3xl p-8 sm:p-12 mb-12 border-0">
             <CardContent className="pt-0">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-violet-500 rounded-xl flex items-center justify-center mr-4">
-                  <TrendingUp className="w-6 h-6 text-white" />
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-violet-500 rounded-xl flex items-center justify-center mr-4">
+                      <TrendingUp className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Predictive AI Search Forecasting</h3>
+                  </div>
+                  <p className="text-lg text-slate-600 mb-6">
+                    Stop reacting to trends. Our proprietary engine analyzes historical AI search data to forecast emerging topics and questions in your industry, helping you build a forward-looking content strategy that wins market share before competitors even know it exists.
+                  </p>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Predictive AI Search Forecasting</h3>
+                <div className="glass-strong rounded-2xl p-6">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between p-3 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
+                      <span className="text-slate-700">Rising: "AI automation tools"</span>
+                      <div className="flex items-center">
+                        <TrendingUp className="w-4 h-4 text-green-500 mr-1" />
+                        <span className="text-sm text-green-600">+45%</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-lg border border-blue-500/20">
+                      <span className="text-slate-700">Emerging: "B2B workflow optimization"</span>
+                      <div className="flex items-center">
+                        <TrendingUp className="w-4 h-4 text-blue-500 mr-1" />
+                        <span className="text-sm text-blue-600">+28%</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-gradient-to-r from-purple-500/10 to-violet-500/10 rounded-lg border border-purple-500/20">
+                      <span className="text-slate-700">Forecasted: "Enterprise AI adoption"</span>
+                      <div className="flex items-center">
+                        <Brain className="w-4 h-4 text-purple-500 mr-1" />
+                        <span className="text-sm text-purple-600">Next 30d</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p className="text-lg text-slate-600 mb-6">
-                Stop reacting to trends. Our proprietary engine analyzes historical AI search data to forecast emerging topics and questions in your industry, helping you build a forward-looking content strategy that wins market share before competitors even know it exists.
-              </p>
             </CardContent>
           </Card>
           
           {/* Feature 2: Content Gap Analysis */}
           <Card className="glass rounded-3xl p-8 sm:p-12 mb-12 border-0">
             <CardContent className="pt-0">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
-                  <Search className="w-6 h-6 text-white" />
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="order-2 lg:order-1">
+                  <div className="glass-strong rounded-2xl p-6">
+                    <h4 className="font-bold mb-4 text-slate-900">Gap Analysis Results:</h4>
+                    <div className="space-y-3">
+                      <div className="p-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-lg border border-red-500/20">
+                        <div className="flex items-center justify-between">
+                          <span className="text-slate-700 text-sm">Missing: "Best CRM features"</span>
+                          <div className="flex items-center">
+                            <EyeOff className="w-4 h-4 text-red-500 mr-1" />
+                            <span className="text-xs text-red-600">High Impact</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="p-3 bg-gradient-to-r from-yellow-500/10 to-amber-500/10 rounded-lg border border-yellow-500/20">
+                        <div className="flex items-center justify-between">
+                          <span className="text-slate-700 text-sm">Competitor citing: "Integration guides"</span>
+                          <div className="flex items-center">
+                            <Star className="w-4 h-4 text-yellow-500 mr-1" />
+                            <span className="text-xs text-yellow-600">Medium</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="p-3 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
+                        <div className="flex items-center justify-between">
+                          <span className="text-slate-700 text-sm">Opportunity: "API documentation"</span>
+                          <div className="flex items-center">
+                            <Lightbulb className="w-4 h-4 text-green-500 mr-1" />
+                            <span className="text-xs text-green-600">Quick Win</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Content Gap Analysis</h3>
+                <div className="order-1 lg:order-2">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
+                      <Search className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Content Gap Analysis</h3>
+                  </div>
+                  <p className="text-lg text-slate-600 mb-6">
+                    Uncover your biggest opportunities. We analyze what your top competitors are getting cited for in AI search and identify the topics you're missing, giving you a prioritized roadmap of content recommendations to close those gaps.
+                  </p>
+                </div>
               </div>
-              <p className="text-lg text-slate-600 mb-6">
-                Uncover your biggest opportunities. We analyze what your top competitors are getting cited for in AI search and identify the topics you're missing, giving you a prioritized roadmap of content recommendations to close those gaps.
-              </p>
             </CardContent>
           </Card>
           
           {/* Feature 3: Powerful Analytics */}
           <Card className="glass rounded-3xl p-8 sm:p-12 mb-12 border-0">
             <CardContent className="pt-0">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-red-500 rounded-xl flex items-center justify-center mr-4">
-                  <ChartLine className="w-6 h-6 text-white" />
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-red-500 rounded-xl flex items-center justify-center mr-4">
+                      <ChartLine className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Powerful Analytics</h3>
+                  </div>
+                  <p className="text-lg text-slate-600 mb-6">
+                    Make data-driven decisions. Our comprehensive suite provides deep insights into your brand's performance, including sentiment scoring of AI-generated mentions, competitive benchmarking against rivals, and detailed source analysis to uncover where AI models are pulling their information.
+                  </p>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Powerful Analytics</h3>
+                <div className="glass-strong rounded-2xl p-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="text-center p-4 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-xl border border-blue-500/20">
+                      <div className="text-2xl font-bold text-blue-600 mb-1">87%</div>
+                      <div className="text-xs text-slate-600">Sentiment Score</div>
+                    </div>
+                    <div className="text-center p-4 bg-gradient-to-br from-purple-500/10 to-violet-500/10 rounded-xl border border-purple-500/20">
+                      <div className="text-2xl font-bold text-purple-600 mb-1">#3</div>
+                      <div className="text-xs text-slate-600">Market Rank</div>
+                    </div>
+                    <div className="text-center p-4 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-xl border border-green-500/20">
+                      <div className="text-2xl font-bold text-green-600 mb-1">24</div>
+                      <div className="text-xs text-slate-600">Source Sites</div>
+                    </div>
+                    <div className="text-center p-4 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-xl border border-orange-500/20">
+                      <div className="text-2xl font-bold text-orange-600 mb-1">+15%</div>
+                      <div className="text-xs text-slate-600">Visibility</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p className="text-lg text-slate-600 mb-6">
-                Make data-driven decisions. Our comprehensive suite provides deep insights into your brand's performance, including sentiment scoring of AI-generated mentions, competitive benchmarking against rivals, and detailed source analysis to uncover where AI models are pulling their information.
-              </p>
             </CardContent>
           </Card>
           
           {/* Feature 4: AI Search A/B Testing */}
           <Card className="glass rounded-3xl p-8 sm:p-12 mb-12 border-0">
             <CardContent className="pt-0">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl flex items-center justify-center mr-4">
-                  <Repeat className="w-6 h-6 text-white" />
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="order-2 lg:order-1">
+                  <div className="glass-strong rounded-2xl p-6">
+                    <h4 className="font-bold mb-4 text-slate-900">A/B Test Results:</h4>
+                    <div className="space-y-4">
+                      <div className="p-4 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm font-medium text-slate-700">Version A: "Best CRM Software"</span>
+                          <span className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded-full">Winner</span>
+                        </div>
+                        <div className="flex items-center">
+                          <div className="w-20 h-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mr-2"></div>
+                          <span className="text-sm text-green-600">78% visibility</span>
+                        </div>
+                      </div>
+                      <div className="p-4 bg-gradient-to-r from-gray-500/10 to-slate-500/10 rounded-lg border border-gray-500/20">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm font-medium text-slate-700">Version B: "Top CRM Solutions"</span>
+                          <span className="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded-full">Test</span>
+                        </div>
+                        <div className="flex items-center">
+                          <div className="w-12 h-2 bg-gray-400 rounded-full mr-2"></div>
+                          <span className="text-sm text-gray-600">45% visibility</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">AI Search A/B Testing</h3>
+                <div className="order-1 lg:order-2">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl flex items-center justify-center mr-4">
+                      <Repeat className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">AI Search A/B Testing</h3>
+                  </div>
+                  <p className="text-lg text-slate-600 mb-6">
+                    Remove the guesswork from your AI content. Deploy different variations of your content and our platform will monitor which headlines, formats, or keyword combinations are most effective at earning top AI visibility.
+                  </p>
+                </div>
               </div>
-              <p className="text-lg text-slate-600 mb-6">
-                Remove the guesswork from your AI content. Deploy different variations of your content and our platform will monitor which headlines, formats, or keyword combinations are most effective at earning top AI visibility.
-              </p>
             </CardContent>
           </Card>
           
           {/* Feature 5: Community Engagement Recommendations */}
           <Card className="glass rounded-3xl p-8 sm:p-12 mb-12 border-0">
             <CardContent className="pt-0">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mr-4">
-                  <Lightbulb className="w-6 h-6 text-white" />
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mr-4">
+                      <Lightbulb className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Community Engagement Recommendations</h3>
+                  </div>
+                  <p className="text-lg text-slate-600 mb-6">
+                    Build brand authority where it counts. Our platform recommends specific threads on communities like Reddit and Product Hunt that are relevant to your business, helping you build authentic authority and influence the data sources that power AI search.
+                  </p>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Community Engagement Recommendations</h3>
+                <div className="glass-strong rounded-2xl p-6">
+                  <h4 className="font-bold mb-4 text-slate-900">Recommended Threads:</h4>
+                  <div className="space-y-3">
+                    <div className="p-3 bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-lg border border-orange-500/20">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="text-sm font-medium text-slate-700">r/SaaS - "Best automation tools"</div>
+                          <div className="text-xs text-slate-500">12k upvotes • 2 days ago</div>
+                        </div>
+                        <div className="text-sm text-orange-600 bg-orange-100 px-2 py-1 rounded-full">High Priority</div>
+                      </div>
+                    </div>
+                    <div className="p-3 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-lg border border-pink-500/20">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="text-sm font-medium text-slate-700">Product Hunt - "AI tools discussion"</div>
+                          <div className="text-xs text-slate-500">800 comments • 1 day ago</div>
+                        </div>
+                        <div className="text-sm text-pink-600 bg-pink-100 px-2 py-1 rounded-full">Medium</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p className="text-lg text-slate-600 mb-6">
-                Build brand authority where it counts. Our platform recommends specific threads on communities like Reddit and Product Hunt that are relevant to your business, helping you build authentic authority and influence the data sources that power AI search.
-              </p>
             </CardContent>
           </Card>
           
-          {/* Final Features Row */}
-          <div className="grid md:grid-cols-2 gap-8 mt-8">
-            {/* Actionable Recommendations */}
-            <Card className="glass rounded-3xl p-8 border-0">
-              <CardContent className="pt-0">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center mr-4">
-                    <span className="text-white font-bold">6</span>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900">Actionable Recommendations</h3>
-                </div>
-                <p className="text-slate-600 mb-4">
-                  Based on your visibility profile, GeoRankers recommends:
-                </p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-center">
-                    <Check className="w-4 h-4 text-green-400 mr-2" />
-                    <span className="text-slate-600">Platforms to optimize (e.g., G2, Capterra)</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="w-4 h-4 text-green-400 mr-2" />
-                    <span className="text-slate-600">Types of content to create</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="w-4 h-4 text-green-400 mr-2" />
-                    <span className="text-slate-600">Improve AI-generated answer influence</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-            
-            {/* Report Export + Alerts */}
-            <Card className="glass rounded-3xl p-8 border-0">
-              <CardContent className="pt-0">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center mr-4">
-                    <span className="text-white font-bold">7</span>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900">Report Export + Alerts</h3>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <Download className="w-5 h-5 text-blue-400 mr-3" />
-                    <span className="text-slate-600">Downloadable visibility reports</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Bell className="w-5 h-5 text-violet-400 mr-3" />
-                    <span className="text-slate-600">Set alerts for visibility changes</span>
-                  </div>
-                  <div className="flex items-center">
-                    <TrendingUp className="w-5 h-5 text-pink-400 mr-3" />
-                    <span className="text-slate-600">Monitor competitor spikes</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+
         </div>
       </section>
 
-      {/* Positioning Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-green-50/20 to-cyan-50/30">
-        <div className="max-w-4xl mx-auto">
-          <Card className="glass-strong rounded-3xl p-8 sm:p-12 text-center border-0">
-            <CardContent className="pt-0">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-slate-900">
-                Your <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Visibility Platform</span>
-              </h2>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                GeoRankers combines LLM prompt analysis, brand intelligence, and source tracking to help modern brands win attention in the new era of search.
-              </p>
-              <Card className="glass rounded-2xl p-6 mb-8 border-0">
-                <CardContent className="pt-0">
-                  <p className="text-lg font-medium text-slate-700">
-                    <Lightbulb className="w-5 h-5 text-yellow-400 mr-2 inline" />
-                    Think: Ahrefs + G2 + ChatGPT visibility monitor — all in one.
-                  </p>
-                </CardContent>
-              </Card>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+
 
       {/* Waitlist Section */}
       <section id="waitlist" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50/20 to-indigo-50/30">
