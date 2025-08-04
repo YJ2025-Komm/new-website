@@ -60,7 +60,12 @@ Preferred communication style: Simple, everyday language.
 1. User fills out waitlist form on landing page (Full Name, Email, Company Name, AI Search Challenge)
 2. Client-side validation using React Hook Form + Zod
 3. API request to `/api/waitlist` endpoint
-4. Server validates data and saves directly to Mailchimp audience with merge fields
+4. Server validates data and saves directly to Mailchimp audience with all merge fields:
+   - FNAME: First name
+   - LNAME: Last name 
+   - FULLNAME: Complete full name
+   - COMPANY: Company name
+   - MMERGE7: Challenge response (Comments column)
 5. Mailchimp handles duplicate detection and email validation
 6. Success/error feedback to user via toast notifications
 
@@ -69,7 +74,7 @@ Preferred communication style: Simple, everyday language.
 - `GET /api/waitlist/count` - Get total waitlist count
 
 ### External Integrations
-- **Mailchimp**: Automatic subscriber sync with proper error handling for duplicates and invalid emails
+- **Mailchimp**: Complete subscriber sync with all form fields including challenge responses in Comments column (MMERGE7)
 - **Google Sheets**: Optional integration (currently configured but not active)
 
 ## External Dependencies
