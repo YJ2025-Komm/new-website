@@ -12,6 +12,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { 
   Brain, 
   ShieldCheck, 
+  Eye,
   EyeOff, 
   Search, 
   TrendingUp, 
@@ -26,7 +27,10 @@ import {
   ChartLine,
   Lightbulb,
   Loader2,
-  CheckCircle
+  CheckCircle,
+  Target,
+  HelpCircle,
+  TrendingDown
 } from "lucide-react";
 import geminiLogo from "@assets/Gemini_1753958628531.png";
 import grokLogo from "@assets/Grok_1753958628535.png";
@@ -85,36 +89,44 @@ export default function Home() {
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-300/5 via-purple-300/5 to-pink-300/5 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '0.5s'}}></div>
         
-        <div className="relative z-10 max-w-6xl mx-auto text-center">
-          {/* Logo/Brand */}
-          <div className="mb-8">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-clip-text text-transparent">
-                GeoRankers
-              </span>
-            </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-violet-500 mx-auto rounded-full"></div>
-          </div>
-          
-          {/* Hero Content */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
-            {/* Left side - Text content */}
-            <div className="glass rounded-3xl p-8 sm:p-12 animate-float">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                Are You Invisible in{' '}
-                <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
-                  AI Search?
-                </span>
-              </h2>
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Column - Content */}
+            <div className="text-left">
+              <div className="text-sm font-medium text-slate-500 mb-6 uppercase tracking-wide">
+                AI Search Visibility Intelligence
+              </div>
               
-              <p className="text-xl sm:text-2xl text-slate-600 mb-8 leading-relaxed">
-                GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build the brand authority needed to get visible in AI search across leading AI models like ChatGPT and Gemini.
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+                Are You <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Invisible</span> in AI Search?
+              </h1>
+              
+              <p className="text-xl text-slate-600 mb-12 leading-relaxed">
+                B2B SaaS companies are missing millions in pipeline because they're invisible when prospects ask AI tools like ChatGPT, Gemini, and Perplexity for recommendations. GeoRankers shows you exactly where you stand and how to dominate AI search results in your industry.
               </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <Button 
+                  onClick={scrollToWaitlist}
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                >
+                  <Rocket className="w-5 h-5 mr-3" />
+                  Join the Waitlist
+                </Button>
+                
+                <Button 
+                  variant="outline"
+                  className="inline-flex items-center px-8 py-4 border-2 border-slate-300 hover:border-slate-400 rounded-2xl font-semibold text-lg bg-white/80 hover:bg-white transition-all duration-300"
+                >
+                  <Eye className="w-5 h-5 mr-3" />
+                  See How It Works
+                </Button>
+              </div>
             </div>
-
-            {/* Right side - Hero diagram */}
-            <div className="glass rounded-3xl p-8 animate-float" style={{animationDelay: '0.5s'}}>
-              <div className="relative">
+            
+            {/* Right Column - Visual */}
+            <div className="lg:pl-8">
+              <div className="glass rounded-3xl p-8 sm:p-12 animate-float">
                 <svg viewBox="0 0 400 300" className="w-full h-auto">
                   {/* Background */}
                   <defs>
@@ -189,15 +201,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
-          {/* CTA Button */}
-          <Button 
-            onClick={scrollToWaitlist}
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
-          >
-            <Rocket className="w-5 h-5 mr-3" />
-            Join the Waitlist
-          </Button>
         </div>
       </section>
 
