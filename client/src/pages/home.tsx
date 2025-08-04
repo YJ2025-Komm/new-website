@@ -92,32 +92,32 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left Column - Content */}
-            <div className="text-left order-2 lg:order-1">
+            <div className="text-left">
               <div className="text-sm font-medium text-slate-500 mb-4 sm:mb-6 uppercase tracking-wide">
                 AI Search Visibility Intelligence
               </div>
               
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
                 Are You <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Invisible</span> in AI Search?
               </h1>
               
-              <p className="text-lg sm:text-xl text-slate-600 mb-8 sm:mb-12 leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl text-slate-600 mb-8 sm:mb-12 leading-relaxed">
                 GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build the brand authority needed to get visible in AI search across leading AI models like ChatGPT and Gemini.
               </p>
               
               <div className="mb-8">
                 <Button 
                   onClick={scrollToWaitlist}
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                  className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
                 >
-                  <Rocket className="w-5 h-5 mr-3" />
+                  <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
                   Join the Waitlist
                 </Button>
               </div>
             </div>
             
-            {/* Right Column - Visual */}
-            <div className="lg:pl-8 order-1 lg:order-2 mb-8 lg:mb-0">
+            {/* Right Column - Visual - Hidden on mobile, shown on desktop */}
+            <div className="hidden lg:block lg:pl-8">
               <div className="glass rounded-3xl p-4 sm:p-8 lg:p-12 animate-float">
                 <svg viewBox="0 0 400 300" className="w-full h-auto">
                   {/* Background */}
