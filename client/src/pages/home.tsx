@@ -364,14 +364,14 @@ export default function Home() {
                     <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
                       <EyeOff className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-slate-900">Problem:</h3>
+                    <h3 className="text-xl font-bold mb-4 text-slate-900">Problem</h3>
                     <p className="text-slate-600">Your brand is invisible in AI discovery.</p>
                   </div>
                   <div>
                     <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-violet-500 rounded-2xl flex items-center justify-center mb-6">
                       <Search className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-slate-900">Solution:</h3>
+                    <h3 className="text-xl font-bold mb-4 text-slate-900">Solution</h3>
                     <p className="text-slate-600">We uncover the hidden rules of AI search visibility and give you the tools to get visible in AI-generated answers.</p>
                   </div>
                 </div>
@@ -385,14 +385,14 @@ export default function Home() {
                     <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
                       <Brain className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-slate-900">Problem:</h3>
+                    <h3 className="text-xl font-bold mb-4 text-slate-900">Problem</h3>
                     <p className="text-slate-600">Your content strategy is based on guesswork.</p>
                   </div>
                   <div>
                     <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-violet-500 rounded-2xl flex items-center justify-center mb-6">
                       <ChartLine className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-slate-900">Solution:</h3>
+                    <h3 className="text-xl font-bold mb-4 text-slate-900">Solution</h3>
                     <p className="text-slate-600">We provide data-driven recommendations to help you get ahead of the curve and build a predictable content strategy.</p>
                   </div>
                 </div>
@@ -406,14 +406,14 @@ export default function Home() {
                     <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
                       <TrendingUp className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-slate-900">Problem:</h3>
+                    <h3 className="text-xl font-bold mb-4 text-slate-900">Problem</h3>
                     <p className="text-slate-600">You're losing to competitors in a new search paradigm.</p>
                   </div>
                   <div>
                     <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-violet-500 rounded-2xl flex items-center justify-center mb-6">
                       <Rocket className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-slate-900">Solution:</h3>
+                    <h3 className="text-xl font-bold mb-4 text-slate-900">Solution</h3>
                     <p className="text-slate-600">Our platform gives you the competitive intelligence to outsmart rivals and build a powerful, proactive AI search strategy.</p>
                   </div>
                 </div>
