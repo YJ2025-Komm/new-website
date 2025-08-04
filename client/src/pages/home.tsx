@@ -81,8 +81,47 @@ export default function Home() {
 
   return (
     <div className="min-h-screen text-slate-900 overflow-x-hidden">
+      {/* Navigation Bar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo/Brand */}
+            <div className="flex items-center">
+              <h1 className="text-xl font-bold">
+                <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
+                  GeoRankers
+                </span>
+              </h1>
+            </div>
+            
+            {/* Navigation Links */}
+            <div className="hidden md:flex space-x-8">
+              <a href="#problem" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
+                Why GeoRankers
+              </a>
+              <a href="#features" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
+                Features
+              </a>
+              <a href="#waitlist" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
+                Join Waitlist
+              </a>
+            </div>
+            
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <Button 
+                onClick={scrollToWaitlist}
+                className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-4 py-2 rounded-lg text-sm"
+              >
+                Join Waitlist
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 pt-24">
         {/* Background Elements */}
         <div className="hero-gradient absolute inset-0 z-0"></div>
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse-soft"></div>
@@ -95,7 +134,7 @@ export default function Home() {
             {/* Content First on Mobile */}
             <div className="text-center mb-12">
               <div className="text-sm font-medium text-slate-500 mb-4 uppercase tracking-wide">
-                AI Search Visibility Intelligence
+                AI Search Intelligence
               </div>
               
               <h1 className="text-3xl sm:text-4xl font-bold mb-6 leading-tight">
@@ -200,7 +239,7 @@ export default function Home() {
             {/* Left Column - Content */}
             <div className="text-left">
               <div className="text-sm font-medium text-slate-500 mb-6 uppercase tracking-wide">
-                AI Search Visibility Intelligence
+                AI Search Intelligence
               </div>
               
               <h1 className="text-7xl font-bold mb-8 leading-tight">
@@ -303,7 +342,7 @@ export default function Home() {
       </section>
 
       {/* Why GeoRankers Section */}
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-b from-slate-50/50 to-blue-50/30">
+      <section id="problem" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-b from-slate-50/50 to-blue-50/30">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
@@ -383,7 +422,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-violet-50/30 to-pink-50/20">
+      <section id="features" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-violet-50/30 to-pink-50/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
