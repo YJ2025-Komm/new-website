@@ -90,34 +90,140 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-300/5 via-purple-300/5 to-pink-300/5 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '0.5s'}}></div>
         
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            {/* Left Column - Content */}
-            <div className="text-left">
-              <div className="text-sm font-medium text-slate-500 mb-4 sm:mb-6 uppercase tracking-wide">
+          {/* Mobile Layout - Stacked Content */}
+          <div className="lg:hidden">
+            {/* Content First on Mobile */}
+            <div className="text-center mb-12">
+              <div className="text-sm font-medium text-slate-500 mb-4 uppercase tracking-wide">
                 AI Search Visibility Intelligence
               </div>
               
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
+              <h1 className="text-3xl sm:text-4xl font-bold mb-6 leading-tight">
                 Are You <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Invisible</span> in AI Search?
               </h1>
               
-              <p className="text-base sm:text-lg lg:text-xl text-slate-600 mb-8 sm:mb-12 leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-600 mb-8 leading-relaxed">
                 GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build the brand authority needed to get visible in AI search across leading AI models like ChatGPT and Gemini.
               </p>
               
               <div className="mb-8">
                 <Button 
                   onClick={scrollToWaitlist}
-                  className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base transform hover:scale-105 transition-all duration-300 shadow-2xl"
                 >
-                  <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
+                  <Rocket className="w-4 h-4 mr-2" />
                   Join the Waitlist
                 </Button>
               </div>
             </div>
             
-            {/* Right Column - Visual - Hidden on mobile, shown on desktop */}
-            <div className="hidden lg:block lg:pl-8">
+            {/* Visual Below Content on Mobile */}
+            <div className="flex justify-center">
+              <div className="glass rounded-3xl p-4 sm:p-6 animate-float max-w-sm">
+                <svg viewBox="0 0 400 300" className="w-full h-auto">
+                  {/* Background */}
+                  <defs>
+                    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="rgba(59, 130, 246, 0.1)" />
+                      <stop offset="100%" stopColor="rgba(168, 85, 247, 0.1)" />
+                    </linearGradient>
+                    <filter id="glow">
+                      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                      <feMerge> 
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  
+                  {/* Central GeoRankers hub */}
+                  <circle cx="200" cy="150" r="40" fill="url(#bgGradient)" stroke="rgba(59, 130, 246, 0.8)" strokeWidth="2" filter="url(#glow)"/>
+                  <text x="200" y="155" textAnchor="middle" fill="#1e293b" fontSize="12" fontWeight="bold">GeoRankers</text>
+                  
+                  {/* AI Platform nodes with logos */}
+                  {/* ChatGPT */}
+                  <circle cx="100" cy="80" r="25" fill="rgba(255, 255, 255, 0.9)" stroke="rgba(16, 163, 127, 0.8)" strokeWidth="2"/>
+                  <foreignObject x="85" y="65" width="30" height="30">
+                    <img src={openaiLogo} alt="OpenAI" className="w-full h-full object-contain" />
+                  </foreignObject>
+                  <line x1="125" y1="90" x2="175" y2="130" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="2" strokeDasharray="5,5">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+                  </line>
+                  
+                  {/* Gemini */}
+                  <circle cx="300" cy="80" r="25" fill="rgba(255, 255, 255, 0.9)" stroke="rgba(66, 133, 244, 0.8)" strokeWidth="2"/>
+                  <foreignObject x="285" y="65" width="30" height="30">
+                    <img src={geminiLogo} alt="Gemini" className="w-full h-full object-contain" />
+                  </foreignObject>
+                  <line x1="275" y1="90" x2="225" y2="130" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="2" strokeDasharray="5,5">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+                  </line>
+                  
+                  {/* Perplexity */}
+                  <circle cx="100" cy="220" r="25" fill="rgba(255, 255, 255, 0.9)" stroke="rgba(20, 184, 166, 0.8)" strokeWidth="2"/>
+                  <foreignObject x="85" y="205" width="30" height="30">
+                    <img src={perplexityLogo} alt="Perplexity" className="w-full h-full object-contain" />
+                  </foreignObject>
+                  <line x1="125" y1="210" x2="175" y2="170" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="2" strokeDasharray="5,5">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="1s"/>
+                  </line>
+                  
+                  {/* Grok */}
+                  <circle cx="300" cy="220" r="25" fill="rgba(255, 255, 255, 0.9)" stroke="rgba(0, 0, 0, 0.8)" strokeWidth="2"/>
+                  <foreignObject x="285" y="205" width="30" height="30">
+                    <img src={grokLogo} alt="Grok" className="w-full h-full object-contain" />
+                  </foreignObject>
+                  <line x1="275" y1="210" x2="225" y2="170" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="2" strokeDasharray="5,5">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+                  </line>
+                  
+                  {/* Data flow indicators */}
+                  <circle cx="50" cy="150" r="3" fill="#10a37f">
+                    <animate attributeName="cx" values="50;180" dur="3s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="1;0" dur="3s" repeatCount="indefinite"/>
+                  </circle>
+                  <circle cx="350" cy="150" r="3" fill="#4285f4">
+                    <animate attributeName="cx" values="350;220" dur="3s" repeatCount="indefinite" begin="0.75s"/>
+                    <animate attributeName="opacity" values="1;0" dur="3s" repeatCount="indefinite" begin="0.75s"/>
+                  </circle>
+                  
+                  {/* Labels */}
+                  <text x="200" y="30" textAnchor="middle" fill="rgba(30, 41, 59, 0.8)" fontSize="12" fontWeight="bold">AI Search Monitoring</text>
+                  <text x="200" y="290" textAnchor="middle" fill="rgba(71, 85, 105, 0.6)" fontSize="10">Real-time Brand Visibility Tracking</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          {/* Desktop Layout - Side by Side */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Column - Content */}
+            <div className="text-left">
+              <div className="text-sm font-medium text-slate-500 mb-6 uppercase tracking-wide">
+                AI Search Visibility Intelligence
+              </div>
+              
+              <h1 className="text-7xl font-bold mb-8 leading-tight">
+                Are You <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Invisible</span> in AI Search?
+              </h1>
+              
+              <p className="text-xl text-slate-600 mb-12 leading-relaxed">
+                GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build the brand authority needed to get visible in AI search across leading AI models like ChatGPT and Gemini.
+              </p>
+              
+              <div className="mb-8">
+                <Button 
+                  onClick={scrollToWaitlist}
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                >
+                  <Rocket className="w-5 h-5 mr-3" />
+                  Join the Waitlist
+                </Button>
+              </div>
+            </div>
+            
+            {/* Right Column - Visual */}
+            <div className="lg:pl-8">
               <div className="glass rounded-3xl p-4 sm:p-8 lg:p-12 animate-float">
                 <svg viewBox="0 0 400 300" className="w-full h-auto">
                   {/* Background */}
