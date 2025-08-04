@@ -35,7 +35,10 @@ export class MailchimpService {
         LNAME: entry.fullName.split(' ').slice(1).join(' ') || '',
         FULLNAME: entry.fullName,
         COMPANY: entry.companyName || '',
-        COMMENTS: entry.challenge || ''
+        COMMENT: entry.challenge || '', // Try singular form
+        COMMENTS: entry.challenge || '', // Try plural form
+        MMERGE5: entry.challenge || '', // Try different field number
+        MMERGE4: entry.challenge || '' // Keep the previous attempt too
       },
       tags: ['GeoRankers Waitlist']
     };
