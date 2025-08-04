@@ -1,0 +1,27 @@
+1st Fold
+Headline: Are You Invisible in AI Search?
+Sub-headline: GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build the brand authority needed to get visible in AI search across leading AI models like ChatGPT and Gemini.
+CTA Button: Join the Waitlist
+
+2nd Fold
+Why GeoRankers: The Strategic Advantage
+Heading: The New AI Search Paradigm Demands a New Strategy
+Problem: Your brand is invisible in AI discovery.
+Solution: We uncover the hidden rules of AI search visibility and give you the tools to get visible in AI-generated answers.
+Problem: Your content strategy is based on guesswork.
+Solution: We provide data-driven recommendations to help you get ahead of the curve and build a predictable content strategy.
+Problem: You're losing to competitors in a new search paradigm.
+Solution: Our platform gives you the competitive intelligence to outsmart rivals and build a powerful, proactive AI search strategy.
+
+3rd Fold
+The GeoRankers Feature Suite: From Insights to Authority
+Predictive AI Search Forecasting
+Stop reacting to trends. Our proprietary engine analyzes historical AI search data to forecast emerging topics and questions in your industry, helping you build a forward-looking content strategy that wins market share before competitors even know it exists.
+Content Gap Analysis
+Uncover your biggest opportunities. We analyze what your top competitors are getting cited for in AI search and identify the topics you're missing, giving you a prioritized roadmap of content recommendations to close those gaps.
+Powerful Analytics
+Make data-driven decisions. Our comprehensive suite provides deep insights into your brand's performance, including sentiment scoring of AI-generated mentions, competitive benchmarking against rivals, and detailed source analysis to uncover where AI models are pulling their information.
+AI Search A/B Testing
+Remove the guesswork from your AI content. Deploy different variations of your content and our platform will monitor which headlines, formats, or keyword combinations are most effective at earning top AI visibility.
+Community Engagement Recommendations
+Build brand authority where it counts. Our platform recommends specific threads on communities like Reddit and Product Hunt that are relevant to your business, helping you build authentic authority and influence the data sources that power AI search.
