@@ -33,7 +33,9 @@ export class MailchimpService {
       merge_fields: {
         FNAME: entry.fullName.split(' ')[0] || '',
         LNAME: entry.fullName.split(' ').slice(1).join(' ') || '',
-        FULLNAME: entry.fullName
+        FULLNAME: entry.fullName,
+        COMPANY: entry.companyName || '',
+        CHALLENGE: entry.challenge || ''
       },
       tags: ['GeoRankers Waitlist']
     };

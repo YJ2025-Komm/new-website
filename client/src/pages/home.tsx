@@ -46,6 +46,8 @@ export default function Home() {
     defaultValues: {
       fullName: "",
       email: "",
+      companyName: "",
+      challenge: "",
     },
   });
 
@@ -719,6 +721,43 @@ export default function Home() {
                       <p className="text-red-400 text-sm mt-2">
                         <span className="mr-1">⚠</span>
                         {form.formState.errors.email.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <Label htmlFor="companyName" className="block text-sm font-medium text-slate-600 mb-2">
+                      Company Name *
+                    </Label>
+                    <Input
+                      id="companyName"
+                      {...form.register("companyName")}
+                      placeholder="Enter your company name"
+                      className="w-full px-3 sm:px-4 py-3 sm:py-4 bg-white/80 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm text-sm sm:text-base"
+                    />
+                    {form.formState.errors.companyName && (
+                      <p className="text-red-400 text-sm mt-2">
+                        <span className="mr-1">⚠</span>
+                        {form.formState.errors.companyName.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <Label htmlFor="challenge" className="block text-sm font-medium text-slate-600 mb-2">
+                      What's your biggest AI search challenge?
+                    </Label>
+                    <textarea
+                      id="challenge"
+                      {...form.register("challenge")}
+                      placeholder="Tell us about your AI search challenges (optional)"
+                      rows={4}
+                      className="w-full px-3 sm:px-4 py-3 sm:py-4 bg-white/80 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm text-sm sm:text-base resize-none"
+                    />
+                    {form.formState.errors.challenge && (
+                      <p className="text-red-400 text-sm mt-2">
+                        <span className="mr-1">⚠</span>
+                        {form.formState.errors.challenge.message}
                       </p>
                     )}
                   </div>

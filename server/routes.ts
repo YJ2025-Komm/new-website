@@ -16,41 +16,54 @@ export async function registerRoutes(app: Express): Promise<Server> {
     console.error("Google Sheets initialization failed:", error);
   }
 
-  // Waitlist registration endpoint - Save directly to Mailchimp only
+  // Waitlist registration endpoint - Save to both database and Mailchimp
   app.post("/api/waitlist", async (req, res) => {
     try {
       // Validate request body
       const validatedData = insertWaitlistEntrySchema.parse(req.body);
       
-      // Add directly to Mailchimp (it handles duplicate detection)
+      // Check if email already exists in database
+      const existingEntry = await storage.getWaitlistEntryByEmail(validatedData.email);
+      if (existingEntry) {
+        return res.status(400).json({ 
+          message: "This email is already on the waitlist" 
+        });
+      }
+      
+      // Save to database first
+      const dbEntry = await storage.createWaitlistEntry(validatedData);
+      
+      // Then add to Mailchimp (it handles duplicate detection)
       try {
         await mailchimpService.addSubscriber(validatedData);
+        console.log(`Successfully saved to both database and Mailchimp: ${validatedData.email}`);
         
         res.status(201).json({ 
           message: "Successfully added to waitlist",
-          email: validatedData.email 
+          email: validatedData.email,
+          id: dbEntry.id
         });
       } catch (mailchimpError) {
         console.error("Mailchimp error:", mailchimpError);
         
         const errorMessage = mailchimpError instanceof Error ? mailchimpError.message : String(mailchimpError);
         
-        // Handle specific Mailchimp errors
+        // Handle specific Mailchimp errors but still return success since DB save worked
         if (errorMessage.includes('Member Exists')) {
-          return res.status(400).json({ 
-            message: "This email is already on the waitlist" 
-          });
-        }
-        
-        if (errorMessage.includes('looks fake or invalid')) {
+          console.log("Already exists in Mailchimp but successfully saved to database");
+        } else if (errorMessage.includes('looks fake or invalid')) {
           return res.status(400).json({ 
             message: "Please enter a valid email address" 
           });
+        } else {
+          console.log("Failed to add to Mailchimp but successfully saved to database");
         }
         
-        // Generic error
-        res.status(500).json({ 
-          message: "Failed to add to waitlist. Please try again." 
+        // Return success since database save worked
+        res.status(201).json({ 
+          message: "Successfully added to waitlist",
+          email: validatedData.email,
+          id: dbEntry.id
         });
       }
       
