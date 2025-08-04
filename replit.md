@@ -57,10 +57,10 @@ Preferred communication style: Simple, everyday language.
 ## Data Flow
 
 ### Waitlist Registration Flow
-1. User fills out waitlist form on landing page
+1. User fills out waitlist form on landing page (Full Name, Email, Company Name, AI Search Challenge)
 2. Client-side validation using React Hook Form + Zod
 3. API request to `/api/waitlist` endpoint
-4. Server validates data and saves directly to Mailchimp audience
+4. Server validates data and saves directly to Mailchimp audience with merge fields
 5. Mailchimp handles duplicate detection and email validation
 6. Success/error feedback to user via toast notifications
 
