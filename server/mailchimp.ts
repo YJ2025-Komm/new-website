@@ -35,13 +35,16 @@ export class MailchimpService {
         LNAME: entry.fullName.split(' ').slice(1).join(' ') || '',
         FULLNAME: entry.fullName,
         COMPANY: entry.companyName || '',
-        MMERGE7: entry.challenge || '' // Correct merge tag for Comments field
+        MMERGE7: entry.challenge || '', // Try MMERGE7 format
+        MERGE7: entry.challenge || '' // Also try MERGE7 format
       },
       tags: ['GeoRankers Waitlist']
     };
 
     try {
       console.log(`Adding subscriber to Mailchimp: ${entry.email}`);
+      console.log('Challenge text to be added:', entry.challenge);
+      console.log('Merge fields being sent:', subscriberData.merge_fields);
       
       const response = await fetch(url, {
         method: 'POST',
