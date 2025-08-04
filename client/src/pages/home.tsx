@@ -82,7 +82,7 @@ export default function Home() {
   return (
     <div className="min-h-screen text-slate-900 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         {/* Background Elements */}
         <div className="hero-gradient absolute inset-0 z-0"></div>
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse-soft"></div>
@@ -90,22 +90,22 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-300/5 via-purple-300/5 to-pink-300/5 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '0.5s'}}></div>
         
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left Column - Content */}
-            <div className="text-left">
-              <div className="text-sm font-medium text-slate-500 mb-6 uppercase tracking-wide">
+            <div className="text-left order-2 lg:order-1">
+              <div className="text-sm font-medium text-slate-500 mb-4 sm:mb-6 uppercase tracking-wide">
                 AI Search Visibility Intelligence
               </div>
               
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
                 Are You <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Invisible</span> in AI Search?
               </h1>
               
-              <p className="text-xl text-slate-600 mb-12 leading-relaxed">
-                B2B SaaS companies are missing millions in pipeline because they're invisible when prospects ask AI tools like ChatGPT, Gemini, and Perplexity for recommendations. GeoRankers shows you exactly where you stand and how to dominate AI search results in your industry.
+              <p className="text-lg sm:text-xl text-slate-600 mb-8 sm:mb-12 leading-relaxed">
+                GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build the brand authority needed to get visible in AI search across leading AI models like ChatGPT and Gemini.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <div className="mb-8">
                 <Button 
                   onClick={scrollToWaitlist}
                   className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
@@ -113,20 +113,12 @@ export default function Home() {
                   <Rocket className="w-5 h-5 mr-3" />
                   Join the Waitlist
                 </Button>
-                
-                <Button 
-                  variant="outline"
-                  className="inline-flex items-center px-8 py-4 border-2 border-slate-300 hover:border-slate-400 rounded-2xl font-semibold text-lg bg-white/80 hover:bg-white transition-all duration-300"
-                >
-                  <Eye className="w-5 h-5 mr-3" />
-                  See How It Works
-                </Button>
               </div>
             </div>
             
             {/* Right Column - Visual */}
-            <div className="lg:pl-8">
-              <div className="glass rounded-3xl p-8 sm:p-12 animate-float">
+            <div className="lg:pl-8 order-1 lg:order-2 mb-8 lg:mb-0">
+              <div className="glass rounded-3xl p-4 sm:p-8 lg:p-12 animate-float">
                 <svg viewBox="0 0 400 300" className="w-full h-auto">
                   {/* Background */}
                   <defs>
@@ -205,22 +197,22 @@ export default function Home() {
       </section>
 
       {/* Why GeoRankers Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-b from-slate-50/50 to-blue-50/30">
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-b from-slate-50/50 to-blue-50/30">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               Why <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">GeoRankers:</span> The Strategic Advantage
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
               The New AI Search Paradigm Demands a New Strategy
             </p>
           </div>
           
-          <div className="grid md:grid-cols-1 gap-8 mb-16">
+          <div className="grid md:grid-cols-1 gap-6 sm:gap-8 mb-12 sm:mb-16">
             {/* Problem/Solution Cards */}
-            <Card className="glass rounded-2xl p-8 transform hover:scale-105 transition-all duration-300 border-0">
+            <Card className="glass rounded-2xl p-4 sm:p-6 lg:p-8 transform hover:scale-105 transition-all duration-300 border-0">
               <CardContent className="pt-0">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
                   <div>
                     <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
                       <EyeOff className="w-8 h-8 text-white" />
@@ -285,18 +277,18 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-violet-50/30 to-pink-50/20">
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-violet-50/30 to-pink-50/20">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               The GeoRankers <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Feature Suite:</span> From Insights to Authority
             </h2>
           </div>
           
           {/* Feature 1: Predictive AI Search Forecasting */}
-          <Card className="glass rounded-3xl p-8 sm:p-12 mb-12 border-0">
+          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-12 mb-8 sm:mb-12 border-0">
             <CardContent className="pt-0">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div>
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-violet-500 rounded-xl flex items-center justify-center mr-4">
@@ -524,31 +516,31 @@ export default function Home() {
 
 
       {/* Waitlist Section */}
-      <section id="waitlist" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50/20 to-indigo-50/30">
+      <section id="waitlist" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50/20 to-indigo-50/30">
         <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               Join the <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Waitlist</span>
             </h2>
-            <p className="text-xl text-slate-600">
+            <p className="text-lg sm:text-xl text-slate-600">
               Be among the first to take control of your AI search presence
             </p>
           </div>
           
-          <Card className="glass-strong rounded-3xl p-8 sm:p-12 border-0">
+          <Card className="glass-strong rounded-3xl p-4 sm:p-8 lg:p-12 border-0">
             <CardContent className="pt-0">
               {showSuccess ? (
-                <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-2xl p-6 text-center">
+                <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-2xl p-4 sm:p-6 text-center">
                   <div className="flex items-center justify-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
-                      <CheckCircle className="w-6 h-6 text-white" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                      <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-green-400 mb-2">Welcome to the waitlist!</h3>
-                  <p className="text-slate-600">We'll notify you as soon as GeoRankers is ready for you.</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-green-400 mb-2">Welcome to the waitlist!</h3>
+                  <p className="text-sm sm:text-base text-slate-600">We'll notify you as soon as GeoRankers is ready for you.</p>
                 </div>
               ) : (
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
                   <div>
                     <Label htmlFor="fullName" className="block text-sm font-medium text-slate-600 mb-2">
                       Full Name *
@@ -557,7 +549,7 @@ export default function Home() {
                       id="fullName"
                       {...form.register("fullName")}
                       placeholder="Enter your full name"
-                      className="w-full px-4 py-4 bg-white/80 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm"
+                      className="w-full px-3 sm:px-4 py-3 sm:py-4 bg-white/80 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm text-sm sm:text-base"
                     />
                     {form.formState.errors.fullName && (
                       <p className="text-red-400 text-sm mt-2">
@@ -576,7 +568,7 @@ export default function Home() {
                       type="email"
                       {...form.register("email")}
                       placeholder="Enter your email address"
-                      className="w-full px-4 py-4 bg-white/80 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm"
+                      className="w-full px-3 sm:px-4 py-3 sm:py-4 bg-white/80 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm text-sm sm:text-base"
                     />
                     {form.formState.errors.email && (
                       <p className="text-red-400 text-sm mt-2">
@@ -589,22 +581,22 @@ export default function Home() {
                   <Button 
                     type="submit"
                     disabled={waitlistMutation.isPending}
-                    className="w-full mt-8 px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl flex items-center justify-center"
+                    className="w-full mt-6 sm:mt-8 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl flex items-center justify-center"
                   >
                     {waitlistMutation.isPending ? (
                       <>
-                        <Loader2 className="w-5 h-5 mr-3 animate-spin" />
+                        <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 animate-spin" />
                         Adding you to the list...
                       </>
                     ) : (
                       <>
-                        <Rocket className="w-5 h-5 mr-3" />
+                        <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
                         Join Waitlist
                       </>
                     )}
                   </Button>
                   
-                  <p className="text-center text-sm text-slate-500 mt-6">
+                  <p className="text-center text-xs sm:text-sm text-slate-500 mt-4 sm:mt-6">
                     🔒 Your information is secure and will never be shared.
                   </p>
                 </form>
