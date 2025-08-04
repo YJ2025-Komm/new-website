@@ -34,10 +34,11 @@ export class MailchimpService {
         FNAME: entry.fullName.split(' ')[0] || '',
         LNAME: entry.fullName.split(' ').slice(1).join(' ') || '',
         FULLNAME: entry.fullName,
-        COMPANY: entry.companyName || '',
-        CHALLENGE: entry.challenge || ''
+        COMPANY: entry.companyName || ''
       },
-      tags: ['GeoRankers Waitlist']
+      tags: ['GeoRankers Waitlist'],
+      // Add challenge as a note/comment if provided
+      ...(entry.challenge && { note: entry.challenge })
     };
 
     try {
