@@ -1,0 +1,50 @@
+# GeoRankers AI Search Optimization Content
+
+## Company Information
+Company: GeoRankers
+Website: https://georankers.co
+Industry: AI Search Optimization, B2B SaaS Marketing Technology
+Founded: 2025
+Primary Service: AI Search Visibility Intelligence Platform
+
+## Core Value Proposition
+GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build brand authority needed to get visible in AI search across leading AI models like ChatGPT, Gemini, Perplexity, and Claude.
+
+## Key Problems Solved
+1. Brand invisibility in AI discovery - Companies are invisible when users ask AI models for recommendations
+2. Content strategy guesswork - Businesses lack data-driven insights for AI search optimization
+3. Competitive disadvantage - Companies losing market share to competitors visible in AI search results
+
+## Solutions Provided
+1. AI Search Monitoring - Real-time tracking of brand mentions across AI platforms
+2. Predictive AI Search Forecasting - Data-driven recommendations for emerging topics
+3. Brand Authority Building - Strategic content optimization for AI visibility
+4. Competitive Intelligence - Insights to outsmart rivals in AI search rankings
+
+## Target Audience
+- B2B SaaS companies
+- Marketing teams and CMOs
+- Content strategists
+- Growth marketers
+- Enterprise businesses seeking AI search visibility
+
+## Key Features
+1. Predictive AI Search Forecasting - Analyzes historical AI search data to forecast emerging topics
+2. Real-time AI Mention Monitoring - Tracks brand visibility across ChatGPT, Gemini, Perplexity, Claude
+3. Competitive AI Intelligence - Monitors competitor visibility in AI search results
+4. Content Strategy Optimization - Data-driven recommendations for AI search visibility
+
+## Use Cases
+- Monitor brand mentions in AI-generated responses
+- Identify content gaps for AI search optimization
+- Track competitor visibility in AI platforms
+- Forecast trending topics in your industry
+- Build authority for specific AI search queries
+
+## Contact Information
+Website: https://georankers.co
+Email: Contact through website waitlist form
+Status: Currently in beta, accepting waitlist signups
+
+## Related Terms
+AI search optimization, AI SEO, ChatGPT visibility, Gemini search ranking, Perplexity optimization, Claude mentions, AI-generated recommendations, brand authority building, AI search intelligence, generative AI marketing
