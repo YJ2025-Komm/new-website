@@ -789,6 +789,135 @@ export default function Home() {
           </Card>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+              Frequently Asked <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Questions</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-slate-600">
+              Everything you need to know about AI search optimization
+            </p>
+          </div>
+
+          <div className="space-y-4 sm:space-y-6">
+            {/* FAQ Item 1 */}
+            <Card className="glass rounded-2xl border-0">
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 sm:mb-4">
+                  What is AI search optimization and why do I need it?
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  AI search optimization ensures your brand appears when users ask AI models like ChatGPT, Gemini, or Claude for recommendations in your industry. Unlike traditional SEO that targets Google, AI search optimization focuses on how large language models surface and recommend content. As more people use AI for discovery and decision-making, being invisible in AI results means losing potential customers to competitors.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* FAQ Item 2 */}
+            <Card className="glass rounded-2xl border-0">
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 sm:mb-4">
+                  How is AI search different from Google SEO?
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Traditional SEO optimizes for search engine algorithms and keyword rankings. AI search optimization focuses on how language models understand context, authority, and relevance when generating responses. AI models consider factors like content quality, brand mentions across the web, and topical expertise rather than just keywords and backlinks. The strategies and metrics are fundamentally different.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* FAQ Item 3 */}
+            <Card className="glass rounded-2xl border-0">
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 sm:mb-4">
+                  Which AI platforms does GeoRankers monitor?
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  GeoRankers tracks brand visibility across major AI platforms including ChatGPT, Google Gemini, Perplexity, Claude, and other leading AI models. We monitor how often your brand appears in AI-generated responses, the context of mentions, and your competitive positioning across these platforms.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* FAQ Item 4 */}
+            <Card className="glass rounded-2xl border-0">
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 sm:mb-4">
+                  How long does it take to see results from AI search optimization?
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  AI search visibility typically improves over 3-6 months with consistent optimization efforts. Unlike traditional SEO, AI models update their training data less frequently, so changes take time to propagate. However, our predictive forecasting helps you target emerging topics before competitors, giving you a head start on visibility for new trends.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* FAQ Item 5 */}
+            <Card className="glass rounded-2xl border-0">
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 sm:mb-4">
+                  What makes GeoRankers different from other marketing tools?
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  GeoRankers is specifically built for the new AI search paradigm. While traditional marketing tools focus on Google rankings and social media metrics, we provide intelligence on AI model behavior, predictive trend analysis, and optimization strategies that work with language models. We're the first platform designed specifically for AI search visibility.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* FAQ Item 6 */}
+            <Card className="glass rounded-2xl border-0">
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 sm:mb-4">
+                  Can small companies compete with enterprise brands in AI search?
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Yes! AI search creates new opportunities for smaller companies to compete based on expertise and relevance rather than just budget and domain authority. By focusing on specific niches, creating high-quality content, and building topical authority, smaller companies can often outrank larger competitors in AI-generated responses for their specialty areas.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* FAQ Item 7 */}
+            <Card className="glass rounded-2xl border-0">
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 sm:mb-4">
+                  When will GeoRankers be available?
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  We're currently in beta development and accepting waitlist signups from B2B SaaS companies. Early access members will get priority onboarding, special pricing, and direct input on feature development. Join our waitlist to be notified as soon as we launch and to secure your spot in the beta program.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* FAQ Item 8 */}
+            <Card className="glass rounded-2xl border-0">
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 sm:mb-4">
+                  Do I need technical expertise to use GeoRankers?
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  No technical expertise required. GeoRankers is designed for marketing teams, content managers, and business leaders. Our platform provides clear, actionable insights and recommendations that your team can implement using existing content and marketing workflows. We translate complex AI behavior into practical marketing strategies.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* CTA at bottom of FAQ */}
+          <div className="text-center mt-12 sm:mt-16">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4">
+              Ready to dominate AI search?
+            </h3>
+            <p className="text-slate-600 mb-6 sm:mb-8">
+              Join the waitlist and be among the first to access GeoRankers.
+            </p>
+            <Button 
+              onClick={scrollToWaitlist}
+              className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
+            >
+              <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
+              Join the Waitlist
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
