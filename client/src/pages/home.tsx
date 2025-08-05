@@ -353,6 +353,78 @@ export default function Home() {
         </div>
       </section>
 
+      {/* AI Search Statistics Section */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+              The AI Search Revolution: <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">By the Numbers</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
+              Traditional search is rapidly being displaced by AI-powered discovery
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {/* Statistic 1: Zero-click searches */}
+            <Card className="glass rounded-2xl p-6 sm:p-8 text-center border-0 transform hover:scale-105 transition-all duration-300">
+              <CardContent className="pt-0">
+                <div className="mb-4">
+                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent mb-2">
+                    60%
+                  </div>
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                    Nearly 60% of Google searches end with no website visit, as users get instant answers from AI-powered summaries
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Statistic 2: Organic traffic drop */}
+            <Card className="glass rounded-2xl p-6 sm:p-8 text-center border-0 transform hover:scale-105 transition-all duration-300">
+              <CardContent className="pt-0">
+                <div className="mb-4">
+                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent mb-2">
+                    35%
+                  </div>
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                    Drop in organic search traffic in B2B SaaS companies due to AI Overviews and AI-powered search platforms
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Statistic 3: AI tools growth */}
+            <Card className="glass rounded-2xl p-6 sm:p-8 text-center border-0 transform hover:scale-105 transition-all duration-300">
+              <CardContent className="pt-0">
+                <div className="mb-4">
+                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent mb-2">
+                    45%
+                  </div>
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                    AI tools now account for a rapidly growing 45% month-over-month increase in search sessions
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Statistic 4: LLM visitor value */}
+            <Card className="glass rounded-2xl p-6 sm:p-8 text-center border-0 transform hover:scale-105 transition-all duration-300">
+              <CardContent className="pt-0">
+                <div className="mb-4">
+                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-2">
+                    5x
+                  </div>
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                    The Average LLM Visitor is Worth 5x the Average Traditional Organic Search Visitor based on conversion rate
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Why GeoRankers Section */}
       <section id="problem" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-b from-slate-50/50 to-blue-50/30">
         <div className="max-w-6xl mx-auto">
