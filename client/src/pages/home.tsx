@@ -365,68 +365,65 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-1 gap-6 sm:gap-8 mb-12 sm:mb-16">
-            {/* Problem/Solution Cards */}
-            <Card className="glass rounded-2xl p-4 sm:p-6 lg:p-8 transform hover:scale-105 transition-all duration-300 border-0">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
+            {/* Strategic Benefits */}
+            <Card className="glass rounded-2xl p-6 sm:p-8 transform hover:scale-105 transition-all duration-300 border-0">
               <CardContent className="pt-0">
-                <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
-                  <div>
-                    <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
-                      <EyeOff className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-slate-900">Problem</h3>
-                    <p className="text-slate-600">Your brand is invisible in AI discovery.</p>
-                  </div>
-                  <div>
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-violet-500 rounded-2xl flex items-center justify-center mb-6">
-                      <Search className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-slate-900">Solution</h3>
-                    <p className="text-slate-600">We uncover the hidden rules of AI search visibility and give you the tools to get visible in AI-generated answers.</p>
-                  </div>
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-violet-500 rounded-2xl flex items-center justify-center mb-6">
+                  <Eye className="w-8 h-8 text-white" />
                 </div>
+                <h3 className="text-xl font-bold mb-4 text-slate-900">First-Mover Advantage in AI Search</h3>
+                <p className="text-slate-600">Position your brand as an authority before competitors understand the new paradigm. Get visible in AI responses while others are still figuring out traditional SEO.</p>
               </CardContent>
             </Card>
 
-            <Card className="glass rounded-2xl p-8 transform hover:scale-105 transition-all duration-300 border-0">
+            <Card className="glass rounded-2xl p-6 sm:p-8 transform hover:scale-105 transition-all duration-300 border-0">
               <CardContent className="pt-0">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
-                      <Brain className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-slate-900">Problem</h3>
-                    <p className="text-slate-600">Your content strategy is based on guesswork.</p>
-                  </div>
-                  <div>
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-violet-500 rounded-2xl flex items-center justify-center mb-6">
-                      <ChartLine className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-slate-900">Solution</h3>
-                    <p className="text-slate-600">We provide data-driven recommendations to help you get ahead of the curve and build a predictable content strategy.</p>
-                  </div>
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
+                  <TrendingUp className="w-8 h-8 text-white" />
                 </div>
+                <h3 className="text-xl font-bold mb-4 text-slate-900">Predictive Content Strategy</h3>
+                <p className="text-slate-600">Stop reacting to trends. Our forecasting engine identifies emerging topics 30-60 days before they peak, helping you create content that captures traffic at the perfect moment.</p>
               </CardContent>
             </Card>
 
-            <Card className="glass rounded-2xl p-8 transform hover:scale-105 transition-all duration-300 border-0">
+            <Card className="glass rounded-2xl p-6 sm:p-8 transform hover:scale-105 transition-all duration-300 border-0">
               <CardContent className="pt-0">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
-                      <TrendingUp className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-slate-900">Problem</h3>
-                    <p className="text-slate-600">You're losing to competitors in a new search paradigm.</p>
-                  </div>
-                  <div>
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-violet-500 rounded-2xl flex items-center justify-center mb-6">
-                      <Rocket className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-slate-900">Solution</h3>
-                    <p className="text-slate-600">Our platform gives you the competitive intelligence to outsmart rivals and build a powerful, proactive AI search strategy.</p>
-                  </div>
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+                  <ChartLine className="w-8 h-8 text-white" />
                 </div>
+                <h3 className="text-xl font-bold mb-4 text-slate-900">Data-Driven Decision Making</h3>
+                <p className="text-slate-600">Replace guesswork with intelligence. Track your brand mentions across AI platforms, understand context, and optimize based on real performance data from ChatGPT, Gemini, and Claude.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="glass rounded-2xl p-6 sm:p-8 transform hover:scale-105 transition-all duration-300 border-0">
+              <CardContent className="pt-0">
+                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6">
+                  <Target className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-slate-900">Competitive Intelligence</h3>
+                <p className="text-slate-600">Monitor how often competitors appear in AI responses, identify content gaps they're missing, and discover opportunities to outrank them in AI-generated recommendations.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="glass rounded-2xl p-6 sm:p-8 transform hover:scale-105 transition-all duration-300 border-0">
+              <CardContent className="pt-0">
+                <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6">
+                  <Rocket className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-slate-900">Accelerated Brand Authority</h3>
+                <p className="text-slate-600">Build topical expertise that AI models recognize and cite. Our platform guides you to create content that establishes your brand as the go-to source in your industry.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="glass rounded-2xl p-6 sm:p-8 transform hover:scale-105 transition-all duration-300 border-0">
+              <CardContent className="pt-0">
+                <div className="w-16 h-16 bg-gradient-to-r from-violet-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6">
+                  <Brain className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-slate-900">AI-Native Marketing ROI</h3>
+                <p className="text-slate-600">Measure what matters in the AI era. Track brand visibility, mention quality, and competitive positioning across AI platforms to prove marketing impact and guide budget allocation.</p>
               </CardContent>
             </Card>
           </div>
