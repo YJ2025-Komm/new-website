@@ -45,9 +45,13 @@ Preferred communication style: Simple, everyday language.
 ### Core Features
 1. **Landing Page**: Modern, responsive design showcasing GeoRankers features
 2. **Waitlist System**: Email collection with duplicate prevention and Mailchimp integration
-3. **Component Library**: Comprehensive UI components from shadcn/ui
-4. **Form Validation**: Type-safe forms with Zod schemas
-5. **Email Marketing Integration**: Automatic Mailchimp sync for new subscribers
+3. **Interactive FAQ Section**: Expandable questions with smooth animations and SEO optimization
+4. **Component Library**: Comprehensive UI components from shadcn/ui
+5. **Form Validation**: Type-safe forms with Zod schemas
+6. **Email Marketing Integration**: Automatic Mailchimp sync for new subscribers
+
+### Planned Features
+- **Built-in Blog System**: Content management for AI search optimization articles (pending content creation)
 
 ### Database Schema
 - **Users Table**: Basic user authentication structure (username, password)
