@@ -163,27 +163,11 @@ export default function GeoGuide() {
                   The numbers tell the story:
                 </p>
                 
-                {/* AI Search Growth Statistics Chart */}
-                <div className="my-8 p-6 bg-gray-50 rounded-lg border">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4 text-center">AI Search Engine Growth (2024-2027)</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                    <div className="bg-white p-4 rounded-lg shadow-sm">
-                      <div className="text-3xl font-bold text-blue-600 mb-2">300M</div>
-                      <div className="text-sm text-gray-600">Weekly active users on ChatGPT</div>
-                      <div className="text-xs text-gray-500 mt-1">(Early 2025)</div>
-                    </div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm">
-                      <div className="text-3xl font-bold text-green-600 mb-2">90M</div>
-                      <div className="text-sm text-gray-600">Projected US generative AI search users</div>
-                      <div className="text-xs text-gray-500 mt-1">(By 2027)</div>
-                    </div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm">
-                      <div className="text-3xl font-bold text-orange-600 mb-2">25%</div>
-                      <div className="text-sm text-gray-600">Predicted drop in traditional search marketing spend</div>
-                      <div className="text-xs text-gray-500 mt-1">(By 2026)</div>
-                    </div>
-                  </div>
-                </div>
+                <ul className="list-disc list-inside text-gray-700 mb-6 space-y-1">
+                  <li>300M weekly active users on ChatGPT (early 2025)</li>
+                  <li>90M projected US generative AI search users by 2027</li>
+                  <li>25% predicted drop in traditional search marketing spend by 2026</li>
+                </ul>
 
                 <p className="text-gray-700 mb-6 leading-relaxed">
                   This guide is written for founders, CMOs, product marketers, and growth leaders in B2B SaaS who want to stay ahead of this shift. If your brand is not showing up in AI search results, you're not just missing clicks—you are absent from the conversation altogether.
@@ -275,37 +259,6 @@ export default function GeoGuide() {
                 <p className="text-gray-700 mb-4 leading-relaxed">
                   <strong>The Visibility Gap:</strong> Recent analysis shows that only 35% of citations in AI search results come from the top 10 traditional Google search results. This means that even if you rank well in traditional search, you might be overlooked by AI systems.
                 </p>
-
-                {/* Citation Sources Chart */}
-                <div className="my-8 p-6 bg-gray-50 rounded-lg border">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4 text-center">Where AI Search Engines Get Their Citations</h4>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-2 bg-blue-100 rounded-full flex items-center justify-center">
-                        <span className="text-blue-600 font-bold text-sm">35%</span>
-                      </div>
-                      <div className="text-sm font-medium text-gray-900">Top 10 Google Results</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-2 bg-green-100 rounded-full flex items-center justify-center">
-                        <span className="text-green-600 font-bold text-sm">28%</span>
-                      </div>
-                      <div className="text-sm font-medium text-gray-900">Community Forums</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-2 bg-purple-100 rounded-full flex items-center justify-center">
-                        <span className="text-purple-600 font-bold text-sm">22%</span>
-                      </div>
-                      <div className="text-sm font-medium text-gray-900">Wikipedia & Knowledge Bases</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-2 bg-orange-100 rounded-full flex items-center justify-center">
-                        <span className="text-orange-600 font-bold text-sm">15%</span>
-                      </div>
-                      <div className="text-sm font-medium text-gray-900">News & Industry Reports</div>
-                    </div>
-                  </div>
-                </div>
 
                 <p className="text-gray-700 mb-6 leading-relaxed">
                   Meanwhile, platforms like Reddit, Wikipedia, and industry forums—which may not rank in traditional search—appear frequently in AI-generated responses.
@@ -488,47 +441,6 @@ export default function GeoGuide() {
                 <p className="text-gray-700 mb-4 leading-relaxed">
                   As of mid-2025, there is no comprehensive off the shelf tool for GEO analytics. SEO platforms like Ahrefs and Semrush have launched beta features to track AI visibility, but they are still maturing.
                 </p>
-
-                {/* GEO Measurement Framework */}
-                <div className="my-8 p-6 bg-gray-50 rounded-lg border">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4 text-center">GEO Measurement Framework</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-4">
-                      <h5 className="font-semibold text-gray-900">Visibility Metrics</h5>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-gray-600">Mention Frequency</span>
-                          <span className="text-gray-900 font-medium">Weekly tracking</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-600">Citation Quality</span>
-                          <span className="text-gray-900 font-medium">Context analysis</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-600">Competitive Share</span>
-                          <span className="text-gray-900 font-medium">Relative positioning</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="space-y-4">
-                      <h5 className="font-semibold text-gray-900">Quality Metrics</h5>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-gray-600">Sentiment Analysis</span>
-                          <span className="text-gray-900 font-medium">Positive/Negative/Neutral</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-600">Accuracy Score</span>
-                          <span className="text-gray-900 font-medium">Factual correctness</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-600">Source Authority</span>
-                          <span className="text-gray-900 font-medium">Citation credibility</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
                 <p className="text-gray-700 mb-6 leading-relaxed">
                   Some startups offer monitoring services that query AI assistants on your behalf and produce reports. Until the ecosystem matures, manual and semi-automated methods may be required. You can build simple scripts using the public APIs of ChatGPT or Gemini to run regular queries and combine this with logging spreadsheets or dashboards to visualise trends. Use your existing analytics stack to correlate AI presence with other metrics like brand searches, direct traffic and conversions.
