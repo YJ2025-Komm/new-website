@@ -7,7 +7,7 @@ GeoRankers is a React-based web application that helps brands understand and imp
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
-Blog format preference: GEO guide section removed - user will implement blog via WordPress (August 6, 2025).
+Blog format preference: GEO guide section removed - user will use content template system for easy content management (August 6, 2025).
 
 ## System Architecture
 
