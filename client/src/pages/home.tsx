@@ -111,6 +111,9 @@ export default function Home() {
               <a href="#features" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 Features
               </a>
+              <a href="/geo-guide" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
+                GEO Guide
+              </a>
               <a href="#faq" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 FAQ
               </a>
