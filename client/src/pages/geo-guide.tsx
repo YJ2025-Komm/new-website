@@ -127,7 +127,7 @@ export default function GeoGuide() {
               {/* Hero Image */}
               <div className="mb-12">
                 <img 
-                  src="/attached_assets/image_1754492283827.png"
+                  src="/image_1754492283827.png"
                   alt="GEO Playbook - Engage Authentically in Community Forums"
                   className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
                 />
