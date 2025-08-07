@@ -91,19 +91,87 @@ export default function GeoGuide() {
             {/* Right Column - Hero Image */}
             <div className="relative">
               <div className="relative bg-gradient-to-br from-blue-100/50 to-violet-100/50 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
-                {/* Hero Image Content */}
-                <div className="aspect-square bg-white/80 backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center border border-gray-200/50">
-                  <div className="text-center p-6">
-                    <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-violet-400 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
-                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">GEO Strategy</h3>
-                    <p className="text-gray-600">
-                      Master generative engine optimization for maximum AI search visibility
-                    </p>
-                  </div>
+                {/* GEO Playbook Illustration */}
+                <div className="aspect-square bg-white/80 backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center border border-gray-200/50 p-8">
+                  <svg viewBox="0 0 400 400" className="w-full h-full">
+                    {/* Background circles */}
+                    <circle cx="200" cy="200" r="180" fill="none" stroke="#E5E7EB" strokeWidth="1" opacity="0.3"/>
+                    <circle cx="200" cy="200" r="140" fill="none" stroke="#D1D5DB" strokeWidth="1" opacity="0.4"/>
+                    <circle cx="200" cy="200" r="100" fill="none" stroke="#9CA3AF" strokeWidth="1" opacity="0.5"/>
+                    
+                    {/* Central AI Brain */}
+                    <circle cx="200" cy="200" r="50" fill="url(#brainGradient)" stroke="#4F46E5" strokeWidth="2"/>
+                    <text x="200" y="205" textAnchor="middle" className="fill-white font-bold text-xs">AI</text>
+                    
+                    {/* AI Platform Icons around the center */}
+                    {/* ChatGPT */}
+                    <circle cx="200" cy="120" r="25" fill="url(#chatgptGradient)" stroke="#10B981" strokeWidth="2"/>
+                    <text x="200" y="127" textAnchor="middle" className="fill-white font-semibold text-xs">GPT</text>
+                    
+                    {/* Gemini */}
+                    <circle cx="280" cy="200" r="25" fill="url(#geminiGradient)" stroke="#3B82F6" strokeWidth="2"/>
+                    <text x="280" y="207" textAnchor="middle" className="fill-white font-semibold text-xs">Gem</text>
+                    
+                    {/* Perplexity */}
+                    <circle cx="200" cy="280" r="25" fill="url(#perplexityGradient)" stroke="#8B5CF6" strokeWidth="2"/>
+                    <text x="200" y="287" textAnchor="middle" className="fill-white font-semibold text-xs">Prp</text>
+                    
+                    {/* Claude */}
+                    <circle cx="120" cy="200" r="25" fill="url(#claudeGradient)" stroke="#F59E0B" strokeWidth="2"/>
+                    <text x="120" y="207" textAnchor="middle" className="fill-white font-semibold text-xs">Cld</text>
+                    
+                    {/* Data flow lines */}
+                    <path d="M 200 150 Q 200 175 200 175" stroke="#4F46E5" strokeWidth="3" fill="none" opacity="0.7" strokeDasharray="5,5">
+                      <animate attributeName="stroke-dashoffset" values="0;10" dur="2s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M 250 200 Q 225 200 225 200" stroke="#4F46E5" strokeWidth="3" fill="none" opacity="0.7" strokeDasharray="5,5">
+                      <animate attributeName="stroke-dashoffset" values="0;10" dur="2s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M 200 250 Q 200 225 200 225" stroke="#4F46E5" strokeWidth="3" fill="none" opacity="0.7" strokeDasharray="5,5">
+                      <animate attributeName="stroke-dashoffset" values="0;10" dur="2s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M 150 200 Q 175 200 175 200" stroke="#4F46E5" strokeWidth="3" fill="none" opacity="0.7" strokeDasharray="5,5">
+                      <animate attributeName="stroke-dashoffset" values="0;10" dur="2s" repeatCount="indefinite"/>
+                    </path>
+                    
+                    {/* Your Brand at the bottom */}
+                    <rect x="160" y="340" width="80" height="30" rx="15" fill="url(#brandGradient)" stroke="#6366F1" strokeWidth="2"/>
+                    <text x="200" y="358" textAnchor="middle" className="fill-white font-bold text-xs">Your Brand</text>
+                    
+                    {/* Arrow pointing up to AI */}
+                    <path d="M 200 340 L 200 260" stroke="#10B981" strokeWidth="3" fill="none" markerEnd="url(#arrowhead)"/>
+                    
+                    {/* Gradients */}
+                    <defs>
+                      <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#4F46E5"/>
+                        <stop offset="100%" stopColor="#7C3AED"/>
+                      </linearGradient>
+                      <linearGradient id="chatgptGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#10B981"/>
+                        <stop offset="100%" stopColor="#059669"/>
+                      </linearGradient>
+                      <linearGradient id="geminiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#3B82F6"/>
+                        <stop offset="100%" stopColor="#1D4ED8"/>
+                      </linearGradient>
+                      <linearGradient id="perplexityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#8B5CF6"/>
+                        <stop offset="100%" stopColor="#7C3AED"/>
+                      </linearGradient>
+                      <linearGradient id="claudeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#F59E0B"/>
+                        <stop offset="100%" stopColor="#D97706"/>
+                      </linearGradient>
+                      <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#6366F1"/>
+                        <stop offset="100%" stopColor="#4F46E5"/>
+                      </linearGradient>
+                      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#10B981"/>
+                      </marker>
+                    </defs>
+                  </svg>
                 </div>
                 
                 {/* Floating Elements */}
