@@ -90,94 +90,91 @@ export default function GeoGuide() {
 
             {/* Right Column - Hero Image */}
             <div className="relative">
-              <div className="relative bg-gradient-to-br from-blue-100/50 to-violet-100/50 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
-                {/* GEO Playbook Illustration */}
-                <div className="aspect-square bg-white/80 backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center border border-gray-200/50 p-8">
-                  <svg viewBox="0 0 400 400" className="w-full h-full">
-                    {/* Background circles */}
-                    <circle cx="200" cy="200" r="180" fill="none" stroke="#E5E7EB" strokeWidth="1" opacity="0.3"/>
-                    <circle cx="200" cy="200" r="140" fill="none" stroke="#D1D5DB" strokeWidth="1" opacity="0.4"/>
-                    <circle cx="200" cy="200" r="100" fill="none" stroke="#9CA3AF" strokeWidth="1" opacity="0.5"/>
-                    
-                    {/* Central AI Brain */}
-                    <circle cx="200" cy="200" r="50" fill="url(#brainGradient)" stroke="#4F46E5" strokeWidth="2"/>
-                    <text x="200" y="205" textAnchor="middle" className="fill-white font-bold text-xs">AI</text>
-                    
-                    {/* AI Platform Icons around the center */}
-                    {/* ChatGPT */}
-                    <circle cx="200" cy="120" r="25" fill="url(#chatgptGradient)" stroke="#10B981" strokeWidth="2"/>
-                    <text x="200" y="127" textAnchor="middle" className="fill-white font-semibold text-xs">GPT</text>
-                    
-                    {/* Gemini */}
-                    <circle cx="280" cy="200" r="25" fill="url(#geminiGradient)" stroke="#3B82F6" strokeWidth="2"/>
-                    <text x="280" y="207" textAnchor="middle" className="fill-white font-semibold text-xs">Gem</text>
-                    
-                    {/* Perplexity */}
-                    <circle cx="200" cy="280" r="25" fill="url(#perplexityGradient)" stroke="#8B5CF6" strokeWidth="2"/>
-                    <text x="200" y="287" textAnchor="middle" className="fill-white font-semibold text-xs">Prp</text>
-                    
-                    {/* Claude */}
-                    <circle cx="120" cy="200" r="25" fill="url(#claudeGradient)" stroke="#F59E0B" strokeWidth="2"/>
-                    <text x="120" y="207" textAnchor="middle" className="fill-white font-semibold text-xs">Cld</text>
-                    
-                    {/* Data flow lines */}
-                    <path d="M 200 150 Q 200 175 200 175" stroke="#4F46E5" strokeWidth="3" fill="none" opacity="0.7" strokeDasharray="5,5">
-                      <animate attributeName="stroke-dashoffset" values="0;10" dur="2s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M 250 200 Q 225 200 225 200" stroke="#4F46E5" strokeWidth="3" fill="none" opacity="0.7" strokeDasharray="5,5">
-                      <animate attributeName="stroke-dashoffset" values="0;10" dur="2s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M 200 250 Q 200 225 200 225" stroke="#4F46E5" strokeWidth="3" fill="none" opacity="0.7" strokeDasharray="5,5">
-                      <animate attributeName="stroke-dashoffset" values="0;10" dur="2s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M 150 200 Q 175 200 175 200" stroke="#4F46E5" strokeWidth="3" fill="none" opacity="0.7" strokeDasharray="5,5">
-                      <animate attributeName="stroke-dashoffset" values="0;10" dur="2s" repeatCount="indefinite"/>
-                    </path>
-                    
-                    {/* Your Brand at the bottom */}
-                    <rect x="160" y="340" width="80" height="30" rx="15" fill="url(#brandGradient)" stroke="#6366F1" strokeWidth="2"/>
-                    <text x="200" y="358" textAnchor="middle" className="fill-white font-bold text-xs">Your Brand</text>
-                    
-                    {/* Arrow pointing up to AI */}
-                    <path d="M 200 340 L 200 260" stroke="#10B981" strokeWidth="3" fill="none" markerEnd="url(#arrowhead)"/>
-                    
-                    {/* Gradients */}
-                    <defs>
-                      <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#4F46E5"/>
-                        <stop offset="100%" stopColor="#7C3AED"/>
-                      </linearGradient>
-                      <linearGradient id="chatgptGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#10B981"/>
-                        <stop offset="100%" stopColor="#059669"/>
-                      </linearGradient>
-                      <linearGradient id="geminiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#3B82F6"/>
-                        <stop offset="100%" stopColor="#1D4ED8"/>
-                      </linearGradient>
-                      <linearGradient id="perplexityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#8B5CF6"/>
-                        <stop offset="100%" stopColor="#7C3AED"/>
-                      </linearGradient>
-                      <linearGradient id="claudeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#F59E0B"/>
-                        <stop offset="100%" stopColor="#D97706"/>
-                      </linearGradient>
-                      <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#6366F1"/>
-                        <stop offset="100%" stopColor="#4F46E5"/>
-                      </linearGradient>
-                      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                        <polygon points="0 0, 10 3.5, 0 7" fill="#10B981"/>
-                      </marker>
-                    </defs>
+              <div className="relative p-8">
+                {/* Main Report/Playbook */}
+                <div className="relative bg-gradient-to-br from-blue-600 to-violet-600 rounded-xl shadow-2xl p-8 transform rotate-6 hover:rotate-3 transition-transform duration-300">
+                  <div className="text-white">
+                    <div className="text-xs uppercase tracking-wider opacity-90 mb-2">Strategic Guide 2025</div>
+                    <h3 className="text-2xl font-bold mb-4 leading-tight">The GEO Playbook</h3>
+                    <div className="space-y-2 text-sm opacity-90">
+                      <p>Discover how generative engines like</p>
+                      <p>ChatGPT and Gemini are changing</p>
+                      <p>search and what your brand needs</p>
+                      <p>to do to stay visible.</p>
+                    </div>
+                    <div className="mt-6 pt-4 border-t border-white/20">
+                      <div className="text-xs">by GeoRankers Team</div>
+                    </div>
+                  </div>
+                  
+                  {/* Small decorative chart */}
+                  <div className="absolute bottom-4 right-4 w-16 h-12 bg-white/20 rounded backdrop-blur-sm">
+                    <div className="p-2 h-full flex items-end justify-between">
+                      <div className="w-2 bg-white/60 rounded-t" style={{height: '40%'}}></div>
+                      <div className="w-2 bg-white/80 rounded-t" style={{height: '70%'}}></div>
+                      <div className="w-2 bg-white/90 rounded-t" style={{height: '90%'}}></div>
+                      <div className="w-2 bg-white rounded-t" style={{height: '60%'}}></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Secondary Document - Analytics Report */}
+                <div className="absolute top-4 right-0 bg-white rounded-lg shadow-xl p-4 transform -rotate-3 hover:rotate-0 transition-transform duration-300 w-48 border border-gray-200">
+                  <div className="text-xs text-gray-500 mb-2">AI Search Analytics</div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">ChatGPT</span>
+                      <span className="font-semibold text-green-600">+40%</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Gemini</span>
+                      <span className="font-semibold text-blue-600">+35%</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Perplexity</span>
+                      <span className="font-semibold text-purple-600">+28%</span>
+                    </div>
+                  </div>
+                  <div className="mt-3 h-2 bg-gray-100 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-green-400 to-blue-500 rounded-full" style={{width: '65%'}}></div>
+                  </div>
+                </div>
+
+                {/* Third Document - Strategy Overview */}
+                <div className="absolute bottom-0 left-4 bg-white rounded-lg shadow-lg p-3 transform rotate-12 hover:rotate-6 transition-transform duration-300 w-40 border border-gray-200">
+                  <div className="text-xs text-gray-500 mb-2">Key Strategies</div>
+                  <div className="space-y-1 text-xs text-gray-700">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+                      <span>Multi-platform presence</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                      <span>Content optimization</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mr-2"></div>
+                      <span>Community engagement</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Icons */}
+                <div className="absolute top-8 left-8 w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center shadow-lg">
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
                   </svg>
                 </div>
-                
-                {/* Floating Elements */}
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
-                <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-violet-500 rounded-full opacity-20 animate-pulse"></div>
-                <div className="absolute top-8 -right-2 w-8 h-8 bg-green-500 rounded-full opacity-30 animate-pulse"></div>
+
+                <div className="absolute top-16 right-12 w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+
+                <div className="absolute bottom-12 right-8 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg border border-gray-200">
+                  <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
