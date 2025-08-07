@@ -641,7 +641,7 @@ export default function GeoGuide() {
             <h3 className="text-2xl font-bold text-gray-900 mb-4">AI Search Adoption Is Soaring</h3>
             
             <p className="mb-6">
-              The adoption curve of AI powered search looks steep. Based on research reports (Source):
+              The adoption curve of AI powered search looks steep. Based on research reports (<a href="https://www.statista.com/outlook/tmo/software/artificial-intelligence/generative-ai/united-states" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Source</a>):
             </p>
             
             <ul className="mb-6 space-y-2">
@@ -650,7 +650,7 @@ export default function GeoGuide() {
             </ul>
 
             <p className="mb-6">
-              Generational differences are also notable. Survey data (Source) shows that about 31% of Gen Z search activity already occurs on AI platforms. Younger users see AI assistants as a natural way to ask for help. As these users move into decision making roles, AI search will become a default.
+              Generational differences are also notable. Survey data (<a href="https://blog.google/technology/ai/generative-ai-search-generation/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Source</a>) shows that about 31% of Gen Z search activity already occurs on AI platforms. Younger users see AI assistants as a natural way to ask for help. As these users move into decision making roles, AI search will become a default.
             </p>
 
             <p className="mb-6">
@@ -672,7 +672,7 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              Zero click searches - queries that end without a user clicking any result are on the rise. SparkToro's analysis found that roughly 60% of all Google searches now end without a click (Source).
+              Zero click searches - queries that end without a user clicking any result are on the rise. SparkToro's analysis found that roughly 60% of all Google searches now end without a click (<a href="https://sparktoro.com/blog/in-2024-zero-click-searches-have-reached-nearly-60-on-google/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Source</a>).
             </p>
 
             <p className="mb-6">
@@ -698,7 +698,7 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              A 2024 survey by Pew found that 28% of U.S. adults do not trust AI generated search results (Source). At the same time 63% of the people feel underwhelmed or unaware of AI search features (Source).
+              A 2024 survey by Pew found that 28% of U.S. adults do not trust AI generated search results (<a href="https://www.pewresearch.org/short-reads/2024/07/17/americans-have-a-complicated-relationship-with-ai-in-search/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Source</a>). At the same time 63% of the people feel underwhelmed or unaware of AI search features (<a href="https://www.pewresearch.org/short-reads/2024/07/17/americans-have-a-complicated-relationship-with-ai-in-search/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Source</a>).
             </p>
 
             <p className="mb-6">
@@ -708,7 +708,7 @@ export default function GeoGuide() {
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Budgets Are Shifting</h3>
             
             <p className="mb-6">
-              Gartner predicts that by 2026 overall spending on search marketing will decline by about a quarter as budgets shift toward AI driven platforms (Source). Meanwhile the AI content marketing industry is projected to grow from 2.4 billion dollars in 2023 to 17.6 billion dollars by 2033 (Source). In other words, money is moving in the direction of generative technologies.
+              Gartner predicts that by 2026 overall spending on search marketing will decline by about a quarter as budgets shift toward AI driven platforms (<a href="https://www.gartner.com/en/newsroom/press-releases/2024-02-19-gartner-predicts-search-engine-volume-will-drop-25-percent-by-2026-due-to-ai-chatbots-and-other-virtual-agents" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Source</a>). Meanwhile the AI content marketing industry is projected to grow from 2.4 billion dollars in 2023 to 17.6 billion dollars by 2033 (<a href="https://www.marketsandmarkets.com/Market-Reports/ai-content-generation-market-189883242.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Source</a>). In other words, money is moving in the direction of generative technologies.
             </p>
 
             <p className="mb-6">
@@ -960,7 +960,7 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              Structured data and accessible site architecture benefit both search crawlers and AI models. The research by Princeton and others shows that including statistics and quotes not only helps with GEO but also improves user trust in general (Source).
+              Structured data and accessible site architecture benefit both search crawlers and AI models. The research by Princeton and others shows that including statistics and quotes not only helps with GEO but also improves user trust in general (<a href="https://arxiv.org/abs/2401.06800" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Source</a>).
             </p>
 
             <p className="mb-6">
@@ -987,7 +987,7 @@ export default function GeoGuide() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Develop Authoritative Content With Verifiable Data</h3>
             
             <p className="mb-6">
-              Generative models favour content that contains facts they can corroborate. When you publish a blog post, white paper or case study, include data points and statistics from reputable sources. For example, if you claim that AI content marketing will grow to 17.6 billion dollars by 2033, link to the research behind that estimate - like this - (Source) as each citation acts as a signal to the model that your content is trustworthy.
+              Generative models favour content that contains facts they can corroborate. When you publish a blog post, white paper or case study, include data points and statistics from reputable sources. For example, if you claim that AI content marketing will grow to 17.6 billion dollars by 2033, link to the research behind that estimate - like this - (<a href="https://www.marketsandmarkets.com/Market-Reports/ai-content-generation-market-189883242.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Source</a>) as each citation acts as a signal to the model that your content is trustworthy.
             </p>
 
             <p className="mb-6">
@@ -1189,7 +1189,7 @@ export default function GeoGuide() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Citation Accuracy and Intellectual Property</h3>
             
             <p className="mb-6">
-              Research shows that RAG systems produce correct citations about 74% of the time (Source). In other words, roughly one quarter of the time the citation is wrong or incomplete.
+              Research shows that RAG systems produce correct citations about 74% of the time (<a href="https://arxiv.org/abs/2502.00649" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Source</a>). In other words, roughly one quarter of the time the citation is wrong or incomplete.
             </p>
 
             <p className="mb-6">
@@ -1199,7 +1199,7 @@ export default function GeoGuide() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Bias and Representation</h3>
             
             <p className="mb-6">
-              The 2025 study of AI search citations found that only about 9% of citations came from news sources (Source). This means that models may amplify viewpoints from niche communities while underrepresenting mainstream journalism. The same study observed a mild liberal bias in citation distribution, though this did not significantly affect user satisfaction.
+              The 2025 study of AI search citations found that only about 9% of citations came from news sources (<a href="https://arxiv.org/abs/2501.02936" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Source</a>). This means that models may amplify viewpoints from niche communities while underrepresenting mainstream journalism. The same study observed a mild liberal bias in citation distribution, though this did not significantly affect user satisfaction.
             </p>
 
             <p className="mb-6">
