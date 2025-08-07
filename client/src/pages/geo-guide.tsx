@@ -174,7 +174,57 @@ export default function GeoGuide() {
       </section>
 
       {/* Guide Content */}
-      <main className="max-w-4xl mx-auto px-6 py-16">
+      <main className="flex max-w-7xl mx-auto px-6 py-16 gap-8">
+        {/* Table of Contents */}
+        <aside className="w-64 flex-shrink-0 sticky top-16 h-fit">
+          <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Table of Contents</h3>
+            <nav className="space-y-2">
+              <a href="#search-evolution" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                The Long Road to AI
+              </a>
+              <a href="#what-is-geo" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                What Exactly Is GEO?
+              </a>
+              <a href="#key-components" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                Key Components of GEO
+              </a>
+              <a href="#why-geo-matters" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                Why GEO Matters for B2B SaaS
+              </a>
+              <a href="#how-engines-work" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                How Generative Engines Work
+              </a>
+              <a href="#zero-click-search" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                The Rise of Zero Click Search
+              </a>
+              <a href="#geo-vs-seo" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                GEO vs SEO
+              </a>
+              <a href="#best-practices" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                Best Practices for GEO
+              </a>
+              <a href="#measuring-success" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                Measuring Success
+              </a>
+              <a href="#challenges" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                Challenges & Ethics
+              </a>
+              <a href="#future-search" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                The Future of Search
+              </a>
+              <a href="#audit-strategy" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                Step by Step Audit
+              </a>
+              <a href="#organizational-impact" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                Organizational Impact
+              </a>
+            </nav>
+          </div>
+        </aside>
+
+        {/* Content */}
+        <div className="flex-1 max-w-4xl">
         <article className="prose prose-lg max-w-none">
           {/* Introduction */}
           <section className="mb-12">
@@ -198,9 +248,9 @@ export default function GeoGuide() {
               The user behaviour is already here:
             </p>
             <ul className="mb-8 space-y-2">
-              <li>• 300 million weekly active users on ChatGPT as of early 2025</li>
-              <li>• Perplexity and Gemini gaining traction as research and discovery tools</li>
-              <li>• In the US, generative AI search adoption is projected to grow from 13 million in 2023 to 90 million by 2027</li>
+              <li>300 million weekly active users on ChatGPT as of early 2025</li>
+              <li>Perplexity and Gemini gaining traction as research and discovery tools</li>
+              <li>In the US, generative AI search adoption is projected to grow from 13 million in 2023 to 90 million by 2027</li>
             </ul>
 
             <p className="mb-6">
@@ -215,9 +265,9 @@ export default function GeoGuide() {
               In this guide you will find:
             </p>
             <ul className="mb-8 space-y-2">
-              <li>• Practical strategies grounded in how LLMs actually generate answers</li>
-              <li>• Insights from real-world examples, user queries, and platform behaviour</li>
-              <li>• Data-backed context to distinguish trend from transformation</li>
+              <li>Practical strategies grounded in how LLMs actually generate answers</li>
+              <li>Insights from real-world examples, user queries, and platform behaviour</li>
+              <li>Data-backed context to distinguish trend from transformation</li>
             </ul>
 
             <p className="text-lg font-medium text-gray-900 mb-8">
@@ -230,7 +280,7 @@ export default function GeoGuide() {
           </section>
 
           {/* Section 1: The Long Road to AI */}
-          <section className="mb-12">
+          <section id="search-evolution" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">The Long Road to AI: How Search Evolved</h2>
             
             <p className="mb-6">
@@ -287,7 +337,7 @@ export default function GeoGuide() {
           </section>
 
           {/* Section 2: What Exactly Is GEO? */}
-          <section className="mb-12">
+          <section id="what-is-geo" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">What Exactly Is GEO?</h2>
             
             <p className="mb-6">
@@ -326,7 +376,7 @@ export default function GeoGuide() {
           </section>
 
           {/* Section 3: Key Components of GEO */}
-          <section className="mb-12">
+          <section id="key-components" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Components of GEO</h2>
             
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Verifiable Statements and Statistics</h3>
@@ -365,7 +415,7 @@ export default function GeoGuide() {
           </section>
 
           {/* Section 4: Why GEO Matters for B2B SaaS */}
-          <section className="mb-12">
+          <section id="why-geo-matters" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Why GEO Matters for B2B SaaS in 2025 and Beyond</h2>
             
             <p className="mb-6">
@@ -379,8 +429,8 @@ export default function GeoGuide() {
             </p>
             
             <ul className="mb-6 space-y-2">
-              <li>• In 2023 around thirteen million American adults used AI tools for search</li>
-              <li>• Market analysts predict that this number will rise to ninety million by 2027. That is a near sevenfold increase in four years.</li>
+              <li>In 2023 around thirteen million American adults used AI tools for search</li>
+              <li>Market analysts predict that this number will rise to ninety million by 2027. That is a near sevenfold increase in four years.</li>
             </ul>
 
             <p className="mb-6">
@@ -445,7 +495,7 @@ export default function GeoGuide() {
           </section>
 
           {/* Section 5: How Generative Engines Work */}
-          <section className="mb-12">
+          <section id="how-engines-work" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">How Generative Engines Work</h2>
             
             <p className="mb-6">
@@ -541,7 +591,7 @@ export default function GeoGuide() {
           </section>
 
           {/* Section 6: The Rise of Zero Click Search */}
-          <section className="mb-12">
+          <section id="zero-click-search" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">The Rise of Zero Click Search</h2>
             
             <p className="mb-6">
@@ -608,7 +658,7 @@ export default function GeoGuide() {
           </section>
 
           {/* Section 7: GEO vs SEO */}
-          <section className="mb-12">
+          <section id="geo-vs-seo" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">GEO vs SEO: Differences, Overlaps and Synergies</h2>
             
             <p className="mb-6">
@@ -673,7 +723,7 @@ export default function GeoGuide() {
           </section>
 
           {/* Section 8: Best Practices for GEO */}
-          <section className="mb-12">
+          <section id="best-practices" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Best Practices for GEO in B2B and SaaS Markets</h2>
             
             <p className="mb-6">
@@ -714,10 +764,10 @@ export default function GeoGuide() {
               Use schema markup to give structured information about your business and product:
             </p>
             <ul className="mb-6 space-y-2 ml-6">
-              <li>• Use the Product schema to talk about prices, features, and reviews.</li>
-              <li>• Use the FAQ schema to group questions and answers.</li>
-              <li>• Give a sitemap that shows all the important pages.</li>
-              <li>• Use formats that are easy to read, like HTML, and don't embed important text inside images.</li>
+              <li>Use the Product schema to talk about prices, features, and reviews.</li>
+              <li>Use the FAQ schema to group questions and answers.</li>
+              <li>Give a sitemap that shows all the important pages.</li>
+              <li>Use formats that are easy to read, like HTML, and don't embed important text inside images.</li>
             </ul>
 
             <p className="mb-6">
@@ -832,7 +882,7 @@ export default function GeoGuide() {
           </section>
 
           {/* Section 9: Measuring Success */}
-          <section className="mb-12">
+          <section id="measuring-success" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Measuring Success: Metrics and Tools</h2>
             
             <p className="mb-6">
@@ -879,7 +929,7 @@ export default function GeoGuide() {
           </section>
 
           {/* Section 10: Challenges and Ethical Considerations */}
-          <section className="mb-12">
+          <section id="challenges" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Challenges and Ethical Considerations</h2>
             
             <p className="mb-6">
@@ -942,7 +992,7 @@ export default function GeoGuide() {
           </section>
 
           {/* Section 11: The Future of Search and Marketing */}
-          <section className="mb-12">
+          <section id="future-search" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">The Future of Search and Marketing</h2>
             
             <p className="mb-6">
@@ -1005,7 +1055,7 @@ export default function GeoGuide() {
           </section>
 
           {/* Section 12: Step by Step GEO Audit and Strategy */}
-          <section className="mb-12">
+          <section id="audit-strategy" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Step by Step GEO Audit and Strategy</h2>
             
             <p className="mb-6">
@@ -1041,7 +1091,7 @@ export default function GeoGuide() {
           </section>
 
           {/* Section 13: Organisational Impact */}
-          <section className="mb-12">
+          <section id="organizational-impact" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Organisational Impact: Building a GEO Ready Team</h2>
             
             <p className="mb-6">
@@ -1111,6 +1161,7 @@ export default function GeoGuide() {
             </Button>
           </section>
         </article>
+        </div>
       </main>
     </div>
   );
