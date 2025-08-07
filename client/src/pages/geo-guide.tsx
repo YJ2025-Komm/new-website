@@ -176,48 +176,48 @@ export default function GeoGuide() {
       {/* Guide Content */}
       <main className="flex max-w-7xl mx-auto px-6 py-16 gap-8">
         {/* Table of Contents */}
-        <aside className="w-64 flex-shrink-0 sticky top-16 h-fit">
-          <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Table of Contents</h3>
-            <nav className="space-y-2">
-              <a href="#search-evolution" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                The Long Road to AI
+        <aside className="w-72 flex-shrink-0 sticky top-16 h-fit">
+          <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+            <h3 className="text-xl font-bold text-gray-900 mb-6">Table of Contents</h3>
+            <nav className="space-y-1">
+              <a href="#search-evolution" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
+                <span className="text-base font-medium">The Long Road to AI</span>
               </a>
-              <a href="#what-is-geo" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                What Exactly Is GEO?
+              <a href="#what-is-geo" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
+                <span className="text-base font-medium">What Exactly Is GEO?</span>
               </a>
-              <a href="#key-components" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                Key Components of GEO
+              <a href="#key-components" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
+                <span className="text-base font-medium">Key Components of GEO</span>
               </a>
-              <a href="#why-geo-matters" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                Why GEO Matters for B2B SaaS
+              <a href="#why-geo-matters" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
+                <span className="text-base font-medium">Why GEO Matters for B2B SaaS</span>
               </a>
-              <a href="#how-engines-work" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                How Generative Engines Work
+              <a href="#how-engines-work" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
+                <span className="text-base font-medium">How Generative Engines Work</span>
               </a>
-              <a href="#zero-click-search" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                The Rise of Zero Click Search
+              <a href="#zero-click-search" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
+                <span className="text-base font-medium">The Rise of Zero Click Search</span>
               </a>
-              <a href="#geo-vs-seo" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                GEO vs SEO
+              <a href="#geo-vs-seo" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
+                <span className="text-base font-medium">GEO vs SEO</span>
               </a>
-              <a href="#best-practices" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                Best Practices for GEO
+              <a href="#best-practices" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
+                <span className="text-base font-medium">Best Practices for GEO</span>
               </a>
-              <a href="#measuring-success" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                Measuring Success
+              <a href="#measuring-success" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
+                <span className="text-base font-medium">Measuring Success</span>
               </a>
-              <a href="#challenges" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                Challenges & Ethics
+              <a href="#challenges" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
+                <span className="text-base font-medium">Challenges & Ethics</span>
               </a>
-              <a href="#future-search" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                The Future of Search
+              <a href="#future-search" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
+                <span className="text-base font-medium">The Future of Search</span>
               </a>
-              <a href="#audit-strategy" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                Step by Step Audit
+              <a href="#audit-strategy" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
+                <span className="text-base font-medium">Step by Step Audit</span>
               </a>
-              <a href="#organizational-impact" className="block text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                Organizational Impact
+              <a href="#organizational-impact" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
+                <span className="text-base font-medium">Organizational Impact</span>
               </a>
             </nav>
           </div>
