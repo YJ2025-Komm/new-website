@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Share } from "lucide-react";
+import aiAdoptionChart from "@assets/Image 1_1754564817867.png";
 
 export default function GeoGuide() {
   const [activeSection, setActiveSection] = useState('');
@@ -16,7 +17,7 @@ export default function GeoGuide() {
 
     // Set up intersection observer for active section highlighting
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries: IntersectionObserverEntry[]) => {
         // Find the entry with the largest intersection ratio
         let bestEntry: IntersectionObserverEntry | null = null;
         let bestRatio = 0;
@@ -527,7 +528,7 @@ export default function GeoGuide() {
 
             <div className="mb-8 flex justify-center">
               <img 
-                src="/attached_assets/Image 1_1754564817867.png" 
+                src={aiAdoptionChart}
                 alt="Estimated Adoption of AI Search Among U.S. Adults (Millions) - A line graph showing growth from 13 million users in 2023 to projected 90 million users by 2027"
                 className="max-w-full h-auto rounded-lg shadow-md border border-gray-200"
               />
