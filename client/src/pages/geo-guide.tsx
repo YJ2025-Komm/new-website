@@ -18,7 +18,7 @@ export default function GeoGuide() {
     const observer = new IntersectionObserver(
       (entries) => {
         // Find the entry with the largest intersection ratio
-        let bestEntry = null;
+        let bestEntry: IntersectionObserverEntry | null = null;
         let bestRatio = 0;
         
         entries.forEach((entry) => {
@@ -208,100 +208,107 @@ export default function GeoGuide() {
       {/* Guide Content */}
       <main className="flex max-w-7xl mx-auto px-6 py-16 gap-8">
         {/* Table of Contents */}
-        <aside className="w-72 flex-shrink-0 sticky top-16 h-fit max-h-[calc(100vh-5rem)] overflow-y-auto">
-          <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Table of Contents</h3>
-            <nav className="space-y-0.5">
-              <a href="#search-evolution" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+        <aside className="w-64 flex-shrink-0 sticky top-16 h-fit max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <div className="bg-white rounded-xl p-3 border border-gray-200 shadow-sm">
+            <h3 className="text-base font-bold text-gray-900 mb-3">Table of Contents</h3>
+            <nav className="space-y-0">
+              <a href="#search-evolution" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'search-evolution' 
-                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">The Long Road to AI</span>
+                <span className="text-xs font-medium">The Long Road to AI</span>
               </a>
-              <a href="#what-is-geo" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+              <a href="#what-is-geo" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'what-is-geo' 
-                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">What Exactly Is GEO?</span>
+                <span className="text-xs font-medium">What Exactly Is GEO?</span>
               </a>
-              <a href="#key-components" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+              <a href="#key-components" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'key-components' 
-                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">Key Components of GEO</span>
+                <span className="text-xs font-medium">Key Components</span>
               </a>
-              <a href="#why-geo-matters" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+              <a href="#why-geo-matters" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'why-geo-matters' 
-                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">Why Does GEO Matter for B2B SaaS?</span>
+                <span className="text-xs font-medium">Why GEO Matters?</span>
               </a>
-              <a href="#how-engines-work" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+              <a href="#how-engines-work" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'how-engines-work' 
-                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">How Do Generative Engines Work?</span>
+                <span className="text-xs font-medium">How Engines Work?</span>
               </a>
-              <a href="#zero-click-search" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+              <a href="#zero-click-search" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'zero-click-search' 
-                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">The Rise of Zero Click Search</span>
+                <span className="text-xs font-medium">Zero Click Search</span>
               </a>
-              <a href="#geo-vs-seo" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+              <a href="#geo-vs-seo" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'geo-vs-seo' 
-                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">GEO vs SEO</span>
+                <span className="text-xs font-medium">GEO vs SEO</span>
               </a>
-              <a href="#best-practices" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+              <a href="#best-practices" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'best-practices' 
-                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">Best Practices for GEO</span>
+                <span className="text-xs font-medium">Best Practices</span>
               </a>
-              <a href="#measuring-success" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+              <a href="#measuring-success" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'measuring-success' 
-                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">Measuring Success</span>
+                <span className="text-xs font-medium">Measuring Success</span>
               </a>
-              <a href="#challenges" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+              <a href="#challenges" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'challenges' 
-                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">Challenges & Ethics</span>
+                <span className="text-xs font-medium">Challenges & Ethics</span>
               </a>
-              <a href="#future-search" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+              <a href="#future-search" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'future-search' 
-                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">The Future of Search</span>
+                <span className="text-xs font-medium">Future of Search</span>
               </a>
-              <a href="#audit-strategy" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+              <a href="#audit-strategy" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'audit-strategy' 
-                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">Step by Step Audit</span>
+                <span className="text-xs font-medium">Step by Step Audit</span>
               </a>
-              <a href="#organizational-impact" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+              <a href="#organizational-impact" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'organizational-impact' 
-                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">Organizational Impact</span>
+                <span className="text-xs font-medium">Team Building</span>
+              </a>
+              <a href="#conclusion" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
+                activeSection === 'conclusion' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1' 
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-xs font-medium">Conclusion</span>
               </a>
             </nav>
           </div>
@@ -1209,7 +1216,7 @@ export default function GeoGuide() {
           </section>
 
           {/* Conclusion */}
-          <section className="mb-12">
+          <section id="conclusion" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
             
             <p className="mb-6">
