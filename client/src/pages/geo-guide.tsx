@@ -641,7 +641,7 @@ export default function GeoGuide() {
             <h3 className="text-2xl font-bold text-gray-900 mb-4">AI Search Adoption Is Soaring</h3>
             
             <p className="mb-6">
-              The adoption curve of AI powered search looks steep. Based on research reports:
+              The adoption curve of AI powered search looks steep. Based on research reports (Source):
             </p>
             
             <ul className="mb-6 space-y-2">
@@ -650,7 +650,7 @@ export default function GeoGuide() {
             </ul>
 
             <p className="mb-6">
-              Generational differences are also notable. Survey data shows that about 31% of Gen Z search activity already occurs on AI platforms. Younger users see AI assistants as a natural way to ask for help. As these users move into decision making roles, AI search will become a default.
+              Generational differences are also notable. Survey data (Source) shows that about 31% of Gen Z search activity already occurs on AI platforms. Younger users see AI assistants as a natural way to ask for help. As these users move into decision making roles, AI search will become a default.
             </p>
 
             <p className="mb-6">
@@ -708,7 +708,7 @@ export default function GeoGuide() {
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Budgets Are Shifting</h3>
             
             <p className="mb-6">
-              Gartner predicts that by 2026 overall spending on search marketing will decline by about a quarter as budgets shift toward AI driven platforms. Meanwhile the AI content marketing industry is projected to grow from 2.4 billion dollars in 2023 to 17.6 billion dollars by 2033. In other words, money is moving in the direction of generative technologies.
+              Gartner predicts that by 2026 overall spending on search marketing will decline by about a quarter as budgets shift toward AI driven platforms (Source). Meanwhile the AI content marketing industry is projected to grow from 2.4 billion dollars in 2023 to 17.6 billion dollars by 2033 (Source). In other words, money is moving in the direction of generative technologies.
             </p>
 
             <p className="mb-6">
@@ -960,7 +960,7 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              Structured data and accessible site architecture benefit both search crawlers and AI models. The research by Princeton and others shows that including statistics and quotes not only helps with GEO but also improves user trust in general.
+              Structured data and accessible site architecture benefit both search crawlers and AI models. The research by Princeton and others shows that including statistics and quotes not only helps with GEO but also improves user trust in general (Source).
             </p>
 
             <p className="mb-6">
@@ -987,7 +987,7 @@ export default function GeoGuide() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Develop Authoritative Content With Verifiable Data</h3>
             
             <p className="mb-6">
-              Generative models favour content that contains facts they can corroborate. When you publish a blog post, white paper or case study, include data points and statistics from reputable sources. For example, if you claim that AI content marketing will grow to 17.6 billion dollars by 2033, link to the research behind that estimate as each citation acts as a signal to the model that your content is trustworthy.
+              Generative models favour content that contains facts they can corroborate. When you publish a blog post, white paper or case study, include data points and statistics from reputable sources. For example, if you claim that AI content marketing will grow to 17.6 billion dollars by 2033, link to the research behind that estimate - like this - (Source) as each citation acts as a signal to the model that your content is trustworthy.
             </p>
 
             <p className="mb-6">
@@ -1189,7 +1189,7 @@ export default function GeoGuide() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Citation Accuracy and Intellectual Property</h3>
             
             <p className="mb-6">
-              Research shows that RAG systems produce correct citations about 74% of the time. In other words, roughly one quarter of the time the citation is wrong or incomplete.
+              Research shows that RAG systems produce correct citations about 74% of the time (Source). In other words, roughly one quarter of the time the citation is wrong or incomplete.
             </p>
 
             <p className="mb-6">
@@ -1199,7 +1199,7 @@ export default function GeoGuide() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Bias and Representation</h3>
             
             <p className="mb-6">
-              The 2025 study of AI search citations found that only about 9% of citations came from news sources. This means that models may amplify viewpoints from niche communities while underrepresenting mainstream journalism. The same study observed a mild liberal bias in citation distribution, though this did not significantly affect user satisfaction.
+              The 2025 study of AI search citations found that only about 9% of citations came from news sources (Source). This means that models may amplify viewpoints from niche communities while underrepresenting mainstream journalism. The same study observed a mild liberal bias in citation distribution, though this did not significantly affect user satisfaction.
             </p>
 
             <p className="mb-6">
