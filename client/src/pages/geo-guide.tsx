@@ -444,11 +444,666 @@ export default function GeoGuide() {
             </p>
           </section>
 
+          {/* Section 5: How Generative Engines Work */}
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">How Generative Engines Work</h2>
+            
+            <p className="mb-6">
+              To optimise for generative engines you need to understand how they construct answers. While proprietary models like those from OpenAI and Google do not disclose all details, we can outline the common architecture and behaviours. This knowledge will inform your GEO strategy.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Training and Fine Tuning</h3>
+            
+            <p className="mb-6">
+              Large language models (LLMs) are trained on massive corpora of text - books, articles, websites, forums and more. Models like GPT-3.5 and GPT-4 have parameter counts in the hundreds of billions. Their initial training provides a broad base of knowledge but is not continuously updated.
+            </p>
+
+            <p className="mb-6">
+              For example, ChatGPT free in early 2024 had a knowledge cutoff in late 2023 and did not access live data. To stay current, providers rely on fine tuning (where a model is further trained on a specific domain) or on retrieval augmentation (where a model fetches recent documents during inference).
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Retrieval-Augmented Generation (RAG)</h3>
+            
+            <p className="mb-6">
+              Search augmented models like ChatGPT Plus, Gemini and Perplexity use RAG.
+            </p>
+
+            <p className="mb-6">
+              When a user asks a question, the system performs three steps:
+            </p>
+            <ol className="mb-6 space-y-2 ml-6">
+              <li>1. It retrieves relevant documents from a search index or database;</li>
+              <li>2. It selects the most useful passages; and</li>
+              <li>3. It feeds these passages to the language model, which uses them to generate a response.</li>
+            </ol>
+
+            <p className="mb-6">
+              This process combines the general knowledge of the base model with up to date information. It is crucial because it determines which sources get cited in the final answer. If your content is not present in the retrieval step, the model will not mention you regardless of your SEO ranking.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Citation Patterns and Biases</h3>
+            
+            <p className="mb-6">
+              A July 2025 study on AI search systems analysed over 24,000 conversations and more than 65,000 responses. It found that only about 9% of citations came from news outlets and that citations were concentrated in a small number of sources.
+            </p>
+
+            <p className="mb-6">
+              In other words, generative engines tend to draw from a narrow set of domains - often forums, Q&A sites and popular blogs rather than the broad diversity of the web. The study also observed a slight liberal bias in the citation distribution, although this did not significantly affect user satisfaction. For brands though, the implication is clear: you need to show up on the platforms that models prefer.
+            </p>
+
+            <p className="mb-6">
+              Another issue is citation accuracy.
+            </p>
+
+            <p className="mb-6">
+              A 2025 paper examined retrieval augmented generation (RAG) systems and found that only about 74% of generated citations were accurate. Inaccurate citations can misattribute your content or fail to represent your position. The paper proposed a post processing technique called CiteFix that improved citation accuracy by around 15%.
+            </p>
+
+            <p className="mb-6">
+              While this research focuses on improving models, it underscores why brands must monitor how they are referenced. Misrepresentation can occur, and you may need to correct it.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Hallucinations and Context Windows</h3>
+            
+            <p className="mb-6">
+              Generative models sometimes hallucinate, meaning they produce information that is plausible sounding but false.
+            </p>
+
+            <p className="mb-6">
+              Hallucinations happen when a model lacks sufficient context or when the training data contains errors. Models also have limited context windows, which restrict the amount of text they can process at once. When summarising long documents, they may miss important nuances.
+            </p>
+
+            <p className="mb-6">
+              These factors make it crucial to provide clear and concise information up front. If you bury key facts deep in a page or across multiple posts, the model may not see them.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Static Versus Search Augmented Models</h3>
+            
+            <p className="mb-6">
+              It is important to understand that not all AI assistants behave the same.
+            </p>
+
+            <p className="mb-6">
+              Static models, such as the free version of ChatGPT and some enterprise assistants, rely solely on their training data. They have fixed knowledge cutoffs and cannot access new information.
+            </p>
+
+            <p className="mb-6">
+              Search augmented models, like ChatGPT Plus, Gemini and Perplexity, combine a pre trained model with a live search component. They can pull in current data, and they typically provide citations and links in their answers. When you optimise for GEO you need to be aware of which model your audience uses.
+            </p>
+
+            <p className="mb-6">
+              Strategies that work for static models (e.g., making sure your content is included in training sets through open licenses) may differ from those needed for search augmented models (e.g., focusing on live citations from forums and review sites).
+            </p>
+
+            <p className="mb-6">
+              Understanding these mechanics helps you see why GEO requires a broader perspective than SEO. You are not just optimising for a crawler - you are influencing both the training data that shapes a model's knowledge and the retrieval mechanisms that supply fresh information at inference time.
+            </p>
+          </section>
+
+          {/* Section 6: The Rise of Zero Click Search */}
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">The Rise of Zero Click Search</h2>
+            
+            <p className="mb-6">
+              One of the most immediate consequences of generative search is the reduction in clicks. For years SEO specialists fought for top spots on results pages because they knew that users would click on the first few links.
+            </p>
+
+            <p className="mb-6">
+              But what happens when the answer appears directly on the search page?
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Zero Click Explained</h3>
+            
+            <p className="mb-6">
+              A zero click search occurs when a user's query is answered without them clicking any links. Examples include weather summaries, definitions, currency conversions and now AI generated overviews.
+            </p>
+
+            <p className="mb-6">
+              In the aftermath of Google's March 2024 core update, AI overviews appeared in roughly 18% of U.S. searches. Ahrefs researchers found that AI summaries reduced click through rate by around 34%. For informational queries, AI overviews appear in about 58% of results.
+            </p>
+
+            <p className="mb-6">
+              What this all means is more than half of the time, the answer is displayed without users clicking any link.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">How Zero Click Affects B2B</h3>
+            
+            <p className="mb-6">
+              B2B searches often involve informational queries.
+            </p>
+
+            <p className="mb-6">
+              A product manager might ask - "What are the key features to look for in customer support software?"
+            </p>
+
+            <p className="mb-6">
+              If an AI overview provides a list of features and tools, the searcher may never click through to vendor pages. This does not mean that vendor content is irrelevant. On the contrary, the AI may have pulled the answer from vendor sites. But the traffic never reaches the source. Your brand's presence becomes invisible unless you are mentioned in the summary.
+            </p>
+
+            <p className="mb-6">
+              As a result, traditional metrics like organic traffic and bounce rate capture less of the story. You might see stable or declining traffic even if your content is being used more often. This disconnect can create false negatives. Without GEO awareness you might mistakenly cut successful content because it appears to be underperforming. Conversely, you might continue investing in pages that attract clicks but never influence AI answers.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">A New Relationship With Google</h3>
+            
+            <p className="mb-6">
+              Zero click dynamics also complicate the relationship between publishers and search engines.
+            </p>
+
+            <p className="mb-6">
+              Publishers invest time and resources to create content. In the past they accepted that search engines would display snippets and links, driving at least some traffic back.
+            </p>
+
+            <p className="mb-6">
+              With AI overviews, the engine summarises and sometimes paraphrases content with limited attribution. This has led to debates about fair use, compensation and copyright.
+            </p>
+
+            <p className="mb-6">
+              Some media companies have sued AI providers for training on their content. Others have reached licensing agreements.
+            </p>
+
+            <p className="mb-6">
+              While this guide does not aim to resolve these legal issues, they form part of the broader context. Your GEO strategy should consider how open or closed you want your content to be.
+            </p>
+          </section>
+
+          {/* Section 7: GEO vs SEO */}
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">GEO vs SEO: Differences, Overlaps and Synergies</h2>
+            
+            <p className="mb-6">
+              Having explored the history of search, the mechanics of generative engines and the rise of zero click results, we are ready to directly compare GEO and SEO. Understanding where they differ and overlap will help you allocate resources effectively.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Differences in Goals and Platforms</h3>
+            
+            <p className="mb-6">
+              SEO focuses on improving your ranking in search engine results. The objective is to attract visitors to your site by appearing prominently when someone enters a relevant keyword.
+            </p>
+
+            <p className="mb-6">
+              GEO, on the other hand, focuses on ensuring that your brand is included in AI generated answers. The objective is to be cited and summarised by large language models when they respond to queries.
+            </p>
+
+            <p className="mb-6">
+              In SEO the platform is the search engine results page (Google, Bing). In GEO the platform includes AI chat interfaces (ChatGPT, Gemini), voice assistants, enterprise bots and any tool that uses a generative model.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Differences in Signals and Tactics</h3>
+            
+            <p className="mb-6">
+              SEO prioritises signals like keyword relevance, backlinks, domain authority, site speed, mobile friendliness and user behaviour. You create optimised title tags, meta descriptions, alt text and structured URLs. You pursue backlinks from reputable sites to increase your domain authority.
+            </p>
+
+            <p className="mb-6">
+              GEO prioritises signals like citation frequency, presence in training data, contextual relevance and verifiable information. You create content with clearly cited statistics, plant your brand in community discussions, and ensure consistent language across channels. You worry less about keyword density and more about being quotable.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Measurement Differences</h3>
+            
+            <p className="mb-6">
+              SEO success is measured with metrics such as impressions, clicks, click through rate, bounce rate, time on page and conversions.
+            </p>
+
+            <p className="mb-6">
+              While GEO success is measured by presence in AI answers, share of voice, quality and sentiment of mentions and alignment with your messaging. A high performing GEO piece might not generate many visits to your site but could strongly influence buyer perceptions through AI answers. Conversely, a high ranking SEO piece might drive traffic but never make it into a generative summary.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Complementary Roles</h3>
+            
+            <p className="mb-6">
+              Importantly, SEO and GEO are not mutually exclusive. They are complementary.
+            </p>
+
+            <p className="mb-6">
+              High ranking pages feed training data and retrieval systems making it more likely that generative engines will encounter your content.
+            </p>
+
+            <p className="mb-6">
+              Structured data and accessible site architecture benefit both search crawlers and AI models. The research by Princeton and others shows that including statistics and quotes not only helps with GEO but also improves user trust in general.
+            </p>
+
+            <p className="mb-6">
+              For B2B marketers, the key is to identify where the two strategies overlap and to build content that serves both human readers and AI summarisation.
+            </p>
+
+            <p className="mb-6">
+              Understanding these distinctions helps you allocate resources and shape expectations. If you only track SEO metrics you may conclude that certain content is underperforming. Adding GEO metrics will give you a fuller picture of how your brand is perceived in the AI powered search world.
+            </p>
+          </section>
+
+          {/* Section 8: Best Practices for GEO */}
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Best Practices for GEO in B2B and SaaS Markets</h2>
+            
+            <p className="mb-6">
+              There is no one size fits all formula for GEO because different AI systems and audiences behave differently. However, research and practitioner experience point to a set of practices that can significantly improve your visibility in generative search.
+            </p>
+
+            <p className="mb-6">
+              Below are detailed guidelines tailored for B2B SaaS organisations:
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">1. Develop Authoritative Content With Verifiable Data</h3>
+            
+            <p className="mb-6">
+              Generative models favour content that contains facts they can corroborate. When you publish a blog post, white paper or case study, include data points and statistics from reputable sources. For example, if you claim that AI content marketing will grow to 17.6 billion dollars by 2033, link to the research behind that estimate as each citation acts as a signal to the model that your content is trustworthy.
+            </p>
+
+            <p className="mb-6">
+              Use footnotes, hyperlinks or parenthetical citations to attribute your sources. Even though generative engines may not always carry hyperlinks forward, the presence of the citation in the text influences training data and retrieval.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">2. Create Summaries and FAQs for Easy Quoting</h3>
+            
+            <p className="mb-6">
+              AI models often take the first short definition or description they find.
+            </p>
+
+            <p className="mb-6">
+              So, at the top of a resource page or blog post, always write a short summary of your product, the problem it solves, and the solution it offers. Say something simple like, "Acme Analytics is a cloud-based platform that automates contract management for mid-sized SaaS companies." This way, if a model looks at the page, it will find a clear quote.
+            </p>
+
+            <p className="mb-6">
+              Also, add a FAQ section to the end of your articles that answers common questions in a friendly way. Models can see patterns in question and answer pairs and may use your FAQs directly when users ask similar questions.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">3. Use Structured Data and Open Formats</h3>
+            
+            <p className="mb-6">
+              Use schema markup to give structured information about your business and product:
+            </p>
+            <ul className="mb-6 space-y-2 ml-6">
+              <li>• Use the Product schema to talk about prices, features, and reviews.</li>
+              <li>• Use the FAQ schema to group questions and answers.</li>
+              <li>• Give a sitemap that shows all the important pages.</li>
+              <li>• Use formats that are easy to read, like HTML, and don't embed important text inside images.</li>
+            </ul>
+
+            <p className="mb-6">
+              And most importantly, don't put important product information behind sign-up walls. If you need to use gating, make sure to include a summary that covers the basics.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">4. Engage Authentically in Community Forums</h3>
+            
+            <p className="mb-6">
+              Generative engines get a lot of their ideas from community platforms. You can often find Reddit, Hacker News, Stack Overflow, Quora, G2, and Capterra in citations.
+            </p>
+
+            <p className="mb-6">
+              Get your marketing team, engineers, product managers, and customer success leads to join in on the conversations. Be honest when you answers and let people know who you work for, but only promote your solution if you are adding value.
+            </p>
+
+            <p className="mb-6">
+              Thank customers publicly if they write about your product, and ask them if you can share their feedback. Over time, you will build up a collection of endorsements from other people that models can see.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">5. Publish Research and Thought Leadership</h3>
+            
+            <p className="mb-6">
+              B2B buyers respect companies that produce original research.
+            </p>
+
+            <p className="mb-6">
+              Publish benchmark reports, industry surveys or data studies. Make your methodology clear and cite your sources as when other sites reference your research, you gain backlinks and citations and models trained on public data will pick up on these references.
+            </p>
+
+            <p className="mb-6">
+              For example, a white paper summarising the adoption of AI search in enterprise software might be cited by industry blogs, further increasing its reach.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">6. Align Messaging Across Channels</h3>
+            
+            <p className="mb-6">
+              People and machines both get confused by things that aren't consistent. An AI might not be able to put the pieces together if your homepage calls your solution "sales automation software," a press release calls it "customer engagement software," and your documentation calls it a "CRM plug-in."
+            </p>
+
+            <p className="mb-6">
+              Make sure that the way you talk about your product is the same on your website, in social media posts, in press releases, and in documentation. Make a list of words that you and your team like and share it with them. Consistent messaging makes it easier for models to associate different references to your brand.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">7. Keep an eye on AI Answers and Document Citations</h3>
+            
+            <p className="mb-6">
+              Make a list of questions that potential customers might ask at different points in the funnel, and then ask ChatGPT, Gemini, and Perplexity these questions.
+            </p>
+
+            <p className="mb-6">
+              Keep track of when and where your brand is mentioned, as well as the sources used, and see how things change over time. Be happy if you start showing up in places you didn't before, but also pay attention to how people talk about you.
+            </p>
+
+            <p className="mb-6">
+              Check if the description about your product is correct? Is it consistent with your positioning?
+            </p>
+
+            <p className="mb-6">
+              These observations will help you improve your content strategy.
+            </p>
+
+            <p className="mb-6">
+              A manual approach or custom scripts may be needed because mainstream SEO tools are still working on reliable AI visibility features.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">8. Ask for Reviews and Testimonials</h3>
+            
+            <p className="mb-6">
+              Models frequently reference review aggregators.
+            </p>
+
+            <p className="mb-6">
+              Ask your customers to leave detailed reviews on G2, Capterra or other relevant platforms and encourage them to describe specific use cases and benefits.
+            </p>
+
+            <p className="mb-6">
+              Be constructive when you respond to bad reviews - that shows you care about what your customers have to say and are willing to make changes. A lot of good, detailed reviews not only help potential buyers, but they also make it more likely that generative engines will recommend you as a tool.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">9. Use Stories and Analogies</h3>
+            
+            <p className="mb-6">
+              AI models learn from a wide range of texts, including stories and comparisons.
+            </p>
+
+            <p className="mb-6">
+              It's like this - AI search is more like a conversation with a group of people than a list of keywords. You are not in the room if no one talks about you. But when people talk about your work, your name comes up naturally, and AI pays attention.
+            </p>
+
+            <p className="mb-6">
+              That's why it is a good idea to use simple, easy-to-remember comparisons in your own writing. Models that have been trained on a lot of data from the web are more likely to bring up and repeat phrases that are easy to understand and share.
+            </p>
+
+            <p className="mb-6">
+              Don't use jargons. Say it in a way that both people and machines can understand.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">10. Iterate and Adapt</h3>
+            
+            <p className="mb-6">
+              Generative engines change quickly as models are updated, retrieval algorithms change, and users act differently.
+            </p>
+
+            <p className="mb-6">
+              So, GEO is not something you can just set and forget. You have to build feedback loops into your content process and continuously monitor how AI assistants respond to queries related to you.
+            </p>
+
+            <p className="mb-6">
+              If you are not appearing, tweak your summaries, add citations or engage in more community discussions. If you are appearing but the description is inaccurate, adjust your messaging on your website and in your documentation. In other words, treat GEO as an ongoing conversation with AI systems.
+            </p>
+          </section>
+
+          {/* Section 9: Measuring Success */}
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Measuring Success: Metrics and Tools</h2>
+            
+            <p className="mb-6">
+              You cannot manage what you do not measure. But GEO adds new metrics into the mix that traditional SEO dashboards don't show. Here are some ways to check how you are doing:
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Presence in AI Answers</h3>
+            
+            <p className="mb-6">
+              Keep an eye on whether your brand shows up in AI responses to important questions. You can make a spreadsheet of high-intent queries and keep track of whether or not your product is mentioned in ChatGPT, Gemini, Perplexity, and other assistants. Aim to improve both the frequency of mention and the quality of your description.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Citation Frequency and Quality</h3>
+            
+            <p className="mb-6">
+              Keep track of how many times AI responses mention your domain and which pages they link to. Some generative engines have links to sources.
+            </p>
+
+            <p className="mb-6">
+              For each mention, think about whether the page you want prospects to see is the one that was linked to. If not, make the page you linked to better or make a new resource. Also keep track of citations on community sites and blogs because they help the model find things.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Sentiment and Context of Mentions</h3>
+            
+            <p className="mb-6">
+              Analyse the tone of AI generated descriptions. Are you positioned positively? Are your strengths highlighted? If an AI mentions your product but emphasises a weakness or outdated information, take steps to update your content. Correct misconceptions in public posts and forums. You can also reach out to the communities where negative sentiments originate and provide clarifications.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Comparative Share of Voice</h3>
+            
+            <p className="mb-6">
+              Measure how often competitors are mentioned relative to you. If a rival appears in seventy per cent of AI answers while you appear in twenty per cent, you have work to do. Analyse what sources mention the competitor. Are they generating more buzz on Reddit? Are they publishing more research? Use these insights to adapt your strategy.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Tools and Dashboards</h3>
+            
+            <p className="mb-6">
+              As of mid-2025, there is no comprehensive off the shelf tool for GEO analytics. SEO platforms like Ahrefs and Semrush have launched beta features to track AI visibility, but they are still maturing.
+            </p>
+
+            <p className="mb-6">
+              Some startups offer monitoring services that query AI assistants on your behalf and produce reports. Until the ecosystem matures, manual and semi-automated methods may be required. You can build simple scripts using the public APIs of ChatGPT or Gemini to run regular queries and combine this with logging spreadsheets or dashboards to visualise trends. Use your existing analytics stack to correlate AI presence with other metrics like brand searches, direct traffic and conversions.
+            </p>
+          </section>
+
+          {/* Section 10: Challenges and Ethical Considerations */}
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Challenges and Ethical Considerations</h2>
+            
+            <p className="mb-6">
+              While GEO opens new avenues for visibility, it also raises complex issues. Understanding these challenges will help you develop a responsible strategy.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Citation Accuracy and Intellectual Property</h3>
+            
+            <p className="mb-6">
+              Research shows that RAG systems produce correct citations about 74% of the time. In other words, roughly one quarter of the time the citation is wrong or incomplete.
+            </p>
+
+            <p className="mb-6">
+              Models may attribute a statement to your domain when it originates elsewhere or may quote you out of context. This can be frustrating and even damaging if it misrepresents your product. There are also legal debates about whether AI companies can train models on copyrighted material without permission. Some publishers have sued AI providers, while others have struck licensing deals. As a brand, you should define your content licensing strategy. Decide whether to allow open reuse, to require attribution or to restrict certain sections.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Bias and Representation</h3>
+            
+            <p className="mb-6">
+              The 2025 study of AI search citations found that only about 9% of citations came from news sources. This means that models may amplify viewpoints from niche communities while underrepresenting mainstream journalism. The same study observed a mild liberal bias in citation distribution, though this did not significantly affect user satisfaction.
+            </p>
+
+            <p className="mb-6">
+              As a marketer you need to be aware that your industry might be underrepresented in the model's training data. Contribute to open knowledge bases, engage with diverse communities and publish accessible resources to help broaden the dataset.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Hallucination and Misinformation</h3>
+            
+            <p className="mb-6">
+              Generative models sometimes hallucinate and at times they might assert that your product integrates with a platform when it does not or claim that your service costs a figure it never did.
+            </p>
+
+            <p className="mb-6">
+              Such errors can mislead potential customers and damage trust. Hence, monitoring AI answers and correcting false information becomes part of your responsibility. Work with your communications team to issue clarifications publicly. Provide accurate information on your website and in your documentation and also encourage your customers and partners to reference correct details when discussing your product.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Privacy and Personalisation</h3>
+            
+            <p className="mb-6">
+              Many AI assistants personalise their responses based on user history or preferences. A user who frequently reads posts on enterprise security might receive different recommendations than a user focused on marketing automation.
+            </p>
+
+            <p className="mb-6">
+              This means that your presence in AI answers may vary by audience. While personalisation can improve relevance, it also introduces opacity as you may not know why a model recommends you to one user but not another. Transparency and user control are important ethical considerations while choosing a right tool for yourself.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Regulatory Environment</h3>
+            
+            <p className="mb-6">
+              Governments all over the world are starting to regulate AI. The European Union's AI Act, for instance, proposes obligations on providers of general purpose AI models.
+            </p>
+
+            <p className="mb-6">
+              In the United States, lawmakers are debating rules on copyright, content licensing and transparency. At the same time, search providers are experimenting with compensation models for content creators.
+            </p>
+
+            <p className="mb-6">
+              Stay informed about these developments and consider participating in industry associations or discussions about fair compensation for the use of your content in AI training and output.
+            </p>
+          </section>
+
+          {/* Section 11: The Future of Search and Marketing */}
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">The Future of Search and Marketing</h2>
+            
+            <p className="mb-6">
+              Generative engines will not remain static and hence, understanding where they might go next will help you future proof your strategy.
+            </p>
+
+            <p className="mb-6">
+              Here are some trends and predictions that we see in this space:
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Deeper Integration into Everyday Tools</h3>
+            
+            <p className="mb-6">
+              AI assistants are becoming embedded in the software we use daily.
+            </p>
+
+            <p className="mb-6">
+              Microsoft has integrated ChatGPT into its Copilot features across Office applications, Google is incorporating Gemini into Gmail, Docs and Android and many SaaS platforms are building custom assistants for internal data.
+            </p>
+
+            <p className="mb-6">
+              As these integrations become standard, more B2B buyers will ask AI to summarise reports, identify vendors, draft RFPs and even conduct first rounds of vendor evaluation. And therefore, your visibility in these contexts will give you a better chance to influence these purchase decisions.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Multimodal and Interactive Search</h3>
+            
+            <p className="mb-6">
+              Models are evolving from text only to multimodal capabilities. They can already interpret images and are learning to process audio and video. In the future a user might upload a screenshot of their analytics dashboard and ask, "What tools can improve this workflow?" Models will need to understand the image, match it to relevant concepts and recommend solutions.
+            </p>
+
+            <p className="mb-6">
+              Content that includes diagrams, screenshots, video tutorials and well labelled images will become more valuable. In addition, AI search will likely become interactive. Instead of a single answer, the assistant may ask follow up questions to clarify needs and brands that provide comprehensive documentation will surely stand to benefit.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Domain Specific Models and Vertical Search</h3>
+            
+            <p className="mb-6">
+              Large general purpose models will coexist with smaller domain specific models trained on specialised datasets. For example, a legal industry assistant might be trained on statutes and case law, while a developer assistant might be fine-tuned on code repositories. Generative search engines may spawn vertical variants for healthcare, finance or SaaS.
+            </p>
+
+            <p className="mb-6">
+              GEO strategies will need to adapt to these vertical contexts by publishing content that fits the domain's preferred style and appears in the domain's sources.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Ethical and Transparent AI</h3>
+            
+            <p className="mb-6">
+              There is growing pressure on AI providers to improve transparency about data sources and decision logic. Users may demand to know why a particular vendor was recommended or to verify the accuracy of statements and regulators may require AI engines to document provenance.
+            </p>
+
+            <p className="mb-6">
+              As a brand, you can support this push for transparency by citing your sources, providing open access to your data and advocating for responsible AI practices. Doing so not only positions you as an ethical leader but may also influence how models evaluate your content.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Greater Control for Content Owners</h3>
+            
+            <p className="mb-6">
+              In the future, content owners might be able to opt into or out of model training, specify how their content may be used, or receive compensation for citations. Protocols for content licensing may become standard. Keep an eye on developments in this space. If compensation models materialise, your high quality, frequently cited content could become a revenue source in addition to a marketing asset.
+            </p>
+          </section>
+
+          {/* Section 12: Step by Step GEO Audit and Strategy */}
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Step by Step GEO Audit and Strategy</h2>
+            
+            <p className="mb-6">
+              To implement your own GEO strategy, follow these steps:
+            </p>
+
+            <ol className="mb-6 space-y-4 ml-6">
+              <li>
+                <strong>1. Define Your Audience and Questions.</strong> Identify the personas you target (e.g., CTOs, product managers, growth marketers) and the questions they might ask an AI assistant. Include both problem oriented and solution oriented queries.
+              </li>
+              <li>
+                <strong>2. Perform Baseline Testing.</strong> Use generative assistants to ask your list of questions. Record where your brand appears, which competitors are mentioned and which sources are cited. Create a spreadsheet to track results over time.
+              </li>
+              <li>
+                <strong>3. Analyse Sources and Gaps.</strong> For each query, identify the domains that are cited. Note patterns: Are forums dominating? Are there specific blogs or review sites that appear frequently? Determine which of these sources you can influence directly (e.g., by contributing content) or indirectly (e.g., by encouraging customer reviews).
+              </li>
+              <li>
+                <strong>4. Enhance Your Content.</strong> Review your existing pages. Add clear summaries at the top. Implement schema markup. Include citations to reputable research. Develop an FAQ section. Ensure that product names and descriptors are consistent.
+              </li>
+              <li>
+                <strong>5. Engage in Communities.</strong> Identify the forums and review sites that AI engines cite. Participate in conversations with helpful answers. Encourage advocates to share their experiences. If appropriate, sponsor community projects or host AMAs (ask me anything sessions) to raise your profile.
+              </li>
+              <li>
+                <strong>6. Publish Original Research.</strong> Commission surveys or analyse anonymised customer data to produce reports that others will cite. Share these insights freely under a license that allows models to use them. Promote your research in industry newsletters and on LinkedIn.
+              </li>
+              <li>
+                <strong>7. Monitor and Measure.</strong> Re run your tests periodically (e.g., monthly). Track improvements in mentions, position and sentiment. Update your strategy based on what the data shows. Share the insights with your internal stakeholders. Document wins and areas for improvement.
+              </li>
+              <li>
+                <strong>8. Iterate and Innovate.</strong> GEO is a moving target. As models change and new platforms emerge, adapt your tactics. Experiment with video, audio and interactive content as models expand into multimodal capabilities. Stay informed about new citation studies and retrieval research. Collaborate with your product and engineering teams to integrate AI capabilities into your own platform if relevant.
+              </li>
+            </ol>
+          </section>
+
+          {/* Section 13: Organisational Impact */}
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Organisational Impact: Building a GEO Ready Team</h2>
+            
+            <p className="mb-6">
+              GEO is not just a marketing tactic; it requires cross functional collaboration. To execute a comprehensive GEO strategy, consider the following roles and responsibilities:
+            </p>
+
+            <ul className="mb-6 space-y-4">
+              <li>
+                <strong>Content Strategist.</strong> Leads the planning of narratives, identifies key topics and ensures that all content pieces align with messaging guidelines and include verifiable data.
+              </li>
+              <li>
+                <strong>SEO Specialist.</strong> Ensures that traditional optimisation best practices are in place. Works closely with the content strategist to make sure pages are crawlable and properly structured.
+              </li>
+              <li>
+                <strong>Community Manager.</strong> Monitors relevant forums, social media platforms and review sites. Engages with users, encourages reviews and reports back on sentiment trends.
+              </li>
+              <li>
+                <strong>Data Analyst.</strong> Designs and maintains the GEO tracking dashboard. Runs AI queries, collects data on mentions and citations, and analyses patterns. Provides insights and recommendations.
+              </li>
+              <li>
+                <strong>Product Marketer.</strong> Translates product features and benefits into clear, consistent language. Ensures that new launches are accompanied by content that meets GEO criteria. Liaises with sales to understand customer questions.
+              </li>
+              <li>
+                <strong>Legal and Compliance Advisor.</strong> Reviews content licensing and monitors compliance with emerging AI regulations. Helps the team navigate intellectual property considerations.
+              </li>
+            </ul>
+
+            <p className="mb-6">
+              Building this capability takes time, but the investment will pay off as AI search becomes more prevalent. Start with one or two roles and expand as your GEO programme matures.
+            </p>
+          </section>
+
+          {/* Conclusion */}
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+            
+            <p className="mb-6">
+              The shift from traditional search to generative AI represents one of the most significant changes in how people discover and evaluate information since the advent of Google. For B2B SaaS companies, this transformation is not a distant possibility—it is happening now.
+            </p>
+
+            <p className="mb-6">
+              GEO is not about replacing your existing SEO efforts. It is about expanding your definition of search optimisation to include the AI systems that increasingly mediate discovery and recommendation. By understanding how generative engines work, where they source their information, and how they construct their answers, you can position your brand to be part of the conversation where buying decisions begin.
+            </p>
+
+            <p className="mb-6">
+              The strategies outlined in this guide—from creating verifiable content and engaging in communities to monitoring AI citations and building cross-functional teams—provide a roadmap for navigating this new landscape. Success in GEO requires patience, experimentation, and a commitment to providing genuine value rather than gaming algorithms.
+            </p>
+
+            <p className="mb-6">
+              As AI continues to evolve, so too will the tactics and tools needed for GEO. What remains constant is the importance of authenticity, consistency, and customer focus. Brands that prioritise these principles while adapting to new technologies will be best positioned to thrive in the age of generative search.
+            </p>
+
+            <p className="mb-6 font-medium">
+              The future of search is here. The question is not whether your industry will be affected, but whether you will be ready when it arrives.
+            </p>
+          </section>
+
           {/* Call to Action */}
           <section className="text-center py-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Ready to Master GEO?</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Start Your GEO Journey Today</h2>
             <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-              This is just the beginning of your GEO journey. Join our waitlist to get the complete guide and stay updated with the latest strategies as AI search continues to evolve.
+              This comprehensive guide provides the foundation for building your GEO strategy. Join our waitlist to stay updated with the latest strategies, tools, and insights as AI search continues to evolve.
             </p>
             <Button onClick={scrollToWaitlist} size="lg" className="bg-blue-600 hover:bg-blue-700">
               Join the Waitlist
