@@ -1,11 +1,62 @@
 import { useEffect, useState } from 'react';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { insertWaitlistEntrySchema, type InsertWaitlistEntry } from "@shared/schema";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Share } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight, Rocket, Loader2, CheckCircle } from "lucide-react";
 import aiAdoptionChart from "@assets/Image 1_1754564817867.png";
 import aiImpactChart from "@assets/Image 2_1754565019296.png";
 
 export default function GeoGuide() {
   const [activeSection, setActiveSection] = useState('');
+  const [showSuccess, setShowSuccess] = useState(false);
+  const { toast } = useToast();
+
+  const form = useForm<InsertWaitlistEntry>({
+    resolver: zodResolver(insertWaitlistEntrySchema),
+    defaultValues: {
+      fullName: "",
+      email: "",
+      companyName: "",
+      challenge: "",
+    },
+  });
+
+  const waitlistMutation = useMutation({
+    mutationFn: async (data: InsertWaitlistEntry) => {
+      const response = await apiRequest("POST", "/api/waitlist", data);
+      return response.json();
+    },
+    onSuccess: () => {
+      setShowSuccess(true);
+      form.reset();
+      toast({
+        title: "Welcome to the waitlist!",
+        description: "We'll notify you as soon as GeoRankers is ready for you.",
+      });
+    },
+    onError: (error: any) => {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: error.message || "Failed to join waitlist. Please try again.",
+      });
+    },
+  });
+
+  const onSubmit = (data: InsertWaitlistEntry) => {
+    waitlistMutation.mutate(data);
+  };
+
+  const scrollToWaitlist = () => {
+    document.getElementById('waitlist-form')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
     document.title = 'The GEO Playbook - A Strategic Guide for B2B and SaaS Marketers | GeoRankers';
@@ -30,7 +81,7 @@ export default function GeoGuide() {
           }
         });
         
-        if (bestEntry) {
+        if (bestEntry && bestEntry.target) {
           setActiveSection((bestEntry.target as HTMLElement).id);
         }
       },
@@ -47,9 +98,7 @@ export default function GeoGuide() {
     return () => observer.disconnect();
   }, []);
 
-  const scrollToWaitlist = () => {
-    window.location.href = '/#waitlist';
-  };
+
 
   return (
     <div className="min-h-screen bg-white">
@@ -62,10 +111,9 @@ export default function GeoGuide() {
                 GeoRankers
               </span>
             </a>
-            <div className="flex items-center space-x-4">
-              <Button variant="outline" size="sm">
-                <Share className="w-4 h-4 mr-2" />
-                Share
+            <div className="hidden md:block">
+              <Button onClick={scrollToWaitlist} className="bg-gradient-to-r from-blue-500 to-violet-500 text-white hover:from-blue-600 hover:to-violet-600">
+                Join Waitlist
               </Button>
             </div>
           </div>
@@ -208,9 +256,9 @@ export default function GeoGuide() {
       </section>
 
       {/* Guide Content */}
-      <main className="flex max-w-7xl mx-auto px-6 py-16 gap-8">
-        {/* Table of Contents */}
-        <aside className="w-64 flex-shrink-0 sticky top-16 h-fit max-h-[calc(100vh-4rem)] overflow-y-auto">
+      <main className="flex max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16 gap-4 lg:gap-8">
+        {/* Table of Contents - Hidden on mobile */}
+        <aside className="hidden lg:block w-64 flex-shrink-0 sticky top-16 h-fit max-h-[calc(100vh-4rem)] overflow-y-auto">
           <div className="bg-white rounded-xl p-3 border border-gray-200 shadow-sm">
             <h3 className="text-base font-bold text-gray-900 mb-3">Table of Contents</h3>
             <nav className="space-y-0">
@@ -310,8 +358,8 @@ export default function GeoGuide() {
         </aside>
 
         {/* Content */}
-        <div className="flex-1 max-w-4xl">
-        <article className="prose prose-lg max-w-none">
+        <div className="flex-1 max-w-4xl lg:ml-0">
+        <article className="prose prose-lg max-w-none px-2 sm:px-0">
           {/* Introduction */}
           <section className="mb-12">
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
@@ -494,6 +542,16 @@ export default function GeoGuide() {
             </p>
           </section>
 
+          {/* First CTA Banner */}
+          <div className="my-12 bg-gradient-to-r from-blue-500/10 to-violet-500/10 border border-blue-500/20 rounded-2xl p-6 sm:p-8 text-center">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Ready to Master AI Search Optimization?</h3>
+            <p className="text-gray-600 mb-6">Join thousands of marketers getting ahead of the AI search revolution</p>
+            <Button onClick={scrollToWaitlist} className="bg-gradient-to-r from-blue-500 to-violet-500 text-white hover:from-blue-600 hover:to-violet-600 px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300">
+              <Rocket className="w-4 h-4 mr-2" />
+              Join the Waitlist
+            </Button>
+          </div>
+
           {/* Section 2: What Exactly Is GEO? */}
           <section id="what-is-geo" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">What Exactly Is GEO?</h2>
@@ -675,6 +733,16 @@ export default function GeoGuide() {
               Taken together these trends make a compelling case for GEO. It is not just about capturing incremental traffic - it is about ensuring that your brand is part of the conversation where decisions begin.
             </p>
           </section>
+
+          {/* Second CTA Banner */}
+          <div className="my-12 bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-500/20 rounded-2xl p-6 sm:p-8 text-center">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Don't Get Left Behind in AI Search</h3>
+            <p className="text-gray-600 mb-6">Start building your AI search presence today with proven GEO strategies</p>
+            <Button onClick={scrollToWaitlist} className="bg-gradient-to-r from-violet-500 to-purple-500 text-white hover:from-violet-600 hover:to-purple-600 px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300">
+              <ArrowRight className="w-4 h-4 mr-2" />
+              Join the Waitlist
+            </Button>
+          </div>
 
           {/* Section 5: How Generative Engines Work */}
           <section id="how-engines-work" className="mb-12">
@@ -1331,16 +1399,132 @@ export default function GeoGuide() {
             </p>
           </section>
 
-          {/* Call to Action */}
-          <section className="text-center py-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Start Your GEO Journey Today</h2>
-            <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-              This comprehensive guide provides the foundation for building your GEO strategy. Join our waitlist to stay updated with the latest strategies, tools, and insights as AI search continues to evolve.
-            </p>
-            <Button onClick={scrollToWaitlist} size="lg" className="bg-blue-600 hover:bg-blue-700">
-              Join the Waitlist
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
+          {/* Waitlist Form */}
+          <section id="waitlist-form" className="py-12 bg-gradient-to-b from-blue-50/20 to-indigo-50/30 rounded-3xl">
+            <div className="max-w-2xl mx-auto px-4 sm:px-6">
+              <div className="text-center mb-8 sm:mb-12">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                  Start Your <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">GEO Journey</span>
+                </h2>
+                <p className="text-lg sm:text-xl text-gray-600">
+                  Be among the first to master AI search optimization with GeoRankers
+                </p>
+              </div>
+              
+              <Card className="glass-strong rounded-3xl p-4 sm:p-8 lg:p-12 border-0">
+                <CardContent className="pt-0">
+                  {showSuccess ? (
+                    <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-2xl p-4 sm:p-6 text-center">
+                      <div className="flex items-center justify-center mb-4">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                          <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                        </div>
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-bold text-green-600 mb-2">Welcome to the waitlist!</h3>
+                      <p className="text-sm sm:text-base text-gray-600">We'll notify you as soon as GeoRankers is ready for you.</p>
+                    </div>
+                  ) : (
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+                      <div>
+                        <Label htmlFor="fullName" className="block text-sm font-medium text-gray-600 mb-2">
+                          Full Name *
+                        </Label>
+                        <Input
+                          id="fullName"
+                          {...form.register("fullName")}
+                          placeholder="Enter your full name"
+                          className="w-full px-3 sm:px-4 py-3 sm:py-4 bg-white/80 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm text-sm sm:text-base"
+                        />
+                        {form.formState.errors.fullName && (
+                          <p className="text-red-400 text-sm mt-2">
+                            <span className="mr-1">⚠</span>
+                            {form.formState.errors.fullName.message}
+                          </p>
+                        )}
+                      </div>
+                      
+                      <div>
+                        <Label htmlFor="email" className="block text-sm font-medium text-gray-600 mb-2">
+                          Email Address *
+                        </Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          {...form.register("email")}
+                          placeholder="Enter your email address"
+                          className="w-full px-3 sm:px-4 py-3 sm:py-4 bg-white/80 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm text-sm sm:text-base"
+                        />
+                        {form.formState.errors.email && (
+                          <p className="text-red-400 text-sm mt-2">
+                            <span className="mr-1">⚠</span>
+                            {form.formState.errors.email.message}
+                          </p>
+                        )}
+                      </div>
+
+                      <div>
+                        <Label htmlFor="companyName" className="block text-sm font-medium text-gray-600 mb-2">
+                          Company Name *
+                        </Label>
+                        <Input
+                          id="companyName"
+                          {...form.register("companyName")}
+                          placeholder="Enter your company name"
+                          className="w-full px-3 sm:px-4 py-3 sm:py-4 bg-white/80 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm text-sm sm:text-base"
+                        />
+                        {form.formState.errors.companyName && (
+                          <p className="text-red-400 text-sm mt-2">
+                            <span className="mr-1">⚠</span>
+                            {form.formState.errors.companyName.message}
+                          </p>
+                        )}
+                      </div>
+
+                      <div>
+                        <Label htmlFor="challenge" className="block text-sm font-medium text-gray-600 mb-2">
+                          What's your biggest AI search challenge?
+                        </Label>
+                        <textarea
+                          id="challenge"
+                          {...form.register("challenge")}
+                          placeholder="Tell us about your AI search challenges (optional)"
+                          rows={4}
+                          className="w-full px-3 sm:px-4 py-3 sm:py-4 bg-white/80 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm text-sm sm:text-base resize-none"
+                        />
+                        {form.formState.errors.challenge && (
+                          <p className="text-red-400 text-sm mt-2">
+                            <span className="mr-1">⚠</span>
+                            {form.formState.errors.challenge.message}
+                          </p>
+                        )}
+                      </div>
+                      
+                      <Button 
+                        type="submit"
+                        disabled={waitlistMutation.isPending}
+                        className="w-full mt-6 sm:mt-8 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl flex items-center justify-center"
+                      >
+                        {waitlistMutation.isPending ? (
+                          <>
+                            <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 animate-spin" />
+                            Adding you to the list...
+                          </>
+                        ) : (
+                          <>
+                            <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
+                            Join Waitlist
+                          </>
+                        )}
+                      </Button>
+                      
+                      <p className="text-center text-xs sm:text-sm text-gray-500 mt-4 sm:mt-6">
+                        🔒 Your information is secure and will never be shared.
+                      </p>
+                    </form>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
           </section>
         </article>
         </div>
