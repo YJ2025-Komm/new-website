@@ -43,8 +43,18 @@ export default function GeoGuide() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-violet-50 py-20">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="relative py-20 min-h-[70vh] flex items-center">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\",%3E%3Cdefs%3E%3ClinearGradient id=\"grad1\" x1=\"0%25\" y1=\"0%25\" x2=\"100%25\" y2=\"100%25\"%3E%3Cstop offset=\"0%25\" style=\"stop-color:%234F46E5;stop-opacity:0.1\" /%3E%3Cstop offset=\"100%25\" style=\"stop-color:%237C3AED;stop-opacity:0.1\" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=\"100\" height=\"100\" fill=\"url(%23grad1)\" /%3E%3Cpath d=\"M20,20 Q50,5 80,20 Q95,50 80,80 Q50,95 20,80 Q5,50 20,20\" fill=\"none\" stroke=\"%234F46E5\" stroke-width=\"0.5\" opacity=\"0.3\" /%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\" fill=\"%234F46E5\" opacity=\"0.4\" /%3E%3Ccircle cx=\"70\" cy=\"70\" r=\"1.5\" fill=\"%237C3AED\" opacity=\"0.4\" /%3E%3Ccircle cx=\"60\" cy=\"20\" r=\"1\" fill=\"%2306B6D4\" opacity=\"0.4\" /%3E%3C/svg%3E')"
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/90 to-violet-50/80"></div>
+        </div>
+        
+        <div className="relative max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
             <div>
@@ -66,7 +76,7 @@ export default function GeoGuide() {
                 and what your brand needs to do to stay visible.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Button onClick={scrollToWaitlist} size="lg" className="bg-blue-600 hover:bg-blue-700">
                   Get Early Access
                   <ArrowRight className="w-5 h-5 ml-2" />
@@ -76,55 +86,33 @@ export default function GeoGuide() {
                   Download PDF
                 </Button>
               </div>
-
-              {/* Key Stats */}
-              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
-                <div>
-                  <div className="text-2xl font-bold text-blue-600 mb-1">300M</div>
-                  <div className="text-sm text-gray-600">Weekly ChatGPT users</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-green-600 mb-1">40%</div>
-                  <div className="text-sm text-gray-600">Visibility increase potential</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-orange-600 mb-1">25%</div>
-                  <div className="text-sm text-gray-600">Drop in traditional search</div>
-                </div>
-              </div>
             </div>
 
             {/* Right Column - Hero Image */}
             <div className="relative">
-              <div className="relative bg-gradient-to-br from-blue-100 to-violet-100 rounded-2xl p-8 shadow-2xl">
-                {/* Hero Image Placeholder - You can replace this with actual image */}
-                <div className="aspect-square bg-white rounded-xl shadow-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-violet-400 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              <div className="relative bg-gradient-to-br from-blue-100/50 to-violet-100/50 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
+                {/* Hero Image Content */}
+                <div className="aspect-square bg-white/80 backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center border border-gray-200/50">
+                  <div className="text-center p-6">
+                    <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-violet-400 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
+                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">AI Search Revolution</h3>
-                    <p className="text-sm text-gray-600">
-                      Master the new landscape of generative search engines
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">GEO Strategy</h3>
+                    <p className="text-gray-600">
+                      Master generative engine optimization for maximum AI search visibility
                     </p>
                   </div>
                 </div>
                 
                 {/* Floating Elements */}
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-blue-500 rounded-full opacity-20"></div>
-                <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-violet-500 rounded-full opacity-20"></div>
-                <div className="absolute top-8 -right-2 w-8 h-8 bg-green-500 rounded-full opacity-30"></div>
+                <div className="absolute -top-4 -left-4 w-12 h-12 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
+                <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-violet-500 rounded-full opacity-20 animate-pulse"></div>
+                <div className="absolute top-8 -right-2 w-8 h-8 bg-green-500 rounded-full opacity-30 animate-pulse"></div>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Background Decoration */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-10"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-violet-400 rounded-full mix-blend-multiply filter blur-xl opacity-10"></div>
         </div>
       </section>
 
