@@ -17,15 +17,24 @@ export default function GeoGuide() {
     // Set up intersection observer for active section highlighting
     const observer = new IntersectionObserver(
       (entries) => {
+        // Find the entry with the largest intersection ratio
+        let bestEntry = null;
+        let bestRatio = 0;
+        
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+          if (entry.isIntersecting && entry.intersectionRatio > bestRatio) {
+            bestEntry = entry;
+            bestRatio = entry.intersectionRatio;
           }
         });
+        
+        if (bestEntry) {
+          setActiveSection((bestEntry.target as HTMLElement).id);
+        }
       },
       { 
-        rootMargin: '-20% 0px -70% 0px',
-        threshold: 0
+        rootMargin: '-10% 0px -60% 0px',
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5]
       }
     );
 
@@ -229,14 +238,14 @@ export default function GeoGuide() {
                 ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">Why GEO Matters for B2B SaaS</span>
+                <span className="text-sm font-medium">Why Does GEO Matter for B2B SaaS?</span>
               </a>
               <a href="#how-engines-work" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
                 activeSection === 'how-engines-work' 
                 ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-sm font-medium">How Generative Engines Work</span>
+                <span className="text-sm font-medium">How Do Generative Engines Work?</span>
               </a>
               <a href="#zero-click-search" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
                 activeSection === 'zero-click-search' 
@@ -491,7 +500,7 @@ export default function GeoGuide() {
 
           {/* Section 4: Why GEO Matters for B2B SaaS */}
           <section id="why-geo-matters" className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Why GEO Matters for B2B SaaS in 2025 and Beyond</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Does GEO Matter for B2B SaaS in 2025 and Beyond?</h2>
             
             <p className="mb-6">
               Large language models are not a passing fad - they are becoming mainstream tools for research and decision making. For B2B SaaS companies the stakes are especially high because purchase cycles often involve complex questions and peer recommendations. Let us examine why GEO should be on your strategic agenda.
@@ -571,7 +580,7 @@ export default function GeoGuide() {
 
           {/* Section 5: How Generative Engines Work */}
           <section id="how-engines-work" className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">How Generative Engines Work</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">How Do Generative Engines Work?</h2>
             
             <p className="mb-6">
               To optimise for generative engines you need to understand how they construct answers. While proprietary models like those from OpenAI and Google do not disclose all details, we can outline the common architecture and behaviours. This knowledge will inform your GEO strategy.
