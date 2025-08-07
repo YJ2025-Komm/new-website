@@ -231,28 +231,28 @@ export default function GeoGuide() {
                 ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-xs font-medium">Key Components</span>
+                <span className="text-xs font-medium">Key Components of GEO</span>
               </a>
               <a href="#why-geo-matters" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'why-geo-matters' 
                 ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-xs font-medium">Why GEO Matters?</span>
+                <span className="text-xs font-medium">Why Does GEO Matter for B2B SaaS?</span>
               </a>
               <a href="#how-engines-work" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'how-engines-work' 
                 ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-xs font-medium">How Engines Work?</span>
+                <span className="text-xs font-medium">How Do Generative Engines Work?</span>
               </a>
               <a href="#zero-click-search" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'zero-click-search' 
                 ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-xs font-medium">Zero Click Search</span>
+                <span className="text-xs font-medium">The Rise of Zero Click Search</span>
               </a>
               <a href="#geo-vs-seo" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'geo-vs-seo' 
@@ -266,7 +266,7 @@ export default function GeoGuide() {
                 ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-xs font-medium">Best Practices</span>
+                <span className="text-xs font-medium">Best Practices for GEO</span>
               </a>
               <a href="#measuring-success" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'measuring-success' 
@@ -280,35 +280,28 @@ export default function GeoGuide() {
                 ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-xs font-medium">Challenges & Ethics</span>
+                <span className="text-xs font-medium">Challenges and Ethical Considerations</span>
               </a>
               <a href="#future-search" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'future-search' 
                 ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-xs font-medium">Future of Search</span>
+                <span className="text-xs font-medium">The Future of Search and Marketing</span>
               </a>
               <a href="#audit-strategy" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'audit-strategy' 
                 ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-xs font-medium">Step by Step Audit</span>
+                <span className="text-xs font-medium">Step by Step GEO Audit and Strategy</span>
               </a>
               <a href="#organizational-impact" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
                 activeSection === 'organizational-impact' 
                 ? 'text-blue-600 bg-blue-50 translate-x-1' 
                 : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
               }`}>
-                <span className="text-xs font-medium">Team Building</span>
-              </a>
-              <a href="#conclusion" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
-                activeSection === 'conclusion' 
-                ? 'text-blue-600 bg-blue-50 translate-x-1' 
-                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
-              }`}>
-                <span className="text-xs font-medium">Conclusion</span>
+                <span className="text-xs font-medium">Organisational Impact: Building a GEO Ready Team</span>
               </a>
             </nav>
           </div>
