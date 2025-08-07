@@ -81,7 +81,7 @@ export default function GeoGuide() {
           }
         });
         
-        if (bestEntry && bestEntry.target) {
+        if (bestEntry) {
           setActiveSection((bestEntry.target as HTMLElement).id);
         }
       },
