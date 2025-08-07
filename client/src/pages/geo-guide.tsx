@@ -194,14 +194,14 @@ export default function GeoGuide() {
               A joint study from Princeton University and the Allen Institute for AI highlights this challenge. As LLMs increasingly pull and rephrase information across sources, visibility becomes probabilistic and far harder to control. Gartner, meanwhile, predicts a 25% drop in traditional search marketing spend by 2026, as budgets move toward AI-native channels.
             </p>
 
-            <div className="bg-blue-50 border-l-4 border-blue-400 p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">The user behaviour is already here:</h3>
-              <ul className="space-y-2">
-                <li>• 300 million weekly active users on ChatGPT as of early 2025</li>
-                <li>• Perplexity and Gemini gaining traction as research and discovery tools</li>
-                <li>• In the US, generative AI search adoption is projected to grow from 13 million in 2023 to 90 million by 2027</li>
-              </ul>
-            </div>
+            <p className="mb-6 font-medium">
+              The user behaviour is already here:
+            </p>
+            <ul className="mb-8 space-y-2">
+              <li>• 300 million weekly active users on ChatGPT as of early 2025</li>
+              <li>• Perplexity and Gemini gaining traction as research and discovery tools</li>
+              <li>• In the US, generative AI search adoption is projected to grow from 13 million in 2023 to 90 million by 2027</li>
+            </ul>
 
             <p className="mb-6">
               As these interfaces become embedded in browsers, productivity tools, and mobile operating systems, the gatekeepers of discovery are changing and with them, the rules of visibility.
@@ -211,14 +211,14 @@ export default function GeoGuide() {
               This guide is written for founders, CMOs, product marketers, and growth leaders in B2B SaaS who want to stay ahead of that shift. It's not about chasing another acronym. It's about building real authority in a landscape increasingly mediated by AI.
             </p>
 
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">In this guide you will find:</h3>
-              <ul className="space-y-2">
-                <li>• Practical strategies grounded in how LLMs actually generate answers</li>
-                <li>• Insights from real-world examples, user queries, and platform behaviour</li>
-                <li>• Data-backed context to distinguish trend from transformation</li>
-              </ul>
-            </div>
+            <p className="mb-6 font-medium">
+              In this guide you will find:
+            </p>
+            <ul className="mb-8 space-y-2">
+              <li>• Practical strategies grounded in how LLMs actually generate answers</li>
+              <li>• Insights from real-world examples, user queries, and platform behaviour</li>
+              <li>• Data-backed context to distinguish trend from transformation</li>
+            </ul>
 
             <p className="text-lg font-medium text-gray-900 mb-8">
               If your brand is not showing up in AI search results, you're not just missing clicks – you are absent from the conversation altogether.
@@ -308,27 +308,13 @@ export default function GeoGuide() {
               Both SEO and GEO aim to connect users with relevant information, but they operate in different contexts and reward different signals.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-blue-900 mb-3">Traditional SEO</h4>
-                <p className="text-sm text-blue-800 mb-4">
-                  The primary goal is to improve your ranking in search engine results pages (SERPs). You optimise on-page content for keywords, build backlinks to signal authority, improve site speed, create a mobile friendly experience and ensure that crawlers can index your pages.
-                </p>
-                <p className="text-sm text-blue-800">
-                  Success is measured by metrics like organic traffic, click through rate, bounce rate and conversions.
-                </p>
-              </div>
-              
-              <div className="bg-violet-50 border border-violet-200 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-violet-900 mb-3">GEO</h4>
-                <p className="text-sm text-violet-800 mb-4">
-                  The goal is to increase your presence in AI generated answers. You influence how large language models learn and retrieve information by seeding your brand across various sources and by crafting content that models find easy to quote.
-                </p>
-                <p className="text-sm text-violet-800">
-                  Metrics include share of voice in AI answers, frequency of citations, sentiment of mentions and alignment with your messaging.
-                </p>
-              </div>
-            </div>
+            <p className="mb-6">
+              In SEO, the primary goal is to improve your ranking in search engine results pages (SERPs). You optimise on-page content for keywords, build backlinks to signal authority, improve site speed, create a mobile friendly experience and ensure that crawlers can index your pages. Success is measured by metrics like organic traffic, click through rate, bounce rate and conversions.
+            </p>
+
+            <p className="mb-6">
+              In GEO, the goal is to increase your presence in AI generated answers. You influence how large language models learn and retrieve information by seeding your brand across various sources and by crafting content that models find easy to quote. You care about whether your brand appears when someone asks an AI assistant a question, how it is described and what sources are cited. Metrics include share of voice in AI answers, frequency of citations, sentiment of mentions and alignment with your messaging.
+            </p>
 
             <p className="mb-6">
               SEO still remains essential as Generative engines often rely on high ranking pages as part of their training and retrieval pipelines. Yet SEO alone does not guarantee success in a generative context.
@@ -343,51 +329,37 @@ export default function GeoGuide() {
           <section className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Components of GEO</h2>
             
-            <div className="space-y-8">
-              <div className="border-l-4 border-blue-400 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">1. Verifiable Statements and Statistics</h3>
-                <p className="mb-4">
-                  AI models value information they can corroborate. Including clear data points, quotes and statistics, especially those attributed to credible third parties helps your content become a candidate for citation. For example, referencing Gartner's projection that traditional search marketing spend will fall by twenty five per cent by 2026 not only educates your reader but also signals to AI that your article connects to authoritative research.
-                </p>
-              </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">1. Verifiable Statements and Statistics</h3>
+            <p className="mb-6">
+              AI models value information they can corroborate. Including clear data points, quotes and statistics, especially those attributed to credible third parties helps your content become a candidate for citation. For example, referencing Gartner's projection that traditional search marketing spend will fall by twenty five per cent by 2026 not only educates your reader but also signals to AI that your article connects to authoritative research.
+            </p>
 
-              <div className="border-l-4 border-green-400 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">2. Multi-channel Presence</h3>
-                <p className="mb-4">
-                  Generative engines do not rely on your site alone. They pull from discussion forums, Q and A communities, review aggregators, news sites and research papers. Engaging with audiences on Reddit threads, contributing answers on Stack Overflow or Quora and ensuring that satisfied customers leave detailed reviews on G2 or Capterra increases the likelihood that models will encounter your brand. Each mention becomes a breadcrumb that a model can follow.
-                </p>
-              </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">2. Multi-channel Presence</h3>
+            <p className="mb-6">
+              Generative engines do not rely on your site alone. They pull from discussion forums, Q and A communities, review aggregators, news sites and research papers. Engaging with audiences on Reddit threads, contributing answers on Stack Overflow or Quora and ensuring that satisfied customers leave detailed reviews on G2 or Capterra increases the likelihood that models will encounter your brand. Each mention becomes a breadcrumb that a model can follow.
+            </p>
 
-              <div className="border-l-4 border-violet-400 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">3. Structured and Accessible Content</h3>
-                <p className="mb-4">
-                  Use schema markup to signal key information such as product categories, pricing and reviews. Provide clear section headings, bullet points and FAQs. These structures help retrieval systems identify relevant snippets. Avoid putting core content behind paywalls without an accessible summary; models cannot cite what they cannot reach.
-                </p>
-              </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">3. Structured and Accessible Content</h3>
+            <p className="mb-6">
+              Use schema markup to signal key information such as product categories, pricing and reviews. Provide clear section headings, bullet points and FAQs. These structures help retrieval systems identify relevant snippets. Avoid putting core content behind paywalls without an accessible summary; models cannot cite what they cannot reach.
+            </p>
 
-              <div className="border-l-4 border-orange-400 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">4. Consistent Messaging and Summarisation</h3>
-                <p className="mb-4">
-                  Across blog posts, case studies, press releases and documentation, describe your product in consistent language. Summarise your value proposition in a sentence or two at the top of each piece of content. Models often quote the first descriptive sentences they find. If your messaging varies widely, the AI may misinterpret or omit it.
-                </p>
-              </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">4. Consistent Messaging and Summarisation</h3>
+            <p className="mb-6">
+              Across blog posts, case studies, press releases and documentation, describe your product in consistent language. Summarise your value proposition in a sentence or two at the top of each piece of content. Models often quote the first descriptive sentences they find. If your messaging varies widely, the AI may misinterpret or omit it.
+            </p>
 
-              <div className="border-l-4 border-red-400 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">5. Community Engagement and Signal Amplification</h3>
-                <p className="mb-4">
-                  Participate authentically in communities where your customers seek advice. Provide thoughtful answers without overtly promoting your product. Encourage users to share their experiences. When multiple independent voices describe your solution similarly, models recognise a pattern and become more likely to include you.
-                </p>
-              </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">5. Community Engagement and Signal Amplification</h3>
+            <p className="mb-6">
+              Participate authentically in communities where your customers seek advice. Provide thoughtful answers without overtly promoting your product. Encourage users to share their experiences. When multiple independent voices describe your solution similarly, models recognise a pattern and become more likely to include you.
+            </p>
 
-              <div className="border-l-4 border-indigo-400 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">6. Tracking and Feedback Loops</h3>
-                <p className="mb-4">
-                  Regularly test AI assistants with queries relevant to your category. Note whether and how your brand is mentioned and which sources the models cite. Adjust your content strategy based on what you observe. As of 2025, mainstream SEO tools like Ahrefs and Semrush are starting to experiment with AI visibility features, but these remain in beta and do not reliably indicate how ChatGPT or Gemini recommend your brand. Custom monitoring and manual testing are still necessary.
-                </p>
-              </div>
-            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">6. Tracking and Feedback Loops</h3>
+            <p className="mb-6">
+              Regularly test AI assistants with queries relevant to your category. Note whether and how your brand is mentioned and which sources the models cite. Adjust your content strategy based on what you observe. As of 2025, mainstream SEO tools like Ahrefs and Semrush are starting to experiment with AI visibility features, but these remain in beta and do not reliably indicate how ChatGPT or Gemini recommend your brand. Custom monitoring and manual testing are still necessary.
+            </p>
 
-            <p className="mt-8 text-lg font-medium text-gray-900">
+            <p className="mb-6 font-medium text-gray-900">
               GEO does not replace SEO; it expands the field of play. By understanding both, you can position your brand to succeed in the dual worlds of generative and traditional search.
             </p>
           </section>
@@ -401,13 +373,79 @@ export default function GeoGuide() {
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mb-4">AI Search Adoption Is Soaring</h3>
+            
             <p className="mb-6">
-              The data on AI search adoption tells a compelling story. As mentioned earlier, ChatGPT reached 300 million weekly active users by early 2025, making it one of the fastest-growing consumer applications in history.
+              The adoption curve of AI powered search looks steep. Based on research reports:
+            </p>
+            
+            <ul className="mb-6 space-y-2">
+              <li>• In 2023 around thirteen million American adults used AI tools for search</li>
+              <li>• Market analysts predict that this number will rise to ninety million by 2027. That is a near sevenfold increase in four years.</li>
+            </ul>
+
+            <p className="mb-6">
+              Generational differences are also notable. Survey data shows that about 31% of Gen Z search activity already occurs on AI platforms. Younger users see AI assistants as a natural way to ask for help. As these users move into decision making roles, AI search will become a default.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Traditional Search Traffic Is Declining</h3>
+            
+            <p className="mb-6">
+              The rise of AI search is not merely additive - it erodes some of the traffic that would otherwise go to websites.
+            </p>
+
+            <p className="mb-6">
+              Zero click searches - queries that end without a user clicking any result are on the rise. SparkToro's analysis found that roughly 60% of all Google searches now end without a click.
+            </p>
+
+            <p className="mb-6">
+              This phenomenon is not new, but it has accelerated as Google rolls out AI Overviews, which display AI generated summaries above the links. Research by Ahrefs indicates that AI summaries alone cut clicks by about 34%. In some categories, AI overviews appear in nearly half of search results and can reduce organic traffic by 15 to 25%. For content marketers used to measuring success in clicks, this is a major wake up call.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Trust Is Still Being Earned</h3>
+            
+            <p className="mb-6">
+              Although adoption is growing, trust in AI search is not universal.
+            </p>
+
+            <p className="mb-6">
+              A 2024 survey by Pew found that 28% of U.S. adults do not trust AI generated search results. At the same time 63% of the people feel underwhelmed or unaware of AI search features.
+            </p>
+
+            <p className="mb-6">
+              This scepticism is understandable as generative models sometimes hallucinate or present outdated information. For brands, this environment presents both risk and opportunity. There is risk in being misrepresented by an AI but also opportunity to build trust by ensuring that accurate information about your product is easily discoverable and verifiable.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Budgets Are Shifting</h3>
+            
+            <p className="mb-6">
+              Gartner predicts that by 2026 overall spending on search marketing will decline by about a quarter as budgets shift toward AI driven platforms. Meanwhile the AI content marketing industry is projected to grow from 2.4 billion dollars in 2023 to 17.6 billion dollars by 2033. In other words, money is moving in the direction of generative technologies.
+            </p>
+
+            <p className="mb-6">
+              Companies that ignore this shift risk being left behind and those who adapt their strategies, stand to gain visibility and authority.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">The B2B Buyer Journey Is Changing</h3>
+            
+            <p className="mb-6">
+              B2B buying cycles are long and involve multiple stakeholders. Prospects research solutions, read reviews, consult peers and often rely on influencers.
+            </p>
+
+            <p className="mb-6">
+              AI assistants are increasingly integrated into this process. For example, a head of operations might ask ChatGPT - "What are the best SaaS tools for automated contract management?"
+            </p>
+
+            <p className="mb-6">
+              If the assistant names competitors but not your platform, you lose mindshare before the buyer even visits your site. As more tools embed generative search directly into enterprise software, - like Microsoft integrating ChatGPT into its productivity suite and Google baking Gemini into Android, the top of the funnel will be shaped by AI.
+            </p>
+
+            <p className="mb-6">
+              Taken together these trends make a compelling case for GEO. It is not just about capturing incremental traffic - it is about ensuring that your brand is part of the conversation where decisions begin.
             </p>
           </section>
 
           {/* Call to Action */}
-          <section className="bg-gradient-to-r from-blue-50 to-violet-50 rounded-xl p-8 text-center">
+          <section className="text-center py-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Ready to Master GEO?</h2>
             <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
               This is just the beginning of your GEO journey. Join our waitlist to get the complete guide and stay updated with the latest strategies as AI search continues to evolve.
