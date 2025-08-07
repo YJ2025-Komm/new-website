@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Share } from "lucide-react";
 import aiAdoptionChart from "@assets/Image 1_1754564817867.png";
+import aiImpactChart from "@assets/Image 2_1754565019296.png";
 
 export default function GeoGuide() {
   const [activeSection, setActiveSection] = useState('');
@@ -547,6 +548,18 @@ export default function GeoGuide() {
             <p className="mb-6">
               This phenomenon is not new, but it has accelerated as Google rolls out AI Overviews, which display AI generated summaries above the links. Research by Ahrefs indicates that AI summaries alone cut clicks by about 34%. In some categories, AI overviews appear in nearly half of search results and can reduce organic traffic by 15 to 25%. For content marketers used to measuring success in clicks, this is a major wake up call.
             </p>
+
+            <p className="mb-6">
+              The chart below visualises the magnitude of this effect by showing three metrics on one scale - the % of searches that result in zero clicks, the share of search results that contain AI overviews and the average estimated reduction in traffic due to summaries.
+            </p>
+
+            <div className="mb-8 flex justify-center">
+              <img 
+                src={aiImpactChart}
+                alt="Impact of AI Overviews and Summaries on Search Traffic - A bar chart showing Zero-Click Searches at 60%, AI Overviews Share at 47%, and Traffic Reduction at 20%"
+                className="max-w-full h-auto rounded-lg shadow-md border border-gray-200"
+              />
+            </div>
 
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Trust Is Still Being Earned</h3>
             
