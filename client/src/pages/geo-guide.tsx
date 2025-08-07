@@ -377,6 +377,78 @@ export default function GeoGuide() {
               In the early 1990s there was no catalogue, only shelves filled with disorganised books. Early search engines like Archie and Veronica worked like primitive card indexes. In 1994 Yahoo launched a human curated directory; librarians manually categorised websites. AltaVista arrived a year later with the first large scale full text index of the web. It matched keywords but made no judgement about quality. These early tools were useful but limited - finding relevant information often felt like wandering through stacks with no guidance.
             </p>
 
+            <div className="mb-8 flex justify-center">
+              <svg viewBox="0 0 800 400" className="w-full max-w-4xl h-auto">
+                {/* Timeline line */}
+                <line x1="50" y1="350" x2="750" y2="350" stroke="#e5e7eb" strokeWidth="3"/>
+                
+                {/* 1990s - Directory Era */}
+                <circle cx="100" cy="350" r="8" fill="#3b82f6"/>
+                <line x1="100" y1="350" x2="100" y2="280" stroke="#3b82f6" strokeWidth="2"/>
+                <rect x="60" y="200" width="80" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2"/>
+                <text x="100" y="230" textAnchor="middle" fill="#374151" fontSize="14" fontWeight="600">Yahoo!</text>
+                <text x="100" y="245" textAnchor="middle" fill="#374151" fontSize="12">Directory</text>
+                <text x="100" y="260" textAnchor="middle" fill="#374151" fontSize="12">Human</text>
+                <text x="100" y="275" textAnchor="middle" fill="#374151" fontSize="12">Curated</text>
+                <text x="100" y="180" textAnchor="middle" fill="#111827" fontSize="14" fontWeight="700">1990s</text>
+                <text x="100" y="370" textAnchor="middle" fill="#6b7280" fontSize="12">Directory Era</text>
+
+                {/* 2000s - PageRank Era */}
+                <circle cx="250" cy="350" r="8" fill="#10b981"/>
+                <line x1="250" y1="350" x2="250" y2="280" stroke="#10b981" strokeWidth="2"/>
+                <rect x="210" y="200" width="80" height="80" rx="8" fill="#d1fae5" stroke="#10b981" strokeWidth="2"/>
+                <text x="250" y="230" textAnchor="middle" fill="#374151" fontSize="14" fontWeight="600">Google</text>
+                <text x="250" y="245" textAnchor="middle" fill="#374151" fontSize="12">PageRank</text>
+                <text x="250" y="260" textAnchor="middle" fill="#374151" fontSize="12">Link</text>
+                <text x="250" y="275" textAnchor="middle" fill="#374151" fontSize="12">Authority</text>
+                <text x="250" y="180" textAnchor="middle" fill="#111827" fontSize="14" fontWeight="700">2000s</text>
+                <text x="250" y="370" textAnchor="middle" fill="#6b7280" fontSize="12">Algorithm Era</text>
+
+                {/* 2010s - Knowledge Graph */}
+                <circle cx="400" cy="350" r="8" fill="#f59e0b"/>
+                <line x1="400" y1="350" x2="400" y2="280" stroke="#f59e0b" strokeWidth="2"/>
+                <rect x="360" y="200" width="80" height="80" rx="8" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2"/>
+                <text x="400" y="225" textAnchor="middle" fill="#374151" fontSize="14" fontWeight="600">Knowledge</text>
+                <text x="400" y="240" textAnchor="middle" fill="#374151" fontSize="14" fontWeight="600">Graph</text>
+                <text x="400" y="255" textAnchor="middle" fill="#374151" fontSize="12">Structured</text>
+                <text x="400" y="270" textAnchor="middle" fill="#374151" fontSize="12">Data</text>
+                <text x="400" y="180" textAnchor="middle" fill="#111827" fontSize="14" fontWeight="700">2010s</text>
+                <text x="400" y="370" textAnchor="middle" fill="#6b7280" fontSize="12">Semantic Era</text>
+
+                {/* 2020s - AI Era */}
+                <circle cx="550" cy="350" r="8" fill="#8b5cf6"/>
+                <line x1="550" y1="350" x2="550" y2="280" stroke="#8b5cf6" strokeWidth="2"/>
+                <rect x="510" y="200" width="80" height="80" rx="8" fill="#ede9fe" stroke="#8b5cf6" strokeWidth="2"/>
+                <text x="550" y="225" textAnchor="middle" fill="#374151" fontSize="14" fontWeight="600">ChatGPT</text>
+                <text x="550" y="240" textAnchor="middle" fill="#374151" fontSize="14" fontWeight="600">Gemini</text>
+                <text x="550" y="255" textAnchor="middle" fill="#374151" fontSize="12">Generative</text>
+                <text x="550" y="270" textAnchor="middle" fill="#374151" fontSize="12">AI</text>
+                <text x="550" y="180" textAnchor="middle" fill="#111827" fontSize="14" fontWeight="700">2020s</text>
+                <text x="550" y="370" textAnchor="middle" fill="#6b7280" fontSize="12">AI Era</text>
+
+                {/* Future */}
+                <circle cx="700" cy="350" r="8" fill="#ef4444"/>
+                <line x1="700" y1="350" x2="700" y2="280" stroke="#ef4444" strokeWidth="2"/>
+                <rect x="660" y="200" width="80" height="80" rx="8" fill="#fee2e2" stroke="#ef4444" strokeWidth="2"/>
+                <text x="700" y="225" textAnchor="middle" fill="#374151" fontSize="14" fontWeight="600">AI-First</text>
+                <text x="700" y="240" textAnchor="middle" fill="#374151" fontSize="14" fontWeight="600">Search</text>
+                <text x="700" y="255" textAnchor="middle" fill="#374151" fontSize="12">Conversational</text>
+                <text x="700" y="270" textAnchor="middle" fill="#374151" fontSize="12">Interface</text>
+                <text x="700" y="180" textAnchor="middle" fill="#111827" fontSize="14" fontWeight="700">Future</text>
+                <text x="700" y="370" textAnchor="middle" fill="#6b7280" fontSize="12">Conversational Era</text>
+
+                {/* Arrows between eras */}
+                <polygon points="170,350 190,345 190,355" fill="#6b7280"/>
+                <polygon points="320,350 340,345 340,355" fill="#6b7280"/>
+                <polygon points="470,350 490,345 490,355" fill="#6b7280"/>
+                <polygon points="620,350 640,345 640,355" fill="#6b7280"/>
+
+                {/* Title */}
+                <text x="400" y="30" textAnchor="middle" fill="#111827" fontSize="20" fontWeight="700">Evolution of Search Technology</text>
+                <text x="400" y="50" textAnchor="middle" fill="#6b7280" fontSize="14">From Human Curation to AI-Generated Answers</text>
+              </svg>
+            </div>
+
             <p className="mb-6">
               Two innovations changed that. The first was link analysis.
             </p>
