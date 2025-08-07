@@ -561,7 +561,7 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              The concept of GEO was formalised in a 2024 study by researchers at Princeton University and the Allen Institute for AI (Source). They defined a generative engine as an AI system that synthesises responses by summarising information from multiple sources. Unlike traditional search engines that return lists of links, generative engines produce complete answers. This provides convenience for users but reduces the visibility of the original publishers.
+              The concept of GEO was formalised in a 2024 study by researchers at Princeton University and the Allen Institute for AI (<a href="https://arxiv.org/abs/2401.06800" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Source</a>). They defined a generative engine as an AI system that synthesises responses by summarising information from multiple sources. Unlike traditional search engines that return lists of links, generative engines produce complete answers. This provides convenience for users but reduces the visibility of the original publishers.
             </p>
 
             <p className="mb-6">
