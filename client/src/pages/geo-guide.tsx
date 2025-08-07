@@ -1379,23 +1379,27 @@ export default function GeoGuide() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
             
             <p className="mb-6">
-              The shift from traditional search to generative AI represents one of the most significant changes in how people discover and evaluate information since the advent of Google. For B2B SaaS companies, this transformation is not a distant possibility—it is happening now.
+              Search is undergoing a fundamental transformation. The old model of ten blue links is giving way to conversational answers crafted by AI. SEO remains vital, but it is no longer the whole story.
             </p>
 
             <p className="mb-6">
-              GEO is not about replacing your existing SEO efforts. It is about expanding your definition of search optimisation to include the AI systems that increasingly mediate discovery and recommendation. By understanding how generative engines work, where they source their information, and how they construct their answers, you can position your brand to be part of the conversation where buying decisions begin.
+              Generative Engine Optimization or GEO offers a framework for ensuring that your brand is visible and accurately represented in AI driven discovery. However, it demands a blend of verifiable content, community engagement, structured data, consistent messaging and continuous measurement. Along with this, it also requires strong collaboration across marketing, product, data and legal teams.
             </p>
 
             <p className="mb-6">
-              The strategies outlined in this guide—from creating verifiable content and engaging in communities to monitoring AI citations and building cross-functional teams—provide a roadmap for navigating this new landscape. Success in GEO requires patience, experimentation, and a commitment to providing genuine value rather than gaming algorithms.
+              Above all, it demands a willingness to adapt to a rapidly changing landscape.
             </p>
 
             <p className="mb-6">
-              As AI continues to evolve, so too will the tactics and tools needed for GEO. What remains constant is the importance of authenticity, consistency, and customer focus. Brands that prioritise these principles while adapting to new technologies will be best positioned to thrive in the age of generative search.
+              You cannot control how large language models learn or what they decide to summarise, but you can definitely influence them by being present, clear and consistent wherever they gather their information.
+            </p>
+
+            <p className="mb-6">
+              So here is a final question for you - If a prospective customer asks an AI assistant for the best solution in your category, will your brand be part of the answer?
             </p>
 
             <p className="mb-6 font-medium">
-              The future of search is here. The question is not whether your industry will be affected, but whether you will be ready when it arrives.
+              If you are not sure, now is the time to start your GEO journey.
             </p>
           </section>
 
