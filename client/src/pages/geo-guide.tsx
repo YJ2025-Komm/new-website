@@ -97,13 +97,13 @@ export default function GeoGuide() {
                     <div className="text-xs uppercase tracking-wider opacity-90 mb-2">Strategic Guide 2025</div>
                     <h3 className="text-2xl font-bold mb-4 leading-tight">The GEO Playbook</h3>
                     <div className="space-y-2 text-sm opacity-90">
-                      <p>Discover how generative engines like</p>
-                      <p>ChatGPT and Gemini are changing</p>
-                      <p>search and what your brand needs</p>
-                      <p>to do to stay visible.</p>
+                      <p>• AI Search Optimization</p>
+                      <p>• Platform Strategy</p>
+                      <p>• Implementation Framework</p>
+                      <p>• Performance Tracking</p>
                     </div>
                     <div className="mt-6 pt-4 border-t border-white/20">
-                      <div className="text-xs">by GeoRankers Team</div>
+                      <div className="text-xs">GeoRankers Team</div>
                     </div>
                   </div>
                   
