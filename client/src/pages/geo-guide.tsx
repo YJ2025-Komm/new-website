@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download, Share } from "lucide-react";
+import { ArrowRight, Share } from "lucide-react";
 
 export default function GeoGuide() {
   useEffect(() => {
@@ -32,10 +32,6 @@ export default function GeoGuide() {
               <Button variant="outline" size="sm">
                 <Share className="w-4 h-4 mr-2" />
                 Share
-              </Button>
-              <Button variant="outline" size="sm">
-                <Download className="w-4 h-4 mr-2" />
-                Download PDF
               </Button>
             </div>
           </div>
@@ -78,12 +74,8 @@ export default function GeoGuide() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button onClick={scrollToWaitlist} size="lg" className="bg-blue-600 hover:bg-blue-700">
-                  Get Early Access
+                  Join the Waitlist
                   <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-                <Button variant="outline" size="lg">
-                  <Download className="w-5 h-5 mr-2" />
-                  Download PDF
                 </Button>
               </div>
             </div>
@@ -190,7 +182,7 @@ export default function GeoGuide() {
             Join our waitlist to get notified when new sections are published.
           </p>
           <Button onClick={scrollToWaitlist} className="bg-blue-600 hover:bg-blue-700">
-            Join Waitlist for Updates
+            Join the Waitlist
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </div>
