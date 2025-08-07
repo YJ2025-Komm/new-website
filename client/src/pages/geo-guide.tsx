@@ -521,6 +521,18 @@ export default function GeoGuide() {
               Generational differences are also notable. Survey data shows that about 31% of Gen Z search activity already occurs on AI platforms. Younger users see AI assistants as a natural way to ask for help. As these users move into decision making roles, AI search will become a default.
             </p>
 
+            <p className="mb-6">
+              The graph below illustrates this projected growth in AI search adoption. While the precise figures may vary, the trend is clear: a large and growing portion of the population is turning to generative assistants for answers.
+            </p>
+
+            <div className="mb-8 flex justify-center">
+              <img 
+                src="/attached_assets/Image 1_1754564817867.png" 
+                alt="Estimated Adoption of AI Search Among U.S. Adults (Millions) - A line graph showing growth from 13 million users in 2023 to projected 90 million users by 2027"
+                className="max-w-full h-auto rounded-lg shadow-md border border-gray-200"
+              />
+            </div>
+
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Traditional Search Traffic Is Declining</h3>
             
             <p className="mb-6">
