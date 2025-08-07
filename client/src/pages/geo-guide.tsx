@@ -375,7 +375,7 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              A joint study from <a href="https://arxiv.org/abs/2401.06800" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Princeton University and the Allen Institute for AI</a> highlights this challenge. As LLMs increasingly pull and rephrase information across sources, visibility becomes probabilistic and far harder to control. <a href="https://www.gartner.com/en/newsroom/press-releases/2024-02-19-gartner-predicts-search-engine-volume-will-drop-25-percent-by-2026-due-to-ai-chatbots-and-other-virtual-agents" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Gartner</a>, meanwhile, predicts a 25% drop in traditional search marketing spend by 2026, as budgets move toward AI-native channels.
+              A joint study from Princeton University and the Allen Institute for AI highlights this challenge. As LLMs increasingly pull and rephrase information across sources, visibility becomes probabilistic and far harder to control. Gartner, meanwhile, predicts a 25% drop in traditional search marketing spend by 2026, as budgets move toward AI-native channels.
             </p>
 
             <p className="mb-6 font-medium">
@@ -561,11 +561,11 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              The concept of GEO was formalised in a <a href="https://arxiv.org/abs/2401.06800" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">2024 study by researchers at Princeton University and the Allen Institute for AI</a>. They defined a generative engine as an AI system that synthesises responses by summarising information from multiple sources. Unlike traditional search engines that return lists of links, generative engines produce complete answers. This provides convenience for users but reduces the visibility of the original publishers.
+              The concept of GEO was formalised in a 2024 study by researchers at Princeton University and the Allen Institute for AI (Source). They defined a generative engine as an AI system that synthesises responses by summarising information from multiple sources. Unlike traditional search engines that return lists of links, generative engines produce complete answers. This provides convenience for users but reduces the visibility of the original publishers.
             </p>
 
             <p className="mb-6">
-              The researchers proposed treating generative engines as black boxes and designed experiments to see how different content strategies affected visibility in AI answers. They created a benchmark called <a href="https://arxiv.org/abs/2401.06800" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">GEO-bench</a> and discovered that certain tactics - such as including verifiable statistics, quoting experts and linking to trusted sources could increase the frequency with which a brand is mentioned by up to 40%.
+              The researchers proposed treating generative engines as black boxes and designed experiments to see how different content strategies affected visibility in AI answers. They created a benchmark called GEO-bench and discovered that certain tactics - such as including verifiable statistics, quoting experts and linking to trusted sources could increase the frequency with which a brand is mentioned by up to 40%.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mb-4">How GEO Differs From Traditional SEO</h3>
@@ -597,7 +597,7 @@ export default function GeoGuide() {
             
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Verifiable Statements and Statistics</h3>
             <p className="mb-6">
-              AI models value information they can corroborate. Including clear data points, quotes and statistics, especially those attributed to credible third parties helps your content become a candidate for citation. For example, referencing <a href="https://www.gartner.com/en/newsroom/press-releases/2024-02-19-gartner-predicts-search-engine-volume-will-drop-25-percent-by-2026-due-to-ai-chatbots-and-other-virtual-agents" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Gartner's projection that traditional search marketing spend will fall by twenty five per cent by 2026</a> not only educates your reader but also signals to AI that your article connects to authoritative research.
+              AI models value information they can corroborate. Including clear data points, quotes and statistics, especially those attributed to credible third parties helps your content become a candidate for citation. For example, referencing Gartner's projection that traditional search marketing spend will fall by twenty five per cent by 2026 not only educates your reader but also signals to AI that your article connects to authoritative research.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Multi-channel Presence</h3>
@@ -672,11 +672,11 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              Zero click searches - queries that end without a user clicking any result are on the rise. <a href="https://sparktoro.com/blog/in-2024-zero-click-searches-have-reached-nearly-60-on-google/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">SparkToro's analysis</a> found that roughly 60% of all Google searches now end without a click.
+              Zero click searches - queries that end without a user clicking any result are on the rise. SparkToro's analysis found that roughly 60% of all Google searches now end without a click (Source).
             </p>
 
             <p className="mb-6">
-              This phenomenon is not new, but it has accelerated as Google rolls out AI Overviews, which display AI generated summaries above the links. <a href="https://ahrefs.com/blog/ai-overviews-study/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Research by Ahrefs</a> indicates that AI summaries alone cut clicks by about 34%. In some categories, AI overviews appear in nearly half of search results and can reduce organic traffic by 15 to 25%. For content marketers used to measuring success in clicks, this is a major wake up call.
+              This phenomenon is not new, but it has accelerated as Google rolls out AI Overviews, which display AI generated summaries above the links. Research by Ahrefs indicates that AI summaries alone cut clicks by about 34%. In some categories, AI overviews appear in nearly half of search results and can reduce organic traffic by 15 to 25%. For content marketers used to measuring success in clicks, this is a major wake up call.
             </p>
 
             <p className="mb-6">
@@ -698,7 +698,7 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              A <a href="https://www.pewresearch.org/short-reads/2024/07/17/americans-have-a-complicated-relationship-with-ai-in-search/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">2024 survey by Pew</a> found that 28% of U.S. adults do not trust AI generated search results. At the same time 63% of the people feel underwhelmed or unaware of AI search features.
+              A 2024 survey by Pew found that 28% of U.S. adults do not trust AI generated search results (Source). At the same time 63% of the people feel underwhelmed or unaware of AI search features (Source).
             </p>
 
             <p className="mb-6">
@@ -796,7 +796,7 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              A <a href="https://arxiv.org/abs/2502.00649" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">2025 paper</a> examined retrieval augmented generation (RAG) systems and found that only about 74% of generated citations were accurate. Inaccurate citations can misattribute your content or fail to represent your position. The paper proposed a post processing technique called CiteFix that improved citation accuracy by around 15%.
+              A 2025 paper examined retrieval augmented generation (RAG) systems and found that only about 74% of generated citations were accurate. Inaccurate citations can misattribute your content or fail to represent your position. The paper proposed a post processing technique called CiteFix that improved citation accuracy by around 15%.
             </p>
 
             <p className="mb-6">
@@ -859,7 +859,7 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              In the aftermath of <a href="https://developers.google.com/search/blog/2024/03/march-2024-core-update" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Google's March 2024 core update</a>, AI overviews appeared in roughly 18% of U.S. searches. <a href="https://ahrefs.com/blog/ai-overviews-study/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Ahrefs researchers</a> found that AI summaries reduced click through rate by around 34%. For informational queries, AI overviews appear in about 58% of results.
+              In the aftermath of Google's March 2024 core update, AI overviews appeared in roughly 18% of U.S. searches. Ahrefs researchers found that AI summaries reduced click through rate by around 34%. For informational queries, AI overviews appear in about 58% of results.
             </p>
 
             <p className="mb-6">
@@ -987,7 +987,7 @@ export default function GeoGuide() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Develop Authoritative Content With Verifiable Data</h3>
             
             <p className="mb-6">
-              Generative models favour content that contains facts they can corroborate. When you publish a blog post, white paper or case study, include data points and statistics from reputable sources. For example, if you claim that <a href="https://www.marketsandmarkets.com/Market-Reports/ai-content-generation-market-189883242.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">AI content marketing will grow to 17.6 billion dollars by 2033</a>, link to the research behind that estimate as each citation acts as a signal to the model that your content is trustworthy.
+              Generative models favour content that contains facts they can corroborate. When you publish a blog post, white paper or case study, include data points and statistics from reputable sources. For example, if you claim that AI content marketing will grow to 17.6 billion dollars by 2033, link to the research behind that estimate as each citation acts as a signal to the model that your content is trustworthy.
             </p>
 
             <p className="mb-6">
@@ -1189,7 +1189,7 @@ export default function GeoGuide() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Citation Accuracy and Intellectual Property</h3>
             
             <p className="mb-6">
-              <a href="https://arxiv.org/abs/2502.00649" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Research</a> shows that RAG systems produce correct citations about 74% of the time. In other words, roughly one quarter of the time the citation is wrong or incomplete.
+              Research shows that RAG systems produce correct citations about 74% of the time. In other words, roughly one quarter of the time the citation is wrong or incomplete.
             </p>
 
             <p className="mb-6">
@@ -1199,7 +1199,7 @@ export default function GeoGuide() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Bias and Representation</h3>
             
             <p className="mb-6">
-              The <a href="https://arxiv.org/abs/2501.02936" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">2025 study of AI search citations</a> found that only about 9% of citations came from news sources. This means that models may amplify viewpoints from niche communities while underrepresenting mainstream journalism. The same study observed a mild liberal bias in citation distribution, though this did not significantly affect user satisfaction.
+              The 2025 study of AI search citations found that only about 9% of citations came from news sources. This means that models may amplify viewpoints from niche communities while underrepresenting mainstream journalism. The same study observed a mild liberal bias in citation distribution, though this did not significantly affect user satisfaction.
             </p>
 
             <p className="mb-6">
