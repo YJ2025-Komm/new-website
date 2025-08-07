@@ -561,7 +561,7 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              The concept of GEO was formalised in a 2024 study by researchers at Princeton University and the Allen Institute for AI (Source). They defined a generative engine as an AI system that synthesises responses by summarising information from multiple sources. Unlike traditional search engines that return lists of links, generative engines produce complete answers. This provides convenience for users but reduces the visibility of the original publishers.
+              The concept of GEO was formalised in a 2024 study by researchers at Princeton University and the Allen Institute for AI (<a href="https://arxiv.org/pdf/2311.09735" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Source</a>). They defined a generative engine as an AI system that synthesises responses by summarising information from multiple sources. Unlike traditional search engines that return lists of links, generative engines produce complete answers. This provides convenience for users but reduces the visibility of the original publishers.
             </p>
 
             <p className="mb-6">
@@ -672,7 +672,7 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              Zero click searches - queries that end without a user clicking any result are on the rise. SparkToro's analysis found that roughly 60% of all Google searches now end without a click. (Source)
+              Zero click searches - queries that end without a user clicking any result are on the rise. SparkToro's analysis found that roughly 60% of all Google searches now end without a click.(<a href="https://sparktoro.com/blog/2024-zero-click-search-study-for-every-1000-us-google-searches-only-374-clicks-go-to-the-open-web-in-the-eu-its-360/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Source</a>) 
             </p>
 
             <p className="mb-6">
