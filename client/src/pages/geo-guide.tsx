@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Share } from "lucide-react";
 
 export default function GeoGuide() {
+  const [activeSection, setActiveSection] = useState('');
+
   useEffect(() => {
     document.title = 'The GEO Playbook - A Strategic Guide for B2B and SaaS Marketers | GeoRankers';
     
@@ -11,6 +13,27 @@ export default function GeoGuide() {
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Discover the power of GEO with our strategic guide for B2B and SaaS marketers. Learn how generative engines like ChatGPT and Gemini are changing search.');
     }
+
+    // Set up intersection observer for active section highlighting
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { 
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0
+      }
+    );
+
+    // Observe all sections
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
   }, []);
 
   const scrollToWaitlist = () => {
@@ -176,48 +199,100 @@ export default function GeoGuide() {
       {/* Guide Content */}
       <main className="flex max-w-7xl mx-auto px-6 py-16 gap-8">
         {/* Table of Contents */}
-        <aside className="w-72 flex-shrink-0 sticky top-16 h-fit">
-          <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-            <h3 className="text-xl font-bold text-gray-900 mb-6">Table of Contents</h3>
-            <nav className="space-y-1">
-              <a href="#search-evolution" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
-                <span className="text-base font-medium">The Long Road to AI</span>
+        <aside className="w-72 flex-shrink-0 sticky top-16 h-fit max-h-[calc(100vh-5rem)] overflow-y-auto">
+          <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+            <h3 className="text-lg font-bold text-gray-900 mb-4">Table of Contents</h3>
+            <nav className="space-y-0.5">
+              <a href="#search-evolution" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+                activeSection === 'search-evolution' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-sm font-medium">The Long Road to AI</span>
               </a>
-              <a href="#what-is-geo" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
-                <span className="text-base font-medium">What Exactly Is GEO?</span>
+              <a href="#what-is-geo" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+                activeSection === 'what-is-geo' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-sm font-medium">What Exactly Is GEO?</span>
               </a>
-              <a href="#key-components" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
-                <span className="text-base font-medium">Key Components of GEO</span>
+              <a href="#key-components" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+                activeSection === 'key-components' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-sm font-medium">Key Components of GEO</span>
               </a>
-              <a href="#why-geo-matters" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
-                <span className="text-base font-medium">Why GEO Matters for B2B SaaS</span>
+              <a href="#why-geo-matters" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+                activeSection === 'why-geo-matters' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-sm font-medium">Why GEO Matters for B2B SaaS</span>
               </a>
-              <a href="#how-engines-work" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
-                <span className="text-base font-medium">How Generative Engines Work</span>
+              <a href="#how-engines-work" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+                activeSection === 'how-engines-work' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-sm font-medium">How Generative Engines Work</span>
               </a>
-              <a href="#zero-click-search" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
-                <span className="text-base font-medium">The Rise of Zero Click Search</span>
+              <a href="#zero-click-search" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+                activeSection === 'zero-click-search' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-sm font-medium">The Rise of Zero Click Search</span>
               </a>
-              <a href="#geo-vs-seo" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
-                <span className="text-base font-medium">GEO vs SEO</span>
+              <a href="#geo-vs-seo" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+                activeSection === 'geo-vs-seo' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-sm font-medium">GEO vs SEO</span>
               </a>
-              <a href="#best-practices" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
-                <span className="text-base font-medium">Best Practices for GEO</span>
+              <a href="#best-practices" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+                activeSection === 'best-practices' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-sm font-medium">Best Practices for GEO</span>
               </a>
-              <a href="#measuring-success" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
-                <span className="text-base font-medium">Measuring Success</span>
+              <a href="#measuring-success" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+                activeSection === 'measuring-success' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-sm font-medium">Measuring Success</span>
               </a>
-              <a href="#challenges" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
-                <span className="text-base font-medium">Challenges & Ethics</span>
+              <a href="#challenges" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+                activeSection === 'challenges' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-sm font-medium">Challenges & Ethics</span>
               </a>
-              <a href="#future-search" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
-                <span className="text-base font-medium">The Future of Search</span>
+              <a href="#future-search" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+                activeSection === 'future-search' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-sm font-medium">The Future of Search</span>
               </a>
-              <a href="#audit-strategy" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
-                <span className="text-base font-medium">Step by Step Audit</span>
+              <a href="#audit-strategy" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+                activeSection === 'audit-strategy' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-sm font-medium">Step by Step Audit</span>
               </a>
-              <a href="#organizational-impact" className="group block p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm">
-                <span className="text-base font-medium">Organizational Impact</span>
+              <a href="#organizational-impact" className={`group block px-3 py-2 rounded-lg transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm ${
+                activeSection === 'organizational-impact' 
+                ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' 
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-sm font-medium">Organizational Impact</span>
               </a>
             </nav>
           </div>
