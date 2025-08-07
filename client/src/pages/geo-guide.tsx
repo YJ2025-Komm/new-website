@@ -329,32 +329,32 @@ export default function GeoGuide() {
           <section className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Components of GEO</h2>
             
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">1. Verifiable Statements and Statistics</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Verifiable Statements and Statistics</h3>
             <p className="mb-6">
               AI models value information they can corroborate. Including clear data points, quotes and statistics, especially those attributed to credible third parties helps your content become a candidate for citation. For example, referencing Gartner's projection that traditional search marketing spend will fall by twenty five per cent by 2026 not only educates your reader but also signals to AI that your article connects to authoritative research.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">2. Multi-channel Presence</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Multi-channel Presence</h3>
             <p className="mb-6">
               Generative engines do not rely on your site alone. They pull from discussion forums, Q and A communities, review aggregators, news sites and research papers. Engaging with audiences on Reddit threads, contributing answers on Stack Overflow or Quora and ensuring that satisfied customers leave detailed reviews on G2 or Capterra increases the likelihood that models will encounter your brand. Each mention becomes a breadcrumb that a model can follow.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">3. Structured and Accessible Content</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Structured and Accessible Content</h3>
             <p className="mb-6">
               Use schema markup to signal key information such as product categories, pricing and reviews. Provide clear section headings, bullet points and FAQs. These structures help retrieval systems identify relevant snippets. Avoid putting core content behind paywalls without an accessible summary; models cannot cite what they cannot reach.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">4. Consistent Messaging and Summarisation</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Consistent Messaging and Summarisation</h3>
             <p className="mb-6">
               Across blog posts, case studies, press releases and documentation, describe your product in consistent language. Summarise your value proposition in a sentence or two at the top of each piece of content. Models often quote the first descriptive sentences they find. If your messaging varies widely, the AI may misinterpret or omit it.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">5. Community Engagement and Signal Amplification</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Community Engagement and Signal Amplification</h3>
             <p className="mb-6">
               Participate authentically in communities where your customers seek advice. Provide thoughtful answers without overtly promoting your product. Encourage users to share their experiences. When multiple independent voices describe your solution similarly, models recognise a pattern and become more likely to include you.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">6. Tracking and Feedback Loops</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Tracking and Feedback Loops</h3>
             <p className="mb-6">
               Regularly test AI assistants with queries relevant to your category. Note whether and how your brand is mentioned and which sources the models cite. Adjust your content strategy based on what you observe. As of 2025, mainstream SEO tools like Ahrefs and Semrush are starting to experiment with AI visibility features, but these remain in beta and do not reliably indicate how ChatGPT or Gemini recommend your brand. Custom monitoring and manual testing are still necessary.
             </p>
@@ -472,9 +472,9 @@ export default function GeoGuide() {
               When a user asks a question, the system performs three steps:
             </p>
             <ol className="mb-6 space-y-2 ml-6">
-              <li>1. It retrieves relevant documents from a search index or database;</li>
-              <li>2. It selects the most useful passages; and</li>
-              <li>3. It feeds these passages to the language model, which uses them to generate a response.</li>
+              <li>It retrieves relevant documents from a search index or database;</li>
+              <li>It selects the most useful passages; and</li>
+              <li>It feeds these passages to the language model, which uses them to generate a response.</li>
             </ol>
 
             <p className="mb-6">
@@ -684,7 +684,7 @@ export default function GeoGuide() {
               Below are detailed guidelines tailored for B2B SaaS organisations:
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">1. Develop Authoritative Content With Verifiable Data</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Develop Authoritative Content With Verifiable Data</h3>
             
             <p className="mb-6">
               Generative models favour content that contains facts they can corroborate. When you publish a blog post, white paper or case study, include data points and statistics from reputable sources. For example, if you claim that AI content marketing will grow to 17.6 billion dollars by 2033, link to the research behind that estimate as each citation acts as a signal to the model that your content is trustworthy.
@@ -694,7 +694,7 @@ export default function GeoGuide() {
               Use footnotes, hyperlinks or parenthetical citations to attribute your sources. Even though generative engines may not always carry hyperlinks forward, the presence of the citation in the text influences training data and retrieval.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">2. Create Summaries and FAQs for Easy Quoting</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Create Summaries and FAQs for Easy Quoting</h3>
             
             <p className="mb-6">
               AI models often take the first short definition or description they find.
@@ -708,7 +708,7 @@ export default function GeoGuide() {
               Also, add a FAQ section to the end of your articles that answers common questions in a friendly way. Models can see patterns in question and answer pairs and may use your FAQs directly when users ask similar questions.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">3. Use Structured Data and Open Formats</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Use Structured Data and Open Formats</h3>
             
             <p className="mb-6">
               Use schema markup to give structured information about your business and product:
@@ -724,7 +724,7 @@ export default function GeoGuide() {
               And most importantly, don't put important product information behind sign-up walls. If you need to use gating, make sure to include a summary that covers the basics.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">4. Engage Authentically in Community Forums</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Engage Authentically in Community Forums</h3>
             
             <p className="mb-6">
               Generative engines get a lot of their ideas from community platforms. You can often find Reddit, Hacker News, Stack Overflow, Quora, G2, and Capterra in citations.
@@ -738,7 +738,7 @@ export default function GeoGuide() {
               Thank customers publicly if they write about your product, and ask them if you can share their feedback. Over time, you will build up a collection of endorsements from other people that models can see.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">5. Publish Research and Thought Leadership</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Publish Research and Thought Leadership</h3>
             
             <p className="mb-6">
               B2B buyers respect companies that produce original research.
@@ -752,7 +752,7 @@ export default function GeoGuide() {
               For example, a white paper summarising the adoption of AI search in enterprise software might be cited by industry blogs, further increasing its reach.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">6. Align Messaging Across Channels</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Align Messaging Across Channels</h3>
             
             <p className="mb-6">
               People and machines both get confused by things that aren't consistent. An AI might not be able to put the pieces together if your homepage calls your solution "sales automation software," a press release calls it "customer engagement software," and your documentation calls it a "CRM plug-in."
@@ -762,7 +762,7 @@ export default function GeoGuide() {
               Make sure that the way you talk about your product is the same on your website, in social media posts, in press releases, and in documentation. Make a list of words that you and your team like and share it with them. Consistent messaging makes it easier for models to associate different references to your brand.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">7. Keep an eye on AI Answers and Document Citations</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Keep an eye on AI Answers and Document Citations</h3>
             
             <p className="mb-6">
               Make a list of questions that potential customers might ask at different points in the funnel, and then ask ChatGPT, Gemini, and Perplexity these questions.
@@ -784,7 +784,7 @@ export default function GeoGuide() {
               A manual approach or custom scripts may be needed because mainstream SEO tools are still working on reliable AI visibility features.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">8. Ask for Reviews and Testimonials</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Ask for Reviews and Testimonials</h3>
             
             <p className="mb-6">
               Models frequently reference review aggregators.
@@ -798,7 +798,7 @@ export default function GeoGuide() {
               Be constructive when you respond to bad reviews - that shows you care about what your customers have to say and are willing to make changes. A lot of good, detailed reviews not only help potential buyers, but they also make it more likely that generative engines will recommend you as a tool.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">9. Use Stories and Analogies</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Use Stories and Analogies</h3>
             
             <p className="mb-6">
               AI models learn from a wide range of texts, including stories and comparisons.
@@ -816,7 +816,7 @@ export default function GeoGuide() {
               Don't use jargons. Say it in a way that both people and machines can understand.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">10. Iterate and Adapt</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Iterate and Adapt</h3>
             
             <p className="mb-6">
               Generative engines change quickly as models are updated, retrieval algorithms change, and users act differently.
@@ -1014,28 +1014,28 @@ export default function GeoGuide() {
 
             <ol className="mb-6 space-y-4 ml-6">
               <li>
-                <strong>1. Define Your Audience and Questions.</strong> Identify the personas you target (e.g., CTOs, product managers, growth marketers) and the questions they might ask an AI assistant. Include both problem oriented and solution oriented queries.
+                <strong>Define Your Audience and Questions.</strong> Identify the personas you target (e.g., CTOs, product managers, growth marketers) and the questions they might ask an AI assistant. Include both problem oriented and solution oriented queries.
               </li>
               <li>
-                <strong>2. Perform Baseline Testing.</strong> Use generative assistants to ask your list of questions. Record where your brand appears, which competitors are mentioned and which sources are cited. Create a spreadsheet to track results over time.
+                <strong>Perform Baseline Testing.</strong> Use generative assistants to ask your list of questions. Record where your brand appears, which competitors are mentioned and which sources are cited. Create a spreadsheet to track results over time.
               </li>
               <li>
-                <strong>3. Analyse Sources and Gaps.</strong> For each query, identify the domains that are cited. Note patterns: Are forums dominating? Are there specific blogs or review sites that appear frequently? Determine which of these sources you can influence directly (e.g., by contributing content) or indirectly (e.g., by encouraging customer reviews).
+                <strong>Analyse Sources and Gaps.</strong> For each query, identify the domains that are cited. Note patterns: Are forums dominating? Are there specific blogs or review sites that appear frequently? Determine which of these sources you can influence directly (e.g., by contributing content) or indirectly (e.g., by encouraging customer reviews).
               </li>
               <li>
-                <strong>4. Enhance Your Content.</strong> Review your existing pages. Add clear summaries at the top. Implement schema markup. Include citations to reputable research. Develop an FAQ section. Ensure that product names and descriptors are consistent.
+                <strong>Enhance Your Content.</strong> Review your existing pages. Add clear summaries at the top. Implement schema markup. Include citations to reputable research. Develop an FAQ section. Ensure that product names and descriptors are consistent.
               </li>
               <li>
-                <strong>5. Engage in Communities.</strong> Identify the forums and review sites that AI engines cite. Participate in conversations with helpful answers. Encourage advocates to share their experiences. If appropriate, sponsor community projects or host AMAs (ask me anything sessions) to raise your profile.
+                <strong>Engage in Communities.</strong> Identify the forums and review sites that AI engines cite. Participate in conversations with helpful answers. Encourage advocates to share their experiences. If appropriate, sponsor community projects or host AMAs (ask me anything sessions) to raise your profile.
               </li>
               <li>
-                <strong>6. Publish Original Research.</strong> Commission surveys or analyse anonymised customer data to produce reports that others will cite. Share these insights freely under a license that allows models to use them. Promote your research in industry newsletters and on LinkedIn.
+                <strong>Publish Original Research.</strong> Commission surveys or analyse anonymised customer data to produce reports that others will cite. Share these insights freely under a license that allows models to use them. Promote your research in industry newsletters and on LinkedIn.
               </li>
               <li>
-                <strong>7. Monitor and Measure.</strong> Re run your tests periodically (e.g., monthly). Track improvements in mentions, position and sentiment. Update your strategy based on what the data shows. Share the insights with your internal stakeholders. Document wins and areas for improvement.
+                <strong>Monitor and Measure.</strong> Re run your tests periodically (e.g., monthly). Track improvements in mentions, position and sentiment. Update your strategy based on what the data shows. Share the insights with your internal stakeholders. Document wins and areas for improvement.
               </li>
               <li>
-                <strong>8. Iterate and Innovate.</strong> GEO is a moving target. As models change and new platforms emerge, adapt your tactics. Experiment with video, audio and interactive content as models expand into multimodal capabilities. Stay informed about new citation studies and retrieval research. Collaborate with your product and engineering teams to integrate AI capabilities into your own platform if relevant.
+                <strong>Iterate and Innovate.</strong> GEO is a moving target. As models change and new platforms emerge, adapt your tactics. Experiment with video, audio and interactive content as models expand into multimodal capabilities. Stay informed about new citation studies and retrieval research. Collaborate with your product and engineering teams to integrate AI capabilities into your own platform if relevant.
               </li>
             </ol>
           </section>
