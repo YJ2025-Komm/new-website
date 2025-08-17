@@ -133,6 +133,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   const [showEmailCapture, setShowEmailCapture] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [showWaitlistForm, setShowWaitlistForm] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
   const [quizResults, setQuizResults] = useState<any>(null);
   const { toast } = useToast();
 
@@ -192,11 +193,12 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
       return response.json();
     },
     onSuccess: () => {
+      setShowWaitlistForm(false);
+      setShowThankYou(true);
       toast({
         title: "Welcome to the waitlist!",
         description: "We'll notify you as soon as GeoRankers is ready.",
       });
-      handleClose();
     },
     onError: (error: any) => {
       toast({
@@ -263,6 +265,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
     setShowEmailCapture(false);
     setShowResults(false);
     setShowWaitlistForm(false);
+    setShowThankYou(false);
     setQuizResults(null);
     form.reset();
     waitlistForm.reset();
@@ -296,6 +299,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   console.log("Show email capture:", showEmailCapture);
   console.log("Show results:", showResults);
   console.log("Show waitlist form:", showWaitlistForm);
+  console.log("Show thank you:", showThankYou);
 
   if (showResults && quizResults) {
     return (
@@ -438,6 +442,53 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                 </Button>
               </CardContent>
             </Card>
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
+  if (showThankYou) {
+    return (
+      <Dialog open={isOpen} onOpenChange={handleClose}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-center">Thank You!</DialogTitle>
+            <DialogDescription className="text-center text-gray-600">
+              You're now on the GeoRankers waitlist
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="text-center space-y-4 py-6">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+              <CheckCircle className="w-8 h-8 text-green-600" />
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold text-gray-900">Welcome to the waitlist!</h3>
+              <p className="text-gray-600">
+                We'll notify you as soon as GeoRankers is ready. In the meantime, you can review your AI readiness results.
+              </p>
+            </div>
+            
+            <div className="flex space-x-2 pt-4">
+              <Button 
+                onClick={() => {
+                  setShowThankYou(false);
+                  setShowResults(true);
+                }}
+                className="flex-1 bg-gradient-to-r from-blue-500 to-violet-500"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Results
+              </Button>
+              <Button 
+                onClick={handleClose}
+                variant="outline"
+                className="flex-1"
+              >
+                Close
+              </Button>
+            </div>
           </div>
         </DialogContent>
       </Dialog>
