@@ -69,13 +69,15 @@ export function calculateQuizScore(responses: QuizResponse): {
   if (responses.q7 === "user_driven") community += 6;
   else if (responses.q7 === "brand_only") community += 3;
 
-  // Q5: Review engagement (0-10 pts) - moved to reviews category
-  if (responses.q5 === "consistently") reviews += 10;
-  else if (responses.q5 === "occasionally") reviews += 5;
-
-  // Q8: Structured data (0-10 pts) - moved to reviews category 
+  // Reviews & Reputation Category (0-20 pts total)
+  // Need to add a proper reviews question (Q7 in document: Reviews on G2/Trustpilot)
+  // For now, using Q8 structured data as reviews presence indicator
   if (responses.q8 === "valid") reviews += 10;
   else if (responses.q8 === "partial") reviews += 5;
+  
+  // Q5: Review engagement (0-10 pts) 
+  if (responses.q5 === "consistently") reviews += 10;
+  else if (responses.q5 === "occasionally") reviews += 5;
 
   // Q6: Media coverage (0-20 pts)
   if (responses.q6 === "tier1") media += 20;
