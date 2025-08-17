@@ -485,27 +485,16 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
             <div className="space-y-2">
               <h3 className="text-lg font-semibold text-gray-900">Welcome to the waitlist!</h3>
               <p className="text-gray-600">
-                We'll notify you as soon as GeoRankers is ready. In the meantime, you can review your AI readiness results.
+                We'll let you know once we go live and you can start improving your AI search visibility.
               </p>
             </div>
             
-            <div className="flex space-x-2 pt-4">
-              <Button 
-                onClick={() => {
-                  setShowThankYou(false);
-                  setShowResults(true);
-                }}
-                className="flex-1 bg-gradient-to-r from-blue-500 to-violet-500"
-              >
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Results
-              </Button>
+            <div className="pt-4">
               <Button 
                 onClick={handleClose}
-                variant="outline"
-                className="flex-1"
+                className="w-full bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600"
               >
-                Close
+                Go to Home Page
               </Button>
             </div>
           </div>
