@@ -832,7 +832,7 @@ export default function Home() {
                   <p className="text-sm sm:text-base text-slate-600">We'll notify you as soon as GeoRankers is ready for you.</p>
                 </div>
               ) : (
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+                <form id="waitlist-form" onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
                   <div>
                     <Label htmlFor="fullName" className="block text-sm font-medium text-slate-600 mb-2">
                       Full Name *

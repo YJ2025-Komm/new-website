@@ -388,7 +388,16 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                   Join our waitlist to get notified when GeoRankers launches and start optimizing your brand for AI search.
                 </p>
                 <Button 
-                  onClick={handleClose}
+                  onClick={() => {
+                    handleClose();
+                    // Scroll to waitlist form with a slight delay to allow modal to close
+                    setTimeout(() => {
+                      const waitlistSection = document.getElementById('waitlist-form');
+                      if (waitlistSection) {
+                        waitlistSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      }
+                    }, 100);
+                  }}
                   className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600"
                 >
                   Join GeoRankers Waitlist
