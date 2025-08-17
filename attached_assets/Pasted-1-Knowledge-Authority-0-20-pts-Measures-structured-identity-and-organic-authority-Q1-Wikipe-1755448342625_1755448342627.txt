@@ -1,0 +1,124 @@
+1. Knowledge & Authority (0–20 pts)
+
+Measures structured identity and organic authority.
+
+Q1. Wikipedia / Knowledge Graph
+Does your brand have a dedicated Wikipedia page or appear in Google Knowledge Graph (right-hand panel when you search your brand)?
+
+Yes (full page) → 10 pts
+
+Mentioned but not a full page → 5 pts
+
+No → 0 pts
+
+Q2. Crunchbase / G2 / Capterra
+Can you find your brand’s profile on Crunchbase, G2, or Capterra?
+
+Yes, we are on 2+ of these with reviews → 5 pts
+
+Only one, limited reviews → 2 pts
+
+Not present → 0 pts
+
+Q10. Page-1 Visibility
+How many of your website’s pages currently rank on Page 1 of Google for your target keywords?
+
+10+ pages → 5 pts
+
+Less than 10 → 3 pts
+
+None / Not sure → 0 pts
+
+👉 Category max: 20 pts
+
+2. Community Signals (0–20 pts)
+
+Captures community chatter & peer validation.
+
+Q3. Reddit Mentions
+Search your brand name on Reddit. Do you find active discussions or mentions?
+
+Yes, multiple threads with engagement → 7 pts
+
+A few mentions, low activity → 3 pts
+
+No mentions → 0 pts
+
+Q4. Reddit Karma
+Approximate total karma/upvotes across Reddit mentions for your brand.
+
+100+ karma → 7 pts
+
+1–99 karma → 3 pts
+
+0 → 0 pts
+
+Q7. LinkedIn / Product Hunt
+Search your brand on LinkedIn and Product Hunt. Are there posts or discussions about it?
+
+Yes, user-driven discussions exist → 6 pts
+
+Only brand-led posts → 3 pts
+
+Nothing visible → 0 pts
+
+👉 Category max: 20 pts
+
+3. Reviews & Reputation (0–20 pts)
+
+Focuses on customer voice and brand trust.
+
+Q5. Review Engagement
+Do you actively reply to user reviews/comments on G2, Trustpilot, App Stores, or Capterra?
+
+Yes, consistently → 10 pts
+
+Occasionally → 5 pts
+
+Never → 0 pts
+
+(Optional bonus scoring if you want): Instead of just engagement, you could split into 2 sub-questions — one on existence of reviews and one on replying. But since you listed just review engagement, we’ll keep it streamlined.
+
+👉 Category max: 20 pts
+
+4. Media & Coverage (0–20 pts)
+
+Checks press and analyst validation.
+
+Q6. Media Coverage
+When you search “[Your Brand Name] news” on Google, do you see mentions in tier-1 or tier-2 publications (Forbes, TechCrunch, niche trade media)?
+
+Yes, multiple credible publications → 20 pts
+
+Some smaller blogs → 10 pts
+
+None → 0 pts
+
+👉 Category max: 20 pts
+
+5. Direct LLM Visibility (0–20 pts)
+
+Self-tested appearance in AI platforms.
+
+Q9. LLM Mentions
+When you asked a category-level question (e.g., “Who are the top [your category] platforms in 2025?”), did your brand appear?
+
+ChatGPT
+
+Yes → 7 pts
+
+No → 0 pts
+
+Gemini
+
+Yes → 7 pts
+
+No → 0 pts
+
+Perplexity
+
+Yes → 6 pts
+
+No → 0 pts
+
+👉 Category max: 20 pts
