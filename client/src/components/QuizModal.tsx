@@ -156,6 +156,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
       });
     },
     onError: (error: any) => {
+      console.error("Quiz submission error:", error);
       toast({
         variant: "destructive",
         title: "Error",
@@ -187,6 +188,9 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   };
 
   const handleEmailSubmit = (data: QuizSubmission) => {
+    console.log("Form data:", data);
+    console.log("Quiz responses:", quizResponses);
+    
     const completeSubmission = {
       ...data,
       responses: quizResponses as QuizResponse
@@ -194,8 +198,10 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
     
     // Calculate results locally first
     const results = calculateQuizScore(quizResponses as QuizResponse);
+    console.log("Calculated results:", results);
     setQuizResults(results);
     
+    console.log("Submitting to API:", completeSubmission);
     submitQuizMutation.mutate(completeSubmission);
   };
 
@@ -346,7 +352,9 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
             </DialogDescription>
           </DialogHeader>
           
-          <form onSubmit={form.handleSubmit(handleEmailSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(handleEmailSubmit, (errors) => {
+            console.log("Form validation errors:", errors);
+          })} className="space-y-4">
             <div className="text-center space-y-2">
               <Mail className="w-12 h-12 text-blue-500 mx-auto" />
               <p className="text-gray-600">
@@ -392,6 +400,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                 type="submit" 
                 disabled={submitQuizMutation.isPending}
                 className="flex-1 bg-gradient-to-r from-blue-500 to-violet-500"
+                onClick={() => console.log("Get Results clicked")}
               >
                 {submitQuizMutation.isPending ? "Generating..." : "Get Results"}
               </Button>
