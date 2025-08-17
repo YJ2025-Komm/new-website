@@ -288,6 +288,8 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   const handleClose = () => {
     resetQuiz();
     onClose();
+    // Scroll to top of page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleWaitlistSubmit = (data: InsertWaitlistEntry) => {
