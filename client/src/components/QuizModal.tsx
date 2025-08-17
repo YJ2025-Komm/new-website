@@ -134,6 +134,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   const [showResults, setShowResults] = useState(false);
   const [showWaitlistForm, setShowWaitlistForm] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
+  const [hasJoinedWaitlist, setHasJoinedWaitlist] = useState(false);
   const [quizResults, setQuizResults] = useState<any>(null);
   const { toast } = useToast();
 
@@ -195,6 +196,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
     onSuccess: () => {
       setShowWaitlistForm(false);
       setShowThankYou(true);
+      setHasJoinedWaitlist(true);
       toast({
         title: "Welcome to the waitlist!",
         description: "We'll notify you as soon as GeoRankers is ready.",
@@ -266,6 +268,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
     setShowResults(false);
     setShowWaitlistForm(false);
     setShowThankYou(false);
+    setHasJoinedWaitlist(false);
     setQuizResults(null);
     form.reset();
     waitlistForm.reset();
@@ -425,23 +428,39 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
             </Card>
 
             {/* CTA */}
-            <Card className="bg-gradient-to-r from-blue-50 to-violet-50 border-blue-200">
-              <CardContent className="text-center p-6">
-                <h3 className="text-xl font-bold mb-2">Ready to Improve Your AI Visibility?</h3>
-                <p className="text-gray-600 mb-4">
-                  Join our waitlist to get notified when GeoRankers launches and start optimizing your brand for AI search.
-                </p>
-                <Button 
-                  onClick={() => {
-                    setShowResults(false);
-                    setShowWaitlistForm(true);
-                  }}
-                  className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600"
-                >
-                  Join GeoRankers Waitlist
-                </Button>
-              </CardContent>
-            </Card>
+            {!hasJoinedWaitlist ? (
+              <Card className="bg-gradient-to-r from-blue-50 to-violet-50 border-blue-200">
+                <CardContent className="text-center p-6">
+                  <h3 className="text-xl font-bold mb-2">Ready to Improve Your AI Visibility?</h3>
+                  <p className="text-gray-600 mb-4">
+                    Join our waitlist to get notified when GeoRankers launches and start optimizing your brand for AI search.
+                  </p>
+                  <Button 
+                    onClick={() => {
+                      setShowResults(false);
+                      setShowWaitlistForm(true);
+                    }}
+                    className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600"
+                  >
+                    Join GeoRankers Waitlist
+                  </Button>
+                </CardContent>
+              </Card>
+            ) : (
+              <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-200">
+                <CardContent className="text-center p-6">
+                  <div className="flex items-center justify-center space-x-3 mb-2">
+                    <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                    </div>
+                    <h3 className="text-xl font-bold text-green-800">Thank you for joining the waitlist!</h3>
+                  </div>
+                  <p className="text-green-700">
+                    We'll let you know once we go live and you can start improving your AI search visibility.
+                  </p>
+                </CardContent>
+              </Card>
+            )}
           </div>
         </DialogContent>
       </Dialog>
