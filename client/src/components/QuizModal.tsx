@@ -24,12 +24,12 @@ interface QuizModalProps {
 const questions = [
   {
     id: "q1",
-    title: "Knowledge Graph Presence",
-    question: "Does your brand have a dedicated Wikipedia page or appear in Google Knowledge Graph?",
+    title: "Wikipedia & Knowledge Graph",
+    question: "Does your brand have a dedicated Wikipedia page or appear in Google Knowledge Graph (right-hand panel when you search your brand)?",
     options: [
-      { value: "both", label: "Yes, both Wikipedia page and Knowledge Graph" },
-      { value: "partial", label: "Either Wikipedia or Knowledge Graph, but not both" },
-      { value: "none", label: "Neither" }
+      { value: "both", label: "Yes (full page)" },
+      { value: "partial", label: "Mentioned but not a full page" },
+      { value: "none", label: "No" }
     ]
   },
   {
@@ -37,110 +37,110 @@ const questions = [
     title: "Business Directory Presence",
     question: "Can you find your brand's profile on Crunchbase, G2, or Capterra?",
     options: [
-      { value: "multiple", label: "Yes, we're on 2+ platforms with reviews" },
-      { value: "one", label: "Only one platform, limited reviews" },
-      { value: "none", label: "Not present on any" }
+      { value: "multiple", label: "Yes, we are on 2+ of these with reviews" },
+      { value: "one", label: "Only one, limited reviews" },
+      { value: "none", label: "Not present" }
     ]
   },
   {
     id: "q3",
-    title: "Google Page-1 Visibility",
-    question: "How many of your website's pages currently rank on Page 1 of Google for your target keywords?",
-    options: [
-      { value: "ten_plus", label: "10+ pages" },
-      { value: "less_than_ten", label: "1–9 pages" },
-      { value: "none", label: "None" }
-    ]
-  },
-  {
-    id: "q4",
-    title: "Reddit Community Engagement", 
+    title: "Reddit Discussions",
     question: "Search your brand name on Reddit. Do you find active discussions or mentions?",
     options: [
-      { value: "multiple", label: "Yes, multiple threads with engagement" },
-      { value: "few", label: "A few mentions, low activity" },
+      { value: "ten_plus", label: "Yes, multiple threads with engagement" },
+      { value: "less_than_ten", label: "A few mentions, low activity" },
       { value: "none", label: "No mentions" }
     ]
   },
   {
-    id: "q5",
-    title: "Reddit Karma Score",
-    question: "Approximate total karma/upvotes across Reddit mentions for your brand:",
+    id: "q4",
+    title: "Reddit Karma", 
+    question: "Approximate total karma/upvotes across Reddit mentions for your brand -",
     options: [
-      { value: "high", label: "100+ karma" },
-      { value: "low", label: "1–99 karma" },
-      { value: "zero", label: "0 karma" }
+      { value: "multiple", label: "100+ karma" },
+      { value: "few", label: "1-99 karma" },
+      { value: "none", label: "0" }
+    ]
+  },
+  {
+    id: "q5",
+    title: "Review Engagement",
+    question: "Do you actively reply to user reviews/comments on G2, Trustpilot, App Stores, or Capterra?",
+    options: [
+      { value: "high", label: "Yes, consistently" },
+      { value: "low", label: "Occasionally" },
+      { value: "zero", label: "Never" }
     ]
   },
   {
     id: "q6",
-    title: "Social Platform Mentions",
-    question: "Search your brand on LinkedIn and Product Hunt. Are there posts or discussions?",
+    title: "Media Coverage",
+    question: "When you search \"[Your Brand Name] news\" on Google, do you see mentions in tier-1 or tier-2 publications (Forbes, TechCrunch, niche trade media)?",
     options: [
-      { value: "user_driven", label: "Yes, user-driven discussions exist" },
-      { value: "brand_only", label: "Only brand-led posts" },
-      { value: "none", label: "Nothing visible" }
+      { value: "user_driven", label: "Yes, multiple credible publications" },
+      { value: "brand_only", label: "Some smaller blogs" },
+      { value: "none", label: "None" }
     ]
   },
 
   {
     id: "q7",
-    title: "Review Platform Presence",
-    question: "Does your brand have reviews on G2, Trustpilot, or App Stores?",
+    title: "LinkedIn & Product Hunt",
+    question: "Search your brand on LinkedIn and Product Hunt. Are there posts or discussions about it?",
     options: [
-      { value: "many", label: "Many reviews across platforms" },
-      { value: "some", label: "Some reviews, limited platforms" },
-      { value: "none", label: "None" }
+      { value: "many", label: "Yes, user-driven discussions exist" },
+      { value: "some", label: "Only brand-led posts" },
+      { value: "none", label: "Nothing visible" }
     ]
   },
   {
     id: "q8",
-    title: "Review Engagement",
-    question: "Do you actively reply to or engage with reviews?",
+    title: "Structured Data",
+    question: "Run your homepage through Google's Rich Results Test. Does it show structured data for your organization/product?",
     options: [
-      { value: "consistently", label: "Yes, consistently" },
-      { value: "occasionally", label: "Occasionally" },
-      { value: "never", label: "Never" }
+      { value: "consistently", label: "Yes, valid schema present" },
+      { value: "occasionally", label: "Partial / errors" },
+      { value: "never", label: "None" }
     ]
   },
   {
     id: "q9_chatgpt",
     title: "ChatGPT Visibility",
-    question: "When you asked ChatGPT a category-level question (e.g., 'Who are the top [your category] platforms in 2025?'), did your brand appear?",
+    question: "When you asked a category-level question (e.g., 'Who are the top [your category] platforms in 2025?'), did your brand appear in the answer?",
     options: [
-      { value: "top5", label: "Yes, in top 5 or first mention" },
-      { value: "mentioned", label: "Yes, mentioned but not in top 5" },
-      { value: "not_mentioned", label: "No, not mentioned" }
+      { value: "top5", label: "Yes" },
+      { value: "mentioned", label: "No" },
+      { value: "not_mentioned", label: "No" }
     ]
   },
   {
     id: "q9_gemini",
     title: "Gemini Visibility", 
-    question: "When you asked Gemini a category-level question (e.g., 'Who are the top [your category] platforms in 2025?'), did your brand appear?",
+    question: "When you asked a category-level question (e.g., 'Who are the top [your category] platforms in 2025?'), did your brand appear in the answer?",
     options: [
-      { value: "top5", label: "Yes, in top 5 or first mention" },
-      { value: "mentioned", label: "Yes, mentioned but not in top 5" },
-      { value: "not_mentioned", label: "No, not mentioned" }
+      { value: "top5", label: "Yes" },
+      { value: "mentioned", label: "No" },
+      { value: "not_mentioned", label: "No" }
     ]
   },
   {
     id: "q9_perplexity",
     title: "Perplexity Visibility",
-    question: "When you asked Perplexity a category-level question (e.g., 'Who are the top [your category] platforms in 2025?'), did your brand appear?",
+    question: "When you asked a category-level question (e.g., 'Who are the top [your category] platforms in 2025?'), did your brand appear in the answer?",
     options: [
-      { value: "top5", label: "Yes, in top 5 or first mention" },
-      { value: "mentioned", label: "Yes, mentioned but not in top 5" },
-      { value: "not_mentioned", label: "No, not mentioned" }
+      { value: "top5", label: "Yes" },
+      { value: "mentioned", label: "No" },
+      { value: "not_mentioned", label: "No" }
     ]
   },
   {
     id: "q9",
-    title: "Media Coverage",
-    question: "When you search 'Brand + News' on Google, what do you see?",
+    title: "Google Page Rankings",
+    question: "How many of your website's pages currently rank on Page 1 of Google for your target keywords?",
     options: [
-      { value: "tier1", label: "Strong tier-1 mentions (Forbes, TechCrunch, etc.)" },
-      { value: "blogs", label: "Only niche blogs" },
-      { value: "none", label: "None" }
+      { value: "tier1", label: "10+" },
+      { value: "blogs", label: "Less than 10" },
+      { value: "none", label: "None/Not Sure" }
     ]
   }
 ];
@@ -196,8 +196,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
     };
     setQuizResponses(updatedResponses);
     
-    // Also update form data with responses
-    form.setValue("responses", updatedResponses as QuizResponse);
+
   };
 
   const handleNext = () => {
