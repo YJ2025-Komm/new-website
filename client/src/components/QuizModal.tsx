@@ -104,33 +104,14 @@ const questions = [
     ]
   },
   {
-    id: "q9_chatgpt",
-    title: "ChatGPT Visibility",
+    id: "q9_llm",
+    title: "AI Platform Visibility",
     question: "When you asked a category-level question (e.g., 'Who are the top [your category] platforms in 2025?'), did your brand appear in the answer?",
-    options: [
-      { value: "top5", label: "Yes" },
-      { value: "mentioned", label: "No" },
-      { value: "not_mentioned", label: "No" }
-    ]
-  },
-  {
-    id: "q9_gemini",
-    title: "Gemini Visibility", 
-    question: "When you asked a category-level question (e.g., 'Who are the top [your category] platforms in 2025?'), did your brand appear in the answer?",
-    options: [
-      { value: "top5", label: "Yes" },
-      { value: "mentioned", label: "No" },
-      { value: "not_mentioned", label: "No" }
-    ]
-  },
-  {
-    id: "q9_perplexity",
-    title: "Perplexity Visibility",
-    question: "When you asked a category-level question (e.g., 'Who are the top [your category] platforms in 2025?'), did your brand appear in the answer?",
-    options: [
-      { value: "top5", label: "Yes" },
-      { value: "mentioned", label: "No" },
-      { value: "not_mentioned", label: "No" }
+    type: "checkbox",
+    platforms: [
+      { id: "q9_chatgpt", label: "ChatGPT" },
+      { id: "q9_gemini", label: "Gemini" },
+      { id: "q9_perplexity", label: "Perplexity" }
     ]
   },
   {
@@ -146,12 +127,16 @@ const questions = [
 ];
 
 export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentScreen, setCurrentScreen] = useState(0); // 0 or 1 for 2 screens
   const [quizResponses, setQuizResponses] = useState<Partial<QuizResponse>>({});
   const [showEmailCapture, setShowEmailCapture] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [quizResults, setQuizResults] = useState<any>(null);
   const { toast } = useToast();
+
+  // Split questions into two screens (first 6, last 4)
+  const screen1Questions = questions.slice(0, 6);
+  const screen2Questions = questions.slice(6);
 
   const form = useForm<{ email: string; companyName?: string }>({
     resolver: zodResolver(z.object({
@@ -195,13 +180,19 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
       [questionId]: value
     };
     setQuizResponses(updatedResponses);
-    
+  };
 
+  const handleLLMResponse = (platformId: string, isVisible: boolean) => {
+    const updatedResponses = {
+      ...quizResponses,
+      [platformId]: isVisible ? "top5" : "not_mentioned"
+    };
+    setQuizResponses(updatedResponses);
   };
 
   const handleNext = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+    if (currentScreen === 0) {
+      setCurrentScreen(1);
     } else {
       // Quiz completed, show email capture
       setShowEmailCapture(true);
@@ -209,8 +200,8 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   };
 
   const handlePrevious = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
+    if (currentScreen === 1) {
+      setCurrentScreen(0);
     }
   };
 
@@ -234,7 +225,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   };
 
   const resetQuiz = () => {
-    setCurrentQuestion(0);
+    setCurrentScreen(0);
     setQuizResponses({});
     setShowEmailCapture(false);
     setShowResults(false);
@@ -247,13 +238,21 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
     onClose();
   };
 
-  const progress = ((currentQuestion + 1) / questions.length) * 100;
-  const currentQ = questions[currentQuestion];
-  const isAnswered = currentQ && quizResponses[currentQ.id as keyof QuizResponse];
+  const progress = ((currentScreen + 1) / 2) * 100;
+  const currentQuestions = currentScreen === 0 ? screen1Questions : screen2Questions;
   
-  console.log("Current question index:", currentQuestion);
-  console.log("Total questions:", questions.length);
-  console.log("Current question ID:", currentQ?.id);
+  // Check if all questions on current screen are answered
+  const isScreenComplete = currentQuestions.every(q => {
+    if (q.type === "checkbox") {
+      // For LLM question, check if all platforms are answered
+      return q.platforms?.every(platform => quizResponses[platform.id as keyof QuizResponse] !== undefined);
+    }
+    return quizResponses[q.id as keyof QuizResponse] !== undefined;
+  });
+  
+  console.log("Current screen:", currentScreen);
+  console.log("Total screens:", 2);
+  console.log("Screen complete:", isScreenComplete);
   console.log("Quiz responses so far:", Object.keys(quizResponses));
   console.log("Show email capture:", showEmailCapture);
   console.log("Show results:", showResults);
@@ -448,7 +447,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-center">
             Is Your Brand AI-Search Ready?
@@ -462,41 +461,73 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
           {/* Progress */}
           <div className="space-y-2">
             <div className="flex justify-between text-sm">
-              <span>Question {currentQuestion + 1} of {questions.length}</span>
+              <span>Screen {currentScreen + 1} of 2</span>
               <span>{Math.round(progress)}% Complete</span>
             </div>
             <Progress value={progress} className="w-full" />
           </div>
 
-          {/* Question */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg">{currentQ.title}</CardTitle>
-              <p className="text-gray-600">{currentQ.question}</p>
-            </CardHeader>
-            <CardContent>
-              <RadioGroup
-                value={quizResponses[currentQ.id as keyof QuizResponse] as string || ""}
-                onValueChange={(value) => handleQuestionResponse(currentQ.id, value)}
-              >
-                {currentQ.options.map((option) => (
-                  <div key={option.value} className="flex items-center space-x-2">
-                    <RadioGroupItem value={option.value} id={option.value} />
-                    <Label htmlFor={option.value} className="flex-1 cursor-pointer">
-                      {option.label}
-                    </Label>
-                  </div>
-                ))}
-              </RadioGroup>
-            </CardContent>
-          </Card>
+          {/* Questions Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto">
+            {currentQuestions.map((question) => (
+              <Card key={question.id} className="h-fit">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-base">{question.title}</CardTitle>
+                  <p className="text-sm text-gray-600">{question.question}</p>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  {question.type === "checkbox" ? (
+                    // LLM Visibility Question with Checkboxes
+                    <div className="space-y-3">
+                      {question.platforms?.map((platform) => (
+                        <div key={platform.id} className="flex items-center justify-between p-2 border rounded">
+                          <span className="font-medium">{platform.label}</span>
+                          <div className="flex space-x-2">
+                            <Button
+                              variant={quizResponses[platform.id as keyof QuizResponse] === "top5" ? "default" : "outline"}
+                              size="sm"
+                              onClick={() => handleLLMResponse(platform.id, true)}
+                            >
+                              Yes
+                            </Button>
+                            <Button
+                              variant={quizResponses[platform.id as keyof QuizResponse] === "not_mentioned" ? "default" : "outline"}
+                              size="sm"
+                              onClick={() => handleLLMResponse(platform.id, false)}
+                            >
+                              No
+                            </Button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    // Regular Questions with Radio Options
+                    <RadioGroup
+                      value={quizResponses[question.id as keyof QuizResponse] as string || ""}
+                      onValueChange={(value) => handleQuestionResponse(question.id, value)}
+                    >
+                      {question.options?.map((option) => (
+                        <div key={option.value} className="flex items-center space-x-2">
+                          <RadioGroupItem value={option.value} id={`${question.id}-${option.value}`} />
+                          <Label htmlFor={`${question.id}-${option.value}`} className="flex-1 cursor-pointer text-sm">
+                            {option.label}
+                          </Label>
+                        </div>
+                      ))}
+                    </RadioGroup>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
 
           {/* Navigation */}
           <div className="flex justify-between">
             <Button
               variant="outline"
               onClick={handlePrevious}
-              disabled={currentQuestion === 0}
+              disabled={currentScreen === 0}
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Previous
@@ -504,10 +535,10 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
             
             <Button
               onClick={handleNext}
-              disabled={!isAnswered}
+              disabled={!isScreenComplete}
               className="bg-gradient-to-r from-blue-500 to-violet-500"
             >
-              {currentQuestion === questions.length - 1 ? "Complete Quiz" : "Next"}
+              {currentScreen === 1 ? "Complete Quiz" : "Next Screen"}
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </div>
