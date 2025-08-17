@@ -47,8 +47,8 @@ const questions = [
     title: "Reddit Discussions",
     question: "Search your brand name on Reddit. Do you find active discussions or mentions?",
     options: [
-      { value: "ten_plus", label: "Yes, multiple threads with engagement" },
-      { value: "less_than_ten", label: "A few mentions, low activity" },
+      { value: "multiple", label: "Yes, multiple threads with engagement" },
+      { value: "few", label: "A few mentions, low activity" },
       { value: "none", label: "No mentions" }
     ]
   },
@@ -57,9 +57,9 @@ const questions = [
     title: "Reddit Karma", 
     question: "Approximate total karma/upvotes across Reddit mentions for your brand -",
     options: [
-      { value: "multiple", label: "100+ karma" },
-      { value: "few", label: "1-99 karma" },
-      { value: "none", label: "0" }
+      { value: "high", label: "100+ karma" },
+      { value: "low", label: "1-99 karma" },
+      { value: "zero", label: "0" }
     ]
   },
   {
@@ -67,9 +67,9 @@ const questions = [
     title: "Review Engagement",
     question: "Do you actively reply to user reviews/comments on G2, Trustpilot, App Stores, or Capterra?",
     options: [
-      { value: "high", label: "Yes, consistently" },
-      { value: "low", label: "Occasionally" },
-      { value: "zero", label: "Never" }
+      { value: "consistently", label: "Yes, consistently" },
+      { value: "occasionally", label: "Occasionally" },
+      { value: "never", label: "Never" }
     ]
   },
   {
@@ -77,8 +77,8 @@ const questions = [
     title: "Media Coverage",
     question: "When you search \"[Your Brand Name] news\" on Google, do you see mentions in tier-1 or tier-2 publications (Forbes, TechCrunch, niche trade media)?",
     options: [
-      { value: "user_driven", label: "Yes, multiple credible publications" },
-      { value: "brand_only", label: "Some smaller blogs" },
+      { value: "tier1", label: "Yes, multiple credible publications" },
+      { value: "blogs", label: "Some smaller blogs" },
       { value: "none", label: "None" }
     ]
   },
@@ -88,8 +88,8 @@ const questions = [
     title: "LinkedIn & Product Hunt",
     question: "Search your brand on LinkedIn and Product Hunt. Are there posts or discussions about it?",
     options: [
-      { value: "many", label: "Yes, user-driven discussions exist" },
-      { value: "some", label: "Only brand-led posts" },
+      { value: "user_driven", label: "Yes, user-driven discussions exist" },
+      { value: "brand_only", label: "Only brand-led posts" },
       { value: "none", label: "Nothing visible" }
     ]
   },
@@ -98,9 +98,9 @@ const questions = [
     title: "Structured Data",
     question: "Run your homepage through Google's Rich Results Test. Does it show structured data for your organization/product?",
     options: [
-      { value: "consistently", label: "Yes, valid schema present" },
-      { value: "occasionally", label: "Partial / errors" },
-      { value: "never", label: "None" }
+      { value: "yes", label: "Yes, valid schema present" },
+      { value: "partial", label: "Partial / errors" },
+      { value: "none", label: "None" }
     ]
   },
   {
@@ -115,12 +115,12 @@ const questions = [
     ]
   },
   {
-    id: "q9",
+    id: "q10",
     title: "Google Page Rankings",
     question: "How many of your website's pages currently rank on Page 1 of Google for your target keywords?",
     options: [
-      { value: "tier1", label: "10+" },
-      { value: "blogs", label: "Less than 10" },
+      { value: "ten_plus", label: "10+" },
+      { value: "few", label: "1-9 pages" },
       { value: "none", label: "None/Not Sure" }
     ]
   }
