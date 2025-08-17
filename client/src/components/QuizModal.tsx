@@ -81,16 +81,7 @@ const questions = [
       { value: "none", label: "Nothing visible" }
     ]
   },
-  {
-    id: "q6_linkedin",
-    title: "Social Platform Presence",
-    question: "Search your brand on LinkedIn and Product Hunt. Are there posts or discussions about it?",
-    options: [
-      { value: "user_driven", label: "Yes, user-driven discussions exist" },
-      { value: "brand_only", label: "Only brand-led posts" },
-      { value: "none", label: "Nothing visible" }
-    ]
-  },
+
   {
     id: "q7",
     title: "Review Platform Presence",
@@ -252,6 +243,13 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   const progress = ((currentQuestion + 1) / questions.length) * 100;
   const currentQ = questions[currentQuestion];
   const isAnswered = currentQ && quizResponses[currentQ.id as keyof QuizResponse];
+  
+  console.log("Current question index:", currentQuestion);
+  console.log("Total questions:", questions.length);
+  console.log("Current question ID:", currentQ?.id);
+  console.log("Quiz responses so far:", Object.keys(quizResponses));
+  console.log("Show email capture:", showEmailCapture);
+  console.log("Show results:", showResults);
 
   if (showResults && quizResults) {
     return (
@@ -424,6 +422,11 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                 type="submit" 
                 disabled={submitQuizMutation.isPending}
                 className="flex-1 bg-gradient-to-r from-blue-500 to-violet-500"
+                onClick={() => {
+                  console.log("Get Results button clicked");
+                  console.log("Form errors:", form.formState.errors);
+                  console.log("Form valid:", form.formState.isValid);
+                }}
               >
                 {submitQuizMutation.isPending ? "Generating..." : "Get Results"}
               </Button>
