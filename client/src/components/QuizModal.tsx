@@ -290,42 +290,72 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
             {/* Score Breakdown */}
             <Card>
               <CardHeader>
-                <CardTitle>Score Breakdown</CardTitle>
+                <CardTitle>Category Analysis</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <div className="flex justify-between">
                       <span>Knowledge & Authority</span>
-                      <span className="font-semibold">{quizResults.breakdown.knowledge}/20</span>
+                      <span className={`font-semibold ${
+                        quizResults.breakdown.knowledge >= 15 ? 'text-green-600' : 
+                        quizResults.breakdown.knowledge >= 10 ? 'text-yellow-600' : 'text-red-600'
+                      }`}>
+                        {quizResults.breakdown.knowledge >= 15 ? 'Good' : 
+                         quizResults.breakdown.knowledge >= 10 ? 'Average' : 'Bad'}
+                      </span>
                     </div>
                     <Progress value={(quizResults.breakdown.knowledge / 20) * 100} className="h-2" />
                   </div>
                   <div className="space-y-2">
                     <div className="flex justify-between">
                       <span>Community Signals</span>
-                      <span className="font-semibold">{quizResults.breakdown.community}/20</span>
+                      <span className={`font-semibold ${
+                        quizResults.breakdown.community >= 15 ? 'text-green-600' : 
+                        quizResults.breakdown.community >= 10 ? 'text-yellow-600' : 'text-red-600'
+                      }`}>
+                        {quizResults.breakdown.community >= 15 ? 'Good' : 
+                         quizResults.breakdown.community >= 10 ? 'Average' : 'Bad'}
+                      </span>
                     </div>
                     <Progress value={(quizResults.breakdown.community / 20) * 100} className="h-2" />
                   </div>
                   <div className="space-y-2">
                     <div className="flex justify-between">
                       <span>Reviews & Reputation</span>
-                      <span className="font-semibold">{quizResults.breakdown.reviews}/20</span>
+                      <span className={`font-semibold ${
+                        quizResults.breakdown.reviews >= 15 ? 'text-green-600' : 
+                        quizResults.breakdown.reviews >= 10 ? 'text-yellow-600' : 'text-red-600'
+                      }`}>
+                        {quizResults.breakdown.reviews >= 15 ? 'Good' : 
+                         quizResults.breakdown.reviews >= 10 ? 'Average' : 'Bad'}
+                      </span>
                     </div>
                     <Progress value={(quizResults.breakdown.reviews / 20) * 100} className="h-2" />
                   </div>
                   <div className="space-y-2">
                     <div className="flex justify-between">
                       <span>Media Coverage</span>
-                      <span className="font-semibold">{quizResults.breakdown.media}/20</span>
+                      <span className={`font-semibold ${
+                        quizResults.breakdown.media >= 15 ? 'text-green-600' : 
+                        quizResults.breakdown.media >= 10 ? 'text-yellow-600' : 'text-red-600'
+                      }`}>
+                        {quizResults.breakdown.media >= 15 ? 'Good' : 
+                         quizResults.breakdown.media >= 10 ? 'Average' : 'Bad'}
+                      </span>
                     </div>
                     <Progress value={(quizResults.breakdown.media / 20) * 100} className="h-2" />
                   </div>
                   <div className="space-y-2 md:col-span-2">
                     <div className="flex justify-between">
                       <span>Direct AI Visibility</span>
-                      <span className="font-semibold">{quizResults.breakdown.llm}/20</span>
+                      <span className={`font-semibold ${
+                        quizResults.breakdown.llm >= 15 ? 'text-green-600' : 
+                        quizResults.breakdown.llm >= 10 ? 'text-yellow-600' : 'text-red-600'
+                      }`}>
+                        {quizResults.breakdown.llm >= 15 ? 'Good' : 
+                         quizResults.breakdown.llm >= 10 ? 'Average' : 'Bad'}
+                      </span>
                     </div>
                     <Progress value={(quizResults.breakdown.llm / 20) * 100} className="h-2" />
                   </div>

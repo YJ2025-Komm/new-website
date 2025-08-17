@@ -100,34 +100,52 @@ export function calculateQuizScore(responses: QuizResponse): {
   let level = "";
   let recommendations: string[] = [];
 
+  // Generate personalized recommendations based on specific weaknesses
+  if (knowledge < 10) {
+    if (responses.q1 === "none") recommendations.push("Create a Wikipedia page or get listed in Google Knowledge Graph");
+    if (responses.q8 === "none") recommendations.push("Implement structured data markup on your website");
+    if (responses.q10 === "none") recommendations.push("Optimize your content for target keywords to rank on Google Page 1");
+  }
+
+  if (community < 10) {
+    if (responses.q3 === "none") recommendations.push("Start engaging in Reddit communities related to your industry");
+    if (responses.q4 === "zero") recommendations.push("Create valuable content that generates positive Reddit engagement");
+    if (responses.q7 === "none") recommendations.push("Build your presence on LinkedIn and Product Hunt");
+  }
+
+  if (reviews < 10) {
+    if (responses.q2 === "none") recommendations.push("Create profiles on Crunchbase, G2, and Capterra");
+    if (responses.q5 === "never") recommendations.push("Start actively responding to customer reviews and feedback");
+  }
+
+  if (media < 10) {
+    if (responses.q6 === "none") recommendations.push("Develop a PR strategy to get coverage in industry publications");
+  }
+
+  if (llm < 10) {
+    if (responses.q9_chatgpt === "not_mentioned") recommendations.push("Optimize your content to improve ChatGPT visibility");
+    if (responses.q9_gemini === "not_mentioned") recommendations.push("Focus on Google-friendly content for better Gemini mentions");
+    if (responses.q9_perplexity === "not_mentioned") recommendations.push("Create authoritative content that Perplexity can reference");
+  }
+
+  // Add general recommendations if not enough specific ones
+  if (recommendations.length < 3) {
+    recommendations.push("Focus on building thought leadership in your industry");
+    recommendations.push("Create consistent, high-quality content across all platforms");
+    recommendations.push("Monitor your brand mentions across AI platforms regularly");
+  }
+
+  // Determine overall level
   if (totalScore <= 40) {
     level = "Not AI-Ready";
-    recommendations = [
-      "Create a Wikipedia page or get listed in Google Knowledge Graph",
-      "Build profiles on Crunchbase, G2, and Capterra with customer reviews",
-      "Engage more actively on Reddit and LinkedIn in your industry discussions",
-      "Start a PR campaign to get coverage in tier-1 publications",
-      "Implement structured data on your website"
-    ];
   } else if (totalScore <= 70) {
     level = "Getting There";
-    recommendations = [
-      "Improve your review engagement strategy across all platforms",
-      "Increase community participation and thought leadership content",
-      "Focus on getting more tier-1 media coverage",
-      "Test and optimize your brand's visibility in AI search results",
-      "Strengthen your structured data implementation"
-    ];
   } else {
     level = "AI-Ready";
-    recommendations = [
-      "Monitor your AI search rankings regularly",
-      "Continue building community engagement",
-      "Maintain consistent review responses",
-      "Keep creating newsworthy content for media coverage",
-      "Consider advanced GEO optimization strategies"
-    ];
   }
+
+  // Limit to top 5 recommendations
+  recommendations = recommendations.slice(0, 5);
 
   return {
     score: totalScore,
