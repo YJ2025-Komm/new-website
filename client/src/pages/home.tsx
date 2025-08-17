@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
+import QuizModal from "@/components/QuizModal";
 import { 
   Brain, 
   ShieldCheck, 
@@ -32,7 +33,8 @@ import {
   HelpCircle,
   TrendingDown,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  ClipboardCheck
 } from "lucide-react";
 import geminiLogo from "@assets/Gemini_1753958628531.png";
 import grokLogo from "@assets/Grok_1753958628535.png";
@@ -42,6 +44,7 @@ import perplexityLogo from "@assets/Perplexity_1753958628538.png";
 export default function Home() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  const [showQuizModal, setShowQuizModal] = useState(false);
   const { toast } = useToast();
 
   const form = useForm<InsertWaitlistEntry>({
@@ -774,6 +777,72 @@ export default function Home() {
 
 
 
+      {/* Quiz Section */}
+      <section id="quiz" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-violet-50/20 to-blue-50/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+              Is Your Brand <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI-Search Ready?</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-slate-600 mb-8">
+              Take the quick quiz and see your AI Visibility Score across key signals
+            </p>
+          </div>
+          
+          <Card className="glass-strong rounded-3xl p-6 sm:p-8 lg:p-12 border-0 max-w-2xl mx-auto">
+            <CardContent className="pt-0">
+              <div className="space-y-6">
+                <div className="flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-violet-500 rounded-full flex items-center justify-center">
+                    <ClipboardCheck className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+                
+                <div className="text-center space-y-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-800">
+                    Discover Your AI Readiness Score
+                  </h3>
+                  <p className="text-slate-600">
+                    Find out how visible your brand is across AI search platforms like ChatGPT, Gemini, and Perplexity. Get personalized recommendations to improve your AI search presence.
+                  </p>
+                  
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 my-6">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-blue-600">10</div>
+                      <div className="text-sm text-slate-600">Questions</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-violet-600">3</div>
+                      <div className="text-sm text-slate-600">Minutes</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-blue-600">100</div>
+                      <div className="text-sm text-slate-600">Max Score</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-violet-600">Free</div>
+                      <div className="text-sm text-slate-600">Report</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <Button 
+                  onClick={() => setShowQuizModal(true)}
+                  className="w-full mt-6 sm:mt-8 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl flex items-center justify-center"
+                >
+                  <ClipboardCheck className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
+                  Start AI Readiness Quiz
+                </Button>
+                
+                <p className="text-center text-xs sm:text-sm text-slate-500 mt-4">
+                  🔒 Your responses are confidential and used only for your personalized report
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* Waitlist Section */}
       <section id="waitlist" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50/20 to-indigo-50/30">
         <div className="max-w-2xl mx-auto">
@@ -1142,6 +1211,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      {/* Quiz Modal */}
+      <QuizModal 
+        isOpen={showQuizModal} 
+        onClose={() => setShowQuizModal(false)} 
+      />
     </div>
   );
 }

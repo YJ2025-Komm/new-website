@@ -60,6 +60,39 @@ export class GoogleSheetsService {
     }
   }
 
+  async appendQuizData(quizData: string[]): Promise<void> {
+    if (!this.webAppUrl) {
+      console.log('Google Sheets integration not configured - skipping quiz data');
+      return;
+    }
+
+    try {
+      console.log(`Attempting to add quiz data to Google Sheets: ${quizData[1]}`);
+      
+      const response = await fetch(this.webAppUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'quiz',
+          data: quizData
+        })
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`Google Apps Script error (quiz): ${response.status} - ${errorText}`);
+        throw new Error(`Google Apps Script error (quiz): ${response.status} - ${errorText}`);
+      }
+
+      console.log(`Successfully added quiz data to Google Sheets: ${quizData[1]}`);
+    } catch (error) {
+      console.error('Error adding quiz data to Google Sheets:', error);
+      throw error;
+    }
+  }
+
   async initializeSheet(): Promise<void> {
     if (!this.webAppUrl) {
       console.log('Google Sheets integration not configured - skipping initialization');

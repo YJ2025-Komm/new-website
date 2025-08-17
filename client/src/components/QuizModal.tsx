@@ -1,0 +1,481 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { CheckCircle, TrendingUp, AlertCircle, ArrowRight, ArrowLeft, Mail } from "lucide-react";
+import { quizSubmissionSchema, type QuizSubmission, type QuizResponse, calculateQuizScore } from "@shared/quiz-schema";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
+
+interface QuizModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const questions = [
+  {
+    id: "q1",
+    title: "Knowledge Graph Presence",
+    question: "Does your brand have a dedicated Wikipedia page or appear in Google Knowledge Graph?",
+    options: [
+      { value: "both", label: "Yes, both Wikipedia page and Knowledge Graph" },
+      { value: "partial", label: "Either Wikipedia or Knowledge Graph, but not both" },
+      { value: "none", label: "Neither" }
+    ]
+  },
+  {
+    id: "q2", 
+    title: "Business Directory Presence",
+    question: "Can you find your brand's profile on Crunchbase, G2, or Capterra?",
+    options: [
+      { value: "multiple", label: "Yes, we're on 2+ platforms with reviews" },
+      { value: "one", label: "Only one platform, limited reviews" },
+      { value: "none", label: "Not present on any" }
+    ]
+  },
+  {
+    id: "q3",
+    title: "Reddit Community Engagement", 
+    question: "Search your brand name on Reddit. Do you find active discussions or mentions?",
+    options: [
+      { value: "multiple", label: "Yes, multiple threads with engagement" },
+      { value: "few", label: "A few mentions, low activity" },
+      { value: "none", label: "No mentions" }
+    ]
+  },
+  {
+    id: "q4",
+    title: "Reddit Karma Score",
+    question: "Approximate total karma/upvotes across Reddit mentions for your brand:",
+    options: [
+      { value: "high", label: "100+ karma" },
+      { value: "low", label: "1–99 karma" },
+      { value: "zero", label: "0 karma" }
+    ]
+  },
+  {
+    id: "q5",
+    title: "Review Engagement",
+    question: "Do you actively reply to user reviews/comments on G2, Trustpilot, App Stores, or Capterra?",
+    options: [
+      { value: "consistently", label: "Yes, consistently" },
+      { value: "occasionally", label: "Occasionally" },
+      { value: "never", label: "Never" }
+    ]
+  },
+  {
+    id: "q6",
+    title: "Media Coverage",
+    question: "When you search '[Your Brand Name] news' on Google, do you see mentions in tier-1 or tier-2 publications?",
+    options: [
+      { value: "tier1", label: "Yes, multiple credible publications (Forbes, TechCrunch, etc.)" },
+      { value: "blogs", label: "Some smaller blogs" },
+      { value: "none", label: "None" }
+    ]
+  },
+  {
+    id: "q7",
+    title: "Social Platform Presence",
+    question: "Search your brand on LinkedIn and Product Hunt. Are there posts or discussions about it?",
+    options: [
+      { value: "user_driven", label: "Yes, user-driven discussions exist" },
+      { value: "brand_only", label: "Only brand-led posts" },
+      { value: "none", label: "Nothing visible" }
+    ]
+  },
+  {
+    id: "q8",
+    title: "Structured Data Implementation",
+    question: "Run your homepage through Google's Rich Results Test. Does it show structured data?",
+    options: [
+      { value: "valid", label: "Yes, valid schema present" },
+      { value: "partial", label: "Partial / errors" },
+      { value: "none", label: "None" }
+    ]
+  },
+  {
+    id: "q9",
+    title: "AI Search Visibility",
+    question: "When you asked a category-level question (e.g., 'Who are the top [your category] platforms in 2025?'), did your brand appear in the answer?",
+    type: "checkbox",
+    options: [
+      { value: "q9_chatgpt", label: "ChatGPT" },
+      { value: "q9_gemini", label: "Gemini" },
+      { value: "q9_perplexity", label: "Perplexity" }
+    ]
+  },
+  {
+    id: "q10",
+    title: "Google Rankings",
+    question: "How many of your website's pages currently rank on Page 1 of Google for your target keywords?",
+    options: [
+      { value: "ten_plus", label: "10+ pages" },
+      { value: "less_than_ten", label: "Less than 10 pages" },
+      { value: "none", label: "None/Not Sure" }
+    ]
+  }
+];
+
+export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [quizResponses, setQuizResponses] = useState<Partial<QuizResponse>>({});
+  const [showEmailCapture, setShowEmailCapture] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const [quizResults, setQuizResults] = useState<any>(null);
+  const { toast } = useToast();
+
+  const form = useForm<QuizSubmission>({
+    resolver: zodResolver(quizSubmissionSchema),
+    defaultValues: {
+      email: "",
+      responses: {} as QuizResponse,
+      companyName: ""
+    }
+  });
+
+  const submitQuizMutation = useMutation({
+    mutationFn: async (data: QuizSubmission) => {
+      const response = await apiRequest("POST", "/api/quiz", data);
+      return response.json();
+    },
+    onSuccess: (data) => {
+      setQuizResults(data);
+      setShowResults(true);
+      toast({
+        title: "Quiz submitted successfully!",
+        description: "Your AI readiness report has been generated.",
+      });
+    },
+    onError: (error: any) => {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: error.message || "Failed to submit quiz. Please try again.",
+      });
+    }
+  });
+
+  const handleQuestionResponse = (questionId: string, value: any) => {
+    setQuizResponses(prev => ({
+      ...prev,
+      [questionId]: value
+    }));
+  };
+
+  const handleNext = () => {
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      // Quiz completed, show email capture
+      setShowEmailCapture(true);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+    }
+  };
+
+  const handleEmailSubmit = (data: QuizSubmission) => {
+    const completeSubmission = {
+      ...data,
+      responses: quizResponses as QuizResponse
+    };
+    submitQuizMutation.mutate(completeSubmission);
+  };
+
+  const resetQuiz = () => {
+    setCurrentQuestion(0);
+    setQuizResponses({});
+    setShowEmailCapture(false);
+    setShowResults(false);
+    setQuizResults(null);
+    form.reset();
+  };
+
+  const handleClose = () => {
+    resetQuiz();
+    onClose();
+  };
+
+  const progress = ((currentQuestion + 1) / questions.length) * 100;
+  const currentQ = questions[currentQuestion];
+  const isAnswered = currentQ && (
+    currentQ.type === "checkbox" 
+      ? currentQ.options.some(opt => quizResponses[opt.value as keyof QuizResponse])
+      : quizResponses[currentQ.id as keyof QuizResponse]
+  );
+
+  if (showResults && quizResults) {
+    return (
+      <Dialog open={isOpen} onOpenChange={handleClose}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-center">
+              Your AI Readiness Report
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="space-y-6">
+            {/* Score Overview */}
+            <Card>
+              <CardHeader className="text-center">
+                <div className="flex items-center justify-center space-x-2 mb-2">
+                  {quizResults.level === "AI-Ready" && <CheckCircle className="w-6 h-6 text-green-500" />}
+                  {quizResults.level === "Getting There" && <TrendingUp className="w-6 h-6 text-yellow-500" />}
+                  {quizResults.level === "Not AI-Ready" && <AlertCircle className="w-6 h-6 text-red-500" />}
+                  <CardTitle className="text-3xl">{quizResults.score}/100</CardTitle>
+                </div>
+                <p className="text-xl font-semibold text-gray-600">{quizResults.level}</p>
+              </CardHeader>
+              <CardContent>
+                <Progress value={quizResults.score} className="w-full h-3" />
+              </CardContent>
+            </Card>
+
+            {/* Score Breakdown */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Score Breakdown</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span>Knowledge & Authority</span>
+                      <span className="font-semibold">{quizResults.breakdown.knowledge}/20</span>
+                    </div>
+                    <Progress value={(quizResults.breakdown.knowledge / 20) * 100} className="h-2" />
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span>Community Signals</span>
+                      <span className="font-semibold">{quizResults.breakdown.community}/20</span>
+                    </div>
+                    <Progress value={(quizResults.breakdown.community / 20) * 100} className="h-2" />
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span>Reviews & Reputation</span>
+                      <span className="font-semibold">{quizResults.breakdown.reviews}/20</span>
+                    </div>
+                    <Progress value={(quizResults.breakdown.reviews / 20) * 100} className="h-2" />
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span>Media Coverage</span>
+                      <span className="font-semibold">{quizResults.breakdown.media}/20</span>
+                    </div>
+                    <Progress value={(quizResults.breakdown.media / 20) * 100} className="h-2" />
+                  </div>
+                  <div className="space-y-2 md:col-span-2">
+                    <div className="flex justify-between">
+                      <span>Direct AI Visibility</span>
+                      <span className="font-semibold">{quizResults.breakdown.llm}/20</span>
+                    </div>
+                    <Progress value={(quizResults.breakdown.llm / 20) * 100} className="h-2" />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Recommendations */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Personalized Recommendations</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {quizResults.recommendations.map((rec: string, index: number) => (
+                    <li key={index} className="flex items-start space-x-2">
+                      <ArrowRight className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                      <span>{rec}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* CTA */}
+            <Card className="bg-gradient-to-r from-blue-50 to-violet-50 border-blue-200">
+              <CardContent className="text-center p-6">
+                <h3 className="text-xl font-bold mb-2">Ready to Improve Your AI Visibility?</h3>
+                <p className="text-gray-600 mb-4">
+                  Join our waitlist to get notified when GeoRankers launches and start optimizing your brand for AI search.
+                </p>
+                <Button 
+                  onClick={handleClose}
+                  className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600"
+                >
+                  Join GeoRankers Waitlist
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
+  if (showEmailCapture) {
+    return (
+      <Dialog open={isOpen} onOpenChange={handleClose}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-center">Get Your Results</DialogTitle>
+          </DialogHeader>
+          
+          <form onSubmit={form.handleSubmit(handleEmailSubmit)} className="space-y-4">
+            <div className="text-center space-y-2">
+              <Mail className="w-12 h-12 text-blue-500 mx-auto" />
+              <p className="text-gray-600">
+                Enter your email to receive your personalized AI readiness report
+              </p>
+            </div>
+            
+            <div>
+              <Label htmlFor="email">Email Address</Label>
+              <Input
+                id="email"
+                type="email"
+                {...form.register("email")}
+                placeholder="your@email.com"
+                className="mt-1"
+              />
+              {form.formState.errors.email && (
+                <p className="text-red-500 text-sm mt-1">{form.formState.errors.email.message}</p>
+              )}
+            </div>
+
+            <div>
+              <Label htmlFor="companyName">Company Name (Optional)</Label>
+              <Input
+                id="companyName"
+                {...form.register("companyName")}
+                placeholder="Your Company"
+                className="mt-1"
+              />
+            </div>
+
+            <div className="flex space-x-2">
+              <Button 
+                type="button" 
+                variant="outline" 
+                onClick={() => setShowEmailCapture(false)}
+                className="flex-1"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back
+              </Button>
+              <Button 
+                type="submit" 
+                disabled={submitQuizMutation.isPending}
+                className="flex-1 bg-gradient-to-r from-blue-500 to-violet-500"
+              >
+                {submitQuizMutation.isPending ? "Generating..." : "Get Results"}
+              </Button>
+            </div>
+          </form>
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
+  return (
+    <Dialog open={isOpen} onOpenChange={handleClose}>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-bold text-center">
+            Is Your Brand AI-Search Ready?
+          </DialogTitle>
+          <p className="text-center text-gray-600">
+            Take the quick quiz and see your AI Visibility Score across key signals
+          </p>
+        </DialogHeader>
+        
+        <div className="space-y-6">
+          {/* Progress */}
+          <div className="space-y-2">
+            <div className="flex justify-between text-sm">
+              <span>Question {currentQuestion + 1} of {questions.length}</span>
+              <span>{Math.round(progress)}% Complete</span>
+            </div>
+            <Progress value={progress} className="w-full" />
+          </div>
+
+          {/* Question */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">{currentQ.title}</CardTitle>
+              <p className="text-gray-600">{currentQ.question}</p>
+            </CardHeader>
+            <CardContent>
+              {currentQ.type === "checkbox" ? (
+                <div className="space-y-3">
+                  {currentQ.options.map((option) => (
+                    <div key={option.value} className="flex items-center space-x-2">
+                      <Checkbox
+                        id={option.value}
+                        checked={!!quizResponses[option.value as keyof QuizResponse]}
+                        onCheckedChange={(checked) => 
+                          handleQuestionResponse(option.value, checked)
+                        }
+                      />
+                      <Label htmlFor={option.value} className="flex-1 cursor-pointer">
+                        {option.label}
+                      </Label>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <RadioGroup
+                  value={quizResponses[currentQ.id as keyof QuizResponse] as string || ""}
+                  onValueChange={(value) => handleQuestionResponse(currentQ.id, value)}
+                >
+                  {currentQ.options.map((option) => (
+                    <div key={option.value} className="flex items-center space-x-2">
+                      <RadioGroupItem value={option.value} id={option.value} />
+                      <Label htmlFor={option.value} className="flex-1 cursor-pointer">
+                        {option.label}
+                      </Label>
+                    </div>
+                  ))}
+                </RadioGroup>
+              )}
+            </CardContent>
+          </Card>
+
+          {/* Navigation */}
+          <div className="flex justify-between">
+            <Button
+              variant="outline"
+              onClick={handlePrevious}
+              disabled={currentQuestion === 0}
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Previous
+            </Button>
+            
+            <Button
+              onClick={handleNext}
+              disabled={!isAnswered}
+              className="bg-gradient-to-r from-blue-500 to-violet-500"
+            >
+              {currentQuestion === questions.length - 1 ? "Complete Quiz" : "Next"}
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
