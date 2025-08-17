@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -152,11 +153,13 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   const [quizResults, setQuizResults] = useState<any>(null);
   const { toast } = useToast();
 
-  const form = useForm<QuizSubmission>({
-    resolver: zodResolver(quizSubmissionSchema),
+  const form = useForm<{ email: string; companyName?: string }>({
+    resolver: zodResolver(z.object({
+      email: z.string().email("Please enter a valid email"),
+      companyName: z.string().optional()
+    })),
     defaultValues: {
       email: "",
-      responses: {} as QuizResponse,
       companyName: ""
     }
   });
@@ -187,10 +190,14 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   });
 
   const handleQuestionResponse = (questionId: string, value: any) => {
-    setQuizResponses(prev => ({
-      ...prev,
+    const updatedResponses = {
+      ...quizResponses,
       [questionId]: value
-    }));
+    };
+    setQuizResponses(updatedResponses);
+    
+    // Also update form data with responses
+    form.setValue("responses", updatedResponses as QuizResponse);
   };
 
   const handleNext = () => {
@@ -208,10 +215,11 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
     }
   };
 
-  const handleEmailSubmit = (data: QuizSubmission) => {
+  const handleEmailSubmit = (data: { email: string; companyName?: string }) => {
     console.log("Form data:", data);
     console.log("Quiz responses:", quizResponses);
     
+    // Use quiz responses from state as they're more reliable
     const completeSubmission = {
       ...data,
       responses: quizResponses as QuizResponse
@@ -376,7 +384,9 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
             </DialogDescription>
           </DialogHeader>
           
-          <form onSubmit={form.handleSubmit(handleEmailSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(handleEmailSubmit, (errors) => {
+            console.log("Form validation errors:", errors);
+          })} className="space-y-4">
             <div className="text-center space-y-2">
               <Mail className="w-12 h-12 text-blue-500 mx-auto" />
               <p className="text-gray-600">
