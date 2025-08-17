@@ -448,6 +448,10 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                   </p>
                   <Button 
                     onClick={() => {
+                      // Auto-populate waitlist form with quiz data
+                      const formData = form.getValues();
+                      waitlistForm.setValue("email", formData.email);
+                      waitlistForm.setValue("companyName", formData.companyName || "");
                       setShowResults(false);
                       setShowWaitlistForm(true);
                     }}
