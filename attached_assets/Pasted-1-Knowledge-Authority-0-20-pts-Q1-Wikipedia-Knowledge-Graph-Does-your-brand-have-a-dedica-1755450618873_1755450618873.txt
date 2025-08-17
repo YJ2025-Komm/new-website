@@ -1,0 +1,57 @@
+1. Knowledge & Authority (0–20 pts)
+Q1. Wikipedia / Knowledge Graph
+	Does your brand have a dedicated Wikipedia page or appear in Google Knowledge Graph (right-hand panel in Google search)?
+		• Yes, both = 10 pts
+		• Partial (either Wiki or KG) = 5 pts
+		• None = 0 pts
+Q8. Structured data / schema (Rich Results Test)
+	Run your homepage through Google's Rich Results Test. Does it show structured data for your organization/product?
+		• Yes = 5 pts
+		• Partial/Errors = 2 pts
+		• None = 0 pts
+Q10. Pages on Google Page-1 
+	How many of your website’s pages currently rank on Page 1 of Google for your target keywords?
+		• 10+ pages = 5 pts
+		• 1–9 pages = 2 pts
+		• None = 0 pts
+
+
+2. Community Signals (0–20 pts)
+Q3. Reddit Discussions
+Search your brand name on Reddit. Do you find active discussions or mentions?
+	• Yes, multiple threads with engagement = 7 pts
+	• A few mentions, low activity = 3 pts
+	• None = 0 pts
+
+Q4. Reddit Karma
+Approximate total upvotes/karma across brand mentions.
+	• 100+ karma = 7 pts
+	• 1–99 karma = 3 pts
+	• 0 = 0 pts
+Q7. LinkedIn / Product Hunt Mentions
+When you search your brand on LinkedIn or Product Hunt, do you see posts/discussions?
+	• Yes, user-driven discussions = 6 pts
+	• Only brand-led posts = 3 pts
+	• None = 0 pts
+
+3. Reviews & Reputation (0–20 pts)
+
+Q2. Profiles on Crunchbase / G2 / Capterra
+Is your brand listed on Crunchbase, G2, or Capterra?
+	• Yes, on 2+ platforms = 10 pts
+	• Yes, on 1 platform = 5 pts
+	• None = 0 pts
+Q5. Do you actively reply to user reviews/comments on G2, Trustpilot, App Stores, or Capterra?
+	• Yes, consistently = 10 pts
+	• Occasionally = 5 pts
+	• Never = 0 pts
+	
+	
+4. Media & Coverage (0–20 pts)
+Q6. When you search "[Your Brand Name] news" on Google, do you see mentions in tier-1 or tier-2 publications (Forbes, TechCrunch, niche trade media)?
+	• Yes, multiple credible publications = 20 pts
+	• Some smaller blogs = 10 pts
+	• None = 0 pts
+
+5. Direct LLM Visibility (0–20 pts)
+	• Q9. Mentions in ChatGPT (No - 0 ,Yes -  7), Gemini (No - 0,  Yes -  7), Perplexity (No - 0 , Yes -  6)

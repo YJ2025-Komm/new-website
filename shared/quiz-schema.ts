@@ -3,18 +3,18 @@ import { createInsertSchema } from "drizzle-zod";
 
 // Quiz response schema
 export const quizResponseSchema = z.object({
-  q1: z.enum(["both", "partial", "none"]), // Q1: Wikipedia/Knowledge Graph  
-  q2: z.enum(["multiple", "one", "none"]), // Q2: Crunchbase/G2/Capterra
-  q3: z.enum(["ten_plus", "less_than_ten", "none"]), // Q3: Reddit Discussions
-  q4: z.enum(["multiple", "few", "none"]), // Q4: Reddit Karma
-  q5: z.enum(["high", "low", "zero"]), // Q5: Review Engagement 
-  q6: z.enum(["user_driven", "brand_only", "none"]), // Q6: Media Coverage
-  q7: z.enum(["many", "some", "none"]), // Q7: LinkedIn/Product Hunt
-  q8: z.enum(["consistently", "occasionally", "never"]), // Q8: Structured Data (not scored)
-  q9: z.enum(["tier1", "blogs", "none"]), // Q9: Google Page Rankings
-  q9_chatgpt: z.enum(["top5", "mentioned", "not_mentioned"]), // ChatGPT visibility
-  q9_gemini: z.enum(["top5", "mentioned", "not_mentioned"]), // Gemini visibility  
-  q9_perplexity: z.enum(["top5", "mentioned", "not_mentioned"]), // Perplexity visibility
+  q1: z.enum(["both", "partial", "none"]), // Q1: Wikipedia/Knowledge Graph (10/5/0)
+  q2: z.enum(["multiple", "one", "none"]), // Q2: Crunchbase/G2/Capterra (10/5/0)
+  q3: z.enum(["multiple", "few", "none"]), // Q3: Reddit Discussions (7/3/0)
+  q4: z.enum(["high", "low", "zero"]), // Q4: Reddit Karma (7/3/0)
+  q5: z.enum(["consistently", "occasionally", "never"]), // Q5: Review Engagement (10/5/0)
+  q6: z.enum(["tier1", "blogs", "none"]), // Q6: Media Coverage (20/10/0)
+  q7: z.enum(["user_driven", "brand_only", "none"]), // Q7: LinkedIn/Product Hunt (6/3/0)
+  q8: z.enum(["yes", "partial", "none"]), // Q8: Structured Data (5/2/0)
+  q9: z.enum(["ten_plus", "few", "none"]), // Q9: Google Page Rankings (5/2/0) - moved here
+  q9_chatgpt: z.enum(["top5", "mentioned", "not_mentioned"]), // ChatGPT visibility (7/0)
+  q9_gemini: z.enum(["top5", "mentioned", "not_mentioned"]), // Gemini visibility (7/0)
+  q9_perplexity: z.enum(["top5", "mentioned", "not_mentioned"]), // Perplexity visibility (6/0)
 });
 
 export const quizSubmissionSchema = z.object({
@@ -46,52 +46,53 @@ export function calculateQuizScore(responses: QuizResponse): {
   let llm = 0;
 
   // 1. Knowledge & Authority (0-20 pts)
-  // Q1: Wikipedia/Knowledge Graph (0-10 pts)
+  // Q1: Wikipedia/Knowledge Graph (10/5/0 pts)
   if (responses.q1 === "both") knowledge += 10;
   else if (responses.q1 === "partial") knowledge += 5;
 
-  // Q2: Crunchbase/G2/Capterra (0-5 pts)
-  if (responses.q2 === "multiple") knowledge += 5;
-  else if (responses.q2 === "one") knowledge += 2;
+  // Q8: Structured Data (5/2/0 pts)
+  if (responses.q8 === "yes") knowledge += 5;
+  else if (responses.q8 === "partial") knowledge += 2;
 
-  // Q9: Google Page Rankings (0-5 pts)
-  if (responses.q9 === "tier1") knowledge += 5;
-  else if (responses.q9 === "blogs") knowledge += 3;
+  // Q9: Google Page Rankings (5/2/0 pts)
+  if (responses.q9 === "ten_plus") knowledge += 5;
+  else if (responses.q9 === "few") knowledge += 2;
 
   // 2. Community Signals (0-20 pts)
-  // Q3: Reddit Discussions (0-7 pts)
-  if (responses.q3 === "ten_plus") community += 7;
-  else if (responses.q3 === "less_than_ten") community += 3;
+  // Q3: Reddit Discussions (7/3/0 pts)
+  if (responses.q3 === "multiple") community += 7;
+  else if (responses.q3 === "few") community += 3;
 
-  // Q4: Reddit Karma (0-7 pts)
-  if (responses.q4 === "multiple") community += 7;
-  else if (responses.q4 === "few") community += 3;
+  // Q4: Reddit Karma (7/3/0 pts)
+  if (responses.q4 === "high") community += 7;
+  else if (responses.q4 === "low") community += 3;
 
-  // Q7: LinkedIn/Product Hunt (0-6 pts)
-  if (responses.q7 === "many") community += 6;
-  else if (responses.q7 === "some") community += 3;
+  // Q7: LinkedIn/Product Hunt (6/3/0 pts)
+  if (responses.q7 === "user_driven") community += 6;
+  else if (responses.q7 === "brand_only") community += 3;
 
   // 3. Reviews & Reputation (0-20 pts)
-  // Q5: Review Engagement (0-10 pts)
-  if (responses.q5 === "high") reviews += 10;
-  else if (responses.q5 === "low") reviews += 5;
-  
-  // Note: Q8 (Structured Data) is not included in scoring per document
-  // The category max is technically 10 pts but we'll keep it as part of the 20 pt system
+  // Q2: Crunchbase/G2/Capterra (10/5/0 pts)
+  if (responses.q2 === "multiple") reviews += 10;
+  else if (responses.q2 === "one") reviews += 5;
+
+  // Q5: Review Engagement (10/5/0 pts)
+  if (responses.q5 === "consistently") reviews += 10;
+  else if (responses.q5 === "occasionally") reviews += 5;
 
   // 4. Media & Coverage (0-20 pts)
-  // Q6: Media Coverage (0-20 pts)
-  if (responses.q6 === "user_driven") media += 20;
-  else if (responses.q6 === "brand_only") media += 10;
+  // Q6: Media Coverage (20/10/0 pts)
+  if (responses.q6 === "tier1") media += 20;
+  else if (responses.q6 === "blogs") media += 10;
 
   // 5. Direct LLM Visibility (0-20 pts)
-  // ChatGPT (0-7 pts)
+  // ChatGPT (7/0 pts)
   if (responses.q9_chatgpt === "top5") llm += 7;
 
-  // Gemini (0-7 pts)
+  // Gemini (7/0 pts)
   if (responses.q9_gemini === "top5") llm += 7;
 
-  // Perplexity (0-6 pts)
+  // Perplexity (6/0 pts)
   if (responses.q9_perplexity === "top5") llm += 6;
 
   const totalScore = knowledge + community + reviews + media + llm;
