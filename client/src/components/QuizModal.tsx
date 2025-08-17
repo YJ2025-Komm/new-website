@@ -43,6 +43,16 @@ const questions = [
   },
   {
     id: "q3",
+    title: "Google Page-1 Visibility",
+    question: "How many of your website's pages currently rank on Page 1 of Google for your target keywords?",
+    options: [
+      { value: "ten_plus", label: "10+ pages" },
+      { value: "less_than_ten", label: "1–9 pages" },
+      { value: "none", label: "None" }
+    ]
+  },
+  {
+    id: "q4",
     title: "Reddit Community Engagement", 
     question: "Search your brand name on Reddit. Do you find active discussions or mentions?",
     options: [
@@ -52,7 +62,7 @@ const questions = [
     ]
   },
   {
-    id: "q4",
+    id: "q5",
     title: "Reddit Karma Score",
     question: "Approximate total karma/upvotes across Reddit mentions for your brand:",
     options: [
@@ -62,27 +72,17 @@ const questions = [
     ]
   },
   {
-    id: "q5",
-    title: "Review Engagement",
-    question: "Do you actively reply to user reviews/comments on G2, Trustpilot, App Stores, or Capterra?",
-    options: [
-      { value: "consistently", label: "Yes, consistently" },
-      { value: "occasionally", label: "Occasionally" },
-      { value: "never", label: "Never" }
-    ]
-  },
-  {
     id: "q6",
-    title: "Media Coverage",
-    question: "When you search '[Your Brand Name] news' on Google, do you see mentions in tier-1 or tier-2 publications?",
+    title: "Social Platform Mentions",
+    question: "Search your brand on LinkedIn and Product Hunt. Are there posts or discussions?",
     options: [
-      { value: "tier1", label: "Yes, multiple credible publications (Forbes, TechCrunch, etc.)" },
-      { value: "blogs", label: "Some smaller blogs" },
-      { value: "none", label: "None" }
+      { value: "user_driven", label: "Yes, user-driven discussions exist" },
+      { value: "brand_only", label: "Only brand-led posts" },
+      { value: "none", label: "Nothing visible" }
     ]
   },
   {
-    id: "q7",
+    id: "q6_linkedin",
     title: "Social Platform Presence",
     question: "Search your brand on LinkedIn and Product Hunt. Are there posts or discussions about it?",
     options: [
@@ -92,13 +92,23 @@ const questions = [
     ]
   },
   {
-    id: "q8",
-    title: "Structured Data Implementation",
-    question: "Run your homepage through Google's Rich Results Test. Does it show structured data?",
+    id: "q7",
+    title: "Review Platform Presence",
+    question: "Does your brand have reviews on G2, Trustpilot, or App Stores?",
     options: [
-      { value: "valid", label: "Yes, valid schema present" },
-      { value: "partial", label: "Partial / errors" },
+      { value: "many", label: "Many reviews across platforms" },
+      { value: "some", label: "Some reviews, limited platforms" },
       { value: "none", label: "None" }
+    ]
+  },
+  {
+    id: "q8",
+    title: "Review Engagement",
+    question: "Do you actively reply to or engage with reviews?",
+    options: [
+      { value: "consistently", label: "Yes, consistently" },
+      { value: "occasionally", label: "Occasionally" },
+      { value: "never", label: "Never" }
     ]
   },
   {
@@ -132,13 +142,13 @@ const questions = [
     ]
   },
   {
-    id: "q10",
-    title: "Google Rankings",
-    question: "How many of your website's pages currently rank on Page 1 of Google for your target keywords?",
+    id: "q9",
+    title: "Media Coverage",
+    question: "When you search 'Brand + News' on Google, what do you see?",
     options: [
-      { value: "ten_plus", label: "10+ pages" },
-      { value: "less_than_ten", label: "Less than 10 pages" },
-      { value: "none", label: "None/Not Sure" }
+      { value: "tier1", label: "Strong tier-1 mentions (Forbes, TechCrunch, etc.)" },
+      { value: "blogs", label: "Only niche blogs" },
+      { value: "none", label: "None" }
     ]
   }
 ];
