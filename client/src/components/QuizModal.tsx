@@ -11,10 +11,11 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { CheckCircle, TrendingUp, AlertCircle, ArrowRight, ArrowLeft, Mail } from "lucide-react";
+import { CheckCircle, TrendingUp, AlertCircle, ArrowRight, ArrowLeft, Mail, Rocket, Loader2 } from "lucide-react";
 import { quizSubmissionSchema, type QuizSubmission, type QuizResponse, calculateQuizScore } from "@shared/quiz-schema";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { insertWaitlistEntrySchema, type InsertWaitlistEntry } from "@shared/schema";
 
 interface QuizModalProps {
   isOpen: boolean;
@@ -131,6 +132,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   const [quizResponses, setQuizResponses] = useState<Partial<QuizResponse>>({});
   const [showEmailCapture, setShowEmailCapture] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [showWaitlistForm, setShowWaitlistForm] = useState(false);
   const [quizResults, setQuizResults] = useState<any>(null);
   const { toast } = useToast();
 
@@ -146,6 +148,16 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
     defaultValues: {
       email: "",
       companyName: ""
+    }
+  });
+
+  const waitlistForm = useForm<InsertWaitlistEntry>({
+    resolver: zodResolver(insertWaitlistEntrySchema),
+    defaultValues: {
+      fullName: "",
+      email: "",
+      companyName: "",
+      challenge: ""
     }
   });
 
@@ -170,6 +182,27 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
         variant: "destructive",
         title: "Error",
         description: error.message || "Failed to submit quiz. Please try again.",
+      });
+    }
+  });
+
+  const waitlistMutation = useMutation({
+    mutationFn: async (data: InsertWaitlistEntry) => {
+      const response = await apiRequest("POST", "/api/waitlist", data);
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Welcome to the waitlist!",
+        description: "We'll notify you as soon as GeoRankers is ready.",
+      });
+      handleClose();
+    },
+    onError: (error: any) => {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: error.message || "Failed to join waitlist. Please try again.",
       });
     }
   });
@@ -229,13 +262,19 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
     setQuizResponses({});
     setShowEmailCapture(false);
     setShowResults(false);
+    setShowWaitlistForm(false);
     setQuizResults(null);
     form.reset();
+    waitlistForm.reset();
   };
 
   const handleClose = () => {
     resetQuiz();
     onClose();
+  };
+
+  const handleWaitlistSubmit = (data: InsertWaitlistEntry) => {
+    waitlistMutation.mutate(data);
   };
 
   const progress = ((currentScreen + 1) / 2) * 100;
@@ -256,6 +295,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   console.log("Quiz responses so far:", Object.keys(quizResponses));
   console.log("Show email capture:", showEmailCapture);
   console.log("Show results:", showResults);
+  console.log("Show waitlist form:", showWaitlistForm);
 
   if (showResults && quizResults) {
     return (
@@ -389,14 +429,8 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                 </p>
                 <Button 
                   onClick={() => {
-                    handleClose();
-                    // Scroll to waitlist form with a slight delay to allow modal to close
-                    setTimeout(() => {
-                      const waitlistSection = document.getElementById('waitlist-form');
-                      if (waitlistSection) {
-                        waitlistSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                      }
-                    }, 100);
+                    setShowResults(false);
+                    setShowWaitlistForm(true);
                   }}
                   className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600"
                 >
@@ -405,6 +439,113 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
               </CardContent>
             </Card>
           </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
+  if (showWaitlistForm) {
+    return (
+      <Dialog open={isOpen} onOpenChange={handleClose}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-center">Join the Waitlist</DialogTitle>
+            <DialogDescription className="text-center text-gray-600">
+              Be among the first to take control of your AI search presence
+            </DialogDescription>
+          </DialogHeader>
+          
+          <form onSubmit={waitlistForm.handleSubmit(handleWaitlistSubmit)} className="space-y-4">
+            <div className="text-center space-y-2">
+              <Rocket className="w-12 h-12 text-blue-500 mx-auto" />
+              <p className="text-gray-600">
+                Get early access to GeoRankers and start improving your AI visibility
+              </p>
+            </div>
+            
+            <div>
+              <Label htmlFor="fullName">Full Name</Label>
+              <Input
+                id="fullName"
+                {...waitlistForm.register("fullName")}
+                placeholder="Enter your full name"
+                className="mt-1"
+              />
+              {waitlistForm.formState.errors.fullName && (
+                <p className="text-red-500 text-sm mt-1">{waitlistForm.formState.errors.fullName.message}</p>
+              )}
+            </div>
+
+            <div>
+              <Label htmlFor="email">Email Address</Label>
+              <Input
+                id="email"
+                type="email"
+                {...waitlistForm.register("email")}
+                placeholder="your@email.com"
+                className="mt-1"
+              />
+              {waitlistForm.formState.errors.email && (
+                <p className="text-red-500 text-sm mt-1">{waitlistForm.formState.errors.email.message}</p>
+              )}
+            </div>
+
+            <div>
+              <Label htmlFor="companyName">Company Name</Label>
+              <Input
+                id="companyName"
+                {...waitlistForm.register("companyName")}
+                placeholder="Your Company"
+                className="mt-1"
+              />
+              {waitlistForm.formState.errors.companyName && (
+                <p className="text-red-500 text-sm mt-1">{waitlistForm.formState.errors.companyName.message}</p>
+              )}
+            </div>
+
+            <div>
+              <Label htmlFor="challenge">What's your biggest AI search challenge? (Optional)</Label>
+              <textarea
+                id="challenge"
+                {...waitlistForm.register("challenge")}
+                placeholder="Tell us about your AI search challenges"
+                rows={3}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent mt-1"
+              />
+            </div>
+
+            <div className="flex space-x-2">
+              <Button 
+                type="button" 
+                variant="outline" 
+                onClick={() => {
+                  setShowWaitlistForm(false);
+                  setShowResults(true);
+                }}
+                className="flex-1"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Results
+              </Button>
+              <Button 
+                type="submit" 
+                disabled={waitlistMutation.isPending}
+                className="flex-1 bg-gradient-to-r from-blue-500 to-violet-500"
+              >
+                {waitlistMutation.isPending ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Joining...
+                  </>
+                ) : (
+                  <>
+                    <Rocket className="w-4 h-4 mr-2" />
+                    Join Waitlist
+                  </>
+                )}
+              </Button>
+            </div>
+          </form>
         </DialogContent>
       </Dialog>
     );
