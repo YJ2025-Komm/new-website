@@ -11,9 +11,9 @@ export const quizResponseSchema = z.object({
   q6: z.enum(["tier1", "blogs", "none"]), // Media coverage
   q7: z.enum(["user_driven", "brand_only", "none"]), // LinkedIn/ProductHunt
   q8: z.enum(["valid", "partial", "none"]), // Structured data
-  q9_chatgpt: z.boolean(), // ChatGPT visibility
-  q9_gemini: z.boolean(), // Gemini visibility
-  q9_perplexity: z.boolean(), // Perplexity visibility
+  q9_chatgpt: z.enum(["top5", "mentioned", "not_mentioned"]), // ChatGPT visibility
+  q9_gemini: z.enum(["top5", "mentioned", "not_mentioned"]), // Gemini visibility
+  q9_perplexity: z.enum(["top5", "mentioned", "not_mentioned"]), // Perplexity visibility
   q10: z.enum(["ten_plus", "less_than_ten", "none"]), // Google Page 1 rankings
 });
 
@@ -69,11 +69,11 @@ export function calculateQuizScore(responses: QuizResponse): {
   if (responses.q7 === "user_driven") community += 6;
   else if (responses.q7 === "brand_only") community += 3;
 
-  // Q5: Review engagement (0-10 pts) - treating as reviews category
+  // Q5: Review engagement (0-10 pts) - moved to reviews category
   if (responses.q5 === "consistently") reviews += 10;
   else if (responses.q5 === "occasionally") reviews += 5;
 
-  // Q8: Structured data (0-10 pts) - treating as reviews/technical category
+  // Q8: Structured data (0-10 pts) - moved to reviews category 
   if (responses.q8 === "valid") reviews += 10;
   else if (responses.q8 === "partial") reviews += 5;
 
@@ -81,10 +81,18 @@ export function calculateQuizScore(responses: QuizResponse): {
   if (responses.q6 === "tier1") media += 20;
   else if (responses.q6 === "blogs") media += 10;
 
-  // Q9: LLM visibility (0-20 pts)
-  if (responses.q9_chatgpt) llm += 7;
-  if (responses.q9_gemini) llm += 7;
-  if (responses.q9_perplexity) llm += 6;
+  // Q9: LLM visibility (0-20 pts total)
+  // ChatGPT (0-7 pts)
+  if (responses.q9_chatgpt === "top5") llm += 7;
+  else if (responses.q9_chatgpt === "mentioned") llm += 3;
+
+  // Gemini (0-7 pts)
+  if (responses.q9_gemini === "top5") llm += 7;
+  else if (responses.q9_gemini === "mentioned") llm += 3;
+
+  // Perplexity (0-6 pts)
+  if (responses.q9_perplexity === "top5") llm += 6;
+  else if (responses.q9_perplexity === "mentioned") llm += 2;
 
   const totalScore = knowledge + community + reviews + media + llm;
 

@@ -102,14 +102,33 @@ const questions = [
     ]
   },
   {
-    id: "q9",
-    title: "AI Search Visibility",
-    question: "When you asked a category-level question (e.g., 'Who are the top [your category] platforms in 2025?'), did your brand appear in the answer?",
-    type: "checkbox",
+    id: "q9_chatgpt",
+    title: "ChatGPT Visibility",
+    question: "When you asked ChatGPT a category-level question (e.g., 'Who are the top [your category] platforms in 2025?'), did your brand appear?",
     options: [
-      { value: "q9_chatgpt", label: "ChatGPT" },
-      { value: "q9_gemini", label: "Gemini" },
-      { value: "q9_perplexity", label: "Perplexity" }
+      { value: "top5", label: "Yes, in top 5 or first mention" },
+      { value: "mentioned", label: "Yes, mentioned but not in top 5" },
+      { value: "not_mentioned", label: "No, not mentioned" }
+    ]
+  },
+  {
+    id: "q9_gemini",
+    title: "Gemini Visibility", 
+    question: "When you asked Gemini a category-level question (e.g., 'Who are the top [your category] platforms in 2025?'), did your brand appear?",
+    options: [
+      { value: "top5", label: "Yes, in top 5 or first mention" },
+      { value: "mentioned", label: "Yes, mentioned but not in top 5" },
+      { value: "not_mentioned", label: "No, not mentioned" }
+    ]
+  },
+  {
+    id: "q9_perplexity",
+    title: "Perplexity Visibility",
+    question: "When you asked Perplexity a category-level question (e.g., 'Who are the top [your category] platforms in 2025?'), did your brand appear?",
+    options: [
+      { value: "top5", label: "Yes, in top 5 or first mention" },
+      { value: "mentioned", label: "Yes, mentioned but not in top 5" },
+      { value: "not_mentioned", label: "No, not mentioned" }
     ]
   },
   {
@@ -156,7 +175,6 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
       });
     },
     onError: (error: any) => {
-      console.error("Quiz submission error:", error);
       toast({
         variant: "destructive",
         title: "Error",
@@ -188,9 +206,6 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   };
 
   const handleEmailSubmit = (data: QuizSubmission) => {
-    console.log("Form data:", data);
-    console.log("Quiz responses:", quizResponses);
-    
     const completeSubmission = {
       ...data,
       responses: quizResponses as QuizResponse
@@ -198,10 +213,8 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
     
     // Calculate results locally first
     const results = calculateQuizScore(quizResponses as QuizResponse);
-    console.log("Calculated results:", results);
     setQuizResults(results);
     
-    console.log("Submitting to API:", completeSubmission);
     submitQuizMutation.mutate(completeSubmission);
   };
 
@@ -221,11 +234,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
 
   const progress = ((currentQuestion + 1) / questions.length) * 100;
   const currentQ = questions[currentQuestion];
-  const isAnswered = currentQ && (
-    currentQ.type === "checkbox" 
-      ? currentQ.options.some(opt => quizResponses[opt.value as keyof QuizResponse])
-      : quizResponses[currentQ.id as keyof QuizResponse]
-  );
+  const isAnswered = currentQ && quizResponses[currentQ.id as keyof QuizResponse];
 
   if (showResults && quizResults) {
     return (
@@ -352,9 +361,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
             </DialogDescription>
           </DialogHeader>
           
-          <form onSubmit={form.handleSubmit(handleEmailSubmit, (errors) => {
-            console.log("Form validation errors:", errors);
-          })} className="space-y-4">
+          <form onSubmit={form.handleSubmit(handleEmailSubmit)} className="space-y-4">
             <div className="text-center space-y-2">
               <Mail className="w-12 h-12 text-blue-500 mx-auto" />
               <p className="text-gray-600">
@@ -400,7 +407,6 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                 type="submit" 
                 disabled={submitQuizMutation.isPending}
                 className="flex-1 bg-gradient-to-r from-blue-500 to-violet-500"
-                onClick={() => console.log("Get Results clicked")}
               >
                 {submitQuizMutation.isPending ? "Generating..." : "Get Results"}
               </Button>
@@ -440,38 +446,19 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
               <p className="text-gray-600">{currentQ.question}</p>
             </CardHeader>
             <CardContent>
-              {currentQ.type === "checkbox" ? (
-                <div className="space-y-3">
-                  {currentQ.options.map((option) => (
-                    <div key={option.value} className="flex items-center space-x-2">
-                      <Checkbox
-                        id={option.value}
-                        checked={!!quizResponses[option.value as keyof QuizResponse]}
-                        onCheckedChange={(checked) => 
-                          handleQuestionResponse(option.value, checked)
-                        }
-                      />
-                      <Label htmlFor={option.value} className="flex-1 cursor-pointer">
-                        {option.label}
-                      </Label>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <RadioGroup
-                  value={quizResponses[currentQ.id as keyof QuizResponse] as string || ""}
-                  onValueChange={(value) => handleQuestionResponse(currentQ.id, value)}
-                >
-                  {currentQ.options.map((option) => (
-                    <div key={option.value} className="flex items-center space-x-2">
-                      <RadioGroupItem value={option.value} id={option.value} />
-                      <Label htmlFor={option.value} className="flex-1 cursor-pointer">
-                        {option.label}
-                      </Label>
-                    </div>
-                  ))}
-                </RadioGroup>
-              )}
+              <RadioGroup
+                value={quizResponses[currentQ.id as keyof QuizResponse] as string || ""}
+                onValueChange={(value) => handleQuestionResponse(currentQ.id, value)}
+              >
+                {currentQ.options.map((option) => (
+                  <div key={option.value} className="flex items-center space-x-2">
+                    <RadioGroupItem value={option.value} id={option.value} />
+                    <Label htmlFor={option.value} className="flex-1 cursor-pointer">
+                      {option.label}
+                    </Label>
+                  </div>
+                ))}
+              </RadioGroup>
             </CardContent>
           </Card>
 
