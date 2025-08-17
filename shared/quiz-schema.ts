@@ -11,10 +11,10 @@ export const quizResponseSchema = z.object({
   q6: z.enum(["tier1", "blogs", "none"]), // Q6: Media Coverage (20/10/0)
   q7: z.enum(["user_driven", "brand_only", "none"]), // Q7: LinkedIn/Product Hunt (6/3/0)
   q8: z.enum(["yes", "partial", "none"]), // Q8: Structured Data (5/2/0)
-  q9: z.enum(["ten_plus", "few", "none"]), // Q9: Google Page Rankings (5/2/0) - moved here
-  q9_chatgpt: z.enum(["top5", "mentioned", "not_mentioned"]), // ChatGPT visibility (7/0)
-  q9_gemini: z.enum(["top5", "mentioned", "not_mentioned"]), // Gemini visibility (7/0)
-  q9_perplexity: z.enum(["top5", "mentioned", "not_mentioned"]), // Perplexity visibility (6/0)
+  q9_chatgpt: z.enum(["top5", "mentioned", "not_mentioned"]), // Q9: ChatGPT visibility (7/0)
+  q9_gemini: z.enum(["top5", "mentioned", "not_mentioned"]), // Q9: Gemini visibility (7/0)
+  q9_perplexity: z.enum(["top5", "mentioned", "not_mentioned"]), // Q9: Perplexity visibility (6/0)
+  q10: z.enum(["ten_plus", "few", "none"]), // Q10: Google Page Rankings (5/2/0)
 });
 
 export const quizSubmissionSchema = z.object({
@@ -54,9 +54,9 @@ export function calculateQuizScore(responses: QuizResponse): {
   if (responses.q8 === "yes") knowledge += 5;
   else if (responses.q8 === "partial") knowledge += 2;
 
-  // Q9: Google Page Rankings (5/2/0 pts)
-  if (responses.q9 === "ten_plus") knowledge += 5;
-  else if (responses.q9 === "few") knowledge += 2;
+  // Q10: Google Page Rankings (5/2/0 pts)
+  if (responses.q10 === "ten_plus") knowledge += 5;
+  else if (responses.q10 === "few") knowledge += 2;
 
   // 2. Community Signals (0-20 pts)
   // Q3: Reddit Discussions (7/3/0 pts)
