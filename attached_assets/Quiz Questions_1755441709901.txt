@@ -1,0 +1,49 @@
+1. Does your brand have a dedicated Wikipedia page or appear in Google Knowledge Graph (right-hand panel when you search your brand)?
+		○ ☐ Yes (full page)
+		○ ☐ Mentioned but not a full page
+		○ ☐ No
+
+2. Can you find your brand’s profile on Crunchbase, G2, or Capterra?
+		○ ☐ Yes, we are on 2+ of these with reviews
+		○ ☐ Only one, limited reviews
+		○ ☐ Not present
+
+3. Search your brand name on Reddit. Do you find active discussions or mentions?
+		○ ☐ Yes, multiple threads with engagement
+		○ ☐ A few mentions, low activity
+		○ ☐ No mentions
+
+4. Approximate total karma/upvotes across Reddit mentions for your brand - 
+		○ ☐ 100+ karma
+		○ ☐ 1–99 karma
+		○ ☐ 0
+
+5. Do you actively reply to user reviews/comments on G2, Trustpilot, App Stores, or Capterra?
+		○ ☐ Yes, consistently
+		○ ☐ Occasionally
+		○ ☐ Never
+
+6. When you search “[Your Brand Name] news” on Google, do you see mentions in tier-1 or tier-2 publications (Forbes, TechCrunch, niche trade media)?
+		○ ☐ Yes, multiple credible publications
+		○ ☐ Some smaller blogs
+		○ ☐ None
+
+7. Search your brand on LinkedIn and Product Hunt. Are there posts or discussions about it?
+		○ ☐ Yes, user-driven discussions exist
+		○ ☐ Only brand-led posts
+		○ ☐ Nothing visible
+
+8. Run your homepage through Google’s Rich Results Test. Does it show structured data for your organization/product?
+		○ ☐ Yes, valid schema present
+		○ ☐ Partial / errors
+		○ ☐ None
+
+9. When you asked a category-level question (e.g., Who are the top [your category] platforms in 2025?), did your brand appear in the answer?”
+	• ChatGPT → ☐ Yes ☐ No
+	• Gemini → ☐ Yes ☐ No
+	• Perplexity → ☐ Yes ☐ No
+
+10. How many of your website’s pages currently rank on Page 1 of Google for your target keywords?
+	- 10+
+	- Less than 10
+	- None/Not Sure
