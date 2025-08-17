@@ -789,55 +789,19 @@ export default function Home() {
             </p>
           </div>
           
-          <Card className="glass-strong rounded-3xl p-6 sm:p-8 lg:p-12 border-0 max-w-2xl mx-auto">
-            <CardContent className="pt-0">
-              <div className="space-y-6">
-                <div className="flex items-center justify-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-violet-500 rounded-full flex items-center justify-center">
-                    <ClipboardCheck className="w-8 h-8 text-white" />
-                  </div>
-                </div>
-                
-                <div className="text-center space-y-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-800">
-                    Discover Your AI Readiness Score
-                  </h3>
-                  <p className="text-slate-600">
-                    Find out how visible your brand is across AI search platforms like ChatGPT, Gemini, and Perplexity. Get personalized recommendations to improve your AI search presence.
-                  </p>
-                  
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 my-6">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600">10</div>
-                      <div className="text-sm text-slate-600">Questions</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-violet-600">3</div>
-                      <div className="text-sm text-slate-600">Minutes</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600">100</div>
-                      <div className="text-sm text-slate-600">Max Score</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-violet-600">Free</div>
-                      <div className="text-sm text-slate-600">Report</div>
-                    </div>
-                  </div>
-                </div>
-                
-                <Button 
-                  onClick={() => setShowQuizModal(true)}
-                  className="w-full mt-6 sm:mt-8 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl flex items-center justify-center"
-                >
-                  <ClipboardCheck className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-                  Start AI Readiness Quiz
-                </Button>
-                
-                <p className="text-center text-xs sm:text-sm text-slate-500 mt-4">
-                  🔒 Your responses are confidential and used only for your personalized report
-                </p>
-              </div>
+          <Card className="glass-strong rounded-3xl p-6 sm:p-8 lg:p-12 border-0 max-w-xl mx-auto">
+            <CardContent className="pt-0 text-center space-y-6">
+              <Button 
+                onClick={() => setShowQuizModal(true)}
+                className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl flex items-center justify-center"
+              >
+                <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
+                Start Quiz
+              </Button>
+              
+              <p className="text-center text-xs sm:text-sm text-slate-500">
+                🔒 Your responses are confidential and used only for your personalized report
+              </p>
             </CardContent>
           </Card>
         </div>

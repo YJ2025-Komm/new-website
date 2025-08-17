@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -147,8 +147,9 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
       return response.json();
     },
     onSuccess: (data) => {
-      setQuizResults(data);
+      // Results are already set locally before submission
       setShowResults(true);
+      setShowEmailCapture(false);
       toast({
         title: "Quiz submitted successfully!",
         description: "Your AI readiness report has been generated.",
@@ -190,6 +191,11 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
       ...data,
       responses: quizResponses as QuizResponse
     };
+    
+    // Calculate results locally first
+    const results = calculateQuizScore(quizResponses as QuizResponse);
+    setQuizResults(results);
+    
     submitQuizMutation.mutate(completeSubmission);
   };
 
@@ -223,6 +229,9 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
             <DialogTitle className="text-2xl font-bold text-center">
               Your AI Readiness Report
             </DialogTitle>
+            <DialogDescription className="text-center text-gray-600">
+              Your personalized AI search visibility analysis and recommendations
+            </DialogDescription>
           </DialogHeader>
           
           <div className="space-y-6">
@@ -332,6 +341,9 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
         <DialogContent className="max-w-md">
           <DialogHeader>
             <DialogTitle className="text-center">Get Your Results</DialogTitle>
+            <DialogDescription className="text-center text-gray-600">
+              Enter your email to receive your personalized AI readiness report
+            </DialogDescription>
           </DialogHeader>
           
           <form onSubmit={form.handleSubmit(handleEmailSubmit)} className="space-y-4">
@@ -397,9 +409,9 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
           <DialogTitle className="text-2xl font-bold text-center">
             Is Your Brand AI-Search Ready?
           </DialogTitle>
-          <p className="text-center text-gray-600">
+          <DialogDescription className="text-center text-gray-600">
             Take the quick quiz and see your AI Visibility Score across key signals
-          </p>
+          </DialogDescription>
         </DialogHeader>
         
         <div className="space-y-6">
