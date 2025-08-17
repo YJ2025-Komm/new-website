@@ -467,20 +467,27 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
             <Progress value={progress} className="w-full" />
           </div>
 
-          {/* Questions Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto">
-            {currentQuestions.map((question) => (
-              <Card key={question.id} className="h-fit">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-base">{question.title}</CardTitle>
-                  <p className="text-sm text-gray-600">{question.question}</p>
+          {/* Questions List */}
+          <div className="space-y-6 max-h-[60vh] overflow-y-auto">
+            {currentQuestions.map((question, index) => (
+              <Card key={question.id}>
+                <CardHeader>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-sm font-semibold">
+                      {(currentScreen * 6) + index + 1}
+                    </div>
+                    <div className="flex-1">
+                      <CardTitle className="text-lg">{question.title}</CardTitle>
+                      <p className="text-gray-600 mt-1">{question.question}</p>
+                    </div>
+                  </div>
                 </CardHeader>
-                <CardContent className="pt-0">
+                <CardContent>
                   {question.type === "checkbox" ? (
                     // LLM Visibility Question with Checkboxes
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       {question.platforms?.map((platform) => (
-                        <div key={platform.id} className="flex items-center justify-between p-2 border rounded">
+                        <div key={platform.id} className="flex items-center justify-between p-3 border rounded-lg">
                           <span className="font-medium">{platform.label}</span>
                           <div className="flex space-x-2">
                             <Button
@@ -506,11 +513,12 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                     <RadioGroup
                       value={quizResponses[question.id as keyof QuizResponse] as string || ""}
                       onValueChange={(value) => handleQuestionResponse(question.id, value)}
+                      className="space-y-3"
                     >
                       {question.options?.map((option) => (
-                        <div key={option.value} className="flex items-center space-x-2">
+                        <div key={option.value} className="flex items-center space-x-3 p-2 rounded hover:bg-gray-50">
                           <RadioGroupItem value={option.value} id={`${question.id}-${option.value}`} />
-                          <Label htmlFor={`${question.id}-${option.value}`} className="flex-1 cursor-pointer text-sm">
+                          <Label htmlFor={`${question.id}-${option.value}`} className="flex-1 cursor-pointer">
                             {option.label}
                           </Label>
                         </div>
