@@ -100,39 +100,68 @@ export function calculateQuizScore(responses: QuizResponse): {
   let level = "";
   let recommendations: string[] = [];
 
-  // Generate personalized recommendations based on specific weaknesses
-  if (knowledge < 10) {
-    if (responses.q1 === "none") recommendations.push("Create a Wikipedia page or get listed in Google Knowledge Graph");
-    if (responses.q8 === "none") recommendations.push("Implement structured data markup on your website");
-    if (responses.q10 === "none") recommendations.push("Optimize your content for target keywords to rank on Google Page 1");
+  // Generate specific recommendations based on user responses and score patterns
+  
+  // Knowledge & Authority recommendations
+  if (responses.q1 === "none") {
+    recommendations.push("Create a structured knowledge asset — start with a Crunchbase or G2 profile, then aim for a Wikipedia page once you have third-party press coverage to cite");
+  }
+  if (responses.q8 === "none" || responses.q8 === "partial") {
+    recommendations.push("Add Organization schema (logo, social links, description) and Product schema to your homepage. Use Google's Rich Results Test until it passes cleanly");
+  }
+  if (responses.q10 === "none" || responses.q10 === "few") {
+    recommendations.push("Pick 2–3 high-intent keywords and publish optimized landing pages/blogs targeting them. Focus on winning a few page-1 spots before scaling");
   }
 
-  if (community < 10) {
-    if (responses.q3 === "none") recommendations.push("Start engaging in Reddit communities related to your industry");
-    if (responses.q4 === "zero") recommendations.push("Create valuable content that generates positive Reddit engagement");
-    if (responses.q7 === "none") recommendations.push("Build your presence on LinkedIn and Product Hunt");
+  // Community Signals recommendations  
+  if (responses.q3 === "none") {
+    recommendations.push("Seed a Reddit discussion in a relevant subreddit (e.g. SaaS, marketing, or your vertical). Do it authentically, not as a sales pitch");
+  }
+  if (responses.q3 === "few" || responses.q4 === "low") {
+    recommendations.push("Encourage customers or advocates to share experiences on Reddit. Even a handful of upvoted threads boosts visibility");
+  }
+  if (responses.q7 === "none" || responses.q7 === "brand_only") {
+    recommendations.push("Run a Product Hunt launch, or encourage customers/partners to tag your brand on LinkedIn for third-party mentions");
   }
 
-  if (reviews < 10) {
-    if (responses.q2 === "none") recommendations.push("Create profiles on Crunchbase, G2, and Capterra");
-    if (responses.q5 === "never") recommendations.push("Start actively responding to customer reviews and feedback");
+  // Reviews & Reputation recommendations
+  if (responses.q2 === "none") {
+    recommendations.push("Set up profiles on at least 2 review sites where your buyers search. G2 + Capterra are table stakes for B2B");
+  }
+  if (responses.q2 === "one") {
+    recommendations.push("Expand beyond a single platform. If you're on G2, add Capterra or Trustpilot. More review surfaces = more AI visibility");
+  }
+  if (responses.q5 === "never" || responses.q5 === "occasionally") {
+    recommendations.push("Start replying to every review — even negative ones. LLMs pick up on signals of responsiveness and credibility");
   }
 
-  if (media < 10) {
-    if (responses.q6 === "none") recommendations.push("Develop a PR strategy to get coverage in industry publications");
+  // Media Coverage recommendations
+  if (responses.q6 === "none") {
+    recommendations.push("Pitch 1–2 niche trade publications in your industry. Even small media hits create citations LLMs can use");
+  }
+  if (responses.q6 === "blogs") {
+    recommendations.push("Level up from niche blogs — target tier-2 sites using HARO/Featured or PR outreach to build stronger citations");
   }
 
-  if (llm < 10) {
-    if (responses.q9_chatgpt === "not_mentioned") recommendations.push("Optimize your content to improve ChatGPT visibility");
-    if (responses.q9_gemini === "not_mentioned") recommendations.push("Focus on Google-friendly content for better Gemini mentions");
-    if (responses.q9_perplexity === "not_mentioned") recommendations.push("Create authoritative content that Perplexity can reference");
+  // Direct LLM Visibility recommendations
+  if (responses.q9_chatgpt === "not_mentioned" && responses.q9_gemini === "not_mentioned" && responses.q9_perplexity === "not_mentioned") {
+    recommendations.push("Audit your category positioning. Update your website + review sites with clearer category keywords so AI models can map you to the right niche");
+  } else {
+    if (responses.q9_chatgpt === "not_mentioned") {
+      recommendations.push("Optimize content with clear category language and authoritative sources to improve ChatGPT visibility");
+    }
+    if (responses.q9_gemini === "not_mentioned") {
+      recommendations.push("Focus on Google-friendly content and news coverage since Gemini leans on Google entities and news sources");
+    }
+    if (responses.q9_perplexity === "not_mentioned") {
+      recommendations.push("Create authoritative content on Reddit/Quora since Perplexity pulls heavily from these discussion platforms");
+    }
   }
 
-  // Add general recommendations if not enough specific ones
+  // Add strategic recommendations if we have fewer than 3 specific ones
   if (recommendations.length < 3) {
-    recommendations.push("Focus on building thought leadership in your industry");
-    recommendations.push("Create consistent, high-quality content across all platforms");
-    recommendations.push("Monitor your brand mentions across AI platforms regularly");
+    recommendations.push("Strengthen differentiation by ensuring your brand is clearly described as a leader using category language across profiles");
+    recommendations.push("Release data studies or thought leadership content that press outlets want to reference");
   }
 
   // Determine overall level

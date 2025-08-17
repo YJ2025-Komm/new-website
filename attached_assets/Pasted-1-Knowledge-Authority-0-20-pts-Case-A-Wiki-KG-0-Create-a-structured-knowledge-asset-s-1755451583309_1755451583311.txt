@@ -1,0 +1,65 @@
+1. Knowledge & Authority (0–20 pts)
+
+Case A: Wiki/KG = 0
+👉 “Create a structured knowledge asset — start with a Crunchbase or G2 profile if you don’t have one, then aim for a Wikipedia page once you have third-party press coverage to cite.”
+
+Case B: Structured Data = 0 or 2
+👉 “Add Organization schema (logo, social links, description) and Product schema to your homepage. Use Google’s Rich Results Test until it passes cleanly.”
+
+Case C: Page-1 Visibility = 0 or 2
+👉 “Pick 2–3 high-intent keywords and publish optimized landing pages/blogs targeting them. Focus on winning a few page-1 spots before scaling.”
+
+Case D: Good Wiki/KG (10) but low Page-1 (0–2)
+👉 “You have brand authority, but you’re missing topical authority. Invest in SEO for category keywords to strengthen your footprint in AI sources.”
+
+2. Community Signals (0–20 pts)
+
+Case A: Reddit = 0
+👉 “Seed a Reddit discussion in a relevant subreddit (e.g. SaaS, marketing, or your vertical). Do it authentically, not as a sales pitch.”
+
+Case B: Reddit mentions (few/low karma)
+👉 “Encourage customers or advocates to share experiences on Reddit. Even a handful of upvoted threads boosts visibility.”
+
+Case C: LinkedIn / Product Hunt = only brand-led posts
+👉 “Prioritize third-party mentions. Run a Product Hunt launch, or encourage customers/partners to tag your brand on LinkedIn.”
+
+3. Reviews & Reputation (0–20 pts)
+
+Case A: No listings on G2 / Capterra
+👉 “Set up profiles on at least 2 review sites where your buyers search. G2 + Capterra are table stakes for B2B.”
+
+Case B: Listed but no engagement
+👉 “Start replying to every review — even negative ones. LLMs pick up on signals of responsiveness and credibility.”
+
+Case C: Only one platform
+👉 “Expand beyond a single platform. If you’re on G2, add Capterra or Trustpilot. More review surfaces = more AI visibility.”
+
+4. Media & Coverage (0–20 pts)
+
+Case A: None
+👉 “Pitch 1–2 niche trade publications in your industry. Even small media hits create citations LLMs can use.”
+
+Case B: Only niche blogs
+👉 “Level up from niche blogs — target tier-2 (regional tech sites, industry portals). Use HARO/Featured or PR outreach to build citations.”
+
+Case C: Tier-1 present but inconsistent
+👉 “Sustain coverage by releasing data studies, product updates, or founder thought leadership that press outlets want to reference.”
+
+5. Direct LLM Visibility (0–20 pts)
+
+Case A: No mentions in ChatGPT/Gemini/Perplexity
+👉 “Audit your category positioning. Update your website + review sites with clearer category keywords. AI models won’t surface you if they can’t map you to the right niche.”
+
+Case B: Mentioned in one LLM, missing in others
+👉 “Double-down on sources the missing LLMs rely on (e.g., Perplexity pulls more from Reddit/Quora, Gemini leans on news + Google entities).”
+
+Case C: Mentioned in all, but not consistently first/top
+👉 “Strengthen differentiation by ensuring your brand is clearly described as a leader in category language (‘Best [X platform]’) across your profiles and reviews.”
+
+🔹 How Reports Can Read
+
+For each category, you show:
+
+Score: 12 / 20
+Observation: Strong schema, but no Wikipedia page and weak Page-1 visibility.
+Recommendation: Create structured knowledge profiles and optimize 2–3 target keywords to secure Page-1 rankings.
