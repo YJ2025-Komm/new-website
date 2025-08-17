@@ -203,11 +203,22 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
       });
     },
     onError: (error: any) => {
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: error.message || "Failed to join waitlist. Please try again.",
-      });
+      // Handle duplicate email case gracefully
+      if (error.message && error.message.includes("already on the waitlist")) {
+        setShowWaitlistForm(false);
+        setShowThankYou(true);
+        setHasJoinedWaitlist(true);
+        toast({
+          title: "You're already signed up!",
+          description: "We already have you on our waitlist. We'll notify you when GeoRankers is ready.",
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: error.message || "Failed to join waitlist. Please try again.",
+        });
+      }
     }
   });
 
@@ -483,7 +494,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
               <CheckCircle className="w-8 h-8 text-green-600" />
             </div>
             <div className="space-y-2">
-              <h3 className="text-lg font-semibold text-gray-900">Welcome to the waitlist!</h3>
+              <h3 className="text-lg font-semibold text-gray-900">You're all set!</h3>
               <p className="text-gray-600">
                 We'll let you know once we go live and you can start improving your AI search visibility.
               </p>
