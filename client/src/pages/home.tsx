@@ -138,7 +138,7 @@ export default function Home() {
             
             {/* Navigation Links */}
             <div className="hidden md:flex space-x-8">
-              <a href="#quiz" className="quiz-button-animated text-slate-700 hover:text-blue-700 transition-colors duration-300 text-sm font-medium flex items-center relative z-10">
+              <a href="#quiz" className="quiz-text-animated text-sm font-medium flex items-center transition-colors duration-300">
                 <Star className="w-4 h-4 mr-1 star-animated" />
                 <span className="font-semibold">AI Quiz</span>
               </a>

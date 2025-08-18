@@ -142,68 +142,23 @@
   }
 }
 
-@keyframes quiz-pulse {
+@keyframes quiz-text-blink {
   0%, 100% { 
-    background-color: rgba(59, 130, 246, 0.05);
-    border-color: rgba(59, 130, 246, 0.2);
+    color: rgb(51, 65, 85); /* slate-700 */
   }
   50% { 
-    background-color: rgba(59, 130, 246, 0.1);
-    border-color: rgba(59, 130, 246, 0.4);
+    color: rgb(29, 78, 216); /* blue-700 */
   }
 }
 
-@keyframes quiz-shimmer {
-  0% { 
-    background-position: -200% center;
-  }
-  100% { 
-    background-position: 200% center;
-  }
-}
-
-.quiz-button-animated {
-  position: relative;
-  background: linear-gradient(135deg, 
-    rgba(59, 130, 246, 0.08) 0%, 
-    rgba(168, 85, 247, 0.06) 50%, 
-    rgba(59, 130, 246, 0.08) 100%
-  );
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  border-radius: 8px;
-  padding: 8px 12px;
-  animation: quiz-pulse 3s ease-in-out infinite;
+.quiz-text-animated {
+  animation: quiz-text-blink 2s ease-in-out infinite;
   transition: all 0.3s ease;
-  overflow: hidden;
 }
 
-.quiz-button-animated::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: quiz-shimmer 2.5s ease-in-out infinite;
-  animation-delay: 1s;
-}
-
-.quiz-button-animated:hover {
-  background: linear-gradient(135deg, 
-    rgba(59, 130, 246, 0.12) 0%, 
-    rgba(168, 85, 247, 0.1) 50%, 
-    rgba(59, 130, 246, 0.12) 100%
-  );
-  border-color: rgba(59, 130, 246, 0.4);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+.quiz-text-animated:hover {
+  animation-duration: 1s;
+  color: rgb(29, 78, 216) !important; /* blue-700 */
 }
 
 .star-animated {
@@ -212,7 +167,7 @@
   transition: all 0.3s ease;
 }
 
-.quiz-button-animated:hover .star-animated {
+.star-animated:hover {
   color: #f59e0b;
   animation-duration: 1s;
 }
