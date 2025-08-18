@@ -144,21 +144,33 @@
 
 @keyframes quiz-text-blink {
   0%, 100% { 
-    color: rgb(51, 65, 85); /* slate-700 */
+    background: linear-gradient(to right, rgb(59, 130, 246), rgb(168, 85, 247));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: brightness(1);
   }
   50% { 
-    color: rgb(29, 78, 216); /* blue-700 */
+    background: linear-gradient(to right, rgb(59, 130, 246), rgb(168, 85, 247));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: brightness(1.4);
   }
 }
 
 .quiz-text-animated {
-  animation: quiz-text-blink 2s ease-in-out infinite;
+  background: linear-gradient(to right, rgb(59, 130, 246), rgb(168, 85, 247));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: quiz-text-blink 1.5s ease-in-out infinite;
   transition: all 0.3s ease;
 }
 
 .quiz-text-animated:hover {
-  animation-duration: 1s;
-  color: rgb(29, 78, 216) !important; /* blue-700 */
+  animation-duration: 0.8s;
+  filter: brightness(1.2) !important;
 }
 
 .star-animated {
