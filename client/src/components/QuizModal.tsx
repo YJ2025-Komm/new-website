@@ -190,7 +190,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
 
   const waitlistMutation = useMutation({
     mutationFn: async (data: InsertWaitlistEntry) => {
-      const response = await apiRequest("POST", "/api/waitlist", data);
+      const response = await apiRequest("POST", "/api/waitlist/quiz", data);
       return response.json();
     },
     onSuccess: () => {

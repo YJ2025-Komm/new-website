@@ -27,7 +27,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Add directly to Mailchimp (it handles duplicate detection)
       try {
-        await mailchimpService.addSubscriber(validatedData);
+        await mailchimpService.addSubscriber(validatedData, 'GR Homepage');
         
         res.status(201).json({ 
           message: "Successfully added to waitlist",
@@ -66,6 +66,59 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       console.error("Error adding to waitlist:", error);
+      res.status(500).json({ 
+        message: "Internal server error" 
+      });
+    }
+  });
+
+  // Quiz waitlist registration endpoint - from within quiz flow
+  app.post("/api/waitlist/quiz", async (req, res) => {
+    try {
+      // Validate request body
+      const validatedData = insertWaitlistEntrySchema.parse(req.body);
+      
+      // Add directly to Mailchimp with quiz-specific tag
+      try {
+        await mailchimpService.addSubscriber(validatedData, 'GR Quiz Waitlist');
+        
+        res.status(201).json({ 
+          message: "Successfully added to waitlist from quiz",
+          email: validatedData.email 
+        });
+      } catch (mailchimpError) {
+        console.error("Mailchimp error (quiz waitlist):", mailchimpError);
+        
+        const errorMessage = mailchimpError instanceof Error ? mailchimpError.message : String(mailchimpError);
+        
+        // Handle specific Mailchimp errors
+        if (errorMessage.includes('Member Exists')) {
+          return res.status(400).json({ 
+            message: "This email is already on the waitlist" 
+          });
+        }
+        
+        if (errorMessage.includes('looks fake or invalid')) {
+          return res.status(400).json({ 
+            message: "Please enter a valid email address" 
+          });
+        }
+        
+        // Generic error
+        res.status(500).json({ 
+          message: "Failed to add to waitlist. Please try again." 
+        });
+      }
+      
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ 
+          message: "Invalid data provided",
+          errors: error.errors 
+        });
+      }
+      
+      console.error("Error adding to quiz waitlist:", error);
       res.status(500).json({ 
         message: "Internal server error" 
       });
@@ -112,7 +165,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           email: validatedData.email,
           companyName: validatedData.companyName || "",
           challenge: `Quiz Score: ${results.score}/100 - ${results.level}`
-        });
+        }, 'GR Quiz Submitted');
       } catch (mailchimpError) {
         console.log("Mailchimp error (quiz):", mailchimpError);
         // Continue even if Mailchimp fails

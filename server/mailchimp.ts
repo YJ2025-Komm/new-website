@@ -19,7 +19,7 @@ export class MailchimpService {
     }
   }
 
-  async addSubscriber(entry: InsertWaitlistEntry): Promise<void> {
+  async addSubscriber(entry: InsertWaitlistEntry, tag?: string): Promise<void> {
     if (!this.apiKey || !this.audienceId) {
       console.log('Mailchimp not configured - skipping subscriber addition');
       return;
@@ -37,7 +37,7 @@ export class MailchimpService {
         COMPANY: entry.companyName || '',
         MMERGE7: entry.challenge || '' // Comments field
       },
-      tags: ['GeoRankers Waitlist']
+      tags: [tag || 'GeoRankers Waitlist']
     };
 
     try {
