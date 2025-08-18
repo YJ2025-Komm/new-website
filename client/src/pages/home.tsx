@@ -138,6 +138,10 @@ export default function Home() {
             
             {/* Navigation Links */}
             <div className="hidden md:flex space-x-8">
+              <a href="#quiz" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium flex items-center">
+                <Star className="w-4 h-4 mr-1 text-yellow-500" />
+                AI Quiz
+              </a>
               <a href="#problem" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 Why GeoRankers
               </a>
@@ -461,6 +465,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Quiz Section */}
+      <section id="quiz" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-violet-50/20 to-blue-50/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+              Is Your Brand <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI-Search Ready?</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-slate-600 mb-8">
+              Take the quick quiz and see your AI Visibility Score across key signals
+            </p>
+          </div>
+          
+          <Card className="glass-strong rounded-3xl p-6 sm:p-8 lg:p-12 border-0 max-w-xl mx-auto">
+            <CardContent className="pt-0 text-center space-y-6">
+              <Button 
+                onClick={() => setShowQuizModal(true)}
+                className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl flex items-center justify-center"
+              >
+                <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
+                Start Quiz
+              </Button>
+              
+              <p className="text-center text-xs sm:text-sm text-slate-500">
+                🔒 Your responses are confidential and used only for your personalized report
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* Why GeoRankers Section */}
       <section id="problem" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-b from-slate-50/50 to-blue-50/30">
         <div className="max-w-6xl mx-auto">
@@ -772,38 +806,6 @@ export default function Home() {
           </Card>
           
 
-        </div>
-      </section>
-
-
-
-      {/* Quiz Section */}
-      <section id="quiz" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-violet-50/20 to-blue-50/20">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              Is Your Brand <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI-Search Ready?</span>
-            </h2>
-            <p className="text-lg sm:text-xl text-slate-600 mb-8">
-              Take the quick quiz and see your AI Visibility Score across key signals
-            </p>
-          </div>
-          
-          <Card className="glass-strong rounded-3xl p-6 sm:p-8 lg:p-12 border-0 max-w-xl mx-auto">
-            <CardContent className="pt-0 text-center space-y-6">
-              <Button 
-                onClick={() => setShowQuizModal(true)}
-                className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl flex items-center justify-center"
-              >
-                <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-                Start Quiz
-              </Button>
-              
-              <p className="text-center text-xs sm:text-sm text-slate-500">
-                🔒 Your responses are confidential and used only for your personalized report
-              </p>
-            </CardContent>
-          </Card>
         </div>
       </section>
 
