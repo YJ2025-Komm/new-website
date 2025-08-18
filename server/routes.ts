@@ -38,10 +38,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
         
         const errorMessage = mailchimpError instanceof Error ? mailchimpError.message : String(mailchimpError);
         
-        // Handle specific Mailchimp errors
+        // Handle specific Mailchimp errors - but treat Member Exists as success
         if (errorMessage.includes('Member Exists')) {
-          return res.status(400).json({ 
-            message: "This email is already on the waitlist" 
+          return res.status(201).json({ 
+            message: "Successfully added to waitlist",
+            email: validatedData.email 
           });
         }
         
@@ -91,10 +92,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
         
         const errorMessage = mailchimpError instanceof Error ? mailchimpError.message : String(mailchimpError);
         
-        // Handle specific Mailchimp errors
+        // Handle specific Mailchimp errors - but treat Member Exists as success
         if (errorMessage.includes('Member Exists')) {
-          return res.status(400).json({ 
-            message: "This email is already on the waitlist" 
+          return res.status(201).json({ 
+            message: "Successfully added to waitlist from quiz",
+            email: validatedData.email 
           });
         }
         
