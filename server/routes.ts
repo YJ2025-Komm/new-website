@@ -173,21 +173,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Send to Google Sheets
       try {
-        const quizData = [
-          new Date().toISOString(),
-          validatedData.email,
-          validatedData.companyName || "",
-          results.score.toString(),
-          results.level,
-          JSON.stringify(validatedData.responses),
-          results.breakdown.knowledge.toString(),
-          results.breakdown.community.toString(),
-          results.breakdown.reviews.toString(),
-          results.breakdown.media.toString(),
-          results.breakdown.llm.toString()
-        ];
-        
-        await googleSheetsService.appendQuizData(quizData);
+        await googleSheetsService.appendQuizData(validatedData, results.score, results.breakdown, results.level);
       } catch (sheetsError) {
         console.log("Google Sheets error (quiz):", sheetsError);
         // Continue even if Sheets fails
