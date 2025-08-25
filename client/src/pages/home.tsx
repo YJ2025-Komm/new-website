@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { insertWaitlistEntrySchema, type InsertWaitlistEntry } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -40,6 +40,27 @@ import geminiLogo from "@assets/Gemini_1753958628531.png";
 import grokLogo from "@assets/Grok_1753958628535.png";
 import openaiLogo from "@assets/Open Ai_1753958628536.png";
 import perplexityLogo from "@assets/Perplexity_1753958628538.png";
+
+// WordPress API types
+interface WordPressBlogPost {
+  id: number;
+  title: {
+    rendered: string;
+  };
+  excerpt: {
+    rendered: string;
+  };
+  link: string;
+  date: string;
+  categories: number[];
+  featured_media: number;
+}
+
+interface WordPressCategory {
+  id: number;
+  name: string;
+  slug: string;
+}
 
 export default function Home() {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -81,6 +102,71 @@ export default function Home() {
 
   const onSubmit = (data: InsertWaitlistEntry) => {
     waitlistMutation.mutate(data);
+  };
+
+  // Fetch WordPress blog posts
+  const { data: blogPosts, isLoading: postsLoading, error: postsError } = useQuery({
+    queryKey: ['/wordpress/posts'],
+    queryFn: async (): Promise<WordPressBlogPost[]> => {
+      const response = await fetch('https://blog.georankers.co/wp-json/wp/v2/posts?per_page=6&_fields=id,title,excerpt,link,date,categories,featured_media');
+      if (!response.ok) {
+        throw new Error('Failed to fetch blog posts');
+      }
+      return await response.json();
+    },
+    staleTime: 5 * 60 * 1000, // Cache for 5 minutes
+    refetchInterval: 10 * 60 * 1000, // Refetch every 10 minutes
+  });
+
+  // Fetch WordPress categories
+  const { data: categories } = useQuery({
+    queryKey: ['/wordpress/categories'],
+    queryFn: async (): Promise<WordPressCategory[]> => {
+      const response = await fetch('https://blog.georankers.co/wp-json/wp/v2/categories?_fields=id,name,slug');
+      if (!response.ok) {
+        throw new Error('Failed to fetch categories');
+      }
+      return await response.json();
+    },
+    staleTime: 30 * 60 * 1000, // Cache for 30 minutes
+  });
+
+  // Helper function to get category name
+  const getCategoryName = (categoryIds: number[]): string => {
+    if (!categories || !categoryIds.length) return 'Blog';
+    const category = categories.find(cat => categoryIds.includes(cat.id));
+    return category?.name || 'Blog';
+  };
+
+  // Helper function to clean HTML from excerpt
+  const cleanExcerpt = (excerpt: string): string => {
+    return excerpt.replace(/<[^>]*>/g, '').replace(/\[&hellip;\]/, '...').trim();
+  };
+
+  // Helper function to format date
+  const formatDate = (dateString: string): string => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+  };
+
+  // Helper function to get icon for category
+  const getCategoryIcon = (categoryIds: number[]) => {
+    if (!categories || !categoryIds.length) return <Lightbulb className="w-12 h-12 text-blue-500 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />;
+    
+    const category = categories.find(cat => categoryIds.includes(cat.id));
+    const categorySlug = category?.slug || '';
+    
+    if (categorySlug.includes('strategic') || categorySlug.includes('framework')) {
+      return <ClipboardCheck className="w-12 h-12 text-blue-500 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />;
+    } else if (categorySlug.includes('geo') || categorySlug.includes('ai-search')) {
+      return <TrendingUp className="w-12 h-12 text-emerald-500 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />;
+    } else {
+      return <Lightbulb className="w-12 h-12 text-violet-500 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />;
+    }
   };
 
   const scrollToWaitlist = () => {
@@ -1190,100 +1276,98 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {/* Blog Post 1 */}
-            <Card className="glass rounded-2xl border-0 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
-              <div className="h-48 bg-gradient-to-br from-blue-50 via-white to-violet-50 p-6 flex items-center justify-center">
-                <div className="text-center">
-                  <ClipboardCheck className="w-12 h-12 text-blue-500 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />
-                  <div className="text-xs text-slate-500 font-medium">Strategic Frameworks</div>
-                </div>
-              </div>
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-center text-xs text-slate-500 mb-3">
-                  <span>August 19, 2025</span>
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors duration-300">
-                  Strategic Imperatives for Marketing Leaders, Product Teams, and Founders in the Age of AI Search
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base mb-6 leading-relaxed">
-                  Essential strategic frameworks for leadership teams navigating the fundamental shift from traditional search to AI-powered discovery.
-                </p>
-                <a 
-                  href="https://blog.georankers.co/2025/08/19/strategic-imperatives-for-marketing-leaders-product-teams-and-founders-in-the-age-of-ai-search/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-testid="link-blog-post-1"
-                  className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-violet-600 transition-colors duration-300"
-                >
-                  Read More
-                  <ChevronDown className="w-4 h-4 ml-1 rotate-[-90deg] group-hover:translate-x-1 transition-transform duration-300" />
-                </a>
-              </CardContent>
-            </Card>
+          {/* Loading State */}
+          {postsLoading && (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {[...Array(3)].map((_, index) => (
+                <Card key={index} className="glass rounded-2xl border-0 overflow-hidden">
+                  <div className="h-48 bg-gradient-to-br from-slate-100 to-slate-200 animate-pulse"></div>
+                  <CardContent className="p-6 sm:p-8">
+                    <div className="h-4 bg-slate-200 rounded animate-pulse mb-3"></div>
+                    <div className="h-6 bg-slate-200 rounded animate-pulse mb-3"></div>
+                    <div className="h-4 bg-slate-200 rounded animate-pulse mb-2"></div>
+                    <div className="h-4 bg-slate-200 rounded animate-pulse mb-6 w-3/4"></div>
+                    <div className="h-4 bg-slate-200 rounded animate-pulse w-20"></div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
 
-            {/* Blog Post 2 */}
-            <Card className="glass rounded-2xl border-0 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
-              <div className="h-48 bg-gradient-to-br from-emerald-50 via-white to-blue-50 p-6 flex items-center justify-center">
-                <div className="text-center">
-                  <Lightbulb className="w-12 h-12 text-emerald-500 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />
-                  <div className="text-xs text-slate-500 font-medium">AI Search & GEO</div>
-                </div>
-              </div>
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-center text-xs text-slate-500 mb-3">
-                  <span>August 15, 2025</span>
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors duration-300">
-                  Generative Engine Optimization: Building Blocks of AI‑Ready Content
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base mb-6 leading-relaxed">
-                  Master the fundamental building blocks that make your content discoverable and recommendable by AI engines.
-                </p>
-                <a 
-                  href="https://blog.georankers.co/2025/08/15/generative-engine-optimization-building-blocks-of-ai%e2%80%91ready-content/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-testid="link-blog-post-2"
-                  className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-violet-600 transition-colors duration-300"
-                >
-                  Read More
-                  <ChevronDown className="w-4 h-4 ml-1 rotate-[-90deg] group-hover:translate-x-1 transition-transform duration-300" />
-                </a>
-              </CardContent>
-            </Card>
+          {/* Error State */}
+          {postsError && (
+            <div className="text-center py-12">
+              <p className="text-slate-600 mb-4">Unable to load blog posts at the moment.</p>
+              <a
+                href="https://blog.georankers.co"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 font-semibold hover:text-violet-600 transition-colors duration-300"
+              >
+                Visit our blog directly
+                <ChevronDown className="w-4 h-4 ml-1 rotate-[-90deg]" />
+              </a>
+            </div>
+          )}
 
-            {/* Blog Post 3 */}
-            <Card className="glass rounded-2xl border-0 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
-              <div className="h-48 bg-gradient-to-br from-violet-50 via-white to-pink-50 p-6 flex items-center justify-center">
-                <div className="text-center">
-                  <TrendingUp className="w-12 h-12 text-violet-500 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />
-                  <div className="text-xs text-slate-500 font-medium">AI Search & GEO</div>
-                </div>
-              </div>
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-center text-xs text-slate-500 mb-3">
-                  <span>August 8, 2025</span>
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors duration-300">
-                  GEO vs SEO: What is Real, What is Hype, and What You Actually Need to Track
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base mb-6 leading-relaxed">
-                  Cut through the noise and understand the practical differences between traditional SEO and generative engine optimization.
-                </p>
-                <a 
-                  href="https://blog.georankers.co/2025/08/08/hello-world/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-testid="link-blog-post-3"
-                  className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-violet-600 transition-colors duration-300"
-                >
-                  Read More
-                  <ChevronDown className="w-4 h-4 ml-1 rotate-[-90deg] group-hover:translate-x-1 transition-transform duration-300" />
-                </a>
-              </CardContent>
-            </Card>
-          </div>
+          {/* Dynamic Blog Posts */}
+          {blogPosts && blogPosts.length > 0 && (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {blogPosts.map((post, index) => (
+                <Card key={post.id} className="glass rounded-2xl border-0 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
+                  <div className={`h-48 p-6 flex items-center justify-center ${
+                    index % 3 === 0 ? 'bg-gradient-to-br from-blue-50 via-white to-violet-50' :
+                    index % 3 === 1 ? 'bg-gradient-to-br from-emerald-50 via-white to-blue-50' :
+                    'bg-gradient-to-br from-violet-50 via-white to-pink-50'
+                  }`}>
+                    <div className="text-center">
+                      {getCategoryIcon(post.categories)}
+                      <div className="text-xs text-slate-500 font-medium">
+                        {getCategoryName(post.categories)}
+                      </div>
+                    </div>
+                  </div>
+                  <CardContent className="p-6 sm:p-8">
+                    <div className="flex items-center text-xs text-slate-500 mb-3">
+                      <span>{formatDate(post.date)}</span>
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors duration-300">
+                      {post.title.rendered}
+                    </h3>
+                    <p className="text-slate-600 text-sm sm:text-base mb-6 leading-relaxed">
+                      {cleanExcerpt(post.excerpt.rendered)}
+                    </p>
+                    <a 
+                      href={post.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-testid={`link-blog-post-${post.id}`}
+                      className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-violet-600 transition-colors duration-300"
+                    >
+                      Read More
+                      <ChevronDown className="w-4 h-4 ml-1 rotate-[-90deg] group-hover:translate-x-1 transition-transform duration-300" />
+                    </a>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
+
+          {/* No Posts State */}
+          {blogPosts && blogPosts.length === 0 && !postsLoading && (
+            <div className="text-center py-12">
+              <p className="text-slate-600 mb-4">No blog posts available at the moment.</p>
+              <a
+                href="https://blog.georankers.co"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 font-semibold hover:text-violet-600 transition-colors duration-300"
+              >
+                Visit our blog
+                <ChevronDown className="w-4 h-4 ml-1 rotate-[-90deg]" />
+              </a>
+            </div>
+          )}
 
           {/* View All Blogs CTA */}
           <div className="text-center mt-12 sm:mt-16">
