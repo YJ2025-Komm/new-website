@@ -1178,6 +1178,129 @@ export default function Home() {
         </div>
       </section>
       
+      {/* Blog Section */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/30 to-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+              Latest <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Insights</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
+              Discover proven strategies and frameworks to dominate AI search across ChatGPT, Gemini, and Perplexity
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {/* Blog Post 1 */}
+            <Card className="glass rounded-2xl border-0 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
+              <div className="h-48 bg-gradient-to-br from-blue-50 via-white to-violet-50 p-6 flex items-center justify-center">
+                <div className="text-center">
+                  <ClipboardCheck className="w-12 h-12 text-blue-500 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="text-xs text-slate-500 font-medium">Strategic Frameworks</div>
+                </div>
+              </div>
+              <CardContent className="p-6 sm:p-8">
+                <div className="flex items-center text-xs text-slate-500 mb-3">
+                  <span>August 19, 2025</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors duration-300">
+                  Strategic Imperatives for Marketing Leaders, Product Teams, and Founders in the Age of AI Search
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base mb-6 leading-relaxed">
+                  Essential strategic frameworks for leadership teams navigating the fundamental shift from traditional search to AI-powered discovery.
+                </p>
+                <a 
+                  href="https://blog.georankers.co/2025/08/19/strategic-imperatives-for-marketing-leaders-product-teams-and-founders-in-the-age-of-ai-search/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="link-blog-post-1"
+                  className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-violet-600 transition-colors duration-300"
+                >
+                  Read More
+                  <ChevronDown className="w-4 h-4 ml-1 rotate-[-90deg] group-hover:translate-x-1 transition-transform duration-300" />
+                </a>
+              </CardContent>
+            </Card>
+
+            {/* Blog Post 2 */}
+            <Card className="glass rounded-2xl border-0 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
+              <div className="h-48 bg-gradient-to-br from-emerald-50 via-white to-blue-50 p-6 flex items-center justify-center">
+                <div className="text-center">
+                  <Lightbulb className="w-12 h-12 text-emerald-500 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="text-xs text-slate-500 font-medium">AI Search & GEO</div>
+                </div>
+              </div>
+              <CardContent className="p-6 sm:p-8">
+                <div className="flex items-center text-xs text-slate-500 mb-3">
+                  <span>August 15, 2025</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors duration-300">
+                  Generative Engine Optimization: Building Blocks of AI‑Ready Content
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base mb-6 leading-relaxed">
+                  Master the fundamental building blocks that make your content discoverable and recommendable by AI engines.
+                </p>
+                <a 
+                  href="https://blog.georankers.co/2025/08/15/generative-engine-optimization-building-blocks-of-ai%e2%80%91ready-content/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="link-blog-post-2"
+                  className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-violet-600 transition-colors duration-300"
+                >
+                  Read More
+                  <ChevronDown className="w-4 h-4 ml-1 rotate-[-90deg] group-hover:translate-x-1 transition-transform duration-300" />
+                </a>
+              </CardContent>
+            </Card>
+
+            {/* Blog Post 3 */}
+            <Card className="glass rounded-2xl border-0 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
+              <div className="h-48 bg-gradient-to-br from-violet-50 via-white to-pink-50 p-6 flex items-center justify-center">
+                <div className="text-center">
+                  <TrendingUp className="w-12 h-12 text-violet-500 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="text-xs text-slate-500 font-medium">AI Search & GEO</div>
+                </div>
+              </div>
+              <CardContent className="p-6 sm:p-8">
+                <div className="flex items-center text-xs text-slate-500 mb-3">
+                  <span>August 8, 2025</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors duration-300">
+                  GEO vs SEO: What is Real, What is Hype, and What You Actually Need to Track
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base mb-6 leading-relaxed">
+                  Cut through the noise and understand the practical differences between traditional SEO and generative engine optimization.
+                </p>
+                <a 
+                  href="https://blog.georankers.co/2025/08/08/hello-world/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="link-blog-post-3"
+                  className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-violet-600 transition-colors duration-300"
+                >
+                  Read More
+                  <ChevronDown className="w-4 h-4 ml-1 rotate-[-90deg] group-hover:translate-x-1 transition-transform duration-300" />
+                </a>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* View All Blogs CTA */}
+          <div className="text-center mt-12 sm:mt-16">
+            <a
+              href="https://blog.georankers.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="link-view-all-blogs"
+              className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
+            >
+              <Eye className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
+              View All Blog Posts
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Quiz Modal */}
       <QuizModal 
         isOpen={showQuizModal} 
