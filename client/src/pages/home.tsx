@@ -228,8 +228,8 @@ export default function Home() {
               <a href="#features" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 Features
               </a>
-              <a href="/geo-guide" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
-                GEO Guide
+              <a href="https://blog.georankers.co" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
+                Blog
               </a>
               <a href="#faq" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 FAQ
@@ -1259,14 +1259,25 @@ export default function Home() {
       </section>
       
       {/* Blog Section */}
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/30 to-white">
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/30 to-white" id="blog">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               Latest <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Insights</span>
             </h2>
-            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto mb-6">
               Discover proven strategies and frameworks to dominate AI search across ChatGPT, Gemini, and Perplexity
+            </p>
+            <p className="text-base text-slate-500">
+              Read more expert insights on our dedicated{" "}
+              <a 
+                href="https://blog.georankers.co" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-violet-600 font-semibold transition-colors duration-300"
+              >
+                GeoRankers AI Search Blog
+              </a>
             </p>
           </div>
           
@@ -1373,8 +1384,19 @@ export default function Home() {
               className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
             >
               <Eye className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-              View All Blog Posts
+              View All Articles on GeoRankers Blog
             </a>
+            <p className="text-sm text-slate-500 mt-4">
+              Follow our comprehensive AI search optimization guides and case studies at{" "}
+              <a 
+                href="https://blog.georankers.co" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-violet-600 transition-colors duration-300"
+              >
+                blog.georankers.co
+              </a>
+            </p>
           </div>
         </div>
       </section>
