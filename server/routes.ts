@@ -140,6 +140,162 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Blog posts proxy endpoint - fetches from WordPress and serves to frontend
+  app.get("/api/blog/posts", async (req, res) => {
+    try {
+      const response = await fetch('https://blog.georankers.co/wp-json/wp/v2/posts?per_page=6&_fields=id,title,excerpt,link,date,categories,featured_media');
+      
+      if (!response.ok) {
+        console.error('WordPress API error:', response.status, response.statusText);
+        
+        // Return static fallback data if WordPress API fails
+        const fallbackPosts = [
+          {
+            id: 1,
+            title: { rendered: "Strategic Imperatives for Marketing Leaders, Product Teams, and Founders in the Age of AI Search" },
+            excerpt: { rendered: "Essential strategic frameworks for leadership teams navigating the fundamental shift from traditional search to AI-powered discovery." },
+            link: "https://blog.georankers.co/2025/08/19/strategic-imperatives-for-marketing-leaders-product-teams-and-founders-in-the-age-of-ai-search/",
+            date: "2025-08-19T00:00:00",
+            categories: [1],
+            featured_media: 0
+          },
+          {
+            id: 2,
+            title: { rendered: "Generative Engine Optimization: Building Blocks of AI‑Ready Content" },
+            excerpt: { rendered: "Master the fundamental building blocks that make your content discoverable and recommendable by AI engines." },
+            link: "https://blog.georankers.co/2025/08/15/generative-engine-optimization-building-blocks-of-ai%e2%80%91ready-content/",
+            date: "2025-08-15T00:00:00",
+            categories: [2],
+            featured_media: 0
+          },
+          {
+            id: 3,
+            title: { rendered: "GEO vs SEO: What is Real, What is Hype, and What You Actually Need to Track" },
+            excerpt: { rendered: "Cut through the noise and understand the practical differences between traditional SEO and generative engine optimization." },
+            link: "https://blog.georankers.co/2025/08/08/hello-world/",
+            date: "2025-08-08T00:00:00",
+            categories: [2],
+            featured_media: 0
+          }
+        ];
+        
+        return res.json(fallbackPosts);
+      }
+      
+      const posts = await response.json();
+      
+      // If WordPress returns HTML instead of JSON, use fallback
+      if (typeof posts === 'string') {
+        const fallbackPosts = [
+          {
+            id: 1,
+            title: { rendered: "Strategic Imperatives for Marketing Leaders, Product Teams, and Founders in the Age of AI Search" },
+            excerpt: { rendered: "Essential strategic frameworks for leadership teams navigating the fundamental shift from traditional search to AI-powered discovery." },
+            link: "https://blog.georankers.co/2025/08/19/strategic-imperatives-for-marketing-leaders-product-teams-and-founders-in-the-age-of-ai-search/",
+            date: "2025-08-19T00:00:00",
+            categories: [1],
+            featured_media: 0
+          },
+          {
+            id: 2,
+            title: { rendered: "Generative Engine Optimization: Building Blocks of AI‑Ready Content" },
+            excerpt: { rendered: "Master the fundamental building blocks that make your content discoverable and recommendable by AI engines." },
+            link: "https://blog.georankers.co/2025/08/15/generative-engine-optimization-building-blocks-of-ai%e2%80%91ready-content/",
+            date: "2025-08-15T00:00:00",
+            categories: [2],
+            featured_media: 0
+          },
+          {
+            id: 3,
+            title: { rendered: "GEO vs SEO: What is Real, What is Hype, and What You Actually Need to Track" },
+            excerpt: { rendered: "Cut through the noise and understand the practical differences between traditional SEO and generative engine optimization." },
+            link: "https://blog.georankers.co/2025/08/08/hello-world/",
+            date: "2025-08-08T00:00:00",
+            categories: [2],
+            featured_media: 0
+          }
+        ];
+        
+        return res.json(fallbackPosts);
+      }
+      
+      res.json(posts);
+    } catch (error) {
+      console.error('Error fetching blog posts:', error);
+      
+      // Return static fallback data if there's an error
+      const fallbackPosts = [
+        {
+          id: 1,
+          title: { rendered: "Strategic Imperatives for Marketing Leaders, Product Teams, and Founders in the Age of AI Search" },
+          excerpt: { rendered: "Essential strategic frameworks for leadership teams navigating the fundamental shift from traditional search to AI-powered discovery." },
+          link: "https://blog.georankers.co/2025/08/19/strategic-imperatives-for-marketing-leaders-product-teams-and-founders-in-the-age-of-ai-search/",
+          date: "2025-08-19T00:00:00",
+          categories: [1],
+          featured_media: 0
+        },
+        {
+          id: 2,
+          title: { rendered: "Generative Engine Optimization: Building Blocks of AI‑Ready Content" },
+          excerpt: { rendered: "Master the fundamental building blocks that make your content discoverable and recommendable by AI engines." },
+          link: "https://blog.georankers.co/2025/08/15/generative-engine-optimization-building-blocks-of-ai%e2%80%91ready-content/",
+          date: "2025-08-15T00:00:00",
+          categories: [2],
+          featured_media: 0
+        },
+        {
+          id: 3,
+          title: { rendered: "GEO vs SEO: What is Real, What is Hype, and What You Actually Need to Track" },
+          excerpt: { rendered: "Cut through the noise and understand the practical differences between traditional SEO and generative engine optimization." },
+          link: "https://blog.georankers.co/2025/08/08/hello-world/",
+          date: "2025-08-08T00:00:00",
+          categories: [2],
+          featured_media: 0
+        }
+      ];
+      
+      res.json(fallbackPosts);
+    }
+  });
+
+  // Blog categories proxy endpoint
+  app.get("/api/blog/categories", async (req, res) => {
+    try {
+      const response = await fetch('https://blog.georankers.co/wp-json/wp/v2/categories?_fields=id,name,slug');
+      
+      if (!response.ok) {
+        // Return static fallback categories
+        const fallbackCategories = [
+          { id: 1, name: "Strategic Frameworks", slug: "strategic-frameworks" },
+          { id: 2, name: "AI Search & GEO", slug: "ai-search-geo" }
+        ];
+        return res.json(fallbackCategories);
+      }
+      
+      const categories = await response.json();
+      
+      // If WordPress returns HTML instead of JSON, use fallback
+      if (typeof categories === 'string') {
+        const fallbackCategories = [
+          { id: 1, name: "Strategic Frameworks", slug: "strategic-frameworks" },
+          { id: 2, name: "AI Search & GEO", slug: "ai-search-geo" }
+        ];
+        return res.json(fallbackCategories);
+      }
+      
+      res.json(categories);
+    } catch (error) {
+      console.error('Error fetching blog categories:', error);
+      
+      // Return static fallback categories
+      const fallbackCategories = [
+        { id: 1, name: "Strategic Frameworks", slug: "strategic-frameworks" },
+        { id: 2, name: "AI Search & GEO", slug: "ai-search-geo" }
+      ];
+      res.json(fallbackCategories);
+    }
+  });
+
   // Quiz submission endpoint
   app.post("/api/quiz", async (req, res) => {
     try {
