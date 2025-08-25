@@ -259,7 +259,7 @@ export default function Home() {
                 Features
               </a>
               <a href="#blog" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
-                Blog
+                Blogs
               </a>
               <a href="#faq" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 FAQ
