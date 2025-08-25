@@ -41,6 +41,11 @@ import grokLogo from "@assets/Grok_1753958628535.png";
 import openaiLogo from "@assets/Open Ai_1753958628536.png";
 import perplexityLogo from "@assets/Perplexity_1753958628538.png";
 
+// Featured blog images
+import strategicImage from '@assets/generated_images/Strategic_AI_search_leadership_2959319a.png';
+import buildingBlocksImage from '@assets/generated_images/AI_content_building_blocks_237b4917.png';
+import geoVsSeoImage from '@assets/generated_images/GEO_vs_SEO_comparison_96025f03.png';
+
 // WordPress API types
 interface WordPressBlogPost {
   id: number;
@@ -104,6 +109,7 @@ export default function Home() {
     waitlistMutation.mutate(data);
   };
 
+
   // Static blog posts data to ensure immediate display
   const staticBlogPosts: WordPressBlogPost[] = [
     {
@@ -113,7 +119,8 @@ export default function Home() {
       link: "https://blog.georankers.co/2025/08/19/strategic-imperatives-for-marketing-leaders-product-teams-and-founders-in-the-age-of-ai-search/",
       date: "2025-08-19T00:00:00",
       categories: [1],
-      featured_media: 0
+      featured_media: 1,
+      featured_image_url: strategicImage
     },
     {
       id: 2,
@@ -122,7 +129,8 @@ export default function Home() {
       link: "https://blog.georankers.co/2025/08/15/generative-engine-optimization-building-blocks-of-ai%e2%80%91ready-content/",
       date: "2025-08-15T00:00:00",
       categories: [2],
-      featured_media: 0
+      featured_media: 2,
+      featured_image_url: buildingBlocksImage
     },
     {
       id: 3,
@@ -131,7 +139,8 @@ export default function Home() {
       link: "https://blog.georankers.co/2025/08/08/hello-world/",
       date: "2025-08-08T00:00:00",
       categories: [2],
-      featured_media: 0
+      featured_media: 3,
+      featured_image_url: geoVsSeoImage
     }
   ];
 
@@ -1330,16 +1339,31 @@ export default function Home() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {blogPosts.map((post, index) => (
                 <Card key={post.id} className="glass rounded-2xl border-0 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
-                  <div className={`h-48 p-6 flex items-center justify-center ${
-                    index % 3 === 0 ? 'bg-gradient-to-br from-blue-50 via-white to-violet-50' :
-                    index % 3 === 1 ? 'bg-gradient-to-br from-emerald-50 via-white to-blue-50' :
-                    'bg-gradient-to-br from-violet-50 via-white to-pink-50'
-                  }`}>
-                    <div className="text-center">
-                      {getCategoryIcon(post.categories)}
-                      <div className="text-xs text-slate-500 font-medium">
-                        {getCategoryName(post.categories)}
+                  <div className="h-48 relative overflow-hidden">
+                    {(post as any).featured_image_url ? (
+                      <img 
+                        src={(post as any).featured_image_url} 
+                        alt={post.title.rendered}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className={`h-full p-6 flex items-center justify-center ${
+                        index % 3 === 0 ? 'bg-gradient-to-br from-blue-50 via-white to-violet-50' :
+                        index % 3 === 1 ? 'bg-gradient-to-br from-emerald-50 via-white to-blue-50' :
+                        'bg-gradient-to-br from-violet-50 via-white to-pink-50'
+                      }`}>
+                        <div className="text-center">
+                          {getCategoryIcon(post.categories)}
+                          <div className="text-xs text-slate-500 font-medium">
+                            {getCategoryName(post.categories)}
+                          </div>
+                        </div>
                       </div>
+                    )}
+                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                      <span className="text-xs text-slate-600 font-medium">
+                        {getCategoryName(post.categories)}
+                      </span>
                     </div>
                   </div>
                   <CardContent className="p-6 sm:p-8">
