@@ -258,7 +258,7 @@ export default function Home() {
               <a href="#features" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 Features
               </a>
-              <a href="https://blog.georankers.co" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
+              <a href="#blog" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 Blog
               </a>
               <a href="#faq" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
