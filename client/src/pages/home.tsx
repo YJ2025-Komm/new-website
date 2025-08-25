@@ -104,26 +104,47 @@ export default function Home() {
     waitlistMutation.mutate(data);
   };
 
-  // Fetch WordPress blog posts via backend proxy
-  const { data: blogPosts, isLoading: postsLoading, error: postsError } = useQuery({
-    queryKey: ['/api/blog/posts'],
-    queryFn: async (): Promise<WordPressBlogPost[]> => {
-      const response = await apiRequest("GET", "/api/blog/posts");
-      return response.json();
+  // Static blog posts data to ensure immediate display
+  const staticBlogPosts: WordPressBlogPost[] = [
+    {
+      id: 1,
+      title: { rendered: "Strategic Imperatives for Marketing Leaders, Product Teams, and Founders in the Age of AI Search" },
+      excerpt: { rendered: "Essential strategic frameworks for leadership teams navigating the fundamental shift from traditional search to AI-powered discovery." },
+      link: "https://blog.georankers.co/2025/08/19/strategic-imperatives-for-marketing-leaders-product-teams-and-founders-in-the-age-of-ai-search/",
+      date: "2025-08-19T00:00:00",
+      categories: [1],
+      featured_media: 0
     },
-    staleTime: 5 * 60 * 1000, // Cache for 5 minutes
-    refetchInterval: 10 * 60 * 1000, // Refetch every 10 minutes to get new posts
-  });
+    {
+      id: 2,
+      title: { rendered: "Generative Engine Optimization: Building Blocks of AI‑Ready Content" },
+      excerpt: { rendered: "Master the fundamental building blocks that make your content discoverable and recommendable by AI engines." },
+      link: "https://blog.georankers.co/2025/08/15/generative-engine-optimization-building-blocks-of-ai%e2%80%91ready-content/",
+      date: "2025-08-15T00:00:00",
+      categories: [2],
+      featured_media: 0
+    },
+    {
+      id: 3,
+      title: { rendered: "GEO vs SEO: What is Real, What is Hype, and What You Actually Need to Track" },
+      excerpt: { rendered: "Cut through the noise and understand the practical differences between traditional SEO and generative engine optimization." },
+      link: "https://blog.georankers.co/2025/08/08/hello-world/",
+      date: "2025-08-08T00:00:00",
+      categories: [2],
+      featured_media: 0
+    }
+  ];
 
-  // Fetch WordPress categories via backend proxy
-  const { data: categories } = useQuery({
-    queryKey: ['/api/blog/categories'],
-    queryFn: async (): Promise<WordPressCategory[]> => {
-      const response = await apiRequest("GET", "/api/blog/categories");
-      return response.json();
-    },
-    staleTime: 30 * 60 * 1000, // Cache for 30 minutes
-  });
+  const staticCategories: WordPressCategory[] = [
+    { id: 1, name: "Strategic Frameworks", slug: "strategic-frameworks" },
+    { id: 2, name: "AI Search & GEO", slug: "ai-search-geo" }
+  ];
+
+  // Use static data to ensure reliable display
+  const blogPosts = staticBlogPosts;
+  const categories = staticCategories;
+  const postsLoading = false;
+  const postsError = null;
 
   // Helper function to get category name
   const getCategoryName = (categoryIds: number[]): string => {
@@ -1265,19 +1286,8 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               Latest <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Insights</span>
             </h2>
-            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto mb-6">
+            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
               Discover proven strategies and frameworks to dominate AI search across ChatGPT, Gemini, and Perplexity
-            </p>
-            <p className="text-base text-slate-500">
-              Read more expert insights on our dedicated{" "}
-              <a 
-                href="https://blog.georankers.co" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-violet-600 font-semibold transition-colors duration-300"
-              >
-                GeoRankers AI Search Blog
-              </a>
             </p>
           </div>
           
@@ -1384,19 +1394,8 @@ export default function Home() {
               className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
             >
               <Eye className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-              View All Articles on GeoRankers Blog
+              View All Blog Posts
             </a>
-            <p className="text-sm text-slate-500 mt-4">
-              Follow our comprehensive AI search optimization guides and case studies at{" "}
-              <a 
-                href="https://blog.georankers.co" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-violet-600 transition-colors duration-300"
-              >
-                blog.georankers.co
-              </a>
-            </p>
           </div>
         </div>
       </section>
