@@ -1,4 +1,29 @@
 User-agent: *
 Allow: /
 
+# Explicitly allow AI/LLM crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Anthropic-Claude
+Allow: /
+
+User-agent: OpenAI-Crawler
+Allow: /
+
 Sitemap: https://georankers.co/sitemap.xml
