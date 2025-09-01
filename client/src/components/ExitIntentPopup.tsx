@@ -52,9 +52,9 @@ export default function ExitIntentPopup({ isOpen, onClose, onTakeQuiz }: ExitInt
             <div className="relative z-10">
               <div className="flex items-center justify-center mb-3">
                 <Brain className="w-8 h-8 mr-2" />
-                <span className="text-lg font-bold">Wait!</span>
+                <span className="text-xl font-bold">Wait!</span>
               </div>
-              <h2 className="text-2xl font-bold mb-4 leading-tight">
+              <h2 className="text-xl font-bold mb-4 leading-tight">
                 Is Your Brand Ready for AI Search?
               </h2>
             </div>
