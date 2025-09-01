@@ -54,12 +54,9 @@ export default function ExitIntentPopup({ isOpen, onClose, onTakeQuiz }: ExitInt
                 <Brain className="w-8 h-8 mr-2" />
                 <span className="text-lg font-bold">Wait!</span>
               </div>
-              <h2 className="text-2xl font-bold mb-2 leading-tight">
+              <h2 className="text-2xl font-bold mb-4 leading-tight">
                 Is Your Brand Ready for AI Search?
               </h2>
-              <p className="text-blue-100 text-sm">
-                Don't leave without discovering your AI visibility score
-              </p>
             </div>
           </div>
 
@@ -67,8 +64,8 @@ export default function ExitIntentPopup({ isOpen, onClose, onTakeQuiz }: ExitInt
           <div className="px-6 py-6">
             <div className="text-center mb-6">
               <p className="text-slate-700 mb-4 leading-relaxed">
-                Most brands are <span className="font-semibold text-red-600">invisible</span> in AI search results. 
-                Find out where your brand stands in just <span className="font-semibold text-blue-600">2 minutes</span>.
+                Most brands are <span className="font-semibold text-red-600">invisible</span> when users ask AI tools for recommendations. 
+                Discover your visibility score in <span className="font-semibold text-blue-600">2 minutes</span>.
               </p>
 
               {/* Benefits */}
