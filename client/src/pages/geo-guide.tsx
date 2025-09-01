@@ -10,13 +10,51 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Rocket, Loader2, CheckCircle } from "lucide-react";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
+import QuizModal from "@/components/QuizModal";
+import { useExitIntent } from "@/hooks/useExitIntent";
 import aiAdoptionChart from "@assets/Image 1_1754564817867.png";
 import aiImpactChart from "@assets/Image 2_1754565019296.png";
 
 export default function GeoGuide() {
   const [activeSection, setActiveSection] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showQuizModal, setShowQuizModal] = useState(false);
+  const [showExitIntentPopup, setShowExitIntentPopup] = useState(false);
   const { toast } = useToast();
+
+  // Exit intent detection
+  const { isTriggered: exitIntentTriggered, reset: resetExitIntent, disable: disableExitIntent } = useExitIntent({
+    enabled: true,
+    threshold: 10,
+    delay: 60000, // 1 minute between triggers
+    sessionDelay: 15000 // 15 seconds after page load for guide readers
+  });
+
+  // Handle exit intent trigger
+  useEffect(() => {
+    if (exitIntentTriggered && !showQuizModal && !showExitIntentPopup) {
+      setShowExitIntentPopup(true);
+    }
+  }, [exitIntentTriggered, showQuizModal, showExitIntentPopup]);
+
+  // Handle exit intent popup actions
+  const handleExitIntentTakeQuiz = () => {
+    setShowExitIntentPopup(false);
+    setShowQuizModal(true);
+    disableExitIntent(); // Disable for this session after user engages
+  };
+
+  const handleExitIntentClose = () => {
+    setShowExitIntentPopup(false);
+    resetExitIntent();
+  };
+
+  // Handle quiz modal close
+  const handleQuizModalClose = () => {
+    setShowQuizModal(false);
+    disableExitIntent(); // Disable after quiz is completed/closed
+  };
 
   const form = useForm<InsertWaitlistEntry>({
     resolver: zodResolver(insertWaitlistEntrySchema),
@@ -1643,6 +1681,19 @@ export default function GeoGuide() {
         </article>
         </div>
       </main>
+
+      {/* Exit Intent Popup */}
+      <ExitIntentPopup
+        isOpen={showExitIntentPopup}
+        onClose={handleExitIntentClose}
+        onTakeQuiz={handleExitIntentTakeQuiz}
+      />
+
+      {/* Quiz Modal */}
+      <QuizModal 
+        isOpen={showQuizModal}
+        onClose={handleQuizModalClose}
+      />
     </div>
   );
 }
