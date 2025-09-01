@@ -113,7 +113,7 @@ export default function ExitIntentPopup({ isOpen, onClose, onTakeQuiz }: ExitInt
           <div className="px-6 pb-4">
             <div className="text-center">
               <p className="text-xs text-slate-400">
-                ✓ No spam, instant results • Used by 500+ brands
+                ✓ No spam, instant results • Takes just 2 minutes
               </p>
             </div>
           </div>
