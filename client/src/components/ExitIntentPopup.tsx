@@ -93,7 +93,7 @@ export default function ExitIntentPopup({ isOpen, onClose, onTakeQuiz }: ExitInt
                 data-testid="button-take-quiz-exit-intent"
               >
                 <Brain className="w-4 h-4 mr-2" />
-                Take the 2-Minute AI Quiz
+                Take the AI Quiz
               </Button>
               
               <button
