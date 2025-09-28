@@ -303,18 +303,18 @@ export default function Home() {
               <a href="#faq" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 FAQ
               </a>
-              <a href="#waitlist" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
-                Join Waitlist
+              <a href="https://dashboard.georankers.co" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
+                Dashboard
               </a>
             </div>
             
             {/* Mobile Menu Button */}
             <div className="md:hidden">
               <Button 
-                onClick={scrollToWaitlist}
+                onClick={() => window.open('https://dashboard.georankers.co', '_blank')}
                 className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-4 py-2 rounded-lg text-sm"
               >
-                Join Waitlist
+                Dashboard
               </Button>
             </div>
           </div>
@@ -348,11 +348,11 @@ export default function Home() {
               
               <div className="mb-8">
                 <Button 
-                  onClick={scrollToWaitlist}
+                  onClick={() => window.open('https://dashboard.georankers.co', '_blank')}
                   className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base transform hover:scale-105 transition-all duration-300 shadow-2xl"
                 >
                   <Rocket className="w-4 h-4 mr-2" />
-                  Join the Waitlist
+                  Dashboard
                 </Button>
               </div>
             </div>
@@ -453,11 +453,11 @@ export default function Home() {
               
               <div className="mb-8">
                 <Button 
-                  onClick={scrollToWaitlist}
+                  onClick={() => window.open('https://dashboard.georankers.co', '_blank')}
                   className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
                 >
                   <Rocket className="w-5 h-5 mr-3" />
-                  Join the Waitlist
+                  Dashboard
                 </Button>
               </div>
             </div>
