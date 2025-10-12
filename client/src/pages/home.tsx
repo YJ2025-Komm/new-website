@@ -406,18 +406,18 @@ export default function Home() {
               <a href="#faq" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 FAQ
               </a>
-              <a href="https://dashboard.georankers.co" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
-                Dashboard
+              <a href="#waitlist" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
+                Join Waitlist
               </a>
             </div>
             
             {/* Mobile Menu Button */}
             <div className="md:hidden">
               <Button 
-                onClick={() => window.open('https://dashboard.georankers.co', '_blank')}
+                onClick={scrollToWaitlist}
                 className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-4 py-2 rounded-lg text-sm"
               >
-                Dashboard
+                Join Waitlist
               </Button>
             </div>
           </div>

@@ -260,8 +260,8 @@ export default function GeoGuide() {
               </span>
             </a>
             <div className="hidden md:block">
-              <Button onClick={() => window.open('https://dashboard.georankers.co', '_blank')} className="bg-gradient-to-r from-blue-500 to-violet-500 text-white hover:from-blue-600 hover:to-violet-600">
-                Dashboard
+              <Button onClick={scrollToWaitlist} className="bg-gradient-to-r from-blue-500 to-violet-500 text-white hover:from-blue-600 hover:to-violet-600">
+                Join Waitlist
               </Button>
             </div>
           </div>
