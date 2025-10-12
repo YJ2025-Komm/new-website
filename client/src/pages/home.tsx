@@ -1174,7 +1174,7 @@ export default function Home() {
                     ) : (
                       <>
                         <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-                        Dashboard
+                        Join Waitlist
                       </>
                     )}
                   </Button>
