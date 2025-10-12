@@ -628,6 +628,39 @@ Respond ONLY with valid JSON in this exact format:
         });
       }
       
+      // Parse specific error types from crawler
+      if (error instanceof Error && error.message.includes(':')) {
+        const [errorType, ...messageParts] = error.message.split(':');
+        const errorMessage = messageParts.join(':').trim();
+        
+        if (errorType === 'BLOCKED') {
+          return res.status(403).json({
+            errorType: 'blocked',
+            message: errorMessage
+          });
+        } else if (errorType === 'TEMPORARY') {
+          return res.status(503).json({
+            errorType: 'temporary',
+            message: errorMessage
+          });
+        } else if (errorType === 'TIMEOUT') {
+          return res.status(408).json({
+            errorType: 'timeout',
+            message: errorMessage
+          });
+        } else if (errorType === 'HTTP_ERROR') {
+          return res.status(500).json({
+            errorType: 'http_error',
+            message: errorMessage
+          });
+        } else if (errorType === 'CONNECTION') {
+          return res.status(500).json({
+            errorType: 'connection',
+            message: errorMessage
+          });
+        }
+      }
+      
       console.error("Error analyzing website:", error);
       res.status(500).json({ 
         message: "Failed to analyze website. Please try again." 

@@ -128,6 +128,23 @@ export async function discoverPages(
       console.log(`Crawled: ${currentUrl} (found ${links.length} links)`);
       
     } catch (error) {
+      // If this is the base URL (first page) and it fails, throw a specific error
+      if (currentUrl === baseUrl && axios.isAxiosError(error)) {
+        const statusCode = error.response?.status;
+        if (statusCode === 403) {
+          throw new Error('BLOCKED:This website blocks automated analysis tools. They have security measures preventing our crawler from accessing their content.');
+        } else if (statusCode === 502 || statusCode === 503 || statusCode === 504) {
+          throw new Error('TEMPORARY:The website is experiencing temporary server issues. Please try again in a few moments.');
+        } else if (error.code === 'ECONNABORTED' || error.message.includes('timeout')) {
+          throw new Error('TIMEOUT:The website took too long to respond. The site may be slow or blocking our requests.');
+        } else if (statusCode) {
+          throw new Error(`HTTP_ERROR:Unable to access website (Error ${statusCode}). Please check the URL and try again.`);
+        } else {
+          throw new Error('CONNECTION:Unable to connect to the website. Please check the URL and try again.');
+        }
+      }
+      
+      // For other pages, just log and continue
       console.log(`Failed to crawl ${currentUrl}:`, error instanceof Error ? error.message : 'Unknown error');
     }
   }

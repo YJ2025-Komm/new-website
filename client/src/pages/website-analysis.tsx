@@ -27,6 +27,19 @@ export default function WebsiteAnalysis() {
   const analysisMutation = useMutation({
     mutationFn: async (data: WebsiteAnalysisRequest) => {
       const response = await apiRequest("POST", "/api/analyze-website", data);
+      
+      // Check if response is an error
+      if (!response.ok) {
+        const errorData = await response.json();
+        const errorType = errorData.errorType || 'unknown';
+        const errorMessage = errorData.message || 'Unable to analyze website';
+        
+        // Create a custom error with type information
+        const error = new Error(errorMessage) as Error & { errorType: string };
+        error.errorType = errorType;
+        throw error;
+      }
+      
       return response.json();
     },
     onSuccess: (data: WebsiteAnalysisResponse) => {
@@ -40,11 +53,24 @@ export default function WebsiteAnalysis() {
         description: "Your website has been analyzed for AI search visibility.",
       });
     },
-    onError: (error: Error) => {
+    onError: (error: Error & { errorType?: string }) => {
       console.error("Analysis error:", error);
+      
+      // Get error-specific title and description
+      let title = "Analysis Failed";
+      let description = error.message || "Unable to analyze website. Please try again.";
+      
+      if (error.errorType === 'blocked') {
+        title = "Website Blocked Analysis";
+      } else if (error.errorType === 'temporary') {
+        title = "Temporary Server Issue";
+      } else if (error.errorType === 'timeout') {
+        title = "Request Timed Out";
+      }
+      
       toast({
-        title: "Analysis Failed",
-        description: error.message || "Unable to analyze website. Please try again.",
+        title,
+        description,
         variant: "destructive",
       });
     },
