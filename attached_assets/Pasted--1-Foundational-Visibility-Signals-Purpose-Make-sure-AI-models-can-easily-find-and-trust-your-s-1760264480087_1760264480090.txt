@@ -1,0 +1,175 @@
+🔹 1. Foundational Visibility Signals
+
+Purpose: Make sure AI models can easily find and trust your site.
+
+✅ Robots.txt and sitemap.xml present and accessible
+
+✅ Canonical tags defined on all major pages
+
+✅ Consistent URL structures (no parameter duplication)
+
+✅ Correct hreflang tags for multilingual sites
+
+✅ HTTPS enabled and valid SSL certificate
+
+✅ Clear and crawlable navigation (no JS-only menus)
+
+✅ Fast load speed and responsive design
+
+✅ Indexable metadata (titles, meta descriptions, alt tags)
+
+🔹 2. Authoritative Core (Facts AI Can Quote)
+
+Purpose: Ensure your own site is the primary source for factual data about your brand/product.
+
+✅ Pricing clearly stated in a structured, factual way (not hidden in images or popups)
+
+✅ Features and capabilities described in precise, extractable sentences
+
+✅ Integration lists with names, links, and categories
+
+✅ About / Company / Team pages present with consistent data
+
+✅ Security, compliance, and SLA statements explicitly mentioned (SOC 2, GDPR, ISO 27001, etc.)
+
+✅ Changelog or release notes to show product evolution
+
+✅ Support and contact pages with valid contact info
+
+✅ Clear “last updated” markers on factual pages
+
+✅ One canonical version of all factual statements (no conflicting pricing or claims)
+
+🔹 3. Structured Data (Schema)
+
+Purpose: Let AI models understand your content programmatically.
+
+✅ Organization schema with name, logo, URL, contact info
+
+✅ Website schema with search action
+
+✅ SoftwareApplication or Product schema for core offering
+
+✅ FAQPage schema for buyer questions
+
+✅ HowTo schema for implementation guides
+
+✅ Article or BlogPosting schema for blogs
+
+✅ Review / AggregateRating schema if applicable
+
+✅ BreadcrumbList schema for navigation clarity
+
+✅ VideoObject schema (for video content)
+
+✅ Consistent JSON-LD format across pages (no microdata/mixed types)
+
+✅ No conflicting or invalid schema properties
+
+🔹 4. Content Extractability
+
+Purpose: Ensure AI systems can parse, summarize, and quote content accurately.
+
+✅ Use of tables or definition lists for specs, pricing, limits, etc.
+
+✅ Bullet points and short factual sentences rather than vague marketing copy
+
+✅ Avoid text embedded inside images, SVGs, or videos
+
+✅ Clear section headings (H2/H3) that answer buyer questions
+
+✅ One paragraph summaries or “key takeaways” per article
+
+✅ Consistent formatting for feature and integration descriptions
+
+✅ Use of numerical data and measurable claims where possible
+
+✅ Structured Q&A sections to answer common user intents
+
+🔹 5. Coverage and Content Completeness
+
+Purpose: Check whether all key buyer-intent pages exist and are discoverable.
+
+✅ Homepage
+
+✅ Pricing page
+
+✅ Features overview
+
+✅ Integrations list / marketplace
+
+✅ Product documentation or API docs
+
+✅ Security / Trust center
+
+✅ FAQ
+
+✅ Case studies or success stories
+
+✅ Blog / resource center
+
+✅ About / careers / contact
+
+✅ Legal pages (Terms, Privacy, Cookie)
+
+(Missing any of these is a visibility gap for AI models.)
+
+🔹 6. Consistency & Contradiction Checks
+
+Purpose: Detect where AIs might get confused by mismatched facts.
+
+✅ Pricing consistent across schema, pricing page, blog mentions
+
+✅ Feature names and limits consistent across pages
+
+✅ Integration names consistent in schema, UI, and documentation
+
+✅ Company name, tagline, and URLs consistent across metadata and copy
+
+✅ Old or deprecated features not still indexed
+
+🔹 7. Blog & Thought Leadership Signals
+
+Purpose: Help AIs see your brand as an active, trusted expert source.
+
+✅ Blog posts include author names and publication dates
+
+✅ Consistent posting cadence (recent updates within last 60 days)
+
+✅ Each post has clear topic summary and data sources cited
+
+✅ Interlinking between blog posts and product pages
+
+✅ Use of original insights or stats (helps EEAT)
+
+✅ Rich snippets (FAQ / Article schema) for top blogs
+
+🔹 8. External & Citation Signals
+
+Purpose: Reinforce trust through third-party verification and mentions.
+
+✅ Consistent company profile on Wikipedia, Crunchbase, G2, Capterra, etc.
+
+✅ Analyst mentions (Gartner, Forrester, etc.) or reviews linking to your domain
+
+✅ Social profiles linked in Organization schema
+
+✅ Backlinks from reputable industry domains
+
+✅ Press coverage or event participation pages linked from site
+
+🔹 9. EEAT (Experience, Expertise, Authoritativeness, Trust)
+
+Purpose: Reinforce credibility to AIs (and humans).
+
+✅ Author bios for key content pieces
+
+✅ Verifiable company address and contact methods
+
+✅ Transparent policies and terms
+
+✅ Cited data sources and references in educational content
+
+✅ Testimonials or reviews with identifiable clients
+
+✅ Secure and consistent brand identity across all touchpoints
