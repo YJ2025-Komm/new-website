@@ -79,6 +79,8 @@ export const websiteAnalysisResponseSchema = z.object({
     priority: z.enum(["high", "medium", "low"]),
   })),
   summary: z.string(),
+  pagesAnalyzed: z.number().optional(),
+  pagesList: z.array(z.string()).optional(),
 });
 
 export type WebsiteAnalysisRequest = z.infer<typeof websiteAnalysisRequestSchema>;

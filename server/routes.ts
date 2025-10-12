@@ -12,6 +12,7 @@ import { quizSubmissions } from "@shared/schema";
 import axios from "axios";
 import * as cheerio from "cheerio";
 import OpenAI from "openai";
+import { discoverPages, scrapeMultiplePages } from "./web-crawler";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Initialize Google Sheets (add headers if needed)
@@ -360,80 +361,98 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Website analysis endpoint
+  // Website analysis endpoint - Multi-page crawler (up to 50 pages)
   app.post("/api/analyze-website", async (req, res) => {
     try {
       // Validate request body
       const validatedData = websiteAnalysisRequestSchema.parse(req.body);
       
-      // Fetch website content
-      let htmlContent: string;
+      console.log(`Starting multi-page analysis for: ${validatedData.url}`);
+      
+      // Implement 2-minute timeout for entire operation
+      const analysisTimeout = 120000; // 120 seconds
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Analysis timed out after 2 minutes')), analysisTimeout)
+      );
+      
+      const analysisPromise = (async () => {
+        // Step 1: Discover pages (up to 30: 10 priority + 20 blog)
+        const { pages, totalFound } = await discoverPages(validatedData.url, 30);
+        
+        console.log(`Discovered ${pages.length} pages to analyze (${totalFound} total found)`);
+        
+        if (pages.length === 0) {
+          throw new Error("Unable to access website. Please check the URL and try again.");
+        }
+        
+        // Step 2: Scrape content from all pages concurrently (5 at a time)
+        const scrapedPages = await scrapeMultiplePages(pages, 5);
+        const totalSchemaCount = scrapedPages.reduce((sum, page) => sum + (page?.schemaCount || 0), 0);
+        
+        console.log(`Successfully scraped ${scrapedPages.length} pages with 5-way concurrency`);
+        
+        return { scrapedPages, totalSchemaCount, pages };
+      })();
+      
+      // Race between analysis and timeout
+      let scrapedPages, totalSchemaCount, pages;
       try {
-        const response = await axios.get(validatedData.url, {
-          headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-          },
-          timeout: 10000,
-          maxRedirects: 5
-        });
-        htmlContent = response.data;
-      } catch (fetchError) {
-        console.error("Error fetching website:", fetchError);
-        return res.status(400).json({ 
-          message: "Unable to fetch website. Please check the URL and try again." 
-        });
+        const result = await Promise.race([analysisPromise, timeoutPromise]) as { scrapedPages: any[], totalSchemaCount: number, pages: string[] };
+        scrapedPages = result.scrapedPages;
+        totalSchemaCount = result.totalSchemaCount;
+        pages = result.pages;
+      } catch (error) {
+        if (error instanceof Error && error.message.includes('timed out')) {
+          return res.status(408).json({
+            message: "Analysis timed out. Please try again or use a simpler website."
+          });
+        }
+        throw error;
       }
-
-      // Extract content using cheerio
-      const $ = cheerio.load(htmlContent);
       
-      // Remove script and style tags
-      $('script, style, noscript, iframe').remove();
+      // Step 3: Aggregate content for OpenAI analysis
+      const aggregatedContent = scrapedPages.map((page, index) => {
+        return `
+Page ${index + 1}: ${page.url}
+Title: ${page.title}
+Meta Description: ${page.metaDescription}
+H1: ${page.h1Tags}
+H2: ${page.h2Tags}
+Schema: ${page.hasSchema ? 'Yes' : 'No'}
+Content: ${page.bodyText.substring(0, 800)}
+---`;
+      }).join('\n\n');
       
-      // Extract key content
-      const title = $('title').text().trim() || '';
-      const metaDescription = $('meta[name="description"]').attr('content') || '';
-      const h1Tags = $('h1').map((_, el) => $(el).text().trim()).get().join(', ');
-      const h2Tags = $('h2').map((_, el) => $(el).text().trim()).get().slice(0, 5).join(', ');
-      const bodyText = $('body').text().trim().replace(/\s+/g, ' ').substring(0, 3000);
-      
-      // Check for schema markup
-      const schemaScripts = $('script[type="application/ld+json"]').map((_, el) => $(el).html()).get();
-      
-      // Prepare content for OpenAI
       const contentSummary = `
-Website URL: ${validatedData.url}
-Title: ${title}
-Meta Description: ${metaDescription}
-H1 Headings: ${h1Tags}
-H2 Headings: ${h2Tags}
-Schema Markup Found: ${schemaScripts.length > 0 ? 'Yes (' + schemaScripts.length + ' schemas)' : 'No'}
-Body Content Preview: ${bodyText.substring(0, 2000)}
+Website Analysis - ${scrapedPages.length} Pages Analyzed
+Base URL: ${validatedData.url}
+Total Schema Markup Found: ${totalSchemaCount} instances across ${scrapedPages.filter(p => p.hasSchema).length} pages
+
+${aggregatedContent}
       `.trim();
 
       // Use Replit AI Integrations OpenAI service
-      // the newest OpenAI model is "gpt-5" which was released August 7, 2025. do not change this unless explicitly requested by the user
       const openai = new OpenAI({
         baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
         apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY
       });
 
-      console.log("Starting OpenAI analysis for:", validatedData.url);
+      console.log("Starting OpenAI analysis...");
 
       const completion = await openai.chat.completions.create({
         model: "gpt-4o",
         messages: [
           {
             role: "system",
-            content: `You are an AI search visibility expert. Analyze websites for their visibility in AI search results (ChatGPT, Gemini, Perplexity, Claude). 
+            content: `You are an AI search visibility expert analyzing ENTIRE websites (multiple pages) for their visibility in AI search results (ChatGPT, Gemini, Perplexity, Claude). 
             
-Evaluate these 4 categories (0-100 score each):
-1. Schema Markup: Presence and quality of structured data (JSON-LD)
-2. Content Quality: Clear, authoritative, well-structured content
-3. Brand Signals: Strong brand presence, trust indicators, citations
-4. AI Readability: Content formatted for AI consumption
+Evaluate these 4 categories (0-100 score each) across ALL pages provided:
+1. Schema Markup: Presence and quality of structured data (JSON-LD) across the site
+2. Content Quality: Clear, authoritative, well-structured content throughout
+3. Brand Signals: Strong brand presence, trust indicators, citations across pages
+4. AI Readability: Content formatted for AI consumption site-wide
 
-Provide 3-5 prioritized recommendations with category, issue, solution, and priority (high/medium/low).
+Provide 3-6 prioritized recommendations based on patterns across the entire site.
 
 Respond ONLY with valid JSON in this exact format:
 {
@@ -452,24 +471,24 @@ Respond ONLY with valid JSON in this exact format:
       "priority": "high" | "medium" | "low"
     }
   ],
-  "summary": "string (2-3 sentences)"
+  "summary": "string (2-3 sentences about overall site)"
 }`
           },
           {
             role: "user",
-            content: `Analyze this website for AI search visibility:\n\n${contentSummary}`
+            content: `Analyze this complete website for AI search visibility:\n\n${contentSummary.substring(0, 25000)}`
           }
         ],
         response_format: { type: "json_object" },
         max_completion_tokens: 2048
       });
 
-      console.log("OpenAI response received:", JSON.stringify(completion, null, 2));
+      console.log("OpenAI analysis complete. Token usage:", completion.usage);
 
       const analysisContent = completion.choices[0]?.message?.content;
       
       if (!analysisContent) {
-        console.error("No content in OpenAI response. Full response:", completion);
+        console.error("No content in OpenAI response");
         throw new Error("No content returned from AI analysis");
       }
       
@@ -486,7 +505,9 @@ Respond ONLY with valid JSON in this exact format:
           aiReadability: analysis.scores?.aiReadability || 0,
         },
         recommendations: analysis.recommendations || [],
-        summary: analysis.summary || "Analysis completed"
+        summary: analysis.summary || "Analysis completed",
+        pagesAnalyzed: scrapedPages.length,
+        pagesList: pages
       };
       
       res.status(200).json(response);

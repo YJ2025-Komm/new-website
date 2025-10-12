@@ -117,7 +117,7 @@ export default function WebsiteAnalysis() {
               Analyze Your Website
             </CardTitle>
             <CardDescription>
-              Enter your website URL to get a comprehensive AI visibility score and recommendations
+              Enter your website URL to analyze up to 30 pages for comprehensive AI visibility insights (Est. cost: ~$0.20 per analysis)
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -145,7 +145,7 @@ export default function WebsiteAnalysis() {
                 {analysisMutation.isPending ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Analyzing...
+                    Crawling...
                   </>
                 ) : (
                   <>
@@ -155,6 +155,21 @@ export default function WebsiteAnalysis() {
                 )}
               </Button>
             </form>
+            {analysisMutation.isPending && (
+              <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <div className="flex items-center gap-3">
+                  <Loader2 className="h-5 w-5 animate-spin text-blue-600" />
+                  <div>
+                    <p className="text-sm font-medium text-blue-900 dark:text-blue-100">
+                      Crawling up to 30 pages from your website...
+                    </p>
+                    <p className="text-xs text-blue-600 dark:text-blue-400 mt-1">
+                      This usually takes 60-90 seconds. Analyzing main pages and blog content for comprehensive insights.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           </CardContent>
         </Card>
 
@@ -165,7 +180,14 @@ export default function WebsiteAnalysis() {
             <Card>
               <CardHeader>
                 <CardTitle className="text-2xl">Overall AI Visibility Score</CardTitle>
-                <CardDescription>Your website's performance across AI search platforms</CardDescription>
+                <CardDescription>
+                  Your website's performance across AI search platforms
+                  {analysisResult.pagesAnalyzed && (
+                    <span className="ml-2 text-blue-600 dark:text-blue-400 font-medium">
+                      • {analysisResult.pagesAnalyzed} pages analyzed
+                    </span>
+                  )}
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between mb-4">
