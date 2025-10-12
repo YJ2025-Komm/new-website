@@ -117,7 +117,7 @@ export default function WebsiteAnalysis() {
               Analyze Your Website
             </CardTitle>
             <CardDescription>
-              Enter your website URL to analyze up to 30 pages for comprehensive AI visibility insights (Est. cost: ~$0.20 per analysis)
+              Enter your website URL for comprehensive AI visibility insights
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -161,10 +161,10 @@ export default function WebsiteAnalysis() {
                   <Loader2 className="h-5 w-5 animate-spin text-blue-600" />
                   <div>
                     <p className="text-sm font-medium text-blue-900 dark:text-blue-100">
-                      Crawling up to 30 pages from your website...
+                      Analyzing your website...
                     </p>
                     <p className="text-xs text-blue-600 dark:text-blue-400 mt-1">
-                      This usually takes 60-90 seconds. Analyzing main pages and blog content for comprehensive insights.
+                      This may take a moment. We're analyzing your content for AI visibility insights.
                     </p>
                   </div>
                 </div>
@@ -182,11 +182,6 @@ export default function WebsiteAnalysis() {
                 <CardTitle className="text-2xl">Overall AI Visibility Score</CardTitle>
                 <CardDescription>
                   Your website's performance across AI search platforms
-                  {analysisResult.pagesAnalyzed && (
-                    <span className="ml-2 text-blue-600 dark:text-blue-400 font-medium">
-                      • {analysisResult.pagesAnalyzed} pages analyzed
-                    </span>
-                  )}
                 </CardDescription>
               </CardHeader>
               <CardContent>
