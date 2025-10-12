@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertWaitlistEntrySchema } from "@shared/schema";
+import { insertWaitlistEntrySchema, websiteAnalysisRequestSchema } from "@shared/schema";
 import { z } from "zod";
 import { googleSheetsService } from "./google-sheets";
 import { mailchimpService } from "./mailchimp";
@@ -9,6 +9,9 @@ import { registerAdminRoutes } from "./admin-routes";
 import { quizSubmissionSchema, calculateQuizScore } from "@shared/quiz-schema";
 import { db } from "./db";
 import { quizSubmissions } from "@shared/schema";
+import axios from "axios";
+import * as cheerio from "cheerio";
+import OpenAI from "openai";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Initialize Google Sheets (add headers if needed)
@@ -353,6 +356,147 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.error("Error submitting quiz:", error);
       res.status(500).json({ 
         message: "Internal server error" 
+      });
+    }
+  });
+
+  // Website analysis endpoint
+  app.post("/api/analyze-website", async (req, res) => {
+    try {
+      // Validate request body
+      const validatedData = websiteAnalysisRequestSchema.parse(req.body);
+      
+      // Fetch website content
+      let htmlContent: string;
+      try {
+        const response = await axios.get(validatedData.url, {
+          headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+          },
+          timeout: 10000,
+          maxRedirects: 5
+        });
+        htmlContent = response.data;
+      } catch (fetchError) {
+        console.error("Error fetching website:", fetchError);
+        return res.status(400).json({ 
+          message: "Unable to fetch website. Please check the URL and try again." 
+        });
+      }
+
+      // Extract content using cheerio
+      const $ = cheerio.load(htmlContent);
+      
+      // Remove script and style tags
+      $('script, style, noscript, iframe').remove();
+      
+      // Extract key content
+      const title = $('title').text().trim() || '';
+      const metaDescription = $('meta[name="description"]').attr('content') || '';
+      const h1Tags = $('h1').map((_, el) => $(el).text().trim()).get().join(', ');
+      const h2Tags = $('h2').map((_, el) => $(el).text().trim()).get().slice(0, 5).join(', ');
+      const bodyText = $('body').text().trim().replace(/\s+/g, ' ').substring(0, 3000);
+      
+      // Check for schema markup
+      const schemaScripts = $('script[type="application/ld+json"]').map((_, el) => $(el).html()).get();
+      
+      // Prepare content for OpenAI
+      const contentSummary = `
+Website URL: ${validatedData.url}
+Title: ${title}
+Meta Description: ${metaDescription}
+H1 Headings: ${h1Tags}
+H2 Headings: ${h2Tags}
+Schema Markup Found: ${schemaScripts.length > 0 ? 'Yes (' + schemaScripts.length + ' schemas)' : 'No'}
+Body Content Preview: ${bodyText.substring(0, 2000)}
+      `.trim();
+
+      // Use Replit AI Integrations OpenAI service
+      // the newest OpenAI model is "gpt-5" which was released August 7, 2025. do not change this unless explicitly requested by the user
+      const openai = new OpenAI({
+        baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
+        apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY
+      });
+
+      const completion = await openai.chat.completions.create({
+        model: "gpt-5",
+        messages: [
+          {
+            role: "system",
+            content: `You are an AI search visibility expert. Analyze websites for their visibility in AI search results (ChatGPT, Gemini, Perplexity, Claude). 
+            
+Evaluate these 4 categories (0-100 score each):
+1. Schema Markup: Presence and quality of structured data (JSON-LD)
+2. Content Quality: Clear, authoritative, well-structured content
+3. Brand Signals: Strong brand presence, trust indicators, citations
+4. AI Readability: Content formatted for AI consumption
+
+Provide 3-5 prioritized recommendations with category, issue, solution, and priority (high/medium/low).
+
+Respond ONLY with valid JSON in this exact format:
+{
+  "overallScore": number,
+  "scores": {
+    "schemaMarkup": number,
+    "contentQuality": number,
+    "brandSignals": number,
+    "aiReadability": number
+  },
+  "recommendations": [
+    {
+      "category": "string",
+      "issue": "string",
+      "solution": "string",
+      "priority": "high" | "medium" | "low"
+    }
+  ],
+  "summary": "string (2-3 sentences)"
+}`
+          },
+          {
+            role: "user",
+            content: `Analyze this website for AI search visibility:\n\n${contentSummary}`
+          }
+        ],
+        response_format: { type: "json_object" },
+        max_completion_tokens: 2048
+      });
+
+      const analysisContent = completion.choices[0].message.content;
+      
+      if (!analysisContent) {
+        throw new Error("No content returned from AI analysis");
+      }
+      
+      const analysis = JSON.parse(analysisContent);
+      
+      // Ensure the response has the required structure
+      const response = {
+        url: validatedData.url,
+        overallScore: analysis.overallScore || 0,
+        scores: {
+          schemaMarkup: analysis.scores?.schemaMarkup || 0,
+          contentQuality: analysis.scores?.contentQuality || 0,
+          brandSignals: analysis.scores?.brandSignals || 0,
+          aiReadability: analysis.scores?.aiReadability || 0,
+        },
+        recommendations: analysis.recommendations || [],
+        summary: analysis.summary || "Analysis completed"
+      };
+      
+      res.status(200).json(response);
+      
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ 
+          message: "Invalid URL provided",
+          errors: error.errors 
+        });
+      }
+      
+      console.error("Error analyzing website:", error);
+      res.status(500).json({ 
+        message: "Failed to analyze website. Please try again." 
       });
     }
   });

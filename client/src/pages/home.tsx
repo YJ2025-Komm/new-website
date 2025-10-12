@@ -12,6 +12,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import QuizModal from "@/components/QuizModal";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import { useExitIntent } from "@/hooks/useExitIntent";
+import { Link } from "wouter";
 import { 
   Brain, 
   ShieldCheck, 
@@ -61,6 +62,7 @@ interface WordPressBlogPost {
   date: string;
   categories: number[];
   featured_media: number;
+  featured_image_url?: string;
 }
 
 interface WordPressCategory {
@@ -391,15 +393,18 @@ export default function Home() {
                 <Star className="w-4 h-4 mr-1 star-animated" />
                 <span className="font-semibold">AI Quiz</span>
               </a>
+              <Link href="/website-analysis" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" data-testid="link-website-analysis">
+                Website Analysis
+              </Link>
               <a href="#problem" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 Why GeoRankers
               </a>
               <a href="#features" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 Features
               </a>
-              <a href="/geo-guide" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
+              <Link href="/geo-guide" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" data-testid="link-geo-guide">
                 GEO Guide
-              </a>
+              </Link>
               <a href="#blog" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 Blogs
               </a>
