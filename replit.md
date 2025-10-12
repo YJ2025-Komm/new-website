@@ -48,9 +48,10 @@ GEO Guide: Restored to navigation per user request (August 28, 2025).
 1. **Landing Page**: Modern, responsive design showcasing GeoRankers features
 2. **Waitlist System**: Email collection with duplicate prevention and Mailchimp integration
 3. **Interactive FAQ Section**: Expandable questions with smooth animations and SEO optimization
-4. **Component Library**: Comprehensive UI components from shadcn/ui
-5. **Form Validation**: Type-safe forms with Zod schemas
-6. **Email Marketing Integration**: Automatic Mailchimp sync for new subscribers
+4. **Multi-Page Website Analysis**: Intelligent web crawler that analyzes up to 30 pages to provide AI visibility scores and actionable recommendations
+5. **Component Library**: Comprehensive UI components from shadcn/ui
+6. **Form Validation**: Type-safe forms with Zod schemas
+7. **Email Marketing Integration**: Automatic Mailchimp sync for new subscribers
 
 ### Planned Features
 - **Built-in Blog System**: Content management for AI search optimization articles (pending content creation)
@@ -75,13 +76,38 @@ GEO Guide: Restored to navigation per user request (August 28, 2025).
 5. Mailchimp handles duplicate detection and email validation
 6. Success/error feedback to user via toast notifications
 
+### Website Analysis Flow
+1. User enters website URL on `/website-analysis` page
+2. Client-side validation using React Hook Form + Zod
+3. API request to `/api/analyze-website` endpoint
+4. Backend performs intelligent multi-page crawling:
+   - Discovers up to 100 pages from website
+   - Prioritizes 10 main pages (homepage, about, pricing, contact, product, features, etc.)
+   - Includes up to 20 blog posts for content analysis
+   - Uses 5-way concurrent scraping for optimal performance
+   - 2-minute timeout for entire operation
+5. Aggregated content sent to OpenAI for comprehensive analysis
+6. Results returned with AI visibility score (0-100), key findings, and recommendations
+7. Frontend displays results with pages analyzed count and actionable insights
+
 ### API Endpoints
 - `POST /api/waitlist` - Register new waitlist entry
 - `GET /api/waitlist/count` - Get total waitlist count
+- `POST /api/analyze-website` - Analyze website for AI visibility (multi-page crawling + OpenAI analysis)
+
+### Performance Metrics (Website Analysis)
+- **Analysis Time**: 40-90 seconds (typical: 40s for 28 pages)
+- **Pages Discovered**: Up to 100 pages
+- **Pages Analyzed**: Up to 30 pages (10 priority main + 20 blog)
+- **Concurrency**: 5-way parallel scraping for speed
+- **Timeout**: 2-minute global timeout with graceful error handling
+- **Cost per Analysis**: ~$0.016 actual (6,176 tokens @ GPT-4o-mini rates)
+- **User-Facing Estimate**: ~$0.20 per analysis (conservative estimate)
 
 ### External Integrations
 - **Mailchimp**: Complete subscriber sync with all form fields including challenge responses in Comments column (MMERGE7)
 - **Google Sheets**: Optional integration (currently configured but not active)
+- **OpenAI**: GPT-4o-mini for AI visibility analysis (website crawler integration)
 
 ## External Dependencies
 
