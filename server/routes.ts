@@ -428,7 +428,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       // Step 3: Aggregate all data for comprehensive OpenAI analysis
-      const aggregatedContent = scrapedPages.map((page, index) => {
+      const aggregatedContent = scrapedPages.map((page: any, index: number) => {
         return `
 Page ${index + 1}: ${page.url}
 Title: ${page.title}
@@ -467,7 +467,7 @@ ${sitemap.exists ? `✓ Sitemap found (${sitemap.urlCount} URLs)` : '✗ Sitemap
    ${technicalFoundation.hasSecurityHeaders ? '✓' : '✗'} Security Headers
 
 5. SCHEMA MARKUP:
-   Total: ${totalSchemaCount} instances across ${scrapedPages.filter(p => p.hasSchema).length} pages
+   Total: ${totalSchemaCount} instances across ${scrapedPages.filter((p: any) => p.hasSchema).length} pages
 
 === PAGE-BY-PAGE CONTENT ===
 
