@@ -7,6 +7,31 @@ interface CrawlResult {
   totalFound: number;
 }
 
+export interface RobotsTxtAnalysis {
+  exists: boolean;
+  content?: string;
+  blocksAIBots: boolean;
+  blockedBots: string[];
+  allowedBots: string[];
+}
+
+export interface SitemapAnalysis {
+  exists: boolean;
+  urlCount?: number;
+  error?: string;
+}
+
+export interface KeyPagesAnalysis {
+  totalFound: number;
+  missing: string[];
+  found: string[];
+}
+
+export interface TechnicalFoundation {
+  https: boolean;
+  hasSecurityHeaders: boolean;
+}
+
 // Priority patterns for main pages (checked first)
 const PRIORITY_PATTERNS = [
   /\/(about|pricing|features|product|solutions|services|contact|team|company)/i,
@@ -199,5 +224,176 @@ export async function scrapePageContent(url: string) {
   } catch (error) {
     console.error(`Failed to scrape ${url}:`, error);
     return null;
+  }
+}
+
+// Analyze robots.txt for AI bot directives
+export async function analyzeRobotsTxt(baseUrl: string): Promise<RobotsTxtAnalysis> {
+  try {
+    const robotsUrl = new URL('/robots.txt', baseUrl).href;
+    const response = await axios.get(robotsUrl, {
+      timeout: 5000,
+      validateStatus: (status) => status === 200
+    });
+
+    const content = response.data;
+    const aiBotPatterns = [
+      'GPTBot', 'ChatGPT-User', 'Google-Extended', 'GoogleOther',
+      'PerplexityBot', 'ClaudeBot', 'anthropic-ai', 'Claude-Web',
+      'Amazonbot', 'cohere-ai', 'Omgilibot', 'FacebookBot', 'Applebot-Extended'
+    ];
+
+    const blockedBots: string[] = [];
+    const allowedBots: string[] = [];
+    const lines = content.split('\n');
+    let currentUserAgent = '';
+    let globalDisallowAll = false;
+
+    for (const line of lines) {
+      const trimmed = line.trim();
+      
+      // Check for User-agent directive
+      if (trimmed.toLowerCase().startsWith('user-agent:')) {
+        currentUserAgent = trimmed.substring('user-agent:'.length).trim();
+      }
+      
+      // Check for Disallow directive
+      if (trimmed.toLowerCase().startsWith('disallow:') && currentUserAgent) {
+        const disallowPath = trimmed.substring('disallow:'.length).trim();
+        
+        // Check for global disallow rule (User-agent: * with Disallow: /)
+        if (currentUserAgent === '*' && disallowPath === '/') {
+          globalDisallowAll = true;
+        }
+        
+        // Check if it's an AI bot with disallow
+        const isAIBot = aiBotPatterns.some(bot => 
+          currentUserAgent.toLowerCase().includes(bot.toLowerCase())
+        );
+        
+        if (isAIBot && (disallowPath === '/' || disallowPath.length > 0)) {
+          blockedBots.push(currentUserAgent);
+        }
+      }
+      
+      // Check for Allow directive
+      if (trimmed.toLowerCase().startsWith('allow:') && currentUserAgent) {
+        const isAIBot = aiBotPatterns.some(bot => 
+          currentUserAgent.toLowerCase().includes(bot.toLowerCase())
+        );
+        
+        if (isAIBot) {
+          allowedBots.push(currentUserAgent);
+        }
+      }
+    }
+
+    // If global disallow exists, all AI bots are blocked unless explicitly allowed
+    const aiBotsBlocked = globalDisallowAll || blockedBots.length > 0;
+
+    return {
+      exists: true,
+      content,
+      blocksAIBots: aiBotsBlocked,
+      blockedBots: globalDisallowAll ? ['* (all bots)', ...blockedBots] : blockedBots,
+      allowedBots
+    };
+  } catch (error) {
+    return {
+      exists: false,
+      blocksAIBots: false,
+      blockedBots: [],
+      allowedBots: []
+    };
+  }
+}
+
+// Analyze sitemap.xml
+export async function analyzeSitemap(baseUrl: string): Promise<SitemapAnalysis> {
+  try {
+    const sitemapUrl = new URL('/sitemap.xml', baseUrl).href;
+    const response = await axios.get(sitemapUrl, {
+      timeout: 5000,
+      validateStatus: (status) => status === 200
+    });
+
+    const $ = cheerio.load(response.data, { xmlMode: true });
+    const urlCount = $('url').length || $('sitemap').length;
+
+    return {
+      exists: true,
+      urlCount
+    };
+  } catch (error) {
+    return {
+      exists: false,
+      error: error instanceof Error ? error.message : 'Unknown error'
+    };
+  }
+}
+
+// Check for key pages existence
+export async function analyzeKeyPages(discoveredUrls: string[]): Promise<KeyPagesAnalysis> {
+  const keyPages = [
+    { name: 'Pricing', patterns: ['/pricing', '/plans', '/buy'] },
+    { name: 'Features', patterns: ['/features', '/product', '/solutions'] },
+    { name: 'Integrations', patterns: ['/integrations', '/marketplace', '/apps', '/extensions'] },
+    { name: 'Documentation', patterns: ['/docs', '/documentation', '/api', '/developers', '/guide'] },
+    { name: 'Security/Trust', patterns: ['/security', '/trust', '/compliance', '/privacy'] },
+    { name: 'FAQ', patterns: ['/faq', '/help', '/support'] },
+    { name: 'Case Studies', patterns: ['/case-studies', '/customers', '/success-stories', '/testimonials'] },
+    { name: 'Blog', patterns: ['/blog', '/news', '/resources', '/articles'] },
+    { name: 'About', patterns: ['/about', '/company', '/team', '/careers'] },
+    { name: 'Contact', patterns: ['/contact', '/get-in-touch', '/talk-to-us'] }
+  ];
+
+  const found: string[] = [];
+  const missing: string[] = [];
+
+  for (const page of keyPages) {
+    const pageFound = discoveredUrls.some(url => 
+      page.patterns.some(pattern => url.toLowerCase().includes(pattern.toLowerCase()))
+    );
+
+    if (pageFound) {
+      found.push(page.name);
+    } else {
+      missing.push(page.name);
+    }
+  }
+
+  return {
+    totalFound: found.length,
+    found,
+    missing
+  };
+}
+
+// Check technical foundation
+export async function analyzeTechnicalFoundation(baseUrl: string): Promise<TechnicalFoundation> {
+  try {
+    const urlObj = new URL(baseUrl);
+    const isHttps = urlObj.protocol === 'https:';
+
+    const response = await axios.get(baseUrl, {
+      timeout: 5000,
+      maxRedirects: 3
+    });
+
+    const hasSecurityHeaders = !!(
+      response.headers['strict-transport-security'] ||
+      response.headers['x-frame-options'] ||
+      response.headers['x-content-type-options']
+    );
+
+    return {
+      https: isHttps,
+      hasSecurityHeaders
+    };
+  } catch (error) {
+    return {
+      https: false,
+      hasSecurityHeaders: false
+    };
   }
 }

@@ -12,7 +12,7 @@ import { quizSubmissions } from "@shared/schema";
 import axios from "axios";
 import * as cheerio from "cheerio";
 import OpenAI from "openai";
-import { discoverPages, scrapeMultiplePages } from "./web-crawler";
+import { discoverPages, scrapeMultiplePages, analyzeRobotsTxt, analyzeSitemap, analyzeKeyPages, analyzeTechnicalFoundation } from "./web-crawler";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Initialize Google Sheets (add headers if needed)
@@ -376,8 +376,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
       );
       
       const analysisPromise = (async () => {
-        // Step 1: Discover pages (up to 30: 10 priority + 20 blog)
-        const { pages, totalFound } = await discoverPages(validatedData.url, 30);
+        // Step 1: High-impact extractions in parallel
+        const [
+          { pages, totalFound },
+          robotsTxt,
+          sitemap,
+          technicalFoundation
+        ] = await Promise.all([
+          discoverPages(validatedData.url, 30),
+          analyzeRobotsTxt(validatedData.url),
+          analyzeSitemap(validatedData.url),
+          analyzeTechnicalFoundation(validatedData.url)
+        ]);
         
         console.log(`Discovered ${pages.length} pages to analyze (${totalFound} total found)`);
         
@@ -385,22 +395,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
           throw new Error("Unable to access website. Please check the URL and try again.");
         }
         
-        // Step 2: Scrape content from all pages concurrently (5 at a time)
+        // Step 2: Analyze key pages from discovered URLs
+        const keyPages = await analyzeKeyPages([...pages, validatedData.url]);
+        
+        // Step 3: Scrape content from all pages concurrently (5 at a time)
         const scrapedPages = await scrapeMultiplePages(pages, 5);
         const totalSchemaCount = scrapedPages.reduce((sum, page) => sum + (page?.schemaCount || 0), 0);
         
         console.log(`Successfully scraped ${scrapedPages.length} pages with 5-way concurrency`);
         
-        return { scrapedPages, totalSchemaCount, pages };
+        return { scrapedPages, totalSchemaCount, pages, robotsTxt, sitemap, keyPages, technicalFoundation };
       })();
       
       // Race between analysis and timeout
-      let scrapedPages, totalSchemaCount, pages;
+      let scrapedPages, totalSchemaCount, pages, robotsTxt, sitemap, keyPages, technicalFoundation;
       try {
-        const result = await Promise.race([analysisPromise, timeoutPromise]) as { scrapedPages: any[], totalSchemaCount: number, pages: string[] };
+        const result = await Promise.race([analysisPromise, timeoutPromise]) as any;
         scrapedPages = result.scrapedPages;
         totalSchemaCount = result.totalSchemaCount;
         pages = result.pages;
+        robotsTxt = result.robotsTxt;
+        sitemap = result.sitemap;
+        keyPages = result.keyPages;
+        technicalFoundation = result.technicalFoundation;
       } catch (error) {
         if (error instanceof Error && error.message.includes('timed out')) {
           return res.status(408).json({
@@ -410,7 +427,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         throw error;
       }
       
-      // Step 3: Aggregate content for OpenAI analysis
+      // Step 3: Aggregate all data for comprehensive OpenAI analysis
       const aggregatedContent = scrapedPages.map((page, index) => {
         return `
 Page ${index + 1}: ${page.url}
@@ -424,9 +441,35 @@ Content: ${page.bodyText.substring(0, 800)}
       }).join('\n\n');
       
       const contentSummary = `
-Website Analysis - ${scrapedPages.length} Pages Analyzed
+=== WEBSITE ANALYSIS - COMPREHENSIVE GEO AUDIT ===
+
 Base URL: ${validatedData.url}
-Total Schema Markup Found: ${totalSchemaCount} instances across ${scrapedPages.filter(p => p.hasSchema).length} pages
+Pages Analyzed: ${scrapedPages.length}
+
+=== HIGH-IMPACT SIGNALS ===
+
+1. ROBOTS.TXT ANALYSIS:
+${robotsTxt.exists ? `
+   ✓ robots.txt found
+   ${robotsTxt.blocksAIBots ? `⚠️  BLOCKS AI BOTS: ${robotsTxt.blockedBots.join(', ')}` : '✓ No AI bots blocked'}
+   ${robotsTxt.allowedBots.length > 0 ? `✓ Allowed bots: ${robotsTxt.allowedBots.join(', ')}` : ''}
+` : '✗ robots.txt NOT FOUND'}
+
+2. SITEMAP.XML:
+${sitemap.exists ? `✓ Sitemap found (${sitemap.urlCount} URLs)` : '✗ Sitemap NOT FOUND'}
+
+3. KEY PAGES COVERAGE (${keyPages.totalFound}/10):
+   Found: ${keyPages.found.join(', ') || 'None'}
+   Missing: ${keyPages.missing.join(', ') || 'None'}
+
+4. TECHNICAL FOUNDATION:
+   ${technicalFoundation.https ? '✓' : '✗'} HTTPS
+   ${technicalFoundation.hasSecurityHeaders ? '✓' : '✗'} Security Headers
+
+5. SCHEMA MARKUP:
+   Total: ${totalSchemaCount} instances across ${scrapedPages.filter(p => p.hasSchema).length} pages
+
+=== PAGE-BY-PAGE CONTENT ===
 
 ${aggregatedContent}
       `.trim();
@@ -444,15 +487,80 @@ ${aggregatedContent}
         messages: [
           {
             role: "system",
-            content: `You are an AI search visibility expert analyzing ENTIRE websites (multiple pages) for their visibility in AI search results (ChatGPT, Gemini, Perplexity, Claude). 
-            
-Evaluate these 4 categories (0-100 score each) across ALL pages provided:
-1. Schema Markup: Presence and quality of structured data (JSON-LD) across the site
-2. Content Quality: Clear, authoritative, well-structured content throughout
-3. Brand Signals: Strong brand presence, trust indicators, citations across pages
-4. AI Readability: Content formatted for AI consumption site-wide
+            content: `You are an expert AI search visibility analyst conducting comprehensive GEO (Generative Engine Optimization) audits for B2B SaaS companies.
 
-Provide 3-6 prioritized recommendations based on patterns across the entire site.
+Analyze websites based on this comprehensive 9-category GEO checklist:
+
+🔹 1. FOUNDATIONAL VISIBILITY SIGNALS
+- Robots.txt and sitemap.xml present and accessible
+- Canonical tags, URL structures, hreflang tags
+- HTTPS enabled and valid SSL
+- Clear crawlable navigation, fast load speed
+- Indexable metadata (titles, meta descriptions, alt tags)
+
+🔹 2. AUTHORITATIVE CORE (Facts AI Can Quote)
+- Pricing clearly stated in structured, extractable way
+- Features and capabilities in precise, extractable sentences
+- Integration lists with names, links, categories
+- About/Company/Team pages with consistent data
+- Security, compliance, SLA statements (SOC 2, GDPR, ISO 27001)
+- Changelog/release notes, support/contact info
+- One canonical version of all factual statements
+
+🔹 3. STRUCTURED DATA (Schema)
+- Organization, Website, SoftwareApplication/Product schema
+- FAQPage, HowTo, Article/BlogPosting schema
+- Review/AggregateRating, BreadcrumbList, VideoObject
+- Consistent JSON-LD format (no conflicting properties)
+
+🔹 4. CONTENT EXTRACTABILITY
+- Tables/definition lists for specs, pricing, limits
+- Bullet points and short factual sentences
+- Avoid text in images/SVGs/videos
+- Clear section headings (H2/H3) answering buyer questions
+- One paragraph summaries/key takeaways per article
+- Numerical data and measurable claims
+
+🔹 5. COVERAGE & COMPLETENESS
+Check for: Homepage, Pricing, Features, Integrations, Docs, Security/Trust, FAQ, Case Studies, Blog, About, Contact, Legal pages
+
+🔹 6. CONSISTENCY & CONTRADICTION CHECKS
+- Pricing consistent across schema, pages, blog mentions
+- Feature names and limits consistent
+- Integration names consistent in schema, UI, docs
+- Company name, tagline, URLs consistent
+- No old/deprecated features still indexed
+
+🔹 7. BLOG & THOUGHT LEADERSHIP
+- Author names and publication dates
+- Recent updates (within 60 days)
+- Clear topic summaries and cited data sources
+- Interlinking between blog and product pages
+- Original insights/stats (EEAT)
+- Rich snippets (FAQ/Article schema)
+
+🔹 8. EXTERNAL & CITATION SIGNALS
+- Company profiles on Wikipedia, Crunchbase, G2, Capterra
+- Analyst mentions (Gartner, Forrester)
+- Social profiles in Organization schema
+- Backlinks from reputable domains
+- Press coverage/event participation
+
+🔹 9. EEAT (Experience, Expertise, Authoritativeness, Trust)
+- Author bios for content pieces
+- Verifiable company address and contact
+- Transparent policies and terms
+- Cited data sources and references
+- Testimonials/reviews with identifiable clients
+- Secure and consistent brand identity
+
+Evaluate these 4 categories (0-100 score each):
+1. Schema Markup: Presence and quality of structured data
+2. Content Quality: Clear, authoritative, well-structured content
+3. Brand Signals: Strong brand presence, trust indicators, citations
+4. AI Readability: Content formatted for AI consumption
+
+Provide 5-8 prioritized, actionable recommendations based on the GEO checklist above.
 
 Respond ONLY with valid JSON in this exact format:
 {
@@ -467,16 +575,16 @@ Respond ONLY with valid JSON in this exact format:
     {
       "category": "string",
       "issue": "string",
-      "solution": "string",
+      "solution": "string (specific, actionable)",
       "priority": "high" | "medium" | "low"
     }
   ],
-  "summary": "string (2-3 sentences about overall site)"
+  "summary": "string (2-3 sentences highlighting key findings)"
 }`
           },
           {
             role: "user",
-            content: `Analyze this complete website for AI search visibility:\n\n${contentSummary.substring(0, 25000)}`
+            content: `Analyze this website using the comprehensive GEO checklist:\n\n${contentSummary.substring(0, 30000)}`
           }
         ],
         response_format: { type: "json_object" },
