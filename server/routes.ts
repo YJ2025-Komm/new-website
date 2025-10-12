@@ -418,8 +418,10 @@ Body Content Preview: ${bodyText.substring(0, 2000)}
         apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY
       });
 
+      console.log("Starting OpenAI analysis for:", validatedData.url);
+
       const completion = await openai.chat.completions.create({
-        model: "gpt-5",
+        model: "gpt-4o",
         messages: [
           {
             role: "system",
@@ -462,9 +464,12 @@ Respond ONLY with valid JSON in this exact format:
         max_completion_tokens: 2048
       });
 
-      const analysisContent = completion.choices[0].message.content;
+      console.log("OpenAI response received:", JSON.stringify(completion, null, 2));
+
+      const analysisContent = completion.choices[0]?.message?.content;
       
       if (!analysisContent) {
+        console.error("No content in OpenAI response. Full response:", completion);
         throw new Error("No content returned from AI analysis");
       }
       
