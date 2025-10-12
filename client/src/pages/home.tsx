@@ -267,6 +267,109 @@ export default function Home() {
     };
   }, []);
 
+  // Add structured data schema for SEO
+  useEffect(() => {
+    // Organization Schema
+    let orgSchema = document.querySelector('script[type="application/ld+json"]#org-schema');
+    if (!orgSchema) {
+      orgSchema = document.createElement('script');
+      orgSchema.setAttribute('type', 'application/ld+json');
+      orgSchema.setAttribute('id', 'org-schema');
+      document.head.appendChild(orgSchema);
+    }
+    orgSchema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "GeoRankers",
+      "url": "https://georankers.co",
+      "logo": "https://georankers.co/logo.png",
+      "description": "GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build brand authority in AI search across ChatGPT, Gemini, Perplexity, and Claude.",
+      "sameAs": [
+        "https://blog.georankers.co"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "url": "https://georankers.co"
+      }
+    });
+
+    // WebSite Schema
+    let websiteSchema = document.querySelector('script[type="application/ld+json"]#website-schema');
+    if (!websiteSchema) {
+      websiteSchema = document.createElement('script');
+      websiteSchema.setAttribute('type', 'application/ld+json');
+      websiteSchema.setAttribute('id', 'website-schema');
+      document.head.appendChild(websiteSchema);
+    }
+    websiteSchema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "GeoRankers",
+      "url": "https://georankers.co",
+      "description": "AI Search Optimization Platform for B2B SaaS - Track and optimize your brand visibility across ChatGPT, Gemini, Perplexity, and Claude",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://georankers.co/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    });
+
+    // FAQPage Schema
+    let faqSchema = document.querySelector('script[type="application/ld+json"]#faq-schema');
+    if (!faqSchema) {
+      faqSchema = document.createElement('script');
+      faqSchema.setAttribute('type', 'application/ld+json');
+      faqSchema.setAttribute('id', 'faq-schema');
+      document.head.appendChild(faqSchema);
+    }
+    faqSchema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is GeoRankers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GeoRankers is an AI search optimization platform specifically designed for B2B and SaaS companies. We help brands track, analyze, and improve their visibility in AI-generated search results across platforms like ChatGPT, Google Gemini, Perplexity, and Claude. Unlike traditional SEO tools, we focus on how AI models understand and recommend your brand."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is AI search optimization different from traditional SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Traditional SEO optimizes for search engine algorithms and keyword rankings. AI search optimization focuses on how language models understand context, authority, and relevance when generating responses. AI models consider factors like content quality, brand mentions across the web, and topical expertise rather than just keywords and backlinks. The strategies and metrics are fundamentally different."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AI platforms does GeoRankers monitor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GeoRankers tracks brand visibility across major AI platforms including ChatGPT, Google Gemini, Perplexity, Claude, and other leading AI models. We monitor how often your brand appears in AI-generated responses, the context of mentions, and your competitive positioning across these platforms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need technical expertise to use GeoRankers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No technical expertise required. GeoRankers is designed for marketing teams, content managers, and business leaders. Our platform provides clear, actionable insights and recommendations that your team can implement using existing content and marketing workflows. We translate complex AI behavior into practical marketing strategies."
+          }
+        }
+      ]
+    });
+
+    return () => {
+      // Cleanup schemas on unmount
+      orgSchema?.remove();
+      websiteSchema?.remove();
+      faqSchema?.remove();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen text-slate-900 overflow-x-hidden">
       {/* Navigation Bar */}
@@ -1071,7 +1174,7 @@ export default function Home() {
                     ) : (
                       <>
                         <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-                        Join Waitlist
+                        Dashboard
                       </>
                     )}
                   </Button>
@@ -1317,11 +1420,11 @@ export default function Home() {
               Join the waitlist and be among the first to access GeoRankers.
             </p>
             <Button 
-              onClick={scrollToWaitlist}
+              onClick={() => window.open('https://dashboard.georankers.co', '_blank')}
               className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
             >
               <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-              Join the Waitlist
+              Dashboard
             </Button>
           </div>
         </div>

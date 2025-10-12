@@ -694,9 +694,9 @@ export default function GeoGuide() {
           <div className="my-12 bg-gradient-to-r from-blue-500/10 to-violet-500/10 border border-blue-500/20 rounded-2xl p-6 sm:p-8 text-center">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Ready to Master AI Search Optimization?</h3>
             <p className="text-gray-600 mb-6">Join thousands of marketers getting ahead of the AI search revolution</p>
-            <Button onClick={scrollToWaitlist} className="bg-gradient-to-r from-blue-500 to-violet-500 text-white hover:from-blue-600 hover:to-violet-600 px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300">
+            <Button onClick={() => window.open('https://dashboard.georankers.co', '_blank')} className="bg-gradient-to-r from-blue-500 to-violet-500 text-white hover:from-blue-600 hover:to-violet-600 px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300">
               <Rocket className="w-4 h-4 mr-2" />
-              Join the Waitlist
+              Dashboard
             </Button>
           </div>
 
@@ -1664,7 +1664,7 @@ export default function GeoGuide() {
                         ) : (
                           <>
                             <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-                            Join Waitlist
+                            Dashboard
                           </>
                         )}
                       </Button>
