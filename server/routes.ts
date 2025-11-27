@@ -668,6 +668,107 @@ Respond ONLY with valid JSON in this exact format:
     }
   });
 
+  // Dynamic sitemap.xml endpoint - fetches blog posts from WordPress RSS feed
+  app.get("/sitemap.xml", async (req, res) => {
+    try {
+      const baseUrl = "https://georankers.co";
+      
+      // Main pages with current date
+      const today = new Date().toISOString().split('T')[0];
+      const mainPages = [
+        { url: `${baseUrl}/`, priority: "1.0", changefreq: "weekly" },
+        { url: `${baseUrl}/geo-guide`, priority: "0.9", changefreq: "monthly" },
+        { url: `${baseUrl}/website-analysis`, priority: "0.9", changefreq: "monthly" },
+      ];
+      
+      // Fetch blog posts from WordPress RSS feed (multiple pages to get all posts)
+      let blogPosts: { url: string; lastmod: string; priority: string; changefreq: string }[] = [];
+      
+      const parseRssFeed = async (feedUrl: string) => {
+        try {
+          const rssResponse = await axios.get(feedUrl, {
+            timeout: 10000,
+            headers: {
+              'User-Agent': 'GeoRankers-Sitemap-Generator/1.0'
+            }
+          });
+          
+          const $ = cheerio.load(rssResponse.data, { xmlMode: true });
+          
+          $('item').each((_, item) => {
+            const link = $(item).find('link').text().trim();
+            const pubDate = $(item).find('pubDate').text().trim();
+            
+            if (link) {
+              // Parse the publication date
+              let lastmod = today;
+              if (pubDate) {
+                try {
+                  lastmod = new Date(pubDate).toISOString().split('T')[0];
+                } catch (e) {
+                  // Use today's date if parsing fails
+                }
+              }
+              
+              blogPosts.push({
+                url: link,
+                lastmod,
+                priority: "0.8",
+                changefreq: "monthly"
+              });
+            }
+          });
+        } catch (rssError) {
+          console.error(`Failed to fetch RSS feed from ${feedUrl}:`, rssError);
+        }
+      };
+      
+      // Fetch multiple pages of the RSS feed to get all posts
+      await Promise.all([
+        parseRssFeed("https://blog.georankers.co/feed/"),
+        parseRssFeed("https://blog.georankers.co/feed/?paged=2"),
+        parseRssFeed("https://blog.georankers.co/feed/?paged=3"),
+      ]);
+      
+      // Remove duplicates (in case of overlap between pages)
+      const uniqueUrls = new Set<string>();
+      blogPosts = blogPosts.filter(post => {
+        if (uniqueUrls.has(post.url)) return false;
+        uniqueUrls.add(post.url);
+        return true;
+      });
+      
+      // Sort by date (newest first)
+      blogPosts.sort((a, b) => new Date(b.lastmod).getTime() - new Date(a.lastmod).getTime());
+      
+      console.log(`Sitemap: Found ${blogPosts.length} blog posts from RSS feed`);
+      
+      // Generate sitemap XML
+      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${mainPages.map(page => `  <url>
+    <loc>${page.url}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join('\n')}
+${blogPosts.map(post => `  <url>
+    <loc>${post.url}</loc>
+    <lastmod>${post.lastmod}</lastmod>
+    <changefreq>${post.changefreq}</changefreq>
+    <priority>${post.priority}</priority>
+  </url>`).join('\n')}
+</urlset>`;
+      
+      res.set('Content-Type', 'application/xml');
+      res.send(sitemap);
+      
+    } catch (error) {
+      console.error("Error generating sitemap:", error);
+      res.status(500).send("Error generating sitemap");
+    }
+  });
+
   // Register admin routes
   registerAdminRoutes(app);
 
