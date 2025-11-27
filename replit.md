@@ -94,6 +94,7 @@ GEO Guide: Restored to navigation per user request (August 28, 2025).
 - `POST /api/waitlist` - Register new waitlist entry
 - `GET /api/waitlist/count` - Get total waitlist count
 - `POST /api/analyze-website` - Analyze website for AI visibility (multi-page crawling + OpenAI analysis)
+- `GET /sitemap.xml` - Dynamic sitemap (auto-updates with WordPress blog posts)
 
 ### Performance Metrics (Website Analysis)
 - **Analysis Time**: 40-90 seconds (typical: 40s for 28 pages)
@@ -104,10 +105,18 @@ GEO Guide: Restored to navigation per user request (August 28, 2025).
 - **Cost per Analysis**: ~$0.016 actual (6,176 tokens @ GPT-4o-mini rates)
 - **User-Facing Estimate**: ~$0.20 per analysis (conservative estimate)
 
+### Dynamic Sitemap
+- **Endpoint**: `/sitemap.xml` - Generated dynamically on each request
+- **Main Pages**: Homepage, GEO Guide, Website Analysis (3 pages)
+- **Blog Integration**: Fetches all posts from WordPress RSS feed (blog.georankers.co/feed/)
+- **Auto-Updates**: New blog posts are automatically included when published
+- **RSS Pagination**: Fetches multiple RSS pages to capture all posts (currently 13 blog posts)
+
 ### External Integrations
 - **Mailchimp**: Complete subscriber sync with all form fields including challenge responses in Comments column (MMERGE7)
 - **Google Sheets**: Optional integration (currently configured but not active)
 - **OpenAI**: GPT-4o-mini for AI visibility analysis (website crawler integration)
+- **WordPress Blog**: RSS feed integration for dynamic sitemap (blog.georankers.co)
 
 ## External Dependencies
 
