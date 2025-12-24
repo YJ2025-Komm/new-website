@@ -941,7 +941,7 @@ export default function Home() {
           </p>
           <a 
             href="https://dashboard.georankers.co/register"
-            className="inline-flex items-center px-8 sm:px-10 py-4 sm:py-5 bg-white text-blue-600 hover:bg-slate-100 rounded-2xl font-semibold text-lg sm:text-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
+            className="inline-flex items-center px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-lg sm:text-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
             data-testid="cta-try-free-midpage-1"
           >
             <Rocket className="w-5 h-5 sm:w-6 sm:h-6 mr-3" />
@@ -1198,7 +1198,7 @@ export default function Home() {
           </p>
           <a 
             href="https://dashboard.georankers.co/register"
-            className="inline-flex items-center px-8 sm:px-10 py-4 sm:py-5 bg-white text-blue-600 hover:bg-slate-100 rounded-2xl font-semibold text-lg sm:text-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
+            className="inline-flex items-center px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-lg sm:text-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
             data-testid="cta-try-free-features"
           >
             <Rocket className="w-5 h-5 sm:w-6 sm:h-6 mr-3" />
@@ -1572,7 +1572,7 @@ export default function Home() {
           </p>
           <a 
             href="https://dashboard.georankers.co/register"
-            className="inline-flex items-center px-8 sm:px-10 py-4 sm:py-5 bg-white text-blue-600 hover:bg-slate-100 rounded-2xl font-semibold text-lg sm:text-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
+            className="inline-flex items-center px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-lg sm:text-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
             data-testid="cta-try-free-faq"
           >
             <Rocket className="w-5 h-5 sm:w-6 sm:h-6 mr-3" />
