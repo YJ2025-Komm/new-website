@@ -931,12 +931,12 @@ export default function Home() {
       </section>
 
       {/* Mid-Page CTA Strip */}
-      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600">
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
+        <div className="max-w-5xl mx-auto text-center">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6 whitespace-nowrap">
             See what AI says about your brand today
           </h3>
-          <p className="text-lg sm:text-xl text-white/80 mb-8 sm:mb-10 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-white/90 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
             Get a clear view of how AI models describe your company and which sources shape those answers.
           </p>
           <a 
@@ -1188,12 +1188,12 @@ export default function Home() {
       </section>
 
       {/* Features Section CTA - Full Width */}
-      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600">
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
+        <div className="max-w-5xl mx-auto text-center">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6 whitespace-nowrap">
             Understand why AI describes your brand the way it does
           </h3>
-          <p className="text-lg sm:text-xl text-white/80 mb-8 sm:mb-10 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-white/90 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
             Explore the content and signals influencing how AI systems present your brand across different queries.
           </p>
           <a 
@@ -1562,12 +1562,12 @@ export default function Home() {
       </section>
       
       {/* FAQ CTA - Full Width */}
-      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600">
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
+        <div className="max-w-5xl mx-auto text-center">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6 whitespace-nowrap">
             Learn how to improve the way AI presents your brand
           </h3>
-          <p className="text-lg sm:text-xl text-white/80 mb-8 sm:mb-10 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-white/90 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
             Get practical insights you can act on to strengthen how AI systems interpret and reference your brand.
           </p>
           <a 
