@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { X, Rocket, TrendingUp, Star, Zap } from "lucide-react";
+import { X, Rocket, TrendingUp, Star, Zap, AlertCircle } from "lucide-react";
 
 interface ExitIntentPopupProps {
   isOpen: boolean;
@@ -44,7 +44,7 @@ export default function ExitIntentPopup({ isOpen, onClose, onTakeQuiz }: ExitInt
 
             <div className="relative z-10">
               <div className="flex items-center justify-center mb-3">
-                <Rocket className="w-8 h-8 mr-2" />
+                <AlertCircle className="w-8 h-8 mr-2" />
                 <span className="text-xl font-bold">Wait!</span>
               </div>
               <h2 className="text-xl font-bold mb-2 leading-tight">
@@ -99,14 +99,6 @@ export default function ExitIntentPopup({ isOpen, onClose, onTakeQuiz }: ExitInt
             </div>
           </div>
 
-          {/* Trust Indicator */}
-          <div className="px-6 pb-4">
-            <div className="text-center">
-              <p className="text-xs text-slate-400">
-                No credit card required
-              </p>
-            </div>
-          </div>
         </div>
       </DialogContent>
     </Dialog>
