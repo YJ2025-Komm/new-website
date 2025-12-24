@@ -79,14 +79,14 @@ export default function ExitIntentPopup({ isOpen, onClose, onTakeQuiz }: ExitInt
 
             {/* Action Buttons */}
             <div className="space-y-3">
-              <a
-                href="https://dashboard.georankers.co/register"
+              <button
+                onClick={() => { onClose(); onTakeQuiz(); }}
                 className="w-full flex items-center justify-center bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white font-semibold py-3 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-lg"
-                data-testid="button-try-free-exit-intent"
+                data-testid="button-take-quiz-exit-intent"
               >
                 <Rocket className="w-4 h-4 mr-2" />
-                Try for Free
-              </a>
+                Take the AI Quiz
+              </button>
               
               <button
                 onClick={onClose}
