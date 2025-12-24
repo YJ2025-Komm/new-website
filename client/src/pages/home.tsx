@@ -934,10 +934,10 @@ export default function Home() {
       <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
-            See how your brand shows up in AI generated answers in minutes.
+            See what AI says about your brand today
           </h3>
           <p className="text-lg sm:text-xl text-white/80 mb-8 sm:mb-10 max-w-2xl mx-auto">
-            Get your free AI visibility report and discover optimization opportunities.
+            Get a clear view of how AI models describe your company and which sources shape those answers.
           </p>
           <a 
             href="https://dashboard.georankers.co/register"
@@ -1191,10 +1191,10 @@ export default function Home() {
       <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
-            Ready to check your AI visibility?
+            Understand why AI describes your brand the way it does
           </h3>
           <p className="text-lg sm:text-xl text-white/80 mb-8 sm:mb-10 max-w-2xl mx-auto">
-            See exactly how AI models perceive your brand and get actionable recommendations.
+            Explore the content and signals influencing how AI systems present your brand across different queries.
           </p>
           <a 
             href="https://dashboard.georankers.co/register"
@@ -1565,10 +1565,10 @@ export default function Home() {
       <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
-            Ready to dominate AI search?
+            Learn how to improve the way AI presents your brand
           </h3>
           <p className="text-lg sm:text-xl text-white/80 mb-8 sm:mb-10 max-w-2xl mx-auto">
-            Join thousands of forward-thinking brands optimizing for AI search today.
+            Get practical insights you can act on to strengthen how AI systems interpret and reference your brand.
           </p>
           <a 
             href="https://dashboard.georankers.co/register"
