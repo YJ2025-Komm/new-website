@@ -1,13 +1,5 @@
 import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { insertWaitlistEntrySchema, type InsertWaitlistEntry } from "@shared/schema";
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import QuizModal from "@/components/QuizModal";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
@@ -75,13 +67,11 @@ interface WordPressCategory {
 }
 
 export default function Home() {
-  const [showSuccess, setShowSuccess] = useState(false);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const [showQuizModal, setShowQuizModal] = useState(false);
   const [showExitIntentPopup, setShowExitIntentPopup] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
-  const { toast } = useToast();
 
   // Exit intent detection
   const { isTriggered: exitIntentTriggered, reset: resetExitIntent, disable: disableExitIntent } = useExitIntent({
@@ -115,43 +105,6 @@ export default function Home() {
     setShowQuizModal(false);
     disableExitIntent(); // Disable after quiz is completed/closed
   };
-
-  const form = useForm<InsertWaitlistEntry>({
-    resolver: zodResolver(insertWaitlistEntrySchema),
-    defaultValues: {
-      fullName: "",
-      email: "",
-      companyName: "",
-      challenge: "",
-    },
-  });
-
-  const waitlistMutation = useMutation({
-    mutationFn: async (data: InsertWaitlistEntry) => {
-      const response = await apiRequest("POST", "/api/waitlist", data);
-      return response.json();
-    },
-    onSuccess: () => {
-      setShowSuccess(true);
-      form.reset();
-      toast({
-        title: "Welcome to the waitlist!",
-        description: "We'll notify you as soon as GeoRankers is ready for you.",
-      });
-    },
-    onError: (error: any) => {
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: error.message || "Failed to join waitlist. Please try again.",
-      });
-    },
-  });
-
-  const onSubmit = (data: InsertWaitlistEntry) => {
-    waitlistMutation.mutate(data);
-  };
-
 
   // Static blog posts data to ensure immediate display
   const staticBlogPosts: WordPressBlogPost[] = [
@@ -234,10 +187,6 @@ export default function Home() {
     } else {
       return <Lightbulb className="w-12 h-12 text-violet-500 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />;
     }
-  };
-
-  const scrollToWaitlist = () => {
-    document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToFAQ = () => {
@@ -1205,134 +1154,6 @@ export default function Home() {
             Try for Free
           </a>
           <p className="text-sm text-white/70 mt-4">No credit card required</p>
-        </div>
-      </section>
-
-      {/* Waitlist Section */}
-      <section id="waitlist" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50/20 to-indigo-50/30">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              Join the <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Waitlist</span>
-            </h2>
-            <p className="text-lg sm:text-xl text-slate-600">
-              Be among the first to take control of your AI search presence
-            </p>
-          </div>
-          
-          <Card className="glass-strong rounded-3xl p-4 sm:p-8 lg:p-12 border-0">
-            <CardContent className="pt-0">
-              {showSuccess ? (
-                <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-2xl p-4 sm:p-6 text-center">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
-                      <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                    </div>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-green-400 mb-2">Welcome to the waitlist!</h3>
-                  <p className="text-sm sm:text-base text-slate-600">We'll notify you as soon as GeoRankers is ready for you.</p>
-                </div>
-              ) : (
-                <form id="waitlist-form" onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
-                  <div>
-                    <Label htmlFor="fullName" className="block text-sm font-medium text-slate-600 mb-2">
-                      Full Name *
-                    </Label>
-                    <Input
-                      id="fullName"
-                      {...form.register("fullName")}
-                      placeholder="Enter your full name"
-                      className="w-full px-3 sm:px-4 py-3 sm:py-4 bg-white/80 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm text-sm sm:text-base"
-                    />
-                    {form.formState.errors.fullName && (
-                      <p className="text-red-400 text-sm mt-2">
-                        <span className="mr-1">⚠</span>
-                        {form.formState.errors.fullName.message}
-                      </p>
-                    )}
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="email" className="block text-sm font-medium text-slate-600 mb-2">
-                      Email Address *
-                    </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      {...form.register("email")}
-                      placeholder="Enter your email address"
-                      className="w-full px-3 sm:px-4 py-3 sm:py-4 bg-white/80 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm text-sm sm:text-base"
-                    />
-                    {form.formState.errors.email && (
-                      <p className="text-red-400 text-sm mt-2">
-                        <span className="mr-1">⚠</span>
-                        {form.formState.errors.email.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <Label htmlFor="companyName" className="block text-sm font-medium text-slate-600 mb-2">
-                      Company Name *
-                    </Label>
-                    <Input
-                      id="companyName"
-                      {...form.register("companyName")}
-                      placeholder="Enter your company name"
-                      className="w-full px-3 sm:px-4 py-3 sm:py-4 bg-white/80 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm text-sm sm:text-base"
-                    />
-                    {form.formState.errors.companyName && (
-                      <p className="text-red-400 text-sm mt-2">
-                        <span className="mr-1">⚠</span>
-                        {form.formState.errors.companyName.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <Label htmlFor="challenge" className="block text-sm font-medium text-slate-600 mb-2">
-                      What's your biggest AI search challenge?
-                    </Label>
-                    <textarea
-                      id="challenge"
-                      {...form.register("challenge")}
-                      placeholder="Tell us about your AI search challenges (optional)"
-                      rows={4}
-                      className="w-full px-3 sm:px-4 py-3 sm:py-4 bg-white/80 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm text-sm sm:text-base resize-none"
-                    />
-                    {form.formState.errors.challenge && (
-                      <p className="text-red-400 text-sm mt-2">
-                        <span className="mr-1">⚠</span>
-                        {form.formState.errors.challenge.message}
-                      </p>
-                    )}
-                  </div>
-                  
-                  <Button 
-                    type="submit"
-                    disabled={waitlistMutation.isPending}
-                    className="w-full mt-6 sm:mt-8 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl flex items-center justify-center"
-                  >
-                    {waitlistMutation.isPending ? (
-                      <>
-                        <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 animate-spin" />
-                        Adding you to the list...
-                      </>
-                    ) : (
-                      <>
-                        <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-                        Join Waitlist
-                      </>
-                    )}
-                  </Button>
-                  
-                  <p className="text-center text-xs sm:text-sm text-slate-500 mt-4 sm:mt-6">
-                    🔒 Your information is secure and will never be shared.
-                  </p>
-                </form>
-              )}
-            </CardContent>
-          </Card>
         </div>
       </section>
 
