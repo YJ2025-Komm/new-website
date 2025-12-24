@@ -931,19 +931,23 @@ export default function Home() {
       </section>
 
       {/* Mid-Page CTA Strip */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-violet-600">
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600">
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
             See how your brand shows up in AI generated answers in minutes.
           </h3>
+          <p className="text-lg sm:text-xl text-white/80 mb-8 sm:mb-10 max-w-2xl mx-auto">
+            Get your free AI visibility report and discover optimization opportunities.
+          </p>
           <a 
             href="https://dashboard.georankers.co/register"
-            className="inline-flex items-center px-8 py-4 bg-white text-blue-600 hover:bg-slate-100 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
+            className="inline-flex items-center px-8 sm:px-10 py-4 sm:py-5 bg-white text-blue-600 hover:bg-slate-100 rounded-2xl font-semibold text-lg sm:text-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
             data-testid="cta-try-free-midpage-1"
           >
-            <Rocket className="w-5 h-5 mr-3" />
+            <Rocket className="w-5 h-5 sm:w-6 sm:h-6 mr-3" />
             Try for Free
           </a>
+          <p className="text-sm text-white/70 mt-4">No credit card required</p>
         </div>
       </section>
 
@@ -1181,18 +1185,22 @@ export default function Home() {
           </Card>
           
           {/* Features Section CTA */}
-          <div className="mt-12 sm:mt-16 text-center">
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+          <div className="mt-16 sm:mt-20 py-12 sm:py-16 px-6 sm:px-12 bg-gradient-to-r from-violet-500/10 via-blue-500/10 to-violet-500/10 rounded-3xl border border-violet-200/50 text-center">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">
               Ready to check your AI visibility?
             </h3>
+            <p className="text-lg sm:text-xl text-slate-600 mb-8 sm:mb-10 max-w-2xl mx-auto">
+              See exactly how AI models perceive your brand and get actionable recommendations.
+            </p>
             <a 
               href="https://dashboard.georankers.co/register"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
+              className="inline-flex items-center px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-lg sm:text-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
               data-testid="cta-try-free-features"
             >
-              <Rocket className="w-5 h-5 mr-3" />
+              <Rocket className="w-5 h-5 sm:w-6 sm:h-6 mr-3" />
               Try for Free
             </a>
+            <p className="text-sm text-slate-500 mt-4">No credit card required</p>
           </div>
 
         </div>
