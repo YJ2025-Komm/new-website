@@ -1549,20 +1549,22 @@ export default function Home() {
           </div>
 
           {/* CTA at bottom of FAQ */}
-          <div className="text-center mt-12 sm:mt-16">
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4">
+          <div className="mt-16 sm:mt-20 py-12 sm:py-16 px-6 sm:px-12 bg-gradient-to-r from-blue-500/10 via-violet-500/10 to-blue-500/10 rounded-3xl border border-blue-200/50 text-center">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">
               Ready to dominate AI search?
             </h3>
-            <p className="text-slate-600 mb-6 sm:mb-8">
-              Join the waitlist and be among the first to access GeoRankers.
+            <p className="text-lg sm:text-xl text-slate-600 mb-8 sm:mb-10 max-w-2xl mx-auto">
+              Join thousands of forward-thinking brands optimizing for AI search today.
             </p>
-            <Button 
-              onClick={() => window.open('https://dashboard.georankers.co', '_blank')}
-              className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
+            <a 
+              href="https://dashboard.georankers.co/register"
+              className="inline-flex items-center px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-lg sm:text-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
+              data-testid="cta-try-free-faq"
             >
-              <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-              Dashboard
-            </Button>
+              <Rocket className="w-5 h-5 sm:w-6 sm:h-6 mr-3" />
+              Try for Free
+            </a>
+            <p className="text-sm text-slate-500 mt-4">No credit card required</p>
           </div>
         </div>
       </section>
