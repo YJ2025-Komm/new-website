@@ -318,11 +318,69 @@ export default function Home() {
       ]
     });
 
+    // SiteNavigationElement Schema - reflects current navigation structure
+    let navSchema = document.querySelector('script[type="application/ld+json"]#nav-schema');
+    if (!navSchema) {
+      navSchema = document.createElement('script');
+      navSchema.setAttribute('type', 'application/ld+json');
+      navSchema.setAttribute('id', 'nav-schema');
+      document.head.appendChild(navSchema);
+    }
+    navSchema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Main Navigation",
+      "itemListElement": [
+        {
+          "@type": "SiteNavigationElement",
+          "position": 1,
+          "name": "Website AI Audit",
+          "url": "https://georankers.co/website-analysis"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 2,
+          "name": "Features",
+          "url": "https://georankers.co/#features"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 3,
+          "name": "Resources",
+          "url": "https://georankers.co/#resources",
+          "hasPart": [
+            {
+              "@type": "SiteNavigationElement",
+              "name": "Blog",
+              "url": "https://blog.georankers.co/"
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "GEO Guide",
+              "url": "https://georankers.co/geo-guide"
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "FAQ",
+              "url": "https://georankers.co/#faq"
+            }
+          ]
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 4,
+          "name": "Try for Free",
+          "url": "https://dashboard.georankers.co/register"
+        }
+      ]
+    });
+
     return () => {
       // Cleanup schemas on unmount
       orgSchema?.remove();
       websiteSchema?.remove();
       faqSchema?.remove();
+      navSchema?.remove();
     };
   }, []);
 
