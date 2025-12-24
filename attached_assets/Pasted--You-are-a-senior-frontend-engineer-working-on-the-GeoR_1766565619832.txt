@@ -1,0 +1,173 @@
+
+You are a senior frontend engineer working on the GeoRankers marketing website (https://georankers.co/).
+
+Context:
+GeoRankers now has a live MVP where users can directly create an account.
+There are two existing flows:
+1) Website AI Audit (URL based, low friction, instant analysis)
+2) AI Quiz (question based AI readiness report), which is already accessible within the page flow
+
+The AI Quiz MUST remain accessible within the page flow, but it should NOT appear in the top navigation.
+
+There is also an existing Join Waitlist section at the bottom of the homepage with calculations and tracking logic that must remain completely untouched.
+
+Goals:
+1. Reduce top navigation clutter
+2. Make Website AI Audit the single primary product entry point
+3. Use “Try for Free” as the main conversion CTA
+4. Remove AI Quiz ONLY from the top navigation
+5. Remove Join Waitlist ONLY from the top navigation
+6. Keep the Join Waitlist section at the bottom of the page unchanged
+
+IMPORTANT CONSTRAINTS (DO NOT VIOLATE):
+- Do NOT remove or modify the AI Quiz section within the page flow
+- Do NOT remove or modify the Join Waitlist section at the bottom of the page
+- Do NOT change any backend, tracking, or calculation logic
+- Only adjust navigation labels, structure, and CTAs
+- All “Try for Free” CTAs must route to:
+  https://dashboard.georankers.co/register
+
+--------------------------------
+PART A: Top Navigation Changes
+--------------------------------
+
+1. Update the top navigation to include ONLY the following top-level items, in this exact order:
+   - Website AI Audit
+   - Features
+   - Resources (dropdown)
+   - Try for Free (primary CTA button)
+
+2. Remove the following items from the TOP NAVIGATION ONLY:
+   - AI Quiz
+   - AI Visibility Check (or any quiz-related label)
+   - Join Waitlist
+   - Dashboard
+   - Blog (as a standalone item)
+   - GEO Guide (as a standalone item)
+   - FAQ (as a standalone item)
+
+3. Website AI Audit:
+   - Keep as the only product action in the nav
+   - Route to the existing Website AI Audit flow/page
+   - No copy or functional changes required
+
+4. Features:
+   - Keep unchanged
+   - No routing or copy changes
+
+5. Resources dropdown:
+   Include ONLY the following items, in this order:
+   - Blog → link to https://blog.georankers.co/
+   - GEO Guide → link to existing GEO Guide page/section
+   - FAQ → link to existing FAQ section or /faq page
+
+6. Try for Free (top nav CTA):
+   - Style as the primary CTA button
+   - Route to: https://dashboard.georankers.co/register
+   - Open in the same tab
+
+7. Mobile navigation:
+   - Must mirror the same structure and labels
+   - Resources should be collapsible
+   - Try for Free must be visible without excessive scrolling
+
+--------------------------------
+PART B: Hero Section (First Fold)
+--------------------------------
+
+1. Replace the existing primary CTA button (e.g. “Dashboard” or “Join Waitlist”) with:
+   - Label: “Try for Free”
+   - Link: https://dashboard.georankers.co/register
+
+2. Add microcopy directly below the primary CTA:
+   - “No credit card required”
+
+3. Do NOT add AI Quiz as a hero CTA.
+   The quiz remains discoverable only within the page flow.
+
+--------------------------------
+PART C: Mid-Page CTAs
+--------------------------------
+
+Add “Try for Free” CTAs (same label and link) in the following locations:
+
+1. After the first major explanation or benefits section:
+   - Add a CTA strip or card
+   - Short copy + Try for Free button
+   - Example copy:
+     “See how your brand shows up in AI generated answers in minutes.”
+
+2. At the end of the Features section:
+   - Add a small CTA row
+   - Example copy:
+     “Ready to check your AI visibility?”
+   - Include Try for Free button
+
+--------------------------------
+PART D: Existing AI Quiz Section (IMPORTANT)
+--------------------------------
+
+1. Leave the existing AI Quiz section EXACTLY as it is within the page flow:
+   - No copy changes
+   - No layout changes
+   - No logic changes
+
+2. Do NOT promote the AI Quiz in the top navigation.
+
+--------------------------------
+PART E: Bottom of Page (IMPORTANT)
+--------------------------------
+
+1. Leave the existing Join Waitlist section EXACTLY as it is:
+   - No copy changes
+   - No layout changes
+   - No logic changes
+   - No tracking changes
+
+2. The only place “Join Waitlist” should appear is this bottom section.
+
+--------------------------------
+PART F: Copy and Consistency Rules
+--------------------------------
+
+1. Use “Try for Free” consistently for:
+   - Top navigation CTA
+   - Hero CTA
+   - Mid-page CTAs
+
+2. Do NOT use:
+   - “Join Waitlist” anywhere except the bottom section
+   - “Quiz” in navigation labels or primary CTAs
+
+3. Use sentence case for all navigation labels.
+
+4. Ensure CTA styling is consistent across the page
+   (same color, hierarchy, and emphasis).
+
+--------------------------------
+PART G: QA Checklist (MANDATORY)
+--------------------------------
+
+Before finalizing:
+1. Confirm AI Quiz is removed ONLY from the top navigation.
+2. Confirm AI Quiz section still appears in the page flow.
+3. Confirm Join Waitlist is removed ONLY from the top navigation.
+4. Confirm bottom Join Waitlist section still renders and functions.
+5. Confirm ALL Try for Free CTAs link to:
+   https://dashboard.georankers.co/register
+6. Confirm desktop and mobile nav are consistent.
+7. Confirm Resources dropdown works across breakpoints.
+8. Confirm there is a single clear primary action across the page.
+
+--------------------------------
+DELIVERABLES
+--------------------------------
+
+- Summary of changes made
+- List of files/components modified
+- Confirmation that AI Quiz and Join Waitlist logic remain untouched
+- Screenshots of:
+  - Updated top navigation
+  - Hero section
+  - Mid-page CTA
+  - Bottom Join Waitlist section (unchanged)

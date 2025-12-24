@@ -37,7 +37,10 @@ import {
   TrendingDown,
   ChevronDown,
   ChevronUp,
-  ClipboardCheck
+  ClipboardCheck,
+  Menu,
+  X,
+  ExternalLink
 } from "lucide-react";
 import geminiLogo from "@assets/Gemini_1753958628531.png";
 import grokLogo from "@assets/Grok_1753958628535.png";
@@ -76,6 +79,8 @@ export default function Home() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const [showQuizModal, setShowQuizModal] = useState(false);
   const [showExitIntentPopup, setShowExitIntentPopup] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const { toast } = useToast();
 
   // Exit intent detection
@@ -388,45 +393,137 @@ export default function Home() {
             </div>
             
             {/* Navigation Links */}
-            <div className="hidden md:flex space-x-8">
-              <a href="#quiz" className="quiz-text-animated text-sm font-medium flex items-center transition-colors duration-300">
-                <Star className="w-4 h-4 mr-1 star-animated" />
-                <span className="font-semibold">AI Quiz</span>
-              </a>
+            <div className="hidden md:flex items-center space-x-8">
               <Link href="/website-analysis" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" data-testid="link-website-analysis">
-                Website Analysis
+                Website AI Audit
               </Link>
-              <a href="#problem" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
-                Why GeoRankers
-              </a>
               <a href="#features" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 Features
               </a>
-              <Link href="/geo-guide" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" data-testid="link-geo-guide">
-                GEO Guide
-              </Link>
-              <a href="#blog" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
-                Blogs
-              </a>
-              <a href="#faq" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
-                FAQ
-              </a>
-              <a href="#waitlist" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
-                Join Waitlist
+              {/* Resources Dropdown */}
+              <div className="relative">
+                <button 
+                  onClick={() => setResourcesOpen(!resourcesOpen)}
+                  onBlur={() => setTimeout(() => setResourcesOpen(false), 150)}
+                  className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium flex items-center"
+                  data-testid="dropdown-resources"
+                >
+                  Resources
+                  <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-200 ${resourcesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {resourcesOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50">
+                    <a 
+                      href="https://blog.georankers.co/" 
+                      className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
+                      data-testid="link-blog"
+                    >
+                      Blog
+                    </a>
+                    <Link 
+                      href="/geo-guide" 
+                      className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
+                      data-testid="link-geo-guide"
+                    >
+                      GEO Guide
+                    </Link>
+                    <a 
+                      href="#faq" 
+                      className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
+                      data-testid="link-faq"
+                    >
+                      FAQ
+                    </a>
+                  </div>
+                )}
+              </div>
+              {/* Try for Free CTA */}
+              <a 
+                href="https://dashboard.georankers.co/register"
+                className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+                data-testid="cta-try-free-nav"
+              >
+                Try for Free
               </a>
             </div>
             
             {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <Button 
-                onClick={scrollToWaitlist}
-                className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-4 py-2 rounded-lg text-sm"
+            <div className="md:hidden flex items-center space-x-3">
+              <a 
+                href="https://dashboard.georankers.co/register"
+                className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-3 py-2 rounded-lg text-sm font-medium"
+                data-testid="cta-try-free-mobile"
               >
-                Join Waitlist
-              </Button>
+                Try for Free
+              </a>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-slate-600 hover:text-blue-600 p-2"
+                data-testid="button-mobile-menu"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
             </div>
           </div>
         </div>
+        
+        {/* Mobile Menu Dropdown */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-slate-200 px-4 py-4">
+            <div className="space-y-3">
+              <Link 
+                href="/website-analysis" 
+                className="block text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2"
+                onClick={() => setMobileMenuOpen(false)}
+                data-testid="mobile-link-website-analysis"
+              >
+                Website AI Audit
+              </Link>
+              <a 
+                href="#features" 
+                className="block text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Features
+              </a>
+              {/* Mobile Resources Collapsible */}
+              <div>
+                <button 
+                  onClick={() => setResourcesOpen(!resourcesOpen)}
+                  className="w-full text-left text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2 flex items-center justify-between"
+                >
+                  Resources
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${resourcesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {resourcesOpen && (
+                  <div className="pl-4 space-y-2 mt-2">
+                    <a 
+                      href="https://blog.georankers.co/" 
+                      className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Blog
+                    </a>
+                    <Link 
+                      href="/geo-guide" 
+                      className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      GEO Guide
+                    </Link>
+                    <a 
+                      href="#faq" 
+                      className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      FAQ
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -454,15 +551,17 @@ export default function Home() {
                 GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build the brand authority needed to get visible in AI search across leading AI models like ChatGPT and Gemini.
               </p>
               
-              <div className="mb-8">
-                <Button 
-                  onClick={() => window.open('https://dashboard.georankers.co', '_blank')}
-                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base transform hover:scale-105 transition-all duration-300 shadow-2xl"
+              <div className="mb-2">
+                <a 
+                  href="https://dashboard.georankers.co/register"
+                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base text-white transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                  data-testid="cta-try-free-hero-mobile"
                 >
                   <Rocket className="w-4 h-4 mr-2" />
-                  Dashboard
-                </Button>
+                  Try for Free
+                </a>
               </div>
+              <p className="text-sm text-slate-500 mb-8">No credit card required</p>
             </div>
             
             {/* Visual Below Content on Mobile */}
@@ -559,15 +658,17 @@ export default function Home() {
                 GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build the brand authority needed to get visible in AI search across leading AI models like ChatGPT and Gemini.
               </p>
               
-              <div className="mb-8">
-                <Button 
-                  onClick={() => window.open('https://dashboard.georankers.co', '_blank')}
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
+              <div className="mb-2">
+                <a 
+                  href="https://dashboard.georankers.co/register"
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-lg text-white transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                  data-testid="cta-try-free-hero-desktop"
                 >
                   <Rocket className="w-5 h-5 mr-3" />
-                  Dashboard
-                </Button>
+                  Try for Free
+                </a>
               </div>
+              <p className="text-sm text-slate-500">No credit card required</p>
             </div>
             
             {/* Right Column - Visual */}
@@ -829,6 +930,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Mid-Page CTA Strip */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-violet-600">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            See how your brand shows up in AI generated answers in minutes.
+          </h3>
+          <a 
+            href="https://dashboard.georankers.co/register"
+            className="inline-flex items-center px-8 py-4 bg-white text-blue-600 hover:bg-slate-100 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
+            data-testid="cta-try-free-midpage-1"
+          >
+            <Rocket className="w-5 h-5 mr-3" />
+            Try for Free
+          </a>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section id="features" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-violet-50/30 to-pink-50/20">
         <div className="max-w-6xl mx-auto">
@@ -1062,6 +1180,20 @@ export default function Home() {
             </CardContent>
           </Card>
           
+          {/* Features Section CTA */}
+          <div className="mt-12 sm:mt-16 text-center">
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+              Ready to check your AI visibility?
+            </h3>
+            <a 
+              href="https://dashboard.georankers.co/register"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
+              data-testid="cta-try-free-features"
+            >
+              <Rocket className="w-5 h-5 mr-3" />
+              Try for Free
+            </a>
+          </div>
 
         </div>
       </section>
