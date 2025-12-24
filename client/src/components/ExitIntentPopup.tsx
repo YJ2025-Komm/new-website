@@ -48,7 +48,7 @@ export default function ExitIntentPopup({ isOpen, onClose, onTakeQuiz }: ExitInt
                 <span className="text-xl font-bold">Wait!</span>
               </div>
               <h2 className="text-xl font-bold mb-2 leading-tight">
-                See What AI Says About Your Brand
+                Is Your Brand Ready for AI Search?
               </h2>
             </div>
           </div>
@@ -57,22 +57,23 @@ export default function ExitIntentPopup({ isOpen, onClose, onTakeQuiz }: ExitInt
           <div className="px-6 py-6">
             <div className="text-center mb-6">
               <p className="text-slate-700 mb-4 leading-relaxed">
-                Get a <span className="font-semibold text-blue-600">free AI visibility report</span> and discover how AI models describe your company.
+                Most brands are <span className="font-semibold text-red-600">invisible</span> when users ask AI tools for recommendations. 
+                Discover your visibility score in <span className="font-semibold text-blue-600">2 minutes</span>.
               </p>
 
               {/* Benefits */}
               <div className="space-y-3 mb-6">
                 <div className="flex items-center text-sm text-slate-600">
                   <Star className="w-4 h-4 text-yellow-500 mr-2 flex-shrink-0" />
-                  <span>See your AI visibility score</span>
+                  <span>Get your AI Search Readiness Score</span>
                 </div>
                 <div className="flex items-center text-sm text-slate-600">
                   <TrendingUp className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                  <span>Understand which sources shape AI answers</span>
+                  <span>Discover optimization opportunities</span>
                 </div>
                 <div className="flex items-center text-sm text-slate-600">
                   <Zap className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0" />
-                  <span>Get actionable recommendations</span>
+                  <span>Get actionable improvement tips</span>
                 </div>
               </div>
             </div>
