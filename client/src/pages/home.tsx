@@ -1618,6 +1618,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Footer */}
+      <footer className="bg-slate-50 border-t border-slate-200/50 py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center text-center space-y-8">
+            {/* Contact */}
+            <div className="space-y-2">
+              <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">Contact</p>
+              <a 
+                href="mailto:hello@georankers.co"
+                className="text-slate-700 hover:text-blue-600 transition-colors duration-200 text-base"
+                data-testid="link-footer-email"
+              >
+                hello@georankers.co
+              </a>
+            </div>
+
+            {/* Trust Line */}
+            <p className="text-slate-500 text-sm max-w-md leading-relaxed">
+              Early stage product built for B2B SaaS teams exploring AI search visibility.
+            </p>
+
+            {/* Legal */}
+            <p className="text-slate-400 text-xs">
+              © 2025 GeoRankers. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+
       {/* Exit Intent Popup */}
       <ExitIntentPopup
         isOpen={showExitIntentPopup}
