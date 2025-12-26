@@ -1620,38 +1620,37 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative bg-gradient-to-b from-white to-slate-50 border-t border-slate-200/50 py-16 sm:py-20 overflow-hidden">
-        {/* Subtle background accents */}
-        <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-gradient-to-r from-blue-400/5 to-cyan-400/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-0 right-1/4 w-48 h-48 bg-gradient-to-r from-violet-400/5 to-pink-400/5 rounded-full blur-3xl"></div>
+      <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16 sm:py-20 overflow-hidden">
+        {/* Background accents */}
+        <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-1/4 w-56 h-56 bg-gradient-to-r from-violet-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-32 bg-gradient-to-r from-blue-500/5 to-violet-500/5 rounded-full blur-3xl"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center space-y-10">
             {/* Trust Line */}
-            <div className="max-w-xl">
-              <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-                Early stage product built for B2B SaaS teams exploring AI search visibility.
-              </p>
-            </div>
+            <p className="text-xl sm:text-2xl font-medium text-white/90 whitespace-nowrap">
+              Built for B2B SaaS teams exploring <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI search visibility</span>.
+            </p>
 
             {/* Contact */}
             <div className="space-y-3">
               <p className="text-xs font-medium text-slate-400 uppercase tracking-widest">Contact</p>
               <a 
                 href="mailto:hello@georankers.co"
-                className="inline-flex items-center text-slate-600 hover:text-blue-600 transition-all duration-300 text-base font-medium group"
+                className="inline-flex items-center text-slate-300 hover:text-blue-400 transition-all duration-300 text-base font-medium group"
                 data-testid="link-footer-email"
               >
-                <Mail className="w-4 h-4 mr-2 text-slate-400 group-hover:text-blue-500 transition-colors" />
+                <Mail className="w-4 h-4 mr-2 text-slate-500 group-hover:text-blue-400 transition-colors" />
                 hello@georankers.co
               </a>
             </div>
 
             {/* Divider */}
-            <div className="w-24 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+            <div className="w-32 h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent"></div>
 
             {/* Legal */}
-            <p className="text-slate-400 text-xs">
+            <p className="text-slate-500 text-xs">
               © 2025 GeoRankers. All rights reserved.
             </p>
           </div>
