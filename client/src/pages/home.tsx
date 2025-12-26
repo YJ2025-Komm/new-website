@@ -1630,7 +1630,7 @@ export default function Home() {
           <div className="flex flex-col items-center text-center space-y-10">
             {/* Trust Line */}
             <p className="text-xl sm:text-2xl font-medium text-slate-800 whitespace-nowrap">
-              Built for B2B SaaS teams exploring <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">AI search visibility</span>.
+              Built for B2B teams to track and improve their <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">AI search visibility</span>.
             </p>
 
             {/* Contact */}
