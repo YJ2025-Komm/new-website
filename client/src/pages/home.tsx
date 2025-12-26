@@ -1627,11 +1627,11 @@ export default function Home() {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center space-y-10">
-            {/* Brand */}
-            <div className="text-2xl font-bold">
-              <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
-                GeoRankers
-              </span>
+            {/* Trust Line */}
+            <div className="max-w-xl">
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+                Early stage product built for B2B SaaS teams exploring AI search visibility.
+              </p>
             </div>
 
             {/* Contact */}
@@ -1645,13 +1645,6 @@ export default function Home() {
                 <Mail className="w-4 h-4 mr-2 text-slate-400 group-hover:text-blue-500 transition-colors" />
                 hello@georankers.co
               </a>
-            </div>
-
-            {/* Trust Line */}
-            <div className="max-w-lg">
-              <p className="text-slate-500 text-sm leading-relaxed">
-                Early stage product built for B2B SaaS teams exploring AI search visibility.
-              </p>
             </div>
 
             {/* Divider */}
