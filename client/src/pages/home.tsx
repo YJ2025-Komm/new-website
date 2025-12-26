@@ -369,6 +369,12 @@ export default function Home() {
         {
           "@type": "SiteNavigationElement",
           "position": 4,
+          "name": "Login",
+          "url": "https://dashboard.georankers.co/login"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 5,
           "name": "Try for Free",
           "url": "https://dashboard.georankers.co/register"
         }
@@ -444,6 +450,14 @@ export default function Home() {
                   </div>
                 )}
               </div>
+              {/* Login Link */}
+              <a 
+                href="https://dashboard.georankers.co/login"
+                className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium"
+                data-testid="link-login-nav"
+              >
+                Login
+              </a>
               {/* Try for Free CTA */}
               <a 
                 href="https://dashboard.georankers.co/register"
@@ -456,6 +470,13 @@ export default function Home() {
             
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center space-x-3">
+              <a 
+                href="https://dashboard.georankers.co/login"
+                className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium"
+                data-testid="link-login-mobile"
+              >
+                Login
+              </a>
               <a 
                 href="https://dashboard.georankers.co/register"
                 className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-3 py-2 rounded-lg text-sm font-medium"
