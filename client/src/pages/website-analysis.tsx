@@ -12,6 +12,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Loader2, Search, AlertCircle, CheckCircle, TrendingUp, Shield, Eye, FileText, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import Navbar from "@/components/Navbar";
 
 export default function WebsiteAnalysis() {
   const [analysisResult, setAnalysisResult] = useState<WebsiteAnalysisResponse | null>(null);
@@ -102,29 +103,10 @@ export default function WebsiteAnalysis() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900">
-      {/* Header */}
-      <header className="border-b bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm sticky top-0 z-10">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2" data-testid="link-home">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-              <span className="text-white font-bold text-lg">G</span>
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              GeoRankers
-            </span>
-          </Link>
-          <nav className="flex items-center gap-6">
-            <Link href="/" className="text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-testid="link-home-nav">
-              Home
-            </Link>
-            <Link href="/geo-guide" className="text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-testid="link-geo-guide">
-              GEO Guide
-            </Link>
-          </nav>
-        </div>
-      </header>
+      {/* Navigation Bar */}
+      <Navbar />
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 pt-24">
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">

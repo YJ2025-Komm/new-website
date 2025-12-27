@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Rocket, Loader2, CheckCircle } from "lucide-react";
+import Navbar from "@/components/Navbar";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import QuizModal from "@/components/QuizModal";
 import { useExitIntent } from "@/hooks/useExitIntent";
@@ -250,26 +251,11 @@ export default function GeoGuide() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <a href="/" className="text-xl font-bold hover:scale-105 transition-transform duration-200">
-              <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
-                GeoRankers
-              </span>
-            </a>
-            <div className="hidden md:block">
-              <Button onClick={scrollToWaitlist} className="bg-gradient-to-r from-blue-500 to-violet-500 text-white hover:from-blue-600 hover:to-violet-600">
-                Join Waitlist
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
+      {/* Navigation Bar */}
+      <Navbar />
 
       {/* Hero Section */}
-      <section className="relative py-20 min-h-[70vh] flex items-center">
+      <section className="relative py-20 pt-28 min-h-[70vh] flex items-center">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
