@@ -1620,37 +1620,36 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative bg-gradient-to-b from-white to-slate-50 border-t border-slate-200/50 py-16 sm:py-20 overflow-hidden">
+      <footer className="relative py-16 sm:py-20 overflow-hidden bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
         {/* Background accents */}
-        <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-0 right-1/4 w-56 h-56 bg-gradient-to-r from-violet-400/10 to-pink-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-32 bg-gradient-to-r from-blue-400/5 to-violet-400/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-1/4 w-56 h-56 bg-gradient-to-r from-violet-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center space-y-10">
             {/* Trust Line */}
-            <p className="text-xl sm:text-2xl font-medium text-slate-800 whitespace-nowrap">
-              Built for B2B teams to track and improve their <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">AI search visibility</span>.
+            <p className="text-xl sm:text-2xl font-medium text-white whitespace-nowrap">
+              Built for B2B teams to track and improve their <span className="text-blue-200">AI search visibility</span>.
             </p>
 
             {/* Contact */}
             <div className="space-y-3">
-              <p className="text-xs font-medium text-slate-400 uppercase tracking-widest">Contact</p>
+              <p className="text-xs font-medium text-blue-200/70 uppercase tracking-widest">Contact</p>
               <a 
                 href="mailto:hello@georankers.co"
-                className="inline-flex items-center text-slate-600 hover:text-blue-600 transition-all duration-300 text-base font-medium group"
+                className="inline-flex items-center text-white/90 hover:text-white transition-all duration-300 text-base font-medium group"
                 data-testid="link-footer-email"
               >
-                <Mail className="w-4 h-4 mr-2 text-slate-400 group-hover:text-blue-500 transition-colors" />
+                <Mail className="w-4 h-4 mr-2 text-blue-200/70 group-hover:text-white transition-colors" />
                 hello@georankers.co
               </a>
             </div>
 
             {/* Divider */}
-            <div className="w-32 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+            <div className="w-32 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
 
             {/* Legal */}
-            <p className="text-slate-400 text-xs">
+            <p className="text-blue-200/60 text-xs">
               © 2025 GeoRankers. All rights reserved.
             </p>
           </div>
