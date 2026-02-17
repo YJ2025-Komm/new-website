@@ -567,14 +567,14 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-3xl sm:text-4xl lg:text-7xl font-bold mb-6 lg:mb-8 leading-tight">
-                Measure and Improve Your Brand's <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Visibility.</span>
+                AI Search Visibility <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Built for B2B SaaS</span>
               </h1>
               
               <p className="text-base sm:text-lg lg:text-xl text-slate-600 mb-8 lg:mb-12 leading-relaxed max-w-3xl mx-auto">
-                Track how your brand shows up on ChatGPT, Gemini, and AIO answers, monitor competitor mentions, and optimize for the new era of discovery.
+                See how AI platforms position your software in buyer-intent prompts, track competitor recommendations, and close visibility gaps that impact pipeline.
               </p>
               
-              <div className="mb-2">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
                 <a 
                   href="https://dashboard.georankers.co/register"
                   className="inline-flex items-center px-6 py-3 lg:px-8 lg:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base lg:text-lg text-white transform hover:scale-105 transition-all duration-300 shadow-2xl"
@@ -582,6 +582,15 @@ export default function Home() {
                 >
                   <Rocket className="w-4 h-4 lg:w-5 lg:h-5 mr-2 lg:mr-3" />
                   Try for Free
+                </a>
+                <a 
+                  href="https://calendly.com/georankers/demo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 lg:px-8 lg:py-4 border-2 border-slate-300 hover:border-blue-400 rounded-2xl font-semibold text-base lg:text-lg text-slate-700 hover:text-blue-600 transform hover:scale-105 transition-all duration-300"
+                  data-testid="cta-book-demo-hero"
+                >
+                  Book a Demo
                 </a>
               </div>
               <p className="text-sm text-slate-500">No credit card required</p>
