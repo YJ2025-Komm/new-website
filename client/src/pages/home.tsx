@@ -594,7 +594,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 sm:mb-14">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              See Your <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Visibility Score</span> in Action
+              See Your Brand's <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Visibility</span> in Action
             </h2>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60">
