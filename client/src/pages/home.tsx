@@ -316,6 +316,22 @@ export default function Home() {
             "@type": "Answer",
             "text": "No technical expertise required. GeoRankers is designed for marketing teams, content managers, and business leaders. Our platform provides clear, actionable insights and recommendations that your team can implement using existing content and marketing workflows. We translate complex AI behavior into practical marketing strategies."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "How does GeoRankers track AI visibility?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GeoRankers simulates buyer-intent prompts across multiple AI models, analyzes brand mentions and citations, and benchmarks competitor presence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my competitor showing up in ChatGPT but not my brand?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI models often recommend brands that are more frequently cited, well-structured, and contextually relevant across trusted web sources."
+          }
         }
       ]
     });
@@ -651,10 +667,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              Why <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">GeoRankers:</span> The Strategic Advantage
+              The Strategic Edge in <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search</span>
             </h2>
             <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
-              The New AI Search Paradigm Demands a New Strategy
+              Visibility in AI Answers Is the New Competitive Moat.
             </p>
           </div>
           
@@ -749,7 +765,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              The GeoRankers <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Feature Suite:</span> From Insights to Authority
+              The AI Visibility Stack for <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">B2B SaaS Teams</span>
             </h2>
           </div>
           
@@ -1216,6 +1232,58 @@ export default function Home() {
                   <div className="px-6 sm:px-8 pb-6 sm:pb-8">
                     <p className="text-slate-600 leading-relaxed">
                       No technical expertise required. GeoRankers is designed for marketing teams, content managers, and business leaders. Our platform provides clear, actionable insights and recommendations that your team can implement using existing content and marketing workflows. We translate complex AI behavior into practical marketing strategies.
+                    </p>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
+            {/* FAQ Item 9 */}
+            <Card className="glass rounded-2xl border-0">
+              <CardContent className="p-0">
+                <button
+                  onClick={() => setOpenFAQ(openFAQ === 9 ? null : 9)}
+                  className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
+                >
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                    How does GeoRankers track AI visibility?
+                  </h3>
+                  {openFAQ === 9 ? (
+                    <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
+                  )}
+                </button>
+                {openFAQ === 9 && (
+                  <div className="px-6 sm:px-8 pb-6 sm:pb-8">
+                    <p className="text-slate-600 leading-relaxed">
+                      GeoRankers simulates buyer-intent prompts across multiple AI models, analyzes brand mentions and citations, and benchmarks competitor presence.
+                    </p>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
+            {/* FAQ Item 10 */}
+            <Card className="glass rounded-2xl border-0">
+              <CardContent className="p-0">
+                <button
+                  onClick={() => setOpenFAQ(openFAQ === 10 ? null : 10)}
+                  className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
+                >
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                    Why is my competitor showing up in ChatGPT but not my brand?
+                  </h3>
+                  {openFAQ === 10 ? (
+                    <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
+                  )}
+                </button>
+                {openFAQ === 10 && (
+                  <div className="px-6 sm:px-8 pb-6 sm:pb-8">
+                    <p className="text-slate-600 leading-relaxed">
+                      AI models often recommend brands that are more frequently cited, well-structured, and contextually relevant across trusted web sources.
                     </p>
                   </div>
                 )}
