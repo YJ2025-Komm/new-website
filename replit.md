@@ -48,6 +48,7 @@ GEO Guide: Restored to navigation per user request (August 28, 2025).
 1. **Landing Page**: Modern, responsive design showcasing GeoRankers features
 2. **Waitlist System**: Email collection with duplicate prevention and Mailchimp integration
 3. **Interactive FAQ Section**: Expandable questions with smooth animations and SEO optimization
+4. **Pricing Page**: Three-tier pricing (Launch $49, Grow $159, Enterprise Custom) with quarterly billing toggle, agency banner, and 6 FAQs at /pricing
 4. **Multi-Page Website Analysis**: Intelligent web crawler that analyzes up to 30 pages to provide AI visibility scores and actionable recommendations
 5. **Component Library**: Comprehensive UI components from shadcn/ui
 6. **Form Validation**: Type-safe forms with Zod schemas
