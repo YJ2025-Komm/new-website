@@ -38,8 +38,12 @@ import {
   MessageSquare,
   Zap,
   Bot,
-  Send
+  Send,
+  Quote,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
+import { SiLinkedin } from "react-icons/si";
 import geminiLogo from "@assets/Gemini_1753958628531.png";
 import grokLogo from "@assets/Grok_1753958628535.png";
 import openaiLogo from "@assets/Open Ai_1753958628536.png";
@@ -78,6 +82,25 @@ export default function Home() {
   const [showQuizModal, setShowQuizModal] = useState(false);
   const [showExitIntentPopup, setShowExitIntentPopup] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const testimonials = [
+    {
+      quote: "GeoRankers completely changed how we think about content strategy. We discovered our competitors were showing up in ChatGPT for our core keywords while we were invisible. Within 8 weeks of acting on their recommendations, our brand started appearing in AI responses.",
+      name: "Sarah Mitchell",
+      company: "VP of Marketing, CloudStack Solutions",
+    },
+    {
+      quote: "The prompt intelligence feature is a game-changer. We can now see exactly which buyer-intent questions are being asked and whether our brand gets mentioned. It's like having an SEO tool built specifically for the AI era.",
+      name: "James Rodriguez",
+      company: "Head of Growth, DataSync Pro",
+    },
+    {
+      quote: "We were spending thousands on traditional SEO without realizing AI search was eating into our organic traffic. GeoRankers gave us the visibility we needed to pivot our strategy and start winning in AI-generated recommendations.",
+      name: "Emily Chen",
+      company: "CMO, RevOps Platform",
+    },
+  ];
   const [resourcesOpen, setResourcesOpen] = useState(false);
 
   // Exit intent detection
@@ -677,79 +700,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why GeoRankers Section */}
-      <section id="problem" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-b from-slate-50/50 to-blue-50/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              The Strategic Edge in <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search</span>
-            </h2>
-            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
-              Visibility in AI Answers Is the New Competitive Moat.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
-            {/* Strategic Benefits */}
-            <Card className="glass rounded-2xl p-6 sm:p-8 transform hover:scale-105 transition-all duration-300 border-0">
-              <CardContent className="pt-0">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-violet-500 rounded-2xl flex items-center justify-center mb-6">
-                  <Eye className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-slate-900">First-Mover Advantage in AI Search</h3>
-                <p className="text-slate-600">Position your brand as an authority before competitors understand the new paradigm. Get visible in AI responses while others are still figuring out traditional SEO.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass rounded-2xl p-6 sm:p-8 transform hover:scale-105 transition-all duration-300 border-0">
-              <CardContent className="pt-0">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
-                  <TrendingUp className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-slate-900">Predictive Content Strategy</h3>
-                <p className="text-slate-600">Stop reacting to trends. Our forecasting engine identifies emerging topics 30-60 days before they peak, helping you create content that captures traffic at the perfect moment.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass rounded-2xl p-6 sm:p-8 transform hover:scale-105 transition-all duration-300 border-0">
-              <CardContent className="pt-0">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
-                  <ChartLine className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-slate-900">Data-Driven Decision Making</h3>
-                <p className="text-slate-600">Replace guesswork with intelligence. Track your brand mentions across AI platforms, understand context, and optimize based on real performance data from ChatGPT, Gemini, and Claude.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass rounded-2xl p-6 sm:p-8 transform hover:scale-105 transition-all duration-300 border-0">
-              <CardContent className="pt-0">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6">
-                  <Target className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-slate-900">Competitive Intelligence</h3>
-                <p className="text-slate-600">Monitor how often competitors appear in AI responses, identify content gaps they're missing, and discover opportunities to outrank them in AI-generated recommendations.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass rounded-2xl p-6 sm:p-8 transform hover:scale-105 transition-all duration-300 border-0">
-              <CardContent className="pt-0">
-                <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6">
-                  <Rocket className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-slate-900">Accelerated Brand Authority</h3>
-                <p className="text-slate-600">Build topical expertise that AI models recognize and cite. Our platform guides you to create content that establishes your brand as the go-to source in your industry.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass rounded-2xl p-6 sm:p-8 transform hover:scale-105 transition-all duration-300 border-0">
-              <CardContent className="pt-0">
-                <div className="w-16 h-16 bg-gradient-to-r from-violet-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6">
-                  <Brain className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-slate-900">AI-Native Marketing ROI</h3>
-                <p className="text-slate-600">Measure what matters in the AI era. Track brand visibility, mention quality, and competitive positioning across AI platforms to prove marketing impact and guide budget allocation.</p>
-              </CardContent>
-            </Card>
+      {/* Stats Section */}
+      <section id="problem" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10">
+              <div className="text-4xl sm:text-5xl font-bold text-white mb-3">20–60%</div>
+              <p className="text-white/80 text-sm leading-relaxed">AI-generated answers reduce organic clicks by 20–60%</p>
+            </div>
+            <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10">
+              <div className="text-4xl sm:text-5xl font-bold text-white mb-3">70%+</div>
+              <p className="text-white/80 text-sm leading-relaxed">of brands are not mentioned in AI answers for their core category prompts</p>
+            </div>
+            <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10">
+              <div className="text-4xl sm:text-5xl font-bold text-white mb-3">50%+</div>
+              <p className="text-white/80 text-sm leading-relaxed">of B2B buyers use generative AI tools during vendor research</p>
+            </div>
+            <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10">
+              <div className="text-4xl sm:text-5xl font-bold text-white mb-3">70%</div>
+              <p className="text-white/80 text-sm leading-relaxed">of the B2B buying journey happens before a buyer speaks to sales</p>
+            </div>
           </div>
         </div>
       </section>
@@ -1210,6 +1182,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+              What Our <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Customers</span> Say
+            </h2>
+          </div>
+
+          <div className="relative">
+            <div className="glass rounded-3xl p-8 sm:p-12 border-0 text-center">
+              <Quote className="w-10 h-10 text-blue-400/30 mx-auto mb-6" />
+              <p className="text-lg sm:text-xl text-slate-700 leading-relaxed mb-8 italic">
+                "{testimonials[currentTestimonial].quote}"
+              </p>
+              <div>
+                <p className="font-bold text-slate-900 text-lg">{testimonials[currentTestimonial].name}</p>
+                <p className="text-slate-500 text-sm">{testimonials[currentTestimonial].company}</p>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <button
+                onClick={() => setCurrentTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))}
+                className="w-10 h-10 rounded-full bg-white shadow-md border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors"
+              >
+                <ChevronLeft className="w-5 h-5 text-slate-600" />
+              </button>
+              <div className="flex gap-2">
+                {testimonials.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentTestimonial(i)}
+                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === currentTestimonial ? "bg-gradient-to-r from-blue-500 to-violet-500 w-8" : "bg-slate-300"}`}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={() => setCurrentTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))}
+                className="w-10 h-10 rounded-full bg-white shadow-md border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors"
+              >
+                <ChevronRight className="w-5 h-5 text-slate-600" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section id="faq" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-white">
         <div className="max-w-4xl mx-auto">
@@ -1646,36 +1666,62 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="relative py-16 sm:py-20 overflow-hidden bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
-        {/* Background accents */}
         <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl"></div>
         <div className="absolute top-0 right-1/4 w-56 h-56 bg-gradient-to-r from-violet-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center space-y-10">
-            {/* Trust Line */}
-            <p className="text-xl sm:text-2xl font-medium text-white whitespace-nowrap">
-              Built for B2B teams to track and improve their <span className="text-blue-200">AI search visibility</span>.
-            </p>
+          <div className="grid sm:grid-cols-3 gap-10 sm:gap-8 mb-12">
+            {/* Brand */}
+            <div>
+              <div className="text-2xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-blue-200 to-violet-200 bg-clip-text text-transparent">GeoRankers</span>
+              </div>
+              <p className="text-white/60 text-sm leading-relaxed mb-6">
+                AI Search Visibility Platform for B2B SaaS Teams
+              </p>
+              <a
+                href="https://www.linkedin.com/company/georankers/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                <SiLinkedin className="w-5 h-5 text-white" />
+              </a>
+            </div>
+
+            {/* Links */}
+            <div>
+              <p className="text-xs font-medium text-blue-200/70 uppercase tracking-widest mb-4">Quick Links</p>
+              <div className="space-y-3">
+                <Link href="/pricing" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  Pricing
+                </Link>
+                <a href="https://blog.georankers.co/" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  Blog
+                </a>
+                <Link href="/geo-guide" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  GEO Guide
+                </Link>
+              </div>
+            </div>
 
             {/* Contact */}
-            <div className="space-y-3">
-              <p className="text-xs font-medium text-blue-200/70 uppercase tracking-widest">Contact</p>
+            <div>
+              <p className="text-xs font-medium text-blue-200/70 uppercase tracking-widest mb-4">Contact</p>
               <a 
                 href="mailto:hello@georankers.co"
-                className="inline-flex items-center text-white/90 hover:text-white transition-all duration-300 text-base font-medium group"
+                className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm group"
                 data-testid="link-footer-email"
               >
                 <Mail className="w-4 h-4 mr-2 text-blue-200/70 group-hover:text-white transition-colors" />
                 hello@georankers.co
               </a>
             </div>
+          </div>
 
-            {/* Divider */}
-            <div className="w-32 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-
-            {/* Legal */}
+          <div className="border-t border-white/10 pt-8 text-center">
             <p className="text-blue-200/60 text-xs">
-              © 2025 GeoRankers. All rights reserved.
+              © {new Date().getFullYear()} GeoRankers. All rights reserved.
             </p>
           </div>
         </div>
