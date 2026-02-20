@@ -436,6 +436,9 @@ export default function Home() {
               <a href="#features" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 Features
               </a>
+              <Link href="/pricing" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" data-testid="link-pricing">
+                Pricing
+              </Link>
               {/* Resources Dropdown */}
               <div className="relative">
                 <button 
@@ -537,6 +540,13 @@ export default function Home() {
               >
                 Features
               </a>
+              <Link 
+                href="/pricing" 
+                className="block text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Pricing
+              </Link>
               {/* Mobile Resources Collapsible */}
               <div>
                 <button 
