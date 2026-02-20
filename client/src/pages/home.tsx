@@ -701,26 +701,24 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section id="problem" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10">
-              <div className="text-4xl sm:text-5xl font-bold text-white mb-3">20–60%</div>
-              <p className="text-white/80 text-sm leading-relaxed">AI-generated answers reduce organic clicks by 20–60%</p>
+      <section id="problem" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+            <div className="rounded-2xl bg-gradient-to-br from-blue-50 to-violet-50 border border-blue-100 p-8 sm:p-10">
+              <div className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent mb-3">50%+</div>
+              <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">B2B buyers use AI tools during vendor research</p>
             </div>
-            <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10">
-              <div className="text-4xl sm:text-5xl font-bold text-white mb-3">70%+</div>
-              <p className="text-white/80 text-sm leading-relaxed">of brands are not mentioned in AI answers for their core category prompts</p>
+            <div className="rounded-2xl bg-gradient-to-br from-violet-50 to-pink-50 border border-violet-100 p-8 sm:p-10">
+              <div className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent mb-3">50%+</div>
+              <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">B2B buyers use AI for solution comparisons and feature evaluations</p>
             </div>
-            <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10">
-              <div className="text-4xl sm:text-5xl font-bold text-white mb-3">50%+</div>
-              <p className="text-white/80 text-sm leading-relaxed">of B2B buyers use generative AI tools during vendor research</p>
+            <div className="rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-100 p-8 sm:p-10">
+              <div className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-3">70%</div>
+              <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">of the B2B buying journey happens before sales contact</p>
             </div>
-            <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10">
-              <div className="text-4xl sm:text-5xl font-bold text-white mb-3">70%</div>
-              <p className="text-white/80 text-sm leading-relaxed">of the B2B buying journey happens before a buyer speaks to sales</p>
+            <div className="rounded-2xl bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-100 p-8 sm:p-10">
+              <div className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent mb-3">60%+</div>
+              <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">Executives use AI for summaries, comparisons, and vendor evaluation</p>
             </div>
           </div>
         </div>
