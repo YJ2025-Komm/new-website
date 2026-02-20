@@ -14,6 +14,7 @@ import {
   ArrowRight,
   Mail,
 } from "lucide-react";
+import { SiLinkedin } from "react-icons/si";
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(true);
@@ -488,52 +489,61 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
-        <div className="max-w-5xl mx-auto text-center">
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6">
-            Ready to Own Your AI Visibility?
-          </h3>
-          <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-            Join B2B SaaS teams already tracking and improving how AI recommends their brand.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="https://dashboard.georankers.co/register"
-              className="inline-flex items-center px-8 py-4 bg-white text-blue-700 rounded-xl font-semibold hover:bg-blue-50 transition-colors duration-200 shadow-lg"
-            >
-              <Rocket className="w-5 h-5 mr-2" />
-              Try for Free
-            </a>
-            <a
-              href="https://calendly.com/georankers/demo"
-              className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white rounded-xl font-semibold hover:bg-white/10 transition-colors duration-200"
-            >
-              Book a Demo
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="relative py-16 sm:py-20 overflow-hidden bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-white mb-4">
-              <span className="bg-gradient-to-r from-blue-200 to-violet-200 bg-clip-text text-transparent">GeoRankers</span>
+        <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-1/4 w-56 h-56 bg-gradient-to-r from-violet-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid sm:grid-cols-3 gap-10 sm:gap-8 mb-12">
+            <div>
+              <div className="text-2xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-blue-200 to-violet-200 bg-clip-text text-transparent">GeoRankers</span>
+              </div>
+              <p className="text-white/60 text-sm leading-relaxed mb-6">
+                AI Search Visibility Platform for B2B SaaS Teams
+              </p>
+              <a
+                href="https://www.linkedin.com/company/georankers/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                <SiLinkedin className="w-5 h-5 text-white" />
+              </a>
             </div>
-            <p className="text-white/60 mb-6 max-w-md mx-auto">
-              AI Search Visibility Platform for B2B SaaS Teams
-            </p>
-            <div className="flex items-center justify-center gap-2 text-white/60 hover:text-white/80 transition-colors">
-              <Mail className="w-4 h-4" />
-              <a href="mailto:hello@georankers.co" className="text-sm">
+
+            <div>
+              <p className="text-xs font-medium text-blue-200/70 uppercase tracking-widest mb-4">Quick Links</p>
+              <div className="space-y-3">
+                <Link href="/pricing" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  Pricing
+                </Link>
+                <a href="https://blog.georankers.co/" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  Blog
+                </a>
+                <Link href="/geo-guide" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  GEO Guide
+                </Link>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-xs font-medium text-blue-200/70 uppercase tracking-widest mb-4">Contact</p>
+              <a 
+                href="mailto:hello@georankers.co"
+                className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm group"
+              >
+                <Mail className="w-4 h-4 mr-2 text-blue-200/70 group-hover:text-white transition-colors" />
                 hello@georankers.co
               </a>
             </div>
-            <div className="mt-8 pt-8 border-t border-white/10 text-white/40 text-sm">
+          </div>
+
+          <div className="border-t border-white/10 pt-8 text-center">
+            <p className="text-blue-200/60 text-xs">
               © {new Date().getFullYear()} GeoRankers. All rights reserved.
-            </div>
+            </p>
           </div>
         </div>
       </footer>
