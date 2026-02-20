@@ -21,88 +21,21 @@ export default function Pricing() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
 
-  const plans = [
-    {
-      name: "Launch",
-      icon: <Rocket className="w-6 h-6 text-white" />,
-      iconBg: "from-blue-500 to-cyan-500",
-      monthlyPrice: 49,
-      quarterlyPrice: 41,
-      description: "Perfect for startups beginning their AI visibility journey.",
-      features: [
-        { label: "Seed Prompts", value: "3" },
-        { label: "AI Prompts Tracked", value: "Up to 25" },
-        { label: "LLMs Tracked", value: "ChatGPT" },
-        { label: "Competitors Tracked", value: "3" },
-        { label: "Region / ICP Filters", value: "1" },
-        { label: "GEO Agent Intelligence", value: "10 conversations/day" },
-        { label: "Seats", value: "1" },
-        { label: "Daily Prompt Runs", value: "1" },
-        { label: "Report Export", value: "—" },
-        { label: "Integrations", value: "Google Analytics, GSC" },
-        { label: "Support", value: "Email" },
-        { label: "Dedicated Account Manager", value: "—" },
-        { label: "Analytics History", value: "Last 2 Runs" },
-        { label: "Dedicated GEO Specialist", value: "—" },
-      ],
-      cta: "Start Free Trial",
-      ctaLink: "https://dashboard.georankers.co/register",
-      popular: false,
-    },
-    {
-      name: "Grow",
-      icon: <Star className="w-6 h-6 text-white" />,
-      iconBg: "from-violet-500 to-pink-500",
-      monthlyPrice: 159,
-      quarterlyPrice: 129,
-      description: "For growing teams ready to dominate AI search visibility.",
-      features: [
-        { label: "Seed Prompts", value: "Up to 6" },
-        { label: "AI Prompts Tracked", value: "Up to 50" },
-        { label: "LLMs Tracked", value: "ChatGPT, Gemini, AIO, Perplexity*" },
-        { label: "Competitors Tracked", value: "5" },
-        { label: "Region / ICP Filters", value: "Up to 3" },
-        { label: "GEO Agent Intelligence", value: "20 conversations/day" },
-        { label: "Seats", value: "3" },
-        { label: "Daily Prompt Runs", value: "1" },
-        { label: "Report Export", value: "Yes" },
-        { label: "Integrations", value: "Google Analytics, GSC" },
-        { label: "Support", value: "Email, Slack" },
-        { label: "Dedicated Account Manager", value: "—" },
-        { label: "Analytics History", value: "Last 5 Runs" },
-        { label: "Dedicated GEO Specialist", value: "—" },
-      ],
-      cta: "Start Free Trial",
-      ctaLink: "https://dashboard.georankers.co/register",
-      popular: true,
-    },
-    {
-      name: "Enterprise",
-      icon: <Building2 className="w-6 h-6 text-white" />,
-      iconBg: "from-slate-700 to-slate-900",
-      monthlyPrice: null,
-      quarterlyPrice: null,
-      description: "Tailored solutions for large organizations with custom needs.",
-      features: [
-        { label: "Seed Prompts", value: "Custom" },
-        { label: "AI Prompts Tracked", value: "Custom" },
-        { label: "LLMs Tracked", value: "ChatGPT, Gemini, AIO, Perplexity*" },
-        { label: "Competitors Tracked", value: "Custom" },
-        { label: "Region / ICP Filters", value: "Up to 5" },
-        { label: "GEO Agent Intelligence", value: "Custom" },
-        { label: "Seats", value: "Custom" },
-        { label: "Daily Prompt Runs", value: "Custom" },
-        { label: "Report Export", value: "Yes" },
-        { label: "Integrations", value: "Google Analytics, GSC" },
-        { label: "Support", value: "Email, Slack" },
-        { label: "Dedicated Account Manager", value: "Yes" },
-        { label: "Analytics History", value: "Custom" },
-        { label: "Dedicated GEO Specialist", value: "Yes" },
-      ],
-      cta: "Contact Sales",
-      ctaLink: "https://calendly.com/georankers/demo",
-      popular: false,
-    },
+  const comparisonRows = [
+    { label: "Seed Prompts", launch: "3", grow: "Up to 6", enterprise: "Custom" },
+    { label: "Overall AI Prompts Tracked", launch: "Up to 25", grow: "Up to 50", enterprise: "Custom" },
+    { label: "LLMs Tracked", launch: "ChatGPT", grow: "ChatGPT, Gemini, AIO, Perplexity*", enterprise: "ChatGPT, Gemini, AIO, Perplexity*" },
+    { label: "Competitors Tracked", launch: "3", grow: "5", enterprise: "Custom" },
+    { label: "Region / ICP Filters", launch: "1", grow: "Up to 3", enterprise: "Up to 5" },
+    { label: "GEO Agent Intelligence", launch: "10 conv/day", grow: "20 conv/day", enterprise: "Custom" },
+    { label: "Seats", launch: "1", grow: "3", enterprise: "Custom" },
+    { label: "Daily Prompt Runs", launch: "1", grow: "1", enterprise: "Custom" },
+    { label: "Report Export", launch: "no", grow: "yes", enterprise: "yes" },
+    { label: "Integrations", launch: "Google Analytics, GSC", grow: "Google Analytics, GSC", enterprise: "Google Analytics, GSC" },
+    { label: "Support", launch: "Email", grow: "Email, Slack", enterprise: "Email, Slack" },
+    { label: "Dedicated Account Manager", launch: "no", grow: "no", enterprise: "yes" },
+    { label: "Analytics History", launch: "Last 2 Runs", grow: "Last 5 Runs", enterprise: "Custom" },
+    { label: "Dedicated GEO Specialist", launch: "no", grow: "no", enterprise: "yes" },
   ];
 
   const faqs = [
@@ -272,88 +205,217 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Pricing Cards */}
+      {/* Pricing Comparison Table */}
       <section className="relative z-10 px-4 sm:px-6 lg:px-8 -mt-4 pb-16 sm:pb-20">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 lg:gap-8">
-          {plans.map((plan) => (
-            <Card
-              key={plan.name}
-              className={`relative rounded-3xl border-0 overflow-hidden transition-all duration-300 hover:scale-[1.02] ${
-                plan.popular
-                  ? "bg-gradient-to-b from-violet-50 to-white shadow-2xl shadow-violet-200/50 ring-2 ring-violet-400"
-                  : "glass shadow-lg"
-              }`}
-            >
-              {plan.popular && (
-                <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-500 to-violet-500 text-white text-center text-xs font-semibold py-1.5">
-                  Most Popular
-                </div>
-              )}
-              <CardContent className={`p-6 sm:p-8 ${plan.popular ? "pt-10" : ""}`}>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-10 h-10 bg-gradient-to-r ${plan.iconBg} rounded-xl flex items-center justify-center`}>
-                    {plan.icon}
+        <div className="max-w-6xl mx-auto">
+          {/* Desktop Table */}
+          <div className="hidden lg:block">
+            <Card className="glass rounded-3xl border-0 shadow-xl overflow-hidden">
+              <CardContent className="p-0">
+                {/* Header Row with Plan Names + Pricing + CTAs */}
+                <div className="grid grid-cols-4 border-b border-slate-200/50">
+                  <div className="p-8 flex items-end">
+                    <p className="text-sm text-slate-500">Compare plans side by side</p>
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900">{plan.name}</h3>
-                </div>
-                <p className="text-slate-600 text-sm mb-6">{plan.description}</p>
 
-                <div className="mb-6">
-                  {plan.monthlyPrice ? (
-                    <>
-                      <div className="flex items-end gap-1">
-                        <span className="text-4xl font-bold text-slate-900">
-                          ${annual ? plan.quarterlyPrice : plan.monthlyPrice}
-                        </span>
-                        <span className="text-slate-500 text-sm mb-1">/month</span>
+                  {/* Launch */}
+                  <div className="p-8 text-center border-l border-slate-200/50">
+                    <div className="flex items-center justify-center gap-2 mb-3">
+                      <div className="w-9 h-9 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                        <Rocket className="w-5 h-5 text-white" />
                       </div>
-                      {annual && (
-                        <p className="text-xs text-green-600 mt-1">
-                          Billed quarterly · Save ${((plan.monthlyPrice - plan.quarterlyPrice!) * 3)}/quarter
-                        </p>
-                      )}
-                    </>
-                  ) : (
-                    <div className="flex items-end gap-1">
-                      <span className="text-4xl font-bold text-slate-900">Custom</span>
+                      <h3 className="text-xl font-bold text-slate-900">Launch</h3>
                     </div>
-                  )}
+                    <div className="mb-1">
+                      <span className="text-3xl font-bold text-slate-900">${annual ? 41 : 49}</span>
+                      <span className="text-slate-500 text-sm">/mo</span>
+                    </div>
+                    {annual && <p className="text-xs text-green-600 mb-4">Billed quarterly · Save $24/quarter</p>}
+                    {!annual && <p className="text-xs text-slate-400 mb-4">Billed monthly</p>}
+                    <a href="https://dashboard.georankers.co/register" className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-slate-100 hover:bg-slate-200 text-slate-900 transition-colors">
+                      Start Free Trial <ArrowRight className="w-3.5 h-3.5 inline-block ml-1" />
+                    </a>
+                  </div>
+
+                  {/* Grow */}
+                  <div className="p-8 text-center border-l border-slate-200/50 bg-gradient-to-b from-violet-50/80 to-transparent relative">
+                    <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-500 to-violet-500 text-white text-xs font-semibold py-1">
+                      Most Popular
+                    </div>
+                    <div className="flex items-center justify-center gap-2 mb-3 mt-4">
+                      <div className="w-9 h-9 bg-gradient-to-r from-violet-500 to-pink-500 rounded-lg flex items-center justify-center">
+                        <Star className="w-5 h-5 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-slate-900">Grow</h3>
+                    </div>
+                    <div className="mb-1">
+                      <span className="text-3xl font-bold text-slate-900">${annual ? 129 : 159}</span>
+                      <span className="text-slate-500 text-sm">/mo</span>
+                    </div>
+                    {annual && <p className="text-xs text-green-600 mb-4">Billed quarterly · Save $90/quarter</p>}
+                    {!annual && <p className="text-xs text-slate-400 mb-4">Billed monthly</p>}
+                    <a href="https://dashboard.georankers.co/register" className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white shadow-lg transition-all">
+                      Start Free Trial <ArrowRight className="w-3.5 h-3.5 inline-block ml-1" />
+                    </a>
+                  </div>
+
+                  {/* Enterprise */}
+                  <div className="p-8 text-center border-l border-slate-200/50">
+                    <div className="flex items-center justify-center gap-2 mb-3">
+                      <div className="w-9 h-9 bg-gradient-to-r from-slate-700 to-slate-900 rounded-lg flex items-center justify-center">
+                        <Building2 className="w-5 h-5 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-slate-900">Enterprise</h3>
+                    </div>
+                    <div className="mb-1">
+                      <span className="text-3xl font-bold text-slate-900">Custom</span>
+                    </div>
+                    <p className="text-xs text-slate-400 mb-4">Tailored to your needs</p>
+                    <a href="https://calendly.com/georankers/demo" className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-colors">
+                      Contact Sales <ArrowRight className="w-3.5 h-3.5 inline-block ml-1" />
+                    </a>
+                  </div>
                 </div>
 
-                <a
-                  href={plan.ctaLink}
-                  className={`block w-full text-center py-3 rounded-xl font-semibold text-sm transition-all duration-200 mb-8 ${
-                    plan.popular
-                      ? "bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white shadow-lg"
-                      : plan.name === "Enterprise"
-                      ? "bg-slate-900 hover:bg-slate-800 text-white"
-                      : "bg-slate-100 hover:bg-slate-200 text-slate-900"
-                  }`}
-                >
-                  {plan.cta}
-                  <ArrowRight className="w-4 h-4 inline-block ml-2" />
-                </a>
-
-                <div className="space-y-3">
-                  {plan.features.map((feature, i) => (
-                    <div key={i} className="flex items-start justify-between text-sm">
-                      <span className="text-slate-600 flex items-start">
-                        <Check className={`w-4 h-4 mr-2 mt-0.5 flex-shrink-0 ${feature.value === "—" ? "text-slate-300" : "text-blue-500"}`} />
-                        {feature.label}
-                      </span>
-                      <span className={`font-medium text-right ml-2 ${feature.value === "—" ? "text-slate-300" : "text-slate-800"}`}>
-                        {feature.value}
-                      </span>
+                {/* Feature Rows */}
+                {comparisonRows.map((row, i) => {
+                  const renderCell = (value: string) => {
+                    if (value === "yes") return <Check className="w-5 h-5 text-green-500 mx-auto" />;
+                    if (value === "no") return <span className="text-slate-300">—</span>;
+                    return <span className="text-slate-700 text-sm">{value}</span>;
+                  };
+                  return (
+                    <div key={i} className={`grid grid-cols-4 ${i % 2 === 0 ? "bg-slate-50/50" : ""} ${i < comparisonRows.length - 1 ? "border-b border-slate-100" : ""}`}>
+                      <div className="px-8 py-4 flex items-center">
+                        <span className="text-sm font-medium text-slate-700">{row.label}</span>
+                      </div>
+                      <div className="px-8 py-4 text-center border-l border-slate-100 flex items-center justify-center">
+                        {renderCell(row.launch)}
+                      </div>
+                      <div className="px-8 py-4 text-center border-l border-slate-100 flex items-center justify-center bg-violet-50/30">
+                        {renderCell(row.grow)}
+                      </div>
+                      <div className="px-8 py-4 text-center border-l border-slate-100 flex items-center justify-center">
+                        {renderCell(row.enterprise)}
+                      </div>
                     </div>
-                  ))}
-                </div>
+                  );
+                })}
 
-                {plan.name === "Grow" && (
-                  <p className="text-xs text-slate-400 mt-4">*Perplexity tracking coming soon</p>
-                )}
+                {/* Perplexity footnote */}
+                <div className="px-8 py-4 border-t border-slate-200/50">
+                  <p className="text-xs text-slate-400">*Perplexity tracking coming soon. Additional GEO Agent conversations charged at $0.01/conversation.</p>
+                </div>
               </CardContent>
             </Card>
-          ))}
+          </div>
+
+          {/* Mobile: Stacked Cards with comparison rows inside */}
+          <div className="lg:hidden space-y-8">
+            {/* Launch */}
+            <Card className="glass rounded-3xl border-0 shadow-lg overflow-hidden">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
+                    <Rocket className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900">Launch</h3>
+                </div>
+                <div className="mb-1">
+                  <span className="text-3xl font-bold text-slate-900">${annual ? 41 : 49}</span>
+                  <span className="text-slate-500 text-sm">/mo</span>
+                </div>
+                {annual && <p className="text-xs text-green-600 mb-4">Billed quarterly · Save $24/quarter</p>}
+                {!annual && <p className="text-xs text-slate-400 mb-4">Billed monthly</p>}
+                <a href="https://dashboard.georankers.co/register" className="block w-full py-3 rounded-xl text-sm font-semibold bg-slate-100 hover:bg-slate-200 text-slate-900 text-center transition-colors mb-6">
+                  Start Free Trial <ArrowRight className="w-4 h-4 inline-block ml-1" />
+                </a>
+                <div className="space-y-3">
+                  {comparisonRows.map((row, i) => {
+                    const val = row.launch;
+                    return (
+                      <div key={i} className="flex items-center justify-between text-sm">
+                        <span className="text-slate-600">{row.label}</span>
+                        <span className="font-medium text-slate-800 text-right ml-2">
+                          {val === "yes" ? <Check className="w-4 h-4 text-green-500 inline" /> : val === "no" ? <span className="text-slate-300">—</span> : val}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Grow */}
+            <Card className="rounded-3xl border-0 shadow-2xl shadow-violet-200/50 ring-2 ring-violet-400 overflow-hidden relative bg-gradient-to-b from-violet-50 to-white">
+              <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-500 to-violet-500 text-white text-center text-xs font-semibold py-1.5">
+                Most Popular
+              </div>
+              <CardContent className="p-6 pt-10">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-violet-500 to-pink-500 rounded-xl flex items-center justify-center">
+                    <Star className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900">Grow</h3>
+                </div>
+                <div className="mb-1">
+                  <span className="text-3xl font-bold text-slate-900">${annual ? 129 : 159}</span>
+                  <span className="text-slate-500 text-sm">/mo</span>
+                </div>
+                {annual && <p className="text-xs text-green-600 mb-4">Billed quarterly · Save $90/quarter</p>}
+                {!annual && <p className="text-xs text-slate-400 mb-4">Billed monthly</p>}
+                <a href="https://dashboard.georankers.co/register" className="block w-full py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white text-center shadow-lg transition-all mb-6">
+                  Start Free Trial <ArrowRight className="w-4 h-4 inline-block ml-1" />
+                </a>
+                <div className="space-y-3">
+                  {comparisonRows.map((row, i) => {
+                    const val = row.grow;
+                    return (
+                      <div key={i} className="flex items-center justify-between text-sm">
+                        <span className="text-slate-600">{row.label}</span>
+                        <span className="font-medium text-slate-800 text-right ml-2">
+                          {val === "yes" ? <Check className="w-4 h-4 text-green-500 inline" /> : val === "no" ? <span className="text-slate-300">—</span> : val}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+                <p className="text-xs text-slate-400 mt-4">*Perplexity tracking coming soon</p>
+              </CardContent>
+            </Card>
+
+            {/* Enterprise */}
+            <Card className="glass rounded-3xl border-0 shadow-lg overflow-hidden">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-slate-700 to-slate-900 rounded-xl flex items-center justify-center">
+                    <Building2 className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900">Enterprise</h3>
+                </div>
+                <div className="mb-1">
+                  <span className="text-3xl font-bold text-slate-900">Custom</span>
+                </div>
+                <p className="text-xs text-slate-400 mb-4">Tailored to your needs</p>
+                <a href="https://calendly.com/georankers/demo" className="block w-full py-3 rounded-xl text-sm font-semibold bg-slate-900 hover:bg-slate-800 text-white text-center transition-colors mb-6">
+                  Contact Sales <ArrowRight className="w-4 h-4 inline-block ml-1" />
+                </a>
+                <div className="space-y-3">
+                  {comparisonRows.map((row, i) => {
+                    const val = row.enterprise;
+                    return (
+                      <div key={i} className="flex items-center justify-between text-sm">
+                        <span className="text-slate-600">{row.label}</span>
+                        <span className="font-medium text-slate-800 text-right ml-2">
+                          {val === "yes" ? <Check className="w-4 h-4 text-green-500 inline" /> : val === "no" ? <span className="text-slate-300">—</span> : val}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
