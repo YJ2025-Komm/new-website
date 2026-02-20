@@ -703,6 +703,9 @@ export default function Home() {
       {/* Stats Section */}
       <section id="problem" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-10 sm:mb-14">
+            Visibility in AI Search = <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Pipeline Velocity</span>
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
             <div className="rounded-2xl bg-gradient-to-br from-blue-50 to-violet-50 border border-blue-100 p-8 sm:p-10">
               <div className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent mb-3">50%+</div>
