@@ -1,0 +1,75 @@
+
+
+----------------------------------
+
+FEATURE 1:
+Title: AI Visibility Intelligence
+Description:
+Unified visibility scoring across ChatGPT, Google AI Mode, and AI Overviews. Instantly see whether your brand appears, where it ranks, and how often AI models recommend you.
+
+Bullet Points:
+- AI Visibility Score (weighted across LLMs)
+- Position tracking (Top, Mid, Low placement)
+- Brand mention frequency analysis
+- Model-wise performance breakdown
+- Sentiment detection (when available)
+
+Image Placeholder:
+Dashboard screenshot showing AI Visibility Score, brand mentions, sentiment widget.
+
+----------------------------------
+
+FEATURE 2:
+Title: Competitive AI Benchmarking
+Description:
+Understand which competitors AI models prefer and where you’re losing authority.
+
+Bullet Points:
+- Competitive visibility comparison charts
+- Share of voice across AI responses
+- Mention distribution by keyword cluster
+- Intent-based competitive analysis
+- Cross-model comparison
+
+Image Placeholder:
+Bar chart comparing brands + radar distribution chart.
+
+----------------------------------
+
+FEATURE 3:
+Title: Prompt Intelligence Engine
+Description:
+Track real prompts AI is answering and monitor whether your brand is included in those responses.
+
+Bullet Points:
+- Discovery, Use Case & Trust intent tracking
+- Keyword-to-prompt mapping
+- ChatGPT, Google AI Mode & AI Overview tracking
+- Brand mention detection
+- Model-wise appearance logs
+
+Image Placeholder:
+Prompt table showing questions + checkmarks/crosses for model mentions.
+
+----------------------------------
+
+FEATURE 4:
+Title: AI Authority Optimization Engine
+Description:
+Turn AI visibility gaps into prioritized, high-impact execution plans.
+
+Bullet Points:
+- Strategic AI recommendations
+- Effort vs impact scoring
+- High / Medium / Quick Win tagging
+- Content authority suggestions
+- Success signal tracking
+
+Image Placeholder:
+Strategic recommendations dashboard with effort/impact labels.
+
+----------------------------------
+
+Structure of this feature section
+
+Feature Pillar 1 (Image Right) Feature Pillar 2 (Image Left) Feature Pillar 3 (Image Right) Feature Pillar 4 (Image Left)

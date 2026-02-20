@@ -33,7 +33,10 @@ import {
   Menu,
   X,
   ExternalLink,
-  Mail
+  Mail,
+  BarChart3,
+  MessageSquare,
+  Zap
 } from "lucide-react";
 import geminiLogo from "@assets/Gemini_1753958628531.png";
 import grokLogo from "@assets/Grok_1753958628535.png";
@@ -769,43 +772,70 @@ export default function Home() {
             </h2>
           </div>
           
-          {/* Feature 1: Predictive AI Search Forecasting */}
+          {/* Feature 1: AI Visibility Intelligence — Image Right */}
           <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-12 mb-8 sm:mb-12 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div>
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-violet-500 rounded-xl flex items-center justify-center mr-4">
-                      <TrendingUp className="w-6 h-6 text-white" />
+                      <Eye className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Predictive AI Search Forecasting</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">AI Visibility Intelligence</h3>
                   </div>
                   <p className="text-lg text-slate-600 mb-6">
-                    Stop reacting to trends. Our proprietary engine analyzes historical AI search data to forecast emerging topics and questions in your industry, helping you build a forward-looking content strategy that wins market share before competitors even know it exists.
+                    Unified visibility scoring across ChatGPT, Google AI Mode, and AI Overviews. Instantly see whether your brand appears, where it ranks, and how often AI models recommend you.
                   </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">AI Visibility Score (weighted across LLMs)</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Position tracking (Top, Mid, Low placement)</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Brand mention frequency analysis</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Model-wise performance breakdown</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Sentiment detection (when available)</span>
+                    </li>
+                  </ul>
                 </div>
                 <div className="glass-strong rounded-2xl p-6">
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between p-3 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
-                      <span className="text-slate-700">Rising: "AI automation tools"</span>
-                      <div className="flex items-center">
-                        <TrendingUp className="w-4 h-4 text-green-500 mr-1" />
-                        <span className="text-sm text-green-600">+45%</span>
+                    <div className="text-center p-4 bg-gradient-to-br from-blue-500/10 to-violet-500/10 rounded-xl border border-blue-500/20">
+                      <div className="text-4xl font-bold text-blue-600 mb-1">82</div>
+                      <div className="text-sm text-slate-600">AI Visibility Score</div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-3">
+                      <div className="text-center p-3 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
+                        <div className="text-lg font-bold text-green-600">Top</div>
+                        <div className="text-xs text-slate-500">ChatGPT</div>
+                      </div>
+                      <div className="text-center p-3 bg-gradient-to-br from-purple-500/10 to-violet-500/10 rounded-lg border border-purple-500/20">
+                        <div className="text-lg font-bold text-purple-600">Mid</div>
+                        <div className="text-xs text-slate-500">Gemini</div>
+                      </div>
+                      <div className="text-center p-3 bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-lg border border-orange-500/20">
+                        <div className="text-lg font-bold text-orange-600">Top</div>
+                        <div className="text-xs text-slate-500">Perplexity</div>
                       </div>
                     </div>
                     <div className="flex items-center justify-between p-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-lg border border-blue-500/20">
-                      <span className="text-slate-700">Emerging: "B2B workflow optimization"</span>
-                      <div className="flex items-center">
-                        <TrendingUp className="w-4 h-4 text-blue-500 mr-1" />
-                        <span className="text-sm text-blue-600">+28%</span>
-                      </div>
+                      <span className="text-slate-700 text-sm">Brand Mentions</span>
+                      <span className="text-sm font-bold text-blue-600">147 this week</span>
                     </div>
-                    <div className="flex items-center justify-between p-3 bg-gradient-to-r from-purple-500/10 to-violet-500/10 rounded-lg border border-purple-500/20">
-                      <span className="text-slate-700">Forecasted: "Enterprise AI adoption"</span>
-                      <div className="flex items-center">
-                        <Brain className="w-4 h-4 text-purple-500 mr-1" />
-                        <span className="text-sm text-purple-600">Next 30d</span>
-                      </div>
+                    <div className="flex items-center justify-between p-3 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
+                      <span className="text-slate-700 text-sm">Sentiment</span>
+                      <span className="text-sm font-bold text-green-600">Positive (87%)</span>
                     </div>
                   </div>
                 </div>
@@ -813,39 +843,64 @@ export default function Home() {
             </CardContent>
           </Card>
           
-          {/* Feature 2: Content Gap Analysis */}
-          <Card className="glass rounded-3xl p-8 sm:p-12 mb-12 border-0">
+          {/* Feature 2: Competitive AI Benchmarking — Image Left */}
+          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-12 mb-8 sm:mb-12 border-0">
             <CardContent className="pt-0">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div className="order-2 lg:order-1">
                   <div className="glass-strong rounded-2xl p-6">
-                    <h4 className="font-bold mb-4 text-slate-900">Gap Analysis Results:</h4>
+                    <h4 className="font-bold mb-4 text-slate-900">Share of Voice — AI Responses</h4>
                     <div className="space-y-3">
-                      <div className="p-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-lg border border-red-500/20">
-                        <div className="flex items-center justify-between">
-                          <span className="text-slate-700 text-sm">Missing: "Best CRM features"</span>
-                          <div className="flex items-center">
-                            <EyeOff className="w-4 h-4 text-red-500 mr-1" />
-                            <span className="text-xs text-red-600">High Impact</span>
-                          </div>
+                      <div>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-sm text-slate-700">Your Brand</span>
+                          <span className="text-sm font-bold text-blue-600">38%</span>
+                        </div>
+                        <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="h-full bg-gradient-to-r from-blue-500 to-violet-500 rounded-full" style={{width: '38%'}}></div>
                         </div>
                       </div>
-                      <div className="p-3 bg-gradient-to-r from-yellow-500/10 to-amber-500/10 rounded-lg border border-yellow-500/20">
-                        <div className="flex items-center justify-between">
-                          <span className="text-slate-700 text-sm">Competitor citing: "Integration guides"</span>
-                          <div className="flex items-center">
-                            <Star className="w-4 h-4 text-yellow-500 mr-1" />
-                            <span className="text-xs text-yellow-600">Medium</span>
-                          </div>
+                      <div>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-sm text-slate-700">Competitor A</span>
+                          <span className="text-sm font-bold text-red-500">29%</span>
+                        </div>
+                        <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="h-full bg-gradient-to-r from-red-400 to-orange-400 rounded-full" style={{width: '29%'}}></div>
                         </div>
                       </div>
-                      <div className="p-3 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
-                        <div className="flex items-center justify-between">
-                          <span className="text-slate-700 text-sm">Opportunity: "API documentation"</span>
-                          <div className="flex items-center">
-                            <Lightbulb className="w-4 h-4 text-green-500 mr-1" />
-                            <span className="text-xs text-green-600">Quick Win</span>
-                          </div>
+                      <div>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-sm text-slate-700">Competitor B</span>
+                          <span className="text-sm font-bold text-yellow-600">20%</span>
+                        </div>
+                        <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="h-full bg-gradient-to-r from-yellow-400 to-amber-400 rounded-full" style={{width: '20%'}}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-sm text-slate-700">Others</span>
+                          <span className="text-sm font-bold text-slate-500">13%</span>
+                        </div>
+                        <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="h-full bg-slate-300 rounded-full" style={{width: '13%'}}></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-4 border-t border-slate-200/50">
+                      <div className="grid grid-cols-3 gap-2 text-center">
+                        <div className="p-2 bg-blue-50 rounded-lg">
+                          <div className="text-xs text-slate-500">ChatGPT</div>
+                          <div className="text-sm font-bold text-blue-600">#1</div>
+                        </div>
+                        <div className="p-2 bg-purple-50 rounded-lg">
+                          <div className="text-xs text-slate-500">Gemini</div>
+                          <div className="text-sm font-bold text-purple-600">#2</div>
+                        </div>
+                        <div className="p-2 bg-orange-50 rounded-lg">
+                          <div className="text-xs text-slate-500">Perplexity</div>
+                          <div className="text-sm font-bold text-orange-600">#1</div>
                         </div>
                       </div>
                     </div>
@@ -854,50 +909,103 @@ export default function Home() {
                 <div className="order-1 lg:order-2">
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
-                      <Search className="w-6 h-6 text-white" />
+                      <BarChart3 className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Content Gap Analysis</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Competitive AI Benchmarking</h3>
                   </div>
                   <p className="text-lg text-slate-600 mb-6">
-                    Uncover your biggest opportunities. We analyze what your top competitors are getting cited for in AI search and identify the topics you're missing, giving you a prioritized roadmap of content recommendations to close those gaps.
+                    Understand which competitors AI models prefer and where you're losing authority.
                   </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-violet-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Competitive visibility comparison charts</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-violet-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Share of voice across AI responses</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-violet-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Mention distribution by keyword cluster</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-violet-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Intent-based competitive analysis</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-violet-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Cross-model comparison</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </CardContent>
           </Card>
           
-          {/* Feature 3: Powerful Analytics */}
-          <Card className="glass rounded-3xl p-8 sm:p-12 mb-12 border-0">
+          {/* Feature 3: Prompt Intelligence Engine — Image Right */}
+          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-12 mb-8 sm:mb-12 border-0">
             <CardContent className="pt-0">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div>
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-red-500 rounded-xl flex items-center justify-center mr-4">
-                      <ChartLine className="w-6 h-6 text-white" />
+                      <MessageSquare className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Powerful Analytics</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Prompt Intelligence Engine</h3>
                   </div>
                   <p className="text-lg text-slate-600 mb-6">
-                    Make data-driven decisions. Our comprehensive suite provides deep insights into your brand's performance, including sentiment scoring of AI-generated mentions, competitive benchmarking against rivals, and detailed source analysis to uncover where AI models are pulling their information.
+                    Track real prompts AI is answering and monitor whether your brand is included in those responses.
                   </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Discovery, Use Case & Trust intent tracking</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Keyword-to-prompt mapping</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">ChatGPT, Google AI Mode & AI Overview tracking</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Brand mention detection</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Model-wise appearance logs</span>
+                    </li>
+                  </ul>
                 </div>
                 <div className="glass-strong rounded-2xl p-6">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-xl border border-blue-500/20">
-                      <div className="text-2xl font-bold text-blue-600 mb-1">87%</div>
-                      <div className="text-xs text-slate-600">Sentiment Score</div>
+                  <h4 className="font-bold mb-4 text-slate-900">Prompt Tracking</h4>
+                  <div className="space-y-3">
+                    <div className="p-3 bg-white/60 rounded-lg border border-slate-200/50">
+                      <div className="text-sm font-medium text-slate-800 mb-2">"Best CRM for B2B startups"</div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full flex items-center"><Check className="w-3 h-3 mr-1" />ChatGPT</span>
+                        <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full flex items-center"><Check className="w-3 h-3 mr-1" />Gemini</span>
+                        <span className="text-xs px-2 py-1 bg-red-100 text-red-600 rounded-full flex items-center"><X className="w-3 h-3 mr-1" />Perplexity</span>
+                      </div>
                     </div>
-                    <div className="text-center p-4 bg-gradient-to-br from-purple-500/10 to-violet-500/10 rounded-xl border border-purple-500/20">
-                      <div className="text-2xl font-bold text-purple-600 mb-1">#3</div>
-                      <div className="text-xs text-slate-600">Market Rank</div>
+                    <div className="p-3 bg-white/60 rounded-lg border border-slate-200/50">
+                      <div className="text-sm font-medium text-slate-800 mb-2">"Top marketing automation tools 2025"</div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full flex items-center"><Check className="w-3 h-3 mr-1" />ChatGPT</span>
+                        <span className="text-xs px-2 py-1 bg-red-100 text-red-600 rounded-full flex items-center"><X className="w-3 h-3 mr-1" />Gemini</span>
+                        <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full flex items-center"><Check className="w-3 h-3 mr-1" />Perplexity</span>
+                      </div>
                     </div>
-                    <div className="text-center p-4 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-xl border border-green-500/20">
-                      <div className="text-2xl font-bold text-green-600 mb-1">24</div>
-                      <div className="text-xs text-slate-600">Source Sites</div>
-                    </div>
-                    <div className="text-center p-4 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-xl border border-orange-500/20">
-                      <div className="text-2xl font-bold text-orange-600 mb-1">+15%</div>
-                      <div className="text-xs text-slate-600">Visibility</div>
+                    <div className="p-3 bg-white/60 rounded-lg border border-slate-200/50">
+                      <div className="text-sm font-medium text-slate-800 mb-2">"Which SaaS has best integrations"</div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-xs px-2 py-1 bg-red-100 text-red-600 rounded-full flex items-center"><X className="w-3 h-3 mr-1" />ChatGPT</span>
+                        <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full flex items-center"><Check className="w-3 h-3 mr-1" />Gemini</span>
+                        <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full flex items-center"><Check className="w-3 h-3 mr-1" />Perplexity</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -905,89 +1013,86 @@ export default function Home() {
             </CardContent>
           </Card>
           
-          {/* Feature 4: AI Search A/B Testing */}
-          <Card className="glass rounded-3xl p-8 sm:p-12 mb-12 border-0">
+          {/* Feature 4: AI Authority Optimization Engine — Image Left */}
+          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-12 mb-8 sm:mb-12 border-0">
             <CardContent className="pt-0">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div className="order-2 lg:order-1">
                   <div className="glass-strong rounded-2xl p-6">
-                    <h4 className="font-bold mb-4 text-slate-900">A/B Test Results:</h4>
-                    <div className="space-y-4">
-                      <div className="p-4 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-sm font-medium text-slate-700">Version A: "Best CRM Software"</span>
-                          <span className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded-full">Winner</span>
+                    <h4 className="font-bold mb-4 text-slate-900">Strategic Recommendations</h4>
+                    <div className="space-y-3">
+                      <div className="p-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-lg border border-red-500/20">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-sm font-medium text-slate-700">Publish comparison page vs Competitor A</span>
+                          <span className="text-xs text-red-600 bg-red-100 px-2 py-1 rounded-full">High Impact</span>
                         </div>
-                        <div className="flex items-center">
-                          <div className="w-20 h-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mr-2"></div>
-                          <span className="text-sm text-green-600">78% visibility</span>
-                        </div>
-                      </div>
-                      <div className="p-4 bg-gradient-to-r from-gray-500/10 to-slate-500/10 rounded-lg border border-gray-500/20">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-sm font-medium text-slate-700">Version B: "Top CRM Solutions"</span>
-                          <span className="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded-full">Test</span>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-12 h-2 bg-gray-400 rounded-full mr-2"></div>
-                          <span className="text-sm text-gray-600">45% visibility</span>
+                        <div className="flex items-center gap-2 mt-2">
+                          <span className="text-xs text-slate-500">Effort: Medium</span>
+                          <span className="text-xs text-slate-400">•</span>
+                          <span className="text-xs text-slate-500">Impact: High</span>
                         </div>
                       </div>
+                      <div className="p-3 bg-gradient-to-r from-yellow-500/10 to-amber-500/10 rounded-lg border border-yellow-500/20">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-sm font-medium text-slate-700">Add structured FAQ to pricing page</span>
+                          <span className="text-xs text-yellow-700 bg-yellow-100 px-2 py-1 rounded-full">Quick Win</span>
+                        </div>
+                        <div className="flex items-center gap-2 mt-2">
+                          <span className="text-xs text-slate-500">Effort: Low</span>
+                          <span className="text-xs text-slate-400">•</span>
+                          <span className="text-xs text-slate-500">Impact: Medium</span>
+                        </div>
+                      </div>
+                      <div className="p-3 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-sm font-medium text-slate-700">Create "use case" content cluster</span>
+                          <span className="text-xs text-green-700 bg-green-100 px-2 py-1 rounded-full">Medium</span>
+                        </div>
+                        <div className="flex items-center gap-2 mt-2">
+                          <span className="text-xs text-slate-500">Effort: High</span>
+                          <span className="text-xs text-slate-400">•</span>
+                          <span className="text-xs text-slate-500">Impact: High</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200/50 flex items-center">
+                      <CheckCircle className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0" />
+                      <span className="text-xs text-blue-700">3 recommendations completed this month</span>
                     </div>
                   </div>
                 </div>
                 <div className="order-1 lg:order-2">
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl flex items-center justify-center mr-4">
-                      <Repeat className="w-6 h-6 text-white" />
+                      <Zap className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">AI Search A/B Testing</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">AI Authority Optimization Engine</h3>
                   </div>
                   <p className="text-lg text-slate-600 mb-6">
-                    Remove the guesswork from your AI content. Deploy different variations of your content and our platform will monitor which headlines, formats, or keyword combinations are most effective at earning top AI visibility.
+                    Turn AI visibility gaps into prioritized, high-impact execution plans.
                   </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          {/* Feature 5: Community Engagement Recommendations */}
-          <Card className="glass rounded-3xl p-8 sm:p-12 mb-12 border-0">
-            <CardContent className="pt-0">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mr-4">
-                      <Lightbulb className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Community Engagement Recommendations</h3>
-                  </div>
-                  <p className="text-lg text-slate-600 mb-6">
-                    Build brand authority where it counts. Our platform recommends specific threads on communities like Reddit and Product Hunt that are relevant to your business, helping you build authentic authority and influence the data sources that power AI search.
-                  </p>
-                </div>
-                <div className="glass-strong rounded-2xl p-6">
-                  <h4 className="font-bold mb-4 text-slate-900">Recommended Threads:</h4>
-                  <div className="space-y-3">
-                    <div className="p-3 bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-lg border border-orange-500/20">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="text-sm font-medium text-slate-700">r/SaaS - "Best automation tools"</div>
-                          <div className="text-xs text-slate-500">12k upvotes • 2 days ago</div>
-                        </div>
-                        <div className="text-sm text-orange-600 bg-orange-100 px-2 py-1 rounded-full">High Priority</div>
-                      </div>
-                    </div>
-                    <div className="p-3 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-lg border border-pink-500/20">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="text-sm font-medium text-slate-700">Product Hunt - "AI tools discussion"</div>
-                          <div className="text-xs text-slate-500">800 comments • 1 day ago</div>
-                        </div>
-                        <div className="text-sm text-pink-600 bg-pink-100 px-2 py-1 rounded-full">Medium</div>
-                      </div>
-                    </div>
-                  </div>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Strategic AI recommendations</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Effort vs impact scoring</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">High / Medium / Quick Win tagging</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Content authority suggestions</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Success signal tracking</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </CardContent>
