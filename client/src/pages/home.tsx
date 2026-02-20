@@ -36,7 +36,9 @@ import {
   Mail,
   BarChart3,
   MessageSquare,
-  Zap
+  Zap,
+  Bot,
+  Send
 } from "lucide-react";
 import geminiLogo from "@assets/Gemini_1753958628531.png";
 import grokLogo from "@assets/Grok_1753958628535.png";
@@ -1093,6 +1095,82 @@ export default function Home() {
                       <span className="text-slate-700">Success signal tracking</span>
                     </li>
                   </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          
+          {/* Feature 5: Dashboard Intelligence Chatbot — Image Right */}
+          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-12 mb-8 sm:mb-12 border-0">
+            <CardContent className="pt-0">
+              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+                <div>
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center mr-4">
+                      <Bot className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Dashboard Intelligence Chatbot</h3>
+                  </div>
+                  <p className="text-lg text-slate-600 mb-6">
+                    Your always-on AI strategist inside the dashboard. Ask questions about your data, get instant optimization ideas, and uncover hidden insights — all through a simple chat interface.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-cyan-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Natural language queries on your visibility data</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-cyan-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">AI-powered optimization recommendations</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-cyan-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Competitive gap analysis on demand</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-cyan-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Content strategy ideation and prioritization</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-cyan-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Instant answers from your dashboard data</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="glass-strong rounded-2xl p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Bot className="w-5 h-5 text-cyan-500" />
+                    <h4 className="font-bold text-slate-900">GeoRankers AI</h4>
+                    <span className="text-xs px-2 py-0.5 bg-green-100 text-green-700 rounded-full">Online</span>
+                  </div>
+                  <div className="space-y-3 mb-4">
+                    <div className="flex justify-end">
+                      <div className="bg-gradient-to-r from-blue-500 to-violet-500 text-white text-sm px-4 py-2.5 rounded-2xl rounded-br-sm max-w-[85%]">
+                        Why is our visibility dropping on Gemini this week?
+                      </div>
+                    </div>
+                    <div className="flex justify-start">
+                      <div className="bg-white/80 border border-slate-200/50 text-slate-700 text-sm px-4 py-2.5 rounded-2xl rounded-bl-sm max-w-[85%]">
+                        Your Gemini visibility dropped 12% due to Competitor A publishing 3 new comparison pages. I recommend creating a detailed feature comparison and updating your integrations page.
+                      </div>
+                    </div>
+                    <div className="flex justify-end">
+                      <div className="bg-gradient-to-r from-blue-500 to-violet-500 text-white text-sm px-4 py-2.5 rounded-2xl rounded-br-sm max-w-[85%]">
+                        What quick wins can I act on today?
+                      </div>
+                    </div>
+                    <div className="flex justify-start">
+                      <div className="bg-white/80 border border-slate-200/50 text-slate-700 text-sm px-4 py-2.5 rounded-2xl rounded-bl-sm max-w-[85%]">
+                        3 quick wins found: Add FAQ schema to your pricing page, update your G2 profile, and respond to 2 Reddit threads mentioning your category.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 p-2 bg-white/60 rounded-xl border border-slate-200/50">
+                    <input type="text" placeholder="Ask about your AI visibility..." className="flex-1 bg-transparent text-sm text-slate-600 outline-none px-2" disabled />
+                    <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center">
+                      <Send className="w-4 h-4 text-white" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardContent>
