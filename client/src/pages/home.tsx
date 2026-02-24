@@ -148,7 +148,7 @@ function StatCard({ stat, index, isVisible }: { stat: typeof statsData[0]; index
   const Icon = stat.icon;
   return (
     <div
-      className={`group relative rounded-2xl border ${stat.border} p-8 sm:p-10 overflow-hidden transition-all duration-700 hover:shadow-xl hover:shadow-blue-100/50 hover:-translate-y-1 cursor-default`}
+      className={`group relative rounded-2xl border ${stat.border} p-6 sm:p-8 overflow-hidden transition-all duration-700 hover:shadow-xl hover:shadow-blue-100/50 hover:-translate-y-1 cursor-default`}
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
@@ -161,7 +161,7 @@ function StatCard({ stat, index, isVisible }: { stat: typeof statsData[0]; index
         <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white shadow-sm border border-slate-100 mb-5 group-hover:scale-110 transition-transform duration-300`}>
           <Icon className={`w-6 h-6 ${stat.iconColor}`} />
         </div>
-        <div className={`text-5xl sm:text-6xl font-extrabold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-3 tracking-tight`}>
+        <div className={`text-4xl sm:text-5xl font-extrabold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 tracking-tight`}>
           {count}{stat.suffix}
         </div>
         <p className="text-slate-600 text-sm sm:text-base font-medium leading-relaxed">{stat.label}</p>
@@ -184,10 +184,10 @@ function StatsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="problem" className="py-12 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} id="problem" className="py-10 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <h2
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-10"
+          className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -241,11 +241,11 @@ function SearchIntelligenceSection() {
   ];
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/80 to-white">
+    <section ref={sectionRef} className="py-10 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/80 to-white">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-10 sm:mb-14">
+        <div className="text-center mb-8 sm:mb-10">
           <p
-            className="text-sm font-semibold tracking-widest uppercase text-blue-500 mb-4 sm:mb-5"
+            className="text-sm font-semibold tracking-widest uppercase text-blue-500 mb-3 sm:mb-4"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(12px)',
@@ -360,7 +360,7 @@ function StickyScrollShowcase() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative" style={{ height: `${showcaseSlides.length * 100}vh` }}>
+    <div ref={containerRef} className="relative" style={{ height: `${showcaseSlides.length * 85}vh` }}>
       <div className="sticky top-16 flex items-center overflow-hidden" style={{ height: 'calc(100vh - 4rem)' }}>
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -964,14 +964,14 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-0">
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-0">
         <div className="hero-gradient absolute inset-0 z-0"></div>
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse-soft"></div>
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
         
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8">
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-3 lg:mb-4 leading-tight">
+          <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 lg:mb-5 leading-tight">
               AI Search Visibility <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Built for B2B SaaS</span>
             </h1>
             
@@ -1023,12 +1023,12 @@ export default function Home() {
       <StatsSection />
 
       {/* Mid-Page CTA Strip */}
-      <section className="py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
+      <section className="py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
         <div className="max-w-5xl mx-auto text-center">
           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">
             See What AI Says About Your Brand Today
           </h3>
-          <p className="text-base sm:text-lg text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-white/90 mb-5 sm:mb-6 max-w-2xl mx-auto leading-relaxed">
             Get a clear view of how AI models describe your company and which sources shape those answers.
           </p>
           <a 
@@ -1044,9 +1044,9 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-12 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-violet-50/30 to-pink-50/20">
+      <section id="features" className="py-10 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-violet-50/30 to-pink-50/20">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10 sm:mb-12">
+          <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               The AI Visibility Stack for <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">B2B SaaS Teams</span>
             </h2>
@@ -1458,7 +1458,7 @@ export default function Home() {
       </section>
 
       {/* Features Section CTA - Full Width */}
-      <section className="py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
+      <section className="py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
         <div className="max-w-5xl mx-auto text-center">
           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">
             Understand Why AI Describes Your Brand The Way It Does
@@ -1479,7 +1479,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-12 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50/50">
+      <section className="py-10 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50/50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -1527,7 +1527,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-12 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-white">
+      <section id="faq" className="py-10 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
@@ -1804,7 +1804,7 @@ export default function Home() {
       </section>
       
       {/* FAQ CTA - Full Width */}
-      <section className="py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
+      <section className="py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
         <div className="max-w-5xl mx-auto text-center">
           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">
             Learn How To Improve The Way AI Presents Your Brand
@@ -1825,7 +1825,7 @@ export default function Home() {
       </section>
       
       {/* Blog Section */}
-      <section className="py-12 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/30 to-white" id="blog">
+      <section className="py-10 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/30 to-white" id="blog">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
