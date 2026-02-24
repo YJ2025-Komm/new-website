@@ -55,9 +55,9 @@ import strategicImage from '@assets/generated_images/Strategic_AI_search_leaders
 import buildingBlocksImage from '@assets/generated_images/AI_content_building_blocks_237b4917.png';
 import geoVsSeoImage from '@assets/generated_images/GEO_vs_SEO_comparison_96025f03.png';
 import dashboardScreenshot from '@assets/georankers_sc_1771332426583.jpg';
-import showcaseImg1 from '@assets/ge1_1771962093155.jpg';
-import showcaseImg2 from '@assets/ge2_1771962093154.jpg';
-import showcaseImg3 from '@assets/ge3_1771962093153.jpg';
+import showcaseImg1 from '@assets/generated_images/showcase_ai_visibility.png';
+import showcaseImg2 from '@assets/generated_images/showcase_prompt_discovery.png';
+import showcaseImg3 from '@assets/generated_images/showcase_recommendations.png';
 
 // WordPress API types
 interface WordPressBlogPost {
@@ -413,7 +413,7 @@ function StickyScrollShowcase() {
                     transition: 'opacity 0.5s ease, transform 0.5s ease',
                   }}
                 >
-                  <div className="rounded-2xl overflow-hidden shadow-xl border border-slate-200/60 bg-white">
+                  <div className={`rounded-2xl overflow-hidden shadow-xl border border-slate-200/60 bg-white ${activeSlide === i ? 'animate-showcase-float' : ''}`}>
                     <img
                       src={slide.image}
                       alt={slide.alt}

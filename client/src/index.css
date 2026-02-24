@@ -71,6 +71,15 @@
   50% { transform: translateY(-10px); }
 }
 
+@keyframes showcase-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-showcase-float {
+  animation: showcase-float 4s ease-in-out infinite;
+}
+
 @keyframes pulse-soft {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 0.8; }
