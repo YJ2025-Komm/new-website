@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import QuizModal from "@/components/QuizModal";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
@@ -41,7 +40,9 @@ import {
   Send,
   Quote,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Compass,
+  Crosshair
 } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
 import geminiLogo from "@assets/Gemini_1753958628531.png";
@@ -180,10 +181,10 @@ function StatsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="problem" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} id="problem" className="py-12 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <h2
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-12 sm:mb-16"
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-10"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -196,6 +197,86 @@ function StatsSection() {
           {statsData.map((stat, i) => (
             <StatCard key={i} stat={stat} index={i} isVisible={isVisible} />
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const intelligenceCards = [
+  {
+    icon: Compass,
+    iconGradient: "from-blue-500 to-cyan-500",
+    title: "Designed for AI-First Discovery",
+    description: "We track recommendations across ChatGPT, Google AI, and emerging LLMs — where buying decisions are increasingly influenced.",
+  },
+  {
+    icon: Brain,
+    iconGradient: "from-violet-500 to-purple-600",
+    title: "Intelligence, Not Just Analytics",
+    description: "We measure AI citations, prompt coverage, competitive share, and authority gaps — turning AI exposure into strategy.",
+  },
+  {
+    icon: Crosshair,
+    iconGradient: "from-pink-500 to-rose-500",
+    title: "Actionable by Design",
+    description: "Our recommendation engine prioritizes what to build and optimize so AI models favor you as a primary source.",
+  },
+];
+
+function SearchIntelligenceSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
+      { threshold: 0.15 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="py-14 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-white">
+      <div className="max-w-5xl mx-auto">
+        <div
+          className="text-center mb-10 sm:mb-14"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.6s ease, transform 0.6s ease',
+          }}
+        >
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
+            A new layer of <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">search intelligence</span>
+          </h2>
+          <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Purpose-built for brands navigating AI-driven discovery, GeoRankers sets the standard for measuring and optimizing AI visibility
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-3 gap-5 sm:gap-6">
+          {intelligenceCards.map((card, i) => {
+            const Icon = card.icon;
+            return (
+              <div
+                key={i}
+                className="group relative rounded-2xl border border-slate-200/80 bg-white p-6 sm:p-8 hover:shadow-lg hover:shadow-blue-100/40 hover:-translate-y-1 transition-all duration-500"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                  transition: `opacity 0.5s ease ${0.15 + i * 0.12}s, transform 0.5s ease ${0.15 + i * 0.12}s, box-shadow 0.5s ease, translate 0.5s ease`,
+                }}
+              >
+                <div className={`inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-r ${card.iconGradient} mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{card.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{card.description}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -736,130 +817,93 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 pt-24">
-        {/* Background Elements */}
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-0">
         <div className="hero-gradient absolute inset-0 z-0"></div>
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse-soft"></div>
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-300/5 via-purple-300/5 to-pink-300/5 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '0.5s'}}></div>
         
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="text-center max-w-4xl mx-auto">
-              <h1 className="text-3xl sm:text-4xl lg:text-7xl font-bold mb-6 lg:mb-8 leading-tight">
-                AI Search Visibility <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Built for B2B SaaS</span>
-              </h1>
-              
-              <p className="text-base sm:text-lg lg:text-xl text-slate-600 mb-8 lg:mb-12 leading-relaxed max-w-3xl mx-auto">
-                See how AI platforms position your software in buyer-intent prompts, track competitor recommendations, and close visibility gaps that impact pipeline.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-                <a 
-                  href="https://dashboard.georankers.co/register"
-                  className="inline-flex items-center px-6 py-3 lg:px-8 lg:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base lg:text-lg text-white transform hover:scale-105 transition-all duration-300 shadow-2xl"
-                  data-testid="cta-try-free-hero"
-                >
-                  <Rocket className="w-4 h-4 lg:w-5 lg:h-5 mr-2 lg:mr-3" />
-                  Try for Free
-                </a>
-                <a 
-                  href="https://calendly.com/georankers/demo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 lg:px-8 lg:py-4 border-2 border-slate-300 hover:border-blue-400 rounded-2xl font-semibold text-base lg:text-lg text-slate-700 hover:text-blue-600 transform hover:scale-105 transition-all duration-300"
-                  data-testid="cta-book-demo-hero"
-                >
-                  Book a Demo
-                </a>
-              </div>
-              <p className="text-sm text-slate-500">No credit card required</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Dashboard Screenshot Section */}
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10 sm:mb-14">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              See Your Brand's <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Visibility</span> in Action
-            </h2>
-          </div>
-          <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60">
-            <img 
-              src={dashboardScreenshot} 
-              alt="GeoRankers Dashboard - AI Visibility Score, Competitive Landscape, and Mention Distribution" 
-              className="w-full h-auto"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Quiz Section */}
-      <section id="quiz" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-violet-50/20 to-blue-50/20">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              Is Your Brand <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI-Search Ready?</span>
-            </h2>
-            <p className="text-lg sm:text-xl text-slate-600 mb-8">
-              Take the quick quiz and see your AI Visibility Score across key signals
+          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 lg:mb-6 leading-tight">
+              AI Search Visibility <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Built for B2B SaaS</span>
+            </h1>
+            
+            <p className="text-base sm:text-lg lg:text-xl text-slate-600 mb-6 lg:mb-8 leading-relaxed max-w-3xl mx-auto">
+              See how AI platforms position your software in buyer-intent prompts, track competitor recommendations, and close visibility gaps that impact pipeline.
             </p>
-          </div>
-          
-          <Card className="glass-strong rounded-3xl p-6 sm:p-8 lg:p-12 border-0 max-w-xl mx-auto">
-            <CardContent className="pt-0 text-center space-y-6">
-              <Button 
-                onClick={() => setShowQuizModal(true)}
-                className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl flex items-center justify-center"
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-2">
+              <a 
+                href="https://dashboard.georankers.co/register"
+                className="inline-flex items-center px-6 py-3 lg:px-8 lg:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base lg:text-lg text-white transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                data-testid="cta-try-free-hero"
               >
-                <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-                Start Quiz
-              </Button>
-              
-              <p className="text-center text-xs sm:text-sm text-slate-500">
-                🔒 Your responses are confidential and used only for your personalized report
-              </p>
-            </CardContent>
-          </Card>
+                <Rocket className="w-4 h-4 lg:w-5 lg:h-5 mr-2 lg:mr-3" />
+                Try for Free
+              </a>
+              <a 
+                href="https://calendly.com/georankers/demo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 lg:px-8 lg:py-4 border-2 border-slate-300 hover:border-blue-400 rounded-2xl font-semibold text-base lg:text-lg text-slate-700 hover:text-blue-600 transform hover:scale-105 transition-all duration-300"
+                data-testid="cta-book-demo-hero"
+              >
+                Book a Demo
+              </a>
+            </div>
+            <p className="text-sm text-slate-500">No credit card required</p>
+          </div>
+
+          <div className="max-w-6xl mx-auto">
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60">
+              <img 
+                src={dashboardScreenshot} 
+                alt="GeoRankers Dashboard - AI Visibility Score, Competitive Landscape, and Mention Distribution" 
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* Search Intelligence Section */}
+      <SearchIntelligenceSection />
 
       {/* Stats Section */}
       <StatsSection />
 
       {/* Mid-Page CTA Strip */}
-      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
+      <section className="py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
         <div className="max-w-5xl mx-auto text-center">
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6 whitespace-nowrap">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">
             See What AI Says About Your Brand Today
           </h3>
-          <p className="text-base sm:text-lg text-white/90 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
             Get a clear view of how AI models describe your company and which sources shape those answers.
           </p>
           <a 
             href="https://dashboard.georankers.co/register"
-            className="inline-flex items-center px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-lg sm:text-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
+            className="inline-flex items-center px-7 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
             data-testid="cta-try-free-midpage-1"
           >
-            <Rocket className="w-5 h-5 sm:w-6 sm:h-6 mr-3" />
+            <Rocket className="w-5 h-5 mr-2" />
             Try for Free
           </a>
-          <p className="text-sm text-white/70 mt-4">No credit card required</p>
+          <p className="text-sm text-white/70 mt-3">No credit card required</p>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-violet-50/30 to-pink-50/20">
+      <section id="features" className="py-12 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-violet-50/30 to-pink-50/20">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
+          <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               The AI Visibility Stack for <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">B2B SaaS Teams</span>
             </h2>
           </div>
           
           {/* Feature 1: AI Visibility Intelligence — Image Right */}
-          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-12 mb-8 sm:mb-12 border-0">
+          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div>
@@ -930,7 +974,7 @@ export default function Home() {
           </Card>
           
           {/* Feature 2: Competitive AI Benchmarking — Image Left */}
-          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-12 mb-8 sm:mb-12 border-0">
+          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div className="order-2 lg:order-1">
@@ -1030,7 +1074,7 @@ export default function Home() {
           </Card>
           
           {/* Feature 3: Prompt Intelligence Engine — Image Right */}
-          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-12 mb-8 sm:mb-12 border-0">
+          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div>
@@ -1100,7 +1144,7 @@ export default function Home() {
           </Card>
           
           {/* Feature 4: AI Authority Optimization Engine — Image Left */}
-          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-12 mb-8 sm:mb-12 border-0">
+          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div className="order-2 lg:order-1">
@@ -1185,7 +1229,7 @@ export default function Home() {
           </Card>
           
           {/* Feature 5: Dashboard Intelligence Chatbot — Image Right */}
-          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-12 mb-8 sm:mb-12 border-0">
+          <Card className="glass rounded-3xl p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div>
@@ -1264,30 +1308,30 @@ export default function Home() {
       </section>
 
       {/* Features Section CTA - Full Width */}
-      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
+      <section className="py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
         <div className="max-w-5xl mx-auto text-center">
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6 whitespace-nowrap">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">
             Understand Why AI Describes Your Brand The Way It Does
           </h3>
-          <p className="text-base sm:text-lg text-white/90 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-white/90 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
             Explore the content and signals influencing how AI systems present your brand across different queries.
           </p>
           <a 
             href="https://dashboard.georankers.co/register"
-            className="inline-flex items-center px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-lg sm:text-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
+            className="inline-flex items-center px-7 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
             data-testid="cta-try-free-features"
           >
-            <Rocket className="w-5 h-5 sm:w-6 sm:h-6 mr-3" />
+            <Rocket className="w-5 h-5 mr-2" />
             Try for Free
           </a>
-          <p className="text-sm text-white/70 mt-4">No credit card required</p>
+          <p className="text-sm text-white/70 mt-3">No credit card required</p>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50/50">
+      <section className="py-12 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50/50">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
+          <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
               What Our <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Customers</span> Say
             </h2>
@@ -1333,9 +1377,9 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-white">
+      <section id="faq" className="py-12 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-white">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
+          <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               Frequently Asked <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Questions</span>
             </h2>
@@ -1344,7 +1388,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="space-y-4 sm:space-y-6">
+          <div className="space-y-3 sm:space-y-4">
             {/* FAQ Item 1 */}
             <Card className="glass rounded-2xl border-0">
               <CardContent className="p-0">
@@ -1610,30 +1654,30 @@ export default function Home() {
       </section>
       
       {/* FAQ CTA - Full Width */}
-      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
+      <section className="py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
         <div className="max-w-5xl mx-auto text-center">
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6 whitespace-nowrap">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">
             Learn How To Improve The Way AI Presents Your Brand
           </h3>
-          <p className="text-base sm:text-lg text-white/90 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-white/90 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
             Get practical insights you can act on to strengthen how AI systems interpret and reference your brand.
           </p>
           <a 
             href="https://dashboard.georankers.co/register"
-            className="inline-flex items-center px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-lg sm:text-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
+            className="inline-flex items-center px-7 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
             data-testid="cta-try-free-faq"
           >
-            <Rocket className="w-5 h-5 sm:w-6 sm:h-6 mr-3" />
+            <Rocket className="w-5 h-5 mr-2" />
             Try for Free
           </a>
-          <p className="text-sm text-white/70 mt-4">No credit card required</p>
+          <p className="text-sm text-white/70 mt-3">No credit card required</p>
         </div>
       </section>
       
       {/* Blog Section */}
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/30 to-white" id="blog">
+      <section className="py-12 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/30 to-white" id="blog">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
+          <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               Latest <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Insights</span>
             </h2>
@@ -1751,7 +1795,7 @@ export default function Home() {
           )}
 
           {/* View All Blogs CTA */}
-          <div className="text-center mt-12 sm:mt-16">
+          <div className="text-center mt-8 sm:mt-10">
             <a
               href="https://blog.georankers.co"
               target="_blank"
@@ -1767,7 +1811,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative py-16 sm:py-20 overflow-hidden bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
+      <footer className="relative py-12 sm:py-14 overflow-hidden bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
         <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl"></div>
         <div className="absolute top-0 right-1/4 w-56 h-56 bg-gradient-to-r from-violet-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
         
