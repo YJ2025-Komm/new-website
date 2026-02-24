@@ -831,22 +831,22 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-0">
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-0">
         <div className="hero-gradient absolute inset-0 z-0"></div>
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse-soft"></div>
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
         
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 lg:mb-6 leading-tight">
+          <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-3 lg:mb-4 leading-tight">
               AI Search Visibility <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Built for B2B SaaS</span>
             </h1>
             
-            <p className="text-base sm:text-lg lg:text-xl text-slate-600 mb-6 lg:mb-8 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-slate-600 mb-4 lg:mb-6 leading-relaxed max-w-3xl mx-auto">
               See how AI platforms position your software in buyer-intent prompts, track competitor recommendations, and close visibility gaps that impact pipeline.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-1">
               <a 
                 href="https://dashboard.georankers.co/register"
                 className="inline-flex items-center px-6 py-3 lg:px-8 lg:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base lg:text-lg text-white transform hover:scale-105 transition-all duration-300 shadow-2xl"
