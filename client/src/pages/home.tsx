@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import QuizModal from "@/components/QuizModal";
@@ -75,6 +75,131 @@ interface WordPressCategory {
   id: number;
   name: string;
   slug: string;
+}
+
+function useCountUp(target: number, duration: number = 2000, started: boolean = false) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!started) return;
+    let startTime: number | null = null;
+    let raf: number;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * target));
+      if (progress < 1) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [target, duration, started]);
+  return count;
+}
+
+const statsData = [
+  {
+    value: 50,
+    suffix: "%+",
+    label: "B2B buyers use AI tools during vendor research",
+    gradient: "from-blue-600 to-violet-600",
+    bg: "from-blue-500/10 via-violet-500/5 to-transparent",
+    border: "border-blue-200/60",
+    icon: Search,
+    iconColor: "text-blue-500",
+  },
+  {
+    value: 50,
+    suffix: "%+",
+    label: "B2B buyers use AI for solution comparisons and evaluations",
+    gradient: "from-violet-600 to-pink-500",
+    bg: "from-violet-500/10 via-pink-500/5 to-transparent",
+    border: "border-violet-200/60",
+    icon: Target,
+    iconColor: "text-violet-500",
+  },
+  {
+    value: 70,
+    suffix: "%",
+    label: "of the B2B buying journey happens before sales contact",
+    gradient: "from-blue-600 to-cyan-500",
+    bg: "from-cyan-500/10 via-blue-500/5 to-transparent",
+    border: "border-cyan-200/60",
+    icon: TrendingUp,
+    iconColor: "text-cyan-500",
+  },
+  {
+    value: 60,
+    suffix: "%+",
+    label: "Executives use AI for summaries, comparisons, and vendor evaluation",
+    gradient: "from-indigo-600 to-blue-500",
+    bg: "from-indigo-500/10 via-blue-500/5 to-transparent",
+    border: "border-indigo-200/60",
+    icon: Brain,
+    iconColor: "text-indigo-500",
+  },
+];
+
+function StatCard({ stat, index, isVisible }: { stat: typeof statsData[0]; index: number; isVisible: boolean }) {
+  const count = useCountUp(stat.value, 2000, isVisible);
+  const Icon = stat.icon;
+  return (
+    <div
+      className={`group relative rounded-2xl border ${stat.border} p-8 sm:p-10 overflow-hidden transition-all duration-700 hover:shadow-xl hover:shadow-blue-100/50 hover:-translate-y-1 cursor-default`}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
+        transition: `opacity 0.6s ease ${index * 0.15}s, transform 0.6s ease ${index * 0.15}s`,
+      }}
+    >
+      <div className={`absolute inset-0 bg-gradient-to-br ${stat.bg} opacity-60 group-hover:opacity-100 transition-opacity duration-500`}></div>
+      <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-white/40 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+      <div className="relative z-10">
+        <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white shadow-sm border border-slate-100 mb-5 group-hover:scale-110 transition-transform duration-300`}>
+          <Icon className={`w-6 h-6 ${stat.iconColor}`} />
+        </div>
+        <div className={`text-5xl sm:text-6xl font-extrabold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-3 tracking-tight`}>
+          {count}{stat.suffix}
+        </div>
+        <p className="text-slate-600 text-sm sm:text-base font-medium leading-relaxed">{stat.label}</p>
+      </div>
+    </div>
+  );
+}
+
+function StatsSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
+      { threshold: 0.2 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section ref={sectionRef} id="problem" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <h2
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-12 sm:mb-16"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.6s ease, transform 0.6s ease',
+          }}
+        >
+          Visibility in AI Search = <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Pipeline Velocity</span>
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+          {statsData.map((stat, i) => (
+            <StatCard key={i} stat={stat} index={i} isVisible={isVisible} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default function Home() {
@@ -701,31 +826,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section id="problem" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-10 sm:mb-14">
-            Visibility in AI Search = <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Pipeline Velocity</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
-            <div className="rounded-2xl bg-gradient-to-br from-blue-50 to-violet-50 border border-blue-100 p-8 sm:p-10">
-              <div className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent mb-3">50%+</div>
-              <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">B2B buyers use AI tools during vendor research</p>
-            </div>
-            <div className="rounded-2xl bg-gradient-to-br from-violet-50 to-pink-50 border border-violet-100 p-8 sm:p-10">
-              <div className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent mb-3">50%+</div>
-              <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">B2B buyers use AI for solution comparisons and feature evaluations</p>
-            </div>
-            <div className="rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-100 p-8 sm:p-10">
-              <div className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-3">70%</div>
-              <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">of the B2B buying journey happens before sales contact</p>
-            </div>
-            <div className="rounded-2xl bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-100 p-8 sm:p-10">
-              <div className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent mb-3">60%+</div>
-              <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">Executives use AI for summaries, comparisons, and vendor evaluation</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <StatsSection />
 
       {/* Mid-Page CTA Strip */}
       <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
