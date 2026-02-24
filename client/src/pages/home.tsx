@@ -55,6 +55,9 @@ import strategicImage from '@assets/generated_images/Strategic_AI_search_leaders
 import buildingBlocksImage from '@assets/generated_images/AI_content_building_blocks_237b4917.png';
 import geoVsSeoImage from '@assets/generated_images/GEO_vs_SEO_comparison_96025f03.png';
 import dashboardScreenshot from '@assets/georankers_sc_1771332426583.jpg';
+import showcaseImg1 from '@assets/ge1_1771962093155.jpg';
+import showcaseImg2 from '@assets/ge2_1771962093154.jpg';
+import showcaseImg3 from '@assets/ge3_1771962093153.jpg';
 
 // WordPress API types
 interface WordPressBlogPost {
@@ -306,6 +309,124 @@ function SearchIntelligenceSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+const showcaseSlides = [
+  {
+    number: "01",
+    title: "Know exactly where your brand stands in AI search",
+    description: "Track how AI platforms like Gemini, Google AI Mode, and ChatGPT respond to prompts in your industry. See which brands get mentioned, how often, and where you're missing out.",
+    image: showcaseImg1,
+    alt: "GeoRankers AI search visibility tracking across Google AI Mode and ChatGPT",
+  },
+  {
+    number: "02",
+    title: "Discover the prompts that matter for your business",
+    description: "Map every high-intent prompt across Discovery, Use Case, Trust and others. Instantly see your coverage gaps across all the LLMs — so you can close them fast.",
+    image: showcaseImg2,
+    alt: "GeoRankers prompt discovery showing high-intent prompts categorized by type",
+  },
+  {
+    number: "03",
+    title: "Get actionable steps to boost your AI presence",
+    description: "Receive data-driven action items prioritized by effort and impact. Each recommendation comes with a clear starting point and execution plan to grow your AI visibility.",
+    image: showcaseImg3,
+    alt: "GeoRankers strategic recommendations with impact and effort ratings",
+  },
+];
+
+function StickyScrollShowcase() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const containerHeight = containerRef.current.offsetHeight;
+      const viewportHeight = window.innerHeight;
+      const scrolled = -rect.top;
+      const scrollableDistance = containerHeight - viewportHeight;
+      if (scrollableDistance <= 0) return;
+      const progress = Math.max(0, Math.min(1, scrolled / scrollableDistance));
+      const slideCount = showcaseSlides.length;
+      const newSlide = Math.min(slideCount - 1, Math.floor(progress * slideCount));
+      setActiveSlide(newSlide);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div ref={containerRef} className="relative" style={{ height: `${showcaseSlides.length * 100}vh` }}>
+      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <div className="relative min-h-[280px] sm:min-h-[320px]">
+              {showcaseSlides.map((slide, i) => (
+                <div
+                  key={i}
+                  className="absolute inset-0 flex flex-col justify-center"
+                  style={{
+                    opacity: activeSlide === i ? 1 : 0,
+                    transform: activeSlide === i ? 'translateY(0)' : activeSlide > i ? 'translateY(-30px)' : 'translateY(30px)',
+                    transition: 'opacity 0.5s ease, transform 0.5s ease',
+                    pointerEvents: activeSlide === i ? 'auto' : 'none',
+                  }}
+                >
+                  <span className="text-sm font-semibold tracking-widest uppercase text-blue-500 mb-3">
+                    {slide.number}
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-4">
+                    {slide.title}
+                  </h3>
+                  <p className="text-base sm:text-lg text-slate-500 leading-relaxed max-w-md">
+                    {slide.description}
+                  </p>
+                </div>
+              ))}
+
+              <div className="absolute bottom-0 left-0 flex items-center gap-2 mt-8">
+                {showcaseSlides.map((_, i) => (
+                  <div
+                    key={i}
+                    className="h-1.5 rounded-full transition-all duration-500"
+                    style={{
+                      width: activeSlide === i ? '32px' : '8px',
+                      backgroundColor: activeSlide === i ? 'rgb(59, 130, 246)' : 'rgb(203, 213, 225)',
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              {showcaseSlides.map((slide, i) => (
+                <div
+                  key={i}
+                  className={i === 0 ? 'relative' : 'absolute inset-0'}
+                  style={{
+                    opacity: activeSlide === i ? 1 : 0,
+                    transform: activeSlide === i ? 'scale(1)' : 'scale(0.95)',
+                    transition: 'opacity 0.5s ease, transform 0.5s ease',
+                  }}
+                >
+                  <div className="rounded-2xl overflow-hidden shadow-xl border border-slate-200/60 bg-white">
+                    <img
+                      src={slide.image}
+                      alt={slide.alt}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -894,6 +1015,9 @@ export default function Home() {
 
       {/* Search Intelligence Section */}
       <SearchIntelligenceSection />
+
+      {/* Sticky Scroll Feature Showcase */}
+      <StickyScrollShowcase />
 
       {/* Stats Section */}
       <StatsSection />
