@@ -203,27 +203,6 @@ function StatsSection() {
   );
 }
 
-const intelligenceCards = [
-  {
-    icon: Compass,
-    iconGradient: "from-blue-500 to-cyan-500",
-    title: "Designed for AI-First Discovery",
-    description: "We track recommendations across ChatGPT, Google AI, and emerging LLMs — where buying decisions are increasingly influenced.",
-  },
-  {
-    icon: Brain,
-    iconGradient: "from-violet-500 to-purple-600",
-    title: "Intelligence, Not Just Analytics",
-    description: "We measure AI citations, prompt coverage, competitive share, and authority gaps — turning AI exposure into strategy.",
-  },
-  {
-    icon: Crosshair,
-    iconGradient: "from-pink-500 to-rose-500",
-    title: "Actionable by Design",
-    description: "Our recommendation engine prioritizes what to build and optimize so AI models favor you as a primary source.",
-  },
-];
-
 function SearchIntelligenceSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -231,49 +210,84 @@ function SearchIntelligenceSection() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
+  const pillars = [
+    { label: "AI-First Discovery", icon: Compass },
+    { label: "Competitive Intelligence", icon: Brain },
+    { label: "Actionable Recommendations", icon: Crosshair },
+  ];
+
   return (
-    <section ref={sectionRef} className="py-14 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-white">
-      <div className="max-w-5xl mx-auto">
-        <div
-          className="text-center mb-10 sm:mb-14"
+    <section ref={sectionRef} className="relative py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#0A0A1A]">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] rounded-full bg-gradient-to-r from-blue-600/20 via-violet-600/15 to-blue-600/20 blur-[120px]" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent" />
+      </div>
+
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <p
+          className="text-sm sm:text-base font-medium tracking-widest uppercase text-blue-400/80 mb-6 sm:mb-8"
           style={{
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transform: isVisible ? 'translateY(0)' : 'translateY(12px)',
             transition: 'opacity 0.6s ease, transform 0.6s ease',
           }}
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
-            A new layer of <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">search intelligence</span>
-          </h2>
-          <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Purpose-built for brands navigating AI-driven discovery, GeoRankers sets the standard for measuring and optimizing AI visibility
-          </p>
-        </div>
+          A new layer of search intelligence
+        </p>
 
-        <div className="grid sm:grid-cols-3 gap-5 sm:gap-6">
-          {intelligenceCards.map((card, i) => {
-            const Icon = card.icon;
+        <h2
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-white mb-6 sm:mb-8"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s',
+          }}
+        >
+          Purpose-built for brands{' '}
+          <br className="hidden sm:block" />
+          navigating{' '}
+          <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-clip-text text-transparent">
+            AI-driven discovery
+          </span>
+        </h2>
+
+        <p
+          className="text-base sm:text-lg lg:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10 sm:mb-14"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s',
+          }}
+        >
+          GeoRankers sets the standard for measuring and optimizing
+          visibility across ChatGPT, Gemini, Perplexity, and every AI model
+          shaping buyer decisions.
+        </p>
+
+        <div
+          className="flex flex-wrap justify-center gap-3 sm:gap-4"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.7s ease 0.35s, transform 0.7s ease 0.35s',
+          }}
+        >
+          {pillars.map((p, i) => {
+            const Icon = p.icon;
             return (
               <div
                 key={i}
-                className="group relative rounded-2xl border border-slate-200/80 bg-white p-6 sm:p-8 hover:shadow-lg hover:shadow-blue-100/40 hover:-translate-y-1 transition-all duration-500"
-                style={{
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-                  transition: `opacity 0.5s ease ${0.15 + i * 0.12}s, transform 0.5s ease ${0.15 + i * 0.12}s, box-shadow 0.5s ease, translate 0.5s ease`,
-                }}
+                className="flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-sm text-sm sm:text-base text-slate-300 hover:border-blue-500/30 hover:bg-white/[0.07] transition-all duration-300"
               >
-                <div className={`inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-r ${card.iconGradient} mb-5 group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{card.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{card.description}</p>
+                <Icon className="w-4 h-4 text-blue-400" />
+                {p.label}
               </div>
             );
           })}
