@@ -362,9 +362,9 @@ function StickyScrollShowcase() {
   return (
     <div ref={containerRef} className="relative" style={{ height: `${showcaseSlides.length * 85}vh` }}>
       <div className="sticky top-16 flex items-center overflow-hidden" style={{ height: 'calc(100vh - 4rem)' }}>
-        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            <div className="relative min-h-[280px] sm:min-h-[320px]">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[2fr_3fr] gap-8 lg:gap-12 items-center">
+            <div className="relative min-h-[300px] sm:min-h-[360px]">
               {showcaseSlides.map((slide, i) => (
                 <div
                   key={i}
@@ -376,25 +376,25 @@ function StickyScrollShowcase() {
                     pointerEvents: activeSlide === i ? 'auto' : 'none',
                   }}
                 >
-                  <span className="text-sm font-semibold tracking-widest uppercase text-blue-500 mb-3">
+                  <span className="text-sm sm:text-base font-semibold tracking-widest uppercase text-blue-500 mb-3 sm:mb-4">
                     {slide.number}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-4">
+                  <h3 className="text-2xl sm:text-3xl lg:text-[2.5rem] lg:leading-[1.15] font-bold text-slate-900 leading-tight mb-4 sm:mb-5">
                     {slide.title}
                   </h3>
-                  <p className="text-base sm:text-lg text-slate-500 leading-relaxed max-w-md">
+                  <p className="text-base sm:text-lg lg:text-xl text-slate-500 leading-relaxed">
                     {slide.description}
                   </p>
                 </div>
               ))}
 
-              <div className="absolute bottom-0 left-0 flex items-center gap-2 mt-8">
+              <div className="absolute bottom-0 left-0 flex items-center gap-2.5">
                 {showcaseSlides.map((_, i) => (
                   <div
                     key={i}
-                    className="h-1.5 rounded-full transition-all duration-500"
+                    className="h-2 rounded-full transition-all duration-500"
                     style={{
-                      width: activeSlide === i ? '32px' : '8px',
+                      width: activeSlide === i ? '36px' : '10px',
                       backgroundColor: activeSlide === i ? 'rgb(59, 130, 246)' : 'rgb(203, 213, 225)',
                     }}
                   />
@@ -413,7 +413,7 @@ function StickyScrollShowcase() {
                     transition: 'opacity 0.5s ease, transform 0.5s ease',
                   }}
                 >
-                  <div className={`rounded-2xl overflow-hidden shadow-xl border border-slate-200/60 bg-white ${activeSlide === i ? 'animate-showcase-float' : ''}`}>
+                  <div className={`rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60 bg-white ${activeSlide === i ? 'animate-showcase-float' : ''}`}>
                     <img
                       src={slide.image}
                       alt={slide.alt}
