@@ -118,68 +118,68 @@ export default function WebsiteAnalysis() {
         </div>
 
         {/* Analysis Form */}
-        <Card className="max-w-3xl mx-auto mb-12">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Search className="h-5 w-5" />
-              Analyze Your Website
-            </CardTitle>
-            <CardDescription>
-              Enter your website URL for comprehensive AI visibility insights
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="flex gap-3">
-              <div className="flex-1">
-                <Input
-                  placeholder="https://example.com"
-                  {...form.register("url")}
-                  disabled={analysisMutation.isPending}
-                  className="h-12"
-                  data-testid="input-website-url"
-                />
-                {form.formState.errors.url && (
-                  <p className="text-sm text-red-600 dark:text-red-400 mt-1" data-testid="text-url-error">
-                    {form.formState.errors.url.message}
-                  </p>
-                )}
+        <div className="max-w-3xl mx-auto mb-12 rounded-2xl bg-gradient-to-br from-blue-50 via-violet-50/60 to-indigo-50 border border-blue-200/60 shadow-lg shadow-blue-100/40 p-8 sm:p-10">
+          <div className="mb-5">
+            <h2 className="flex items-center gap-2.5 text-xl font-bold text-slate-900">
+              <div className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-r from-blue-500 to-violet-500">
+                <Search className="h-4 w-4 text-white" />
               </div>
-              <Button 
-                type="submit" 
+              Analyze Your Website
+            </h2>
+            <p className="text-sm text-slate-500 mt-1.5 ml-[46px]">
+              Enter your website URL for comprehensive AI visibility insights
+            </p>
+          </div>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="flex gap-3">
+            <div className="flex-1">
+              <Input
+                placeholder="https://example.com"
+                {...form.register("url")}
                 disabled={analysisMutation.isPending}
-                className="h-12 px-8"
-                data-testid="button-analyze"
-              >
-                {analysisMutation.isPending ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Crawling...
-                  </>
-                ) : (
-                  <>
-                    Analyze
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </>
-                )}
-              </Button>
-            </form>
-            {analysisMutation.isPending && (
-              <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <div className="flex items-center gap-3">
-                  <Loader2 className="h-5 w-5 animate-spin text-blue-600" />
-                  <div>
-                    <p className="text-sm font-medium text-blue-900 dark:text-blue-100">
-                      Analyzing your website...
-                    </p>
-                    <p className="text-xs text-blue-600 dark:text-blue-400 mt-1">
-                      This may take a moment. We're analyzing your content for AI visibility insights.
-                    </p>
-                  </div>
+                className="h-12 bg-white border-slate-200 shadow-sm"
+                data-testid="input-website-url"
+              />
+              {form.formState.errors.url && (
+                <p className="text-sm text-red-600 dark:text-red-400 mt-1" data-testid="text-url-error">
+                  {form.formState.errors.url.message}
+                </p>
+              )}
+            </div>
+            <Button 
+              type="submit" 
+              disabled={analysisMutation.isPending}
+              className="h-12 px-8 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white shadow-md"
+              data-testid="button-analyze"
+            >
+              {analysisMutation.isPending ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Crawling...
+                </>
+              ) : (
+                <>
+                  Analyze
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </>
+              )}
+            </Button>
+          </form>
+          {analysisMutation.isPending && (
+            <div className="mt-4 p-4 bg-white/80 border border-blue-200 rounded-lg">
+              <div className="flex items-center gap-3">
+                <Loader2 className="h-5 w-5 animate-spin text-blue-600" />
+                <div>
+                  <p className="text-sm font-medium text-blue-900">
+                    Analyzing your website...
+                  </p>
+                  <p className="text-xs text-blue-600 mt-1">
+                    This may take a moment. We're analyzing your content for AI visibility insights.
+                  </p>
                 </div>
               </div>
-            )}
-          </CardContent>
-        </Card>
+            </div>
+          )}
+        </div>
 
         {/* Results */}
         {analysisResult && (
