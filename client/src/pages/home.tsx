@@ -1001,7 +1001,7 @@ export default function Home() {
             <p className="text-sm text-slate-500">No credit card required</p>
           </div>
 
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto mt-4 sm:mt-6">
             <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60">
               <img 
                 src={dashboardScreenshot} 
