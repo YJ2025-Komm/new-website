@@ -58,9 +58,6 @@ import dashboardScreenshot from '@assets/georankers_sc_1771332426583.jpg';
 import showcaseImg1 from '@assets/generated_images/showcase_ai_visibility.png';
 import showcaseImg2 from '@assets/generated_images/showcase_prompt_discovery.png';
 import showcaseImg3 from '@assets/generated_images/showcase_recommendations.png';
-import intelImg1 from '@assets/generated_images/intel_ai_discovery.png';
-import intelImg2 from '@assets/generated_images/intel_analytics.png';
-import intelImg3 from '@assets/generated_images/intel_actionable.png';
 
 // WordPress API types
 interface WordPressBlogPost {
@@ -209,74 +206,44 @@ function StatsSection() {
   );
 }
 
-const intelSlides = [
-  {
-    number: "01",
-    icon: Compass,
-    iconGradient: "from-blue-500 to-cyan-500",
-    title: "Designed for AI-First Discovery",
-    description: "We track recommendations across ChatGPT, Google AI, and emerging LLMs — where buying decisions are increasingly influenced.",
-    image: intelImg1,
-    alt: "AI platform logos interconnected in a discovery network",
-  },
-  {
-    number: "02",
-    icon: Brain,
-    iconGradient: "from-violet-500 to-purple-600",
-    title: "Intelligence, Not Just Analytics",
-    description: "We measure AI citations, prompt coverage, competitive share, and authority gaps — turning AI exposure into strategy.",
-    image: intelImg2,
-    alt: "Data intelligence visualization with citations and competitive analysis",
-  },
-  {
-    number: "03",
-    icon: Crosshair,
-    iconGradient: "from-pink-500 to-rose-500",
-    title: "Actionable by Design",
-    description: "Our recommendation engine prioritizes what to build and optimize so AI models favor you as a primary source.",
-    image: intelImg3,
-    alt: "Recommendation engine with prioritized action items",
-  },
-];
-
 function SearchIntelligenceSection() {
-  const headingRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
       { threshold: 0.1 }
     );
-    if (headingRef.current) observer.observe(headingRef.current);
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const containerHeight = containerRef.current.offsetHeight;
-      const viewportHeight = window.innerHeight;
-      const scrolled = -rect.top;
-      const scrollableDistance = containerHeight - viewportHeight;
-      if (scrollableDistance <= 0) return;
-      const progress = Math.max(0, Math.min(1, scrolled / scrollableDistance));
-      const slideCount = intelSlides.length;
-      const newSlide = Math.min(slideCount - 1, Math.floor(progress * slideCount));
-      setActiveSlide(newSlide);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const cards = [
+    {
+      icon: Compass,
+      iconGradient: "from-blue-500 to-cyan-500",
+      title: "Designed for AI-First Discovery",
+      description: "We track recommendations across ChatGPT, Google AI, and emerging LLMs — where buying decisions are increasingly influenced.",
+    },
+    {
+      icon: Brain,
+      iconGradient: "from-violet-500 to-purple-600",
+      title: "Intelligence, Not Just Analytics",
+      description: "We measure AI citations, prompt coverage, competitive share, and authority gaps — turning AI exposure into strategy.",
+    },
+    {
+      icon: Crosshair,
+      iconGradient: "from-pink-500 to-rose-500",
+      title: "Actionable by Design",
+      description: "Our recommendation engine prioritizes what to build and optimize so AI models favor you as a primary source.",
+    },
+  ];
 
   return (
-    <div>
-      <div ref={headingRef} className="py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/80 to-white">
-        <div className="max-w-5xl mx-auto text-center">
+    <section ref={sectionRef} className="py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/80 to-white">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-6 sm:mb-8">
           <p
             className="text-sm font-semibold tracking-widest uppercase text-blue-500 mb-3 sm:mb-4"
             style={{
@@ -317,82 +284,31 @@ function SearchIntelligenceSection() {
             shaping buyer decisions.
           </p>
         </div>
-      </div>
 
-      <div ref={containerRef} className="relative" style={{ height: `${intelSlides.length * 85}vh` }}>
-        <div className="sticky top-16 flex items-center overflow-hidden" style={{ height: 'calc(100vh - 4rem)' }}>
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-[3fr_2fr] gap-8 lg:gap-12 items-center">
-              <div className="relative order-2 lg:order-1">
-                {intelSlides.map((slide, i) => (
-                  <div
-                    key={i}
-                    className={i === 0 ? 'relative' : 'absolute inset-0'}
-                    style={{
-                      opacity: activeSlide === i ? 1 : 0,
-                      transform: activeSlide === i ? 'scale(1)' : 'scale(0.95)',
-                      transition: 'opacity 0.5s ease, transform 0.5s ease',
-                    }}
-                  >
-                    <div className={`rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60 bg-white ${activeSlide === i ? 'animate-showcase-float' : ''}`}>
-                      <img
-                        src={slide.image}
-                        alt={slide.alt}
-                        className="w-full h-auto"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="relative min-h-[280px] sm:min-h-[340px] order-1 lg:order-2">
-                {intelSlides.map((slide, i) => {
-                  const Icon = slide.icon;
-                  return (
-                    <div
-                      key={i}
-                      className="absolute inset-0 flex flex-col justify-center"
-                      style={{
-                        opacity: activeSlide === i ? 1 : 0,
-                        transform: activeSlide === i ? 'translateY(0)' : activeSlide > i ? 'translateY(-30px)' : 'translateY(30px)',
-                        transition: 'opacity 0.5s ease, transform 0.5s ease',
-                        pointerEvents: activeSlide === i ? 'auto' : 'none',
-                      }}
-                    >
-                      <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${slide.iconGradient} mb-4 sm:mb-5`}>
-                        <Icon className="w-6 h-6 text-white" />
-                      </div>
-                      <span className="text-sm sm:text-base font-semibold tracking-widest uppercase text-blue-500 mb-2 sm:mb-3">
-                        {slide.number}
-                      </span>
-                      <h3 className="text-2xl sm:text-3xl lg:text-[2.25rem] lg:leading-[1.2] font-bold text-slate-900 leading-tight mb-3 sm:mb-4">
-                        {slide.title}
-                      </h3>
-                      <p className="text-base sm:text-lg lg:text-xl text-slate-500 leading-relaxed">
-                        {slide.description}
-                      </p>
-                    </div>
-                  );
-                })}
-
-                <div className="absolute bottom-0 left-0 flex items-center gap-2.5">
-                  {intelSlides.map((_, i) => (
-                    <div
-                      key={i}
-                      className="h-2 rounded-full transition-all duration-500"
-                      style={{
-                        width: activeSlide === i ? '36px' : '10px',
-                        backgroundColor: activeSlide === i ? 'rgb(59, 130, 246)' : 'rgb(203, 213, 225)',
-                      }}
-                    />
-                  ))}
+        <div className="grid sm:grid-cols-3 gap-5 sm:gap-6">
+          {cards.map((card, i) => {
+            const Icon = card.icon;
+            return (
+              <div
+                key={i}
+                className="group rounded-2xl border border-slate-200/80 bg-white p-7 sm:p-8 hover:shadow-lg hover:shadow-blue-100/50 hover:-translate-y-1 transition-all duration-500"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                  transition: `opacity 0.5s ease ${0.3 + i * 0.12}s, transform 0.5s ease ${0.3 + i * 0.12}s, box-shadow 0.5s ease, translate 0.5s ease`,
+                }}
+              >
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${card.iconGradient} mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className="w-6 h-6 text-white" />
                 </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">{card.title}</h3>
+                <p className="text-base sm:text-lg text-slate-500 leading-relaxed">{card.description}</p>
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
