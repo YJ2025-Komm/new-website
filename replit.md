@@ -45,11 +45,12 @@ GEO Guide: Restored to navigation per user request (August 28, 2025).
 ```
 
 ### Core Features
-1. **Landing Page**: Modern, responsive design showcasing GeoRankers features
+1. **Landing Page**: Modern, responsive design (features section moved to dedicated /features page)
 2. **Waitlist System**: Email collection with duplicate prevention and Mailchimp integration
 3. **Interactive FAQ Section**: Expandable questions with smooth animations and SEO optimization
 4. **Pricing Page**: Three-tier pricing cards (Launch $49/$41q, Grow $159/$129q, Enterprise Custom) with grouped feature sections, Compare Plans table, quarterly billing toggle, agency banner, and 12 FAQs at /pricing
-4. **Multi-Page Website Analysis**: Intelligent web crawler that analyzes up to 30 pages to provide AI visibility scores and actionable recommendations
+5. **Features Page**: Dedicated /features page with all 5 feature cards, How It Works section, and CTA
+6. **Multi-Page Website Analysis**: "AI Brand Visibility Tool" page with search bar, AI visibility content sections, and intelligent web crawler that analyzes up to 30 pages
 5. **Component Library**: Comprehensive UI components from shadcn/ui
 6. **Form Validation**: Type-safe forms with Zod schemas
 7. **Email Marketing Integration**: Automatic Mailchimp sync for new subscribers

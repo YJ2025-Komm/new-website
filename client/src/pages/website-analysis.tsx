@@ -110,7 +110,7 @@ export default function WebsiteAnalysis() {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            AI Search Visibility Analysis
+            AI Brand Visibility Tool
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Discover how visible your website is to AI search engines like ChatGPT, Gemini, Perplexity, and Claude
@@ -179,6 +179,73 @@ export default function WebsiteAnalysis() {
               </div>
             </div>
           )}
+        </div>
+
+        {/* AI Visibility Content Section */}
+        <div className="max-w-4xl mx-auto mb-16 space-y-10">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">What Is AI Visibility & Why It Matters</h2>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+              AI visibility isn't just about ranking — it's about being mentioned, recommended, and cited when people ask generative AI assistants. Modern discovery increasingly happens inside platforms like ChatGPT, Gemini, Perplexity, and AI Overviews — not just traditional search. If your brand isn't part of those AI responses, it may be missing out on a fast-growing source of high-intent awareness and conversions.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Why AI Visibility Is Critical</h2>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-4">
+              When buyers turn to AI assistants for answers, they reveal intent — and often far more detailed intent than traditional search patterns. Being included in the answer means you're in the shortlist before any click even happens. Without visibility in these responses, you risk being invisible during crucial decision-making moments.
+            </p>
+            <div className="rounded-xl bg-gradient-to-r from-blue-50 to-violet-50 border border-blue-200/50 p-5">
+              <p className="text-slate-700 font-semibold text-base md:text-lg">
+                Insight → Pipeline → Conversions
+              </p>
+              <p className="text-slate-600 text-sm md:text-base mt-1">
+                AI visibility impacts discoverability, which influences qualified traffic and ultimately pipeline growth.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-5">How to Boost Your AI Visibility?</h2>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-500 to-violet-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Search className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-800 text-base md:text-lg">Identify prompt gaps vs competitors</p>
+                  <p className="text-slate-600 text-sm md:text-base">Target content to address queries where you're missing.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-500 to-violet-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Shield className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-800 text-base md:text-lg">Strengthen citation sources</p>
+                  <p className="text-slate-600 text-sm md:text-base">Build authority and enable AI platforms to pull from trusted signals.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-500 to-violet-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <FileText className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-800 text-base md:text-lg">Optimize for context and nuance</p>
+                  <p className="text-slate-600 text-sm md:text-base">Shape content so AI describes your brand positively, accurately, and authoritatively.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-500 to-violet-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <TrendingUp className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-800 text-base md:text-lg">Track platform performance</p>
+                  <p className="text-slate-600 text-sm md:text-base">Some AI engines favor different sources; adapt your strategy per platform.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Results */}
