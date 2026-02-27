@@ -8,6 +8,7 @@ import GeoGuide from "@/pages/geo-guide";
 import WebsiteAnalysis from "@/pages/website-analysis";
 import Waitlist from "@/pages/waitlist";
 import Pricing from "@/pages/pricing";
+import Features from "@/pages/features";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/website-analysis" component={WebsiteAnalysis} />
       <Route path="/waitlist" component={Waitlist} />
       <Route path="/pricing" component={Pricing} />
+      <Route path="/features" component={Features} />
       <Route component={NotFound} />
     </Switch>
   );

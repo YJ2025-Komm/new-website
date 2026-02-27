@@ -22,9 +22,9 @@ export default function Navbar() {
             <Link href="/website-analysis" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" data-testid="link-website-analysis">
               Website AI Audit
             </Link>
-            <a href="/#features" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
+            <Link href="/features" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
               Features
-            </a>
+            </Link>
             <div className="relative">
               <button 
                 onClick={() => setResourcesOpen(!resourcesOpen)}
@@ -114,13 +114,13 @@ export default function Navbar() {
             >
               Website AI Audit
             </Link>
-            <a 
-              href="/#features" 
+            <Link 
+              href="/features" 
               className="block text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               Features
-            </a>
+            </Link>
             <div>
               <button 
                 onClick={() => setResourcesOpen(!resourcesOpen)}
