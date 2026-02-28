@@ -33,10 +33,13 @@ import perplexityLogo from "@assets/Perplexity_1753958628538.png";
 import strategicImage from '@assets/generated_images/Strategic_AI_search_leadership_2959319a.png';
 import buildingBlocksImage from '@assets/generated_images/AI_content_building_blocks_237b4917.png';
 import geoVsSeoImage from '@assets/generated_images/GEO_vs_SEO_comparison_96025f03.png';
-import dashboardScreenshot from '@assets/georankers_sc_1771332426583.jpg';
 import showcaseImg1 from '@assets/generated_images/showcase_ai_visibility.png';
 import showcaseImg2 from '@assets/generated_images/showcase_prompt_discovery.png';
 import showcaseImg3 from '@assets/generated_images/showcase_recommendations.png';
+import dashImg1 from '@assets/gr1_1772251203326.png';
+import dashImg2 from '@assets/gr2_1772251203323.png';
+import dashImg3 from '@assets/gr3_1772251203321.png';
+import dashImg4 from '@assets/gr4_1772251203317.png';
 
 // WordPress API types
 interface WordPressBlogPost {
@@ -190,6 +193,115 @@ const showcaseSlides = [
     alt: "GeoRankers strategic recommendations with impact and effort ratings",
   },
 ];
+
+const dashboardSlides = [
+  {
+    image: dashImg1,
+    alt: "GeoRankers Competitive Landscape — bar chart and radar chart showing brand positioning vs competitors",
+    caption: "See how you stack up against competitors in AI search results",
+  },
+  {
+    image: dashImg2,
+    alt: "GeoRankers AI Prompts & Query Analysis — keyword groups with brand mention scores",
+    caption: "Discover the exact prompts AI is answering about your industry",
+  },
+  {
+    image: dashImg3,
+    alt: "GeoRankers Strategic Recommendations — actionable insights with impact levels",
+    caption: "Get data-driven actions prioritized by impact to boost your AI presence",
+  },
+  {
+    image: dashImg4,
+    alt: "GeoRankers Overall Insights — AI Visibility Score and brand mention breakdown",
+    caption: "Track your AI Visibility Score and brand mention share across LLMs",
+  },
+];
+
+function DashboardCarousel() {
+  const [current, setCurrent] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const startTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % dashboardSlides.length);
+    }, 5000);
+  }, []);
+
+  useEffect(() => {
+    startTimer();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [startTimer]);
+
+  const goTo = (index: number) => {
+    setCurrent(index);
+    startTimer();
+  };
+
+  const prev = () => goTo((current - 1 + dashboardSlides.length) % dashboardSlides.length);
+  const next = () => goTo((current + 1) % dashboardSlides.length);
+
+  return (
+    <div className="max-w-6xl mx-auto mt-4 sm:mt-6">
+      <div className="relative group">
+        <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60 relative bg-white">
+          {dashboardSlides.map((slide, i) => (
+            <div
+              key={i}
+              className={i === 0 ? 'relative' : 'absolute inset-0'}
+              style={{
+                opacity: current === i ? 1 : 0,
+                transition: 'opacity 0.6s ease-in-out',
+                pointerEvents: current === i ? 'auto' : 'none',
+              }}
+            >
+              <img
+                src={slide.image}
+                alt={slide.alt}
+                className="w-full h-auto"
+              />
+            </div>
+          ))}
+        </div>
+
+        <button
+          onClick={prev}
+          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg border border-slate-200 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white z-10"
+          aria-label="Previous screenshot"
+        >
+          <ChevronLeft className="w-5 h-5 text-slate-600" />
+        </button>
+        <button
+          onClick={next}
+          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg border border-slate-200 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white z-10"
+          aria-label="Next screenshot"
+        >
+          <ChevronRight className="w-5 h-5 text-slate-600" />
+        </button>
+      </div>
+
+      <div className="mt-4 text-center">
+        <p className="text-sm sm:text-base text-slate-600 mb-3 min-h-[1.5rem] transition-all duration-300">
+          {dashboardSlides[current].caption}
+        </p>
+        <div className="flex items-center justify-center gap-2">
+          {dashboardSlides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className={`h-2.5 rounded-full transition-all duration-300 ${
+                i === current
+                  ? 'w-8 bg-gradient-to-r from-blue-500 to-violet-500'
+                  : 'w-2.5 bg-slate-300 hover:bg-slate-400'
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function StickyScrollShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -856,15 +968,7 @@ export default function Home() {
             <p className="text-sm text-slate-500">No credit card required</p>
           </div>
 
-          <div className="max-w-6xl mx-auto mt-4 sm:mt-6">
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60">
-              <img 
-                src={dashboardScreenshot} 
-                alt="GeoRankers Dashboard - AI Visibility Score, Competitive Landscape, and Mention Distribution" 
-                className="w-full h-auto"
-              />
-            </div>
-          </div>
+          <DashboardCarousel />
 
           <div className="mt-10 sm:mt-14">
             <p className="text-xs sm:text-sm font-medium text-slate-400 uppercase tracking-widest text-center mb-6">
