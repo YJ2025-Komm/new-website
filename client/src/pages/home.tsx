@@ -349,9 +349,15 @@ function StickyScrollShowcase() {
                   <h3 className="text-2xl sm:text-3xl lg:text-[2.5rem] lg:leading-[1.15] font-bold text-slate-900 leading-tight mb-4 sm:mb-5">
                     {slide.title}
                   </h3>
-                  <p className="text-base sm:text-lg lg:text-xl text-slate-500 leading-relaxed">
+                  <p className="text-base sm:text-lg lg:text-xl text-slate-500 leading-relaxed mb-6">
                     {slide.description}
                   </p>
+                  <a
+                    href="https://dashboard.georankers.co/register"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-xl font-semibold text-sm sm:text-base transform hover:scale-105 transition-all duration-300 shadow-lg"
+                  >
+                    Try for Free
+                  </a>
                 </div>
               ))}
 
@@ -993,24 +999,23 @@ export default function Home() {
       <StickyScrollShowcase />
 
 
-      {/* Mid-Page CTA Strip */}
+      {/* Website AI Audit CTA Strip */}
       <section className="py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
         <div className="max-w-5xl mx-auto text-center">
           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">
-            See What AI Says About Your Brand Today
+            Check Your Brand's Visibility for Free
           </h3>
           <p className="text-base sm:text-lg text-white/90 mb-5 sm:mb-6 max-w-2xl mx-auto leading-relaxed">
-            Get a clear view of how AI models describe your company and which sources shape those answers.
+            See how your brand is interpreted by the LLMs like ChatGPT, Gemini, Perplexity, and others
           </p>
-          <a 
-            href="https://dashboard.georankers.co/register"
+          <Link
+            href="/website-analysis"
             className="inline-flex items-center px-7 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
-            data-testid="cta-try-free-midpage-1"
+            data-testid="cta-check-visibility"
           >
-            <Rocket className="w-5 h-5 mr-2" />
-            Try for Free
-          </a>
-          <p className="text-sm text-white/70 mt-3">No credit card required</p>
+            <Eye className="w-5 h-5 mr-2" />
+            Check Visibility
+          </Link>
         </div>
       </section>
 
