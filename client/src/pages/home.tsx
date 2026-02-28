@@ -994,6 +994,8 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="py-8 sm:py-12 lg:py-16"></div>
+
       {/* Search Intelligence Section */}
       <SearchIntelligenceSection />
 
