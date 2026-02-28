@@ -281,7 +281,7 @@ function DashboardCarousel() {
       </div>
 
       <div className="mt-4 text-center">
-        <p className="text-sm sm:text-base text-slate-600 mb-3 min-h-[1.5rem] transition-all duration-300">
+        <p className="inline-block text-base sm:text-lg lg:text-xl font-medium text-slate-800 mb-3 px-5 py-2 bg-slate-100/80 rounded-full transition-all duration-300">
           {dashboardSlides[current].caption}
         </p>
         <div className="flex items-center justify-center gap-2">
