@@ -349,15 +349,9 @@ function StickyScrollShowcase() {
                   <h3 className="text-2xl sm:text-3xl lg:text-[2.5rem] lg:leading-[1.15] font-bold text-slate-900 leading-tight mb-4 sm:mb-5">
                     {slide.title}
                   </h3>
-                  <p className="text-base sm:text-lg lg:text-xl text-slate-500 leading-relaxed mb-6">
+                  <p className="text-base sm:text-lg lg:text-xl text-slate-500 leading-relaxed">
                     {slide.description}
                   </p>
-                  <a
-                    href="https://dashboard.georankers.co/register"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-xl font-semibold text-sm sm:text-base transform hover:scale-105 transition-all duration-300 shadow-lg"
-                  >
-                    Try for Free
-                  </a>
                 </div>
               ))}
 
@@ -396,6 +390,14 @@ function StickyScrollShowcase() {
                 </div>
               ))}
             </div>
+          </div>
+          <div className="mt-8 text-center">
+            <a
+              href="https://dashboard.georankers.co/register"
+              className="inline-flex items-center px-7 py-3 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-xl font-semibold text-sm sm:text-base transform hover:scale-105 transition-all duration-300 shadow-lg"
+            >
+              Try for Free
+            </a>
           </div>
         </div>
       </div>
