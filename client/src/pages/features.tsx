@@ -491,7 +491,7 @@ export default function Features() {
               href="https://dashboard.georankers.co/register"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-xl font-semibold text-lg text-white transform hover:scale-105 transition-all duration-300 shadow-xl"
             >
-              Start for Free
+              Try for Free
               <ArrowRight className="w-5 h-5 ml-2" />
             </a>
           </div>
