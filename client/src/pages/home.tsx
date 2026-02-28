@@ -225,7 +225,7 @@ function DashboardCarousel() {
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
       setCurrent((prev) => (prev + 1) % dashboardSlides.length);
-    }, 5000);
+    }, 4000);
   }, []);
 
   useEffect(() => {
