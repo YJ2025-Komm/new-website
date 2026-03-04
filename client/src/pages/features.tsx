@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -18,6 +19,150 @@ import {
 } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
 import Navbar from "@/components/Navbar";
+
+function HowItWorks() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const steps = [
+    {
+      icon: Globe,
+      iconGradient: "from-blue-500 to-cyan-500",
+      cardBg: "from-blue-50/80 to-cyan-50/40",
+      accentColor: "from-blue-500 to-cyan-500",
+      glowColor: "bg-blue-400/20",
+      stepColor: "text-blue-500",
+      stepNum: "01",
+      title: "Connect Your Domain",
+      description: "Link your website and we'll start tracking your brand across AI search platforms.",
+    },
+    {
+      icon: Search,
+      iconGradient: "from-violet-500 to-purple-600",
+      cardBg: "from-violet-50/80 to-purple-50/40",
+      accentColor: "from-violet-500 to-purple-600",
+      glowColor: "bg-violet-400/20",
+      stepColor: "text-violet-500",
+      stepNum: "02",
+      title: "We Analyze AI Responses",
+      description: "Our engine runs structured prompts across ChatGPT, Gemini, and more to measure your visibility.",
+    },
+    {
+      icon: Map,
+      iconGradient: "from-pink-500 to-rose-500",
+      cardBg: "from-pink-50/80 to-rose-50/40",
+      accentColor: "from-pink-500 to-rose-500",
+      glowColor: "bg-pink-400/20",
+      stepColor: "text-pink-500",
+      stepNum: "03",
+      title: "Get Insights & Roadmap",
+      description: "Receive optimization insights and an authority roadmap to systematically improve your AI presence.",
+    },
+  ];
+
+  return (
+    <section ref={sectionRef} className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/80 to-white">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-12 sm:mb-14">
+          <p
+            className="text-sm font-semibold tracking-widest uppercase text-blue-500 mb-3"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(12px)',
+              transition: 'opacity 0.6s ease, transform 0.6s ease',
+            }}
+          >
+            Getting Started
+          </p>
+          <h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transition: 'opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s',
+            }}
+          >
+            How It Works
+          </h2>
+          <p
+            className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transition: 'opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s',
+            }}
+          >
+            Three simple steps to start tracking and improving your brand's AI search visibility
+          </p>
+        </div>
+
+        <div className="relative grid sm:grid-cols-3 gap-6 sm:gap-8 mb-12">
+          <div className="hidden sm:block absolute top-24 left-[20%] right-[20%] h-px">
+            <div className="w-full h-full bg-gradient-to-r from-blue-300 via-violet-300 to-pink-300 opacity-60" />
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-blue-400" />
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-violet-400" />
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-pink-400" />
+          </div>
+
+          {steps.map((step, i) => {
+            const Icon = step.icon;
+            return (
+              <div
+                key={i}
+                className={`group relative rounded-2xl bg-gradient-to-br ${step.cardBg} p-8 sm:p-9 overflow-hidden text-center hover:-translate-y-1.5 hover:shadow-xl hover:shadow-slate-200/60 transition-all duration-500`}
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                  transition: `opacity 0.5s ease ${0.3 + i * 0.15}s, transform 0.5s ease ${0.3 + i * 0.15}s, box-shadow 0.5s ease, translate 0.5s ease`,
+                }}
+              >
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${step.accentColor} group-hover:h-1.5 transition-all duration-300`} />
+                <div className="absolute top-4 right-5 text-6xl sm:text-7xl font-black text-slate-900/[0.04] select-none leading-none">
+                  {step.stepNum}
+                </div>
+                <div className="relative mb-5 inline-block">
+                  <div className={`absolute -top-3 -left-3 w-24 h-24 ${step.glowColor} rounded-full blur-xl group-hover:scale-125 transition-transform duration-500`} />
+                  <div className={`relative inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${step.iconGradient} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+                <div className={`text-sm font-semibold ${step.stepColor} uppercase tracking-wider mb-2`}>Step {i + 1}</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
+                <p className="text-slate-500 leading-relaxed">{step.description}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        <div
+          className="text-center"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.5s ease 0.8s, transform 0.5s ease 0.8s',
+          }}
+        >
+          <a
+            href="https://dashboard.georankers.co/register"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-xl font-semibold text-lg text-white transform hover:scale-105 transition-all duration-300 shadow-xl"
+          >
+            Try for Free
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Features() {
   return (
@@ -448,55 +593,7 @@ export default function Features() {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-              How It Works
-            </h2>
-          </div>
-
-          <div className="grid sm:grid-cols-3 gap-8 mb-12">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-5">
-                <Globe className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-sm font-semibold text-blue-500 uppercase tracking-wider mb-2">Step 1</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Connect Your Domain</h3>
-              <p className="text-slate-500">Link your website and we'll start tracking your brand across AI search platforms.</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-violet-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-5">
-                <Search className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-sm font-semibold text-violet-500 uppercase tracking-wider mb-2">Step 2</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">We Analyze AI Responses</h3>
-              <p className="text-slate-500">Our engine runs structured prompts across ChatGPT, Gemini, and more to measure your visibility.</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-5">
-                <Map className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-sm font-semibold text-pink-500 uppercase tracking-wider mb-2">Step 3</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Get Insights & Roadmap</h3>
-              <p className="text-slate-500">Receive optimization insights and an authority roadmap to systematically improve your AI presence.</p>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <a
-              href="https://dashboard.georankers.co/register"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-xl font-semibold text-lg text-white transform hover:scale-105 transition-all duration-300 shadow-xl"
-            >
-              Try for Free
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </a>
-          </div>
-        </div>
-      </section>
+      <HowItWorks />
 
       {/* Footer */}
       <footer className="relative py-16 sm:py-20 overflow-hidden bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
