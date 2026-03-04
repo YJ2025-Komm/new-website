@@ -81,18 +81,27 @@ function SearchIntelligenceSection() {
     {
       icon: Compass,
       iconGradient: "from-blue-500 to-cyan-500",
+      cardBg: "from-blue-50/80 to-cyan-50/40",
+      accentColor: "from-blue-500 to-cyan-500",
+      glowColor: "bg-blue-400/20",
       title: "Designed for AI-First Discovery",
       description: "We track recommendations across ChatGPT, Google AI, and emerging LLMs — where buying decisions are increasingly influenced.",
     },
     {
       icon: Brain,
       iconGradient: "from-violet-500 to-purple-600",
+      cardBg: "from-violet-50/80 to-purple-50/40",
+      accentColor: "from-violet-500 to-purple-600",
+      glowColor: "bg-violet-400/20",
       title: "Intelligence, Not Just Analytics",
       description: "We measure AI citations, prompt coverage, competitive share, and authority gaps — turning AI exposure into strategy.",
     },
     {
       icon: Crosshair,
       iconGradient: "from-pink-500 to-rose-500",
+      cardBg: "from-pink-50/80 to-rose-50/40",
+      accentColor: "from-pink-500 to-rose-500",
+      glowColor: "bg-pink-400/20",
       title: "Actionable by Design",
       description: "Our recommendation engine prioritizes what to build and optimize so AI models favor you as a primary source.",
     },
@@ -149,15 +158,19 @@ function SearchIntelligenceSection() {
             return (
               <div
                 key={i}
-                className="group rounded-2xl border border-slate-200/80 bg-white p-7 sm:p-8 hover:shadow-lg hover:shadow-blue-100/50 hover:-translate-y-1 transition-all duration-500"
+                className={`group relative rounded-2xl bg-gradient-to-br ${card.cardBg} p-8 sm:p-9 overflow-hidden hover:-translate-y-1.5 hover:shadow-xl hover:shadow-slate-200/60 transition-all duration-500`}
                 style={{
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
                   transition: `opacity 0.5s ease ${0.3 + i * 0.12}s, transform 0.5s ease ${0.3 + i * 0.12}s, box-shadow 0.5s ease, translate 0.5s ease`,
                 }}
               >
-                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${card.iconGradient} mb-5 group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className="w-6 h-6 text-white" />
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${card.accentColor} group-hover:h-1.5 transition-all duration-300`} />
+                <div className="relative mb-6">
+                  <div className={`absolute -top-2 -left-2 w-20 h-20 ${card.glowColor} rounded-full blur-xl group-hover:scale-125 transition-transform duration-500`} />
+                  <div className={`relative inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${card.iconGradient} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-7 h-7 text-white" />
+                  </div>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">{card.title}</h3>
                 <p className="text-base sm:text-lg text-slate-500 leading-relaxed">{card.description}</p>
