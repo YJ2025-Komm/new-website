@@ -17,7 +17,7 @@ import {
   Search,
   Map,
 } from "lucide-react";
-import { SiLinkedin } from "react-icons/si";
+import { SiLinkedin, SiOpenai, SiGooglegemini, SiPerplexity, SiClaude, SiGithubcopilot } from "react-icons/si";
 import Navbar from "@/components/Navbar";
 
 function HowItWorks() {
@@ -174,6 +174,14 @@ export default function Features() {
         <div className="hero-gradient absolute inset-0 z-0"></div>
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
+        
+        <div className="hidden lg:block absolute inset-0 z-[1] overflow-hidden pointer-events-none">
+          <SiOpenai className="absolute top-28 left-[8%] w-12 h-12 text-slate-400/[0.12] animate-logo-drift" style={{ animationDelay: '0s' }} />
+          <SiGooglegemini className="absolute top-32 right-[7%] w-14 h-14 text-blue-400/[0.12] animate-logo-drift" style={{ animationDelay: '1.5s' }} />
+          <SiPerplexity className="absolute bottom-16 left-[6%] w-11 h-11 text-violet-400/[0.12] animate-logo-drift" style={{ animationDelay: '3s' }} />
+          <SiClaude className="absolute bottom-20 right-[8%] w-12 h-12 text-orange-400/[0.12] animate-logo-drift" style={{ animationDelay: '4.5s' }} />
+          <SiGithubcopilot className="absolute top-1/2 left-[3%] w-10 h-10 text-cyan-400/[0.12] animate-logo-drift" style={{ animationDelay: '6s' }} />
+        </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">

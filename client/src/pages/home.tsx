@@ -23,7 +23,7 @@ import {
   Compass,
   Crosshair
 } from "lucide-react";
-import { SiLinkedin } from "react-icons/si";
+import { SiLinkedin, SiOpenai, SiGooglegemini, SiPerplexity, SiClaude, SiGithubcopilot } from "react-icons/si";
 import geminiLogo from "@assets/Gemini_1753958628531.png";
 import grokLogo from "@assets/Grok_1753958628535.png";
 import openaiLogo from "@assets/Open Ai_1753958628536.png";
@@ -969,6 +969,14 @@ export default function Home() {
         <div className="hero-gradient absolute inset-0 z-0"></div>
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse-soft"></div>
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
+        
+        <div className="hidden lg:block absolute inset-0 z-[1] overflow-hidden pointer-events-none">
+          <SiOpenai className="absolute top-28 left-[8%] w-12 h-12 text-slate-400/[0.12] animate-logo-drift" style={{ animationDelay: '0s' }} />
+          <SiGooglegemini className="absolute top-36 right-[7%] w-14 h-14 text-blue-400/[0.12] animate-logo-drift" style={{ animationDelay: '1.5s' }} />
+          <SiPerplexity className="absolute top-[55%] left-[5%] w-11 h-11 text-violet-400/[0.12] animate-logo-drift" style={{ animationDelay: '3s' }} />
+          <SiClaude className="absolute top-[50%] right-[6%] w-12 h-12 text-orange-400/[0.12] animate-logo-drift" style={{ animationDelay: '4.5s' }} />
+          <SiGithubcopilot className="absolute top-[75%] left-[12%] w-10 h-10 text-cyan-400/[0.12] animate-logo-drift" style={{ animationDelay: '6s' }} />
+        </div>
         
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8">
