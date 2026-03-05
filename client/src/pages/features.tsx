@@ -174,7 +174,35 @@ export default function Features() {
         <div className="hero-gradient absolute inset-0 z-0"></div>
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
-        
+
+        <div className="absolute inset-0 z-[5] overflow-hidden pointer-events-none" aria-hidden="true">
+          <div className="absolute top-24 sm:top-28 left-[4%] sm:left-[7%] animate-logo-drift" style={{ animationDelay: '0s' }}>
+            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
+              <SiOpenai className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-slate-700" />
+            </div>
+          </div>
+          <div className="absolute top-20 sm:top-24 right-[5%] sm:right-[8%] animate-logo-drift" style={{ animationDelay: '1.6s' }}>
+            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
+              <SiGooglegemini className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-blue-500" />
+            </div>
+          </div>
+          <div className="absolute bottom-16 left-[3%] sm:left-[6%] animate-logo-drift" style={{ animationDelay: '3.2s' }}>
+            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
+              <SiPerplexity className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-slate-700" />
+            </div>
+          </div>
+          <div className="absolute bottom-12 right-[4%] sm:right-[7%] animate-logo-drift" style={{ animationDelay: '4.8s' }}>
+            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
+              <SiClaude className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-orange-500" />
+            </div>
+          </div>
+          <div className="absolute top-1/2 left-[2%] sm:left-[4%] animate-logo-drift" style={{ animationDelay: '6.4s' }}>
+            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
+              <SiGithubcopilot className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-slate-700" />
+            </div>
+          </div>
+        </div>
+
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             Own Your Brand's Presence in{" "}
@@ -183,13 +211,6 @@ export default function Features() {
           <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto mb-5">
             Track visibility across LLMs, benchmark competitors, decode prompts that matter, and systematically increase your AI authority — all from one intelligence layer.
           </p>
-          <div className="flex items-center justify-center gap-5 sm:gap-7">
-            <SiOpenai className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-slate-800 transition-all duration-300" title="ChatGPT" />
-            <SiGooglegemini className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-blue-600 transition-all duration-300" title="Gemini" />
-            <SiPerplexity className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-slate-800 transition-all duration-300" title="Perplexity" />
-            <SiClaude className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-orange-500 transition-all duration-300" title="Claude" />
-            <SiGithubcopilot className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-slate-800 transition-all duration-300" title="Copilot" />
-          </div>
         </div>
       </section>
 

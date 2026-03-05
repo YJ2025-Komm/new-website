@@ -969,8 +969,35 @@ export default function Home() {
         <div className="hero-gradient absolute inset-0 z-0"></div>
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse-soft"></div>
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
-        
-        
+
+        <div className="absolute inset-0 z-[5] overflow-hidden pointer-events-none" aria-hidden="true">
+          <div className="absolute top-24 sm:top-28 left-[4%] sm:left-[7%] animate-logo-drift" style={{ animationDelay: '0s' }}>
+            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
+              <SiOpenai className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-slate-700" />
+            </div>
+          </div>
+          <div className="absolute top-20 sm:top-24 right-[5%] sm:right-[8%] animate-logo-drift" style={{ animationDelay: '1.6s' }}>
+            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
+              <SiGooglegemini className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-blue-500" />
+            </div>
+          </div>
+          <div className="absolute top-[48%] sm:top-[45%] left-[2%] sm:left-[5%] animate-logo-drift" style={{ animationDelay: '3.2s' }}>
+            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
+              <SiPerplexity className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-slate-700" />
+            </div>
+          </div>
+          <div className="absolute top-[42%] sm:top-[40%] right-[3%] sm:right-[6%] animate-logo-drift" style={{ animationDelay: '4.8s' }}>
+            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
+              <SiClaude className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-orange-500" />
+            </div>
+          </div>
+          <div className="absolute top-[68%] sm:top-[65%] left-[8%] sm:left-[12%] animate-logo-drift" style={{ animationDelay: '6.4s' }}>
+            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
+              <SiGithubcopilot className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-slate-700" />
+            </div>
+          </div>
+        </div>
+
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8">
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-3 lg:mb-4 leading-tight">
@@ -981,14 +1008,6 @@ export default function Home() {
               See how AI platforms position your software in buyer-intent prompts, track competitor recommendations, and close visibility gaps that impact pipeline.
             </p>
 
-            <div className="flex items-center justify-center gap-5 sm:gap-7 mb-5 lg:mb-6">
-              <SiOpenai className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-slate-800 transition-all duration-300" title="ChatGPT" />
-              <SiGooglegemini className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-blue-600 transition-all duration-300" title="Gemini" />
-              <SiPerplexity className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-slate-800 transition-all duration-300" title="Perplexity" />
-              <SiClaude className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-orange-500 transition-all duration-300" title="Claude" />
-              <SiGithubcopilot className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-slate-800 transition-all duration-300" title="Copilot" />
-            </div>
-            
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-1">
               <a 
                 href="https://dashboard.georankers.co/register"
