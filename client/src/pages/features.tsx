@@ -175,22 +175,21 @@ export default function Features() {
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
         
-        <div className="hidden md:block absolute inset-0 z-[1] overflow-hidden pointer-events-none">
-          <SiOpenai className="absolute top-28 left-[8%] w-14 h-14 text-slate-400 opacity-20 animate-logo-drift" style={{ animationDelay: '0s' }} />
-          <SiGooglegemini className="absolute top-32 right-[7%] w-16 h-16 text-blue-400 opacity-20 animate-logo-drift" style={{ animationDelay: '1.5s' }} />
-          <SiPerplexity className="absolute bottom-16 left-[6%] w-14 h-14 text-violet-400 opacity-20 animate-logo-drift" style={{ animationDelay: '3s' }} />
-          <SiClaude className="absolute bottom-20 right-[8%] w-14 h-14 text-orange-400 opacity-20 animate-logo-drift" style={{ animationDelay: '4.5s' }} />
-          <SiGithubcopilot className="absolute top-1/2 left-[3%] w-12 h-12 text-cyan-400 opacity-20 animate-logo-drift" style={{ animationDelay: '6s' }} />
-        </div>
-
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             Own Your Brand's Presence in{" "}
             <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search</span>
           </h1>
-          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto mb-5">
             Track visibility across LLMs, benchmark competitors, decode prompts that matter, and systematically increase your AI authority — all from one intelligence layer.
           </p>
+          <div className="flex items-center justify-center gap-5 sm:gap-7">
+            <SiOpenai className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-slate-800 transition-all duration-300" title="ChatGPT" />
+            <SiGooglegemini className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-blue-600 transition-all duration-300" title="Gemini" />
+            <SiPerplexity className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-slate-800 transition-all duration-300" title="Perplexity" />
+            <SiClaude className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-orange-500 transition-all duration-300" title="Claude" />
+            <SiGithubcopilot className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-slate-800 transition-all duration-300" title="Copilot" />
+          </div>
         </div>
       </section>
 

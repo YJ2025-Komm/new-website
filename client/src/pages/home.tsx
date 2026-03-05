@@ -970,13 +970,6 @@ export default function Home() {
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse-soft"></div>
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
         
-        <div className="hidden md:block absolute inset-0 z-[1] overflow-hidden pointer-events-none">
-          <SiOpenai className="absolute top-28 left-[8%] w-14 h-14 text-slate-400 opacity-20 animate-logo-drift" style={{ animationDelay: '0s' }} />
-          <SiGooglegemini className="absolute top-36 right-[7%] w-16 h-16 text-blue-400 opacity-20 animate-logo-drift" style={{ animationDelay: '1.5s' }} />
-          <SiPerplexity className="absolute top-[55%] left-[5%] w-14 h-14 text-violet-400 opacity-20 animate-logo-drift" style={{ animationDelay: '3s' }} />
-          <SiClaude className="absolute top-[50%] right-[6%] w-14 h-14 text-orange-400 opacity-20 animate-logo-drift" style={{ animationDelay: '4.5s' }} />
-          <SiGithubcopilot className="absolute top-[75%] left-[12%] w-12 h-12 text-cyan-400 opacity-20 animate-logo-drift" style={{ animationDelay: '6s' }} />
-        </div>
         
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8">
@@ -984,9 +977,17 @@ export default function Home() {
               AI Search Visibility <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Built for B2B SaaS</span>
             </h1>
             
-            <p className="text-base sm:text-lg lg:text-xl text-slate-600 mb-4 lg:mb-6 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-slate-600 mb-4 lg:mb-5 leading-relaxed max-w-3xl mx-auto">
               See how AI platforms position your software in buyer-intent prompts, track competitor recommendations, and close visibility gaps that impact pipeline.
             </p>
+
+            <div className="flex items-center justify-center gap-5 sm:gap-7 mb-5 lg:mb-6">
+              <SiOpenai className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-slate-800 transition-all duration-300" title="ChatGPT" />
+              <SiGooglegemini className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-blue-600 transition-all duration-300" title="Gemini" />
+              <SiPerplexity className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-slate-800 transition-all duration-300" title="Perplexity" />
+              <SiClaude className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-orange-500 transition-all duration-300" title="Claude" />
+              <SiGithubcopilot className="w-7 h-7 sm:w-8 sm:h-8 text-slate-500 opacity-60 hover:opacity-100 hover:text-slate-800 transition-all duration-300" title="Copilot" />
+            </div>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-1">
               <a 
