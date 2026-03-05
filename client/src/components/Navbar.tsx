@@ -87,27 +87,20 @@ export default function Navbar() {
             </a>
           </div>
           
-          <div className="md:hidden flex items-center space-x-3">
-            <a 
-              href="https://dashboard.georankers.co/login"
-              className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium"
-              data-testid="link-login-mobile"
-            >
-              Login
-            </a>
+          <div className="md:hidden flex items-center space-x-2">
             <a 
               href="https://calendly.com/georankers/demo"
-              className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+              className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200"
               data-testid="cta-book-demo-mobile"
             >
               Demo
             </a>
             <a 
               href="https://dashboard.georankers.co/register"
-              className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-3 py-2 rounded-lg text-sm font-medium"
+              className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-3 py-1.5 rounded-lg text-xs font-medium"
               data-testid="cta-try-free-mobile"
             >
-              Try for Free
+              Try Free
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -123,6 +116,14 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-slate-200 px-4 py-4">
           <div className="space-y-3">
+            <a 
+              href="https://dashboard.georankers.co/login"
+              className="block text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2"
+              onClick={() => setMobileMenuOpen(false)}
+              data-testid="mobile-link-login"
+            >
+              Login
+            </a>
             <Link 
               href="/website-analysis" 
               className="block text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2"

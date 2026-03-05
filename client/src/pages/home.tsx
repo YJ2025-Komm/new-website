@@ -279,14 +279,14 @@ function DashboardCarousel() {
 
         <button
           onClick={prev}
-          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg border border-slate-200 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white z-10"
+          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg border border-slate-200 flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 hover:bg-white z-10"
           aria-label="Previous screenshot"
         >
           <ChevronLeft className="w-5 h-5 text-slate-600" />
         </button>
         <button
           onClick={next}
-          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg border border-slate-200 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white z-10"
+          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg border border-slate-200 flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 hover:bg-white z-10"
           aria-label="Next screenshot"
         >
           <ChevronRight className="w-5 h-5 text-slate-600" />
@@ -294,7 +294,7 @@ function DashboardCarousel() {
       </div>
 
       <div className="mt-4 text-center">
-        <p className="inline-block text-base sm:text-lg lg:text-xl font-medium text-slate-800 mb-3 px-5 py-2 bg-slate-100/80 rounded-full transition-all duration-300">
+        <p className="inline-block text-sm sm:text-lg lg:text-xl font-medium text-slate-800 mb-3 px-4 sm:px-5 py-1.5 sm:py-2 bg-slate-100/80 rounded-xl sm:rounded-full transition-all duration-300 max-w-[90vw]">
           {dashboardSlides[current].caption}
         </p>
         <div className="flex items-center justify-center gap-2">
@@ -344,7 +344,7 @@ function StickyScrollShowcase() {
       <div className="sticky top-16 flex items-center overflow-hidden" style={{ height: 'calc(100vh - 4rem)' }}>
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[2fr_3fr] gap-8 lg:gap-12 items-center">
-            <div className="relative min-h-[300px] sm:min-h-[360px]">
+            <div className="relative min-h-[240px] sm:min-h-[360px]">
               {showcaseSlides.map((slide, i) => (
                 <div
                   key={i}
@@ -865,27 +865,20 @@ export default function Home() {
             </div>
             
             {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center space-x-3">
-              <a 
-                href="https://dashboard.georankers.co/login"
-                className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium"
-                data-testid="link-login-mobile"
-              >
-                Login
-              </a>
+            <div className="md:hidden flex items-center space-x-2">
               <a 
                 href="https://calendly.com/georankers/demo"
-                className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+                className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200"
                 data-testid="cta-book-demo-mobile"
               >
                 Demo
               </a>
               <a 
                 href="https://dashboard.georankers.co/register"
-                className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-3 py-2 rounded-lg text-sm font-medium"
+                className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-3 py-1.5 rounded-lg text-xs font-medium"
                 data-testid="cta-try-free-mobile"
               >
-                Try for Free
+                Try Free
               </a>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -902,6 +895,14 @@ export default function Home() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-slate-200 px-4 py-4">
             <div className="space-y-3">
+              <a 
+                href="https://dashboard.georankers.co/login"
+                className="block text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2"
+                onClick={() => setMobileMenuOpen(false)}
+                data-testid="mobile-link-login"
+              >
+                Login
+              </a>
               <Link 
                 href="/website-analysis" 
                 className="block text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2"
@@ -970,7 +971,7 @@ export default function Home() {
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse-soft"></div>
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
 
-        <div className="absolute inset-0 z-[5] overflow-hidden pointer-events-none" aria-hidden="true">
+        <div className="hidden sm:block absolute inset-0 z-[5] overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute top-24 sm:top-28 left-[3%] sm:left-[6%] animate-logo-drift" style={{ animationDelay: '0s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <SiOpenai className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-slate-700" />
