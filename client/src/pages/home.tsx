@@ -971,29 +971,29 @@ export default function Home() {
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
 
         <div className="absolute inset-0 z-[5] overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute top-24 sm:top-28 left-[4%] sm:left-[7%] animate-logo-drift" style={{ animationDelay: '0s' }}>
-            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
-              <SiOpenai className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-slate-700" />
+          <div className="absolute top-24 sm:top-28 left-[3%] sm:left-[6%] animate-logo-drift" style={{ animationDelay: '0s' }}>
+            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
+              <SiOpenai className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-slate-700" />
             </div>
           </div>
-          <div className="absolute top-20 sm:top-24 right-[5%] sm:right-[8%] animate-logo-drift" style={{ animationDelay: '1.6s' }}>
-            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
-              <SiGooglegemini className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-blue-500" />
+          <div className="absolute top-20 sm:top-24 right-[4%] sm:right-[7%] animate-logo-drift" style={{ animationDelay: '1s' }}>
+            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
+              <SiGooglegemini className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-blue-500" />
             </div>
           </div>
-          <div className="absolute top-[48%] sm:top-[45%] left-[2%] sm:left-[5%] animate-logo-drift" style={{ animationDelay: '3.2s' }}>
-            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
-              <SiPerplexity className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-slate-700" />
+          <div className="absolute top-[48%] sm:top-[44%] left-[2%] sm:left-[4%] animate-logo-drift" style={{ animationDelay: '2s' }}>
+            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
+              <SiPerplexity className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-slate-700" />
             </div>
           </div>
-          <div className="absolute top-[42%] sm:top-[40%] right-[3%] sm:right-[6%] animate-logo-drift" style={{ animationDelay: '4.8s' }}>
-            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
-              <SiClaude className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-orange-500" />
+          <div className="absolute top-[40%] sm:top-[38%] right-[3%] sm:right-[5%] animate-logo-drift" style={{ animationDelay: '3s' }}>
+            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
+              <SiClaude className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-orange-500" />
             </div>
           </div>
-          <div className="absolute top-[68%] sm:top-[65%] left-[8%] sm:left-[12%] animate-logo-drift" style={{ animationDelay: '6.4s' }}>
-            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
-              <SiGithubcopilot className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-slate-700" />
+          <div className="absolute top-[66%] sm:top-[62%] right-[10%] sm:right-[14%] animate-logo-drift" style={{ animationDelay: '4s' }}>
+            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
+              <SiGithubcopilot className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-slate-700" />
             </div>
           </div>
         </div>
