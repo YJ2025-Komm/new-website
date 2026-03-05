@@ -848,7 +848,13 @@ export default function Home() {
               >
                 Login
               </a>
-              {/* Try for Free CTA */}
+              <a 
+                href="https://calendly.com/georankers/demo"
+                className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+                data-testid="cta-book-demo-nav"
+              >
+                Book a Demo
+              </a>
               <a 
                 href="https://dashboard.georankers.co/register"
                 className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
@@ -866,6 +872,13 @@ export default function Home() {
                 data-testid="link-login-mobile"
               >
                 Login
+              </a>
+              <a 
+                href="https://calendly.com/georankers/demo"
+                className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+                data-testid="cta-book-demo-mobile"
+              >
+                Demo
               </a>
               <a 
                 href="https://dashboard.georankers.co/register"
