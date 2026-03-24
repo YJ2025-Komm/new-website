@@ -66,7 +66,7 @@ export default function Waitlist() {
   };
 
   useEffect(() => {
-    document.title = "Join the Waitlist | GeoRankers - AI Search Optimization Platform";
+    document.title = "Get Started Free | GeoRankers - AI Search Optimization Platform";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -341,7 +341,7 @@ export default function Waitlist() {
                     ) : (
                       <>
                         <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-                        Join Waitlist
+                        Try for Free
                       </>
                     )}
                   </Button>

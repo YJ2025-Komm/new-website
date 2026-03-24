@@ -30,7 +30,7 @@ export default function Pricing() {
       monthlyPrice: 49,
       quarterlyPrice: 41,
       subtitle: "For early teams starting to measure AI visibility.",
-      cta: "Start Free Trial",
+      cta: "Get Started",
       ctaHref: "https://dashboard.georankers.co/register",
       ctaStyle: "bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-300",
       highlighted: false,
@@ -67,7 +67,7 @@ export default function Pricing() {
       monthlyPrice: 159,
       quarterlyPrice: 129,
       subtitle: "For growth teams optimizing AI category position.",
-      cta: "Start Now",
+      cta: "Get Started",
       ctaHref: "https://dashboard.georankers.co/register",
       ctaStyle: "bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white shadow-lg",
       highlighted: true,
@@ -105,7 +105,7 @@ export default function Pricing() {
       quarterlyPrice: null,
       subtitle: "For teams making AI visibility a strategic KPI.",
       cta: "Talk to Us",
-      ctaHref: "https://calendly.com/georankers/demo",
+      ctaHref: "https://calendly.com/hello-georankers/30min",
       ctaStyle: "bg-slate-900 hover:bg-slate-800 text-white",
       highlighted: false,
       sections: [
@@ -482,16 +482,16 @@ export default function Pricing() {
                   <div className="p-6"></div>
                   <div className="p-6 text-center border-l border-slate-200/50">
                     <a href="https://dashboard.georankers.co/register" className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-300 transition-colors">
-                      Start Free Trial <ArrowRight className="w-3.5 h-3.5 inline-block ml-1" />
+                      Get Started <ArrowRight className="w-3.5 h-3.5 inline-block ml-1" />
                     </a>
                   </div>
                   <div className="p-6 text-center border-l border-slate-200/50 bg-violet-50/30">
                     <a href="https://dashboard.georankers.co/register" className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white shadow-lg transition-all">
-                      Start Now <ArrowRight className="w-3.5 h-3.5 inline-block ml-1" />
+                      Get Started <ArrowRight className="w-3.5 h-3.5 inline-block ml-1" />
                     </a>
                   </div>
                   <div className="p-6 text-center border-l border-slate-200/50">
-                    <a href="https://calendly.com/georankers/demo" className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-colors">
+                    <a href="https://calendly.com/hello-georankers/30min" className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-colors">
                       Talk to Us <ArrowRight className="w-3.5 h-3.5 inline-block ml-1" />
                     </a>
                   </div>
@@ -547,16 +547,16 @@ export default function Pricing() {
                     <div className="p-4"></div>
                     <div className="p-4 text-center border-l border-slate-200/50">
                       <a href="https://dashboard.georankers.co/register" className="block w-full py-2 rounded-lg text-xs font-semibold bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-300 transition-colors">
-                        Start Free Trial
+                        Get Started
                       </a>
                     </div>
                     <div className="p-4 text-center border-l border-slate-200/50 bg-violet-50/30">
                       <a href="https://dashboard.georankers.co/register" className="block w-full py-2 rounded-lg text-xs font-semibold bg-gradient-to-r from-blue-500 to-violet-500 text-white shadow-lg transition-all">
-                        Start Now
+                        Get Started
                       </a>
                     </div>
                     <div className="p-4 text-center border-l border-slate-200/50">
-                      <a href="https://calendly.com/georankers/demo" className="block w-full py-2 rounded-lg text-xs font-semibold bg-slate-900 text-white transition-colors">
+                      <a href="https://calendly.com/hello-georankers/30min" className="block w-full py-2 rounded-lg text-xs font-semibold bg-slate-900 text-white transition-colors">
                         Talk to Us
                       </a>
                     </div>
@@ -586,7 +586,7 @@ export default function Pricing() {
                 Get dedicated agency pricing with volume discounts, multi-client dashboards, white-label reporting, and a dedicated account manager.
               </p>
               <a
-                href="https://calendly.com/georankers/demo"
+                href="https://calendly.com/hello-georankers/30min"
                 className="inline-flex items-center px-8 py-4 bg-white text-blue-700 rounded-xl font-semibold hover:bg-blue-50 transition-colors duration-200 shadow-lg"
               >
                 Talk to Sales

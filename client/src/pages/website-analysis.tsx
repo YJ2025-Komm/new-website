@@ -402,14 +402,14 @@ export default function WebsiteAnalysis() {
                 <div className="text-center">
                   <h3 className="text-2xl font-bold mb-2">Want to Track Your Progress?</h3>
                   <p className="text-blue-100 mb-6">
-                    Join our waitlist to get notified when we launch our full AI visibility tracking platform
+                    Sign up for free to start tracking your brand's AI visibility across ChatGPT, Gemini, Perplexity, and more
                   </p>
-                  <Link href="/#waitlist">
-                    <Button variant="secondary" size="lg" data-testid="button-join-waitlist">
-                      Join Waitlist
+                  <a href="https://dashboard.georankers.co/register">
+                    <Button variant="secondary" size="lg" data-testid="button-try-free">
+                      Try for Free
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
-                  </Link>
+                  </a>
                 </div>
               </CardContent>
             </Card>

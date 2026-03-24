@@ -1315,7 +1315,7 @@ export default function Home() {
                 {openFAQ === 7 && (
                   <div className="px-6 sm:px-8 pb-6 sm:pb-8">
                     <p className="text-slate-600 leading-relaxed">
-                      We're currently in beta development and accepting waitlist signups. Early access members will get priority onboarding, special pricing, and direct input on feature development. Join our waitlist to be notified as soon as we launch and to secure your spot in the beta program.
+                      We're currently in beta and accepting early access signups. Early access members get priority onboarding, special pricing, and direct input on feature development. Sign up for free to secure your spot and be among the first to go live.
                     </p>
                   </div>
                 )}

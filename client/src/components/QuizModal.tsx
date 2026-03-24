@@ -446,21 +446,15 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                 <CardContent className="text-center p-6">
                   <h3 className="text-xl font-bold mb-2">Ready to Improve Your AI Visibility?</h3>
                   <p className="text-gray-600 mb-4">
-                    Join our waitlist to get notified when GeoRankers launches and start optimizing your brand for AI search.
+                    Start tracking your brand's AI visibility across ChatGPT, Gemini, Perplexity, and more — for free.
                   </p>
-                  <Button 
-                    onClick={() => {
-                      // Auto-populate waitlist form with quiz data
-                      const formData = form.getValues();
-                      waitlistForm.setValue("email", formData.email);
-                      waitlistForm.setValue("companyName", formData.companyName || "");
-                      setShowResults(false);
-                      setShowWaitlistForm(true);
-                    }}
-                    className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600"
-                  >
-                    Join GeoRankers Waitlist
-                  </Button>
+                  <a href="https://dashboard.georankers.co/register">
+                    <Button
+                      className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600"
+                    >
+                      Try for Free
+                    </Button>
+                  </a>
                 </CardContent>
               </Card>
             ) : (
@@ -525,7 +519,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
       <Dialog open={isOpen} onOpenChange={handleClose}>
         <DialogContent className="max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-center">Join the Waitlist</DialogTitle>
+            <DialogTitle className="text-center">Get Started for Free</DialogTitle>
             <DialogDescription className="text-center text-gray-600">
               Be among the first to take control of your AI search presence
             </DialogDescription>
@@ -616,7 +610,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                 ) : (
                   <>
                     <Rocket className="w-4 h-4 mr-2" />
-                    Join Waitlist
+                    Try for Free
                   </>
                 )}
               </Button>

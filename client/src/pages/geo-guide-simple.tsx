@@ -380,10 +380,10 @@ export default function GeoGuideSimple() {
                 GeoRankers helps companies track, optimize, and build brand authority across AI search engines like ChatGPT, Gemini, and Perplexity.
               </p>
               <a 
-                href="/"
+                href="https://dashboard.georankers.co/register"
                 className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
               >
-                Join the Waitlist
+                Try for Free
               </a>
             </div>
           </section>
