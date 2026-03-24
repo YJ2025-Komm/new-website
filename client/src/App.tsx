@@ -9,6 +9,8 @@ import WebsiteAnalysis from "@/pages/website-analysis";
 import Waitlist from "@/pages/waitlist";
 import Pricing from "@/pages/pricing";
 import Features from "@/pages/features";
+import Privacy from "@/pages/privacy";
+import Terms from "@/pages/terms";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -20,6 +22,8 @@ function Router() {
       <Route path="/waitlist" component={Waitlist} />
       <Route path="/pricing" component={Pricing} />
       <Route path="/features" component={Features} />
+      <Route path="/privacy" component={Privacy} />
+      <Route path="/terms" component={Terms} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -55,8 +55,10 @@ GEO Guide: Restored to navigation per user request (August 28, 2025).
 6. **Form Validation**: Type-safe forms with Zod schemas
 7. **Email Marketing Integration**: Automatic Mailchimp sync for new subscribers
 
-### Planned Features
-- **Built-in Blog System**: Content management for AI search optimization articles (pending content creation)
+### Legal Pages
+- **/privacy**: Full Privacy Policy page (Apex Intelligence Pvt Ltd, DPDPA compliant) with sticky sidebar TOC, clean prose layout
+- **/terms**: Full Terms of Service page with sticky sidebar TOC, clean prose layout
+- Both pages are linked in the footer of home, pricing, and features pages
 
 ### Database Schema
 - **Users Table**: Basic user authentication structure (username, password)

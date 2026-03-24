@@ -849,7 +849,7 @@ export default function Home() {
                 Login
               </a>
               <a 
-                href="https://calendly.com/georankers/demo"
+                href="https://calendly.com/hello-georankers/30min"
                 className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
                 data-testid="cta-book-demo-nav"
               >
@@ -867,7 +867,7 @@ export default function Home() {
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center space-x-2">
               <a 
-                href="https://calendly.com/georankers/demo"
+                href="https://calendly.com/hello-georankers/30min"
                 className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200"
                 data-testid="cta-book-demo-mobile"
               >
@@ -1019,7 +1019,7 @@ export default function Home() {
                 Try for Free
               </a>
               <a 
-                href="https://calendly.com/georankers/demo"
+                href="https://calendly.com/hello-georankers/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 lg:px-8 lg:py-4 border-2 border-slate-300 hover:border-blue-400 rounded-2xl font-semibold text-base lg:text-lg text-slate-700 hover:text-blue-600 transform hover:scale-105 transition-all duration-300"
@@ -1616,10 +1616,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-white/10 pt-8 text-center">
+          <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-blue-200/60 text-xs">
               © {new Date().getFullYear()} GeoRankers. All rights reserved.
             </p>
+            <div className="flex items-center gap-6">
+              <Link href="/terms" className="text-blue-200/60 hover:text-white text-xs transition-colors">Terms of Service</Link>
+              <Link href="/privacy" className="text-blue-200/60 hover:text-white text-xs transition-colors">Privacy Policy</Link>
+            </div>
           </div>
         </div>
       </footer>

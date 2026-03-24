@@ -677,10 +677,14 @@ export default function Features() {
             </div>
           </div>
 
-          <div className="border-t border-white/10 pt-8 text-center">
+          <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-blue-200/60 text-xs">
               © {new Date().getFullYear()} GeoRankers. All rights reserved.
             </p>
+            <div className="flex items-center gap-6">
+              <Link href="/terms" className="text-blue-200/60 hover:text-white text-xs transition-colors">Terms of Service</Link>
+              <Link href="/privacy" className="text-blue-200/60 hover:text-white text-xs transition-colors">Privacy Policy</Link>
+            </div>
           </div>
         </div>
       </footer>
