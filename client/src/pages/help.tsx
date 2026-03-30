@@ -455,23 +455,6 @@ export default function Help() {
         </div>
       </div>
 
-      {/* Category chips */}
-      {!search && (
-        <div className="border-b border-slate-100 bg-slate-50/60 py-4 px-4 sm:px-6 lg:px-8 overflow-x-auto">
-          <div className="max-w-7xl mx-auto flex items-center gap-2.5 flex-nowrap">
-            {sections.map(({ id, icon: Icon, title }) => (
-              <a
-                key={id}
-                href={`#${id}`}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-slate-600 bg-white border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors whitespace-nowrap flex-shrink-0"
-              >
-                <Icon className="w-3.5 h-3.5" />
-                {title}
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* Main layout */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
