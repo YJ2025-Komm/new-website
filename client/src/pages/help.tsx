@@ -427,7 +427,7 @@ export default function Help() {
           </Link>
           <div className="flex items-center gap-6">
             <Link href="/" className="text-sm text-slate-500 hover:text-slate-800 transition-colors hidden sm:block">← Back to home</Link>
-            <a href="mailto:support@georankers.com" className="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors">Contact Support</a>
+            <a href="mailto:support@georankers.co" className="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors">Contact Support</a>
           </div>
         </div>
       </header>
@@ -532,11 +532,11 @@ export default function Help() {
                   Our team is happy to help — from setup questions to strategy.
                 </p>
                 <a
-                  href="mailto:support@georankers.com"
+                  href="mailto:support@georankers.co"
                   className="inline-flex items-center px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-medium transition-colors"
                 >
                   <Mail className="w-4 h-4 mr-2" />
-                  Contact support@georankers.com
+                  Contact support@georankers.co
                 </a>
               </div>
             )}
