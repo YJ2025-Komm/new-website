@@ -11,6 +11,7 @@ import Pricing from "@/pages/pricing";
 import Features from "@/pages/features";
 import Privacy from "@/pages/privacy";
 import Terms from "@/pages/terms";
+import Help from "@/pages/help";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/features" component={Features} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
+      <Route path="/help" component={Help} />
       <Route component={NotFound} />
     </Switch>
   );

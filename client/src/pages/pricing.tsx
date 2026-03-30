@@ -673,6 +673,9 @@ export default function Pricing() {
                 <Link href="/geo-guide" className="block text-white/80 hover:text-white text-sm transition-colors">
                   GEO Guide
                 </Link>
+                <Link href="/help" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  Help Docs
+                </Link>
               </div>
             </div>
 

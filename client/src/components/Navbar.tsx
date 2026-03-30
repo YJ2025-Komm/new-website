@@ -61,6 +61,13 @@ export default function Navbar() {
                   >
                     FAQ
                   </a>
+                  <Link
+                    href="/help"
+                    className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
+                    data-testid="link-help"
+                  >
+                    Help Docs
+                  </Link>
                 </div>
               )}
             </div>
@@ -178,6 +185,14 @@ export default function Navbar() {
                   >
                     FAQ
                   </a>
+                  <Link
+                    href="/help"
+                    className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
+                    onClick={() => setMobileMenuOpen(false)}
+                    data-testid="mobile-link-help"
+                  >
+                    Help Docs
+                  </Link>
                 </div>
               )}
             </div>

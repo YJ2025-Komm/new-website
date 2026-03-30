@@ -662,6 +662,9 @@ export default function Features() {
                 <Link href="/geo-guide" className="block text-white/80 hover:text-white text-sm transition-colors">
                   GEO Guide
                 </Link>
+                <Link href="/help" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  Help Docs
+                </Link>
               </div>
             </div>
 
