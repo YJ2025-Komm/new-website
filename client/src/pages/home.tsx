@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import QuizModal from "@/components/QuizModal";
-import ExitIntentPopup from "@/components/ExitIntentPopup";
-import { useExitIntent } from "@/hooks/useExitIntent";
 import { Link } from "wouter";
-import { 
-  Brain, 
+import {
+  Brain,
   Eye,
-  Search, 
-  TrendingUp, 
+  Search,
+  BarChart3,
+  Globe,
+  Zap,
+  TrendingUp,
   Rocket,
   Lightbulb,
   ChevronDown,
@@ -17,11 +17,8 @@ import {
   Menu,
   X,
   Mail,
-  Quote,
   ChevronLeft,
   ChevronRight,
-  Compass,
-  Crosshair
 } from "lucide-react";
 import { SiLinkedin, SiOpenai, SiGooglegemini, SiPerplexity, SiClaude, SiGithubcopilot } from "react-icons/si";
 import geminiLogo from "@assets/Gemini_1753958628531.png";
@@ -33,9 +30,6 @@ import perplexityLogo from "@assets/Perplexity_1753958628538.png";
 import strategicImage from '@assets/generated_images/Strategic_AI_search_leadership_2959319a.png';
 import buildingBlocksImage from '@assets/generated_images/AI_content_building_blocks_237b4917.png';
 import geoVsSeoImage from '@assets/generated_images/GEO_vs_SEO_comparison_96025f03.png';
-import showcaseImg1 from '@assets/generated_images/showcase_ai_visibility.png';
-import showcaseImg2 from '@assets/generated_images/showcase_prompt_discovery.png';
-import showcaseImg3 from '@assets/generated_images/showcase_recommendations.png';
 import dashImg1 from '@assets/gr1_1772251203326.png';
 import dashImg2 from '@assets/gr2_1772251203323.png';
 import dashImg3 from '@assets/gr3_1772251203321.png';
@@ -64,9 +58,10 @@ interface WordPressCategory {
 }
 
 
-function SearchIntelligenceSection() {
+function VisibilityGapSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -77,135 +72,173 @@ function SearchIntelligenceSection() {
     return () => observer.disconnect();
   }, []);
 
-  const cards = [
+  const problems = [
     {
-      icon: Compass,
-      iconGradient: "from-blue-500 to-cyan-500",
-      cardBg: "from-blue-50/80 to-cyan-50/40",
-      accentColor: "from-blue-500 to-cyan-500",
-      glowColor: "bg-blue-400/20",
-      title: "Designed for AI-First Discovery",
-      description: "We track recommendations across ChatGPT, Google AI, and emerging LLMs — where buying decisions are increasingly influenced.",
+      label: "PROBLEM 01 — HIGH INTENT PROMPTS",
+      title: "Missing from high intent prompts",
+      description: "You do not appear when buyers ask for the best tools in your category. These high-intent moments are where purchase decisions are made — before a prospect ever visits your website.",
+      visual: (
+        <div className="bg-slate-900 rounded-xl p-5 font-mono">
+          <div className="flex gap-1.5 mb-3">
+            <div className="w-3 h-3 rounded-full bg-red-400"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+            <div className="w-3 h-3 rounded-full bg-green-400"></div>
+          </div>
+          <p className="text-slate-400 text-xs mb-4">PROMPT: "Best B2B CRM for fintech startups"</p>
+          <div className="space-y-2.5">
+            <div className="flex items-center gap-3">
+              <span className="text-emerald-400 text-xs font-bold">✓</span>
+              <span className="text-emerald-400 text-xs">Competitor A — mentioned 4 times</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-emerald-400 text-xs font-bold">✓</span>
+              <span className="text-emerald-400 text-xs">Competitor B — mentioned 2 times</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-red-400 text-xs font-bold">✗</span>
+              <span className="text-red-400 text-xs">Your Brand — not found in response</span>
+            </div>
+          </div>
+        </div>
+      ),
     },
     {
-      icon: Brain,
-      iconGradient: "from-violet-500 to-purple-600",
-      cardBg: "from-violet-50/80 to-purple-50/40",
-      accentColor: "from-violet-500 to-purple-600",
-      glowColor: "bg-violet-400/20",
-      title: "Intelligence, Not Just Analytics",
-      description: "We measure AI citations, prompt coverage, competitive share, and authority gaps — turning AI exposure into strategy.",
+      label: "PROBLEM 02 — COMPETITIVE SIGNALS",
+      title: "Competitors dominate recommendations",
+      description: "AI models rely on repeated signals across content and citations, often reinforcing the same vendors. Brands that appear consistently across authoritative sources get recommended first.",
+      visual: (
+        <div className="space-y-4">
+          <p className="text-xs font-black text-slate-400 uppercase tracking-widest">AI mention rate across 50 buyer-intent prompts</p>
+          {[
+            { name: "Competitor A", pct: 88, isYou: false },
+            { name: "Competitor B", pct: 64, isYou: false },
+            { name: "Your Brand", pct: 12, isYou: true },
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-3">
+              <span className={`text-xs w-28 font-semibold flex-shrink-0 ${item.isYou ? 'text-red-500' : 'text-slate-600'}`}>{item.name}</span>
+              <div className="flex-1 h-3 bg-slate-100 rounded-full overflow-hidden">
+                <div
+                  className="h-full rounded-full transition-all duration-700"
+                  style={{
+                    width: `${item.pct}%`,
+                    background: item.isYou ? '#ef4444' : 'linear-gradient(135deg, #2994FF, #7575FF)',
+                  }}
+                ></div>
+              </div>
+              <span className={`text-xs font-black w-8 flex-shrink-0 ${item.isYou ? 'text-red-500' : 'text-blue-500'}`}>{item.pct}%</span>
+            </div>
+          ))}
+        </div>
+      ),
     },
     {
-      icon: Crosshair,
-      iconGradient: "from-pink-500 to-rose-500",
-      cardBg: "from-pink-50/80 to-rose-50/40",
-      accentColor: "from-pink-500 to-rose-500",
-      glowColor: "bg-pink-400/20",
-      title: "Actionable by Design",
-      description: "Our recommendation engine prioritizes what to build and optimize so AI models favor you as a primary source.",
+      label: "PROBLEM 03 — BRAND PERCEPTION",
+      title: "Positioning is inconsistent",
+      description: "Your product may be described incorrectly, placed in the wrong category, or ranked below where it should be. AI positioning distorts buyer perception before they ever reach you.",
+      visual: (
+        <div className="bg-slate-50 rounded-xl border border-slate-200 p-5">
+          <p className="text-xs font-black text-slate-400 uppercase tracking-widest mb-3">AI Response Excerpt</p>
+          <p className="text-sm text-slate-700 leading-relaxed mb-4">
+            "[Your Brand] is primarily a reporting tool, best suited for analytics teams. For CRM use cases, consider Competitor A which offers deeper pipeline management..."
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <span className="text-xs bg-red-100 text-red-600 px-2.5 py-1 rounded-full font-semibold">Wrong Category</span>
+            <span className="text-xs bg-orange-100 text-orange-600 px-2.5 py-1 rounded-full font-semibold">Competitor Preferred</span>
+            <span className="text-xs bg-yellow-100 text-yellow-600 px-2.5 py-1 rounded-full font-semibold">Misrepresented</span>
+          </div>
+        </div>
+      ),
     },
   ];
 
   return (
-    <section ref={sectionRef} className="py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/80 to-white">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-6 sm:mb-8">
-          <p
-            className="text-sm font-semibold tracking-widest uppercase text-blue-500 mb-3 sm:mb-4"
-            style={{
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible ? 'translateY(0)' : 'translateY(12px)',
-              transition: 'opacity 0.6s ease, transform 0.6s ease',
-            }}
-          >
-            A new layer of search intelligence
-          </p>
-
-          <h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.15] tracking-tight text-slate-900 mb-4 sm:mb-5"
-            style={{
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-              transition: 'opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s',
-            }}
-          >
-            Purpose-built for brands{' '}
-            <br className="hidden sm:block" />
-            navigating{' '}
-            <span className="bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 bg-clip-text text-transparent">
-              AI-driven discovery
-            </span>
+    <section ref={sectionRef} className="py-20 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50/80 via-white to-violet-50/80">
+      <div className="max-w-6xl mx-auto">
+        {/* Centered header */}
+        <div
+          className="text-center mb-12"
+          style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 0.6s ease, transform 0.6s ease' }}
+        >
+          <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">THE PROBLEM</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-slate-900 mb-1">
+            What You Cannot See in AI Search
           </h2>
-
-          <p
-            className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed"
-            style={{
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-              transition: 'opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s',
-            }}
-          >
-            GeoRankers sets the standard for measuring and optimizing
-            visibility across ChatGPT, Gemini, Perplexity, and every AI model
-            shaping buyer decisions.
+          <p className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] mb-5 bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
+            Is Already Costing You
+          </p>
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Your SEO may look strong, yet AI systems can still exclude your brand, favor competitors, or misrepresent your positioning. That gap is invisible in traditional analytics, but it directly impacts pipeline.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-5 sm:gap-6">
-          {cards.map((card, i) => {
-            const Icon = card.icon;
-            return (
+        {/* Interactive tabs */}
+        <div
+          className="grid lg:grid-cols-[5fr_7fr] gap-6 items-start"
+          style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s' }}
+        >
+          {/* Left: clickable problem list */}
+          <div className="space-y-3">
+            {problems.map((p, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIndex(i)}
+                className={`w-full text-left rounded-[1.5rem] p-5 transition-all duration-300 ${
+                  activeIndex === i
+                    ? 'gradient-cta shadow-lg'
+                    : 'glass border border-slate-100/80 hover:bg-white/90'
+                }`}
+              >
+                <p className={`text-[10px] font-black uppercase tracking-widest mb-1.5 ${activeIndex === i ? 'text-white/70' : 'text-blue-500'}`}>
+                  {p.label}
+                </p>
+                <h3 className={`text-base font-black leading-snug ${activeIndex === i ? 'text-white' : 'text-slate-900'}`}>
+                  {p.title}
+                </h3>
+              </button>
+            ))}
+
+            {/* CTAs below tabs */}
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <a
+                href="https://dashboard.georankers.co/register"
+                className="inline-flex items-center justify-center px-6 py-3 gradient-cta text-white font-black rounded-xl hover:opacity-90 transition-all duration-200 shadow-lg"
+                data-testid="cta-try-free-gap"
+              >
+                Try for Free
+              </a>
+              <a
+                href="https://calendly.com/hello-georankers/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3 border-2 border-blue-300 text-blue-700 font-semibold rounded-xl hover:bg-blue-50 transition-all duration-200"
+                data-testid="cta-book-demo-gap"
+              >
+                Book a Demo
+              </a>
+            </div>
+          </div>
+
+          {/* Right: dynamic content panel */}
+          <div className="bg-white rounded-[2rem] shadow-xl border border-slate-100 p-7 min-h-[320px]">
+            {problems.map((p, i) => (
               <div
                 key={i}
-                className={`group relative rounded-2xl bg-gradient-to-br ${card.cardBg} p-8 sm:p-9 overflow-hidden hover:-translate-y-1.5 hover:shadow-xl hover:shadow-slate-200/60 transition-all duration-500`}
                 style={{
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-                  transition: `opacity 0.5s ease ${0.3 + i * 0.12}s, transform 0.5s ease ${0.3 + i * 0.12}s, box-shadow 0.5s ease, translate 0.5s ease`,
+                  display: activeIndex === i ? 'block' : 'none',
                 }}
               >
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${card.accentColor} group-hover:h-1.5 transition-all duration-300`} />
-                <div className="relative mb-6">
-                  <div className={`absolute -top-2 -left-2 w-20 h-20 ${card.glowColor} rounded-full blur-xl group-hover:scale-125 transition-transform duration-500`} />
-                  <div className={`relative inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${card.iconGradient} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-7 h-7 text-white" />
-                  </div>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">{card.title}</h3>
-                <p className="text-base sm:text-lg text-slate-500 leading-relaxed">{card.description}</p>
+                <p className="text-[10px] font-black uppercase tracking-widest text-blue-500 mb-3">{p.label}</p>
+                <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-3 leading-[1.2]">{p.title}</h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">{p.description}</p>
+                {p.visual}
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
-const showcaseSlides = [
-  {
-    number: "01",
-    title: "Know exactly where your brand stands in AI search",
-    description: "Track how AI platforms like Gemini, Google AI Mode, and ChatGPT respond to prompts in your industry. See which brands get mentioned, how often, and where you're missing out.",
-    image: showcaseImg1,
-    alt: "GeoRankers AI search visibility tracking across Google AI Mode and ChatGPT",
-  },
-  {
-    number: "02",
-    title: "Discover the prompts that matter for your business",
-    description: "Map every high-intent prompt across Discovery, Use Case, Trust and others. Instantly see your coverage gaps across all the LLMs — so you can close them fast.",
-    image: showcaseImg2,
-    alt: "GeoRankers prompt discovery showing high-intent prompts categorized by type",
-  },
-  {
-    number: "03",
-    title: "Get actionable steps to boost your AI presence",
-    description: "Receive data-driven action items prioritized by effort and impact. Each recommendation comes with a clear starting point and execution plan to grow your AI visibility.",
-    image: showcaseImg3,
-    alt: "GeoRankers strategic recommendations with impact and effort ratings",
-  },
-];
 
 const dashboardSlides = [
   {
@@ -257,7 +290,7 @@ function DashboardCarousel() {
   return (
     <div className="max-w-6xl mx-auto mt-4 sm:mt-6">
       <div className="relative group">
-        <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60 relative bg-white">
+        <div className="rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200/60 relative bg-white">
           {dashboardSlides.map((slide, i) => (
             <div
               key={i}
@@ -304,9 +337,10 @@ function DashboardCarousel() {
               onClick={() => goTo(i)}
               className={`h-2.5 rounded-full transition-all duration-300 ${
                 i === current
-                  ? 'w-8 bg-gradient-to-r from-blue-500 to-violet-500'
+                  ? 'w-8'
                   : 'w-2.5 bg-slate-300 hover:bg-slate-400'
               }`}
+              style={i === current ? { background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)' } : {}}
               aria-label={`Go to slide ${i + 1}`}
             />
           ))}
@@ -316,166 +350,10 @@ function DashboardCarousel() {
   );
 }
 
-function StickyScrollShowcase() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeSlide, setActiveSlide] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const containerHeight = containerRef.current.offsetHeight;
-      const viewportHeight = window.innerHeight;
-      const scrolled = -rect.top;
-      const scrollableDistance = containerHeight - viewportHeight;
-      if (scrollableDistance <= 0) return;
-      const progress = Math.max(0, Math.min(1, scrolled / scrollableDistance));
-      const slideCount = showcaseSlides.length;
-      const newSlide = Math.min(slideCount - 1, Math.floor(progress * slideCount));
-      setActiveSlide(newSlide);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <div ref={containerRef} className="relative" style={{ height: `${showcaseSlides.length * 85}vh` }}>
-      <div className="sticky top-16 flex items-center overflow-hidden" style={{ height: 'calc(100vh - 4rem)' }}>
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[2fr_3fr] gap-8 lg:gap-12 items-center">
-            <div className="relative min-h-[240px] sm:min-h-[360px]">
-              {showcaseSlides.map((slide, i) => (
-                <div
-                  key={i}
-                  className="absolute inset-0 flex flex-col justify-center"
-                  style={{
-                    opacity: activeSlide === i ? 1 : 0,
-                    transform: activeSlide === i ? 'translateY(0)' : activeSlide > i ? 'translateY(-30px)' : 'translateY(30px)',
-                    transition: 'opacity 0.5s ease, transform 0.5s ease',
-                    pointerEvents: activeSlide === i ? 'auto' : 'none',
-                  }}
-                >
-                  <span className="text-sm sm:text-base font-semibold tracking-widest uppercase text-blue-500 mb-3 sm:mb-4">
-                    {slide.number}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl lg:text-[2.5rem] lg:leading-[1.15] font-bold text-slate-900 leading-tight mb-4 sm:mb-5">
-                    {slide.title}
-                  </h3>
-                  <p className="text-base sm:text-lg lg:text-xl text-slate-500 leading-relaxed">
-                    {slide.description}
-                  </p>
-                </div>
-              ))}
-
-              <div className="absolute bottom-0 left-0 flex items-center gap-2.5">
-                {showcaseSlides.map((_, i) => (
-                  <div
-                    key={i}
-                    className="h-2 rounded-full transition-all duration-500"
-                    style={{
-                      width: activeSlide === i ? '36px' : '10px',
-                      backgroundColor: activeSlide === i ? 'rgb(59, 130, 246)' : 'rgb(203, 213, 225)',
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-
-            <div className="relative">
-              {showcaseSlides.map((slide, i) => (
-                <div
-                  key={i}
-                  className={i === 0 ? 'relative' : 'absolute inset-0'}
-                  style={{
-                    opacity: activeSlide === i ? 1 : 0,
-                    transform: activeSlide === i ? 'scale(1)' : 'scale(0.95)',
-                    transition: 'opacity 0.5s ease, transform 0.5s ease',
-                  }}
-                >
-                  <div className={`rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60 bg-white ${activeSlide === i ? 'animate-showcase-float' : ''}`}>
-                    <img
-                      src={slide.image}
-                      alt={slide.alt}
-                      className="w-full h-auto"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="mt-8 text-center">
-            <a
-              href="https://dashboard.georankers.co/register"
-              className="inline-flex items-center px-7 py-3 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-xl font-semibold text-sm sm:text-base transform hover:scale-105 transition-all duration-300 shadow-lg"
-            >
-              Try for Free
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-  const [showQuizModal, setShowQuizModal] = useState(false);
-  const [showExitIntentPopup, setShowExitIntentPopup] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  const testimonials = [
-    {
-      quote: "GeoRankers completely changed how we think about content strategy. We discovered our competitors were showing up in ChatGPT for our core keywords while we were invisible. Within 8 weeks of acting on their recommendations, our brand started appearing in AI responses.",
-      name: "Sarah Mitchell",
-      company: "VP of Marketing, CloudStack Solutions",
-    },
-    {
-      quote: "The prompt intelligence feature is a game-changer. We can now see exactly which buyer-intent questions are being asked and whether our brand gets mentioned. It's like having an SEO tool built specifically for the AI era.",
-      name: "James Rodriguez",
-      company: "Head of Growth, DataSync Pro",
-    },
-    {
-      quote: "We were spending thousands on traditional SEO without realizing AI search was eating into our organic traffic. GeoRankers gave us the visibility we needed to pivot our strategy and start winning in AI-generated recommendations.",
-      name: "Emily Chen",
-      company: "CMO, RevOps Platform",
-    },
-  ];
   const [resourcesOpen, setResourcesOpen] = useState(false);
-
-  // Exit intent detection
-  const { isTriggered: exitIntentTriggered, reset: resetExitIntent, disable: disableExitIntent } = useExitIntent({
-    enabled: true,
-    threshold: 10,
-    delay: 60000, // 1 minute between triggers
-    sessionDelay: 10000 // 10 seconds after page load
-  });
-
-  // Handle exit intent trigger
-  useEffect(() => {
-    if (exitIntentTriggered && !showQuizModal && !showExitIntentPopup) {
-      setShowExitIntentPopup(true);
-    }
-  }, [exitIntentTriggered, showQuizModal, showExitIntentPopup]);
-
-  // Handle exit intent popup actions
-  const handleExitIntentTakeQuiz = () => {
-    setShowExitIntentPopup(false);
-    setShowQuizModal(true);
-    disableExitIntent(); // Disable for this session after user engages
-  };
-
-  const handleExitIntentClose = () => {
-    setShowExitIntentPopup(false);
-    resetExitIntent();
-  };
-
-  // Handle quiz modal close
-  const handleQuizModalClose = () => {
-    setShowQuizModal(false);
-    disableExitIntent(); // Disable after quiz is completed/closed
-  };
 
   // Static blog posts data to ensure immediate display
   const staticBlogPosts: WordPressBlogPost[] = [
@@ -537,20 +415,20 @@ export default function Home() {
   // Helper function to format date
   const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
     });
   };
 
   // Helper function to get icon for category
   const getCategoryIcon = (categoryIds: number[]) => {
     if (!categories || !categoryIds.length) return <Lightbulb className="w-12 h-12 text-blue-500 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />;
-    
+
     const category = categories.find(cat => categoryIds.includes(cat.id));
     const categorySlug = category?.slug || '';
-    
+
     if (categorySlug.includes('strategic') || categorySlug.includes('framework')) {
       return <ClipboardCheck className="w-12 h-12 text-blue-500 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />;
     } else if (categorySlug.includes('geo') || categorySlug.includes('ai-search')) {
@@ -588,7 +466,7 @@ export default function Home() {
 
     // Handle hash changes (when user clicks hash links)
     window.addEventListener('hashchange', handleHashNavigation);
-    
+
     return () => {
       window.removeEventListener('hashchange', handleHashNavigation);
     };
@@ -721,8 +599,8 @@ export default function Home() {
         {
           "@type": "SiteNavigationElement",
           "position": 1,
-          "name": "Website AI Audit",
-          "url": "https://georankers.co/website-analysis"
+          "name": "Home",
+          "url": "https://georankers.co/"
         },
         {
           "@type": "SiteNavigationElement",
@@ -785,17 +663,17 @@ export default function Home() {
           <div className="flex justify-between items-center h-16">
             {/* Logo/Brand */}
             <div className="flex items-center">
-              <button onClick={scrollToTop} className="text-xl font-bold hover:scale-105 transition-transform duration-200 cursor-pointer">
+              <button onClick={scrollToTop} className="text-xl font-black hover:scale-105 transition-transform duration-200 cursor-pointer">
                 <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
                   GeoRankers
                 </span>
               </button>
             </div>
-            
+
             {/* Navigation Links */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="/website-analysis" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" data-testid="link-website-analysis">
-                Website AI Audit
+              <Link href="/" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" data-testid="link-home">
+                Home
               </Link>
               <Link href="/features" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 Features
@@ -805,7 +683,7 @@ export default function Home() {
               </Link>
               {/* Resources Dropdown */}
               <div className="relative">
-                <button 
+                <button
                   onClick={() => setResourcesOpen(!resourcesOpen)}
                   onBlur={() => setTimeout(() => setResourcesOpen(false), 150)}
                   className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium flex items-center"
@@ -816,22 +694,22 @@ export default function Home() {
                 </button>
                 {resourcesOpen && (
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50">
-                    <a 
-                      href="https://blog.georankers.co/" 
+                    <a
+                      href="https://blog.georankers.co/"
                       className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
                       data-testid="link-blog"
                     >
                       Blog
                     </a>
-                    <Link 
-                      href="/geo-guide" 
+                    <Link
+                      href="/geo-guide"
                       className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
                       data-testid="link-geo-guide"
                     >
                       GEO Guide
                     </Link>
-                    <a 
-                      href="#faq" 
+                    <a
+                      href="#faq"
                       className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
                       data-testid="link-faq"
                     >
@@ -848,41 +726,41 @@ export default function Home() {
                 )}
               </div>
               {/* Login Link */}
-              <a 
+              <a
                 href="https://dashboard.georankers.co/login"
                 className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium"
                 data-testid="link-login-nav"
               >
                 Login
               </a>
-              <a 
+              <a
                 href="https://calendly.com/hello-georankers/30min"
                 className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
                 data-testid="cta-book-demo-nav"
               >
                 Book a Demo
               </a>
-              <a 
+              <a
                 href="https://dashboard.georankers.co/register"
-                className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+                className="gradient-primary hover:opacity-90 text-white px-4 py-2 rounded-lg text-sm font-black transition-all duration-200"
                 data-testid="cta-try-free-nav"
               >
                 Try for Free
               </a>
             </div>
-            
+
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center space-x-2">
-              <a 
+              <a
                 href="https://calendly.com/hello-georankers/30min"
                 className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200"
                 data-testid="cta-book-demo-mobile"
               >
                 Demo
               </a>
-              <a 
+              <a
                 href="https://dashboard.georankers.co/register"
-                className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-3 py-1.5 rounded-lg text-xs font-medium"
+                className="gradient-primary hover:opacity-90 text-white px-3 py-1.5 rounded-lg text-xs font-black"
                 data-testid="cta-try-free-mobile"
               >
                 Try Free
@@ -897,12 +775,12 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+
         {/* Mobile Menu Dropdown */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-slate-200 px-4 py-4">
             <div className="space-y-3">
-              <a 
+              <a
                 href="https://dashboard.georankers.co/login"
                 className="block text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
@@ -910,23 +788,23 @@ export default function Home() {
               >
                 Login
               </a>
-              <Link 
-                href="/website-analysis" 
+              <Link
+                href="/"
                 className="block text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
-                data-testid="mobile-link-website-analysis"
+                data-testid="mobile-link-home"
               >
-                Website AI Audit
+                Home
               </Link>
-              <Link 
-                href="/features" 
+              <Link
+                href="/features"
                 className="block text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Features
               </Link>
-              <Link 
-                href="/pricing" 
+              <Link
+                href="/pricing"
                 className="block text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -934,7 +812,7 @@ export default function Home() {
               </Link>
               {/* Mobile Resources Collapsible */}
               <div>
-                <button 
+                <button
                   onClick={() => setResourcesOpen(!resourcesOpen)}
                   className="w-full text-left text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2 flex items-center justify-between"
                 >
@@ -943,22 +821,22 @@ export default function Home() {
                 </button>
                 {resourcesOpen && (
                   <div className="pl-4 space-y-2 mt-2">
-                    <a 
-                      href="https://blog.georankers.co/" 
+                    <a
+                      href="https://blog.georankers.co/"
                       className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Blog
                     </a>
-                    <Link 
-                      href="/geo-guide" 
+                    <Link
+                      href="/geo-guide"
                       className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       GEO Guide
                     </Link>
-                    <a 
-                      href="#faq" 
+                    <a
+                      href="#faq"
                       className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -981,188 +859,303 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-0">
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-12">
         <div className="hero-gradient absolute inset-0 z-0"></div>
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse-soft"></div>
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
 
-        <div className="hidden sm:block absolute inset-0 z-[5] overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute top-24 sm:top-28 left-[3%] sm:left-[6%] animate-logo-drift" style={{ animationDelay: '0s' }}>
-            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
-              <SiOpenai className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-slate-700" />
-            </div>
-          </div>
-          <div className="absolute top-20 sm:top-24 right-[4%] sm:right-[7%] animate-logo-drift" style={{ animationDelay: '1s' }}>
-            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
-              <SiGooglegemini className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-blue-500" />
-            </div>
-          </div>
-          <div className="absolute top-[48%] sm:top-[44%] left-[2%] sm:left-[4%] animate-logo-drift" style={{ animationDelay: '2s' }}>
-            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
-              <SiPerplexity className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-slate-700" />
-            </div>
-          </div>
-          <div className="absolute top-[40%] sm:top-[38%] right-[3%] sm:right-[5%] animate-logo-drift" style={{ animationDelay: '3s' }}>
-            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
-              <SiClaude className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-orange-500" />
-            </div>
-          </div>
-          <div className="absolute top-[66%] sm:top-[62%] right-[10%] sm:right-[14%] animate-logo-drift" style={{ animationDelay: '4s' }}>
-            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
-              <SiGithubcopilot className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-slate-700" />
-            </div>
-          </div>
-        </div>
-
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8">
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-3 lg:mb-4 leading-tight">
-              AI Search Visibility <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Built for B2B SaaS</span>
-            </h1>
-            
-            <p className="text-base sm:text-lg lg:text-xl text-slate-600 mb-4 lg:mb-5 leading-relaxed max-w-3xl mx-auto">
-              See how AI platforms position your software in buyer-intent prompts, track competitor recommendations, and close visibility gaps that impact pipeline.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-10 sm:mb-14">
+            {/* Left col: text */}
+            <div>
+              {/* Badge */}
+              <div className="inline-flex items-center mb-6">
+                <span
+                  className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest"
+                  style={{
+                    background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #3b82f6, #8b5cf6) border-box',
+                    border: '1.5px solid transparent',
+                  }}
+                >
+                  <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
+                    AI Search Visibility for B2B SaaS
+                  </span>
+                </span>
+              </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-1">
-              <a 
-                href="https://dashboard.georankers.co/register"
-                className="inline-flex items-center px-6 py-3 lg:px-8 lg:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-base lg:text-lg text-white transform hover:scale-105 transition-all duration-300 shadow-2xl"
-                data-testid="cta-try-free-hero"
-              >
-                <Rocket className="w-4 h-4 lg:w-5 lg:h-5 mr-2 lg:mr-3" />
-                Try for Free
-              </a>
-              <a 
-                href="https://calendly.com/hello-georankers/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 lg:px-8 lg:py-4 border-2 border-slate-300 hover:border-blue-400 rounded-2xl font-semibold text-base lg:text-lg text-slate-700 hover:text-blue-600 transform hover:scale-105 transition-all duration-300"
-                data-testid="cta-book-demo-hero"
-              >
-                Book a Demo
-              </a>
-            </div>
-            <p className="text-sm text-slate-500">No credit card required</p>
-          </div>
+              {/* Headline */}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] text-slate-900 mb-6">
+                Your Buyers Choose Vendors Inside{' '}
+                <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
+                  AI Answers
+                </span>
+              </h1>
 
-          <DashboardCarousel />
-
-          <div className="mt-10 sm:mt-14">
-            <p className="text-xs sm:text-sm font-medium text-slate-400 uppercase tracking-widest text-center mb-6">
-              Trusted by forward-thinking teams
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16 opacity-50">
-              <div className="h-8 sm:h-9 w-24 sm:w-28 bg-slate-300 rounded-lg"></div>
-              <div className="h-8 sm:h-9 w-20 sm:w-24 bg-slate-300 rounded-lg"></div>
-              <div className="h-8 sm:h-9 w-28 sm:w-32 bg-slate-300 rounded-lg"></div>
-              <div className="h-8 sm:h-9 w-22 sm:w-26 bg-slate-300 rounded-lg"></div>
-              <div className="h-8 sm:h-9 w-24 sm:w-28 bg-slate-300 rounded-lg"></div>
-              <div className="h-8 sm:h-9 w-20 sm:w-24 bg-slate-300 rounded-lg"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="py-8 sm:py-12 lg:py-16"></div>
-
-      {/* Search Intelligence Section */}
-      <SearchIntelligenceSection />
-
-      {/* Sticky Scroll Feature Showcase */}
-      <StickyScrollShowcase />
-
-
-      {/* Website AI Audit CTA Strip */}
-      <section className="py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
-        <div className="max-w-5xl mx-auto text-center">
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">
-            Check Your Brand's Visibility for Free
-          </h3>
-          <p className="text-base sm:text-lg text-white/90 mb-5 sm:mb-6 max-w-2xl mx-auto leading-relaxed">
-            See how your brand is interpreted by the LLMs like ChatGPT, Gemini, Perplexity, and others
-          </p>
-          <Link
-            href="/website-analysis"
-            className="inline-flex items-center px-7 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
-            data-testid="cta-check-visibility"
-          >
-            <Eye className="w-5 h-5 mr-2" />
-            Check Visibility
-          </Link>
-        </div>
-      </section>
-
-
-      {/* Testimonials Section */}
-      <section className="py-10 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50/50">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-              What Our <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Customers</span> Say
-            </h2>
-          </div>
-
-          <div className="relative">
-            <div className="glass rounded-3xl p-8 sm:p-12 border-0 text-center">
-              <Quote className="w-10 h-10 text-blue-400/30 mx-auto mb-6" />
-              <p className="text-lg sm:text-xl text-slate-700 leading-relaxed mb-8 italic">
-                "{testimonials[currentTestimonial].quote}"
+              {/* Sub-headline */}
+              <p className="text-base sm:text-lg font-medium text-slate-600 mb-7 leading-relaxed">
+                ChatGPT, Gemini, Perplexity, and Google AI Overviews now shape how buyers discover and compare software. GeoRankers helps you track how your brand appears in AI generated answers and shows you exactly what to improve.
               </p>
-              <div>
-                <p className="font-bold text-slate-900 text-lg">{testimonials[currentTestimonial].name}</p>
-                <p className="text-slate-500 text-sm">{testimonials[currentTestimonial].company}</p>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row items-start gap-3 mb-2">
+                <a
+                  href="https://dashboard.georankers.co/register"
+                  className="inline-flex items-center px-6 py-3 gradient-primary hover:opacity-90 rounded-xl font-black text-base text-white transition-all duration-200 shadow-lg"
+                  data-testid="cta-try-free-hero"
+                >
+                  <Rocket className="w-4 h-4 mr-2" />
+                  Try for Free
+                </a>
+                <a
+                  href="https://calendly.com/hello-georankers/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 border-2 border-slate-300 hover:border-blue-400 rounded-xl font-semibold text-base text-slate-700 hover:text-blue-600 transition-all duration-200"
+                  data-testid="cta-book-demo-hero"
+                >
+                  Book a Demo
+                </a>
               </div>
+              <p className="text-sm font-medium text-slate-400">No credit card required</p>
+              <p className="text-xs text-slate-400 mt-3 leading-relaxed max-w-sm">
+                Monitor AI search visibility, brand mentions, and competitive positioning across high intent buyer prompts.
+              </p>
             </div>
 
-            <div className="flex items-center justify-center gap-4 mt-8">
-              <button
-                onClick={() => setCurrentTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))}
-                className="w-10 h-10 rounded-full bg-white shadow-md border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors"
-              >
-                <ChevronLeft className="w-5 h-5 text-slate-600" />
-              </button>
-              <div className="flex gap-2">
-                {testimonials.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentTestimonial(i)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === currentTestimonial ? "bg-gradient-to-r from-blue-500 to-violet-500 w-8" : "bg-slate-300"}`}
-                  />
-                ))}
-              </div>
-              <button
-                onClick={() => setCurrentTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))}
-                className="w-10 h-10 rounded-full bg-white shadow-md border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors"
-              >
-                <ChevronRight className="w-5 h-5 text-slate-600" />
-              </button>
+            {/* Right col: Dashboard Carousel */}
+            <div className="w-full">
+              <DashboardCarousel />
             </div>
+          </div>
+
+          <div className="mt-4 sm:mt-6">
+            <p className="text-xs sm:text-sm font-black uppercase tracking-widest text-slate-400 text-center mb-6">
+              Trusted by 150+ high-growth B2B SaaS teams
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16">
+              {[
+                { name: "Notion", weight: "font-black" },
+                { name: "Intercom", weight: "font-bold" },
+                { name: "Amplitude", weight: "font-black" },
+                { name: "Segment", weight: "font-bold" },
+                { name: "Mixpanel", weight: "font-black" },
+                { name: "Linear", weight: "font-bold" },
+              ].map((logo) => (
+                <span
+                  key={logo.name}
+                  className={`text-lg sm:text-xl ${logo.weight} text-slate-300 select-none tracking-tight`}
+                >
+                  {logo.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Dark Banner CTA 1 (after Hero, before Why This Matters) ── */}
+      <section className="py-6 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-slate-900 rounded-[2rem] px-8 sm:px-10 py-7 flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div>
+              <p className="text-white font-black text-lg sm:text-xl leading-snug">
+                Your buyers are asking AI — <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">is your brand in the answer?</span>
+              </p>
+              <p className="text-slate-400 text-sm mt-1">Track AI visibility across ChatGPT, Gemini, and Perplexity in one dashboard.</p>
+            </div>
+            <div className="flex items-center gap-3 flex-shrink-0">
+              <a href="https://dashboard.georankers.co/register" className="gradient-cta text-white px-5 py-2.5 rounded-xl font-black text-sm hover:opacity-90 transition-all whitespace-nowrap">Try for Free</a>
+              <a href="https://calendly.com/hello-georankers/30min" target="_blank" rel="noopener noreferrer" className="border border-white/30 text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-white/10 transition-all whitespace-nowrap">Book a Demo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why This Matters Section */}
+      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            {/* Left: copy */}
+            <div>
+              <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">Why This Matters</p>
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 mb-6">
+                AI Search Is Replacing the First Click
+              </h2>
+              <p className="text-base sm:text-lg font-medium text-slate-600 leading-relaxed mb-4">
+                Buyers no longer browse multiple links to evaluate software. They ask AI tools for recommendations, comparisons, and shortlists.
+              </p>
+              <p className="text-base sm:text-lg font-medium text-slate-600 leading-relaxed mb-4">
+                These answers decide which vendors get considered and how they are positioned before a buyer ever visits your website.
+              </p>
+              <p className="text-base sm:text-lg font-medium text-slate-600 leading-relaxed">
+                If your brand is not part of these answers, you are not part of the decision.
+              </p>
+            </div>
+
+            {/* Right: 3 icon cards with vertical connector */}
+            <div className="relative">
+              {/* Vertical connector line */}
+              <div className="absolute left-6 top-14 bottom-14 w-0.5 bg-gradient-to-b from-blue-200 via-violet-200 to-violet-100 hidden sm:block"></div>
+
+              <div className="space-y-5">
+                {[
+                  { icon: Eye, label: "AI answers summarize entire categories", desc: "AI tools generate single answers covering entire software categories — one mention defines the shortlist." },
+                  { icon: BarChart3, label: "Multiple vendors are compared instantly", desc: "Buyers get ranked comparisons in seconds. If you're not in that list, you're not in the conversation." },
+                  { icon: Brain, label: "Visibility depends on how AI interprets your brand", desc: "The signals AI uses to understand your brand — citations, content, authority — are invisible in standard analytics." },
+                ].map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={i} className="flex items-start gap-4">
+                      <div
+                        className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md relative z-10"
+                        style={{ background: 'linear-gradient(135deg, #2994FF, #7575FF)' }}
+                      >
+                        <Icon className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="glass rounded-[1.5rem] p-5 flex-1">
+                        <p className="font-black text-slate-900 text-base mb-1">{item.label}</p>
+                        <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visibility Gap Section */}
+      <VisibilityGapSection />
+
+      {/* What You Get Section */}
+      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">What You Get</p>
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 mb-5">
+              See Exactly How AI Platforms Present Your Brand
+            </h2>
+            <p className="text-base sm:text-lg font-medium text-slate-500 max-w-2xl mx-auto leading-relaxed">
+              GeoRankers turns AI generated answers into structured insights so you can understand your visibility, benchmark against competitors, and take action.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {[
+              { icon: Search, title: "Prompt level visibility tracking", desc: "See which queries include your brand and where you are missing." },
+              { icon: BarChart3, title: "Competitive answer share", desc: "Compare how often your brand appears versus competitors." },
+              { icon: Brain, title: "Brand perception analysis", desc: "Understand how AI systems describe your product and category fit." },
+              { icon: Globe, title: "Source and citation insights", desc: "Identify which sources influence AI answers and where you need stronger presence." },
+              { icon: Zap, title: "Actionable recommendations", desc: "Get clear next steps to improve AI search visibility." },
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={i}
+                  className="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                >
+                  <div
+                    className="w-11 h-11 rounded-[1rem] flex items-center justify-center mb-4 shadow-sm"
+                    style={{ background: 'linear-gradient(135deg, #2994FF, #7575FF)' }}
+                  >
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                  <p className="font-black text-slate-900 mb-2 text-sm leading-snug">{item.title}</p>
+                  <p className="text-xs font-medium text-slate-500 leading-relaxed">{item.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Dark Banner CTA 2 (after What You Get) ── */}
+      <section className="py-6 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-slate-900 rounded-[2rem] px-8 sm:px-10 py-7 flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div>
+              <p className="text-white font-black text-lg sm:text-xl leading-snug">
+                Data is only half the battle. <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Insights drive action.</span>
+              </p>
+              <p className="text-slate-400 text-sm mt-1">Discover how GeoRankers turns AI responses into structured, actionable intelligence.</p>
+            </div>
+            <div className="flex items-center gap-3 flex-shrink-0">
+              <a href="https://dashboard.georankers.co/register" className="gradient-cta text-white px-5 py-2.5 rounded-xl font-black text-sm hover:opacity-90 transition-all whitespace-nowrap">Try for Free</a>
+              <a href="https://calendly.com/hello-georankers/30min" target="_blank" rel="noopener noreferrer" className="border border-white/30 text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-white/10 transition-all whitespace-nowrap">Book a Demo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50/50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">How It Works</p>
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 mb-5">
+              From AI Answers to Actionable Insights
+            </h2>
+            <p className="text-base sm:text-lg font-medium text-slate-500 max-w-xl mx-auto leading-relaxed">
+              GeoRankers analyzes how AI systems respond to real buyer prompts and translates those responses into clear visibility intelligence.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-stretch gap-0">
+            {[
+              { num: "01", title: "Simulate buyer queries", desc: "We model discovery, comparison, pricing, and trust prompts across your category." },
+              { num: "02", title: "Capture AI responses", desc: "Track how platforms like ChatGPT, Gemini, and Perplexity present your category." },
+              { num: "03", title: "Identify gaps and actions", desc: "Highlight where your brand is missing and what needs to improve." },
+            ].map((step, i) => (
+              <div key={i} className="flex sm:flex-col items-stretch flex-1">
+                {/* Card */}
+                <div className="rounded-[2rem] bg-white shadow-sm border border-slate-100 p-7 relative overflow-hidden flex-1">
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center text-white font-black text-sm mb-5"
+                    style={{ background: 'linear-gradient(135deg, #2994FF, #7575FF)' }}
+                  >
+                    {step.num}
+                  </div>
+                  <h3 className="text-lg font-black text-slate-900 mb-2">{step.title}</h3>
+                  <p className="text-sm font-medium text-slate-500 leading-relaxed">{step.desc}</p>
+                  <div className="absolute top-4 right-5 text-7xl font-black text-slate-900/[0.03] select-none leading-none">{step.num}</div>
+                </div>
+
+                {/* Animated connector (between cards, not after last) */}
+                {i < 2 && (
+                  <div className="flex items-center justify-center sm:justify-start sm:rotate-0 rotate-90 px-0 sm:px-1 my-2 sm:my-0 mx-auto sm:mx-0 w-10 sm:w-auto h-auto sm:h-10 flex-shrink-0">
+                    <div className="relative w-10 sm:w-10 h-1 sm:h-1 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="animate-flow"></div>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-blue-400 flex-shrink-0 -ml-1" />
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-10 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              Frequently Asked <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Questions</span>
+      <section id="faq" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10 sm:mb-12">
+            <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">FREQUENTLY ASKED QUESTIONS</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-slate-900 mb-5 sm:mb-7">
+              Everything You Need to Know About{' '}
+              <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Optimization</span>
             </h2>
-            <p className="text-lg sm:text-xl text-slate-600">
-              Everything you need to know about AI search optimization
-            </p>
           </div>
 
-          <div className="space-y-3 sm:space-y-4">
+          <div className="grid md:grid-cols-2 gap-3 sm:gap-4">
             {/* FAQ Item 1 */}
-            <Card className="glass rounded-2xl border-0">
+            <Card className="glass rounded-[2rem] border-0">
               <CardContent className="p-0">
                 <button
                   onClick={() => setOpenFAQ(openFAQ === 1 ? null : 1)}
                   className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
                 >
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
                     What is AI search optimization and why do I need it?
                   </h3>
                   {openFAQ === 1 ? (
@@ -1182,13 +1175,13 @@ export default function Home() {
             </Card>
 
             {/* FAQ Item 2 */}
-            <Card className="glass rounded-2xl border-0">
+            <Card className="glass rounded-[2rem] border-0">
               <CardContent className="p-0">
                 <button
                   onClick={() => setOpenFAQ(openFAQ === 2 ? null : 2)}
                   className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
                 >
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
                     How is AI search different from Google SEO?
                   </h3>
                   {openFAQ === 2 ? (
@@ -1208,13 +1201,13 @@ export default function Home() {
             </Card>
 
             {/* FAQ Item 3 */}
-            <Card className="glass rounded-2xl border-0">
+            <Card className="glass rounded-[2rem] border-0">
               <CardContent className="p-0">
                 <button
                   onClick={() => setOpenFAQ(openFAQ === 3 ? null : 3)}
                   className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
                 >
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
                     Which AI platforms does GeoRankers monitor?
                   </h3>
                   {openFAQ === 3 ? (
@@ -1234,13 +1227,13 @@ export default function Home() {
             </Card>
 
             {/* FAQ Item 4 */}
-            <Card className="glass rounded-2xl border-0">
+            <Card className="glass rounded-[2rem] border-0">
               <CardContent className="p-0">
                 <button
                   onClick={() => setOpenFAQ(openFAQ === 4 ? null : 4)}
                   className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
                 >
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
                     How long does it take to see results from AI search optimization?
                   </h3>
                   {openFAQ === 4 ? (
@@ -1260,13 +1253,13 @@ export default function Home() {
             </Card>
 
             {/* FAQ Item 5 */}
-            <Card className="glass rounded-2xl border-0">
+            <Card className="glass rounded-[2rem] border-0">
               <CardContent className="p-0">
                 <button
                   onClick={() => setOpenFAQ(openFAQ === 5 ? null : 5)}
                   className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
                 >
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
                     What makes GeoRankers different from other marketing tools?
                   </h3>
                   {openFAQ === 5 ? (
@@ -1286,13 +1279,13 @@ export default function Home() {
             </Card>
 
             {/* FAQ Item 6 */}
-            <Card className="glass rounded-2xl border-0">
+            <Card className="glass rounded-[2rem] border-0">
               <CardContent className="p-0">
                 <button
                   onClick={() => setOpenFAQ(openFAQ === 6 ? null : 6)}
                   className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
                 >
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
                     Can small companies compete with enterprise brands in AI search?
                   </h3>
                   {openFAQ === 6 ? (
@@ -1312,13 +1305,13 @@ export default function Home() {
             </Card>
 
             {/* FAQ Item 7 */}
-            <Card className="glass rounded-2xl border-0">
+            <Card className="glass rounded-[2rem] border-0">
               <CardContent className="p-0">
                 <button
                   onClick={() => setOpenFAQ(openFAQ === 7 ? null : 7)}
                   className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
                 >
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
                     When will GeoRankers be available?
                   </h3>
                   {openFAQ === 7 ? (
@@ -1338,13 +1331,13 @@ export default function Home() {
             </Card>
 
             {/* FAQ Item 8 */}
-            <Card className="glass rounded-2xl border-0">
+            <Card className="glass rounded-[2rem] border-0">
               <CardContent className="p-0">
                 <button
                   onClick={() => setOpenFAQ(openFAQ === 8 ? null : 8)}
                   className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
                 >
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
                     Do I need technical expertise to use GeoRankers?
                   </h3>
                   {openFAQ === 8 ? (
@@ -1364,13 +1357,13 @@ export default function Home() {
             </Card>
 
             {/* FAQ Item 9 */}
-            <Card className="glass rounded-2xl border-0">
+            <Card className="glass rounded-[2rem] border-0">
               <CardContent className="p-0">
                 <button
                   onClick={() => setOpenFAQ(openFAQ === 9 ? null : 9)}
                   className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
                 >
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
                     How does GeoRankers track AI visibility?
                   </h3>
                   {openFAQ === 9 ? (
@@ -1390,13 +1383,13 @@ export default function Home() {
             </Card>
 
             {/* FAQ Item 10 */}
-            <Card className="glass rounded-2xl border-0">
+            <Card className="glass rounded-[2rem] border-0">
               <CardContent className="p-0">
                 <button
                   onClick={() => setOpenFAQ(openFAQ === 10 ? null : 10)}
                   className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
                 >
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
                     Why is my competitor showing up in ChatGPT but not my brand?
                   </h3>
                   {openFAQ === 10 ? (
@@ -1418,45 +1411,57 @@ export default function Home() {
 
         </div>
       </section>
-      
-      {/* FAQ CTA - Full Width */}
-      <section className="py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
-        <div className="max-w-5xl mx-auto text-center">
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">
-            Learn How To Improve The Way AI Presents Your Brand
-          </h3>
-          <p className="text-base sm:text-lg text-white/90 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
-            Get practical insights you can act on to strengthen how AI systems interpret and reference your brand.
+
+      {/* Final CTA — full-width gradient */}
+      <section className="gradient-cta py-20 sm:py-28 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-xs font-black uppercase tracking-widest text-white/60 mb-4">GET STARTED</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-white mb-5">
+            Improve Your Visibility in AI Search
+          </h2>
+          <p className="text-base sm:text-xl font-medium text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Understand how AI platforms see your brand and take action to increase your presence in high intent buying prompts.
           </p>
-          <a 
-            href="https://dashboard.georankers.co/register"
-            className="inline-flex items-center px-7 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
-            data-testid="cta-try-free-faq"
-          >
-            <Rocket className="w-5 h-5 mr-2" />
-            Try for Free
-          </a>
-          <p className="text-sm text-white/70 mt-3">No credit card required</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="https://dashboard.georankers.co/register"
+              className="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-xl font-black text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-xl hover:bg-white/95"
+              data-testid="cta-try-free-final"
+            >
+              <Rocket className="w-5 h-5 mr-2" />
+              Try for Free
+            </a>
+            <a
+              href="https://calendly.com/hello-georankers/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-8 py-4 border-2 border-white/40 text-white rounded-xl font-semibold text-base sm:text-lg hover:border-white/70 hover:bg-white/10 transition-all duration-300"
+            >
+              Book a Demo
+            </a>
+          </div>
+          <p className="text-sm text-white/50 mt-5">No credit card required</p>
         </div>
       </section>
-      
+
       {/* Blog Section */}
       <section className="py-10 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/30 to-white" id="blog">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              Latest <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Insights</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-slate-900 mb-5 sm:mb-7">
+              Latest{' '}
+              <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Insights</span>
             </h2>
-            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl font-medium text-slate-600 max-w-3xl mx-auto">
               Discover proven strategies and frameworks to dominate AI search across ChatGPT, Gemini, and Perplexity
             </p>
           </div>
-          
+
           {/* Loading State */}
           {postsLoading && (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {[...Array(3)].map((_, index) => (
-                <Card key={index} className="glass rounded-2xl border-0 overflow-hidden">
+                <Card key={index} className="glass rounded-[2.5rem] border-0 overflow-hidden">
                   <div className="h-48 bg-gradient-to-br from-slate-100 to-slate-200 animate-pulse"></div>
                   <CardContent className="p-6 sm:p-8">
                     <div className="h-4 bg-slate-200 rounded animate-pulse mb-3"></div>
@@ -1490,11 +1495,11 @@ export default function Home() {
           {blogPosts && blogPosts.length > 0 && (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {blogPosts.map((post, index) => (
-                <Card key={post.id} className="glass rounded-2xl border-0 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
+                <Card key={post.id} className="glass rounded-[2.5rem] border-0 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
                   <div className="h-48 relative overflow-hidden">
                     {(post as any).featured_image_url ? (
-                      <img 
-                        src={(post as any).featured_image_url} 
+                      <img
+                        src={(post as any).featured_image_url}
                         alt={post.title.rendered}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
@@ -1522,13 +1527,13 @@ export default function Home() {
                     <div className="flex items-center text-xs text-slate-500 mb-3">
                       <span>{formatDate(post.date)}</span>
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors duration-300">
+                    <h3 className="text-lg sm:text-xl font-black text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors duration-300">
                       {post.title.rendered}
                     </h3>
                     <p className="text-slate-600 text-sm sm:text-base mb-6 leading-relaxed">
                       {cleanExcerpt(post.excerpt.rendered)}
                     </p>
-                    <a 
+                    <a
                       href={post.link}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -1567,7 +1572,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="link-view-all-blogs"
-              className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white rounded-2xl font-semibold text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
+              className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 gradient-primary hover:opacity-90 text-white rounded-2xl font-black text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
             >
               <Eye className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
               View All Blog Posts
@@ -1577,16 +1582,16 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative py-12 sm:py-14 overflow-hidden bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
+      <footer className="relative py-12 sm:py-14 overflow-hidden bg-black">
         <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl"></div>
         <div className="absolute top-0 right-1/4 w-56 h-56 bg-gradient-to-r from-violet-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-3 gap-10 sm:gap-8 mb-12">
             {/* Brand */}
             <div>
-              <div className="text-2xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-blue-200 to-violet-200 bg-clip-text text-transparent">GeoRankers</span>
+              <div className="text-2xl font-black mb-4">
+                <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">GeoRankers</span>
               </div>
               <p className="text-white/60 text-sm leading-relaxed mb-6">
                 AI Search Visibility Platform for B2B SaaS Teams
@@ -1603,7 +1608,7 @@ export default function Home() {
 
             {/* Links */}
             <div>
-              <p className="text-xs font-medium text-blue-200/70 uppercase tracking-widest mb-4">Quick Links</p>
+              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Quick Links</p>
               <div className="space-y-3">
                 <Link href="/pricing" className="block text-white/80 hover:text-white text-sm transition-colors">
                   Pricing
@@ -1622,8 +1627,8 @@ export default function Home() {
 
             {/* Contact */}
             <div>
-              <p className="text-xs font-medium text-blue-200/70 uppercase tracking-widest mb-4">Contact</p>
-              <a 
+              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Contact</p>
+              <a
                 href="mailto:hello@georankers.co"
                 className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm group"
                 data-testid="link-footer-email"
@@ -1646,18 +1651,6 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* Exit Intent Popup */}
-      <ExitIntentPopup
-        isOpen={showExitIntentPopup}
-        onClose={handleExitIntentClose}
-        onTakeQuiz={handleExitIntentTakeQuiz}
-      />
-
-      {/* Quiz Modal */}
-      <QuizModal 
-        isOpen={showQuizModal} 
-        onClose={handleQuizModalClose} 
-      />
     </div>
   );
 }

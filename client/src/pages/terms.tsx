@@ -1,5 +1,7 @@
 import { Link } from "wouter";
 import { useEffect } from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const sections = [
   { id: "platform", label: "1. The Platform" },
@@ -25,19 +27,9 @@ export default function Terms() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Simple top nav */}
-      <header className="border-b border-slate-100 bg-white sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
-            GeoRankers
-          </Link>
-          <Link href="/" className="text-sm text-slate-500 hover:text-slate-800 transition-colors">
-            ← Back to home
-          </Link>
-        </div>
-      </header>
+      <Navbar />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 lg:pt-32 lg:pb-16">
         <div className="lg:grid lg:grid-cols-[240px_1fr] lg:gap-16">
 
           {/* Sidebar TOC — sticky on desktop */}
@@ -247,21 +239,12 @@ export default function Terms() {
 
             <div className="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
               <Link href="/privacy" className="text-sm text-blue-600 hover:underline">Privacy Policy</Link>
-              <Link href="/" className="text-sm text-slate-500 hover:text-slate-800">← Back to GeoRankers</Link>
             </div>
           </main>
         </div>
       </div>
 
-      <footer className="border-t border-slate-100 py-8 mt-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-400">© {new Date().getFullYear()} GeoRankers. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <Link href="/terms" className="text-xs text-slate-400 hover:text-slate-600 transition-colors">Terms of Service</Link>
-            <Link href="/privacy" className="text-xs text-slate-400 hover:text-slate-600 transition-colors">Privacy Policy</Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -53,9 +55,28 @@
     @apply border-border;
   }
 
+  h1, h2 {
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    line-height: 1.3;
+  }
+
+  p {
+    line-height: 1.75;
+  }
+
+  /* Prevent descender clipping on gradient text (letters g, y, p, q) */
+  .bg-clip-text {
+    padding-bottom: 0.1em;
+  }
+
   body {
     @apply font-sans antialiased;
-    background: linear-gradient(135deg, 
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(135deg,
       hsl(220, 70%, 98%) 0%, 
       hsl(230, 50%, 96%) 25%, 
       hsl(240, 60%, 98%) 50%, 
@@ -97,15 +118,32 @@
   50% { opacity: 0.8; }
 }
 
+.gradient-primary {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+}
+
+.gradient-cta {
+  background: linear-gradient(135deg, #2994FF, #5C92FF, #7575FF);
+}
+
+@keyframes flow-right {
+  0%   { left: -60%; }
+  100% { left: 110%; }
+}
+
+.animate-flow {
+  position: absolute;
+  inset-y: 0;
+  width: 60%;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+  animation: flow-right 2s ease-in-out infinite;
+}
+
 .glass {
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.9) 0%, 
-    rgba(248, 250, 252, 0.8) 50%, 
-    rgba(241, 245, 249, 0.9) 100%
-  );
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.20);
 }
 
 .glass-strong {

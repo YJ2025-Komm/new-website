@@ -1,6 +1,8 @@
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import { Search, BookOpen, Settings, BarChart3, Target, Bot, RefreshCw, CreditCard, AlertCircle, ChevronDown, ChevronUp, Mail } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 type QA = { q: string; a: string | React.ReactNode };
 
@@ -419,21 +421,10 @@ export default function Help() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Top nav */}
-      <header className="border-b border-slate-100 bg-white sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
-            GeoRankers
-          </Link>
-          <div className="flex items-center gap-6">
-            <Link href="/" className="text-sm text-slate-500 hover:text-slate-800 transition-colors hidden sm:block">← Back to home</Link>
-            <a href="mailto:support@georankers.co" className="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors">Contact Support</a>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero */}
-      <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-violet-950 py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-violet-950 pt-28 sm:pt-32 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">Help Center</p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -527,16 +518,7 @@ export default function Help() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-100 py-8 mt-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-400">© {new Date().getFullYear()} GeoRankers. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <Link href="/terms" className="text-xs text-slate-400 hover:text-slate-600 transition-colors">Terms of Service</Link>
-            <Link href="/privacy" className="text-xs text-slate-400 hover:text-slate-600 transition-colors">Privacy Policy</Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -19,8 +19,8 @@ export default function Navbar() {
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/website-analysis" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" data-testid="link-website-analysis">
-              Website AI Audit
+            <Link href="/" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" data-testid="link-home">
+              Home
             </Link>
             <Link href="/features" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
               Features
@@ -131,13 +131,13 @@ export default function Navbar() {
             >
               Login
             </a>
-            <Link 
-              href="/website-analysis" 
+            <Link
+              href="/"
               className="block text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2"
               onClick={() => setMobileMenuOpen(false)}
-              data-testid="mobile-link-website-analysis"
+              data-testid="mobile-link-home"
             >
-              Website AI Audit
+              Home
             </Link>
             <Link 
               href="/features" 

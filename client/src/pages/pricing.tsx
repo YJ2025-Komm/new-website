@@ -12,9 +12,8 @@ import {
   Building2,
   HelpCircle,
   ArrowRight,
-  Mail,
 } from "lucide-react";
-import { SiLinkedin } from "react-icons/si";
+import Footer from "@/components/Footer";
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(true);
@@ -221,8 +220,8 @@ export default function Pricing() {
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="/website-analysis" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
-                Website AI Audit
+              <Link href="/" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
+                Home
               </Link>
               <Link href="/features" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 Features
@@ -247,23 +246,32 @@ export default function Pricing() {
                     <Link href="/geo-guide" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors">
                       GEO Guide
                     </Link>
+                    <a href="/#faq" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors">
+                      FAQ
+                    </a>
+                    <Link href="/help" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors">
+                      Help Docs
+                    </Link>
                   </div>
                 )}
               </div>
               <a href="https://dashboard.georankers.co/login" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 Login
               </a>
-              <a href="https://dashboard.georankers.co/register" className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">
+              <a href="https://calendly.com/hello-georankers/30min" className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">
+                Book a Demo
+              </a>
+              <a href="https://dashboard.georankers.co/register" className="gradient-primary hover:opacity-90 text-white px-4 py-2 rounded-lg text-sm font-black transition-all duration-200">
                 Try for Free
               </a>
             </div>
 
-            <div className="md:hidden flex items-center space-x-3">
-              <a href="https://dashboard.georankers.co/login" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
-                Login
+            <div className="md:hidden flex items-center space-x-2">
+              <a href="https://calendly.com/hello-georankers/30min" className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200">
+                Demo
               </a>
-              <a href="https://dashboard.georankers.co/register" className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-3 py-2 rounded-lg text-sm font-medium">
-                Try for Free
+              <a href="https://dashboard.georankers.co/register" className="gradient-primary hover:opacity-90 text-white px-3 py-1.5 rounded-lg text-xs font-black">
+                Try Free
               </a>
               <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-slate-600 hover:text-blue-600 p-2">
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -275,8 +283,8 @@ export default function Pricing() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-slate-200 px-4 py-4">
             <div className="space-y-3">
-              <Link href="/website-analysis" className="block text-slate-600 hover:text-blue-600 text-sm font-medium py-2" onClick={() => setMobileMenuOpen(false)}>
-                Website AI Audit
+              <Link href="/" className="block text-slate-600 hover:text-blue-600 text-sm font-medium py-2" onClick={() => setMobileMenuOpen(false)}>
+                Home
               </Link>
               <Link href="/features" className="block text-slate-600 hover:text-blue-600 text-sm font-medium py-2" onClick={() => setMobileMenuOpen(false)}>
                 Features
@@ -299,6 +307,12 @@ export default function Pricing() {
                     </a>
                     <Link href="/geo-guide" className="block text-slate-500 hover:text-blue-600 text-sm py-1" onClick={() => setMobileMenuOpen(false)}>
                       GEO Guide
+                    </Link>
+                    <a href="/#faq" className="block text-slate-500 hover:text-blue-600 text-sm py-1" onClick={() => setMobileMenuOpen(false)}>
+                      FAQ
+                    </a>
+                    <Link href="/help" className="block text-slate-500 hover:text-blue-600 text-sm py-1" onClick={() => setMobileMenuOpen(false)}>
+                      Help Docs
                     </Link>
                   </div>
                 )}
@@ -599,7 +613,7 @@ export default function Pricing() {
 
       {/* FAQ Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-blue-50/30">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
               <HelpCircle className="w-3.5 h-3.5" />
@@ -610,24 +624,24 @@ export default function Pricing() {
             </h2>
           </div>
 
-          <div className="space-y-4">
+          <div className="grid md:grid-cols-2 gap-4">
             {faqs.map((faq, index) => (
               <Card key={index} className="glass rounded-2xl border-0">
                 <CardContent className="p-0">
                   <button
                     onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
-                    className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
+                    className="w-full p-6 text-left flex items-start justify-between hover:bg-white/20 transition-colors duration-300"
                   >
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 pr-4">{faq.question}</h3>
+                    <h3 className="text-base font-bold text-slate-900 pr-4">{faq.question}</h3>
                     {openFAQ === index ? (
-                      <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0" />
+                      <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0 mt-0.5" />
                     ) : (
-                      <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0" />
+                      <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 mt-0.5" />
                     )}
                   </button>
                   {openFAQ === index && (
-                    <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                      <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
+                    <div className="px-6 pb-6">
+                      <p className="text-slate-600 leading-relaxed text-sm">{faq.answer}</p>
                     </div>
                   )}
                 </CardContent>
@@ -637,71 +651,7 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative py-16 sm:py-20 overflow-hidden bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700">
-        <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-0 right-1/4 w-56 h-56 bg-gradient-to-r from-violet-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-3 gap-10 sm:gap-8 mb-12">
-            <div>
-              <div className="text-2xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-blue-200 to-violet-200 bg-clip-text text-transparent">GeoRankers</span>
-              </div>
-              <p className="text-white/60 text-sm leading-relaxed mb-6">
-                AI Search Visibility Platform for B2B SaaS Teams
-              </p>
-              <a
-                href="https://www.linkedin.com/company/georankers/posts/?feedView=all"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-              >
-                <SiLinkedin className="w-5 h-5 text-white" />
-              </a>
-            </div>
-
-            <div>
-              <p className="text-xs font-medium text-blue-200/70 uppercase tracking-widest mb-4">Quick Links</p>
-              <div className="space-y-3">
-                <Link href="/pricing" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  Pricing
-                </Link>
-                <a href="https://blog.georankers.co/" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  Blog
-                </a>
-                <Link href="/geo-guide" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  GEO Guide
-                </Link>
-                <Link href="/help" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  Help Docs
-                </Link>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-xs font-medium text-blue-200/70 uppercase tracking-widest mb-4">Contact</p>
-              <a 
-                href="mailto:hello@georankers.co"
-                className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm group"
-              >
-                <Mail className="w-4 h-4 mr-2 text-blue-200/70 group-hover:text-white transition-colors" />
-                hello@georankers.co
-              </a>
-            </div>
-          </div>
-
-          <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-blue-200/60 text-xs">
-              © {new Date().getFullYear()} GeoRankers. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6">
-              <Link href="/terms" className="text-blue-200/60 hover:text-white text-xs transition-colors">Terms of Service</Link>
-              <Link href="/privacy" className="text-blue-200/60 hover:text-white text-xs transition-colors">Privacy Policy</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
