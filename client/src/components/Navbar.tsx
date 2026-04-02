@@ -78,8 +78,10 @@ export default function Navbar() {
             >
               Login
             </a>
-            <a 
+            <a
               href="https://calendly.com/hello-georankers/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
               data-testid="cta-book-demo-nav"
             >
@@ -95,8 +97,10 @@ export default function Navbar() {
           </div>
           
           <div className="md:hidden flex items-center space-x-2">
-            <a 
+            <a
               href="https://calendly.com/hello-georankers/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200"
               data-testid="cta-book-demo-mobile"
             >

@@ -85,7 +85,7 @@ function HowItWorks() {
             Getting Started
           </p>
           <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] text-slate-900 mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] text-slate-900 mb-4"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -221,7 +221,7 @@ export default function Features() {
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-slate-900 mb-5">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.3] text-slate-900 mb-5">
             The AI Visibility Intelligence System
           </h1>
 
@@ -269,10 +269,10 @@ export default function Features() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Left */}
             <div>
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.1] text-slate-900 mb-1">
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] text-slate-900 mb-1">
                 AI Visibility Is Not a Dashboard Problem.
               </h2>
-              <p className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.1] mb-5 bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+              <p className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] mb-5 bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
                 It Is a Systems Problem.
               </p>
               <p className="text-base sm:text-lg font-medium text-slate-600 leading-relaxed mb-6">
@@ -326,7 +326,7 @@ export default function Features() {
       {/* Intelligence Stack Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] text-center mb-2">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] text-center mb-2">
             <span className="text-slate-900">THE GEORANKERS </span>
             <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">INTELLIGENCE STACK</span>
           </h2>
@@ -447,7 +447,7 @@ export default function Features() {
           <p className="text-xs font-black uppercase tracking-widest text-blue-500 text-center mb-3">
             The Full Feature Set
           </p>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.1] text-slate-900 text-center mb-10">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] text-slate-900 text-center mb-10">
             Everything You Need to Win in AI Search
           </h2>
 
@@ -876,7 +876,7 @@ export default function Features() {
           <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-3">
             The Intelligence Loop
           </p>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.1] text-slate-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] text-slate-900 mb-4">
             How It All Connects
           </h2>
           <p className="text-base sm:text-lg font-medium text-slate-500 max-w-2xl mx-auto mb-12 leading-relaxed">
@@ -953,7 +953,7 @@ export default function Features() {
           <p className="text-xs font-black uppercase tracking-widest text-blue-500 text-center mb-3">
             Tangible Outcomes
           </p>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.1] text-slate-900 text-center mb-4">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] text-slate-900 text-center mb-4">
             What You Actually Get
           </h2>
           <p className="text-base sm:text-lg font-medium text-slate-500 text-center max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -1002,7 +1002,7 @@ export default function Features() {
             <p className="text-xs font-black uppercase tracking-widest text-white/70 mb-4">
               Start Today
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] text-white mb-5">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] text-white mb-5">
               Turn AI Visibility Into Strategic Advantage
             </h2>
             <p className="text-lg font-medium text-white/80 mb-8 max-w-xl mx-auto leading-relaxed">

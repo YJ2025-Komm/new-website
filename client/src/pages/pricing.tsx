@@ -258,7 +258,7 @@ export default function Pricing() {
               <a href="https://dashboard.georankers.co/login" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
                 Login
               </a>
-              <a href="https://calendly.com/hello-georankers/30min" className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">
+              <a href="https://calendly.com/hello-georankers/30min" target="_blank" rel="noopener noreferrer" className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">
                 Book a Demo
               </a>
               <a href="https://dashboard.georankers.co/register" className="gradient-primary hover:opacity-90 text-white px-4 py-2 rounded-lg text-sm font-black transition-all duration-200">
@@ -267,7 +267,7 @@ export default function Pricing() {
             </div>
 
             <div className="md:hidden flex items-center space-x-2">
-              <a href="https://calendly.com/hello-georankers/30min" className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200">
+              <a href="https://calendly.com/hello-georankers/30min" target="_blank" rel="noopener noreferrer" className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200">
                 Demo
               </a>
               <a href="https://dashboard.georankers.co/register" className="gradient-primary hover:opacity-90 text-white px-3 py-1.5 rounded-lg text-xs font-black">
@@ -505,7 +505,7 @@ export default function Pricing() {
                     </a>
                   </div>
                   <div className="p-6 text-center border-l border-slate-200/50">
-                    <a href="https://calendly.com/hello-georankers/30min" className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-colors">
+                    <a href="https://calendly.com/hello-georankers/30min" target="_blank" rel="noopener noreferrer" className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-colors">
                       Talk to Us <ArrowRight className="w-3.5 h-3.5 inline-block ml-1" />
                     </a>
                   </div>
@@ -570,7 +570,7 @@ export default function Pricing() {
                       </a>
                     </div>
                     <div className="p-4 text-center border-l border-slate-200/50">
-                      <a href="https://calendly.com/hello-georankers/30min" className="block w-full py-2 rounded-lg text-xs font-semibold bg-slate-900 text-white transition-colors">
+                      <a href="https://calendly.com/hello-georankers/30min" target="_blank" rel="noopener noreferrer" className="block w-full py-2 rounded-lg text-xs font-semibold bg-slate-900 text-white transition-colors">
                         Talk to Us
                       </a>
                     </div>
@@ -601,6 +601,8 @@ export default function Pricing() {
               </p>
               <a
                 href="https://calendly.com/hello-georankers/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-4 bg-white text-blue-700 rounded-xl font-semibold hover:bg-blue-50 transition-colors duration-200 shadow-lg"
               >
                 Talk to Sales

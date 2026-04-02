@@ -160,10 +160,10 @@ function VisibilityGapSection() {
           style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 0.6s ease, transform 0.6s ease' }}
         >
           <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">THE PROBLEM</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-slate-900 mb-1">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] text-slate-900 mb-1">
             What You Cannot See in AI Search
           </h2>
-          <p className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] mb-5 bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
+          <p className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] mb-5 bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
             Is Already Costing You
           </p>
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
@@ -228,7 +228,7 @@ function VisibilityGapSection() {
                 }}
               >
                 <p className="text-[10px] font-black uppercase tracking-widest text-blue-500 mb-3">{p.label}</p>
-                <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-3 leading-[1.2]">{p.title}</h3>
+                <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-3 leading-[1.3]">{p.title}</h3>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">{p.description}</p>
                 {p.visual}
               </div>
@@ -735,6 +735,8 @@ export default function Home() {
               </a>
               <a
                 href="https://calendly.com/hello-georankers/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
                 data-testid="cta-book-demo-nav"
               >
@@ -753,6 +755,8 @@ export default function Home() {
             <div className="md:hidden flex items-center space-x-2">
               <a
                 href="https://calendly.com/hello-georankers/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200"
                 data-testid="cta-book-demo-mobile"
               >
@@ -884,7 +888,7 @@ export default function Home() {
               </div>
 
               {/* Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] text-slate-900 mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.3] text-slate-900 mb-6">
                 Your Buyers Choose Vendors Inside{' '}
                 <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
                   AI Answers
@@ -978,7 +982,7 @@ export default function Home() {
             {/* Left: copy */}
             <div>
               <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">Why This Matters</p>
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] text-slate-900 mb-6">
                 AI Search Is Replacing the First Click
               </h2>
               <p className="text-base sm:text-lg font-medium text-slate-600 leading-relaxed mb-4">
@@ -1033,7 +1037,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">What You Get</p>
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 mb-5">
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] text-slate-900 mb-5">
               See Exactly How AI Platforms Present Your Brand
             </h2>
             <p className="text-base sm:text-lg font-medium text-slate-500 max-w-2xl mx-auto leading-relaxed">
@@ -1093,7 +1097,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">How It Works</p>
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 mb-5">
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] text-slate-900 mb-5">
               From AI Answers to Actionable Insights
             </h2>
             <p className="text-base sm:text-lg font-medium text-slate-500 max-w-xl mx-auto leading-relaxed">
@@ -1141,7 +1145,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 sm:mb-12">
             <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">FREQUENTLY ASKED QUESTIONS</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-slate-900 mb-5 sm:mb-7">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.4] text-slate-900 mb-5 sm:mb-7">
               Everything You Need to Know About{' '}
               <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Optimization</span>
             </h2>
@@ -1416,7 +1420,7 @@ export default function Home() {
       <section className="gradient-cta py-20 sm:py-28 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xs font-black uppercase tracking-widest text-white/60 mb-4">GET STARTED</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-white mb-5">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] text-white mb-5">
             Improve Your Visibility in AI Search
           </h2>
           <p className="text-base sm:text-xl font-medium text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -1448,7 +1452,7 @@ export default function Home() {
       <section className="py-10 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/30 to-white" id="blog">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-slate-900 mb-5 sm:mb-7">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] text-slate-900 mb-5 sm:mb-7">
               Latest{' '}
               <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Insights</span>
             </h2>
