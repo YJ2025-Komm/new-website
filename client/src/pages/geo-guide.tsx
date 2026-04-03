@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Rocket } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import aiAdoptionChart from "@assets/Image 1_1754564817867.png";
 import aiImpactChart from "@assets/Image 2_1754565019296.png";
 
@@ -186,7 +187,7 @@ export default function GeoGuide() {
                 Strategic Guide
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-[1.12]">
                 The GEO Playbook
               </h1>
               
@@ -1471,7 +1472,7 @@ export default function GeoGuide() {
         </article>
         </div>
       </main>
-
+      <Footer />
     </div>
   );
 }

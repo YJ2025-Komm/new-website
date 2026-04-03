@@ -53,7 +53,7 @@ export default function Terms() {
           {/* Main content */}
           <main className="min-w-0">
             <div className="mb-10">
-              <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">Terms of Service</h1>
+              <h1 className="text-3xl sm:text-4xl font-bold leading-[1.15] text-slate-900 mb-3">Terms of Service</h1>
               <p className="text-sm text-slate-400">Effective Date: March 2026 &nbsp;·&nbsp; Last Updated: March 2026</p>
               <p className="text-sm text-slate-400 mt-1">Apex Intelligence Private Limited</p>
             </div>

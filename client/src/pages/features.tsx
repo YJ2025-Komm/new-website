@@ -1,5 +1,4 @@
 import { useRef, useState, useEffect } from "react";
-import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Check,
@@ -12,14 +11,14 @@ import {
   CheckCircle,
   X,
   ArrowRight,
-  Mail,
   Globe,
   Search,
   Map,
   Rocket,
 } from "lucide-react";
-import { SiLinkedin, SiOpenai, SiGooglegemini, SiPerplexity, SiClaude, SiGithubcopilot } from "react-icons/si";
+import { SiOpenai, SiGooglegemini, SiPerplexity, SiClaude, SiGithubcopilot } from "react-icons/si";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 function HowItWorks() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -71,7 +70,7 @@ function HowItWorks() {
   ];
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/80 to-white">
+    <section ref={sectionRef} className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12 sm:mb-14">
           <p
@@ -85,7 +84,7 @@ function HowItWorks() {
             Getting Started
           </p>
           <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] text-slate-900 mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-slate-900 mb-4"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -273,7 +272,7 @@ function IntelligenceLoopSection() {
           The Intelligence Loop
         </p>
         <h2
-          className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] text-slate-900 mb-4"
+          className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 mb-4"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(20px)",
@@ -498,7 +497,7 @@ export default function Features() {
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.3] text-slate-900 mb-5">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-slate-900 mb-5">
             The AI Visibility Intelligence System
           </h1>
 
@@ -537,6 +536,29 @@ export default function Features() {
             </a>
           </div>
           <p className="text-sm font-medium text-slate-400 mt-3">No credit card required</p>
+
+          <div className="mt-8 sm:mt-10">
+            <p className="text-xs sm:text-sm font-black uppercase tracking-widest text-slate-400 text-center mb-6">
+              Trusted by 150+ high-growth B2B SaaS teams
+            </p>
+            <div className="flex items-center justify-center gap-5 sm:gap-7 lg:gap-10 whitespace-nowrap">
+              {[
+                { name: "Notion", weight: "font-black" },
+                { name: "Intercom", weight: "font-bold" },
+                { name: "Amplitude", weight: "font-black" },
+                { name: "Segment", weight: "font-bold" },
+                { name: "Mixpanel", weight: "font-black" },
+                { name: "Linear", weight: "font-bold" },
+              ].map((logo) => (
+                <span
+                  key={logo.name}
+                  className={`text-lg sm:text-xl ${logo.weight} text-slate-300 select-none tracking-tight`}
+                >
+                  {logo.name}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -546,10 +568,10 @@ export default function Features() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Left */}
             <div>
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] text-slate-900 mb-1">
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 mb-1">
                 AI Visibility Is Not a Dashboard Problem.
               </h2>
-              <p className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] mb-5 bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+              <p className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] mb-5 bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
                 It Is a Systems Problem.
               </p>
               <p className="text-base sm:text-lg font-medium text-slate-600 leading-relaxed mb-6">
@@ -576,141 +598,23 @@ export default function Features() {
             <div className="rounded-[2rem] p-8 text-white shadow-xl" style={{ background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)' }}>
               <h3 className="text-2xl font-black mb-3">Capture, Interpret, Prescribe.</h3>
               <p className="text-white/80 font-medium leading-relaxed mb-6">
-                GeoRankers builds the full system required to turn raw AI model behavior into strategic category advantage.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="https://dashboard.georankers.co/register"
-                  className="inline-flex items-center justify-center px-5 py-2.5 bg-white text-blue-600 font-black rounded-xl text-sm hover:bg-white/90 transition-all duration-200"
-                >
-                  Try for Free
-                </a>
-                <a
-                  href="https://calendly.com/hello-georankers/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-5 py-2.5 border-2 border-white/40 text-white font-semibold rounded-xl text-sm hover:border-white/70 transition-all duration-200"
-                >
-                  Book a Demo
-                </a>
-              </div>
-            </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Intelligence Stack Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] text-center mb-2">
-            <span className="text-slate-900">THE GEORANKERS </span>
-            <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">INTELLIGENCE STACK</span>
-          </h2>
-          <p className="text-base font-medium text-slate-500 text-center mb-12">
-            Three connected layers. One unified visibility engine.
-          </p>
-
-          <div className="space-y-4">
-            {/* Layer 1 card */}
-            <div className="rounded-[2rem] border border-slate-200/60 bg-white p-6 sm:p-8 shadow-sm">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
-                <div className="flex items-center gap-3">
-                  <span className="bg-blue-100 text-blue-700 text-xs font-black rounded-full px-3 py-1 uppercase tracking-wide">Layer 1</span>
-                  <h3 className="text-lg font-black text-slate-900">Visibility Data Layer</h3>
-                </div>
-                <span className="text-sm font-medium text-slate-400">See Exactly Where AI Mentions Your Brand</span>
-              </div>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {[
-                  { icon: Search, name: "AI Visibility Scanner", desc: "We execute structured, high intent prompts across major AI platforms and capture full responses, brand mentions, ranking position, and citations." },
-                  { icon: Globe, name: "Citation Graph Engine", desc: "We map citation domains, authority overlap, and source concentration patterns that influence model decisions. You see which sources strengthen or weaken your visibility." },
-                ].map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={i} className="rounded-xl border border-slate-100 bg-slate-50/80 p-5">
-                      <Icon className="w-5 h-5 text-blue-500 mb-3" />
-                      <p className="font-black text-slate-900 text-sm mb-1">{item.name}</p>
-                      <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Black CTA strip */}
-            <div className="bg-slate-900 rounded-[1.5rem] px-6 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <p className="font-black text-white">Data is only half the battle.</p>
-                <p className="text-sm text-white/60">Discover how Layer 2 translates raw data into structured category intelligence.</p>
-              </div>
-              <div className="flex gap-3 flex-shrink-0">
-                <a href="https://dashboard.georankers.co/register" className="inline-flex items-center px-4 py-2 gradient-primary text-white font-black rounded-lg text-sm">Try for Free</a>
-                <a href="https://calendly.com/hello-georankers/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2 border border-white/20 text-white font-semibold rounded-lg text-sm hover:border-white/40 transition-colors">Book a Demo</a>
-              </div>
-            </div>
-
-            {/* Layer 2 card */}
-            <div className="rounded-[2rem] border border-slate-200/60 bg-white p-6 sm:p-8 shadow-sm">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
-                <div className="flex items-center gap-3">
-                  <span className="bg-violet-100 text-violet-700 text-xs font-black rounded-full px-3 py-1 uppercase tracking-wide">Layer 2</span>
-                  <h3 className="text-lg font-black text-slate-900">Interpretation Intelligence</h3>
-                </div>
-                <span className="text-sm font-medium text-slate-400">Quantify AI Trust and Presence</span>
-              </div>
-              <div className="grid sm:grid-cols-3 gap-3">
-                {[
-                  { name: "GEO Score", desc: "The GEO Score normalizes cross model visibility signals into a structured visibility and trust metric. Track how your AI standing evolves over time." },
-                  { name: "Narrative Gap Detection", desc: "AI models synthesize from multiple sources. If your positioning is inconsistent across web assets, your visibility weakens. We identify narrative drift." },
-                  { name: "Competitive Mapping", desc: "See how often competitors appear, where they dominate, and which citations strengthen their visibility. Turn AI competition into insight." },
-                ].map((item, i) => (
-                  <div key={i} className="rounded-xl border border-slate-100 bg-slate-50/80 p-5">
-                    <p className="font-black text-slate-900 text-sm mb-1">{item.name}</p>
-                    <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Gradient CTA strip */}
-            <div className="rounded-[1.5rem] px-6 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4" style={{ background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)' }}>
-              <div>
-                <p className="font-black text-white">Turn Insight into Execution.</p>
-                <p className="text-sm text-white/70">Layer 3 provides prescriptive actions to close visibility gaps and lead your category narrative.</p>
-              </div>
-              <div className="flex gap-3 flex-shrink-0">
-                <a href="https://dashboard.georankers.co/register" className="inline-flex items-center px-4 py-2 bg-white text-blue-600 font-black rounded-lg text-sm hover:bg-white/90 transition-colors">Try for Free</a>
-                <a href="https://calendly.com/hello-georankers/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2 border border-white/30 text-white font-semibold rounded-lg text-sm hover:border-white/60 transition-colors">Book a Demo</a>
-              </div>
-            </div>
-
-            {/* Layer 3 card */}
-            <div className="rounded-[2rem] border border-slate-200/60 bg-white p-6 sm:p-8 shadow-sm">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
-                <div className="flex items-center gap-3">
-                  <span className="bg-green-100 text-green-700 text-xs font-black rounded-full px-3 py-1 uppercase tracking-wide">Layer 3</span>
-                  <h3 className="text-lg font-black text-slate-900">Execution Layer</h3>
-                </div>
-                <span className="text-sm font-medium text-slate-400">Know Exactly What to Improve</span>
-              </div>
-              <div className="grid lg:grid-cols-2 gap-6 items-start">
-                <div className="rounded-xl border border-slate-100 bg-slate-50/80 p-5">
-                  <Zap className="w-5 h-5 text-green-500 mb-3" />
-                  <p className="font-black text-slate-900 text-sm mb-2">Prescriptive Action Engine</p>
-                  <p className="text-xs text-slate-500 leading-relaxed">GeoRankers translates visibility signals into prioritized, execution-ready recommendations tied directly to model behavior. No generic SEO advice. Clear next steps.</p>
-                </div>
-                <div className="space-y-2">
-                  {[
-                    { tag: "High Impact", color: "bg-red-50 text-red-600 border-red-100", action: "Publish technical comparison page targeting fintech CRM queries" },
-                    { tag: "Quick Win", color: "bg-yellow-50 text-yellow-700 border-yellow-100", action: "Update G2 profile with new AI-era positioning language" },
-                    { tag: "Medium", color: "bg-green-50 text-green-700 border-green-100", action: "Earn citation from TechCrunch via product announcement" },
-                  ].map((a, i) => (
-                    <div key={i} className="flex items-start gap-3 rounded-xl border border-slate-100 bg-slate-50/80 p-3">
-                      <span className={`text-xs font-black px-2 py-0.5 rounded-full border flex-shrink-0 ${a.color}`}>{a.tag}</span>
-                      <span className="text-slate-600 text-xs leading-relaxed">{a.action}</span>
-                    </div>
-                  ))}
+                  GeoRankers builds the full system required to turn raw AI model behavior into strategic category advantage.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="https://dashboard.georankers.co/register"
+                    className="inline-flex items-center justify-center px-5 py-2.5 bg-white text-blue-600 font-black rounded-xl text-sm hover:bg-white/90 transition-all duration-200"
+                  >
+                    Try for Free
+                  </a>
+                  <a
+                    href="https://calendly.com/hello-georankers/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-5 py-2.5 border-2 border-white/40 text-white font-semibold rounded-xl text-sm hover:border-white/70 transition-all duration-200"
+                  >
+                    Book a Demo
+                  </a>
                 </div>
               </div>
             </div>
@@ -724,11 +628,11 @@ export default function Features() {
           <p className="text-xs font-black uppercase tracking-widest text-blue-500 text-center mb-3">
             The Full Feature Set
           </p>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] text-slate-900 text-center mb-10">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 text-center mb-10">
             Everything You Need to Win in AI Search
           </h2>
 
-          {/* Feature 1: AI Visibility Intelligence — Image Right */}
+          {/* Feature 1: AI Visibility Intelligence â€” Image Right */}
           <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
@@ -802,13 +706,13 @@ export default function Features() {
             </CardContent>
           </Card>
 
-          {/* Feature 2: Competitive AI Benchmarking — Image Left */}
+          {/* Feature 2: Competitive AI Benchmarking â€” Image Left */}
           <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div className="order-2 lg:order-1">
                   <div className="glass-strong rounded-2xl p-6">
-                    <h4 className="font-black mb-4 text-slate-900">Share of Voice — AI Responses</h4>
+                    <h4 className="font-black mb-4 text-slate-900">Share of Voice â€” AI Responses</h4>
                     <div className="space-y-3">
                       <div>
                         <div className="flex items-center justify-between mb-1">
@@ -905,7 +809,7 @@ export default function Features() {
             </CardContent>
           </Card>
 
-          {/* Feature 3: Prompt Intelligence Engine — Image Right */}
+          {/* Feature 3: Prompt Intelligence Engine â€” Image Right */}
           <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
@@ -978,7 +882,7 @@ export default function Features() {
             </CardContent>
           </Card>
 
-          {/* Feature 4: AI Authority Optimization Engine — Image Left */}
+          {/* Feature 4: AI Authority Optimization Engine â€” Image Left */}
           <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
@@ -993,7 +897,7 @@ export default function Features() {
                         </div>
                         <div className="flex items-center gap-2 mt-2">
                           <span className="text-xs text-slate-500">Effort: Medium</span>
-                          <span className="text-xs text-slate-400">•</span>
+                          <span className="text-xs text-slate-400">â€¢</span>
                           <span className="text-xs text-slate-500">Impact: High</span>
                         </div>
                       </div>
@@ -1004,7 +908,7 @@ export default function Features() {
                         </div>
                         <div className="flex items-center gap-2 mt-2">
                           <span className="text-xs text-slate-500">Effort: Low</span>
-                          <span className="text-xs text-slate-400">•</span>
+                          <span className="text-xs text-slate-400">â€¢</span>
                           <span className="text-xs text-slate-500">Impact: Medium</span>
                         </div>
                       </div>
@@ -1015,7 +919,7 @@ export default function Features() {
                         </div>
                         <div className="flex items-center gap-2 mt-2">
                           <span className="text-xs text-slate-500">Effort: High</span>
-                          <span className="text-xs text-slate-400">•</span>
+                          <span className="text-xs text-slate-400">â€¢</span>
                           <span className="text-xs text-slate-500">Impact: High</span>
                         </div>
                       </div>
@@ -1066,7 +970,7 @@ export default function Features() {
             </CardContent>
           </Card>
 
-          {/* Feature 5: Dashboard Intelligence Chatbot — Image Right */}
+          {/* Feature 5: Dashboard Intelligence Chatbot â€” Image Right */}
           <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
@@ -1081,7 +985,7 @@ export default function Features() {
                     Ask Anything About Your AI Visibility
                   </p>
                   <p className="text-base text-slate-500 mb-6 leading-relaxed">
-                    Your always-on AI strategist inside the dashboard. Ask questions about your data, get instant optimization ideas, and uncover hidden insights — all through a simple chat interface.
+                    Your always-on AI strategist inside the dashboard. Ask questions about your data, get instant optimization ideas, and uncover hidden insights â€” all through a simple chat interface.
                   </p>
                   <ul className="space-y-3">
                     <li className="flex items-start">
@@ -1149,48 +1053,45 @@ export default function Features() {
 
       <IntelligenceLoopSection />
 
-      {/* What You Actually Get Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50/50">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-xs font-black uppercase tracking-widest text-blue-500 text-center mb-3">
-            Tangible Outcomes
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] text-slate-900 text-center mb-4">
-            What You Actually Get
-          </h2>
-          <p className="text-base sm:text-lg font-medium text-slate-500 text-center max-w-2xl mx-auto mb-10 leading-relaxed">
-            Not dashboards for the sake of dashboards. Answers to the questions that drive decisions.
+      <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#F7F8FC' }}>
+        <div className="max-w-6xl mx-auto">
+          <p className="text-center text-xs font-black uppercase tracking-widest text-slate-400 mb-10">
+            The Intelligence Loop in Practice
           </p>
 
-          <div className="grid sm:grid-cols-2 gap-4 mb-10">
+          <div className="grid gap-10 lg:grid-cols-3 lg:gap-0 lg:divide-x lg:divide-slate-200/70">
             {[
-              "Clear view of how AI models describe your brand",
-              "Visibility share across high-intent queries",
-              "Competitive positioning inside AI answers — see who's ahead and why",
-              "Exact gaps preventing AI recommendations",
-              "Actionable steps to improve visibility, prioritized by impact",
+              {
+                step: "01",
+                title: "Know where you are invisible",
+                body: "See exactly which buyer prompts exclude your brand and which competitors are filling that gap.",
+              },
+              {
+                step: "02",
+                title: "Understand why it's happening",
+                body: "Identify the sources, signals, and narrative gaps that determine how AI models rank and describe you.",
+              },
+              {
+                step: "03",
+                title: "Get a prioritized action plan",
+                body: "Receive specific, effort-scored steps to close visibility gaps and improve your position in AI answers.",
+              },
             ].map((item, i) => (
-              <div key={i} className="flex items-start gap-4 glass rounded-[2rem] p-5 hover:-translate-y-1 transition-all duration-300">
-                <div
-                  className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center"
-                  style={{ background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)' }}
-                >
-                  <Check className="w-4 h-4 text-white" />
+              <div key={item.step} className={`px-0 lg:px-8 ${i === 0 ? "lg:pr-10" : ""} ${i === 2 ? "lg:pl-10" : ""}`}>
+                <p className="text-xs font-black tracking-[0.2em] text-slate-400 mb-4">
+                  {item.step}
+                </p>
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="text-indigo-500 text-lg leading-none mt-0.5">→</span>
+                  <h3 className="text-[16px] font-semibold text-slate-900 leading-snug">
+                    {item.title}
+                  </h3>
                 </div>
-                <p className="font-semibold text-slate-800 leading-relaxed">{item}</p>
+                <p className="text-[14px] text-slate-500 leading-relaxed pl-7">
+                  {item.body}
+                </p>
               </div>
             ))}
-          </div>
-
-          <div className="text-center">
-            <a
-              href="https://dashboard.georankers.co/register"
-              className="inline-flex items-center px-7 py-4 gradient-primary hover:opacity-90 rounded-2xl font-black text-lg text-white transform hover:scale-105 transition-all duration-300 shadow-2xl"
-            >
-              <Rocket className="w-5 h-5 mr-2" />
-              Try for Free
-            </a>
-            <p className="text-sm font-medium text-slate-400 mt-3">No credit card required</p>
           </div>
         </div>
       </section>
@@ -1199,12 +1100,12 @@ export default function Features() {
 
       {/* Final CTA Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="rounded-[2.5rem] p-10 sm:p-14 text-center shadow-2xl" style={{ background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)' }}>
             <p className="text-xs font-black uppercase tracking-widest text-white/70 mb-4">
               Start Today
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] text-white mb-5">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-white mb-5">
               Turn AI Visibility Into Strategic Advantage
             </h2>
             <p className="text-lg font-medium text-white/80 mb-8 max-w-xl mx-auto leading-relaxed">
@@ -1232,74 +1133,8 @@ export default function Features() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative py-16 sm:py-20 overflow-hidden bg-slate-900">
-        <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-0 right-1/4 w-56 h-56 bg-gradient-to-r from-violet-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-3 gap-10 sm:gap-8 mb-12">
-            <div>
-              <div className="text-2xl font-black mb-4">
-                <span className="bg-gradient-to-r from-blue-200 to-violet-200 bg-clip-text text-transparent">GeoRankers</span>
-              </div>
-              <p className="text-white/60 text-sm leading-relaxed mb-6">
-                AI Search Visibility Platform for B2B SaaS Teams
-              </p>
-              <a
-                href="https://www.linkedin.com/company/georankers/posts/?feedView=all"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-              >
-                <SiLinkedin className="w-5 h-5 text-white" />
-              </a>
-            </div>
-
-            <div>
-              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Quick Links</p>
-              <div className="space-y-3">
-                <Link href="/features" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  Features
-                </Link>
-                <Link href="/pricing" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  Pricing
-                </Link>
-                <a href="https://blog.georankers.co/" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  Blog
-                </a>
-                <Link href="/geo-guide" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  GEO Guide
-                </Link>
-                <Link href="/help" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  Help Docs
-                </Link>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Contact</p>
-              <a
-                href="mailto:hello@georankers.co"
-                className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm group"
-              >
-                <Mail className="w-4 h-4 mr-2 text-blue-200/70 group-hover:text-white transition-colors" />
-                hello@georankers.co
-              </a>
-            </div>
-          </div>
-
-          <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-blue-200/60 text-xs">
-              © {new Date().getFullYear()} GeoRankers. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6">
-              <Link href="/terms" className="text-blue-200/60 hover:text-white text-xs transition-colors">Terms of Service</Link>
-              <Link href="/privacy" className="text-blue-200/60 hover:text-white text-xs transition-colors">Privacy Policy</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
+

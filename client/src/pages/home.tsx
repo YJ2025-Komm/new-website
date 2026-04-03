@@ -14,6 +14,7 @@ import {
   ChevronDown,
   ChevronUp,
   ClipboardCheck,
+  HelpCircle,
   Menu,
   X,
   Mail,
@@ -160,10 +161,10 @@ function VisibilityGapSection() {
           style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 0.6s ease, transform 0.6s ease' }}
         >
           <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">THE PROBLEM</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] text-slate-900 mb-1">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-slate-900 mb-1">
             What You Cannot See in AI Search
           </h2>
-          <p className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] mb-5 bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
+          <p className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] mb-5 bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
             Is Already Costing You
           </p>
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
@@ -400,6 +401,59 @@ export default function Home() {
   const postsLoading = false;
   const postsError = null;
 
+  const homeFaqs = [
+    {
+      question: "What is AI search optimization and why do I need it?",
+      answer:
+        "AI search optimization ensures your brand appears when users ask AI models like ChatGPT, Gemini, or Claude for recommendations in your industry. Unlike traditional SEO that targets Google, AI search optimization focuses on how large language models surface and recommend content. As more people use AI for discovery and decision-making, being invisible in AI results means losing potential customers to competitors.",
+    },
+    {
+      question: "How is AI search different from Google SEO?",
+      answer:
+        "Traditional SEO optimizes for search engine algorithms and keyword rankings. AI search optimization focuses on how language models understand context, authority, and relevance when generating responses. AI models consider factors like content quality, brand mentions across the web, and topical expertise rather than just keywords and backlinks. The strategies and metrics are fundamentally different.",
+    },
+    {
+      question: "Which AI platforms does GeoRankers monitor?",
+      answer:
+        "GeoRankers tracks brand visibility across major AI platforms including ChatGPT, Google Gemini, Perplexity, Claude, and other leading AI models. We monitor how often your brand appears in AI-generated responses, the context of mentions, and your competitive positioning across these platforms.",
+    },
+    {
+      question: "How long does it take to see results from AI search optimization?",
+      answer:
+        "AI search visibility typically improves over 3-6 months with consistent optimization efforts. Unlike traditional SEO, AI models update their training data less frequently, so changes take time to propagate. However, our predictive forecasting helps you target emerging topics before competitors, giving you a head start on visibility for new trends.",
+    },
+    {
+      question: "What makes GeoRankers different from other marketing tools?",
+      answer:
+        "GeoRankers is specifically built for the new AI search paradigm. While traditional marketing tools focus on Google rankings and social media metrics, we provide intelligence on AI model behavior, predictive trend analysis, and optimization strategies that work with language models. We're the first platform designed specifically for AI search visibility.",
+    },
+    {
+      question: "Can small companies compete with enterprise brands in AI search?",
+      answer:
+        "Yes! AI search creates new opportunities for smaller companies to compete based on expertise and relevance rather than just budget and domain authority. By focusing on specific niches, creating high-quality content, and building topical authority, smaller companies can often outrank larger competitors in AI-generated responses for their specialty areas.",
+    },
+    {
+      question: "How often does GeoRankers refresh my visibility data?",
+      answer:
+        "You can manually trigger a fresh analysis once every 24 hours. Each run can use your existing set of seed prompts or a new set - useful if you want to test different buyer queries or expand your category coverage. This lets you track whether your content or positioning changes are having an impact over time.",
+    },
+    {
+      question: "Do I need technical expertise to use GeoRankers?",
+      answer:
+        "No technical expertise required. GeoRankers is designed for marketing teams, content managers, and business leaders. Our platform provides clear, actionable insights and recommendations that your team can implement using existing content and marketing workflows. We translate complex AI behavior into practical marketing strategies.",
+    },
+    {
+      question: "How does GeoRankers track AI visibility?",
+      answer:
+        "GeoRankers simulates buyer-intent prompts across multiple AI models, analyzes brand mentions and citations, and benchmarks competitor presence.",
+    },
+    {
+      question: "Why is my competitor showing up in ChatGPT but not my brand?",
+      answer:
+        "AI models often recommend brands that are more frequently cited, well-structured, and contextually relevant across trusted web sources.",
+    },
+  ];
+
   // Helper function to get category name
   const getCategoryName = (categoryIds: number[]): string => {
     if (!categories || !categoryIds.length) return 'Blog';
@@ -623,11 +677,6 @@ export default function Home() {
               "@type": "SiteNavigationElement",
               "name": "GEO Guide",
               "url": "https://georankers.co/geo-guide"
-            },
-            {
-              "@type": "SiteNavigationElement",
-              "name": "FAQ",
-              "url": "https://georankers.co/#faq"
             }
           ]
         },
@@ -708,13 +757,6 @@ export default function Home() {
                     >
                       GEO Guide
                     </Link>
-                    <a
-                      href="#faq"
-                      className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
-                      data-testid="link-faq"
-                    >
-                      FAQ
-                    </a>
                     <Link
                       href="/help"
                       className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
@@ -839,13 +881,6 @@ export default function Home() {
                     >
                       GEO Guide
                     </Link>
-                    <a
-                      href="#faq"
-                      className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      FAQ
-                    </a>
                     <Link
                       href="/help"
                       className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
@@ -888,7 +923,7 @@ export default function Home() {
               </div>
 
               {/* Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.3] text-slate-900 mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-slate-900 mb-6">
                 Your Buyers Choose Vendors Inside{' '}
                 <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
                   AI Answers
@@ -982,7 +1017,7 @@ export default function Home() {
             {/* Left: copy */}
             <div>
               <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">Why This Matters</p>
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] text-slate-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 mb-6">
                 AI Search Is Replacing the First Click
               </h2>
               <p className="text-base sm:text-lg font-medium text-slate-600 leading-relaxed mb-4">
@@ -1037,7 +1072,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">What You Get</p>
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] text-slate-900 mb-5">
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 mb-5">
               See Exactly How AI Platforms Present Your Brand
             </h2>
             <p className="text-base sm:text-lg font-medium text-slate-500 max-w-2xl mx-auto leading-relaxed">
@@ -1097,7 +1132,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">How It Works</p>
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.3] text-slate-900 mb-5">
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 mb-5">
               From AI Answers to Actionable Insights
             </h2>
             <p className="text-base sm:text-lg font-medium text-slate-500 max-w-xl mx-auto leading-relaxed">
@@ -1144,273 +1179,39 @@ export default function Home() {
       <section id="faq" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 sm:mb-12">
-            <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">FREQUENTLY ASKED QUESTIONS</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.4] text-slate-900 mb-5 sm:mb-7">
+            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+              <HelpCircle className="w-3.5 h-3.5" />
+              FAQ
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
               Everything You Need to Know About{' '}
               <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Optimization</span>
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-3 sm:gap-4">
-            {/* FAQ Item 1 */}
-            <Card className="glass rounded-[2rem] border-0">
-              <CardContent className="p-0">
-                <button
-                  onClick={() => setOpenFAQ(openFAQ === 1 ? null : 1)}
-                  className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
-                >
-                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
-                    What is AI search optimization and why do I need it?
-                  </h3>
-                  {openFAQ === 1 ? (
-                    <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
+          <div className="grid md:grid-cols-2 gap-4">
+            {homeFaqs.map((faq, index) => (
+              <Card key={faq.question} className="glass rounded-[2rem] border-0">
+                <CardContent className="p-0">
+                  <button
+                    onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+                    className="w-full p-6 text-left flex items-start justify-between hover:bg-white/20 transition-colors duration-300"
+                  >
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 pr-4">{faq.question}</h3>
+                    {openFAQ === index ? (
+                      <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0 mt-0.5" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 mt-0.5" />
+                    )}
+                  </button>
+                  {openFAQ === index && (
+                    <div className="px-6 pb-6">
+                      <p className="text-sm text-slate-600 leading-relaxed">{faq.answer}</p>
+                    </div>
                   )}
-                </button>
-                {openFAQ === 1 && (
-                  <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                    <p className="text-slate-600 leading-relaxed">
-                      AI search optimization ensures your brand appears when users ask AI models like ChatGPT, Gemini, or Claude for recommendations in your industry. Unlike traditional SEO that targets Google, AI search optimization focuses on how large language models surface and recommend content. As more people use AI for discovery and decision-making, being invisible in AI results means losing potential customers to competitors.
-                    </p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* FAQ Item 2 */}
-            <Card className="glass rounded-[2rem] border-0">
-              <CardContent className="p-0">
-                <button
-                  onClick={() => setOpenFAQ(openFAQ === 2 ? null : 2)}
-                  className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
-                >
-                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
-                    How is AI search different from Google SEO?
-                  </h3>
-                  {openFAQ === 2 ? (
-                    <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  )}
-                </button>
-                {openFAQ === 2 && (
-                  <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                    <p className="text-slate-600 leading-relaxed">
-                      Traditional SEO optimizes for search engine algorithms and keyword rankings. AI search optimization focuses on how language models understand context, authority, and relevance when generating responses. AI models consider factors like content quality, brand mentions across the web, and topical expertise rather than just keywords and backlinks. The strategies and metrics are fundamentally different.
-                    </p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* FAQ Item 3 */}
-            <Card className="glass rounded-[2rem] border-0">
-              <CardContent className="p-0">
-                <button
-                  onClick={() => setOpenFAQ(openFAQ === 3 ? null : 3)}
-                  className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
-                >
-                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
-                    Which AI platforms does GeoRankers monitor?
-                  </h3>
-                  {openFAQ === 3 ? (
-                    <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  )}
-                </button>
-                {openFAQ === 3 && (
-                  <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                    <p className="text-slate-600 leading-relaxed">
-                      GeoRankers tracks brand visibility across major AI platforms including ChatGPT, Google Gemini, Perplexity, Claude, and other leading AI models. We monitor how often your brand appears in AI-generated responses, the context of mentions, and your competitive positioning across these platforms.
-                    </p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* FAQ Item 4 */}
-            <Card className="glass rounded-[2rem] border-0">
-              <CardContent className="p-0">
-                <button
-                  onClick={() => setOpenFAQ(openFAQ === 4 ? null : 4)}
-                  className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
-                >
-                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
-                    How long does it take to see results from AI search optimization?
-                  </h3>
-                  {openFAQ === 4 ? (
-                    <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  )}
-                </button>
-                {openFAQ === 4 && (
-                  <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                    <p className="text-slate-600 leading-relaxed">
-                      AI search visibility typically improves over 3-6 months with consistent optimization efforts. Unlike traditional SEO, AI models update their training data less frequently, so changes take time to propagate. However, our predictive forecasting helps you target emerging topics before competitors, giving you a head start on visibility for new trends.
-                    </p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* FAQ Item 5 */}
-            <Card className="glass rounded-[2rem] border-0">
-              <CardContent className="p-0">
-                <button
-                  onClick={() => setOpenFAQ(openFAQ === 5 ? null : 5)}
-                  className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
-                >
-                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
-                    What makes GeoRankers different from other marketing tools?
-                  </h3>
-                  {openFAQ === 5 ? (
-                    <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  )}
-                </button>
-                {openFAQ === 5 && (
-                  <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                    <p className="text-slate-600 leading-relaxed">
-                      GeoRankers is specifically built for the new AI search paradigm. While traditional marketing tools focus on Google rankings and social media metrics, we provide intelligence on AI model behavior, predictive trend analysis, and optimization strategies that work with language models. We're the first platform designed specifically for AI search visibility.
-                    </p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* FAQ Item 6 */}
-            <Card className="glass rounded-[2rem] border-0">
-              <CardContent className="p-0">
-                <button
-                  onClick={() => setOpenFAQ(openFAQ === 6 ? null : 6)}
-                  className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
-                >
-                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
-                    Can small companies compete with enterprise brands in AI search?
-                  </h3>
-                  {openFAQ === 6 ? (
-                    <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  )}
-                </button>
-                {openFAQ === 6 && (
-                  <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                    <p className="text-slate-600 leading-relaxed">
-                      Yes! AI search creates new opportunities for smaller companies to compete based on expertise and relevance rather than just budget and domain authority. By focusing on specific niches, creating high-quality content, and building topical authority, smaller companies can often outrank larger competitors in AI-generated responses for their specialty areas.
-                    </p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* FAQ Item 7 */}
-            <Card className="glass rounded-[2rem] border-0">
-              <CardContent className="p-0">
-                <button
-                  onClick={() => setOpenFAQ(openFAQ === 7 ? null : 7)}
-                  className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
-                >
-                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
-                    When will GeoRankers be available?
-                  </h3>
-                  {openFAQ === 7 ? (
-                    <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  )}
-                </button>
-                {openFAQ === 7 && (
-                  <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                    <p className="text-slate-600 leading-relaxed">
-                      We're currently in beta and accepting early access signups. Early access members get priority onboarding, special pricing, and direct input on feature development. Sign up for free to secure your spot and be among the first to go live.
-                    </p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* FAQ Item 8 */}
-            <Card className="glass rounded-[2rem] border-0">
-              <CardContent className="p-0">
-                <button
-                  onClick={() => setOpenFAQ(openFAQ === 8 ? null : 8)}
-                  className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
-                >
-                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
-                    Do I need technical expertise to use GeoRankers?
-                  </h3>
-                  {openFAQ === 8 ? (
-                    <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  )}
-                </button>
-                {openFAQ === 8 && (
-                  <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                    <p className="text-slate-600 leading-relaxed">
-                      No technical expertise required. GeoRankers is designed for marketing teams, content managers, and business leaders. Our platform provides clear, actionable insights and recommendations that your team can implement using existing content and marketing workflows. We translate complex AI behavior into practical marketing strategies.
-                    </p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* FAQ Item 9 */}
-            <Card className="glass rounded-[2rem] border-0">
-              <CardContent className="p-0">
-                <button
-                  onClick={() => setOpenFAQ(openFAQ === 9 ? null : 9)}
-                  className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
-                >
-                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
-                    How does GeoRankers track AI visibility?
-                  </h3>
-                  {openFAQ === 9 ? (
-                    <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  )}
-                </button>
-                {openFAQ === 9 && (
-                  <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                    <p className="text-slate-600 leading-relaxed">
-                      GeoRankers simulates buyer-intent prompts across multiple AI models, analyzes brand mentions and citations, and benchmarks competitor presence.
-                    </p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* FAQ Item 10 */}
-            <Card className="glass rounded-[2rem] border-0">
-              <CardContent className="p-0">
-                <button
-                  onClick={() => setOpenFAQ(openFAQ === 10 ? null : 10)}
-                  className="w-full p-6 sm:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
-                >
-                  <h3 className="text-lg sm:text-xl font-black text-slate-900">
-                    Why is my competitor showing up in ChatGPT but not my brand?
-                  </h3>
-                  {openFAQ === 10 ? (
-                    <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 ml-4" />
-                  )}
-                </button>
-                {openFAQ === 10 && (
-                  <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                    <p className="text-slate-600 leading-relaxed">
-                      AI models often recommend brands that are more frequently cited, well-structured, and contextually relevant across trusted web sources.
-                    </p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            ))}
           </div>
 
         </div>
@@ -1420,7 +1221,7 @@ export default function Home() {
       <section className="gradient-cta py-20 sm:py-28 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xs font-black uppercase tracking-widest text-white/60 mb-4">GET STARTED</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] text-white mb-5">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-white mb-5">
             Improve Your Visibility in AI Search
           </h2>
           <p className="text-base sm:text-xl font-medium text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -1452,7 +1253,7 @@ export default function Home() {
       <section className="py-10 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/30 to-white" id="blog">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] text-slate-900 mb-5 sm:mb-7">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-slate-900 mb-5 sm:mb-7">
               Latest{' '}
               <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Insights</span>
             </h2>

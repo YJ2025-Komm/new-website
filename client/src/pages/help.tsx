@@ -427,7 +427,7 @@ export default function Help() {
       <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-violet-950 pt-28 sm:pt-32 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">Help Center</p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] text-white mb-4">
             How can we help?
           </h1>
           <p className="text-slate-400 text-lg mb-8">
