@@ -875,7 +875,7 @@ export default function Home() {
               {/* Badge */}
               <div className="inline-flex items-center mb-6">
                 <span
-                  className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest"
+                  className="inline-flex items-center px-3.5 py-1 rounded-full text-[11px] font-black uppercase tracking-widest"
                   style={{
                     background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #3b82f6, #8b5cf6) border-box',
                     border: '1.5px solid transparent',
