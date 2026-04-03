@@ -19,8 +19,8 @@ export default function Navbar() {
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/website-analysis" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" data-testid="link-website-analysis">
-              Website AI Audit
+            <Link href="/" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" data-testid="link-home">
+              Home
             </Link>
             <Link href="/features" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
               Features
@@ -54,13 +54,6 @@ export default function Navbar() {
                   >
                     GEO Guide
                   </Link>
-                  <a 
-                    href="/#faq" 
-                    className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
-                    data-testid="link-faq"
-                  >
-                    FAQ
-                  </a>
                   <Link
                     href="/help"
                     className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
@@ -78,8 +71,10 @@ export default function Navbar() {
             >
               Login
             </a>
-            <a 
+            <a
               href="https://calendly.com/hello-georankers/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
               data-testid="cta-book-demo-nav"
             >
@@ -95,8 +90,10 @@ export default function Navbar() {
           </div>
           
           <div className="md:hidden flex items-center space-x-2">
-            <a 
+            <a
               href="https://calendly.com/hello-georankers/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-blue-500 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200"
               data-testid="cta-book-demo-mobile"
             >
@@ -131,13 +128,13 @@ export default function Navbar() {
             >
               Login
             </a>
-            <Link 
-              href="/website-analysis" 
+            <Link
+              href="/"
               className="block text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2"
               onClick={() => setMobileMenuOpen(false)}
-              data-testid="mobile-link-website-analysis"
+              data-testid="mobile-link-home"
             >
-              Website AI Audit
+              Home
             </Link>
             <Link 
               href="/features" 
@@ -178,13 +175,6 @@ export default function Navbar() {
                   >
                     GEO Guide
                   </Link>
-                  <a 
-                    href="/#faq" 
-                    className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    FAQ
-                  </a>
                   <Link
                     href="/help"
                     className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
