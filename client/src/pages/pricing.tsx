@@ -68,7 +68,7 @@ export default function Pricing() {
       subtitle: "For growth teams optimizing AI category position.",
       cta: "Get Started",
       ctaHref: "https://dashboard.georankers.co/register",
-      ctaStyle: "bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white shadow-lg",
+      ctaStyle: "gradient-cta hover:opacity-90 text-white shadow-lg",
       highlighted: true,
       sections: [
         {
@@ -494,7 +494,7 @@ export default function Pricing() {
                     </a>
                   </div>
                   <div className="p-6 text-center border-l border-slate-200/50 bg-violet-50/30">
-                    <a href="https://dashboard.georankers.co/register" className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white shadow-lg transition-all">
+                    <a href="https://dashboard.georankers.co/register" className="block w-full py-2.5 rounded-xl text-sm font-semibold gradient-cta hover:opacity-90 text-white shadow-lg transition-all">
                       Get Started <ArrowRight className="w-3.5 h-3.5 inline-block ml-1" />
                     </a>
                   </div>
@@ -559,7 +559,7 @@ export default function Pricing() {
                       </a>
                     </div>
                     <div className="p-4 text-center border-l border-slate-200/50 bg-violet-50/30">
-                      <a href="https://dashboard.georankers.co/register" className="block w-full py-2 rounded-lg text-xs font-semibold bg-gradient-to-r from-blue-500 to-violet-500 text-white shadow-lg transition-all">
+                      <a href="https://dashboard.georankers.co/register" className="block w-full py-2 rounded-lg text-xs font-semibold gradient-cta hover:opacity-90 text-white shadow-lg transition-all">
                         Get Started
                       </a>
                     </div>
@@ -579,7 +579,7 @@ export default function Pricing() {
       {/* Agency Banner */}
       <section className="px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
         <div className="max-w-5xl mx-auto">
-          <div className="bg-gradient-to-r from-blue-700 via-violet-700 to-blue-700 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
+          <div className="gradient-cta rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
             <div className="absolute top-0 left-0 w-40 h-40 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
             <div className="absolute bottom-0 right-0 w-60 h-60 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
             <div className="relative z-10">
