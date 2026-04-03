@@ -82,7 +82,7 @@ export default function Navbar() {
             </a>
             <a 
               href="https://dashboard.georankers.co/register"
-              className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+              className="gradient-cta hover:opacity-90 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
               data-testid="cta-try-free-nav"
             >
               Try for Free
@@ -101,7 +101,7 @@ export default function Navbar() {
             </a>
             <a 
               href="https://dashboard.georankers.co/register"
-              className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-3 py-1.5 rounded-lg text-xs font-medium"
+              className="gradient-cta hover:opacity-90 text-white px-3 py-1.5 rounded-lg text-xs font-medium"
               data-testid="cta-try-free-mobile"
             >
               Try Free
