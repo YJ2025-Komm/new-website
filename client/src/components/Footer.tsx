@@ -4,11 +4,8 @@ import { SiLinkedin } from "react-icons/si";
 
 export default function Footer() {
   return (
-    <footer className="relative py-12 sm:py-14 overflow-hidden bg-black">
-      <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl"></div>
-      <div className="absolute top-0 right-1/4 w-56 h-56 bg-gradient-to-r from-violet-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="py-12 sm:py-14 bg-black">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid sm:grid-cols-3 gap-10 sm:gap-8 mb-12">
           {/* Brand */}
           <div>
