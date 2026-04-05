@@ -1184,7 +1184,7 @@ export default function GeoGuide() {
             <div className="absolute bottom-0 right-0 w-56 h-56 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
             <div className="relative z-10">
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Put These Best Practices to Work</h3>
-              <p className="text-white/80 mb-6 max-w-xl mx-auto">GeoRankers tracks your brand across ChatGPT, Google AI Mode, and Perplexity — so you always know where you stand.</p>
+              <p className="text-white/80 mb-6 max-w-xl mx-auto">GeoRankers tracks your brand across ChatGPT and Google AI Mode — so you always know where you stand.</p>
               <a href="https://dashboard.georankers.co/register" className="inline-flex items-center bg-white text-blue-700 hover:bg-blue-50 px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
                 <Rocket className="w-4 h-4 mr-2" />
                 Try for Free
@@ -1475,20 +1475,22 @@ export default function GeoGuide() {
           </section>
 
           {/* CTA Section */}
-          <section className="py-12 bg-gradient-to-b from-blue-50/20 to-indigo-50/30 rounded-3xl">
-            <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-                Ready to Improve Your <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Visibility?</span>
+          <div className="mt-12 gradient-cta rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-48 h-48 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute bottom-0 right-0 w-64 h-64 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
+            <div className="relative z-10">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+                Ready to Improve Your AI Visibility?
               </h2>
-              <p className="text-lg sm:text-xl text-gray-600 mb-8">
-                Start optimizing your brand for ChatGPT, Gemini, and Perplexity today — no credit card required.
+              <p className="text-white/80 text-base sm:text-lg mb-8 max-w-xl mx-auto">
+                Start tracking how ChatGPT and Google AI Mode describe your brand — no credit card required.
               </p>
-              <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-8 py-4 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl no-underline">
+              <a href="https://dashboard.georankers.co/register" className="inline-flex items-center bg-white text-blue-700 hover:bg-blue-50 px-8 py-4 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
                 <Rocket className="w-5 h-5 mr-3" />
                 Try for Free
               </a>
             </div>
-          </section>
+          </div>
         </article>
         </div>
       </main>
