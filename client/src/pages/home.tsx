@@ -965,25 +965,52 @@ export default function Home() {
           </div>
 
           <div className="mt-4 sm:mt-6">
-            <p className="text-xs sm:text-sm font-black uppercase tracking-widest text-slate-400 text-center mb-6">
-              Trusted by 150+ high-growth B2B SaaS teams
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400 text-center mb-8">
+              Tracking brand visibility across AI platforms
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16">
-              {[
-                { name: "Notion", weight: "font-black" },
-                { name: "Intercom", weight: "font-bold" },
-                { name: "Amplitude", weight: "font-black" },
-                { name: "Segment", weight: "font-bold" },
-                { name: "Mixpanel", weight: "font-black" },
-                { name: "Linear", weight: "font-bold" },
-              ].map((logo) => (
-                <span
-                  key={logo.name}
-                  className={`text-lg sm:text-xl ${logo.weight} text-slate-300 select-none tracking-tight`}
-                >
-                  {logo.name}
-                </span>
-              ))}
+            <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-14 lg:gap-20">
+              {/* ChatGPT */}
+              <div className="flex items-center gap-2.5 opacity-50 hover:opacity-80 transition-opacity duration-200">
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "#10a37f" }}>
+                  <svg viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
+                    <path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-6.205-4.829 10.08 10.08 0 0 0-11.623 5.104 9.964 9.964 0 0 0-6.695 4.668 10.079 10.079 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 6.204 4.829 10.079 10.079 0 0 0 11.626-5.103 9.965 9.965 0 0 0 6.695-4.668 10.079 10.079 0 0 0-1.243-11.817zm-17.56 24.066a7.471 7.471 0 0 1-4.8-1.73l.24-.136 7.971-4.604a1.324 1.324 0 0 0 .668-1.156v-11.25l3.368 1.944a.12.12 0 0 1 .066.092v9.313a7.505 7.505 0 0 1-7.513 7.527zm-16.162-6.895a7.471 7.471 0 0 1-.894-5.037l.24.144 7.97 4.604a1.324 1.324 0 0 0 1.334 0l9.727-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.649a7.504 7.504 0 0 1-10.278-2.737zm-2.11-17.166a7.471 7.471 0 0 1 3.908-3.284l-.001.28v9.208a1.324 1.324 0 0 0 .666 1.155l9.727 5.614-3.368 1.944a.12.12 0 0 1-.114.012l-8.051-4.648a7.504 7.504 0 0 1-2.767-10.281zm27.637 6.437l-9.728-5.615 3.368-1.943a.121.121 0 0 1 .114-.012l8.051 4.648a7.498 7.498 0 0 1-1.158 13.528v-9.489a1.325 1.325 0 0 0-.647-1.117zm3.35-5.043l-.239-.144-7.97-4.604a1.324 1.324 0 0 0-1.335 0l-9.727 5.614v-3.888a.12.12 0 0 1 .048-.103l8.05-4.645a7.497 7.497 0 0 1 11.173 7.77zm-21.063 6.929l-3.368-1.944a.12.12 0 0 1-.065-.092v-9.313a7.497 7.497 0 0 1 12.293-5.756l-.24.136-7.97 4.604a1.324 1.324 0 0 0-.669 1.156l-.001 11.209zm1.829-3.943l4.33-2.501 4.332 2.498v4.996l-4.331 2.5-4.331-2.5V21.26z" fill="white"/>
+                  </svg>
+                </div>
+                <span className="font-semibold text-slate-600 text-sm">ChatGPT</span>
+              </div>
+
+              {/* Google AI Overview */}
+              <div className="flex items-center gap-2.5 opacity-50 hover:opacity-80 transition-opacity duration-200">
+                <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center shadow-sm">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                  </svg>
+                </div>
+                <span className="font-semibold text-slate-600 text-sm">Google AI Overview</span>
+              </div>
+
+              {/* Gemini */}
+              <div className="flex items-center gap-2.5 opacity-50 hover:opacity-80 transition-opacity duration-200">
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #1a73e8, #8b5cf6)" }}>
+                  <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
+                    <path d="M14 28C14 26.0633 13.6267 24.2433 12.88 22.54C12.1567 20.8367 11.165 19.355 9.905 18.095C8.645 16.835 7.16333 15.8433 5.46 15.12C3.75667 14.3733 1.93667 14 0 14C1.93667 14 3.75667 13.6383 5.46 12.915C7.16333 12.1683 8.645 11.165 9.905 9.905C11.165 8.645 12.1567 7.16333 12.88 5.46C13.6267 3.75667 14 1.93667 14 0C14 1.93667 14.3617 3.75667 15.085 5.46C15.8317 7.16333 16.835 8.645 18.095 9.905C19.355 11.165 20.8367 12.1683 22.54 12.915C24.2433 13.6383 26.0633 14 28 14C26.0633 14 24.2433 14.3733 22.54 15.12C20.8367 15.8433 19.355 16.835 18.095 18.095C16.835 19.355 15.8317 20.8367 15.085 22.54C14.3617 24.2433 14 26.0633 14 28Z" fill="white"/>
+                  </svg>
+                </div>
+                <span className="font-semibold text-slate-600 text-sm">Gemini</span>
+              </div>
+
+              {/* Perplexity */}
+              <div className="flex items-center gap-2.5 opacity-50 hover:opacity-80 transition-opacity duration-200">
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "#1c1c1e" }}>
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
+                    <path d="M12 2L8.5 8.5H2l5.25 4.5L5 21l7-4.5 7 4.5-2.25-8L22 8.5h-6.5L12 2z" fill="white" fillOpacity="0.9"/>
+                  </svg>
+                </div>
+                <span className="font-semibold text-slate-600 text-sm">Perplexity</span>
+              </div>
             </div>
           </div>
         </div>
