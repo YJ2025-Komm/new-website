@@ -12,7 +12,9 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2 hover:scale-105 transition-transform duration-200">
-              <img src="/georankers-icon.png" alt="GeoRankers icon" className="h-9 w-9 rounded-md" />
+              <div className="h-9 w-9 rounded-md overflow-hidden flex-shrink-0">
+                <img src="/georankers-icon.png" alt="GeoRankers icon" className="w-full h-full object-cover scale-[1.5] origin-center" />
+              </div>
               <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
                 GeoRankers
               </span>
