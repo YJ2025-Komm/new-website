@@ -47,7 +47,7 @@ export default function Pricing() {
         },
         {
           title: "GEO Agent Intelligence",
-          items: ["10 conversations/user/day", "$0.01 per conversation beyond limit"],
+          items: ["10 conversations/user/day"],
         },
         {
           title: "Analytics History",
@@ -84,7 +84,7 @@ export default function Pricing() {
         },
         {
           title: "GEO Agent Intelligence",
-          items: ["20 conversations/user/day", "$0.01 per conversation beyond limit"],
+          items: ["20 conversations/user/day"],
         },
         {
           title: "Analytics History",
