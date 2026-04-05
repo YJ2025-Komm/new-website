@@ -55,7 +55,7 @@ export default function Pricing() {
         },
         {
           title: "Support",
-          items: ["Email Support", "24 Hour SLA"],
+          items: ["24 Hour Response Time"],
         },
       ],
     },
@@ -96,7 +96,7 @@ export default function Pricing() {
         },
         {
           title: "Support",
-          items: ["Email & Slack", "12 Hour SLA"],
+          items: ["12 Hour Response Time"],
         },
       ],
     },
@@ -138,8 +138,7 @@ export default function Pricing() {
         {
           title: "Support",
           items: [
-            "Email & Slack",
-            "4 Hour SLA",
+            "4 Hour Response Time",
             "Dedicated Account Manager",
             "Dedicated GEO Specialist",
           ],
