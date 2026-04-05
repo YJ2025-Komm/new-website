@@ -1103,7 +1103,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
             {[
               { icon: Search, title: "Prompt level visibility tracking", desc: "See which queries include your brand and where you are missing." },
               { icon: BarChart3, title: "Competitive answer share", desc: "Compare how often your brand appears versus competitors." },
@@ -1115,16 +1115,16 @@ export default function Home() {
               return (
                 <div
                   key={i}
-                  className="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                  className="bg-white rounded-[2rem] p-7 lg:p-8 min-h-[220px] border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col"
                 >
                   <div
-                    className="w-11 h-11 rounded-[1rem] flex items-center justify-center mb-4 shadow-sm"
+                    className="w-14 h-14 rounded-[1.15rem] flex items-center justify-center mb-5 shadow-sm"
                     style={{ background: 'linear-gradient(135deg, #2994FF, #7575FF)' }}
                   >
-                    <Icon className="w-5 h-5 text-white" />
+                    <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <p className="font-black text-slate-900 mb-2 text-sm leading-snug">{item.title}</p>
-                  <p className="text-xs font-medium text-slate-500 leading-relaxed">{item.desc}</p>
+                  <p className="font-black text-slate-900 mb-3 text-base leading-snug">{item.title}</p>
+                  <p className="text-sm font-medium text-slate-500 leading-relaxed">{item.desc}</p>
                 </div>
               );
             })}

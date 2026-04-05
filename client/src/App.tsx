@@ -12,6 +12,7 @@ import Privacy from "@/pages/privacy";
 import Terms from "@/pages/terms";
 import Help from "@/pages/help";
 import NotFound from "@/pages/not-found";
+import ScrollManager from "@/components/ScrollManager";
 
 function Router() {
   return (
@@ -34,6 +35,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        <ScrollManager />
         <Router />
       </TooltipProvider>
     </QueryClientProvider>
