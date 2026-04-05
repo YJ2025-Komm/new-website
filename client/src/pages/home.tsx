@@ -956,9 +956,6 @@ export default function Home() {
                 </a>
               </div>
               <p className="text-sm font-medium text-slate-400">No credit card required</p>
-              <p className="text-xs text-slate-400 mt-3 leading-relaxed max-w-sm">
-                Monitor AI search visibility, brand mentions, and competitive positioning across high intent buyer prompts.
-              </p>
             </div>
 
             {/* Right col: Dashboard Carousel */}
