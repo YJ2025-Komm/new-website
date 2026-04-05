@@ -1003,9 +1003,9 @@ export default function Home() {
               </div>
 
               {/* Perplexity */}
-              <div className="flex items-center gap-2.5 opacity-50 hover:opacity-80 transition-opacity duration-200">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden" style={{ background: "#1c1c1e" }}>
-                  <img src="/perplexity-logo.png" alt="Perplexity" className="w-5 h-5 object-contain" />
+              <div className="flex items-center gap-2.5 opacity-60 hover:opacity-90 transition-opacity duration-200">
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden p-1" style={{ background: "#1c1c1e" }}>
+                  <img src="/perplexity-logo.png" alt="Perplexity" className="w-full h-full object-contain" />
                 </div>
                 <span className="font-semibold text-slate-600 text-sm">Perplexity</span>
               </div>
