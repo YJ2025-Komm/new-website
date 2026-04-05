@@ -140,7 +140,6 @@ export default function Pricing() {
           items: [
             "4 Hour Response Time",
             "Dedicated Account Manager",
-            "Dedicated GEO Specialist",
           ],
         },
       ],
