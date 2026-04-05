@@ -331,27 +331,32 @@ export default function Pricing() {
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
 
         <div className="hidden sm:block absolute inset-0 z-[5] overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute top-28 sm:top-32 left-[3%] sm:left-[6%] animate-logo-drift" style={{ animationDelay: '0s' }}>
+          {/* Above title — left */}
+          <div className="absolute top-20 sm:top-24 left-[3%] sm:left-[5%] animate-logo-drift" style={{ animationDelay: '0s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <SiOpenai className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-slate-700" />
             </div>
           </div>
-          <div className="absolute top-32 sm:top-36 right-[4%] sm:right-[7%] animate-logo-drift" style={{ animationDelay: '1s' }}>
+          {/* Above title — right */}
+          <div className="absolute top-20 sm:top-24 right-[3%] sm:right-[5%] animate-logo-drift" style={{ animationDelay: '1s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <SiGooglegemini className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-blue-500" />
             </div>
           </div>
-          <div className="absolute top-[55%] left-[2%] sm:left-[5%] animate-logo-drift" style={{ animationDelay: '2s' }}>
+          {/* Flanking title — left */}
+          <div className="absolute top-36 sm:top-40 left-[3%] sm:left-[5%] animate-logo-drift" style={{ animationDelay: '2s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <SiPerplexity className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-slate-700" />
             </div>
           </div>
-          <div className="absolute top-[50%] right-[3%] sm:right-[6%] animate-logo-drift" style={{ animationDelay: '3s' }}>
+          {/* Flanking title — right */}
+          <div className="absolute top-36 sm:top-40 right-[3%] sm:right-[5%] animate-logo-drift" style={{ animationDelay: '3s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <SiClaude className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-orange-500" />
             </div>
           </div>
-          <div className="absolute bottom-10 sm:bottom-14 left-[10%] sm:left-[14%] animate-logo-drift" style={{ animationDelay: '4s' }}>
+          {/* Below title — left */}
+          <div className="absolute top-52 sm:top-56 left-[3%] sm:left-[5%] animate-logo-drift" style={{ animationDelay: '4s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <img src="/grok-logo.png" alt="Grok" className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" style={{ filter: 'invert(1)' }} />
             </div>
