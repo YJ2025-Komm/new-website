@@ -202,7 +202,7 @@ export default function GeoGuide() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg">
+                <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
                   Try for Free
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </a>
@@ -593,7 +593,7 @@ export default function GeoGuide() {
           <div className="my-12 bg-gradient-to-r from-blue-500/10 to-violet-500/10 border border-blue-500/20 rounded-2xl p-6 sm:p-8 text-center">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Ready to Master AI Search Optimization?</h3>
             <p className="text-gray-600 mb-6">Join thousands of marketers getting ahead of the AI search revolution</p>
-            <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg">
+            <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
               <Rocket className="w-4 h-4 mr-2" />
               Try for Free
             </a>
@@ -785,7 +785,7 @@ export default function GeoGuide() {
           <div className="my-12 bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-500/20 rounded-2xl p-6 sm:p-8 text-center">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Don't Get Left Behind in AI Search</h3>
             <p className="text-gray-600 mb-6">Start building your AI search presence today with proven GEO strategies</p>
-            <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg">
+            <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
               <ArrowRight className="w-4 h-4 mr-2" />
               Try for Free
             </a>
@@ -1178,6 +1178,20 @@ export default function GeoGuide() {
             </p>
           </section>
 
+          {/* CTA Banner: After Best Practices */}
+          <div className="my-12 gradient-cta rounded-2xl p-6 sm:p-10 text-center relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-40 h-40 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute bottom-0 right-0 w-56 h-56 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
+            <div className="relative z-10">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Put These Best Practices to Work</h3>
+              <p className="text-white/80 mb-6 max-w-xl mx-auto">GeoRankers tracks your brand across ChatGPT, Google AI Mode, and Perplexity — so you always know where you stand.</p>
+              <a href="https://dashboard.georankers.co/register" className="inline-flex items-center bg-white text-blue-700 hover:bg-blue-50 px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
+                <Rocket className="w-4 h-4 mr-2" />
+                Try for Free
+              </a>
+            </div>
+          </div>
+
           {/* Section 9: Measuring Success */}
           <section id="measuring-success" className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Measuring Success: Metrics and Tools</h2>
@@ -1224,6 +1238,16 @@ export default function GeoGuide() {
               Some startups offer monitoring services that query AI assistants on your behalf and produce reports. Until the ecosystem matures, manual and semi-automated methods may be required. You can build simple scripts using the public APIs of ChatGPT or Gemini to run regular queries and combine this with logging spreadsheets or dashboards to visualise trends. Use your existing analytics stack to correlate AI presence with other metrics like brand searches, direct traffic and conversions.
             </p>
           </section>
+
+          {/* CTA Banner: After Measuring Success */}
+          <div className="my-12 bg-gradient-to-r from-blue-500/10 to-violet-500/10 border border-blue-500/20 rounded-2xl p-6 sm:p-10 text-center">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">See Your AI Visibility Score Right Now</h3>
+            <p className="text-gray-600 mb-6 max-w-xl mx-auto">Stop guessing how AI models describe your brand. GeoRankers gives you the metrics that matter — mention rate, citation sources, and competitor share of voice.</p>
+            <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
+              <ArrowRight className="w-4 h-4 mr-2" />
+              Try for Free
+            </a>
+          </div>
 
           {/* Section 10: Challenges and Ethical Considerations */}
           <section id="challenges" className="mb-12">
@@ -1459,7 +1483,7 @@ export default function GeoGuide() {
               <p className="text-lg sm:text-xl text-gray-600 mb-8">
                 Start optimizing your brand for ChatGPT, Gemini, and Perplexity today — no credit card required.
               </p>
-              <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-8 py-4 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl">
+              <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-8 py-4 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl no-underline">
                 <Rocket className="w-5 h-5 mr-3" />
                 Try for Free
               </a>
