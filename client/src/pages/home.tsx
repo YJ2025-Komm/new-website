@@ -713,7 +713,7 @@ export default function Home() {
             {/* Logo/Brand */}
             <div className="flex items-center">
               <button onClick={scrollToTop} className="flex items-center gap-2 hover:scale-105 transition-transform duration-200 cursor-pointer">
-                <img src="/georankers-icon.png" alt="GeoRankers icon" className="h-7 w-7 rounded-md" />
+                <img src="/georankers-icon.png" alt="GeoRankers icon" className="h-9 w-9 rounded-md" />
                 <span className="text-xl font-black bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
                   GeoRankers
                 </span>

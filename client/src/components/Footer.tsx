@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src="/georankers-icon.png" alt="GeoRankers icon" className="h-8 w-8 rounded-md" />
+              <img src="/georankers-icon.png" alt="GeoRankers icon" className="h-10 w-10 rounded-md" />
               <span className="text-2xl font-black bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">GeoRankers</span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed mb-6">
