@@ -9,8 +9,9 @@ export default function Footer() {
         <div className="grid sm:grid-cols-3 gap-10 sm:gap-8 mb-12">
           {/* Brand */}
           <div>
-            <div className="text-2xl font-black mb-4">
-              <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">GeoRankers</span>
+            <div className="flex items-center gap-2 mb-4">
+              <img src="/georankers-icon.png" alt="GeoRankers icon" className="h-8 w-8 rounded-md" />
+              <span className="text-2xl font-black bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">GeoRankers</span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed mb-6">
               AI Search Visibility Platform for B2B SaaS Teams
