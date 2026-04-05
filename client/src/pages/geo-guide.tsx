@@ -202,11 +202,9 @@ export default function GeoGuide() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://dashboard.georankers.co/register">
-                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                    Try for Free
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
+                <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg">
+                  Try for Free
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </a>
               </div>
             </div>
@@ -595,10 +593,10 @@ export default function GeoGuide() {
           <div className="my-12 bg-gradient-to-r from-blue-500/10 to-violet-500/10 border border-blue-500/20 rounded-2xl p-6 sm:p-8 text-center">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Ready to Master AI Search Optimization?</h3>
             <p className="text-gray-600 mb-6">Join thousands of marketers getting ahead of the AI search revolution</p>
-            <Button onClick={() => window.open('https://dashboard.georankers.co', '_blank')} className="bg-gradient-to-r from-blue-500 to-violet-500 text-white hover:from-blue-600 hover:to-violet-600 px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300">
+            <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg">
               <Rocket className="w-4 h-4 mr-2" />
-              Dashboard
-            </Button>
+              Try for Free
+            </a>
           </div>
 
           {/* Section 2: What Exactly Is GEO? */}
@@ -787,7 +785,7 @@ export default function GeoGuide() {
           <div className="my-12 bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-500/20 rounded-2xl p-6 sm:p-8 text-center">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Don't Get Left Behind in AI Search</h3>
             <p className="text-gray-600 mb-6">Start building your AI search presence today with proven GEO strategies</p>
-            <a href="https://dashboard.georankers.co/register" className="inline-flex items-center bg-gradient-to-r from-violet-500 to-purple-500 text-white hover:from-violet-600 hover:to-purple-600 px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300">
+            <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg">
               <ArrowRight className="w-4 h-4 mr-2" />
               Try for Free
             </a>
@@ -1461,11 +1459,9 @@ export default function GeoGuide() {
               <p className="text-lg sm:text-xl text-gray-600 mb-8">
                 Start optimizing your brand for ChatGPT, Gemini, and Perplexity today — no credit card required.
               </p>
-              <a href="https://dashboard.georankers.co/register">
-                <Button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl">
-                  <Rocket className="w-5 h-5 mr-3" />
-                  Try for Free
-                </Button>
+              <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-8 py-4 rounded-2xl font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                <Rocket className="w-5 h-5 mr-3" />
+                Try for Free
               </a>
             </div>
           </section>
