@@ -16,7 +16,7 @@ import {
   Map,
   Rocket,
 } from "lucide-react";
-import { SiOpenai, SiGooglegemini, SiPerplexity, SiClaude, SiGithubcopilot } from "react-icons/si";
+import { SiOpenai, SiGooglegemini, SiPerplexity, SiClaude } from "react-icons/si";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -475,7 +475,7 @@ export default function Features() {
           </div>
           <div className="absolute bottom-10 sm:bottom-14 left-[10%] sm:left-[14%] animate-logo-drift" style={{ animationDelay: '4s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
-              <SiGithubcopilot className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-slate-700" />
+              <img src="/grok-logo.png" alt="Grok" className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" style={{ filter: 'invert(1)' }} />
             </div>
           </div>
         </div>
