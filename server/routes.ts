@@ -483,7 +483,6 @@ Respond ONLY with valid JSON in this exact format:
         { url: `${baseUrl}/`, priority: "1.0", changefreq: "weekly" },
         { url: `${baseUrl}/features`, priority: "0.9", changefreq: "monthly" },
         { url: `${baseUrl}/geo-guide`, priority: "0.9", changefreq: "monthly" },
-        { url: `${baseUrl}/pricing`, priority: "0.8", changefreq: "monthly" },
         { url: `${baseUrl}/help`, priority: "0.6", changefreq: "monthly" },
         { url: `${baseUrl}/privacy`, priority: "0.4", changefreq: "yearly" },
         { url: `${baseUrl}/terms`, priority: "0.4", changefreq: "yearly" },

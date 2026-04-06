@@ -32,9 +32,7 @@ export default function Footer() {
           <div>
             <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Quick Links</p>
             <div className="space-y-3">
-              <Link href="/pricing" className="block text-white/80 hover:text-white text-sm transition-colors">
-                Pricing
-              </Link>
+              {/* Pricing link hidden until launch */}
               <a href="https://blog.georankers.co/" className="block text-white/80 hover:text-white text-sm transition-colors">
                 Blog
               </a>
