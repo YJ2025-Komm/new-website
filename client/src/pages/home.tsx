@@ -911,8 +911,8 @@ export default function Home() {
       <VisibilityGapSection />
 
       {/* Visibility Signals Section */}
-      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white" style={{ overflow: "visible" }}>
+        <div className="max-w-6xl mx-auto" style={{ overflow: "visible" }}>
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] text-slate-900 mb-5">
               Turn AI Answers Into{" "}
@@ -925,41 +925,38 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Screenshot showcase — fan with reduced overlap */}
-          <div className="relative mx-auto" style={{ height: "520px", maxWidth: "1080px" }}>
+          {/* Screenshot showcase — fan via flex offset */}
+          <div className="flex items-start justify-center gap-4 max-w-5xl mx-auto">
 
-            {/* Left — AI Prompts */}
-            <div className="absolute rounded-2xl overflow-hidden border border-slate-200 shadow-xl"
-              style={{ width: "46%", left: "0", top: "60px", zIndex: 10, transform: "rotate(-2deg)", transformOrigin: "bottom center" }}>
+            {/* Left — AI Prompts (offset down) */}
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-xl flex-1" style={{ marginTop: "56px", zIndex: 10 }}>
               <div className="bg-white border-b border-slate-100 px-3 py-2.5 flex items-center gap-2">
                 <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400" /><div className="w-2.5 h-2.5 rounded-full bg-yellow-400" /><div className="w-2.5 h-2.5 rounded-full bg-green-400" /></div>
                 <span className="text-xs text-slate-500 font-medium ml-1">AI Prompts & Query Analysis</span>
               </div>
-              <div className="overflow-hidden bg-white" style={{ height: "380px" }}>
+              <div className="overflow-hidden bg-white" style={{ height: "360px" }}>
                 <img src={screenshotPrompts} alt="AI Prompts" className="w-full" style={{ transform: "scale(1.45)", transformOrigin: "top left" }} />
               </div>
             </div>
 
-            {/* Center — Executive Summary */}
-            <div className="absolute rounded-2xl overflow-hidden border border-slate-200 shadow-2xl"
-              style={{ width: "52%", left: "50%", transform: "translateX(-50%)", top: "0", zIndex: 30 }}>
+            {/* Center — Executive Summary (elevated, larger) */}
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-2xl" style={{ flex: "0 0 40%", zIndex: 30, position: "relative" }}>
               <div className="bg-white border-b border-slate-100 px-3 py-2.5 flex items-center gap-2">
                 <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400" /><div className="w-2.5 h-2.5 rounded-full bg-yellow-400" /><div className="w-2.5 h-2.5 rounded-full bg-green-400" /></div>
                 <span className="text-xs text-slate-500 font-medium ml-1">Executive Summary</span>
               </div>
-              <div className="overflow-hidden bg-white" style={{ height: "430px" }}>
+              <div className="overflow-hidden bg-white" style={{ height: "420px" }}>
                 <img src={screenshotExecutive} alt="Executive Summary" className="w-full" style={{ transform: "scale(1.45)", transformOrigin: "top left" }} />
               </div>
             </div>
 
-            {/* Right — Signal Tracker */}
-            <div className="absolute rounded-2xl overflow-hidden border border-slate-200 shadow-xl"
-              style={{ width: "46%", right: "0", top: "60px", zIndex: 20, transform: "rotate(2deg)", transformOrigin: "bottom center" }}>
+            {/* Right — Signal Tracker (offset down) */}
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-xl flex-1" style={{ marginTop: "56px", zIndex: 10 }}>
               <div className="bg-white border-b border-slate-100 px-3 py-2.5 flex items-center gap-2">
                 <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400" /><div className="w-2.5 h-2.5 rounded-full bg-yellow-400" /><div className="w-2.5 h-2.5 rounded-full bg-green-400" /></div>
                 <span className="text-xs text-slate-500 font-medium ml-1">Signal Tracker</span>
               </div>
-              <div className="overflow-hidden bg-white" style={{ height: "380px" }}>
+              <div className="overflow-hidden bg-white" style={{ height: "360px" }}>
                 <img src={screenshotSignals} alt="Signal Tracker" className="w-full" style={{ transform: "scale(1.45)", transformOrigin: "top left" }} />
               </div>
             </div>
