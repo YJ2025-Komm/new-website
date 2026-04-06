@@ -86,7 +86,7 @@ function HowItWorks() {
             Getting Started
           </p>
           <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-slate-900 mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] text-slate-900 mb-4"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -138,7 +138,7 @@ function HowItWorks() {
                   </div>
                 </div>
                 <div className={`text-xs font-black ${step.stepColor} uppercase tracking-wider mb-2`}>Step {i + 1}</div>
-                <h3 className="text-xl font-black text-slate-900 mb-2">{step.title}</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
                 <p className="text-slate-500 leading-relaxed">{step.description}</p>
               </div>
             );
@@ -274,7 +274,7 @@ function IntelligenceLoopSection() {
           The Intelligence Loop
         </p>
         <h2
-          className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 mb-4"
+          className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.15] text-slate-900 mb-4"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(20px)",
@@ -384,7 +384,7 @@ function IntelligenceLoopSection() {
             <p className="text-[11px] font-black uppercase tracking-[0.24em] text-blue-500 mb-2">
               Active Focus
             </p>
-            <p className="text-lg font-black text-slate-900 mb-1">{segments[activeIndex].label}</p>
+            <p className="text-lg font-bold text-slate-900 mb-1">{segments[activeIndex].label}</p>
             <p className="text-sm font-medium text-slate-600 leading-relaxed">{segments[activeIndex].description}</p>
           </div>
         </div>
@@ -520,7 +520,7 @@ export default function Features() {
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-slate-900 mb-5">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] text-slate-900 mb-5">
             The AI Visibility{" "}
             <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">Intelligence System</span>
           </h1>
@@ -615,10 +615,10 @@ export default function Features() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Left */}
             <div>
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 mb-1">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.15] text-slate-900 mb-1">
                 AI Visibility Is Not a Dashboard Problem.
               </h2>
-              <p className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] mb-5 bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+              <p className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.15] mb-5 bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
                 It Is a Systems Problem.
               </p>
               <p className="text-base sm:text-lg font-medium text-slate-600 leading-relaxed mb-6">
@@ -643,7 +643,7 @@ export default function Features() {
                 Without interpretation and execution guidance, visibility becomes another metric you cannot act on.
               </p>
             <div className="rounded-[2rem] p-8 text-white shadow-xl" style={{ background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)' }}>
-              <h3 className="text-2xl font-black mb-3">Capture, Interpret, Prescribe.</h3>
+              <h3 className="text-2xl font-bold mb-3">Capture, Interpret, Prescribe.</h3>
               <p className="text-white/80 font-medium leading-relaxed mb-6">
                   GeoRankers builds the full system required to turn raw AI model behavior into strategic category advantage.
                 </p>
@@ -675,7 +675,7 @@ export default function Features() {
           <p className="text-xs font-black uppercase tracking-widest text-blue-500 text-center mb-3">
             The Full Feature Set
           </p>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.15] text-slate-900 text-center mb-10">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.15] text-slate-900 text-center mb-10">
             Everything You Need to Win in AI Search
           </h2>
 
@@ -688,7 +688,7 @@ export default function Features() {
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-violet-500 rounded-[1.5rem] flex items-center justify-center mr-4">
                       <Eye className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-black text-slate-900">AI Visibility Intelligence</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">AI Visibility Intelligence</h3>
                   </div>
                   <p className="text-lg font-medium text-slate-600 mb-2">
                     See Where Your Brand Shows Up in AI Answers
@@ -759,7 +759,7 @@ export default function Features() {
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div className="order-2 lg:order-1">
                   <div className="glass-strong rounded-2xl p-6">
-                    <h4 className="font-black mb-4 text-slate-900">Share of Voice â€” AI Responses</h4>
+                    <h4 className="font-bold mb-4 text-slate-900">Share of Voice â€” AI Responses</h4>
                     <div className="space-y-3">
                       <div>
                         <div className="flex items-center justify-between mb-1">
@@ -821,7 +821,7 @@ export default function Features() {
                     <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-pink-500 rounded-[1.5rem] flex items-center justify-center mr-4">
                       <BarChart3 className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-black text-slate-900">Competitive AI Benchmarking</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Competitive AI Benchmarking</h3>
                   </div>
                   <p className="text-lg font-medium text-slate-600 mb-2">
                     Discover the Exact Queries Where Competitors Get Recommended Instead of You
@@ -865,7 +865,7 @@ export default function Features() {
                     <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-red-500 rounded-[1.5rem] flex items-center justify-center mr-4">
                       <MessageSquare className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-black text-slate-900">Prompt Intelligence Engine</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Prompt Intelligence Engine</h3>
                   </div>
                   <p className="text-lg font-medium text-slate-600 mb-2">
                     Discover the Exact Queries Where Competitors Get Recommended Instead of You
@@ -897,7 +897,7 @@ export default function Features() {
                   </ul>
                 </div>
                 <div className="glass-strong rounded-2xl p-6">
-                  <h4 className="font-black mb-4 text-slate-900">Prompt Tracking</h4>
+                  <h4 className="font-bold mb-4 text-slate-900">Prompt Tracking</h4>
                   <div className="space-y-3">
                     <div className="p-3 bg-white/60 rounded-lg border border-slate-200/50">
                       <div className="text-sm font-medium text-slate-800 mb-2">"Best CRM for B2B startups"</div>
@@ -935,7 +935,7 @@ export default function Features() {
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div className="order-2 lg:order-1">
                   <div className="glass-strong rounded-2xl p-6">
-                    <h4 className="font-black mb-4 text-slate-900">Strategic Recommendations</h4>
+                    <h4 className="font-bold mb-4 text-slate-900">Strategic Recommendations</h4>
                     <div className="space-y-3">
                       <div className="p-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-lg border border-red-500/20">
                         <div className="flex items-center justify-between mb-1">
@@ -982,7 +982,7 @@ export default function Features() {
                     <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-[1.5rem] flex items-center justify-center mr-4">
                       <Zap className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-black text-slate-900">AI Authority Optimization Engine</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">AI Authority Optimization Engine</h3>
                   </div>
                   <p className="text-lg font-medium text-slate-600 mb-2">
                     Get Prioritized Actions to Earn a Spot in AI Recommendations
@@ -1026,7 +1026,7 @@ export default function Features() {
                     <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-[1.5rem] flex items-center justify-center mr-4">
                       <Bot className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-black text-slate-900">Dashboard Intelligence Chatbot</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Dashboard Intelligence Chatbot</h3>
                   </div>
                   <p className="text-lg font-medium text-slate-600 mb-2">
                     Ask Anything About Your AI Visibility
@@ -1060,7 +1060,7 @@ export default function Features() {
                 <div className="glass-strong rounded-2xl p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <Bot className="w-5 h-5 text-cyan-500" />
-                    <h4 className="font-black text-slate-900">GeoRankers AI</h4>
+                    <h4 className="font-bold text-slate-900">GeoRankers AI</h4>
                     <span className="text-xs px-2 py-0.5 bg-green-100 text-green-700 rounded-full">Online</span>
                   </div>
                   <div className="space-y-3 mb-4">
@@ -1162,7 +1162,7 @@ export default function Features() {
             <p className="text-xs font-black uppercase tracking-widest text-white/70 mb-4">
               Start Today
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-white mb-5">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] text-white mb-5">
               Turn AI Visibility Into Strategic Advantage
             </h2>
             <p className="text-lg font-medium text-white/80 mb-8 max-w-xl mx-auto leading-relaxed">
