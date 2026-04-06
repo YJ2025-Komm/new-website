@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, type CSSProperties } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
@@ -26,6 +26,9 @@ import geminiLogo from "@assets/Gemini_1753958628531.png";
 import grokLogo from "@assets/Grok_1753958628535.png";
 import openaiLogo from "@assets/Open Ai_1753958628536.png";
 import perplexityLogo from "@assets/Perplexity_1753958628538.png";
+import screenshotExecutive from "@assets/screencapture-dashboard-georankers-co-results-executive-summar_1775463758808.png";
+import screenshotPrompts from "@assets/screencapture-dashboard-georankers-co-results-prompts-2026-04-_1775463748933.png";
+import screenshotSignals from "@assets/screencapture-dashboard-georankers-co-results-recommendations-_1775463754076.png";
 
 // Featured blog images
 import strategicImage from '@assets/generated_images/Strategic_AI_search_leadership_2959319a.png';
@@ -346,6 +349,120 @@ function DashboardCarousel() {
             />
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+const screenshotSlides = [
+  {
+    src: screenshotExecutive,
+    label: "Executive Summary",
+    caption: "AI visibility score, competitive positioning, strengths, weaknesses and prioritized actions — all in one view.",
+  },
+  {
+    src: screenshotPrompts,
+    label: "AI Prompts & Query Analysis",
+    caption: "See the exact prompts AI is answering about your industry and where your brand appears — or doesn't.",
+  },
+  {
+    src: screenshotSignals,
+    label: "Signal Tracker",
+    caption: "Track progress across recommendation success signals and see exactly when your brand was seen in AI responses.",
+  },
+];
+
+function ScreenshotCarousel() {
+  const [active, setActive] = useState(0);
+  const [display, setDisplay] = useState(0);
+  const [phase, setPhase] = useState<"idle" | "exit" | "enter">("idle");
+
+  const go = (next: number) => {
+    if (phase !== "idle") return;
+    setPhase("exit");
+    setTimeout(() => {
+      setDisplay(next);
+      setPhase("enter");
+      setTimeout(() => setPhase("idle"), 320);
+    }, 320);
+    setActive(next);
+  };
+
+  const prev = () => go((active - 1 + screenshotSlides.length) % screenshotSlides.length);
+  const next = () => go((active + 1) % screenshotSlides.length);
+
+  const cardStyle: CSSProperties = {
+    transition: "transform 0.32s ease, opacity 0.32s ease",
+    transform:
+      phase === "exit"
+        ? "perspective(1000px) rotateY(-15deg) scale(0.96)"
+        : phase === "enter"
+        ? "perspective(1000px) rotateY(15deg) scale(0.96)"
+        : "perspective(1000px) rotateY(0deg) scale(1)",
+    opacity: phase === "idle" ? 1 : 0,
+  };
+
+  const slide = screenshotSlides[display];
+
+  return (
+    <div className="max-w-4xl mx-auto">
+      {/* Card */}
+      <div style={cardStyle} className="rounded-2xl overflow-hidden border border-slate-200 shadow-2xl bg-white">
+        {/* Browser chrome */}
+        <div className="bg-slate-50 border-b border-slate-200 px-4 py-3 flex items-center gap-3">
+          <div className="flex gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-red-400" />
+            <div className="w-3 h-3 rounded-full bg-yellow-400" />
+            <div className="w-3 h-3 rounded-full bg-green-400" />
+          </div>
+          <div className="flex-1 bg-white border border-slate-200 rounded-md px-3 py-1 text-xs text-slate-400 font-medium">
+            dashboard.georankers.co
+          </div>
+        </div>
+        {/* Screenshot — tall crop showing full readable content */}
+        <div className="overflow-hidden" style={{ height: "500px" }}>
+          <img
+            src={slide.src}
+            alt={slide.label}
+            className="w-full"
+            style={{ objectFit: "cover", objectPosition: "top", height: "100%", display: "block" }}
+          />
+        </div>
+      </div>
+
+      {/* Caption + controls */}
+      <div className="mt-6 flex items-center justify-between gap-4">
+        <button
+          onClick={prev}
+          className="w-10 h-10 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors flex-shrink-0"
+          data-testid="carousel-prev"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+
+        <div className="text-center flex-1">
+          <p className="text-sm font-semibold text-slate-700">{slide.label}</p>
+          <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">{slide.caption}</p>
+          {/* Dots */}
+          <div className="flex items-center justify-center gap-2 mt-3">
+            {screenshotSlides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => go(i)}
+                data-testid={`carousel-dot-${i}`}
+                className={`rounded-full transition-all ${i === active ? "w-6 h-2 bg-blue-500" : "w-2 h-2 bg-slate-300 hover:bg-slate-400"}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        <button
+          onClick={next}
+          className="w-10 h-10 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors flex-shrink-0"
+          data-testid="carousel-next"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
       </div>
     </div>
   );
@@ -908,19 +1025,20 @@ export default function Home() {
       <VisibilityGapSection />
 
       {/* Visibility Signals Section */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto rounded-3xl px-8 py-20 sm:py-24" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)" }}>
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] text-white mb-6">
+      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] text-slate-900 mb-5">
               Turn AI Answers Into{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
                 Measurable Visibility Signals
               </span>
             </h2>
-            <p className="text-lg sm:text-xl leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
               GeoRankers shows where you appear, how you are positioned, and what to fix to get recommended more often.
             </p>
           </div>
+          <ScreenshotCarousel />
         </div>
       </section>
 
