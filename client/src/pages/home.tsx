@@ -26,9 +26,6 @@ import geminiLogo from "@assets/Gemini_1753958628531.png";
 import grokLogo from "@assets/Grok_1753958628535.png";
 import openaiLogo from "@assets/Open Ai_1753958628536.png";
 import perplexityLogo from "@assets/Perplexity_1753958628538.png";
-import screenshotExecutive from "@assets/screencapture-dashboard-georankers-co-results-executive-summar_1775463758808.png";
-import screenshotPrompts from "@assets/screencapture-dashboard-georankers-co-results-prompts-2026-04-_1775463748933.png";
-import screenshotSignals from "@assets/screencapture-dashboard-georankers-co-results-recommendations-_1775463754076.png";
 
 // Featured blog images
 import strategicImage from '@assets/generated_images/Strategic_AI_search_leadership_2959319a.png';
@@ -911,56 +908,18 @@ export default function Home() {
       <VisibilityGapSection />
 
       {/* Visibility Signals Section */}
-      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white" style={{ overflow: "visible" }}>
-        <div className="max-w-6xl mx-auto" style={{ overflow: "visible" }}>
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] text-slate-900 mb-5">
+      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto rounded-3xl px-8 py-20 sm:py-24" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)" }}>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] text-white mb-6">
               Turn AI Answers Into{" "}
-              <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
                 Measurable Visibility Signals
               </span>
             </h2>
-            <p className="text-lg sm:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
               GeoRankers shows where you appear, how you are positioned, and what to fix to get recommended more often.
             </p>
-          </div>
-
-          {/* Screenshot showcase — fan via flex offset */}
-          <div className="flex items-start justify-center gap-4 max-w-5xl mx-auto">
-
-            {/* Left — AI Prompts (offset down) */}
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-xl flex-1" style={{ marginTop: "56px", zIndex: 10 }}>
-              <div className="bg-white border-b border-slate-100 px-3 py-2.5 flex items-center gap-2">
-                <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400" /><div className="w-2.5 h-2.5 rounded-full bg-yellow-400" /><div className="w-2.5 h-2.5 rounded-full bg-green-400" /></div>
-                <span className="text-xs text-slate-500 font-medium ml-1">AI Prompts & Query Analysis</span>
-              </div>
-              <div className="overflow-hidden bg-white" style={{ height: "360px" }}>
-                <img src={screenshotPrompts} alt="AI Prompts" className="w-full" style={{ transform: "scale(1.45)", transformOrigin: "top left" }} />
-              </div>
-            </div>
-
-            {/* Center — Executive Summary (elevated, larger) */}
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-2xl" style={{ flex: "0 0 40%", zIndex: 30, position: "relative" }}>
-              <div className="bg-white border-b border-slate-100 px-3 py-2.5 flex items-center gap-2">
-                <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400" /><div className="w-2.5 h-2.5 rounded-full bg-yellow-400" /><div className="w-2.5 h-2.5 rounded-full bg-green-400" /></div>
-                <span className="text-xs text-slate-500 font-medium ml-1">Executive Summary</span>
-              </div>
-              <div className="overflow-hidden bg-white" style={{ height: "420px" }}>
-                <img src={screenshotExecutive} alt="Executive Summary" className="w-full" style={{ transform: "scale(1.45)", transformOrigin: "top left" }} />
-              </div>
-            </div>
-
-            {/* Right — Signal Tracker (offset down) */}
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-xl flex-1" style={{ marginTop: "56px", zIndex: 10 }}>
-              <div className="bg-white border-b border-slate-100 px-3 py-2.5 flex items-center gap-2">
-                <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400" /><div className="w-2.5 h-2.5 rounded-full bg-yellow-400" /><div className="w-2.5 h-2.5 rounded-full bg-green-400" /></div>
-                <span className="text-xs text-slate-500 font-medium ml-1">Signal Tracker</span>
-              </div>
-              <div className="overflow-hidden bg-white" style={{ height: "360px" }}>
-                <img src={screenshotSignals} alt="Signal Tracker" className="w-full" style={{ transform: "scale(1.45)", transformOrigin: "top left" }} />
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
