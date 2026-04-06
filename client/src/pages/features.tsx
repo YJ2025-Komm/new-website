@@ -375,12 +375,12 @@ export default function Features() {
               <p className="text-base font-medium text-slate-500 leading-relaxed">
                 Without interpretation and execution guidance, visibility becomes another metric you cannot act on.
               </p>
-            <div className="rounded-[2rem] p-8 text-white shadow-xl" style={{ background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)' }}>
+            <div className="rounded-[2rem] p-8 text-white shadow-xl text-center" style={{ background: 'linear-gradient(135deg, #2994FF, #5C92FF, #7575FF)' }}>
               <h3 className="text-2xl font-bold mb-3">Capture, Interpret, Prescribe.</h3>
               <p className="text-white/80 font-medium leading-relaxed mb-6">
                   GeoRankers builds the full system required to turn raw AI model behavior into strategic category advantage.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col sm:flex-row justify-center gap-3">
                   <a
                     href="https://dashboard.georankers.co/register"
                     className="inline-flex items-center justify-center px-5 py-2.5 bg-white text-blue-600 font-black rounded-xl text-sm hover:bg-white/90 transition-all duration-200"
@@ -846,7 +846,7 @@ export default function Features() {
       {/* Final CTA Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="rounded-[2.5rem] p-10 sm:p-14 text-center shadow-2xl" style={{ background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)' }}>
+          <div className="rounded-[2.5rem] p-10 sm:p-14 text-center shadow-2xl" style={{ background: 'linear-gradient(135deg, #2994FF, #5C92FF, #7575FF)' }}>
             <p className="text-xs font-black uppercase tracking-widest text-white/70 mb-4">
               Start Today
             </p>
