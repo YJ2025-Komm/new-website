@@ -26,6 +26,9 @@ import geminiLogo from "@assets/Gemini_1753958628531.png";
 import grokLogo from "@assets/Grok_1753958628535.png";
 import openaiLogo from "@assets/Open Ai_1753958628536.png";
 import perplexityLogo from "@assets/Perplexity_1753958628538.png";
+import screenshotExecutive from "@assets/screencapture-dashboard-georankers-co-results-executive-summar_1775463758808.png";
+import screenshotPrompts from "@assets/screencapture-dashboard-georankers-co-results-prompts-2026-04-_1775463748933.png";
+import screenshotSignals from "@assets/screencapture-dashboard-georankers-co-results-recommendations-_1775463754076.png";
 
 // Featured blog images
 import strategicImage from '@assets/generated_images/Strategic_AI_search_leadership_2959319a.png';
@@ -908,19 +911,76 @@ export default function Home() {
       <VisibilityGapSection />
 
       {/* Visibility Signals Section */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto rounded-3xl px-8 py-20 sm:py-24" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)" }}>
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] text-white mb-6">
-            Turn AI Answers Into{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
-              Measurable Visibility Signals
-            </span>
-          </h2>
-          <p className="text-lg sm:text-xl leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
-            GeoRankers shows where you appear, how you are positioned, and what to fix to get recommended more often.
-          </p>
-        </div>
+      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] text-slate-900 mb-5">
+              Turn AI Answers Into{" "}
+              <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
+                Measurable Visibility Signals
+              </span>
+            </h2>
+            <p className="text-lg sm:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+              GeoRankers shows where you appear, how you are positioned, and what to fix to get recommended more often.
+            </p>
+          </div>
+
+          {/* Screenshot showcase */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 items-start">
+            {/* Left: large featured screenshot */}
+            <div className="lg:col-span-3 rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 ring-1 ring-black/5">
+              <div className="bg-slate-100 px-4 py-2.5 flex items-center gap-2 border-b border-slate-200">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-slate-300" />
+                  <div className="w-3 h-3 rounded-full bg-slate-300" />
+                  <div className="w-3 h-3 rounded-full bg-slate-300" />
+                </div>
+                <span className="text-xs text-slate-400 font-medium ml-2">Executive Summary</span>
+              </div>
+              <img
+                src={screenshotExecutive}
+                alt="GeoRankers Executive Summary — AI visibility score, competitive positioning, strengths and weaknesses"
+                className="w-full object-cover object-top"
+                style={{ maxHeight: "480px" }}
+              />
+            </div>
+
+            {/* Right: two smaller screenshots stacked */}
+            <div className="lg:col-span-2 flex flex-col gap-4">
+              <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200/80 ring-1 ring-black/5">
+                <div className="bg-slate-100 px-4 py-2.5 flex items-center gap-2 border-b border-slate-200">
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+                  </div>
+                  <span className="text-xs text-slate-400 font-medium ml-2">AI Prompts & Query Analysis</span>
+                </div>
+                <img
+                  src={screenshotPrompts}
+                  alt="GeoRankers AI Prompts — prompt-level brand mentions across AI platforms"
+                  className="w-full object-cover object-top"
+                  style={{ maxHeight: "228px" }}
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200/80 ring-1 ring-black/5">
+                <div className="bg-slate-100 px-4 py-2.5 flex items-center gap-2 border-b border-slate-200">
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+                  </div>
+                  <span className="text-xs text-slate-400 font-medium ml-2">Signal Tracker</span>
+                </div>
+                <img
+                  src={screenshotSignals}
+                  alt="GeoRankers Signal Tracker — track recommendation signals over time"
+                  className="w-full object-cover object-top"
+                  style={{ maxHeight: "228px" }}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
