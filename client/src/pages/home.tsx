@@ -925,42 +925,54 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Screenshot showcase — overlapping fan */}
-          <div className="relative mx-auto" style={{ height: "460px", maxWidth: "960px" }}>
+          {/* Screenshot showcase — 2x2 overlapping grid */}
+          <div className="grid grid-cols-2 gap-4 max-w-5xl mx-auto">
 
-            {/* Left card — AI Prompts */}
-            <div className="absolute rounded-2xl overflow-hidden border border-slate-200 shadow-xl"
-              style={{ width: "52%", left: "0%", top: "40px", zIndex: 10, transform: "rotate(-4deg)", transformOrigin: "bottom center" }}>
-              <div className="bg-white border-b border-slate-100 px-3 py-2 flex items-center gap-2">
-                <div className="flex gap-1"><div className="w-2 h-2 rounded-full bg-red-300" /><div className="w-2 h-2 rounded-full bg-yellow-300" /><div className="w-2 h-2 rounded-full bg-green-300" /></div>
-                <span className="text-[10px] text-slate-400 font-medium">AI Prompts & Query Analysis</span>
+            {/* Top-left — Executive Summary */}
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-xl" style={{ zIndex: 20, position: "relative" }}>
+              <div className="bg-white border-b border-slate-100 px-3 py-2.5 flex items-center gap-2">
+                <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400" /><div className="w-2.5 h-2.5 rounded-full bg-yellow-400" /><div className="w-2.5 h-2.5 rounded-full bg-green-400" /></div>
+                <span className="text-xs text-slate-500 font-medium ml-1">Executive Summary</span>
               </div>
-              <div className="overflow-hidden" style={{ height: "340px" }}>
-                <img src={screenshotPrompts} alt="AI Prompts" className="w-full" style={{ transform: "scale(1.6)", transformOrigin: "top left", marginTop: "0px" }} />
+              <div className="overflow-hidden bg-white" style={{ height: "260px" }}>
+                <img src={screenshotExecutive} alt="Executive Summary" className="w-full" style={{ transform: "scale(1.4)", transformOrigin: "top left" }} />
               </div>
             </div>
 
-            {/* Center card — Executive Summary (front) */}
-            <div className="absolute rounded-2xl overflow-hidden border border-slate-200 shadow-2xl"
-              style={{ width: "58%", left: "50%", transform: "translateX(-50%)", top: "0px", zIndex: 30 }}>
-              <div className="bg-white border-b border-slate-100 px-3 py-2 flex items-center gap-2">
-                <div className="flex gap-1"><div className="w-2 h-2 rounded-full bg-red-300" /><div className="w-2 h-2 rounded-full bg-yellow-300" /><div className="w-2 h-2 rounded-full bg-green-300" /></div>
-                <span className="text-[10px] text-slate-400 font-medium">Executive Summary</span>
+            {/* Top-right — AI Prompts */}
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-xl" style={{ zIndex: 20, position: "relative" }}>
+              <div className="bg-white border-b border-slate-100 px-3 py-2.5 flex items-center gap-2">
+                <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400" /><div className="w-2.5 h-2.5 rounded-full bg-yellow-400" /><div className="w-2.5 h-2.5 rounded-full bg-green-400" /></div>
+                <span className="text-xs text-slate-500 font-medium ml-1">AI Prompts & Query Analysis</span>
               </div>
-              <div className="overflow-hidden" style={{ height: "380px" }}>
-                <img src={screenshotExecutive} alt="Executive Summary" className="w-full" style={{ transform: "scale(1.5)", transformOrigin: "top left" }} />
+              <div className="overflow-hidden bg-white" style={{ height: "260px" }}>
+                <img src={screenshotPrompts} alt="AI Prompts" className="w-full" style={{ transform: "scale(1.4)", transformOrigin: "top left" }} />
               </div>
             </div>
 
-            {/* Right card — Signal Tracker */}
-            <div className="absolute rounded-2xl overflow-hidden border border-slate-200 shadow-xl"
-              style={{ width: "52%", right: "0%", top: "40px", zIndex: 20, transform: "rotate(4deg)", transformOrigin: "bottom center" }}>
-              <div className="bg-white border-b border-slate-100 px-3 py-2 flex items-center gap-2">
-                <div className="flex gap-1"><div className="w-2 h-2 rounded-full bg-red-300" /><div className="w-2 h-2 rounded-full bg-yellow-300" /><div className="w-2 h-2 rounded-full bg-green-300" /></div>
-                <span className="text-[10px] text-slate-400 font-medium">Signal Tracker</span>
+            {/* Bottom-left — Signal Tracker (overlaps top row) */}
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-xl" style={{ zIndex: 10, position: "relative", marginTop: "-48px" }}>
+              <div className="bg-white border-b border-slate-100 px-3 py-2.5 flex items-center gap-2">
+                <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400" /><div className="w-2.5 h-2.5 rounded-full bg-yellow-400" /><div className="w-2.5 h-2.5 rounded-full bg-green-400" /></div>
+                <span className="text-xs text-slate-500 font-medium ml-1">Signal Tracker</span>
               </div>
-              <div className="overflow-hidden" style={{ height: "340px" }}>
-                <img src={screenshotSignals} alt="Signal Tracker" className="w-full" style={{ transform: "scale(1.6)", transformOrigin: "top left" }} />
+              <div className="overflow-hidden bg-white" style={{ height: "220px" }}>
+                <img src={screenshotSignals} alt="Signal Tracker" className="w-full" style={{ transform: "scale(1.4)", transformOrigin: "top left" }} />
+              </div>
+            </div>
+
+            {/* Bottom-right — stat card */}
+            <div className="rounded-2xl border border-slate-200 shadow-xl flex flex-col justify-center px-8 py-6" style={{ zIndex: 10, position: "relative", marginTop: "-48px", background: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)" }}>
+              <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-4">Live Signals</p>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-3xl font-black text-white">5</p>
+                  <p className="text-sm text-slate-400 mt-0.5">AI platforms tracked</p>
+                </div>
+                <div>
+                  <p className="text-3xl font-black text-white">Real-time</p>
+                  <p className="text-sm text-slate-400 mt-0.5">visibility monitoring</p>
+                </div>
               </div>
             </div>
 
