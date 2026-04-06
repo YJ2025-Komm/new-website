@@ -388,7 +388,7 @@ function ScreenshotCarousel() {
   const slide = screenshotSlides[active];
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       {/* Tab pills */}
       <div className="flex flex-wrap justify-center gap-2 mb-8">
         {screenshotSlides.map((s, i) => (
@@ -997,19 +997,19 @@ export default function Home() {
       <VisibilityGapSection />
 
       {/* Visibility Signals Section */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] text-slate-900 mb-5">
-              Turn AI Answers Into{" "}
-              <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
-                Measurable Visibility Signals
-              </span>
-            </h2>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-              GeoRankers shows where you appear, how you are positioned, and what to fix to get recommended more often.
-            </p>
-          </div>
+      <section className="py-20 sm:py-24 bg-gradient-to-b from-slate-50 to-white">
+        <div className="px-4 sm:px-6 lg:px-8 text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] text-slate-900 mb-5">
+            Turn AI Answers Into{" "}
+            <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
+              Measurable Visibility Signals
+            </span>
+          </h2>
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            GeoRankers shows where you appear, how you are positioned, and what to fix to get recommended more often.
+          </p>
+        </div>
+        <div className="px-4 sm:px-6 lg:px-8">
           <ScreenshotCarousel />
         </div>
       </section>
