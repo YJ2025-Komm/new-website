@@ -908,40 +908,14 @@ export default function Home() {
       <VisibilityGapSection />
 
       {/* Visibility Signals Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.15] text-slate-900 mb-4">
-            Turn AI Answers Into{" "}
-            <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
-              Measurable Visibility Signals
-            </span>
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white border-y border-slate-100">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] text-slate-900 mb-6">
+            Turn AI Answers Into Measurable Visibility Signals
           </h2>
-          <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed mb-12">
+          <p className="text-lg sm:text-xl text-slate-500 leading-relaxed">
             GeoRankers analyzes real AI responses and breaks your visibility into clear signals so you can see where you show up, how you are positioned, and what to fix.
           </p>
-          <div className="grid sm:grid-cols-3 gap-6">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50/60 px-6 py-8 text-left">
-              <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-              </div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">Where You Show Up</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">See exactly which AI platforms mention your brand, in which prompts, and how consistently you appear across queries.</p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50/60 px-6 py-8 text-left">
-              <div className="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-              </div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">How You Are Positioned</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">Understand your share of voice against competitors, how AI frames your brand, and whether your positioning is accurate.</p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50/60 px-6 py-8 text-left">
-              <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              </div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">What to Fix</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">Get prioritized recommendations tied to real AI behavior — so every action you take moves the needle on your visibility score.</p>
-            </div>
-          </div>
         </div>
       </section>
 
