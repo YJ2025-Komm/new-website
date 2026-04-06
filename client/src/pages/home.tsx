@@ -372,152 +372,70 @@ const screenshotSlides = [
   },
 ];
 
-function ScreenshotCard({ slide }: { slide: typeof screenshotSlides[0] }) {
-  return (
-    <>
-      <div className="bg-slate-50 border-b border-slate-200 px-4 py-3 flex items-center gap-3">
-        <div className="flex gap-1.5">
-          <div className="w-3 h-3 rounded-full bg-red-400" />
-          <div className="w-3 h-3 rounded-full bg-yellow-400" />
-          <div className="w-3 h-3 rounded-full bg-green-400" />
-        </div>
-        <div className="flex-1 bg-white border border-slate-200 rounded-md px-3 py-1 text-xs text-slate-400 font-medium">
-          dashboard.georankers.co — {slide.label}
-        </div>
-      </div>
-      <div className="bg-white" style={{ height: "490px", overflow: "hidden" }}>
-        <img
-          src={slide.src}
-          alt={slide.label}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "top",
-            display: "block",
-          }}
-        />
-      </div>
-    </>
-  );
-}
-
 function ScreenshotCarousel() {
-  const n = screenshotSlides.length;
-  const [cur, setCur] = useState(0);
-  const [anim, setAnim] = useState<"idle" | "next" | "prev">("idle");
+  const [active, setActive] = useState(0);
+  const [visible, setVisible] = useState(true);
 
-  const peekIdx = (cur + 1) % n;
-
-  const goNext = () => {
-    if (anim !== "idle") return;
-    setAnim("next");
+  const switchTo = (i: number) => {
+    if (i === active) return;
+    setVisible(false);
     setTimeout(() => {
-      setCur((c) => (c + 1) % n);
-      setAnim("idle");
-    }, 480);
+      setActive(i);
+      setVisible(true);
+    }, 200);
   };
 
-  const goPrev = () => {
-    if (anim !== "idle") return;
-    setAnim("prev");
-    setTimeout(() => {
-      setCur((c) => (c - 1 + n) % n);
-      setAnim("idle");
-    }, 480);
-  };
-
-  const CARD_H = 536; // chrome bar + image height
-
-  // Front card: rotates away on exit
-  const frontTransform =
-    anim === "next"
-      ? "perspective(1400px) rotateY(-90deg) scale(0.94)"
-      : anim === "prev"
-      ? "perspective(1400px) rotateY(90deg) scale(0.94)"
-      : "perspective(1400px) rotateY(0deg) scale(1)";
-
-  // Peek card: peeks from right at rest, slides to front when going next
-  const peekTransform =
-    anim === "next"
-      ? "perspective(1400px) rotateY(0deg) scale(1) translateX(0)"
-      : "perspective(1400px) rotateY(-26deg) scale(0.88) translateX(14%)";
-
-  const slide = screenshotSlides[cur];
+  const slide = screenshotSlides[active];
 
   return (
     <div className="max-w-4xl mx-auto">
-      {/* Deck container */}
-      <div className="relative" style={{ height: CARD_H }}>
-
-        {/* Peek card — next, behind and to the right */}
-        <div
-          className="absolute inset-0 rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white"
-          style={{
-            transform: peekTransform,
-            transformOrigin: "left center",
-            transition: "transform 0.48s cubic-bezier(0.4,0,0.2,1), opacity 0.48s ease",
-            opacity: anim === "next" ? 1 : 0.72,
-            zIndex: 10,
-            pointerEvents: "none",
-          }}
-        >
-          <ScreenshotCard slide={screenshotSlides[peekIdx]} />
-        </div>
-
-        {/* Front card */}
-        <div
-          className="absolute inset-0 rounded-2xl overflow-hidden border border-slate-200 shadow-2xl bg-white"
-          style={{
-            transform: frontTransform,
-            transformOrigin: "right center",
-            transition: "transform 0.48s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease",
-            opacity: anim === "idle" ? 1 : 0,
-            zIndex: 20,
-          }}
-        >
-          <ScreenshotCard slide={slide} />
-        </div>
-
+      {/* Tab pills */}
+      <div className="flex flex-wrap justify-center gap-2 mb-8">
+        {screenshotSlides.map((s, i) => (
+          <button
+            key={i}
+            onClick={() => switchTo(i)}
+            data-testid={`screenshot-tab-${i}`}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border ${
+              i === active
+                ? "bg-blue-500 text-white border-blue-500 shadow-md shadow-blue-200"
+                : "bg-white text-slate-600 border-slate-200 hover:border-blue-300 hover:text-blue-600"
+            }`}
+          >
+            {s.label}
+          </button>
+        ))}
       </div>
 
-      {/* Controls + caption */}
-      <div className="mt-6 flex items-center justify-between gap-4">
-        <button
-          onClick={goPrev}
-          className="w-10 h-10 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors flex-shrink-0"
-          data-testid="carousel-prev"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-
-        <div className="text-center flex-1">
-          <p className="text-sm font-semibold text-slate-800">{slide.label}</p>
-          <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto leading-relaxed">{slide.caption}</p>
-          <div className="flex items-center justify-center gap-2 mt-3">
-            {screenshotSlides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => {
-                  const diff = i - cur;
-                  if (diff === 0 || anim !== "idle") return;
-                  diff > 0 ? goNext() : goPrev();
-                }}
-                data-testid={`carousel-dot-${i}`}
-                className={`rounded-full transition-all duration-300 ${i === cur ? "w-6 h-2 bg-blue-500" : "w-2 h-2 bg-slate-300 hover:bg-slate-400"}`}
-              />
-            ))}
+      {/* Screenshot card */}
+      <div
+        className="rounded-2xl overflow-hidden border border-slate-200 shadow-2xl bg-white"
+        style={{ opacity: visible ? 1 : 0, transition: "opacity 0.2s ease" }}
+      >
+        {/* Browser bar */}
+        <div className="bg-slate-50 border-b border-slate-200 px-4 py-3 flex items-center gap-3">
+          <div className="flex gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-red-400" />
+            <div className="w-3 h-3 rounded-full bg-yellow-400" />
+            <div className="w-3 h-3 rounded-full bg-green-400" />
+          </div>
+          <div className="bg-white border border-slate-200 rounded-md px-3 py-1 text-xs text-slate-400 font-medium flex-1">
+            dashboard.georankers.co
           </div>
         </div>
 
-        <button
-          onClick={goNext}
-          className="w-10 h-10 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors flex-shrink-0"
-          data-testid="carousel-next"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
+        {/* Image — natural width, no cropping */}
+        <img
+          src={slide.src}
+          alt={slide.label}
+          className="w-full block"
+        />
       </div>
+
+      {/* Caption */}
+      <p className="text-center text-sm text-slate-500 mt-4 max-w-lg mx-auto leading-relaxed">
+        {slide.caption}
+      </p>
     </div>
   );
 }
