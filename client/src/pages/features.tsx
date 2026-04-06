@@ -157,7 +157,7 @@ function IntelligenceLoopSection() {
 
         <div className="hidden md:block max-w-2xl mx-auto" style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(18px)", transition: "opacity 0.6s ease 0.35s, transform 0.6s ease 0.35s" }}>
           <div className="glass rounded-[1.75rem] px-6 py-4 border border-blue-100/80 shadow-sm">
-            <p className="text-[11px] font-black uppercase tracking-[0.24em] text-blue-500 mb-2">Active Focus</p>
+            <p className="text-[11px] sm:text-xs font-black uppercase tracking-[0.24em] text-blue-500 mb-2">Active Focus</p>
             <p className="text-lg font-bold text-slate-900 mb-1">{segments[activeIndex].label}</p>
             <p className="text-sm font-medium text-slate-600 leading-relaxed">{segments[activeIndex].description}</p>
           </div>
@@ -214,6 +214,7 @@ export default function Features() {
   return (
     <div className="min-h-screen text-slate-900" style={{ overflowX: 'clip' }}>
       <Navbar />
+      <main id="main-content">
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 lg:px-8">
@@ -891,6 +892,7 @@ export default function Features() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

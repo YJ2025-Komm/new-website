@@ -192,7 +192,7 @@ function VisibilityGapSection() {
                     : 'glass border border-slate-100/80 hover:bg-white/90'
                 }`}
               >
-                <p className={`text-[10px] font-black uppercase tracking-widest mb-1.5 ${activeIndex === i ? 'text-white/70' : 'text-blue-500'}`}>
+                <p className={`text-[10px] sm:text-xs font-black uppercase tracking-widest mb-1.5 ${activeIndex === i ? 'text-white/70' : 'text-blue-500'}`}>
                   {p.label}
                 </p>
                 <h3 className={`text-base font-bold leading-snug ${activeIndex === i ? 'text-white' : 'text-slate-900'}`}>
@@ -231,7 +231,7 @@ function VisibilityGapSection() {
                   display: activeIndex === i ? 'block' : 'none',
                 }}
               >
-                <p className="text-[10px] font-black uppercase tracking-widest text-blue-500 mb-3">{p.label}</p>
+                <p className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-blue-500 mb-3">{p.label}</p>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 leading-[1.3]">{p.title}</h3>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">{p.description}</p>
                 {p.visual}
@@ -805,6 +805,7 @@ export default function Home() {
   return (
     <div className="min-h-screen text-slate-900" style={{ overflowX: 'clip' }}>
       <Navbar />
+      <main id="main-content">
 
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-12">
@@ -819,7 +820,7 @@ export default function Home() {
               {/* Badge */}
               <div className="inline-flex items-center mb-6">
                 <span
-                  className="inline-flex items-center px-3.5 py-1 rounded-full text-[11px] font-black uppercase tracking-widest"
+                  className="inline-flex items-center px-3.5 py-1 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-widest"
                   style={{
                     background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #3b82f6, #8b5cf6) border-box',
                     border: '1.5px solid transparent',
@@ -1339,6 +1340,7 @@ export default function Home() {
         </div>
       </section>
 
+      </main>
       <Footer />
 
     </div>

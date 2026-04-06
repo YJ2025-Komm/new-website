@@ -223,7 +223,7 @@ export default function GeoGuide() {
       </section>
 
       {/* Guide Content */}
-      <main className="flex max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16 gap-4 lg:gap-8">
+      <main id="main-content" className="flex max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16 gap-4 lg:gap-8">
         {/* Table of Contents - Hidden on mobile */}
         <aside className="hidden lg:block w-64 flex-shrink-0 sticky top-16 h-fit max-h-[calc(100vh-4rem)] overflow-y-auto">
           <div className="bg-white rounded-xl p-3 border border-gray-200 shadow-sm">

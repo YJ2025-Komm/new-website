@@ -7,6 +7,10 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
+    <>
+    <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:text-sm focus:font-medium">
+      Skip to main content
+    </a>
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -30,10 +34,12 @@ export default function Navbar() {
             </Link>
             {/* Pricing link hidden until launch */}
             <div className="relative">
-              <button 
+              <button
                 onClick={() => setResourcesOpen(!resourcesOpen)}
                 onBlur={() => setTimeout(() => setResourcesOpen(false), 150)}
-                className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium flex items-center"
+                className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium flex items-center focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+                aria-expanded={resourcesOpen}
+                aria-haspopup="true"
                 data-testid="dropdown-resources"
               >
                 Resources
@@ -110,6 +116,8 @@ export default function Navbar() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-slate-600 hover:text-blue-600 p-2"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
               data-testid="button-mobile-menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -184,5 +192,6 @@ export default function Navbar() {
         </div>
       )}
     </nav>
+    </>
   );
 }
