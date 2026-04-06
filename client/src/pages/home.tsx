@@ -192,7 +192,7 @@ function VisibilityGapSection() {
                     : 'glass border border-slate-100/80 hover:bg-white/90'
                 }`}
               >
-                <p className={`text-[10px] font-black uppercase tracking-widest mb-1.5 ${activeIndex === i ? 'text-white/70' : 'text-blue-500'}`}>
+                <p className={`text-[10px] sm:text-xs font-black uppercase tracking-widest mb-1.5 ${activeIndex === i ? 'text-white/70' : 'text-blue-500'}`}>
                   {p.label}
                 </p>
                 <h3 className={`text-base font-bold leading-snug ${activeIndex === i ? 'text-white' : 'text-slate-900'}`}>
@@ -231,7 +231,7 @@ function VisibilityGapSection() {
                   display: activeIndex === i ? 'block' : 'none',
                 }}
               >
-                <p className="text-[10px] font-black uppercase tracking-widest text-blue-500 mb-3">{p.label}</p>
+                <p className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-blue-500 mb-3">{p.label}</p>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 leading-[1.3]">{p.title}</h3>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">{p.description}</p>
                 {p.visual}
@@ -805,6 +805,7 @@ export default function Home() {
   return (
     <div className="min-h-screen text-slate-900" style={{ overflowX: 'clip' }}>
       <Navbar />
+      <main id="main-content">
 
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-12">
@@ -816,23 +817,8 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-10 sm:mb-14">
             {/* Left col: text */}
             <div>
-              {/* Badge */}
-              <div className="inline-flex items-center mb-6">
-                <span
-                  className="inline-flex items-center px-3.5 py-1 rounded-full text-[11px] font-black uppercase tracking-widest"
-                  style={{
-                    background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #3b82f6, #8b5cf6) border-box',
-                    border: '1.5px solid transparent',
-                  }}
-                >
-                  <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
-                    AI Search Visibility for B2B SaaS
-                  </span>
-                </span>
-              </div>
-
               {/* Headline */}
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] text-slate-900 mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-slate-900 mb-6">
                 Your Buyers Choose Vendors Inside{' '}
                 <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
                   AI Answers
@@ -841,7 +827,7 @@ export default function Home() {
 
               {/* Sub-headline */}
               <p className="text-base sm:text-lg font-normal text-slate-600 mb-7 leading-relaxed">
-                ChatGPT, Gemini, Perplexity, and Google AI Overviews now shape how buyers discover and compare software. GeoRankers helps you track how your brand appears in AI generated answers and shows you exactly what to improve.
+                Most brands are invisible in AI answers and don't even know it. GeoRankers shows you where you stand — and exactly what to fix.
               </p>
 
               {/* CTAs */}
@@ -874,21 +860,21 @@ export default function Home() {
           </div>
 
           <div className="mt-4 sm:mt-6">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400 text-center mb-8">
+            <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-slate-500 text-center mb-8">
               Tracking brand visibility across AI platforms
             </p>
             <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-14 lg:gap-20">
               {/* ChatGPT */}
-              <div className="flex items-center gap-2.5 opacity-60 hover:opacity-90 transition-opacity duration-200">
-                <div className="w-8 h-8 rounded-lg overflow-hidden">
+              <div className="flex items-center gap-3 hover:scale-105 transition-transform duration-200">
+                <div className="w-9 h-9 rounded-xl overflow-hidden shadow-sm">
                   <img src="/openai-logo.png" alt="ChatGPT" className="w-full h-full object-cover" loading="lazy" />
                 </div>
-                <span className="font-semibold text-slate-600 text-sm">ChatGPT</span>
+                <span className="font-bold text-slate-700 text-sm">ChatGPT</span>
               </div>
 
               {/* Google AI Overview */}
-              <div className="flex items-center gap-2.5 opacity-50 hover:opacity-80 transition-opacity duration-200">
-                <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center shadow-sm">
+              <div className="flex items-center gap-3 hover:scale-105 transition-transform duration-200">
+                <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center shadow-sm">
                   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                     <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -896,25 +882,25 @@ export default function Home() {
                     <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
                   </svg>
                 </div>
-                <span className="font-semibold text-slate-600 text-sm">Google AI Overview</span>
+                <span className="font-bold text-slate-700 text-sm">Google AI Overview</span>
               </div>
 
               {/* Gemini */}
-              <div className="flex items-center gap-2.5 opacity-50 hover:opacity-80 transition-opacity duration-200">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #1a73e8, #8b5cf6)" }}>
+              <div className="flex items-center gap-3 hover:scale-105 transition-transform duration-200">
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center shadow-sm" style={{ background: "linear-gradient(135deg, #1a73e8, #8b5cf6)" }}>
                   <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
                     <path d="M14 28C14 26.0633 13.6267 24.2433 12.88 22.54C12.1567 20.8367 11.165 19.355 9.905 18.095C8.645 16.835 7.16333 15.8433 5.46 15.12C3.75667 14.3733 1.93667 14 0 14C1.93667 14 3.75667 13.6383 5.46 12.915C7.16333 12.1683 8.645 11.165 9.905 9.905C11.165 8.645 12.1567 7.16333 12.88 5.46C13.6267 3.75667 14 1.93667 14 0C14 1.93667 14.3617 3.75667 15.085 5.46C15.8317 7.16333 16.835 8.645 18.095 9.905C19.355 11.165 20.8367 12.1683 22.54 12.915C24.2433 13.6383 26.0633 14 28 14C26.0633 14 24.2433 14.3733 22.54 15.12C20.8367 15.8433 19.355 16.835 18.095 18.095C16.835 19.355 15.8317 20.8367 15.085 22.54C14.3617 24.2433 14 26.0633 14 28Z" fill="white"/>
                   </svg>
                 </div>
-                <span className="font-semibold text-slate-600 text-sm">Gemini</span>
+                <span className="font-bold text-slate-700 text-sm">Gemini</span>
               </div>
 
               {/* Perplexity */}
-              <div className="flex items-center gap-2.5 opacity-60 hover:opacity-90 transition-opacity duration-200">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden p-1" style={{ background: "#1c1c1e" }}>
+              <div className="flex items-center gap-3 hover:scale-105 transition-transform duration-200">
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center overflow-hidden p-1 shadow-sm" style={{ background: "#1c1c1e" }}>
                   <img src="/perplexity-logo.png" alt="Perplexity" className="w-full h-full object-contain" loading="lazy" />
                 </div>
-                <span className="font-semibold text-slate-600 text-sm">Perplexity</span>
+                <span className="font-bold text-slate-700 text-sm">Perplexity</span>
               </div>
             </div>
           </div>
@@ -1098,9 +1084,9 @@ export default function Home() {
               { num: "02", title: "Capture AI responses", desc: "Track how platforms like ChatGPT, Gemini, and Perplexity present your category." },
               { num: "03", title: "Identify gaps and actions", desc: "Highlight where your brand is missing and what needs to improve." },
             ].map((step, i) => (
-              <div key={i} className="flex sm:flex-col items-stretch flex-1">
+              <>
                 {/* Card */}
-                <div className="rounded-[2rem] bg-white shadow-sm border border-slate-100 p-7 relative overflow-hidden flex-1">
+                <div key={step.num} className="rounded-[2rem] bg-white shadow-sm border border-slate-100 p-7 relative overflow-hidden flex-1">
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center text-white font-black text-sm mb-5"
                     style={{ background: 'linear-gradient(135deg, #2994FF, #7575FF)' }}
@@ -1112,16 +1098,16 @@ export default function Home() {
                   <div className="absolute top-4 right-5 text-7xl font-black text-slate-900/[0.03] select-none leading-none">{step.num}</div>
                 </div>
 
-                {/* Animated connector (between cards, not after last) */}
+                {/* Animated connector between cards */}
                 {i < 2 && (
-                  <div className="flex items-center justify-center sm:justify-start sm:rotate-0 rotate-90 px-0 sm:px-1 my-2 sm:my-0 mx-auto sm:mx-0 w-10 sm:w-auto h-auto sm:h-10 flex-shrink-0">
-                    <div className="relative w-10 sm:w-10 h-1 sm:h-1 bg-slate-200 rounded-full overflow-hidden">
+                  <div key={`connector-${i}`} className="flex items-center justify-center sm:rotate-0 rotate-90 my-2 sm:my-0 flex-shrink-0 w-10 sm:w-12">
+                    <div className="relative w-6 h-1 bg-slate-200 rounded-full overflow-hidden">
                       <div className="animate-flow"></div>
                     </div>
                     <ChevronRight className="w-4 h-4 text-blue-400 flex-shrink-0 -ml-1" />
                   </div>
                 )}
-              </div>
+              </>
             ))}
           </div>
         </div>
@@ -1339,6 +1325,7 @@ export default function Home() {
         </div>
       </section>
 
+      </main>
       <Footer />
 
     </div>

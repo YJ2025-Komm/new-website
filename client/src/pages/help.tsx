@@ -481,6 +481,7 @@ export default function Help() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+      <main id="main-content">
 
       {/* Hero */}
       <div className="mt-16 bg-gradient-to-br from-slate-900 via-blue-950 to-violet-950 pt-12 sm:pt-16 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8">
@@ -577,6 +578,7 @@ export default function Help() {
         </div>
       </div>
 
+      </main>
       <Footer />
     </div>
   );

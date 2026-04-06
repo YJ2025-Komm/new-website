@@ -244,6 +244,7 @@ export default function Pricing() {
   return (
     <div className="min-h-screen text-slate-900 overflow-x-hidden">
       <Navbar />
+      <main id="main-content">
 
       {/* Hero Section */}
       <section className="relative pt-36 pb-28 sm:pt-48 sm:pb-36 px-4 sm:px-6 lg:px-8">
@@ -612,6 +613,7 @@ export default function Pricing() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );
