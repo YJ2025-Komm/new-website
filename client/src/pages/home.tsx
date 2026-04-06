@@ -918,7 +918,7 @@ export default function Home() {
             </span>
           </h2>
           <p className="text-lg sm:text-xl leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
-            GeoRankers analyzes real AI responses and breaks your visibility into clear signals so you can see where you show up, how you are positioned, and what to fix.
+            GeoRankers shows where you appear, how you are positioned, and what to fix to get recommended more often.
           </p>
         </div>
         </div>
