@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Rocket } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -9,126 +10,44 @@ import aiImpactChart from "@assets/Image 2_1754565019296.png";
 export default function GeoGuide() {
   const [activeSection, setActiveSection] = useState('');
 
-  useEffect(() => {
-    document.title = 'The Complete GEO Playbook - Master AI Search Optimization for B2B & SaaS | GeoRankers';
-    
-    // Add comprehensive meta tags for the GEO guide
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Master Generative Engine Optimization (GEO) with our complete strategic guide. Learn proven tactics to optimize your B2B and SaaS brand visibility in ChatGPT, Gemini, Perplexity, and Claude AI search results.');
-    }
-
-    // Add keywords meta tag
-    let metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (!metaKeywords) {
-      metaKeywords = document.createElement('meta');
-      metaKeywords.setAttribute('name', 'keywords');
-      document.head.appendChild(metaKeywords);
-    }
-    metaKeywords.setAttribute('content', 'GEO, generative engine optimization, AI search optimization, ChatGPT visibility, Gemini SEO, B2B AI marketing, SaaS content strategy, AI search ranking, generative AI optimization, LLM optimization, AI brand visibility, Princeton GEO study');
-
-    // Add Open Graph tags for social sharing
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (!ogTitle) {
-      ogTitle = document.createElement('meta');
-      ogTitle.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitle);
-    }
-    ogTitle.setAttribute('content', 'The Complete GEO Playbook - Master AI Search Optimization');
-
-    let ogDescription = document.querySelector('meta[property="og:description"]');
-    if (!ogDescription) {
-      ogDescription = document.createElement('meta');
-      ogDescription.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescription);
-    }
-    ogDescription.setAttribute('content', 'Learn proven Generative Engine Optimization strategies to boost your brand visibility in AI search results across ChatGPT, Gemini, and other LLMs.');
-
-    let ogUrl = document.querySelector('meta[property="og:url"]');
-    if (!ogUrl) {
-      ogUrl = document.createElement('meta');
-      ogUrl.setAttribute('property', 'og:url');
-      document.head.appendChild(ogUrl);
-    }
-    ogUrl.setAttribute('content', 'https://georankers.co/geo-guide');
-
-    // Add canonical URL
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', 'https://georankers.co/geo-guide');
-
-    // Add structured data for the guide
-    let structuredData = document.querySelector('script[type="application/ld+json"]#geo-guide-schema');
-    if (!structuredData) {
-      structuredData = document.createElement('script');
-      structuredData.setAttribute('type', 'application/ld+json');
-      structuredData.setAttribute('id', 'geo-guide-schema');
-      document.head.appendChild(structuredData);
-    }
-    structuredData.textContent = JSON.stringify({
+  useSEO({
+    title: "The Complete GEO Playbook — Master AI Search Optimization for B2B & SaaS | GeoRankers",
+    description:
+      "Master Generative Engine Optimization (GEO) with our complete strategic guide. Learn proven tactics to optimize your B2B and SaaS brand visibility in ChatGPT, Gemini, Perplexity, and Claude AI search results.",
+    canonical: "https://georankers.co/geo-guide",
+    ogTitle: "The Complete GEO Playbook — Master AI Search Optimization",
+    ogDescription:
+      "Learn proven Generative Engine Optimization strategies to boost your brand visibility in AI search results across ChatGPT, Gemini, and other LLMs.",
+    ogUrl: "https://georankers.co/geo-guide",
+    schemaId: "geo-guide-schema",
+    schema: {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "The Complete GEO Playbook - A Strategic Guide for B2B and SaaS Marketers",
       "description": "Master Generative Engine Optimization (GEO) with our complete strategic guide. Learn proven tactics to optimize your B2B and SaaS brand visibility in ChatGPT, Gemini, Perplexity, and Claude AI search results.",
-      "author": {
-        "@type": "Organization",
-        "name": "GeoRankers",
-        "url": "https://georankers.co"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "GeoRankers",
-        "url": "https://georankers.co"
-      },
+      "author": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.co" },
+      "publisher": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.co" },
       "datePublished": "2025-01-07",
       "dateModified": "2025-01-07",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://georankers.co/geo-guide"
-      },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://georankers.co/geo-guide" },
       "articleSection": "AI Marketing",
       "keywords": ["GEO", "generative engine optimization", "AI search optimization", "ChatGPT visibility", "Gemini SEO", "B2B AI marketing", "SaaS content strategy"],
       "about": [
-        {
-          "@type": "Thing",
-          "name": "Generative Engine Optimization",
-          "description": "The practice of optimizing content for AI-powered search engines and language models"
-        },
-        {
-          "@type": "Thing", 
-          "name": "AI Search Marketing",
-          "description": "Marketing strategies focused on visibility in AI search results across platforms like ChatGPT, Gemini, and Perplexity"
-        }
+        { "@type": "Thing", "name": "Generative Engine Optimization", "description": "The practice of optimizing content for AI-powered search engines and language models" },
+        { "@type": "Thing", "name": "AI Search Marketing", "description": "Marketing strategies focused on visibility in AI search results across platforms like ChatGPT, Gemini, and Perplexity" },
       ],
       "mentions": [
-        {
-          "@type": "Organization",
-          "name": "Princeton University"
-        },
-        {
-          "@type": "Organization", 
-          "name": "Allen Institute for AI"
-        },
-        {
-          "@type": "Organization",
-          "name": "SparkToro"
-        },
-        {
-          "@type": "Organization",
-          "name": "Pew Research Center"
-        },
-        {
-          "@type": "Organization",
-          "name": "Gartner"
-        }
-      ]
-    });
+        { "@type": "Organization", "name": "Princeton University" },
+        { "@type": "Organization", "name": "Allen Institute for AI" },
+        { "@type": "Organization", "name": "SparkToro" },
+        { "@type": "Organization", "name": "Pew Research Center" },
+        { "@type": "Organization", "name": "Gartner" },
+      ],
+    },
+  });
 
-    // Set up intersection observer for active section highlighting
+  // Set up intersection observer for active section highlighting
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries: IntersectionObserverEntry[]) => {
         // Find the entry with the largest intersection ratio
@@ -705,10 +624,11 @@ export default function GeoGuide() {
             </p>
 
             <div className="mb-8 flex justify-center">
-              <img 
+              <img
                 src={aiAdoptionChart}
                 alt="Estimated Adoption of AI Search Among U.S. Adults (Millions) - A line graph showing growth from 13 million users in 2023 to projected 90 million users by 2027"
                 className="max-w-full h-auto rounded-lg shadow-md border border-gray-200"
+                loading="lazy"
               />
             </div>
 
@@ -731,10 +651,11 @@ export default function GeoGuide() {
             </p>
 
             <div className="mb-8 flex justify-center">
-              <img 
+              <img
                 src={aiImpactChart}
                 alt="Impact of AI Overviews and Summaries on Search Traffic - A bar chart showing Zero-Click Searches at 60%, AI Overviews Share at 47%, and Traffic Reduction at 20%"
                 className="max-w-full h-auto rounded-lg shadow-md border border-gray-200"
+                loading="lazy"
               />
             </div>
 
@@ -1184,7 +1105,8 @@ export default function GeoGuide() {
             <div className="absolute bottom-0 right-0 w-56 h-56 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
             <div className="relative z-10">
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Put These Best Practices to Work</h3>
-              <p className="text-white/80 mb-6 max-w-xl mx-auto">GeoRankers tracks your brand across ChatGPT and Google AI Mode — so you always know where you stand.</p>
+              <p className="text-white/80 mb-3 max-w-xl mx-auto">GeoRankers tracks your brand across ChatGPT and Google AI Mode — so you always know where you stand.</p>
+              <p className="text-white/60 text-sm mb-6 max-w-xl mx-auto">See exactly how it works on the <Link href="/features" className="text-white underline hover:text-white/80 font-medium">features page</Link>.</p>
               <a href="https://dashboard.georankers.co/register" className="inline-flex items-center bg-white text-blue-700 hover:bg-blue-50 px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
                 <Rocket className="w-4 h-4 mr-2" />
                 Try for Free

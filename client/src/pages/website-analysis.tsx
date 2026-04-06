@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -15,6 +16,29 @@ import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 
 export default function WebsiteAnalysis() {
+  useSEO({
+    title: "Free AI Search Readiness Analyzer | GeoRankers",
+    description:
+      "Instantly audit your website's AI search visibility. Get a free GEO score, identify crawl issues, and see how you compare to competitors in ChatGPT, Gemini, and Perplexity.",
+    canonical: "https://georankers.co/website-analysis",
+    ogTitle: "Free AI Search Readiness Analyzer — GeoRankers",
+    ogDescription:
+      "Paste your URL and get an instant GEO audit: schema check, robots.txt analysis, AI mention score, and actionable recommendations.",
+    ogUrl: "https://georankers.co/website-analysis",
+    schemaId: "website-analysis-schema",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "GeoRankers AI Search Readiness Analyzer",
+      "url": "https://georankers.co/website-analysis",
+      "description":
+        "Free tool to audit your website's AI search visibility and GEO readiness.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    },
+  });
+
   const [analysisResult, setAnalysisResult] = useState<WebsiteAnalysisResponse | null>(null);
   const { toast } = useToast();
 

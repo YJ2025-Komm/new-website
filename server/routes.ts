@@ -481,8 +481,11 @@ Respond ONLY with valid JSON in this exact format:
       const today = new Date().toISOString().split('T')[0];
       const mainPages = [
         { url: `${baseUrl}/`, priority: "1.0", changefreq: "weekly" },
+        { url: `${baseUrl}/features`, priority: "0.9", changefreq: "monthly" },
         { url: `${baseUrl}/geo-guide`, priority: "0.9", changefreq: "monthly" },
-        { url: `${baseUrl}/website-analysis`, priority: "0.9", changefreq: "monthly" },
+        { url: `${baseUrl}/help`, priority: "0.6", changefreq: "monthly" },
+        { url: `${baseUrl}/privacy`, priority: "0.4", changefreq: "yearly" },
+        { url: `${baseUrl}/terms`, priority: "0.4", changefreq: "yearly" },
       ];
       
       // Fetch blog posts from WordPress RSS feed (multiple pages to get all posts)

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -17,6 +18,26 @@ import Footer from "@/components/Footer";
 import { SiOpenai, SiGooglegemini, SiPerplexity, SiClaude } from "react-icons/si";
 
 export default function Pricing() {
+  useSEO({
+    title: "Pricing — AI Search Visibility Plans | GeoRankers",
+    description:
+      "Transparent pricing for every stage of growth. GeoRankers plans include AI mention monitoring, competitor benchmarking, and content recommendations — starting free.",
+    canonical: "https://georankers.co/pricing",
+    ogTitle: "GeoRankers Pricing — AI Search Visibility Plans",
+    ogDescription:
+      "Start free and scale as you grow. Flexible plans for startups, growth teams, and agencies.",
+    ogUrl: "https://georankers.co/pricing",
+    schemaId: "pricing-schema",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "GeoRankers Pricing",
+      "url": "https://georankers.co/pricing",
+      "description": "Pricing plans for GeoRankers AI search visibility platform.",
+      "isPartOf": { "@type": "WebSite", "url": "https://georankers.co" },
+    },
+  });
+
   const [annual, setAnnual] = useState(true);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -165,7 +186,12 @@ export default function Pricing() {
   const faqs = [
     {
       question: "What is a Seed Prompt?",
-      answer: "A Seed Prompt is a core buying query that reflects how customers explore your category. GeoRankers runs structured variations of these prompts across AI models to measure your visibility where it matters most.",
+      answer: (
+        <span>
+          A Seed Prompt is a core buying query that reflects how customers explore your category. GeoRankers runs structured variations of these prompts across AI models to measure your visibility where it matters most. Learn more about{" "}
+          <Link href="/geo-guide" className="text-blue-600 hover:underline font-medium">what seed prompts are in the GEO Playbook</Link>.
+        </span>
+      ),
     },
     {
       question: "What does \"AI Prompts Tracked\" mean?",
@@ -185,7 +211,12 @@ export default function Pricing() {
     },
     {
       question: "How is this different from traditional SEO tools?",
-      answer: "Traditional tools measure rankings and traffic. GeoRankers measures how AI models interpret, select, and cite your brand inside generated answers. We focus on visibility signals, citation patterns, and prescriptive actions tied to AI behavior.",
+      answer: (
+        <span>
+          Traditional tools measure rankings and traffic. GeoRankers measures how AI models interpret, select, and cite your brand inside generated answers. We focus on visibility signals, citation patterns, and prescriptive actions tied to AI behavior — see the{" "}
+          <Link href="/features" className="text-blue-600 hover:underline font-medium">full feature breakdown</Link> for details.
+        </span>
+      ),
     },
     {
       question: "What does \"Competitors Tracked\" include?",
@@ -328,55 +359,58 @@ export default function Pricing() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-36 pb-28 sm:pt-48 sm:pb-36 px-4 sm:px-6 lg:px-8">
         <div className="hero-gradient absolute inset-0 z-0"></div>
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
 
         <div className="hidden sm:block absolute inset-0 z-[5] overflow-hidden pointer-events-none" aria-hidden="true">
-          {/* Above title — left */}
+          {/* Top — left */}
           <div className="absolute top-20 sm:top-24 left-[12%] sm:left-[15%] animate-logo-drift" style={{ animationDelay: '0s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <SiOpenai className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-slate-700" />
             </div>
           </div>
-          {/* Above title — right */}
+          {/* Top — right */}
           <div className="absolute top-20 sm:top-24 right-[12%] sm:right-[15%] animate-logo-drift" style={{ animationDelay: '1s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <SiGooglegemini className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-blue-500" />
             </div>
           </div>
-          {/* Flanking title — left */}
-          <div className="absolute top-40 sm:top-44 left-[6%] sm:left-[8%] animate-logo-drift" style={{ animationDelay: '2s' }}>
+          {/* Middle — left */}
+          <div className="absolute top-52 sm:top-60 left-[6%] sm:left-[8%] animate-logo-drift" style={{ animationDelay: '2s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <SiPerplexity className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-slate-700" />
             </div>
           </div>
-          {/* Flanking title — right */}
-          <div className="absolute top-40 sm:top-44 right-[6%] sm:right-[8%] animate-logo-drift" style={{ animationDelay: '3s' }}>
+          {/* Middle — right */}
+          <div className="absolute top-52 sm:top-60 right-[6%] sm:right-[8%] animate-logo-drift" style={{ animationDelay: '3s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <SiClaude className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-orange-500" />
             </div>
           </div>
-          {/* Below title — right */}
-          <div className="absolute top-60 sm:top-64 right-[12%] sm:right-[15%] animate-logo-drift" style={{ animationDelay: '4s' }}>
+          {/* Bottom — right */}
+          <div className="absolute top-80 sm:top-96 right-[12%] sm:right-[15%] animate-logo-drift" style={{ animationDelay: '4s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
-              <img src="/grok-logo.png" alt="Grok" className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" style={{ filter: 'invert(1)' }} />
+              <img src="/grok-logo.png" alt="Grok" className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" style={{ filter: 'invert(1)' }} loading="lazy" />
             </div>
           </div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] mb-4 sm:mb-6">
-            Simple, Transparent{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Pricing</span>
+            Start Tracking Your{" "}
+            <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">AI Visibility Today</span>
           </h1>
-          <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto mb-8">
-            Choose the plan that fits your team. Start tracking your AI visibility today — no credit card required.
+          <p className="text-lg sm:text-xl text-slate-500 max-w-2xl mx-auto mb-3">
+            Know where your brand stands across AI answers and what needs to change to improve it.
+          </p>
+          <p className="text-sm text-slate-400 mb-10">
+            No credit card required. Cancel anytime.
           </p>
 
           {/* Billing Toggle */}
-          <div className="flex items-center justify-center gap-4 mb-12">
+          <div className="flex items-center justify-center gap-4 mb-2">
             <span className={`text-sm font-medium ${!annual ? "text-slate-900" : "text-slate-500"}`}>Monthly</span>
             <button
               onClick={() => setAnnual(!annual)}
@@ -681,7 +715,7 @@ export default function Pricing() {
                   </button>
                   {openFAQ === index && (
                     <div className="px-6 pb-6">
-                      <p className="text-slate-600 leading-relaxed text-sm">{faq.answer}</p>
+                      <div className="text-slate-600 leading-relaxed text-sm">{faq.answer}</div>
                     </div>
                   )}
                 </CardContent>

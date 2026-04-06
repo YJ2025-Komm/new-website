@@ -5,3 +5,9 @@
 
 [build.environment]
   NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/website-analysis"
+  to = "/features"
+  status = 301
+  force = true

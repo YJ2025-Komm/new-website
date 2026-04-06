@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
 import {
@@ -17,11 +18,11 @@ import {
   HelpCircle,
   Menu,
   X,
-  Mail,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { SiLinkedin, SiOpenai, SiGooglegemini, SiPerplexity, SiClaude, SiGithubcopilot } from "react-icons/si";
+import { SiOpenai, SiGooglegemini, SiPerplexity, SiClaude, SiGithubcopilot } from "react-icons/si";
+import Footer from "@/components/Footer";
 import geminiLogo from "@assets/Gemini_1753958628531.png";
 import grokLogo from "@assets/Grok_1753958628535.png";
 import openaiLogo from "@assets/Open Ai_1753958628536.png";
@@ -352,6 +353,17 @@ function DashboardCarousel() {
 }
 
 export default function Home() {
+  useSEO({
+    title: "GeoRankers — AI Search Intelligence Platform for B2B SaaS",
+    description:
+      "GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build brand authority to get visible in AI search across ChatGPT, Gemini, Perplexity, and Claude.",
+    canonical: "https://georankers.co/",
+    ogTitle: "GeoRankers — AI Search Intelligence Platform",
+    ogDescription:
+      "Track, optimize, and build brand authority to get visible in AI search across ChatGPT, Gemini, Perplexity, and Claude.",
+    ogUrl: "https://georankers.co/",
+  });
+
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
@@ -409,8 +421,12 @@ export default function Home() {
     },
     {
       question: "How is AI search different from Google SEO?",
-      answer:
-        "Traditional SEO optimizes for search engine algorithms and keyword rankings. AI search optimization focuses on how language models understand context, authority, and relevance when generating responses. AI models consider factors like content quality, brand mentions across the web, and topical expertise rather than just keywords and backlinks. The strategies and metrics are fundamentally different.",
+      answer: (
+        <span>
+          Traditional SEO optimizes for search engine algorithms and keyword rankings. AI search optimization focuses on how language models understand context, authority, and relevance when generating responses. AI models consider factors like content quality, brand mentions across the web, and topical expertise rather than just keywords and backlinks. The strategies and metrics are fundamentally different. For a full breakdown, read our{" "}
+          <Link href="/geo-guide" className="text-blue-600 hover:underline font-medium">complete GEO Playbook</Link>.
+        </span>
+      ),
     },
     {
       question: "Which AI platforms does GeoRankers monitor?",
@@ -975,7 +991,7 @@ export default function Home() {
               {/* ChatGPT */}
               <div className="flex items-center gap-2.5 opacity-60 hover:opacity-90 transition-opacity duration-200">
                 <div className="w-8 h-8 rounded-lg overflow-hidden">
-                  <img src="/openai-logo.png" alt="ChatGPT" className="w-full h-full object-cover" />
+                  <img src="/openai-logo.png" alt="ChatGPT" className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <span className="font-semibold text-slate-600 text-sm">ChatGPT</span>
               </div>
@@ -1006,7 +1022,7 @@ export default function Home() {
               {/* Perplexity */}
               <div className="flex items-center gap-2.5 opacity-60 hover:opacity-90 transition-opacity duration-200">
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden p-1" style={{ background: "#1c1c1e" }}>
-                  <img src="/perplexity-logo.png" alt="Perplexity" className="w-full h-full object-contain" />
+                  <img src="/perplexity-logo.png" alt="Perplexity" className="w-full h-full object-contain" loading="lazy" />
                 </div>
                 <span className="font-semibold text-slate-600 text-sm">Perplexity</span>
               </div>
@@ -1103,7 +1119,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
             {[
               { icon: Search, title: "Prompt level visibility tracking", desc: "See which queries include your brand and where you are missing." },
               { icon: BarChart3, title: "Competitive answer share", desc: "Compare how often your brand appears versus competitors." },
@@ -1115,19 +1131,24 @@ export default function Home() {
               return (
                 <div
                   key={i}
-                  className="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                  className="bg-white rounded-[2rem] p-7 lg:p-8 min-h-[220px] border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col"
                 >
                   <div
-                    className="w-11 h-11 rounded-[1rem] flex items-center justify-center mb-4 shadow-sm"
+                    className="w-14 h-14 rounded-[1.15rem] flex items-center justify-center mb-5 shadow-sm"
                     style={{ background: 'linear-gradient(135deg, #2994FF, #7575FF)' }}
                   >
-                    <Icon className="w-5 h-5 text-white" />
+                    <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <p className="font-black text-slate-900 mb-2 text-sm leading-snug">{item.title}</p>
-                  <p className="text-xs font-medium text-slate-500 leading-relaxed">{item.desc}</p>
+                  <p className="font-black text-slate-900 mb-3 text-base leading-snug">{item.title}</p>
+                  <p className="text-sm font-medium text-slate-500 leading-relaxed">{item.desc}</p>
                 </div>
               );
             })}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/features" className="text-blue-600 hover:underline text-sm font-semibold">
+              Explore the full feature breakdown →
+            </Link>
           </div>
         </div>
       </section>
@@ -1229,7 +1250,7 @@ export default function Home() {
                   </button>
                   {openFAQ === index && (
                     <div className="px-6 pb-6">
-                      <p className="text-sm text-slate-600 leading-relaxed">{faq.answer}</p>
+                      <div className="text-sm text-slate-600 leading-relaxed">{faq.answer}</div>
                     </div>
                   )}
                 </CardContent>
@@ -1330,6 +1351,7 @@ export default function Home() {
                         src={(post as any).featured_image_url}
                         alt={post.title.rendered}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
                       />
                     ) : (
                       <div className={`h-full p-6 flex items-center justify-center ${
@@ -1409,72 +1431,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 sm:py-14 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-3 gap-10 sm:gap-8 mb-12">
-            {/* Brand */}
-            <div>
-              <div className="text-2xl font-black mb-4">
-                <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">GeoRankers</span>
-              </div>
-              <p className="text-white/60 text-sm leading-relaxed mb-6">
-                AI Search Visibility Platform for B2B SaaS Teams
-              </p>
-              <a
-                href="https://www.linkedin.com/company/georankers/posts/?feedView=all"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-              >
-                <SiLinkedin className="w-5 h-5 text-white" />
-              </a>
-            </div>
-
-            {/* Links */}
-            <div>
-              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Quick Links</p>
-              <div className="space-y-3">
-                <Link href="/pricing" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  Pricing
-                </Link>
-                <a href="https://blog.georankers.co/" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  Blog
-                </a>
-                <Link href="/geo-guide" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  GEO Guide
-                </Link>
-                <Link href="/help" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  Help Docs
-                </Link>
-              </div>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Contact</p>
-              <a
-                href="mailto:hello@georankers.co"
-                className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm group"
-                data-testid="link-footer-email"
-              >
-                <Mail className="w-4 h-4 mr-2 text-blue-200/70 group-hover:text-white transition-colors" />
-                hello@georankers.co
-              </a>
-            </div>
-          </div>
-
-          <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-blue-200/60 text-xs">
-              © {new Date().getFullYear()} GeoRankers. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6">
-              <Link href="/terms" className="text-blue-200/60 hover:text-white text-xs transition-colors">Terms of Service</Link>
-              <Link href="/privacy" className="text-blue-200/60 hover:text-white text-xs transition-colors">Privacy Policy</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
     </div>
   );

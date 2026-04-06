@@ -1,4 +1,6 @@
 import { useRef, useState, useEffect } from "react";
+import { Link } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Check,
@@ -442,6 +444,27 @@ function IntelligenceLoopSection() {
 }
 
 export default function Features() {
+  useSEO({
+    title: "Features — AI Search Tracking & GEO Analytics | GeoRankers",
+    description:
+      "Explore GeoRankers' full feature set: AI mention monitoring, competitive benchmarking, content gap analysis, and real-time visibility scoring across ChatGPT, Gemini, Perplexity, and Claude.",
+    canonical: "https://georankers.co/features",
+    ogTitle: "GeoRankers Features — AI Search Tracking & GEO Analytics",
+    ogDescription:
+      "Monitor your brand across every major AI model, benchmark against competitors, and get actionable content recommendations — all in one platform.",
+    ogUrl: "https://georankers.co/features",
+    schemaId: "features-schema",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "GeoRankers Features",
+      "url": "https://georankers.co/features",
+      "description":
+        "AI search tracking, competitive intelligence, and GEO analytics features for B2B SaaS companies.",
+      "isPartOf": { "@type": "WebSite", "url": "https://georankers.co" },
+    },
+  });
+
   return (
     <div className="min-h-screen text-slate-900" style={{ overflowX: 'clip' }}>
       <Navbar />
@@ -475,7 +498,7 @@ export default function Features() {
           </div>
           <div className="absolute bottom-10 sm:bottom-14 left-[10%] sm:left-[14%] animate-logo-drift" style={{ animationDelay: '4s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
-              <img src="/grok-logo.png" alt="Grok" className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" style={{ filter: 'invert(1)' }} />
+              <img src="/grok-logo.png" alt="Grok" className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" style={{ filter: 'invert(1)' }} loading="lazy" />
             </div>
           </div>
         </div>
@@ -498,7 +521,8 @@ export default function Features() {
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-slate-900 mb-5">
-            The AI Visibility Intelligence System
+            The AI Visibility{" "}
+            <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">Intelligence System</span>
           </h1>
 
           {/* Sub-headline */}
@@ -545,7 +569,7 @@ export default function Features() {
               {/* ChatGPT */}
               <div className="flex items-center gap-2.5 opacity-60 hover:opacity-90 transition-opacity duration-200">
                 <div className="w-8 h-8 rounded-lg overflow-hidden">
-                  <img src="/openai-logo.png" alt="ChatGPT" className="w-full h-full object-cover" />
+                  <img src="/openai-logo.png" alt="ChatGPT" className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <span className="font-semibold text-slate-600 text-sm">ChatGPT</span>
               </div>
@@ -576,7 +600,7 @@ export default function Features() {
               {/* Perplexity */}
               <div className="flex items-center gap-2.5 opacity-60 hover:opacity-90 transition-opacity duration-200">
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden p-1" style={{ background: "#1c1c1e" }}>
-                  <img src="/perplexity-logo.png" alt="Perplexity" className="w-full h-full object-contain" />
+                  <img src="/perplexity-logo.png" alt="Perplexity" className="w-full h-full object-contain" loading="lazy" />
                 </div>
                 <span className="font-semibold text-slate-600 text-sm">Perplexity</span>
               </div>
@@ -1071,6 +1095,16 @@ export default function Features() {
               </div>
             </CardContent>
           </Card>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/pricing"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-base transition-all duration-200 shadow-md hover:shadow-lg"
+            >
+              View Pricing Plans
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 

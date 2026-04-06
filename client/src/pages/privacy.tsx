@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { useEffect } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -22,8 +23,22 @@ const sections = [
 ];
 
 export default function Privacy() {
+  useSEO({
+    title: "Privacy Policy | GeoRankers",
+    description:
+      "Read the GeoRankers Privacy Policy to understand how we collect, use, and protect your data when you use our AI search visibility platform.",
+    canonical: "https://georankers.co/privacy",
+    schemaId: "privacy-schema",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Privacy Policy",
+      "url": "https://georankers.co/privacy",
+      "isPartOf": { "@type": "WebSite", "url": "https://georankers.co" },
+    },
+  });
+
   useEffect(() => {
-    document.title = "Privacy Policy | GeoRankers";
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
