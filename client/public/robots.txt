@@ -1,29 +1,69 @@
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
-# Explicitly allow AI/LLM crawlers
+# Google
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Twitter/X
+User-agent: Twitterbot
+Allow: /
+
+# Facebook
+User-agent: FacebookBot
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+
+# AI crawlers — explicitly allowed
 User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: OpenAI-Crawler
 Allow: /
 
 User-agent: Claude-Web
 Allow: /
 
+User-agent: Anthropic-Claude
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: Google-Extended
-Allow: /
-
-User-agent: FacebookBot
-Allow: /
-
-User-agent: Applebot
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: Anthropic-Claude
+User-agent: YouBot
 Allow: /
 
-User-agent: OpenAI-Crawler
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://georankers.co/sitemap.xml

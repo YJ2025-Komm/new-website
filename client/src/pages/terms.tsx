@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { useEffect } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -20,8 +21,22 @@ const sections = [
 ];
 
 export default function Terms() {
+  useSEO({
+    title: "Terms of Service | GeoRankers",
+    description:
+      "Review the GeoRankers Terms of Service governing your use of the AI search visibility platform, including subscriptions, data usage, and acceptable use policy.",
+    canonical: "https://georankers.co/terms",
+    schemaId: "terms-schema",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Terms of Service",
+      "url": "https://georankers.co/terms",
+      "isPartOf": { "@type": "WebSite", "url": "https://georankers.co" },
+    },
+  });
+
   useEffect(() => {
-    document.title = "Terms of Service | GeoRankers";
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 

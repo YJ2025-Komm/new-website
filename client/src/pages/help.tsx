@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import { Search, BookOpen, Settings, BarChart3, Target, Bot, RefreshCw, CreditCard, AlertCircle, ChevronDown, ChevronUp, Mail } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -281,12 +282,20 @@ const sections: { id: string; icon: typeof BookOpen; color: string; title: strin
               </tbody>
             </table>
             <p className="text-xs text-slate-400 mt-1.5">* Perplexity coming soon</p>
+            <p className="text-xs mt-2">
+              <Link href="/pricing" className="text-blue-600 hover:underline font-medium">Compare all plans in detail →</Link>
+            </p>
           </div>
         ),
       },
       {
         q: "What happens when my free trial ends?",
-        a: "Your 7-day free trial includes full access to all results and the AI chatbot. Once it expires, you'll be prompted to choose a plan to continue. Your data and all analysis runs are saved — nothing is lost. Upgrading restores access immediately.",
+        a: (
+          <span>
+            Your 7-day free trial includes full access to all results and the AI chatbot. Once it expires, you'll be prompted to choose a plan to continue. Your data and all analysis runs are saved — nothing is lost. Upgrading restores access immediately.{" "}
+            <Link href="/pricing" className="text-blue-600 hover:underline font-medium">Choose a plan →</Link>
+          </span>
+        ),
       },
       {
         q: "How do I invite team members?",
@@ -385,6 +394,56 @@ function AccordionItem({ q, a }: QA) {
 }
 
 export default function Help() {
+  useSEO({
+    title: "Help & FAQs — GeoRankers AI Search Platform",
+    description:
+      "Find answers to common questions about GeoRankers: getting started, setting up your first analysis, understanding your AI visibility score, billing, and more.",
+    canonical: "https://georankers.co/help",
+    ogTitle: "GeoRankers Help & FAQs",
+    ogDescription:
+      "Everything you need to get the most out of GeoRankers — setup guides, feature explanations, and billing FAQs.",
+    ogUrl: "https://georankers.co/help",
+    schemaId: "help-schema",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is GeoRankers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GeoRankers measures how visible your brand is in AI-generated search results — across platforms like ChatGPT, Gemini, and Google AI Overviews. It shows you where you appear, where you don't, and what to do about it.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Who is GeoRankers for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Marketing and growth teams at B2B companies who want to understand and improve how their brand shows up when buyers ask AI tools for product recommendations.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "What do I need to get started?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your brand's website URL, at least one competitor, and at least one keyword or search term you want to be found for.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How is the AI Visibility Score calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your score reflects how often your brand is mentioned across AI model responses for your tracked keywords, weighted by position and sentiment, benchmarked against your competitors.",
+          },
+        },
+      ],
+    },
+  });
+
   const [search, setSearch] = useState("");
   const [activeSection, setActiveSection] = useState("");
 
