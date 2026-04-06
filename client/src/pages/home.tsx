@@ -925,61 +925,45 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Screenshot showcase */}
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 items-start">
-            {/* Left: large featured screenshot */}
-            <div className="lg:col-span-3 rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 ring-1 ring-black/5">
-              <div className="bg-slate-100 px-4 py-2.5 flex items-center gap-2 border-b border-slate-200">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-slate-300" />
-                  <div className="w-3 h-3 rounded-full bg-slate-300" />
-                  <div className="w-3 h-3 rounded-full bg-slate-300" />
-                </div>
-                <span className="text-xs text-slate-400 font-medium ml-2">Executive Summary</span>
+          {/* Screenshot showcase — overlapping fan */}
+          <div className="relative mx-auto" style={{ height: "460px", maxWidth: "960px" }}>
+
+            {/* Left card — AI Prompts */}
+            <div className="absolute rounded-2xl overflow-hidden border border-slate-200 shadow-xl"
+              style={{ width: "52%", left: "0%", top: "40px", zIndex: 10, transform: "rotate(-4deg)", transformOrigin: "bottom center" }}>
+              <div className="bg-white border-b border-slate-100 px-3 py-2 flex items-center gap-2">
+                <div className="flex gap-1"><div className="w-2 h-2 rounded-full bg-red-300" /><div className="w-2 h-2 rounded-full bg-yellow-300" /><div className="w-2 h-2 rounded-full bg-green-300" /></div>
+                <span className="text-[10px] text-slate-400 font-medium">AI Prompts & Query Analysis</span>
               </div>
-              <img
-                src={screenshotExecutive}
-                alt="GeoRankers Executive Summary — AI visibility score, competitive positioning, strengths and weaknesses"
-                className="w-full object-cover object-top"
-                style={{ maxHeight: "480px" }}
-              />
+              <div className="overflow-hidden" style={{ height: "340px" }}>
+                <img src={screenshotPrompts} alt="AI Prompts" className="w-full" style={{ transform: "scale(1.6)", transformOrigin: "top left", marginTop: "0px" }} />
+              </div>
             </div>
 
-            {/* Right: two smaller screenshots stacked */}
-            <div className="lg:col-span-2 flex flex-col gap-4">
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200/80 ring-1 ring-black/5">
-                <div className="bg-slate-100 px-4 py-2.5 flex items-center gap-2 border-b border-slate-200">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-                  </div>
-                  <span className="text-xs text-slate-400 font-medium ml-2">AI Prompts & Query Analysis</span>
-                </div>
-                <img
-                  src={screenshotPrompts}
-                  alt="GeoRankers AI Prompts — prompt-level brand mentions across AI platforms"
-                  className="w-full object-cover object-top"
-                  style={{ maxHeight: "228px" }}
-                />
+            {/* Center card — Executive Summary (front) */}
+            <div className="absolute rounded-2xl overflow-hidden border border-slate-200 shadow-2xl"
+              style={{ width: "58%", left: "50%", transform: "translateX(-50%)", top: "0px", zIndex: 30 }}>
+              <div className="bg-white border-b border-slate-100 px-3 py-2 flex items-center gap-2">
+                <div className="flex gap-1"><div className="w-2 h-2 rounded-full bg-red-300" /><div className="w-2 h-2 rounded-full bg-yellow-300" /><div className="w-2 h-2 rounded-full bg-green-300" /></div>
+                <span className="text-[10px] text-slate-400 font-medium">Executive Summary</span>
               </div>
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200/80 ring-1 ring-black/5">
-                <div className="bg-slate-100 px-4 py-2.5 flex items-center gap-2 border-b border-slate-200">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-                  </div>
-                  <span className="text-xs text-slate-400 font-medium ml-2">Signal Tracker</span>
-                </div>
-                <img
-                  src={screenshotSignals}
-                  alt="GeoRankers Signal Tracker — track recommendation signals over time"
-                  className="w-full object-cover object-top"
-                  style={{ maxHeight: "228px" }}
-                />
+              <div className="overflow-hidden" style={{ height: "380px" }}>
+                <img src={screenshotExecutive} alt="Executive Summary" className="w-full" style={{ transform: "scale(1.5)", transformOrigin: "top left" }} />
               </div>
             </div>
+
+            {/* Right card — Signal Tracker */}
+            <div className="absolute rounded-2xl overflow-hidden border border-slate-200 shadow-xl"
+              style={{ width: "52%", right: "0%", top: "40px", zIndex: 20, transform: "rotate(4deg)", transformOrigin: "bottom center" }}>
+              <div className="bg-white border-b border-slate-100 px-3 py-2 flex items-center gap-2">
+                <div className="flex gap-1"><div className="w-2 h-2 rounded-full bg-red-300" /><div className="w-2 h-2 rounded-full bg-yellow-300" /><div className="w-2 h-2 rounded-full bg-green-300" /></div>
+                <span className="text-[10px] text-slate-400 font-medium">Signal Tracker</span>
+              </div>
+              <div className="overflow-hidden" style={{ height: "340px" }}>
+                <img src={screenshotSignals} alt="Signal Tracker" className="w-full" style={{ transform: "scale(1.6)", transformOrigin: "top left" }} />
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
