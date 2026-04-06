@@ -26,9 +26,9 @@ import geminiLogo from "@assets/Gemini_1753958628531.png";
 import grokLogo from "@assets/Grok_1753958628535.png";
 import openaiLogo from "@assets/Open Ai_1753958628536.png";
 import perplexityLogo from "@assets/Perplexity_1753958628538.png";
-import screenshotExecutive from "@assets/screencapture-dashboard-georankers-co-results-executive-summar_1775463758808.png";
-import screenshotPrompts from "@assets/screencapture-dashboard-georankers-co-results-prompts-2026-04-_1775463748933.png";
-import screenshotSignals from "@assets/screencapture-dashboard-georankers-co-results-recommendations-_1775463754076.png";
+import screenshotInsights from "@assets/image_1775465238496.png";
+import screenshotPrompts from "@assets/image_1775465155621.png";
+import screenshotRecommendations from "@assets/image_1775465178832.png";
 
 // Featured blog images
 import strategicImage from '@assets/generated_images/Strategic_AI_search_leadership_2959319a.png';
@@ -356,9 +356,9 @@ function DashboardCarousel() {
 
 const screenshotSlides = [
   {
-    src: screenshotExecutive,
-    label: "Executive Summary",
-    caption: "AI visibility score, competitive positioning, strengths, weaknesses and prioritized actions — all in one view.",
+    src: screenshotInsights,
+    label: "Overall Insights",
+    caption: "AI visibility score, brand mentions, sentiment, competitive landscape and mention distribution — all at a glance.",
   },
   {
     src: screenshotPrompts,
@@ -366,9 +366,9 @@ const screenshotSlides = [
     caption: "See the exact prompts AI is answering about your industry and where your brand appears — or doesn't.",
   },
   {
-    src: screenshotSignals,
-    label: "Signal Tracker",
-    caption: "Track progress across recommendation success signals and see exactly when your brand was seen in AI responses.",
+    src: screenshotRecommendations,
+    label: "Strategic Recommendations",
+    caption: "Data-driven actions prioritized by impact to boost your AI presence, with clear steps to execute each one.",
   },
 ];
 
@@ -385,15 +385,16 @@ function ScreenshotCard({ slide }: { slide: typeof screenshotSlides[0] }) {
           dashboard.georankers.co — {slide.label}
         </div>
       </div>
-      <div className="overflow-hidden bg-white" style={{ height: "490px" }}>
+      <div className="bg-white" style={{ height: "490px", overflow: "hidden" }}>
         <img
           src={slide.src}
           alt={slide.label}
           style={{
             width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "top",
             display: "block",
-            transform: "scale(1.75)",
-            transformOrigin: "top center",
           }}
         />
       </div>
