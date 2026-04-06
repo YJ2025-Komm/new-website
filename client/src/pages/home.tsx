@@ -908,7 +908,8 @@ export default function Home() {
       <VisibilityGapSection />
 
       {/* Visibility Signals Section */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)" }}>
+      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto rounded-3xl px-8 py-20 sm:py-24" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)" }}>
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] text-white mb-6">
             Turn AI Answers Into{" "}
@@ -919,6 +920,7 @@ export default function Home() {
           <p className="text-lg sm:text-xl leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
             GeoRankers analyzes real AI responses and breaks your visibility into clear signals so you can see where you show up, how you are positioned, and what to fix.
           </p>
+        </div>
         </div>
       </section>
 
