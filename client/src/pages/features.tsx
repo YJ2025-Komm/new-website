@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from "react";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,6 +18,176 @@ import {
 import { SiOpenai, SiGooglegemini, SiPerplexity, SiClaude } from "react-icons/si";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+function IntelligenceLoopSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
+      { threshold: 0.2 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % 5);
+    }, 1800);
+    return () => window.clearInterval(interval);
+  }, []);
+
+  const segments = [
+    {
+      label: "Query Modeling",
+      shortLabel: "Query Modeling",
+      description: "Map the real prompts buyers use when they ask AI tools for recommendations.",
+      startAngle: -90,
+      endAngle: -18,
+    },
+    {
+      label: "Multi Model Capture",
+      shortLabel: "Multi Model\nCapture",
+      description: "Track how ChatGPT, Gemini, Perplexity, and other assistants surface your brand.",
+      startAngle: -18,
+      endAngle: 54,
+    },
+    {
+      label: "Signal Interpretation",
+      shortLabel: "Signal\nInterpretation",
+      description: "Turn raw mentions, citations, and rankings into a clear explanation of what changed.",
+      startAngle: 54,
+      endAngle: 126,
+    },
+    {
+      label: "Prescriptive Action",
+      shortLabel: "Prescriptive\nAction",
+      description: "Convert those signals into specific fixes, content gaps, and next best actions.",
+      startAngle: 126,
+      endAngle: 198,
+    },
+    {
+      label: "Visibility Improvement",
+      shortLabel: "Visibility\nImprovement",
+      description: "Measure the lift and feed those gains back into the next analysis cycle.",
+      startAngle: 198,
+      endAngle: 270,
+    },
+  ];
+
+  const polarToCartesian = (cx: number, cy: number, r: number, angle: number) => {
+    const rad = ((angle - 90) * Math.PI) / 180;
+    return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+  };
+
+  const describeWedge = (cx: number, cy: number, outerR: number, innerR: number, startAngle: number, endAngle: number) => {
+    const outerStart = polarToCartesian(cx, cy, outerR, endAngle);
+    const outerEnd = polarToCartesian(cx, cy, outerR, startAngle);
+    const innerStart = polarToCartesian(cx, cy, innerR, startAngle);
+    const innerEnd = polarToCartesian(cx, cy, innerR, endAngle);
+    const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+    return [
+      `M ${outerStart.x} ${outerStart.y}`,
+      `A ${outerR} ${outerR} 0 ${largeArcFlag} 0 ${outerEnd.x} ${outerEnd.y}`,
+      `L ${innerStart.x} ${innerStart.y}`,
+      `A ${innerR} ${innerR} 0 ${largeArcFlag} 1 ${innerEnd.x} ${innerEnd.y}`,
+      "Z",
+    ].join(" ");
+  };
+
+  const getLabelPosition = (startAngle: number, endAngle: number) => {
+    const centerAngle = (startAngle + endAngle) / 2;
+    return polarToCartesian(270, 270, 188, centerAngle);
+  };
+
+  return (
+    <section ref={sectionRef} className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] bg-gradient-to-r from-blue-200/20 to-violet-200/20 rounded-full blur-3xl" />
+      </div>
+      <div className="relative max-w-5xl mx-auto text-center">
+        <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-3" style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(12px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
+          The Intelligence Loop
+        </p>
+        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.15] text-slate-900 mb-4" style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s" }}>
+          How It All Connects
+        </h2>
+        <p className="text-base sm:text-lg font-medium text-slate-500 max-w-2xl mx-auto mb-12 leading-relaxed" style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s" }}>
+          Think of AI visibility as a feedback loop, not a one-time ranking. Each cycle makes your positioning stronger.
+        </p>
+
+        <div className="hidden md:block relative w-[34rem] h-[34rem] mx-auto mb-8" style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0) scale(1)" : "translateY(24px) scale(0.98)", transition: "opacity 0.8s ease 0.25s, transform 0.8s ease 0.25s" }}>
+          <svg viewBox="0 0 540 540" className="absolute inset-0 w-full h-full drop-shadow-[0_30px_60px_rgba(148,163,184,0.18)]">
+            <defs>
+              <linearGradient id="loop-active-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#dbeafe" />
+                <stop offset="100%" stopColor="#eef2ff" />
+              </linearGradient>
+            </defs>
+            <circle cx="270" cy="270" r="256" fill="rgba(255,255,255,0.92)" />
+            {segments.map((segment, index) => {
+              const isActiveSegment = index === activeIndex;
+              return (
+                <path key={segment.label} d={describeWedge(270, 270, 256, 108, segment.startAngle, segment.endAngle)} fill={isActiveSegment ? "url(#loop-active-gradient)" : "rgba(255,255,255,0.94)"} stroke="rgba(226,232,240,0.85)" strokeWidth="2" style={{ transition: "fill 500ms ease, opacity 500ms ease", opacity: isActiveSegment ? 1 : 0.88 }} />
+              );
+            })}
+            <circle cx="270" cy="270" r="108" fill="white" />
+          </svg>
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-[12.5rem] h-[12.5rem] rounded-full bg-gradient-to-br from-blue-500 to-violet-600 shadow-[0_30px_60px_rgba(99,102,241,0.28)] border-[6px] border-white flex items-center justify-center">
+              <div className="text-center px-6">
+                <p className="text-white font-black text-[1.05rem] tracking-wide leading-[1.15] uppercase">AI Visibility<br />Intelligence</p>
+                <div className="w-20 h-[3px] bg-white/75 rounded-full mx-auto mt-3" />
+              </div>
+            </div>
+          </div>
+          {segments.map((segment, index) => {
+            const isActiveSegment = index === activeIndex;
+            const labelPosition = getLabelPosition(segment.startAngle, segment.endAngle);
+            return (
+              <div key={segment.label} className="absolute pointer-events-none" style={{ left: `${(labelPosition.x / 540) * 100}%`, top: `${(labelPosition.y / 540) * 100}%`, transition: "transform 400ms ease, opacity 400ms ease", transform: `translate(-50%, -50%) scale(${isActiveSegment ? 1.04 : 1})`, opacity: isActiveSegment ? 1 : 0.9 }}>
+                <p className="whitespace-pre-line text-center text-[0.95rem] font-black uppercase text-slate-900 leading-[1.05] min-w-[9rem]">{segment.shortLabel}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="hidden md:block max-w-2xl mx-auto" style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(18px)", transition: "opacity 0.6s ease 0.35s, transform 0.6s ease 0.35s" }}>
+          <div className="glass rounded-[1.75rem] px-6 py-4 border border-blue-100/80 shadow-sm">
+            <p className="text-[11px] font-black uppercase tracking-[0.24em] text-blue-500 mb-2">Active Focus</p>
+            <p className="text-lg font-bold text-slate-900 mb-1">{segments[activeIndex].label}</p>
+            <p className="text-sm font-medium text-slate-600 leading-relaxed">{segments[activeIndex].description}</p>
+          </div>
+        </div>
+
+        <div className="md:hidden max-w-sm mx-auto space-y-3" style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s" }}>
+          <div className="rounded-[2rem] bg-gradient-to-br from-blue-500 to-violet-600 shadow-[0_20px_50px_rgba(99,102,241,0.28)] border-[5px] border-white px-6 py-8 text-center">
+            <p className="text-white font-black text-xl tracking-wide leading-[1.1] uppercase">AI Visibility<br />Intelligence</p>
+          </div>
+          {segments.map((segment, index) => {
+            const isActiveSegment = index === activeIndex;
+            return (
+              <div key={segment.label} className={`rounded-[1.5rem] border px-4 py-4 text-left transition-all duration-500 ${isActiveSegment ? "bg-gradient-to-r from-blue-50 to-violet-50 border-blue-200 shadow-lg shadow-blue-100/60" : "bg-white border-slate-200/80"}`}>
+                <div className="flex items-start gap-3">
+                  <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-black transition-all duration-500 ${isActiveSegment ? "text-white shadow-md" : "text-slate-500 bg-slate-100"}`} style={isActiveSegment ? { background: "linear-gradient(135deg, #3b82f6, #8b5cf6)" } : {}}>
+                    {index + 1}
+                  </div>
+                  <div className="min-w-0">
+                    <p className={`text-sm font-black uppercase leading-tight ${isActiveSegment ? "text-slate-900" : "text-slate-700"}`}>{segment.label}</p>
+                    <p className="text-xs font-medium text-slate-500 leading-relaxed mt-1">{segment.description}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Features() {
   useSEO({
@@ -682,6 +853,8 @@ export default function Features() {
           </div>
         </div>
       </section>
+
+      <IntelligenceLoopSection />
 
       {/* Final CTA Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
