@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Rocket } from "lucide-react";
