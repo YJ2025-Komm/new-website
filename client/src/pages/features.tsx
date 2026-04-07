@@ -829,7 +829,7 @@ export default function Features() {
             </CardContent>
           </Card>
 
-          <div className="text-center mt-10">
+          {/* <div className="text-center mt-10">
             <Link
               href="/pricing"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-base transition-all duration-200 shadow-md hover:shadow-lg"
@@ -837,7 +837,7 @@ export default function Features() {
               View Pricing Plans
               <ArrowRight className="w-4 h-4" />
             </Link>
-          </div>
+          </div> */}
         </div>
       </section>
 
