@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { Mail } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
 
 export default function Footer() {
@@ -47,18 +48,19 @@ export default function Footer() {
                 About Us
               </Link>
               <a
-                href="mailto:hello@georankers.co"
-                className="block text-white/80 hover:text-white text-sm transition-colors"
-              >
-                Contact Us
-              </a>
-              <a
                 href="https://calendly.com/hello-georankers/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-white/80 hover:text-white text-sm transition-colors"
               >
                 Book a Demo
+              </a>
+              <a
+                href="mailto:hello@georankers.co"
+                className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm group"
+              >
+                <Mail className="w-4 h-4 mr-2 text-blue-200/70 group-hover:text-white transition-colors" />
+                hello@georankers.co
               </a>
             </div>
           </div>
