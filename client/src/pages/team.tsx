@@ -65,15 +65,15 @@ export default function Team() {
         </div>
       </section>
 
-      {/* Founders */}
+      {/* Team — merged */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 border-y border-slate-100">
         <div className="max-w-5xl mx-auto">
-          <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-3 text-center">Leadership</p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.15] text-slate-900 mb-12 text-center">
-            Our Founders
+            Meet the Passionate Team Behind GeoRankers
           </h2>
 
-          <div className="flex flex-wrap justify-center gap-8">
+          {/* Founders row */}
+          <div className="flex flex-wrap justify-center gap-8 mb-10">
             {founders.map((f) => (
               <div
                 key={f.initials}
@@ -96,17 +96,8 @@ export default function Team() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Team */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-3 text-center">The People</p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.15] text-slate-900 mb-12 text-center">
-            Meet the Team
-          </h2>
-
+          {/* Team members row */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {teamMembers.map((m) => (
               <div
