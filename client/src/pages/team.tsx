@@ -74,34 +74,37 @@ export default function Team() {
           </h2>
 
           {/* Founders row */}
-          <div className="flex flex-wrap justify-center gap-8 mb-10">
+          <div className="flex flex-col items-center gap-6 mb-12">
             {founders.map((f) => (
               <div
                 key={f.initials}
-                className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-8 flex flex-col items-center text-center w-80"
+                className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-8 flex flex-col sm:flex-row gap-8 items-center sm:items-start w-full max-w-2xl"
               >
                 {f.photo ? (
                   <img
                     src={f.photo}
                     alt={f.name}
-                    className="w-24 h-24 rounded-2xl object-cover mb-5 shadow-lg"
+                    className="w-44 h-44 rounded-2xl object-cover flex-shrink-0 shadow-md"
                   />
                 ) : (
-                  <div className={`w-24 h-24 rounded-2xl bg-gradient-to-br ${f.gradient} flex items-center justify-center mb-5 shadow-lg`}>
-                    <span className="text-white text-3xl font-black">{f.initials}</span>
+                  <div className={`w-44 h-44 rounded-2xl bg-gradient-to-br ${f.gradient} flex items-center justify-center flex-shrink-0 shadow-md`}>
+                    <span className="text-white text-5xl font-black">{f.initials}</span>
                   </div>
                 )}
-                <h3 className="text-lg font-bold text-slate-900 leading-tight">{f.name}</h3>
-                <p className="text-sm font-semibold text-blue-500 mt-1 mb-3">{f.role}</p>
-                <p className="text-sm text-slate-500 leading-relaxed mb-5">{f.tagline}</p>
-                <a
-                  href={f.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-500 transition-all duration-200"
-                >
-                  <SiLinkedin className="w-4 h-4" />
-                </a>
+                <div className="flex flex-col sm:items-start items-center text-center sm:text-left">
+                  <h3 className="text-xl font-bold text-slate-900 leading-tight">{f.name}</h3>
+                  <p className="text-sm font-semibold text-blue-500 mt-1 mb-4">{f.role}</p>
+                  <p className="text-sm text-slate-500 leading-relaxed mb-5 flex-1">{f.tagline}</p>
+                  <a
+                    href={f.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-600 text-sm font-medium transition-all duration-200"
+                  >
+                    <SiLinkedin className="w-4 h-4" />
+                    LinkedIn
+                  </a>
+                </div>
               </div>
             ))}
           </div>
