@@ -6,11 +6,12 @@ import { Mail } from "lucide-react";
 
 const founders = [
   {
-    initials: "AB",
-    name: "Name Placeholder",
-    role: "CEO & Co-Founder",
-    tagline: "B2B SaaS Marketer | AI Search Evangelist | Building the future of search visibility",
-    linkedin: "https://linkedin.com",
+    initials: "YJ",
+    name: "Yogesh Joshi",
+    role: "CEO & Founder",
+    tagline: "B2B SaaS growth leader with 10+ years of experience, focused on organic growth and GTM. Prior to GeoRankers, he led growth at Kommunicate, building SEO and content-led engines that drove high-intent pipeline and enterprise revenue. In his spare time, Yogesh enjoys running marathons and is deeply into meditation and yoga.",
+    linkedin: "https://www.linkedin.com/in/yogesh-joshi-5ba94b18/",
+    photo: "/yogesh-joshi.jpg",
     gradient: "from-blue-500 to-violet-600",
   },
 ];
@@ -77,14 +78,22 @@ export default function Team() {
             {founders.map((f) => (
               <div
                 key={f.initials}
-                className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-8 flex flex-col items-center text-center w-72"
+                className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-8 flex flex-col items-center text-center w-80"
               >
-                <div className={`w-24 h-24 rounded-2xl bg-gradient-to-br ${f.gradient} flex items-center justify-center mb-5 shadow-lg`}>
-                  <span className="text-white text-3xl font-black">{f.initials}</span>
-                </div>
+                {f.photo ? (
+                  <img
+                    src={f.photo}
+                    alt={f.name}
+                    className="w-24 h-24 rounded-2xl object-cover mb-5 shadow-lg"
+                  />
+                ) : (
+                  <div className={`w-24 h-24 rounded-2xl bg-gradient-to-br ${f.gradient} flex items-center justify-center mb-5 shadow-lg`}>
+                    <span className="text-white text-3xl font-black">{f.initials}</span>
+                  </div>
+                )}
                 <h3 className="text-lg font-bold text-slate-900 leading-tight">{f.name}</h3>
                 <p className="text-sm font-semibold text-blue-500 mt-1 mb-3">{f.role}</p>
-                <p className="text-xs text-slate-400 leading-relaxed mb-5">{f.tagline}</p>
+                <p className="text-sm text-slate-500 leading-relaxed mb-5">{f.tagline}</p>
                 <a
                   href={f.linkedin}
                   target="_blank"
