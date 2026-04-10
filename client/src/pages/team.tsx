@@ -18,21 +18,27 @@ const founders = [
 
 const teamMembers = [
   {
+    initials: "G",
+    name: "Gaurav",
+    role: "Founding Engineer — Frontend Lead",
+    bio: "A Computer Science graduate specialising in AI and Machine Learning with research across adversarial learning and generative models. Published in leading journals including IJMLC by Springer Nature. In his spare time, he enjoys travelling and trying out different cuisines.",
+    photo: "/gaurav.jpg",
+    gradient: "from-violet-500 to-pink-500",
+  },
+  {
     initials: "CD",
     name: "Name Placeholder",
     role: "Head of Product",
+    bio: "",
+    photo: "",
     gradient: "from-cyan-500 to-blue-500",
-  },
-  {
-    initials: "EF",
-    name: "Name Placeholder",
-    role: "Head of Engineering",
-    gradient: "from-violet-500 to-pink-500",
   },
   {
     initials: "GH",
     name: "Name Placeholder",
     role: "Head of Growth",
+    bio: "",
+    photo: "",
     gradient: "from-emerald-500 to-cyan-500",
   },
 ];
@@ -128,15 +134,25 @@ export default function Team() {
             {teamMembers.map((m) => (
               <div
                 key={m.initials}
-                className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-6 flex items-center gap-5"
+                className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-6 flex flex-col"
               >
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${m.gradient} flex items-center justify-center flex-shrink-0 shadow-md`}>
-                  <span className="text-white text-lg font-black">{m.initials}</span>
-                </div>
-                <div>
-                  <h3 className="text-base font-bold text-slate-900 leading-tight">{m.name}</h3>
-                  <p className="text-sm font-medium text-blue-500 mt-0.5">{m.role}</p>
-                </div>
+                {/* Avatar / Photo */}
+                {m.photo ? (
+                  <img
+                    src={m.photo}
+                    alt={m.name}
+                    className="w-20 h-20 rounded-xl object-cover mb-4 shadow-md"
+                  />
+                ) : (
+                  <div className={`w-20 h-20 rounded-xl bg-gradient-to-br ${m.gradient} flex items-center justify-center mb-4 shadow-md`}>
+                    <span className="text-white text-xl font-black">{m.initials}</span>
+                  </div>
+                )}
+                <h3 className="text-base font-bold text-slate-900 leading-tight">{m.name}</h3>
+                <p className="text-sm font-semibold text-blue-500 mt-1 mb-3">{m.role}</p>
+                {m.bio && (
+                  <p className="text-sm text-slate-500 leading-relaxed">{m.bio}</p>
+                )}
               </div>
             ))}
           </div>
