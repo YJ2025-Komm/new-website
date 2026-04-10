@@ -165,11 +165,8 @@ export default function Team() {
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight leading-[1.15] text-slate-900 mb-4">
             Want to join the team?
           </h2>
-          <p className="text-slate-500 leading-relaxed mb-4">
-            We're a small, ambitious team building the future of AI search visibility. If that excites you, we'd love to hear from you.
-          </p>
-          <p className="text-slate-600">
-            Contact us at{" "}
+          <p className="text-slate-500 leading-relaxed">
+            We're a small, ambitious team building the future of AI search visibility. If that excites you, write to us at{" "}
             <a href="mailto:hello@georankers.co" className="text-blue-500 font-semibold hover:underline">
               hello@georankers.co
             </a>
