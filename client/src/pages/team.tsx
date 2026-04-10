@@ -141,11 +141,11 @@ export default function Team() {
                   <img
                     src={m.photo}
                     alt={m.name}
-                    className="w-20 h-20 rounded-xl object-cover mb-4 shadow-md"
+                    className="w-32 h-32 rounded-xl object-cover mb-5 shadow-md"
                   />
                 ) : (
-                  <div className={`w-20 h-20 rounded-xl bg-gradient-to-br ${m.gradient} flex items-center justify-center mb-4 shadow-md`}>
-                    <span className="text-white text-xl font-black">{m.initials}</span>
+                  <div className={`w-32 h-32 rounded-xl bg-gradient-to-br ${m.gradient} flex items-center justify-center mb-5 shadow-md`}>
+                    <span className="text-white text-3xl font-black">{m.initials}</span>
                   </div>
                 )}
                 <h3 className="text-base font-bold text-slate-900 leading-tight">{m.name}</h3>
