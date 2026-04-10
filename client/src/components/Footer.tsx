@@ -1,7 +1,6 @@
 import { Link } from "wouter";
 import { Mail } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
-import startupIndiaLogo from "@assets/startup_india_logo_1775822384251.png";
 
 export default function Footer() {
   return (
@@ -29,12 +28,12 @@ export default function Footer() {
             </a>
 
             <div className="mt-6">
-              <p className="text-[10px] font-semibold text-white/30 uppercase tracking-widest mb-2">Recognized by</p>
+              <p className="text-xs font-semibold text-white/60 mb-2">Recognized by</p>
               <div className="inline-block bg-white rounded-lg px-3 py-2">
                 <img
-                  src={startupIndiaLogo}
+                  src="/startup-india.png"
                   alt="DPIIT Startup India"
-                  className="h-8 w-auto block"
+                  className="h-10 w-auto block"
                   loading="lazy"
                 />
               </div>
