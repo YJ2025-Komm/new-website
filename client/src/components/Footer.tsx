@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="py-12 sm:py-14 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid sm:grid-cols-3 gap-10 sm:gap-8 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-8 mb-12">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -55,13 +55,6 @@ export default function Footer() {
               >
                 Book a Demo
               </a>
-              <a
-                href="mailto:hello@georankers.co"
-                className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm group"
-              >
-                <Mail className="w-4 h-4 mr-2 text-blue-200/70 group-hover:text-white transition-colors" />
-                hello@georankers.co
-              </a>
             </div>
           </div>
 
@@ -79,6 +72,18 @@ export default function Footer() {
                 Help Docs
               </Link>
             </div>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Contact</p>
+            <a
+              href="mailto:hello@georankers.co"
+              className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm group"
+            >
+              <Mail className="w-4 h-4 mr-2 text-blue-200/70 group-hover:text-white transition-colors" />
+              hello@georankers.co
+            </a>
           </div>
         </div>
 
