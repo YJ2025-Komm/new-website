@@ -1,5 +1,4 @@
 import { Link } from "wouter";
-import { Mail } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
 
 export default function Footer() {
@@ -40,11 +39,34 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links */}
+          {/* Company */}
           <div>
-            <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Quick Links</p>
+            <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Company</p>
             <div className="space-y-3">
-              {/* Pricing link hidden until launch */}
+              <Link href="/team" className="block text-white/80 hover:text-white text-sm transition-colors">
+                About Us
+              </Link>
+              <a
+                href="mailto:hello@georankers.co"
+                className="block text-white/80 hover:text-white text-sm transition-colors"
+              >
+                Contact Us
+              </a>
+              <a
+                href="https://calendly.com/hello-georankers/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-white/80 hover:text-white text-sm transition-colors"
+              >
+                Book a Demo
+              </a>
+            </div>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Resources</p>
+            <div className="space-y-3">
               <a href="https://blog.georankers.co/" className="block text-white/80 hover:text-white text-sm transition-colors">
                 Blog
               </a>
@@ -56,18 +78,6 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-
-          {/* Contact */}
-          <div>
-            <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Contact</p>
-            <a
-              href="mailto:hello@georankers.co"
-              className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm group"
-            >
-              <Mail className="w-4 h-4 mr-2 text-blue-200/70 group-hover:text-white transition-colors" />
-              hello@georankers.co
-            </a>
-          </div>
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
@@ -75,7 +85,6 @@ export default function Footer() {
             © {new Date().getFullYear()} GeoRankers. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="/team" className="text-blue-200/60 hover:text-white text-xs transition-colors">Team</Link>
             <Link href="/terms" className="text-blue-200/60 hover:text-white text-xs transition-colors">Terms of Service</Link>
             <Link href="/privacy" className="text-blue-200/60 hover:text-white text-xs transition-colors">Privacy Policy</Link>
           </div>
