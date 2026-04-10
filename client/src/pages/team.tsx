@@ -50,7 +50,7 @@ export default function Team() {
       <section className="pt-28 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-5">Our Story</p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-slate-900 mb-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-slate-900 mb-8">
             The Founding Story of GeoRankers
           </h1>
           <p className="text-lg sm:text-xl text-slate-500 leading-relaxed mb-6 max-w-3xl mx-auto">
@@ -69,7 +69,7 @@ export default function Team() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 border-y border-slate-100">
         <div className="max-w-5xl mx-auto">
           <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-3 text-center">Leadership</p>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 mb-12 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.15] text-slate-900 mb-12 text-center">
             Our Founders
           </h2>
 
@@ -103,7 +103,7 @@ export default function Team() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-3 text-center">The People</p>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 mb-12 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.15] text-slate-900 mb-12 text-center">
             Meet the Team
           </h2>
 
@@ -130,7 +130,7 @@ export default function Team() {
       <section className="py-14 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-100">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-3">We're Hiring</p>
-          <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight leading-[1.15] text-slate-900 mb-4">
             Want to join the team?
           </h2>
           <p className="text-slate-500 leading-relaxed mb-8">
