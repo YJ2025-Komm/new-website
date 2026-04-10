@@ -2,7 +2,6 @@ import { useSEO } from "@/hooks/useSEO";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { SiLinkedin } from "react-icons/si";
-import { Mail } from "lucide-react";
 
 const founders = [
   {
@@ -166,17 +165,15 @@ export default function Team() {
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight leading-[1.15] text-slate-900 mb-4">
             Want to join the team?
           </h2>
-          <p className="text-slate-500 leading-relaxed mb-8">
+          <p className="text-slate-500 leading-relaxed mb-4">
             We're a small, ambitious team building the future of AI search visibility. If that excites you, we'd love to hear from you.
           </p>
-          <a
-            href="mailto:hello@georankers.co"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white transition-all duration-200 hover:opacity-90"
-            style={{ background: "linear-gradient(135deg, #2994FF, #5C92FF, #7575FF)" }}
-          >
-            <Mail className="w-4 h-4" />
-            Get in Touch
-          </a>
+          <p className="text-slate-600">
+            Contact us at{" "}
+            <a href="mailto:hello@georankers.co" className="text-blue-500 font-semibold hover:underline">
+              hello@georankers.co
+            </a>
+          </p>
         </div>
       </section>
 
