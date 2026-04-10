@@ -63,13 +63,13 @@ export default function Team() {
               The Founding Story of GeoRankers
             </h1>
             <p className="text-lg text-slate-500 leading-relaxed mb-5">
-              GeoRankers was born from a simple frustration — B2B SaaS teams had no reliable way to know if 
-              AI search engines like ChatGPT, Perplexity, or Gemini were recommending them to buyers. 
-              Everything started with our own need to understand brand visibility in AI-generated answers.
+              GeoRankers was born from a simple frustration — B2B SaaS teams were drowning in data from SEO and analytics tools, but had no clear direction on what to actually do with it. Teams were left spending hours piecing together insights, with little clarity on what would move the needle.
+            </p>
+            <p className="text-lg text-slate-500 leading-relaxed mb-5">
+              As search shifts to AI platforms like ChatGPT, Perplexity, and Gemini, this problem has only compounded. Instead of optimizing for one platform, teams now have to understand and influence how multiple AI models perceive and recommend their brand.
             </p>
             <p className="text-lg text-slate-500 leading-relaxed">
-              We're backed by a belief that AI search is reshaping how buyers discover software — and that 
-              every B2B SaaS team deserves clarity on where they stand and what to do about it.
+              We built GeoRankers to solve this — to give teams clear visibility into how they show up in AI generated answers, and more importantly, what actions they need to take to improve it.
             </p>
           </div>
 
