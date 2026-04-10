@@ -10,6 +10,7 @@ import Features from "@/pages/features";
 import Privacy from "@/pages/privacy";
 import Terms from "@/pages/terms";
 import Help from "@/pages/help";
+import Team from "@/pages/team";
 import NotFound from "@/pages/not-found";
 import ScrollManager from "@/components/ScrollManager";
 
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
       <Route path="/help" component={Help} />
+      <Route path="/team" component={Team} />
       <Route component={NotFound} />
     </Switch>
   );

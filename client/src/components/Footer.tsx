@@ -75,6 +75,7 @@ export default function Footer() {
             © {new Date().getFullYear()} GeoRankers. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
+            <Link href="/team" className="text-blue-200/60 hover:text-white text-xs transition-colors">Team</Link>
             <Link href="/terms" className="text-blue-200/60 hover:text-white text-xs transition-colors">Terms of Service</Link>
             <Link href="/privacy" className="text-blue-200/60 hover:text-white text-xs transition-colors">Privacy Policy</Link>
           </div>
