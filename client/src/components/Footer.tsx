@@ -30,13 +30,14 @@ export default function Footer() {
 
             <div className="mt-6">
               <p className="text-[10px] font-semibold text-white/30 uppercase tracking-widest mb-2">Recognized by</p>
-              <img
-                src={startupIndiaLogo}
-                alt="DPIIT Startup India"
-                className="h-9 w-auto"
-                style={{ mixBlendMode: "lighten" }}
-                loading="lazy"
-              />
+              <div className="inline-block bg-white rounded-lg px-3 py-2">
+                <img
+                  src={startupIndiaLogo}
+                  alt="DPIIT Startup India"
+                  className="h-8 w-auto block"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
 
