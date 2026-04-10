@@ -2,7 +2,7 @@ import { useSEO } from "@/hooks/useSEO";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const members = [
+const founders = [
   {
     initials: "AB",
     name: "Name Placeholder",
@@ -10,21 +10,44 @@ const members = [
     bio: "A short bio about this team member will go here. Their background, expertise, and what they bring to GeoRankers.",
     gradient: "from-blue-500 to-violet-600",
   },
+];
+
+const teamMembers = [
   {
     initials: "CD",
-    name: "Name Placeholder",
-    role: "Co-founder & CTO",
-    bio: "A short bio about this team member will go here. Their background, expertise, and what they bring to GeoRankers.",
-    gradient: "from-violet-500 to-pink-500",
-  },
-  {
-    initials: "EF",
     name: "Name Placeholder",
     role: "Head of Product",
     bio: "A short bio about this team member will go here. Their background, expertise, and what they bring to GeoRankers.",
     gradient: "from-cyan-500 to-blue-500",
   },
+  {
+    initials: "EF",
+    name: "Name Placeholder",
+    role: "Head of Engineering",
+    bio: "A short bio about this team member will go here. Their background, expertise, and what they bring to GeoRankers.",
+    gradient: "from-violet-500 to-pink-500",
+  },
+  {
+    initials: "GH",
+    name: "Name Placeholder",
+    role: "Head of Growth",
+    bio: "A short bio about this team member will go here. Their background, expertise, and what they bring to GeoRankers.",
+    gradient: "from-emerald-500 to-cyan-500",
+  },
 ];
+
+function MemberCard({ m }: { m: typeof founders[0] }) {
+  return (
+    <div className="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
+      <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${m.gradient} flex items-center justify-center mb-5 shadow-lg`}>
+        <span className="text-white text-2xl font-black">{m.initials}</span>
+      </div>
+      <h3 className="text-lg font-bold text-slate-900 leading-tight">{m.name}</h3>
+      <p className="text-sm font-semibold text-blue-500 mt-1 mb-4">{m.role}</p>
+      <p className="text-sm text-slate-500 leading-relaxed flex-1">{m.bio}</p>
+    </div>
+  );
+}
 
 export default function Team() {
   useSEO({
@@ -49,22 +72,20 @@ export default function Team() {
 
       {/* Team grid */}
       <section className="pb-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {members.map((m) => (
-            <div
-              key={m.initials}
-              className="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col"
-            >
-              {/* Avatar placeholder */}
-              <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${m.gradient} flex items-center justify-center mb-5 shadow-lg`}>
-                <span className="text-white text-2xl font-black">{m.initials}</span>
-              </div>
+        <div className="max-w-5xl mx-auto space-y-8">
+          {/* Row 1: Founders */}
+          <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
+            {founders.map((m) => (
+              <MemberCard key={m.initials} m={m} />
+            ))}
+          </div>
 
-              <h3 className="text-lg font-bold text-slate-900 leading-tight">{m.name}</h3>
-              <p className="text-sm font-semibold text-blue-500 mt-1 mb-4">{m.role}</p>
-              <p className="text-sm text-slate-500 leading-relaxed flex-1">{m.bio}</p>
-            </div>
-          ))}
+          {/* Row 2: Team */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.map((m) => (
+              <MemberCard key={m.initials} m={m} />
+            ))}
+          </div>
         </div>
       </section>
 
