@@ -49,20 +49,34 @@ export default function Team() {
 
       {/* Hero */}
       <section className="pt-28 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-5">Our Story</p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-slate-900 mb-8">
-            The Founding Story of GeoRankers
-          </h1>
-          <p className="text-lg sm:text-xl text-slate-500 leading-relaxed mb-6 max-w-3xl mx-auto">
-            GeoRankers was born from a simple frustration — B2B SaaS teams had no reliable way to know if 
-            AI search engines like ChatGPT, Perplexity, or Gemini were recommending them to buyers. 
-            Everything started with our own need to understand brand visibility in AI-generated answers.
-          </p>
-          <p className="text-lg sm:text-xl text-slate-500 leading-relaxed max-w-3xl mx-auto">
-            We're backed by a belief that AI search is reshaping how buyers discover software — and that 
-            every B2B SaaS team deserves clarity on where they stand and what to do about it.
-          </p>
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          {/* Text — left */}
+          <div className="flex-1 lg:max-w-xl">
+            <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-5">Our Story</p>
+            <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight leading-[1.1] text-slate-900 mb-7">
+              The Founding Story of GeoRankers
+            </h1>
+            <p className="text-lg text-slate-500 leading-relaxed mb-5">
+              GeoRankers was born from a simple frustration — B2B SaaS teams had no reliable way to know if 
+              AI search engines like ChatGPT, Perplexity, or Gemini were recommending them to buyers. 
+              Everything started with our own need to understand brand visibility in AI-generated answers.
+            </p>
+            <p className="text-lg text-slate-500 leading-relaxed">
+              We're backed by a belief that AI search is reshaping how buyers discover software — and that 
+              every B2B SaaS team deserves clarity on where they stand and what to do about it.
+            </p>
+          </div>
+
+          {/* Image — right */}
+          <div className="flex-1 w-full lg:max-w-lg">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl p-1" style={{ background: "linear-gradient(135deg, #2994FF, #5C92FF, #7575FF)" }}>
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80&auto=format&fit=crop"
+                alt="GeoRankers team"
+                className="w-full h-72 sm:h-80 lg:h-96 object-cover rounded-xl"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
