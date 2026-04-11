@@ -34,8 +34,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Three link columns grouped tightly */}
-          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-6">
+          {/* Four link columns grouped tightly */}
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-6">
             {/* Company */}
             <div>
               <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Company</p>
@@ -66,6 +66,22 @@ export default function Footer() {
                 </Link>
                 <Link href="/help" className="block text-white/80 hover:text-white text-sm transition-colors">
                   Help Docs
+                </Link>
+              </div>
+            </div>
+
+            {/* Free GEO Tools */}
+            <div>
+              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Free GEO Tools</p>
+              <div className="space-y-3">
+                <Link href="/free-geo-tools/brand-visibility" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  Brand Visibility
+                </Link>
+                <Link href="/free-geo-tools/geo-audit" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  GEO Audit
+                </Link>
+                <Link href="/free-geo-tools/visibility-score" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  Visibility Score
                 </Link>
               </div>
             </div>
