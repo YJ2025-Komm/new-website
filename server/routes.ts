@@ -502,6 +502,7 @@ Respond ONLY with valid JSON in this exact format:
         { url: `${baseUrl}/features`, priority: "0.9", changefreq: "monthly" },
         { url: `${baseUrl}/geo-guide`, priority: "0.9", changefreq: "monthly" },
         { url: `${baseUrl}/help`, priority: "0.6", changefreq: "monthly" },
+        // /team hidden until page is complete
         { url: `${baseUrl}/free-geo-tools/brand-visibility`, priority: "0.8", changefreq: "monthly" },
         { url: `${baseUrl}/free-geo-tools/geo-audit`, priority: "0.8", changefreq: "monthly" },
         { url: `${baseUrl}/free-geo-tools/visibility-score`, priority: "0.8", changefreq: "monthly" },

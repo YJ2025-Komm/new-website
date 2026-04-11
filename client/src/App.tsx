@@ -26,6 +26,7 @@ function Router() {
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
       <Route path="/help" component={Help} />
+      {/* /team hidden until page is complete */}
       <Route path="/free-geo-tools/brand-visibility" component={BrandVisibilityPage} />
       <Route path="/free-geo-tools/geo-audit" component={GeoAuditPage} />
       <Route path="/free-geo-tools/visibility-score" component={QueryOpportunityPage} />
