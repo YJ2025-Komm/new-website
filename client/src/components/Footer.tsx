@@ -6,9 +6,9 @@ export default function Footer() {
   return (
     <footer className="py-12 sm:py-14 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 sm:gap-8 mb-12">
+        <div className="flex flex-col lg:flex-row gap-10 mb-12">
           {/* Brand */}
-          <div>
+          <div className="lg:w-64 flex-shrink-0">
             <div className="flex items-center gap-2 mb-4">
               <div className="h-10 w-10 rounded-md overflow-hidden flex-shrink-0">
                 <img src="/georankers-icon.png" alt="GeoRankers icon" className="w-full h-full object-cover scale-[1.5] origin-center" loading="lazy" />
@@ -26,51 +26,77 @@ export default function Footer() {
             >
               <SiLinkedin className="w-5 h-5 text-white" />
             </a>
+            <div className="mt-6">
+              <p className="text-xs font-semibold text-white/60 mb-2">Recognized by</p>
+              <div className="inline-block bg-white rounded-md px-3 py-1.5">
+                <img src="/startup-india.png" alt="DPIIT Startup India" className="h-12 w-auto block" loading="lazy" />
+              </div>
+            </div>
           </div>
 
-          {/* Links */}
-          <div>
-            <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Quick Links</p>
-            <div className="space-y-3">
-              {/* Pricing link hidden until launch */}
-              <a href="https://blog.georankers.co/" className="block text-white/80 hover:text-white text-sm transition-colors">
-                Blog
+          {/* Link columns */}
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-6">
+            {/* Company */}
+            <div>
+              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Company</p>
+              <div className="space-y-3">
+                <Link href="/team" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  About Us
+                </Link>
+                <a
+                  href="https://calendly.com/hello-georankers/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-white/80 hover:text-white text-sm transition-colors"
+                >
+                  Book a Demo
+                </a>
+              </div>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Resources</p>
+              <div className="space-y-3">
+                <a href="https://blog.georankers.co/" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  Blog
+                </a>
+                <Link href="/geo-guide" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  GEO Guide
+                </Link>
+                <Link href="/help" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  Help Docs
+                </Link>
+              </div>
+            </div>
+
+            {/* Free GEO Tools */}
+            <div>
+              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Free GEO Tools</p>
+              <div className="space-y-3">
+                <Link href="/free-geo-tools/brand-visibility" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  AI Brand Snapshot
+                </Link>
+                <Link href="/free-geo-tools/geo-audit" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  GEO Content Audit
+                </Link>
+                <Link href="/free-geo-tools/visibility-score" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  AI Query Opportunities
+                </Link>
+              </div>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Contact</p>
+              <a
+                href="mailto:hello@georankers.co"
+                className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm group"
+              >
+                <Mail className="w-4 h-4 mr-2 text-blue-200/70 group-hover:text-white transition-colors" />
+                hello@georankers.co
               </a>
-              <Link href="/geo-guide" className="block text-white/80 hover:text-white text-sm transition-colors">
-                GEO Guide
-              </Link>
-              <Link href="/help" className="block text-white/80 hover:text-white text-sm transition-colors">
-                Help Docs
-              </Link>
             </div>
-          </div>
-
-          {/* Free Tools */}
-          <div>
-            <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Free GEO Tools</p>
-            <div className="space-y-3">
-              <Link href="/free-geo-tools/brand-visibility" className="block text-white/80 hover:text-white text-sm transition-colors">
-                AI Brand Snapshot
-              </Link>
-              <Link href="/free-geo-tools/geo-audit" className="block text-white/80 hover:text-white text-sm transition-colors">
-                GEO Content Audit
-              </Link>
-              <Link href="/free-geo-tools/visibility-score" className="block text-white/80 hover:text-white text-sm transition-colors">
-                AI Query Opportunities
-              </Link>
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Contact</p>
-            <a
-              href="mailto:hello@georankers.co"
-              className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm group"
-            >
-              <Mail className="w-4 h-4 mr-2 text-blue-200/70 group-hover:text-white transition-colors" />
-              hello@georankers.co
-            </a>
           </div>
         </div>
 

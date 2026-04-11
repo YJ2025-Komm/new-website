@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Loader2, XCircle, ExternalLink, TrendingUp, AlertTriangle, Zap, CheckCircle2 } from "lucide-react";
+import { Loader2, XCircle, ExternalLink, AlertTriangle, Zap, CheckCircle2 } from "lucide-react";
 
 interface BrandVisibilityResult {
   brand: string;
