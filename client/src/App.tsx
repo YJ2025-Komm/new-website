@@ -12,6 +12,9 @@ import Terms from "@/pages/terms";
 import Help from "@/pages/help";
 import NotFound from "@/pages/not-found";
 import ScrollManager from "@/components/ScrollManager";
+import BrandVisibilityPage from "@/pages/free-geo-tools/brand-visibility";
+import GeoAuditPage from "@/pages/free-geo-tools/geo-audit";
+import QueryOpportunityPage from "@/pages/free-geo-tools/visibility-score";
 
 function Router() {
   return (
@@ -23,6 +26,9 @@ function Router() {
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
       <Route path="/help" component={Help} />
+      <Route path="/free-geo-tools/brand-visibility" component={BrandVisibilityPage} />
+      <Route path="/free-geo-tools/geo-audit" component={GeoAuditPage} />
+      <Route path="/free-geo-tools/visibility-score" component={QueryOpportunityPage} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="py-12 sm:py-14 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid sm:grid-cols-3 gap-10 sm:gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 sm:gap-8 mb-12">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -41,6 +41,22 @@ export default function Footer() {
               </Link>
               <Link href="/help" className="block text-white/80 hover:text-white text-sm transition-colors">
                 Help Docs
+              </Link>
+            </div>
+          </div>
+
+          {/* Free Tools */}
+          <div>
+            <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Free GEO Tools</p>
+            <div className="space-y-3">
+              <Link href="/free-geo-tools/brand-visibility" className="block text-white/80 hover:text-white text-sm transition-colors">
+                AI Brand Snapshot
+              </Link>
+              <Link href="/free-geo-tools/geo-audit" className="block text-white/80 hover:text-white text-sm transition-colors">
+                GEO Content Audit
+              </Link>
+              <Link href="/free-geo-tools/visibility-score" className="block text-white/80 hover:text-white text-sm transition-colors">
+                AI Query Opportunities
               </Link>
             </div>
           </div>

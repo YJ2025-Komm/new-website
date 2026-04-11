@@ -1,4 +1,4 @@
-import type { Express } from "express";
+import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { websiteAnalysisRequestSchema } from "@shared/schema";
 import { z } from "zod";
@@ -6,7 +6,26 @@ import { registerAdminRoutes } from "./admin-routes";
 import axios from "axios";
 import * as cheerio from "cheerio";
 import OpenAI from "openai";
-import { discoverPages, scrapeMultiplePages, analyzeRobotsTxt, analyzeSitemap, analyzeKeyPages, analyzeTechnicalFoundation } from "./web-crawler";
+import { discoverPages, scrapeMultiplePages, analyzeRobotsTxt, analyzeSitemap, analyzeKeyPages, analyzeTechnicalFoundation, scrapePageContent } from "./web-crawler";
+import rateLimit from "express-rate-limit";
+import fs from "fs";
+import path from "path";
+
+// Lead logging helper
+const LEADS_FILE = path.join(process.cwd(), "tool-leads.jsonl");
+function logLead(tool: string, input: string) {
+  const line = JSON.stringify({ tool, input, ts: new Date().toISOString() });
+  fs.appendFile(LEADS_FILE, line + "\n", () => {});
+}
+
+// Rate limiter for free tools: 10 requests per IP per hour
+const freeToolsLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { message: "Too many requests. Please try again in an hour." },
+});
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Blog posts proxy endpoint - fetches from WordPress and serves to frontend
@@ -280,8 +299,7 @@ ${aggregatedContent}
 
       // Use Replit AI Integrations OpenAI service
       const openai = new OpenAI({
-        baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
-        apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY
+        apiKey: process.env.OPENAI_API_KEY
       });
 
       console.log("Starting OpenAI analysis...");
@@ -484,6 +502,9 @@ Respond ONLY with valid JSON in this exact format:
         { url: `${baseUrl}/features`, priority: "0.9", changefreq: "monthly" },
         { url: `${baseUrl}/geo-guide`, priority: "0.9", changefreq: "monthly" },
         { url: `${baseUrl}/help`, priority: "0.6", changefreq: "monthly" },
+        { url: `${baseUrl}/free-geo-tools/brand-visibility`, priority: "0.8", changefreq: "monthly" },
+        { url: `${baseUrl}/free-geo-tools/geo-audit`, priority: "0.8", changefreq: "monthly" },
+        { url: `${baseUrl}/free-geo-tools/visibility-score`, priority: "0.8", changefreq: "monthly" },
         { url: `${baseUrl}/privacy`, priority: "0.4", changefreq: "yearly" },
         { url: `${baseUrl}/terms`, priority: "0.4", changefreq: "yearly" },
       ];
@@ -575,6 +596,290 @@ ${blogPosts.map(post => `  <url>
       res.status(500).send("Error generating sitemap");
     }
   });
+
+  // ─── FREE GEO TOOLS ────────────────────────────────────────────────────────
+
+  // Shared helper: extract brand + category — uses page content if available, falls back to domain
+  async function extractBrandAndCategory(openai: OpenAI, urlOrContent: string, isUrl = false): Promise<{ brand: string; category: string }> {
+    const prompt = isUrl
+      ? `The website URL is: ${urlOrContent}\nBased on the domain name alone, infer the company/brand name and likely product category.`
+      : urlOrContent.substring(0, 1500);
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "system",
+          content: `Extract or infer the brand/company name and product category. Return ONLY valid JSON: {"brand": "CompanyName", "category": "product category (e.g. CRM software, email marketing platform)"}`,
+        },
+        { role: "user", content: prompt },
+      ],
+      response_format: { type: "json_object" },
+      max_tokens: 100,
+    });
+    const parsed = JSON.parse(completion.choices[0]?.message?.content ?? "{}");
+    return {
+      brand: parsed.brand ?? "Unknown Brand",
+      category: parsed.category ?? "software",
+    };
+  }
+
+  // Tool 1: AI Brand Visibility Snapshot
+  app.post("/api/tools/brand-visibility", freeToolsLimiter, async (req: Request, res: Response) => {
+    const schema = z.object({ url: z.string().url() });
+    try {
+      const { url } = schema.parse(req.body);
+      const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+      const page = await scrapePageContent(url);
+      let brand: string, category: string;
+      if (page) {
+        const pageContent = `Title: ${page.title}\nMeta: ${page.metaDescription}\nH1: ${page.h1Tags}\n${page.bodyText}`;
+        ({ brand, category } = await extractBrandAndCategory(openai, pageContent));
+      } else {
+        ({ brand, category } = await extractBrandAndCategory(openai, url, true));
+      }
+
+      // 3 parallel presence-check prompts — each asks specifically about the brand
+      const presencePrompts = [
+        `What tools do experts recommend for ${category}? List the top 5-6 options. Would "${brand}" be among them?`,
+        `Which ${category} platform is best for a B2B SaaS company? Is "${brand}" typically recommended alongside other options?`,
+        `Compare the leading ${category} solutions available today. Does "${brand}" feature in AI-generated comparisons?`,
+      ];
+
+      const [presenceResults, analysisResult] = await Promise.all([
+        // Parallel presence checks
+        Promise.all(
+          presencePrompts.map((p) =>
+            openai.chat.completions.create({
+              model: "gpt-4o-mini",
+              messages: [
+                {
+                  role: "system",
+                  content: `You are a knowledgeable software analyst. Answer honestly and specifically about the brand mentioned. Return ONLY valid JSON: {"brandMentioned": true, "competitors": ["name1","name2","name3","name4"], "snippet": "1-2 sentence excerpt describing the category landscape"}`,
+                },
+                { role: "user", content: p },
+              ],
+              response_format: { type: "json_object" },
+              max_tokens: 300,
+            })
+          )
+        ),
+        // Deep analysis: why visible or not, what to do
+        openai.chat.completions.create({
+          model: "gpt-4o-mini",
+          messages: [
+            {
+              role: "system",
+              content: `You are an AI search visibility analyst with deep knowledge of B2B SaaS markets. Be specific and honest — if a brand is niche or little-known to AI, say so clearly.
+
+You MUST explain in concrete terms why "${brand}" does or does not commonly appear in AI-generated answers for ${category}, focusing on: positioning clarity, content signals, brand awareness, and citation presence.
+
+Return ONLY valid JSON:
+{
+  "presenceLevel": "high|medium|low|minimal",
+  "topCompetitors": ["name1","name2","name3","name4"],
+  "whyNotVisible": ["specific reason 1","specific reason 2","specific reason 3"],
+  "whatToImprove": ["concrete action 1","concrete action 2","concrete action 3"],
+  "summary": ["insight about where the brand currently stands","insight about what is holding them back","insight about what to fix first"]
+}`,
+            },
+            { role: "user", content: `Brand: "${brand}"\nCategory: "${category}"\n\nProvide a detailed AI visibility analysis for this brand.` },
+          ],
+          response_format: { type: "json_object" },
+          max_tokens: 600,
+        }),
+      ]);
+
+      let mentionedCount = 0;
+      const allCompetitors = new Set<string>();
+      const snippets: string[] = [];
+
+      for (const r of presenceResults) {
+        const parsed = JSON.parse(r.choices[0]?.message?.content ?? "{}");
+        if (parsed.brandMentioned === true) mentionedCount++;
+        (parsed.competitors as string[] ?? []).forEach((c: string) => {
+          if (c.toLowerCase() !== brand.toLowerCase()) allCompetitors.add(c);
+        });
+        if (parsed.snippet) snippets.push(parsed.snippet);
+      }
+
+      const analysis = JSON.parse(analysisResult.choices[0]?.message?.content ?? "{}");
+      // Merge competitor lists — prefer analysis competitors as more reliable
+      const finalCompetitors = [
+        ...(analysis.topCompetitors ?? []),
+        ...Array.from(allCompetitors),
+      ].filter((c, i, arr) => arr.findIndex(x => x.toLowerCase() === c.toLowerCase()) === i).slice(0, 6);
+
+      logLead("brand-visibility", url);
+
+      const presencePercent = Math.round((mentionedCount / presencePrompts.length) * 100);
+      // Derive presenceLevel from the actual measured percent — never trust GPT's self-reported level
+      const presenceLevel =
+        presencePercent >= 67 ? "high" :
+        presencePercent >= 34 ? "medium" :
+        presencePercent > 0   ? "low" : "minimal";
+
+      res.json({
+        brand,
+        category,
+        presencePercent,
+        promptsChecked: presencePrompts.length,
+        presenceLevel,
+        topCompetitors: finalCompetitors,
+        snippets: snippets.slice(0, 2),
+        whyNotVisible: (analysis.whyNotVisible as string[] ?? []).slice(0, 3),
+        whatToImprove: (analysis.whatToImprove as string[] ?? []).slice(0, 3),
+        summary: (analysis.summary as string[] ?? []).slice(0, 3),
+      });
+    } catch (error) {
+      if (error instanceof z.ZodError) return res.status(400).json({ message: "Invalid URL", errors: error.errors });
+      console.error("brand-visibility error:", error instanceof Error ? error.message : error);
+      res.status(500).json({ message: "Analysis failed. Please try again." });
+    }
+  });
+
+  // Tool 2: GEO Content Audit
+  app.post("/api/tools/geo-audit", freeToolsLimiter, async (req: Request, res: Response) => {
+    const schema = z.object({ url: z.string().url() });
+    try {
+      const { url } = schema.parse(req.body);
+
+      const page = await scrapePageContent(url);
+      if (!page) return res.status(422).json({ message: "We couldn't read that page — it may block automated access. Try your homepage or a specific product/feature page." });
+
+      const contentPreview = `Title: ${page.title}\nMeta: ${page.metaDescription}\nH1: ${page.h1Tags}\nH2: ${page.h2Tags}\n\n${page.bodyText.substring(0, 3000)}`;
+      const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+      const completion = await openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [
+          {
+            role: "system",
+            content: `You are a GEO (Generative Engine Optimization) expert auditing a B2B SaaS webpage for AI search readiness. Be specific and actionable.
+
+Return ONLY valid JSON:
+{
+  "brand": "detected company name",
+  "score": 0-100,
+  "strengths": ["specific thing the page does well for AI visibility"],
+  "checks": {
+    "categoryMentioned": true,
+    "faqsPresent": false,
+    "headingStructure": "strong|moderate|weak",
+    "trustSignals": "present|partial|missing",
+    "schemaMarkup": true,
+    "clearValueProp": true,
+    "authoritySignals": true,
+    "numericalData": false
+  },
+  "missingEntities": ["important topic or entity absent from the page"],
+  "priorityFixes": [
+    { "fix": "specific actionable improvement", "impact": "high|medium|low", "effort": "low|medium|high", "why": "why this matters for AI visibility" }
+  ],
+  "summary": ["insight about where the page currently stands","insight about what is holding it back","insight about what to fix first"]
+}
+strengths: 2-3 items. missingEntities: 3-5 items. priorityFixes: 5-6 items ordered by impact descending.`,
+          },
+          { role: "user", content: `Audit this page for GEO readiness:\n\n${contentPreview}` },
+        ],
+        response_format: { type: "json_object" },
+        max_tokens: 1200,
+      });
+
+      const result = JSON.parse(completion.choices[0]?.message?.content ?? "{}");
+      // Override schemaMarkup with the factual scraped value — don't trust GPT's inference
+      if (result.checks) result.checks.schemaMarkup = page.hasSchema;
+      logLead("geo-audit", url);
+      res.json(result);
+    } catch (error) {
+      if (error instanceof z.ZodError) return res.status(400).json({ message: "Invalid URL", errors: error.errors });
+      console.error("geo-audit error:", error instanceof Error ? error.message : error);
+      res.status(500).json({ message: "Audit failed. Please try again." });
+    }
+  });
+
+  // Tool 3: AI Query Opportunity Finder (replaces Visibility Score)
+  app.post("/api/tools/query-opportunities", freeToolsLimiter, async (req: Request, res: Response) => {
+    const schema = z.object({ url: z.string().url() });
+    try {
+      const { url } = schema.parse(req.body);
+      const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+      const page = await scrapePageContent(url);
+      let brand: string, category: string;
+      if (page) {
+        const pageContent = `Title: ${page.title}\nMeta: ${page.metaDescription}\nH1: ${page.h1Tags}\n${page.bodyText}`;
+        ({ brand, category } = await extractBrandAndCategory(openai, pageContent));
+      } else {
+        ({ brand, category } = await extractBrandAndCategory(openai, url, true));
+      }
+
+      const completion = await openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [
+          {
+            role: "system",
+            content: `You are an AI search behavior analyst specializing in B2B SaaS. Generate realistic queries that buyers ask AI assistants when evaluating ${category} tools, then analyze the competitive landscape specifically for "${brand}".
+
+Be brand-specific: explain exactly why "${brand}" would or would not appear for each gap, and what specific content changes would help.
+
+IMPORTANT: The current year is 2026. All queries must be timeless or relevant to 2026. Do NOT include year-specific queries like "best tool in 2023", "top platforms 2024", etc. Generate evergreen queries that buyers ask today.
+
+Return ONLY valid JSON:
+{
+  "category": "...",
+  "brand": "...",
+  "topQueries": [
+    { "query": "exact question a buyer would ask an AI assistant", "intent": "evaluation|comparison|how-to|definition", "opportunity": "high|medium|low" }
+  ],
+  "opportunityGaps": [
+    { "query": "query where brand is absent but could rank", "whyBrandMisses": "specific reason brand doesn't appear for this query", "whatToFix": "concrete content or positioning change that would help" }
+  ],
+  "competitorDominatedQueries": [
+    { "query": "query text", "dominatedBy": "CompetitorName", "whyTheyWin": "specific reason this competitor dominates this query" }
+  ],
+  "summary": ["insight about where the brand stands in AI queries","insight about what is holding it back","insight about the highest-impact query to target first"]
+}
+topQueries: exactly 8. opportunityGaps: exactly 3. competitorDominatedQueries: 2-3.`,
+          },
+          { role: "user", content: `Brand: "${brand}"\nCategory: "${category}"\n\nGenerate AI query opportunities and competitive gaps for this brand.` },
+        ],
+        response_format: { type: "json_object" },
+        max_tokens: 1200,
+      });
+
+      const result = JSON.parse(completion.choices[0]?.message?.content ?? "{}");
+      logLead("query-opportunities", url);
+      res.json({ brand, category, ...result });
+    } catch (error) {
+      if (error instanceof z.ZodError) return res.status(400).json({ message: "Invalid URL", errors: error.errors });
+      console.error("query-opportunities error:", error instanceof Error ? error.message : error);
+      res.status(500).json({ message: "Could not generate opportunities. Please try again." });
+    }
+  });
+
+  // Legacy endpoint — redirect to new tool
+  app.post("/api/tools/visibility-score", (_req: Request, res: Response) => {
+    res.status(410).json({ message: "This tool has been replaced. Use /api/tools/query-opportunities instead." });
+  });
+
+  // Protected leads viewer
+  app.get("/api/tools/leads", (req: Request, res: Response) => {
+    const token = req.headers["x-admin-token"];
+    if (!process.env.TOOLS_ADMIN_TOKEN || token !== process.env.TOOLS_ADMIN_TOKEN) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+    try {
+      if (!fs.existsSync(LEADS_FILE)) return res.json([]);
+      const lines = fs.readFileSync(LEADS_FILE, "utf-8").trim().split("\n").filter(Boolean);
+      const leads = lines.map((l) => JSON.parse(l)).reverse();
+      res.json(leads);
+    } catch {
+      res.status(500).json({ message: "Failed to read leads" });
+    }
+  });
+
+  // ───────────────────────────────────────────────────────────────────────────
 
   // Register admin routes
   registerAdminRoutes(app);
