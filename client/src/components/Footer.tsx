@@ -40,9 +40,7 @@ export default function Footer() {
             <div>
               <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Company</p>
               <div className="space-y-3">
-                <Link href="/team" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  About Us
-                </Link>
+                {/* About Us link hidden until team page is complete */}
                 <a
                   href="https://calendly.com/hello-georankers/30min"
                   target="_blank"
