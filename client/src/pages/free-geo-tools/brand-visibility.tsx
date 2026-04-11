@@ -76,8 +76,10 @@ export default function BrandVisibilityPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url: url.trim() }),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message || "Something went wrong");
+      const text = await res.text();
+      let data: any;
+      try { data = JSON.parse(text); } catch { throw new Error("Analysis failed. Please try again."); }
+      if (!res.ok) throw new Error(data.message || "Analysis failed. Please try again.");
       setResult(data);
     } catch (err: any) {
       setError(err.message ?? "Analysis failed. Please try again.");
