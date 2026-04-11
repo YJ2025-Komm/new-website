@@ -13,10 +13,6 @@ import Help from "@/pages/help";
 import Team from "@/pages/team";
 import NotFound from "@/pages/not-found";
 import ScrollManager from "@/components/ScrollManager";
-// TODO: re-add free-geo-tools imports after running git pull in Shell
-// import BrandVisibilityPage from "@/pages/free-geo-tools/brand-visibility";
-// import GeoAuditPage from "@/pages/free-geo-tools/geo-audit";
-// import QueryOpportunityPage from "@/pages/free-geo-tools/visibility-score";
 
 function Router() {
   return (
@@ -29,10 +25,6 @@ function Router() {
       <Route path="/terms" component={Terms} />
       <Route path="/help" component={Help} />
       <Route path="/team" component={Team} />
-      {/* TODO: re-add after git pull brings the files in */}
-      {/* <Route path="/free-geo-tools/brand-visibility" component={BrandVisibilityPage} /> */}
-      {/* <Route path="/free-geo-tools/geo-audit" component={GeoAuditPage} /> */}
-      {/* <Route path="/free-geo-tools/visibility-score" component={QueryOpportunityPage} /> */}
       <Route component={NotFound} />
     </Switch>
   );
