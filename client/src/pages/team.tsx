@@ -19,26 +19,28 @@ const teamMembers = [
   {
     initials: "G",
     name: "Gaurav",
-    role: "Founding Engineer — Frontend Lead",
+    role: "Frontend Lead",
     bio: "A Computer Science graduate specialising in AI and Machine Learning with research across adversarial learning and generative models. Published in leading journals including IJMLC by Springer Nature. In his spare time, he enjoys travelling and trying out different cuisines.",
     photo: "/gaurav.jpg",
+    photoScale: "scale-100",
     gradient: "from-violet-500 to-pink-500",
   },
   {
-    initials: "CD",
-    name: "Name Placeholder",
-    role: "Head of Product",
-    bio: "",
-    photo: "",
-    gradient: "from-cyan-500 to-blue-500",
+    initials: "MR",
+    name: "Melvin Rex",
+    role: "Full Stack Engineer",
+    bio: "A full stack engineer with a strong track record in optimizing data pipelines and building AI driven products. Currently focused on advancing AI capabilities using agentic workflows and LangGraph, with a deep interest in building intuitive, user friendly products.",
+    photo: "/melvin-rex.jpg",
+    gradient: "from-orange-500 to-rose-500",
   },
   {
-    initials: "GH",
-    name: "Name Placeholder",
-    role: "Head of Growth",
-    bio: "",
-    photo: "",
-    gradient: "from-emerald-500 to-cyan-500",
+    initials: "SM",
+    name: "Sahil Maheshwari",
+    role: "Advisor — AI & Machine Learning",
+    bio: "Sahil Maheshwari is a senior AI and ML leader with 12+ years of experience across Hunch, Sixt, and ThoughtWorks. He specializes in large language models, including fine tuning, RAG, and agentic AI systems, and has built high performing data science teams while actively exploring AI driven information discovery.",
+    photo: "/sahil-maheshwari.jpg",
+    linkedin: "https://www.linkedin.com/in/maheshwarisahil/",
+    gradient: "from-cyan-500 to-blue-500",
   },
 ];
 
@@ -159,15 +161,17 @@ export default function Team() {
             {teamMembers.map((m) => (
               <div
                 key={m.initials}
-                className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-6 flex flex-col"
+                className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-6 flex flex-col items-center text-center"
               >
                 {/* Avatar / Photo */}
                 {m.photo ? (
-                  <img
-                    src={m.photo}
-                    alt={m.name}
-                    className="w-32 h-32 rounded-xl object-cover mb-5 shadow-md"
-                  />
+                  <div className="w-32 h-32 rounded-xl overflow-hidden mb-5 shadow-md flex-shrink-0">
+                    <img
+                      src={m.photo}
+                      alt={m.name}
+                      className={`w-full h-full object-cover object-top ${m.photoScale ?? "scale-125"} origin-top`}
+                    />
+                  </div>
                 ) : (
                   <div className={`w-32 h-32 rounded-xl bg-gradient-to-br ${m.gradient} flex items-center justify-center mb-5 shadow-md`}>
                     <span className="text-white text-3xl font-black">{m.initials}</span>
@@ -176,7 +180,18 @@ export default function Team() {
                 <h3 className="text-base font-bold text-slate-900 leading-tight">{m.name}</h3>
                 <p className="text-sm font-semibold text-blue-500 mt-1 mb-3">{m.role}</p>
                 {m.bio && (
-                  <p className="text-sm text-slate-500 leading-relaxed">{m.bio}</p>
+                  <p className="text-sm text-slate-500 leading-relaxed mb-4">{m.bio}</p>
+                )}
+                {m.linkedin && (
+                  <a
+                    href={m.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-600 text-sm font-medium transition-all duration-200 mt-auto"
+                  >
+                    <SiLinkedin className="w-4 h-4" />
+                    LinkedIn
+                  </a>
                 )}
               </div>
             ))}
@@ -192,7 +207,7 @@ export default function Team() {
             Want to join the team?
           </h2>
           <p className="text-slate-500 leading-relaxed">
-            We're a small, ambitious team building the future of AI search visibility. If that excites you, write to us at{" "}
+            We are a small, ambitious team building the future of AI search visibility. If that excites you, write to us at{" "}
             <a href="mailto:hello@georankers.co" className="text-blue-500 font-semibold hover:underline">
               hello@georankers.co
             </a>

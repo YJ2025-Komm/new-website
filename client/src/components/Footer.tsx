@@ -40,7 +40,12 @@ export default function Footer() {
             <div>
               <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Company</p>
               <div className="space-y-3">
-                {/* About Us link hidden until team page is complete */}
+                <a
+                  href="/team"
+                  className="block text-white/80 hover:text-white text-sm transition-colors"
+                >
+                  About Us
+                </a>
                 <a
                   href="https://dashboard.georankers.co/register"
                   target="_blank"
@@ -57,9 +62,7 @@ export default function Footer() {
                 >
                   Book a Demo
                 </a>
-                <Link href="/terms" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  Terms of Service
-                </Link>
+
               </div>
             </div>
 
