@@ -17,6 +17,15 @@ const founders = [
 
 const teamMembers = [
   {
+    initials: "SM",
+    name: "Sahil Maheshwari",
+    role: "Advisor — AI & Machine Learning",
+    bio: "Sahil Maheshwari is a senior AI and ML leader with 12+ years of experience across Hunch, Sixt, and ThoughtWorks. He specializes in large language models, including fine tuning, RAG, and agentic AI systems, and has built high performing data science teams while actively exploring AI driven information discovery.",
+    photo: "/sahil-maheshwari.jpg",
+    linkedin: "https://www.linkedin.com/in/maheshwarisahil/",
+    gradient: "from-cyan-500 to-blue-500",
+  },
+  {
     initials: "G",
     name: "Gaurav",
     role: "Frontend Lead",
@@ -32,15 +41,6 @@ const teamMembers = [
     bio: "A full stack engineer with a strong track record in optimizing data pipelines and building AI driven products. Currently focused on advancing AI capabilities using agentic workflows and LangGraph, with a deep interest in building intuitive, user friendly products.",
     photo: "/melvin-rex.jpg",
     gradient: "from-orange-500 to-rose-500",
-  },
-  {
-    initials: "SM",
-    name: "Sahil Maheshwari",
-    role: "Advisor — AI & Machine Learning",
-    bio: "Sahil Maheshwari is a senior AI and ML leader with 12+ years of experience across Hunch, Sixt, and ThoughtWorks. He specializes in large language models, including fine tuning, RAG, and agentic AI systems, and has built high performing data science teams while actively exploring AI driven information discovery.",
-    photo: "/sahil-maheshwari.jpg",
-    linkedin: "https://www.linkedin.com/in/maheshwarisahil/",
-    gradient: "from-cyan-500 to-blue-500",
   },
 ];
 
