@@ -111,27 +111,43 @@ export default function GeoAuditPage() {
 
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
+  const [retrying, setRetrying] = useState(false);
   const [result, setResult] = useState<GeoAuditResult | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  async function runFetch() {
+    const res = await fetch("/api/tools/geo-audit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url: url.trim() }),
+    });
+    const text = await res.text();
+    let data: any;
+    try { data = JSON.parse(text); } catch { throw new Error("Audit failed. Please try again."); }
+    if (!res.ok) throw new Error(data.message || "Audit failed. Please try again.");
+    return data;
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
+    setRetrying(false);
     setResult(null);
     setError(null);
     try {
-      const res = await fetch("/api/tools/geo-audit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: url.trim() }),
-      });
-      const text = await res.text();
-      let data: any;
-      try { data = JSON.parse(text); } catch { throw new Error("Audit failed. Please try again."); }
-      if (!res.ok) throw new Error(data.message || "Audit failed. Please try again.");
+      const data = await runFetch();
       setResult(data);
-    } catch (err: any) {
-      setError(err.message ?? "Audit failed. Please try again.");
+    } catch {
+      setRetrying(true);
+      await new Promise(r => setTimeout(r, 5000));
+      try {
+        const data = await runFetch();
+        setResult(data);
+      } catch (err: any) {
+        setError(err.message ?? "Server is taking too long to respond. Please try again in a moment.");
+      } finally {
+        setRetrying(false);
+      }
     } finally {
       setLoading(false);
     }
@@ -163,7 +179,7 @@ export default function GeoAuditPage() {
                   className="border-slate-300 text-slate-900 placeholder:text-slate-400 focus:border-blue-500" />
               </div>
               <Button type="submit" disabled={loading} className="w-full gradient-cta text-white font-semibold h-11">
-                {loading ? <span className="flex items-center gap-2"><Loader2 className="w-4 h-4 animate-spin" />Auditing page…</span> : "Run GEO Audit"}
+                {loading ? <span className="flex items-center gap-2"><Loader2 className="w-4 h-4 animate-spin" />{retrying ? "Warming up, please wait…" : "Auditing page…"}</span> : "Run GEO Audit"}
               </Button>
             </form>
             {error && (

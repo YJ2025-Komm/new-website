@@ -132,7 +132,7 @@ export async function discoverPages(
       if (currentUrl === baseUrl && axios.isAxiosError(error)) {
         const statusCode = error.response?.status;
         if (statusCode === 403) {
-          throw new Error('BLOCKED:This website blocks automated analysis tools. They have security measures preventing our crawler from accessing their content.');
+          throw new Error('BLOCKED:This website blocks automated analysis tools. Your website has security measures preventing our crawler from accessing its content.');
         } else if (statusCode === 502 || statusCode === 503 || statusCode === 504) {
           throw new Error('TEMPORARY:The website is experiencing temporary server issues. Please try again in a few moments.');
         } else if (error.code === 'ECONNABORTED' || error.message.includes('timeout')) {

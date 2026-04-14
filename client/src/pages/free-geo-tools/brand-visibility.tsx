@@ -62,27 +62,43 @@ export default function BrandVisibilityPage() {
 
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
+  const [retrying, setRetrying] = useState(false);
   const [result, setResult] = useState<BrandVisibilityResult | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  async function runFetch() {
+    const res = await fetch("/api/tools/brand-visibility", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url: url.trim() }),
+    });
+    const text = await res.text();
+    let data: any;
+    try { data = JSON.parse(text); } catch { throw new Error("Analysis failed. Please try again."); }
+    if (!res.ok) throw new Error(data.message || "Analysis failed. Please try again.");
+    return data;
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
+    setRetrying(false);
     setResult(null);
     setError(null);
     try {
-      const res = await fetch("/api/tools/brand-visibility", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: url.trim() }),
-      });
-      const text = await res.text();
-      let data: any;
-      try { data = JSON.parse(text); } catch { throw new Error("Analysis failed. Please try again."); }
-      if (!res.ok) throw new Error(data.message || "Analysis failed. Please try again.");
+      const data = await runFetch();
       setResult(data);
-    } catch (err: any) {
-      setError(err.message ?? "Analysis failed. Please try again.");
+    } catch {
+      setRetrying(true);
+      await new Promise(r => setTimeout(r, 5000));
+      try {
+        const data = await runFetch();
+        setResult(data);
+      } catch (err: any) {
+        setError(err.message ?? "Server is taking too long to respond. Please try again in a moment.");
+      } finally {
+        setRetrying(false);
+      }
     } finally {
       setLoading(false);
     }
@@ -128,7 +144,8 @@ export default function BrandVisibilityPage() {
               <Button type="submit" disabled={loading} className="w-full gradient-cta text-white font-semibold h-11">
                 {loading ? (
                   <span className="flex items-center gap-2">
-                    <Loader2 className="w-4 h-4 animate-spin" /> Analyzing AI responses…
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    {retrying ? "Warming up, please wait…" : "Analyzing AI responses…"}
                   </span>
                 ) : "Run AI Brand Snapshot"}
               </Button>

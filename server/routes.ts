@@ -735,6 +735,13 @@ Return ONLY valid JSON:
     } catch (error) {
       if (error instanceof z.ZodError) return res.status(400).json({ message: "Invalid URL", errors: error.errors });
       console.error("brand-visibility error:", error instanceof Error ? error.message : error);
+      if (error instanceof Error && error.message.includes(':')) {
+        const [errorType, ...parts] = error.message.split(':');
+        const msg = parts.join(':').trim();
+        if (['BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION'].includes(errorType)) {
+          return res.status(422).json({ message: msg });
+        }
+      }
       res.status(500).json({ message: "Analysis failed. Please try again." });
     }
   });
@@ -795,6 +802,13 @@ strengths: 2-3 items. missingEntities: 3-5 items. priorityFixes: 5-6 items order
     } catch (error) {
       if (error instanceof z.ZodError) return res.status(400).json({ message: "Invalid URL", errors: error.errors });
       console.error("geo-audit error:", error instanceof Error ? error.message : error);
+      if (error instanceof Error && error.message.includes(':')) {
+        const [errorType, ...parts] = error.message.split(':');
+        const msg = parts.join(':').trim();
+        if (['BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION'].includes(errorType)) {
+          return res.status(422).json({ message: msg });
+        }
+      }
       res.status(500).json({ message: "Audit failed. Please try again." });
     }
   });
@@ -855,6 +869,13 @@ topQueries: exactly 8. opportunityGaps: exactly 3. competitorDominatedQueries: 2
     } catch (error) {
       if (error instanceof z.ZodError) return res.status(400).json({ message: "Invalid URL", errors: error.errors });
       console.error("query-opportunities error:", error instanceof Error ? error.message : error);
+      if (error instanceof Error && error.message.includes(':')) {
+        const [errorType, ...parts] = error.message.split(':');
+        const msg = parts.join(':').trim();
+        if (['BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION'].includes(errorType)) {
+          return res.status(422).json({ message: msg });
+        }
+      }
       res.status(500).json({ message: "Could not generate opportunities. Please try again." });
     }
   });
