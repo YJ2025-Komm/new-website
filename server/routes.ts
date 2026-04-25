@@ -14,8 +14,17 @@ import path from "path";
 // Lead logging helper
 const LEADS_FILE = path.join(process.cwd(), "tool-leads.jsonl");
 function logLead(tool: string, input: string) {
-  const line = JSON.stringify({ tool, input, ts: new Date().toISOString() });
-  fs.appendFile(LEADS_FILE, line + "\n", () => {});
+  const payload = { tool, input, ts: new Date().toISOString() };
+  fs.appendFile(LEADS_FILE, JSON.stringify(payload) + "\n", () => {});
+
+  const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+  if (webhookUrl) {
+    fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    }).catch(() => {}); // fire-and-forget, never block the response
+  }
 }
 
 // Rate limiter for free tools: 10 requests per IP per hour
