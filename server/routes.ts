@@ -19,11 +19,8 @@ function logLead(tool: string, input: string) {
 
   const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
   if (webhookUrl) {
-    fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    }).catch(() => {}); // fire-and-forget, never block the response
+    const params = new URLSearchParams({ type: "lead", tool: payload.tool, input: payload.input, ts: payload.ts });
+    fetch(`${webhookUrl}?${params}`).catch(() => {}); // fire-and-forget, never block the response
   }
 }
 
