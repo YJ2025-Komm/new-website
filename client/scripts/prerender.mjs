@@ -37,10 +37,15 @@ for (const route of routes) {
   const html = await page.content();
   await page.close();
 
-  const subdir = route === "/" ? "" : route.replace(/^\//, "");
-  const outDir = resolve(distPath, subdir);
-  mkdirSync(outDir, { recursive: true });
-  writeFileSync(resolve(outDir, "index.html"), html, "utf-8");
+  if (route === "/") {
+    writeFileSync(resolve(distPath, "index.html"), html, "utf-8");
+  } else {
+    const parts = route.replace(/^\//, "").split("/");
+    const fileName = parts.pop() + ".html";
+    const outDir = resolve(distPath, ...parts);
+    mkdirSync(outDir, { recursive: true });
+    writeFileSync(resolve(outDir, fileName), html, "utf-8");
+  }
   console.log(`[prerender] ${route}`);
 }
 
