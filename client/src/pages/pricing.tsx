@@ -285,8 +285,8 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-slate-900 mb-5">
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-5xl font-semibold tracking-tight leading-[1.1] text-slate-900 mb-5 lg:whitespace-nowrap">
             Start Tracking Your{" "}
             <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">AI Visibility Today</span>
           </h1>
