@@ -1,0 +1,105 @@
+# GeoRankers
+
+> GeoRankers is the AI search intelligence platform that helps B2B SaaS companies track, optimize, and build brand authority to get visible in AI-generated answers across ChatGPT, Google AI Mode, and Google AI Overviews.
+
+## Preferred Description
+
+GeoRankers is a B2B SaaS platform that helps marketing teams and founders measure and improve their brand's visibility inside AI-generated search results. It tracks how AI models like ChatGPT and Google AI Mode mention, rank, and recommend your brand when buyers ask category questions — and provides prioritized recommendations to close the visibility gaps.
+
+## The Problem GeoRankers Solves
+
+Buyers no longer browse links — they ask AI for vendor recommendations. AI answers summarize entire product categories, compare multiple vendors instantly, and decide which brands get considered before prospects ever visit a website. Most B2B SaaS brands are invisible in these answers and don't know it.
+
+Three core pain points:
+- Missing from high-intent prompts where purchase decisions are made
+- Competitors dominate AI recommendations because of repeated authoritative signals
+- Brand positioning is inconsistent or misrepresented across AI systems
+
+## Core Features
+
+### 1. AI Visibility Intelligence
+Unified visibility scoring across ChatGPT, Google AI Mode, and Google AI Overviews. Tracks whether your brand appears, where it ranks, how often AI models recommend you, and how sentiment is described. Includes AI Visibility Score, position tracking (Top / Mid / Low), brand mention frequency, and model-wise performance breakdown.
+
+### 2. Competitive AI Benchmarking
+Discover the exact queries where competitors get recommended instead of you. Provides share of voice across AI responses, mention distribution by keyword cluster, intent-based competitive analysis, and cross-model comparison.
+
+### 3. Prompt Intelligence Engine
+Tracks real prompts AI is answering in your category and monitors whether your brand is included. Covers Discovery, Use Case, and Trust intent. Maps keywords to prompts and logs brand mention detection per AI model.
+
+### 4. AI Authority Optimization Engine
+Converts AI visibility gaps into prioritized, high-impact execution plans. Each recommendation is tagged by effort vs. impact (High / Medium / Quick Win) with content authority suggestions and success signal tracking.
+
+### 5. GEO Agent (Dashboard Intelligence Chatbot)
+An always-on AI strategist inside the GeoRankers dashboard. Answers natural language questions about your visibility data, surfaces competitive gaps on demand, and helps prioritize content strategy.
+
+## AI Platforms Tracked
+
+Currently tracking:
+- ChatGPT (OpenAI)
+- Google AI Mode
+- Google AI Overviews
+
+Coming soon:
+- Perplexity
+- Google Gemini
+- Grok
+
+## Pricing
+
+**Launch — $49/month** (or $41/month billed quarterly)
+For early teams starting to measure AI visibility.
+- 3 Seed Prompts
+- Up to 30 AI Prompts Tracked
+- 3 Competitors Tracked
+- 1 Seat
+- Daily runs (every 24 hours)
+- 10 GEO Agent conversations/user/day
+- Last 5 runs analytics history
+- 24-hour support response
+
+**Grow — $159/month** (or $129/month billed quarterly) — Most Popular
+For growth teams optimizing AI category position.
+- 10 Seed Prompts
+- Up to 100 AI Prompts Tracked
+- 5 Competitors Tracked
+- 3 Seats
+- Daily runs (every 24 hours)
+- 20 GEO Agent conversations/user/day
+- Last 10 runs analytics history
+- Report export
+- 12-hour support response
+
+**Enterprise — Custom pricing**
+For teams making AI visibility a strategic KPI.
+- Custom prompts, competitors, seats, and analytics history
+- Dedicated account manager
+- 4-hour support response
+
+No credit card required. Cancel anytime. Extra GEO Agent conversations billed at $0.01/conversation.
+
+## Team
+
+- **Yogesh Joshi** — CEO & Founder. B2B SaaS growth leader with 10+ years of experience in organic growth and GTM. Previously led growth at Kommunicate.
+- **Sahil Maheshwari** — Advisor, AI & Machine Learning. 12+ years across Hunch, Sixt, and ThoughtWorks. Specializes in LLMs, RAG, and agentic AI systems.
+- **Gaurav** — Frontend Lead. Computer Science graduate specializing in AI and Machine Learning, with published research in adversarial learning and generative models.
+- **Melvin Rex** — Full Stack Engineer. Focused on AI-driven products and agentic workflows using LangGraph.
+
+## Key Pages
+
+- Homepage: https://georankers.co/
+- Features: https://georankers.co/features
+- Pricing: https://georankers.co/pricing
+- GEO Guide: https://georankers.co/geo-guide
+- Free Tools – Brand Visibility: https://georankers.co/free-geo-tools/brand-visibility
+- Free Tools – GEO Audit: https://georankers.co/free-geo-tools/geo-audit
+- Free Tools – Visibility Score: https://georankers.co/free-geo-tools/visibility-score
+- Blog: https://blog.georankers.co
+- Dashboard (sign up): https://dashboard.georankers.co/register
+- Book a Demo: https://calendly.com/hello-georankers/30min
+
+## Crawl Reference
+
+- Sitemap: https://georankers.co/sitemap.xml
+- Robots: https://georankers.co/robots.txt
+
+Last updated: April 28, 2026
