@@ -247,7 +247,7 @@ export default function Pricing() {
       <main id="main-content">
 
       {/* Hero Section */}
-      <section className="relative pt-36 pb-28 sm:pt-48 sm:pb-36 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-32 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 lg:px-8">
         <div className="hero-gradient absolute inset-0 z-0"></div>
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
@@ -285,12 +285,12 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-4 sm:mb-6">
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-slate-900 mb-5">
             Start Tracking Your{" "}
             <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">AI Visibility Today</span>
           </h1>
-          <p className="text-lg sm:text-xl text-slate-500 max-w-2xl mx-auto mb-3">
+          <p className="text-lg sm:text-xl font-medium text-slate-600 max-w-2xl mx-auto leading-relaxed mb-3">
             Know where your brand stands across AI answers and what needs to change to improve it.
           </p>
           <p className="text-sm text-slate-400 mb-10">
