@@ -32,7 +32,9 @@ export default function Navbar() {
             <Link href="/features" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium">
               Features
             </Link>
-            {/* Pricing link hidden until launch */}
+            <Link href="/pricing" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" data-testid="link-pricing">
+              Pricing
+            </Link>
             <div className="relative">
               <button
                 onClick={() => setResourcesOpen(!resourcesOpen)}
