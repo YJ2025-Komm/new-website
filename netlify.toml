@@ -1,6 +1,6 @@
 [build]
   base = "client"
-  command = "npm install && node scripts/generate-sitemap.js && npx vite build"
+  command = "npm install && node scripts/generate-sitemap.js && npx vite build && node scripts/prerender.mjs"
   publish = "dist"
 
 [build.environment]
