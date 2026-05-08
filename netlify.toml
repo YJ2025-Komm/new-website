@@ -1,10 +1,12 @@
 [build]
   base = "client"
-  command = "npm install && node scripts/generate-sitemap.js && npx vite build && node scripts/prerender.mjs"
+  command = "npm install && node scripts/generate-sitemap.js && npx vite build && npx puppeteer browsers install chrome && node scripts/prerender.mjs"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "18"
+  PUPPETEER_EXECUTABLE_PATH = "/usr/bin/google-chrome-stable"
+  PUPPETEER_CACHE_DIR = "/opt/build/cache/puppeteer"
 
 [[redirects]]
   from = "/api/*"
