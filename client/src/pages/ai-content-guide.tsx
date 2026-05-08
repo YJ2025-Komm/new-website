@@ -10,9 +10,9 @@ export default function AiContentGuide() {
   const [activeSection, setActiveSection] = useState('');
 
   useSEO({
-    title: "How to Write Content That AI Actually Cites: The Comprehensive Guide for B2B Brands | GeoRankers",
+    title: "How to Write Content AI Actually Cites — B2B Guide | GeoRankers",
     description:
-      "Learn how to write B2B content that AI models like ChatGPT, Perplexity, and Gemini actually cite. Covers extractable assertions, specificity signals, platform differences, freshness, and a 4-stage content framework.",
+      "Write B2B content that earns AI citations. Covers extractable assertions, specificity signals, platform differences, freshness, and a practical 4-stage framework for ChatGPT, Gemini, and Perplexity.",
     canonical: "https://georankers.co/ai-content-guide",
     ogTitle: "How to Write Content That AI Actually Cites: The B2B Brand Guide",
     ogDescription:
