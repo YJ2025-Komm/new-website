@@ -28,11 +28,7 @@ const server = createServer(app);
 await new Promise((resolve) => server.listen(PORT, resolve));
 console.log(`[prerender] static server on port ${PORT}`);
 
-const browser = await puppeteer.launch({
-  headless: true,
-  args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  ...(process.env.PUPPETEER_EXECUTABLE_PATH && { executablePath: process.env.PUPPETEER_EXECUTABLE_PATH }),
-});
+const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox", "--disable-setuid-sandbox"] });
 
 for (const route of routes) {
   const page = await browser.newPage();
