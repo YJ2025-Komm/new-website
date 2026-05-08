@@ -46,21 +46,31 @@ export default function Navbar() {
                 <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-200 ${resourcesOpen ? 'rotate-180' : ''}`} />
               </button>
               {resourcesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50">
-                  <a 
-                    href="https://blog.georankers.co/" 
+                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50">
+                  <a
+                    href="https://blog.georankers.co/"
                     className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
                     data-testid="link-blog"
                   >
                     Blog
                   </a>
-                  <Link 
-                    href="/geo-guide" 
+                  <div className="mx-4 my-1.5 border-t border-slate-100" />
+                  <p className="px-4 pt-1 pb-0.5 text-xs font-semibold text-slate-400 uppercase tracking-wider">Guides</p>
+                  <Link
+                    href="/geo-guide"
                     className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
                     data-testid="link-geo-guide"
                   >
-                    GEO Guide
+                    The GEO Playbook
                   </Link>
+                  <Link
+                    href="/ai-content-guide"
+                    className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
+                    data-testid="link-ai-content-guide"
+                  >
+                    AI Content Guide
+                  </Link>
+                  <div className="mx-4 my-1.5 border-t border-slate-100" />
                   <Link
                     href="/help"
                     className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
@@ -154,32 +164,43 @@ export default function Navbar() {
             </Link>
             {/* Pricing link hidden until launch */}
             <div>
-              <button 
+              <button
                 onClick={() => setResourcesOpen(!resourcesOpen)}
                 className="w-full text-left text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium py-2 flex items-center justify-between"
+                aria-expanded={resourcesOpen}
+                aria-haspopup="true"
               >
                 Resources
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${resourcesOpen ? 'rotate-180' : ''}`} />
               </button>
               {resourcesOpen && (
-                <div className="pl-4 space-y-2 mt-2">
-                  <a 
-                    href="https://blog.georankers.co/" 
+                <div className="pl-4 space-y-1 mt-2">
+                  <a
+                    href="https://blog.georankers.co/"
                     className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Blog
                   </a>
-                  <Link 
-                    href="/geo-guide" 
+                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider pt-2 pb-0.5">Guides</p>
+                  <Link
+                    href="/geo-guide"
                     className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    GEO Guide
+                    The GEO Playbook
+                  </Link>
+                  <Link
+                    href="/ai-content-guide"
+                    className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
+                    onClick={() => setMobileMenuOpen(false)}
+                    data-testid="mobile-link-ai-content-guide"
+                  >
+                    AI Content Guide
                   </Link>
                   <Link
                     href="/help"
-                    className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
+                    className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1 mt-1"
                     onClick={() => setMobileMenuOpen(false)}
                     data-testid="mobile-link-help"
                   >

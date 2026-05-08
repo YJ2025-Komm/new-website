@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
-import { Button } from "@/components/ui/button";
 import { ArrowRight, Rocket } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,9 +11,9 @@ export default function GeoGuide() {
   const [activeSection, setActiveSection] = useState('');
 
   useSEO({
-    title: "The Complete GEO Playbook — Master AI Search Optimization for B2B & SaaS | GeoRankers",
+    title: "GEO Playbook — Master AI Search Optimization for B2B SaaS | GeoRankers",
     description:
-      "Master Generative Engine Optimization (GEO) with our complete strategic guide. Learn proven tactics to optimize your B2B and SaaS brand visibility in ChatGPT, Gemini, Perplexity, and Claude AI search results.",
+      "Proven GEO tactics for B2B SaaS brands. Learn how to get cited in ChatGPT, Gemini, and Perplexity — covering content strategy, authority building, and community signals.",
     canonical: "https://georankers.co/geo-guide",
     ogTitle: "The Complete GEO Playbook — Master AI Search Optimization",
     ogDescription:
@@ -23,26 +22,116 @@ export default function GeoGuide() {
     schemaId: "geo-guide-schema",
     schema: {
       "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "The Complete GEO Playbook - A Strategic Guide for B2B and SaaS Marketers",
-      "description": "Master Generative Engine Optimization (GEO) with our complete strategic guide. Learn proven tactics to optimize your B2B and SaaS brand visibility in ChatGPT, Gemini, Perplexity, and Claude AI search results.",
-      "author": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.co" },
-      "publisher": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.co" },
-      "datePublished": "2025-01-07",
-      "dateModified": "2025-01-07",
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://georankers.co/geo-guide" },
-      "articleSection": "AI Marketing",
-      "keywords": ["GEO", "generative engine optimization", "AI search optimization", "ChatGPT visibility", "Gemini SEO", "B2B AI marketing", "SaaS content strategy"],
-      "about": [
-        { "@type": "Thing", "name": "Generative Engine Optimization", "description": "The practice of optimizing content for AI-powered search engines and language models" },
-        { "@type": "Thing", "name": "AI Search Marketing", "description": "Marketing strategies focused on visibility in AI search results across platforms like ChatGPT, Gemini, and Perplexity" },
-      ],
-      "mentions": [
-        { "@type": "Organization", "name": "Princeton University" },
-        { "@type": "Organization", "name": "Allen Institute for AI" },
-        { "@type": "Organization", "name": "SparkToro" },
-        { "@type": "Organization", "name": "Pew Research Center" },
-        { "@type": "Organization", "name": "Gartner" },
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://georankers.co/geo-guide#article",
+          "headline": "The Complete GEO Playbook — Master AI Search Optimization for B2B & SaaS",
+          "description": "Master Generative Engine Optimization (GEO) with our complete strategic guide. Learn proven tactics to optimize your B2B and SaaS brand visibility in ChatGPT, Gemini, Perplexity, and Claude AI search results.",
+          "image": { "@type": "ImageObject", "url": "https://georankers.co/og-image.png", "width": 1200, "height": 630 },
+          "inLanguage": "en-US",
+          "author": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.co" },
+          "publisher": {
+            "@type": "Organization",
+            "name": "GeoRankers",
+            "url": "https://georankers.co",
+            "logo": { "@type": "ImageObject", "url": "https://georankers.co/og-image.png" },
+          },
+          "datePublished": "2025-01-07",
+          "dateModified": "2026-05-09",
+          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://georankers.co/geo-guide" },
+          "articleSection": "AI Search Marketing",
+          "keywords": [
+            "GEO", "generative engine optimization", "AI search optimization",
+            "ChatGPT visibility", "Gemini SEO", "Perplexity SEO",
+            "B2B AI marketing", "SaaS content strategy", "AI citation",
+            "LLM visibility", "AI search ranking", "GEO vs SEO",
+            "zero click search", "AI Overviews optimization",
+          ],
+          "about": [
+            { "@type": "Thing", "name": "Generative Engine Optimization", "description": "The practice of optimizing brand presence and content to appear in AI-generated answers across ChatGPT, Gemini, and Perplexity" },
+            { "@type": "Thing", "name": "AI Search Marketing", "description": "Marketing strategies focused on earning citations in AI-generated responses across large language models and generative search platforms" },
+            { "@type": "Thing", "name": "Zero Click Search", "description": "Search queries that are fully answered on the results page without the user clicking through to a website, increasingly common with AI Overviews" },
+          ],
+          "mentions": [
+            { "@type": "Organization", "name": "Princeton University" },
+            { "@type": "Organization", "name": "Allen Institute for AI" },
+            { "@type": "Organization", "name": "SparkToro" },
+            { "@type": "Organization", "name": "Pew Research Center" },
+            { "@type": "Organization", "name": "Gartner" },
+            { "@type": "Organization", "name": "OpenAI" },
+            { "@type": "Organization", "name": "Google" },
+            { "@type": "Organization", "name": "Perplexity" },
+            { "@type": "Organization", "name": "Ahrefs" },
+          ],
+          "citation": [
+            { "@type": "CreativeWork", "name": "GEO: Generative Engine Optimization", "author": "Aggarwal et al., Princeton University & Allen Institute for AI", "datePublished": "2024", "url": "https://arxiv.org/pdf/2311.09735" },
+            { "@type": "CreativeWork", "name": "Zero-Click Search Study 2024", "author": "SparkToro", "datePublished": "2024" },
+            { "@type": "CreativeWork", "name": "Gartner Predicts Search Engine Volume Will Drop 25% by 2026", "author": "Gartner", "datePublished": "2024" },
+          ],
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://georankers.co/geo-guide#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://georankers.co/" },
+            { "@type": "ListItem", "position": 2, "name": "The Complete GEO Playbook", "item": "https://georankers.co/geo-guide" },
+          ],
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://georankers.co/geo-guide#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Generative Engine Optimization (GEO)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Generative Engine Optimization (GEO) is the practice of optimizing your brand and content to appear in AI-generated answers across platforms like ChatGPT, Perplexity, and Gemini. Unlike traditional SEO which aims to rank pages in search results, GEO focuses on making your brand visible and accurately represented when AI systems synthesize answers. Research by Aggarwal et al. (2024) found that GEO-specific techniques can boost content visibility in AI responses by up to 40%.",
+              },
+            },
+            {
+              "@type": "Question",
+              "name": "How is GEO different from traditional SEO?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SEO optimizes pages to rank in search engine results using signals like backlinks, keyword relevance, and domain authority. GEO optimizes content and brand presence to be retrieved, cited, and summarized by AI systems. The core differences: SEO evaluates pages, GEO evaluates extractable passages; SEO measures clicks and rankings, GEO measures share of voice in AI answers; SEO relies on one primary engine while GEO requires a different approach per AI platform since only 11% of domains are cited by both ChatGPT and Perplexity.",
+              },
+            },
+            {
+              "@type": "Question",
+              "name": "Which AI platforms should I prioritize for GEO?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Prioritization depends on where your buyers search. Gemini draws 52% of its citations from brand-owned websites, making it most responsive to structured website content and schema markup. ChatGPT favors established domain authority and Wikipedia presence, with a 3.5x citation lift at 32,000+ referring domains. Perplexity draws heavily from Reddit and community platforms, citing 3–8 sources per response with 46.7% of top citations coming from Reddit for certain queries. Each platform requires a distinct approach since cross-platform citation overlap is only 11%.",
+              },
+            },
+            {
+              "@type": "Question",
+              "name": "How do I measure my brand's AI search visibility?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Manual testing — searching your category queries across ChatGPT, Gemini, and Perplexity — provides a direct baseline. Note whether your brand is mentioned, how it is described, and which sources are cited. For systematic ongoing tracking, platforms like GeoRankers monitor your citation share across AI platforms automatically, showing how models describe your brand and which content is driving or blocking citations. Traditional SEO metrics like organic traffic do not capture AI citation activity, so dedicated GEO measurement is needed.",
+              },
+            },
+            {
+              "@type": "Question",
+              "name": "What content changes have the biggest impact on AI citation rates?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Research consistently identifies named statistics with sourced attribution (+22% AI visibility, Aggarwal et al. 2024), direct quotations from credible named sources (+37% citation rate), and structured formats like tables (2.5x citation rate vs unstructured text, Onely 2025) as the highest-impact changes. Front-loading specific claims in the first 30% of content is also critical — 44.2% of all AI citations come from the opening third of an article (Growth Memo). AI systems retrieve at the passage level, so every section should be self-contained and extractable.",
+              },
+            },
+            {
+              "@type": "Question",
+              "name": "How long does it take to see GEO results?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "GEO operates on two timelines. Training data changes are slow — LLMs retrain on cycles spanning months, so content published today may not influence a model's static knowledge for some time. Real-time retrieval is faster: platforms like Perplexity and ChatGPT's browse mode actively index and cite content within days of publication. Research shows that 76.4% of ChatGPT's most-cited pages were updated within the last 30 days (Digitaloft, 2025), meaning freshness is a continuously-scored signal rather than a one-time win.",
+              },
+            },
+          ],
+        },
       ],
     },
   });
@@ -320,6 +409,13 @@ export default function GeoGuide() {
               }`}>
                 <span className="text-xs font-medium">Organisational Impact: Building a GEO Ready Team</span>
               </a>
+              <a href="#faq" className={`group block px-2 py-1.5 rounded transition-all duration-200 transform hover:translate-x-1 ${
+                activeSection === 'faq'
+                ? 'text-blue-600 bg-blue-50 translate-x-1'
+                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}>
+                <span className="text-xs font-medium">Frequently Asked Questions</span>
+              </a>
             </nav>
           </div>
         </aside>
@@ -589,7 +685,9 @@ export default function GeoGuide() {
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Tracking and Feedback Loops</h3>
             <p className="mb-6">
-              Regularly test AI assistants with queries relevant to your category. Note whether and how your brand is mentioned and which sources the models cite. Adjust your content strategy based on what you observe. As of 2025, mainstream SEO tools like Ahrefs and Semrush are starting to experiment with AI visibility features, but these remain in beta and do not reliably indicate how ChatGPT or Gemini recommend your brand. Custom monitoring and manual testing are still necessary.
+              Regularly test AI assistants with queries relevant to your category. Note whether and how your brand is mentioned and which sources the models cite. Adjust your content strategy based on what you observe. Traditional SEO tools like Ahrefs and Semrush track rankings and backlinks but do not reliably show how ChatGPT or Gemini describe your brand in synthesized answers — that requires dedicated GEO monitoring.{' '}
+              <Link href="/features" className="text-blue-600 hover:text-blue-800 underline">GeoRankers tracks your citation share across ChatGPT, Gemini, and Perplexity</Link>{' '}
+              automatically, so you can see which content is working, which queries your brand appears in, and how models describe you — updated daily.
             </p>
 
             <p className="mb-6 font-medium text-gray-900">
@@ -613,7 +711,10 @@ export default function GeoGuide() {
             
             <ul className="mb-6 space-y-2">
               <li>In 2023 around thirteen million American adults used AI tools for search</li>
-              <li>Market analysts predict that this number will rise to ninety million by 2027. That is a near sevenfold increase in four years.</li>
+              <li>Market analysts predict that this number will rise to ninety million by 2027 — a near sevenfold increase in four years</li>
+              <li>AI-referred sessions grew <strong>527% year over year</strong> between early 2024 and early 2025 (Digitaloft, 2025)</li>
+              <li>ChatGPT now processes roughly <strong>2.5 billion prompts each day</strong></li>
+              <li>Google's AI Overviews appear in more than <strong>half of all search results</strong></li>
             </ul>
 
             <p className="mb-6">
@@ -704,13 +805,13 @@ export default function GeoGuide() {
           </section>
 
           {/* Second CTA Banner */}
-          <div className="my-12 bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-500/20 rounded-2xl p-6 sm:p-8 text-center">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Don't Get Left Behind in AI Search</h3>
-            <p className="text-gray-600 mb-6">Start building your AI search presence today with proven GEO strategies</p>
-            <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
+          <div className="my-12 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 rounded-2xl p-6 sm:p-8 text-center">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">See How Your Brand Appears in AI Answers — Free</h3>
+            <p className="text-gray-600 mb-6">Run an instant AI Brand Snapshot and check how ChatGPT, Gemini, and Perplexity describe your brand today. No account needed.</p>
+            <Link href="/free-geo-tools/brand-visibility" className="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
               <ArrowRight className="w-4 h-4 mr-2" />
-              Try for Free
-            </a>
+              Try AI Brand Snapshot — Free
+            </Link>
           </div>
 
           {/* Section 5: How Generative Engines Work */}
@@ -828,7 +929,8 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              In the aftermath of Google's March 2024 core update, AI overviews appeared in roughly 18% of U.S. searches. Ahrefs researchers found that AI summaries reduced click through rate by around 34%. For informational queries, AI overviews appear in about 58% of results.
+              AI Overviews now appear in more than half of all Google searches. Ahrefs researchers found that AI summaries reduce click-through rate by around 34%. For informational queries — the type most common in B2B research — AI Overviews appear in roughly 58% of results. For tactical guidance on optimizing specifically for Google's AI surfaces, see{' '}
+              <a href="https://blog.georankers.co/2026/02/27/how-to-optimize-content-for-ai-overviews-aio-in-2026/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">How to Optimize Content for Google AI Overviews in 2026</a>.
             </p>
 
             <p className="mb-6">
@@ -933,7 +1035,8 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              For B2B marketers, the key is to identify where the two strategies overlap and to build content that serves both human readers and AI summarisation.
+              For B2B marketers, the key is to identify where the two strategies overlap and to build content that serves both human readers and AI summarisation. For a deep dive into the specific writing and structuring techniques that make content extractable by AI systems, see{' '}
+              <Link href="/ai-content-guide" className="text-blue-600 hover:text-blue-800 underline">How to Write Content That AI Actually Cites</Link>.
             </p>
 
             <p className="mb-6">
@@ -1004,7 +1107,8 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              Thank customers publicly if they write about your product, and ask them if you can share their feedback. Over time, you will build up a collection of endorsements from other people that models can see.
+              Thank customers publicly if they write about your product, and ask them if you can share their feedback. Over time, you will build up a collection of endorsements from other people that models can see. For a detailed look at how community conversations directly shape what AI systems say about brands, read{' '}
+              <a href="https://blog.georankers.co/2026/01/29/how-communities-shape-ai-search/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">How Communities Shape AI Search</a>.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Publish Research and Thought Leadership</h3>
@@ -1050,7 +1154,9 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6">
-              A manual approach or custom scripts may be needed because mainstream SEO tools are still working on reliable AI visibility features.
+              For teams that need systematic tracking at scale,{' '}
+              <Link href="/features" className="text-blue-600 hover:text-blue-800 underline">GeoRankers</Link>{' '}
+              automates this process — monitoring citation share across ChatGPT, Gemini, and Perplexity daily, so you always have a current picture of where your brand stands in AI-generated answers.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Ask for Reviews and Testimonials</h3>
@@ -1106,8 +1212,7 @@ export default function GeoGuide() {
             <div className="absolute bottom-0 right-0 w-56 h-56 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
             <div className="relative z-10">
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Put These Best Practices to Work</h3>
-              <p className="text-white/80 mb-3 max-w-xl mx-auto">GeoRankers tracks your brand across ChatGPT and Google AI Mode — so you always know where you stand.</p>
-              <p className="text-white/60 text-sm mb-6 max-w-xl mx-auto">See exactly how it works on the <Link href="/features" className="text-white underline hover:text-white/80 font-medium">features page</Link>.</p>
+              <p className="text-white/80 mb-6 max-w-xl mx-auto">GeoRankers tracks your brand across ChatGPT, Gemini, and Perplexity — so you always know where you stand and what to do next.</p>
               <a href="https://dashboard.georankers.co/register" className="inline-flex items-center bg-white text-blue-700 hover:bg-blue-50 px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
                 <Rocket className="w-4 h-4 mr-2" />
                 Try for Free
@@ -1164,12 +1269,12 @@ export default function GeoGuide() {
 
           {/* CTA Banner: After Measuring Success */}
           <div className="my-12 bg-gradient-to-r from-blue-500/10 to-violet-500/10 border border-blue-500/20 rounded-2xl p-6 sm:p-10 text-center">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">See Your AI Visibility Score Right Now</h3>
-            <p className="text-gray-600 mb-6 max-w-xl mx-auto">Stop guessing how AI models describe your brand. GeoRankers gives you the metrics that matter — mention rate, citation sources, and competitor share of voice.</p>
-            <a href="https://dashboard.georankers.co/register" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Find Your AI Query Opportunities — Free</h3>
+            <p className="text-gray-600 mb-6 max-w-xl mx-auto">Discover which AI search queries your brand should be appearing in, where competitors are winning, and which gaps are easiest to close. No account needed.</p>
+            <Link href="/free-geo-tools/visibility-score" className="inline-flex items-center gradient-cta hover:opacity-90 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
               <ArrowRight className="w-4 h-4 mr-2" />
-              Try for Free
-            </a>
+              Check My AI Query Opportunities — Free
+            </Link>
           </div>
 
           {/* Section 10: Challenges and Ethical Considerations */}
@@ -1393,8 +1498,110 @@ export default function GeoGuide() {
             </p>
 
             <p className="mb-6 font-medium">
-              If you are not sure, now is the time to start your GEO journey.
+              If you are not sure, now is the time to start your GEO journey. Read how{' '}
+              <a href="https://blog.georankers.co/2026/03/01/b2b-saas-ai-visiblity-optimisation/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">AI visibility is becoming the primary growth channel for B2B SaaS companies in 2026</a>{' '}
+              — and what the leading brands are doing differently.
             </p>
+          </section>
+
+          {/* ── FAQ Section ─────────────────────────────────────────────── */}
+          <section id="faq" className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Frequently Asked Questions</h2>
+
+            {[
+              {
+                q: 'What is Generative Engine Optimization (GEO)?',
+                a: 'Generative Engine Optimization (GEO) is the practice of optimizing your brand and content to appear in AI-generated answers across platforms like ChatGPT, Perplexity, and Gemini. Unlike traditional SEO which aims to rank pages in search results, GEO focuses on making your brand visible and accurately represented when AI systems synthesize answers. Research by Aggarwal et al. (2024) found that GEO-specific techniques can boost content visibility in AI responses by up to 40%.',
+              },
+              {
+                q: 'How is GEO different from traditional SEO?',
+                a: 'SEO optimizes pages to rank in search engine results using signals like backlinks, keyword relevance, and domain authority. GEO optimizes content and brand presence to be retrieved, cited, and summarized by AI systems. The core difference: SEO evaluates pages, GEO evaluates extractable passages. SEO measures clicks and rankings; GEO measures share of voice in AI answers. And while SEO works on one primary engine, GEO requires a different approach per AI platform — only 11% of domains are cited by both ChatGPT and Perplexity.',
+              },
+              {
+                q: 'Which AI platforms should I prioritize for GEO?',
+                a: 'Prioritization depends on where your buyers search. Gemini draws 52% of its citations from brand-owned websites, making it most responsive to structured website content and schema markup. ChatGPT favors established domain authority, with a 3.5x citation lift at 32,000+ referring domains. Perplexity cites 3–8 sources per response and draws 46.7% of top citations from Reddit for certain query types. Each platform requires a distinct approach.',
+              },
+              {
+                q: 'How do I measure my brand\'s AI search visibility?',
+                a: 'Manual testing — searching your category queries across ChatGPT, Gemini, and Perplexity — provides a direct baseline. Note whether your brand is mentioned, how it is described, and which sources are cited. For systematic tracking, GeoRankers monitors your citation share across AI platforms automatically, showing how models describe your brand and which content is driving or blocking those citations. Traditional SEO analytics tools do not capture AI citation activity.',
+              },
+              {
+                q: 'What content changes have the biggest impact on AI citation rates?',
+                a: 'Named statistics with sourced attribution increase AI visibility by 22% (Aggarwal et al., 2024). Direct quotes from named sources increase citation rates by 37%. Tables increase citation rates 2.5x compared to unstructured prose (Onely, 2025). Front-loading specific claims also matters — 44.2% of all AI citations come from the first 30% of an article (Growth Memo). AI systems retrieve at the passage level, so every section should contain at least one self-contained, extractable assertion.',
+              },
+              {
+                q: 'How long does it take to see GEO results?',
+                a: 'GEO operates on two timelines. Training data changes are slow — LLMs retrain on cycles that can span months, so content may not influence a model\'s static knowledge immediately. Real-time retrieval is faster: platforms like Perplexity and ChatGPT\'s browse mode actively index and cite fresh content within days of publication. Research shows that 76.4% of ChatGPT\'s most-cited pages were updated within the last 30 days (Digitaloft, 2025), meaning content freshness is a continuously-scored signal.',
+              },
+            ].map(({ q, a }, i) => (
+              <div key={i} className="mb-6 border border-gray-200 rounded-xl overflow-hidden">
+                <h3 className="text-lg font-semibold text-gray-900 bg-gray-50 px-6 py-4 m-0">{q}</h3>
+                <p className="px-6 py-4 text-gray-700 leading-relaxed m-0">{a}</p>
+              </div>
+            ))}
+          </section>
+
+          {/* ── Related Reading ──────────────────────────────────────────── */}
+          <section className="mb-12 not-prose">
+            <div className="border border-gray-200 rounded-xl p-6 bg-gray-50">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">Related Reading</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></span>
+                  <div>
+                    <Link href="/ai-content-guide" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                      How to Write Content That AI Actually Cites: The Comprehensive Guide for B2B Brands
+                    </Link>
+                    <p className="text-sm text-gray-500 mt-0.5">Extractable assertions, specificity signals, platform citation patterns, and a 4-stage content framework — the tactical companion to this GEO Playbook.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
+                  <div>
+                    <a href="https://blog.georankers.co/2026/01/29/how-communities-shape-ai-search/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                      How Communities Shape AI Search: The New Battleground for Brand Discovery
+                    </a>
+                    <p className="text-sm text-gray-500 mt-0.5">Why Reddit, Hacker News, and Quora threads are the hidden layer of AI search authority — and how to build presence there without being promotional.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
+                  <div>
+                    <a href="https://blog.georankers.co/2026/02/27/how-to-optimize-content-for-ai-overviews-aio-in-2026/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                      How to Optimize Content for Google AI Overviews (AIO) in 2026
+                    </a>
+                    <p className="text-sm text-gray-500 mt-0.5">Tactical guide to structuring content for Gemini's AI Overviews — the fastest-growing citation surface for brand-owned domains.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 w-2 h-2 rounded-full bg-amber-500 flex-shrink-0"></span>
+                  <div>
+                    <a href="https://blog.georankers.co/2026/01/21/ai-discovery-metrics-llm-analytics/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                      The Hidden Metrics Behind AI Discovery That SEO Tools Cannot Show You
+                    </a>
+                    <p className="text-sm text-gray-500 mt-0.5">Why standard analytics miss how AI systems evaluate your brand — and the metrics that actually predict citation probability.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 w-2 h-2 rounded-full bg-violet-500 flex-shrink-0"></span>
+                  <div>
+                    <a href="https://blog.georankers.co/2026/03/01/b2b-saas-ai-visiblity-optimisation/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                      AI Visibility: The New Growth Channel for B2B SaaS in 2026
+                    </a>
+                    <p className="text-sm text-gray-500 mt-0.5">How leading B2B SaaS brands are shifting budget and strategy toward AI search visibility — and what separates those winning citations from those being ignored.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></span>
+                  <div>
+                    <a href="https://blog.georankers.co/2026/02/18/how-to-choose-the-right-ai-search-visibility-platform-b2b-guide/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                      How to Choose the Right AI Search Visibility Platform in 2026
+                    </a>
+                    <p className="text-sm text-gray-500 mt-0.5">A practical evaluation framework for B2B teams comparing GEO monitoring tools — what to look for, what to avoid, and how to assess fit for your category.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
 
           {/* CTA Section */}

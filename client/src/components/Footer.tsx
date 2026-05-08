@@ -73,11 +73,15 @@ export default function Footer() {
                 <a href="https://blog.georankers.co/" className="block text-white/80 hover:text-white text-sm transition-colors">
                   Blog
                 </a>
-                <Link href="/geo-guide" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  GEO Guide
-                </Link>
                 <Link href="/help" className="block text-white/80 hover:text-white text-sm transition-colors">
                   Help Docs
+                </Link>
+                <p className="text-xs font-semibold text-blue-200/40 uppercase tracking-wider pt-1">Guides</p>
+                <Link href="/geo-guide" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  The GEO Playbook
+                </Link>
+                <Link href="/ai-content-guide" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  AI Content Guide
                 </Link>
               </div>
             </div>
