@@ -87,55 +87,29 @@ export default function AiContentGuide() {
             { "@type": "ListItem", "position": 3, "name": "How to Write Content That AI Actually Cites", "item": "https://georankers.co/ai-content-guide" },
           ],
         },
-        {
-          "@type": "FAQPage",
-          "@id": "https://georankers.co/ai-content-guide#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What is the difference between writing for SEO and writing for AI search?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Traditional SEO optimizes pages to rank for specific keywords in a list of results. Writing for AI search requires creating content that can be extracted, synthesized, and cited as part of a single coherent answer. The core difference is that AI systems retrieve at the passage level rather than the page level, which means every section of a piece of content needs to be able to stand alone as a useful, specific answer to a real question.",
-              },
-            },
-            {
-              "@type": "Question",
-              "name": "Does content length matter for AI citation?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Content depth matters more than raw word count. Long-form content of 2,000 words or more is cited more frequently than short content, but only when it maintains specificity and depth throughout rather than padding to hit a length target. The more useful measure is whether each major section contains at least one specific, extractable assertion supported by evidence. A 2,500-word piece with 10 citable sections will consistently outperform a 5,000-word piece with two.",
-              },
-            },
-            {
-              "@type": "Question",
-              "name": "How often should content be updated for AI visibility?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Research shows that 76.4% of ChatGPT's most-cited pages were updated within the last 30 days, and the majority of AI Overview citations come from content published within the last two years. For content in fast-moving categories, meaningful updates every three to six months are worth considering for high-priority pieces. The update should reflect genuinely new data, examples, or framing rather than cosmetic changes to a publication date.",
-              },
-            },
-            {
-              "@type": "Question",
-              "name": "Does schema markup help with AI citation?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, though the relationship is stronger for some platforms than others. Gemini shows a pronounced preference for structured, schema-marked content on brand-owned domains. Research suggests that products with comprehensive schema markup appear in AI recommendations three to five times more frequently than those without it. For ChatGPT and Perplexity, the effect is less direct but still meaningful in that schema markup contributes to the overall authority and crawlability signals those platforms factor into source selection.",
-              },
-            },
-            {
-              "@type": "Question",
-              "name": "What role do community platforms play in AI visibility?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Community platforms play a larger role than most content strategies currently account for. Domains with substantial brand mentions on Quora and Reddit have approximately four times higher citation rates than those with minimal community presence. Perplexity draws roughly 46.7% of its top citations from Reddit alone for certain query types. The mechanism is that AI systems learned from human conversations, and the platforms where those conversations happen in the most candid and detailed form become disproportionately influential in shaping how AI answers describe brands and categories.",
-              },
-            },
-          ],
-        },
       ],
     },
   });
+
+  // Standalone FAQPage — separate script tag avoids Google "Duplicate field FAQ page" error
+  useEffect(() => {
+    const el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.id = 'ai-content-guide-faq-schema';
+    el.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is the difference between writing for SEO and writing for AI search?", "acceptedAnswer": { "@type": "Answer", "text": "Traditional SEO optimizes pages to rank for specific keywords in a list of results. Writing for AI search requires creating content that can be extracted, synthesized, and cited as part of a single coherent answer. The core difference is that AI systems retrieve at the passage level rather than the page level, which means every section of a piece of content needs to be able to stand alone as a useful, specific answer to a real question." } },
+        { "@type": "Question", "name": "Does content length matter for AI citation?", "acceptedAnswer": { "@type": "Answer", "text": "Content depth matters more than raw word count. Long-form content of 2,000 words or more is cited more frequently than short content, but only when it maintains specificity and depth throughout rather than padding to hit a length target. The more useful measure is whether each major section contains at least one specific, extractable assertion supported by evidence. A 2,500-word piece with 10 citable sections will consistently outperform a 5,000-word piece with two." } },
+        { "@type": "Question", "name": "How often should content be updated for AI visibility?", "acceptedAnswer": { "@type": "Answer", "text": "Research shows that 76.4% of ChatGPT's most-cited pages were updated within the last 30 days, and the majority of AI Overview citations come from content published within the last two years. For content in fast-moving categories, meaningful updates every three to six months are worth considering for high-priority pieces. The update should reflect genuinely new data, examples, or framing rather than cosmetic changes to a publication date." } },
+        { "@type": "Question", "name": "Does schema markup help with AI citation?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, though the relationship is stronger for some platforms than others. Gemini shows a pronounced preference for structured, schema-marked content on brand-owned domains. Research suggests that products with comprehensive schema markup appear in AI recommendations three to five times more frequently than those without it. For ChatGPT and Perplexity, the effect is less direct but still meaningful in that schema markup contributes to the overall authority and crawlability signals those platforms factor into source selection." } },
+        { "@type": "Question", "name": "What role do community platforms play in AI visibility?", "acceptedAnswer": { "@type": "Answer", "text": "Community platforms play a larger role than most content strategies currently account for. Domains with substantial brand mentions on Quora and Reddit have approximately four times higher citation rates than those with minimal community presence. Perplexity draws roughly 46.7% of its top citations from Reddit alone for certain query types. The mechanism is that AI systems learned from human conversations, and the platforms where those conversations happen in the most candid and detailed form become disproportionately influential in shaping how AI answers describe brands and categories." } },
+      ],
+    });
+    document.head.appendChild(el);
+    return () => { el.remove(); };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

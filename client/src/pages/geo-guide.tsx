@@ -78,63 +78,30 @@ export default function GeoGuide() {
             { "@type": "ListItem", "position": 2, "name": "The Complete GEO Playbook", "item": "https://georankers.co/geo-guide" },
           ],
         },
-        {
-          "@type": "FAQPage",
-          "@id": "https://georankers.co/geo-guide#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What is Generative Engine Optimization (GEO)?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Generative Engine Optimization (GEO) is the practice of optimizing your brand and content to appear in AI-generated answers across platforms like ChatGPT, Perplexity, and Gemini. Unlike traditional SEO which aims to rank pages in search results, GEO focuses on making your brand visible and accurately represented when AI systems synthesize answers. Research by Aggarwal et al. (2024) found that GEO-specific techniques can boost content visibility in AI responses by up to 40%.",
-              },
-            },
-            {
-              "@type": "Question",
-              "name": "How is GEO different from traditional SEO?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "SEO optimizes pages to rank in search engine results using signals like backlinks, keyword relevance, and domain authority. GEO optimizes content and brand presence to be retrieved, cited, and summarized by AI systems. The core differences: SEO evaluates pages, GEO evaluates extractable passages; SEO measures clicks and rankings, GEO measures share of voice in AI answers; SEO relies on one primary engine while GEO requires a different approach per AI platform since only 11% of domains are cited by both ChatGPT and Perplexity.",
-              },
-            },
-            {
-              "@type": "Question",
-              "name": "Which AI platforms should I prioritize for GEO?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Prioritization depends on where your buyers search. Gemini draws 52% of its citations from brand-owned websites, making it most responsive to structured website content and schema markup. ChatGPT favors established domain authority and Wikipedia presence, with a 3.5x citation lift at 32,000+ referring domains. Perplexity draws heavily from Reddit and community platforms, citing 3–8 sources per response with 46.7% of top citations coming from Reddit for certain queries. Each platform requires a distinct approach since cross-platform citation overlap is only 11%.",
-              },
-            },
-            {
-              "@type": "Question",
-              "name": "How do I measure my brand's AI search visibility?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Manual testing — searching your category queries across ChatGPT, Gemini, and Perplexity — provides a direct baseline. Note whether your brand is mentioned, how it is described, and which sources are cited. For systematic ongoing tracking, platforms like GeoRankers monitor your citation share across AI platforms automatically, showing how models describe your brand and which content is driving or blocking citations. Traditional SEO metrics like organic traffic do not capture AI citation activity, so dedicated GEO measurement is needed.",
-              },
-            },
-            {
-              "@type": "Question",
-              "name": "What content changes have the biggest impact on AI citation rates?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Research consistently identifies named statistics with sourced attribution (+22% AI visibility, Aggarwal et al. 2024), direct quotations from credible named sources (+37% citation rate), and structured formats like tables (2.5x citation rate vs unstructured text, Onely 2025) as the highest-impact changes. Front-loading specific claims in the first 30% of content is also critical — 44.2% of all AI citations come from the opening third of an article (Growth Memo). AI systems retrieve at the passage level, so every section should be self-contained and extractable.",
-              },
-            },
-            {
-              "@type": "Question",
-              "name": "How long does it take to see GEO results?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "GEO operates on two timelines. Training data changes are slow — LLMs retrain on cycles spanning months, so content published today may not influence a model's static knowledge for some time. Real-time retrieval is faster: platforms like Perplexity and ChatGPT's browse mode actively index and cite content within days of publication. Research shows that 76.4% of ChatGPT's most-cited pages were updated within the last 30 days (Digitaloft, 2025), meaning freshness is a continuously-scored signal rather than a one-time win.",
-              },
-            },
-          ],
-        },
       ],
     },
   });
+
+  // Standalone FAQPage — separate script tag avoids Google "Duplicate field FAQ page" error
+  useEffect(() => {
+    const el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.id = 'geo-guide-faq-schema';
+    el.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is Generative Engine Optimization (GEO)?", "acceptedAnswer": { "@type": "Answer", "text": "Generative Engine Optimization (GEO) is the practice of optimizing your brand and content to appear in AI-generated answers across platforms like ChatGPT, Perplexity, and Gemini. Unlike traditional SEO which aims to rank pages in search results, GEO focuses on making your brand visible and accurately represented when AI systems synthesize answers. Research by Aggarwal et al. (2024) found that GEO-specific techniques can boost content visibility in AI responses by up to 40%." } },
+        { "@type": "Question", "name": "How is GEO different from traditional SEO?", "acceptedAnswer": { "@type": "Answer", "text": "SEO optimizes pages to rank in search engine results using signals like backlinks, keyword relevance, and domain authority. GEO optimizes content and brand presence to be retrieved, cited, and summarized by AI systems. The core differences: SEO evaluates pages, GEO evaluates extractable passages; SEO measures clicks and rankings, GEO measures share of voice in AI answers; SEO relies on one primary engine while GEO requires a different approach per AI platform since only 11% of domains are cited by both ChatGPT and Perplexity." } },
+        { "@type": "Question", "name": "Which AI platforms should I prioritize for GEO?", "acceptedAnswer": { "@type": "Answer", "text": "Prioritization depends on where your buyers search. Gemini draws 52% of its citations from brand-owned websites, making it most responsive to structured website content and schema markup. ChatGPT favors established domain authority and Wikipedia presence, with a 3.5x citation lift at 32,000+ referring domains. Perplexity draws heavily from Reddit and community platforms, citing 3–8 sources per response with 46.7% of top citations coming from Reddit for certain queries. Each platform requires a distinct approach since cross-platform citation overlap is only 11%." } },
+        { "@type": "Question", "name": "How do I measure my brand's AI search visibility?", "acceptedAnswer": { "@type": "Answer", "text": "Manual testing — searching your category queries across ChatGPT, Gemini, and Perplexity — provides a direct baseline. Note whether your brand is mentioned, how it is described, and which sources are cited. For systematic ongoing tracking, platforms like GeoRankers monitor your citation share across AI platforms automatically, showing how models describe your brand and which content is driving or blocking citations. Traditional SEO metrics like organic traffic do not capture AI citation activity, so dedicated GEO measurement is needed." } },
+        { "@type": "Question", "name": "What content changes have the biggest impact on AI citation rates?", "acceptedAnswer": { "@type": "Answer", "text": "Research consistently identifies named statistics with sourced attribution (+22% AI visibility, Aggarwal et al. 2024), direct quotations from credible named sources (+37% citation rate), and structured formats like tables (2.5x citation rate vs unstructured text, Onely 2025) as the highest-impact changes. Front-loading specific claims in the first 30% of content is also critical — 44.2% of all AI citations come from the opening third of an article (Growth Memo). AI systems retrieve at the passage level, so every section should be self-contained and extractable." } },
+        { "@type": "Question", "name": "How long does it take to see GEO results?", "acceptedAnswer": { "@type": "Answer", "text": "GEO operates on two timelines. Training data changes are slow — LLMs retrain on cycles spanning months, so content published today may not influence a model's static knowledge for some time. Real-time retrieval is faster: platforms like Perplexity and ChatGPT's browse mode actively index and cite content within days of publication. Research shows that 76.4% of ChatGPT's most-cited pages were updated within the last 30 days (Digitaloft, 2025), meaning freshness is a continuously-scored signal rather than a one-time win." } },
+      ],
+    });
+    document.head.appendChild(el);
+    return () => { el.remove(); };
+  }, []);
 
   // Set up intersection observer for active section highlighting
   useEffect(() => {
