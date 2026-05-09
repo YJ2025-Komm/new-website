@@ -22,65 +22,73 @@ export default function GeoGuide() {
     schemaId: "geo-guide-schema",
     schema: {
       "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Article",
-          "@id": "https://georankers.co/geo-guide#article",
-          "headline": "The Complete GEO Playbook — Master AI Search Optimization for B2B & SaaS",
-          "description": "Master Generative Engine Optimization (GEO) with our complete strategic guide. Learn proven tactics to optimize your B2B and SaaS brand visibility in ChatGPT, Gemini, Perplexity, and Claude AI search results.",
-          "image": { "@type": "ImageObject", "url": "https://georankers.co/og-image.png", "width": 1200, "height": 630 },
-          "inLanguage": "en-US",
-          "author": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.co" },
-          "publisher": {
-            "@type": "Organization",
-            "name": "GeoRankers",
-            "url": "https://georankers.co",
-            "logo": { "@type": "ImageObject", "url": "https://georankers.co/og-image.png" },
-          },
-          "datePublished": "2025-01-07",
-          "dateModified": "2026-05-09",
-          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://georankers.co/geo-guide" },
-          "articleSection": "AI Search Marketing",
-          "keywords": [
-            "GEO", "generative engine optimization", "AI search optimization",
-            "ChatGPT visibility", "Gemini SEO", "Perplexity SEO",
-            "B2B AI marketing", "SaaS content strategy", "AI citation",
-            "LLM visibility", "AI search ranking", "GEO vs SEO",
-            "zero click search", "AI Overviews optimization",
-          ],
-          "about": [
-            { "@type": "Thing", "name": "Generative Engine Optimization", "description": "The practice of optimizing brand presence and content to appear in AI-generated answers across ChatGPT, Gemini, and Perplexity" },
-            { "@type": "Thing", "name": "AI Search Marketing", "description": "Marketing strategies focused on earning citations in AI-generated responses across large language models and generative search platforms" },
-            { "@type": "Thing", "name": "Zero Click Search", "description": "Search queries that are fully answered on the results page without the user clicking through to a website, increasingly common with AI Overviews" },
-          ],
-          "mentions": [
-            { "@type": "Organization", "name": "Princeton University" },
-            { "@type": "Organization", "name": "Allen Institute for AI" },
-            { "@type": "Organization", "name": "SparkToro" },
-            { "@type": "Organization", "name": "Pew Research Center" },
-            { "@type": "Organization", "name": "Gartner" },
-            { "@type": "Organization", "name": "OpenAI" },
-            { "@type": "Organization", "name": "Google" },
-            { "@type": "Organization", "name": "Perplexity" },
-            { "@type": "Organization", "name": "Ahrefs" },
-          ],
-          "citation": [
-            { "@type": "CreativeWork", "name": "GEO: Generative Engine Optimization", "author": "Aggarwal et al., Princeton University & Allen Institute for AI", "datePublished": "2024", "url": "https://arxiv.org/pdf/2311.09735" },
-            { "@type": "CreativeWork", "name": "Zero-Click Search Study 2024", "author": "SparkToro", "datePublished": "2024" },
-            { "@type": "CreativeWork", "name": "Gartner Predicts Search Engine Volume Will Drop 25% by 2026", "author": "Gartner", "datePublished": "2024" },
-          ],
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": "https://georankers.co/geo-guide#breadcrumb",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://georankers.co/" },
-            { "@type": "ListItem", "position": 2, "name": "The Complete GEO Playbook", "item": "https://georankers.co/geo-guide" },
-          ],
-        },
+      "@type": "Article",
+      "headline": "The Complete GEO Playbook — Master AI Search Optimization for B2B & SaaS",
+      "description": "Master Generative Engine Optimization (GEO) with our complete strategic guide. Learn proven tactics to optimize your B2B and SaaS brand visibility in ChatGPT, Gemini, Perplexity, and Claude AI search results.",
+      "image": { "@type": "ImageObject", "url": "https://georankers.co/og-image.png", "width": 1200, "height": 630 },
+      "inLanguage": "en-US",
+      "author": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.co" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GeoRankers",
+        "url": "https://georankers.co",
+        "logo": { "@type": "ImageObject", "url": "https://georankers.co/og-image.png" },
+      },
+      "datePublished": "2025-01-07",
+      "dateModified": "2026-05-09",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://georankers.co/geo-guide" },
+      "articleSection": "AI Search Marketing",
+      "keywords": [
+        "GEO", "generative engine optimization", "AI search optimization",
+        "ChatGPT visibility", "Gemini SEO", "Perplexity SEO",
+        "B2B AI marketing", "SaaS content strategy", "AI citation",
+        "LLM visibility", "AI search ranking", "GEO vs SEO",
+        "zero click search", "AI Overviews optimization",
+      ],
+      "about": [
+        { "@type": "Thing", "name": "Generative Engine Optimization", "description": "The practice of optimizing brand presence and content to appear in AI-generated answers across ChatGPT, Gemini, and Perplexity" },
+        { "@type": "Thing", "name": "AI Search Marketing", "description": "Marketing strategies focused on earning citations in AI-generated responses across large language models and generative search platforms" },
+        { "@type": "Thing", "name": "Zero Click Search", "description": "Search queries that are fully answered on the results page without the user clicking through to a website, increasingly common with AI Overviews" },
+      ],
+      "mentions": [
+        { "@type": "Organization", "name": "Princeton University" },
+        { "@type": "Organization", "name": "Allen Institute for AI" },
+        { "@type": "Organization", "name": "SparkToro" },
+        { "@type": "Organization", "name": "Pew Research Center" },
+        { "@type": "Organization", "name": "Gartner" },
+        { "@type": "Organization", "name": "OpenAI" },
+        { "@type": "Organization", "name": "Google" },
+        { "@type": "Organization", "name": "Perplexity" },
+        { "@type": "Organization", "name": "Ahrefs" },
+      ],
+      "citation": [
+        { "@type": "CreativeWork", "name": "GEO: Generative Engine Optimization", "author": "Aggarwal et al., Princeton University & Allen Institute for AI", "datePublished": "2024", "url": "https://arxiv.org/pdf/2311.09735" },
+        { "@type": "CreativeWork", "name": "Zero-Click Search Study 2024", "author": "SparkToro", "datePublished": "2024" },
+        { "@type": "CreativeWork", "name": "Gartner Predicts Search Engine Volume Will Drop 25% by 2026", "author": "Gartner", "datePublished": "2024" },
       ],
     },
   });
+
+  // Standalone BreadcrumbList — check-before-create prevents duplication on prerender + hydration
+  useEffect(() => {
+    const ID = 'geo-guide-breadcrumb-schema';
+    let el = document.querySelector(`script#${ID}`) as HTMLScriptElement | null;
+    if (!el) {
+      el = document.createElement('script');
+      el.type = 'application/ld+json';
+      el.id = ID;
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://georankers.co/" },
+        { "@type": "ListItem", "position": 2, "name": "The Complete GEO Playbook", "item": "https://georankers.co/geo-guide" },
+      ],
+    });
+    return () => { el?.remove(); };
+  }, []);
 
   // Standalone FAQPage — separate script tag avoids Google "Duplicate field FAQ page" error.
   // Uses check-before-create so hydration after prerender does not add a second copy.

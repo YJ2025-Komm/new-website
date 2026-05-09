@@ -21,75 +21,76 @@ export default function AiContentGuide() {
     schemaId: "ai-content-guide-schema",
     schema: {
       "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Article",
-          "@id": "https://georankers.co/ai-content-guide#article",
-          "headline": "How to Write Content That AI Actually Cites: The Comprehensive Guide for B2B Brands",
-          "description":
-            "A comprehensive guide covering the mechanics of AI content retrieval, extractable assertions, specificity signals, platform-specific citation patterns, and a 4-stage content framework for B2B brands.",
-          "image": { "@type": "ImageObject", "url": "https://georankers.co/og-image.png", "width": 1200, "height": 630 },
-          "inLanguage": "en-US",
-          "author": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.co" },
-          "publisher": {
-            "@type": "Organization",
-            "name": "GeoRankers",
-            "url": "https://georankers.co",
-            "logo": { "@type": "ImageObject", "url": "https://georankers.co/og-image.png" },
-          },
-          "datePublished": "2026-04-30",
-          "dateModified": "2026-05-08",
-          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://georankers.co/ai-content-guide" },
-          "articleSection": "AI Search Marketing",
-          "keywords": [
-            "AI content optimization",
-            "write for AI search",
-            "GEO content strategy",
-            "B2B AI citation",
-            "ChatGPT content",
-            "Perplexity SEO",
-            "generative engine optimization",
-            "AI-citable content",
-            "content freshness AI",
-            "extractable assertions",
-          ],
-          "about": [
-            { "@type": "Thing", "name": "Generative Engine Optimization", "description": "Optimizing content to be cited by AI-powered search systems such as ChatGPT, Perplexity, and Gemini" },
-            { "@type": "Thing", "name": "AI Search Citation", "description": "The process by which AI models select and reference source content when generating synthesized answers" },
-          ],
-          "mentions": [
-            { "@type": "Organization", "name": "Gartner" },
-            { "@type": "Organization", "name": "OpenAI" },
-            { "@type": "Organization", "name": "Google" },
-            { "@type": "Organization", "name": "Perplexity" },
-            { "@type": "Organization", "name": "BrightEdge" },
-            { "@type": "Organization", "name": "Digitaloft" },
-            { "@type": "Organization", "name": "Seer Interactive" },
-            { "@type": "Organization", "name": "Onely" },
-            { "@type": "Organization", "name": "SE Ranking" },
-            { "@type": "Organization", "name": "Growth Memo" },
-            { "@type": "Organization", "name": "Stacker" },
-          ],
-          "citation": [
-            { "@type": "CreativeWork", "name": "GEO: Generative Engine Optimization", "author": "Aggarwal et al.", "datePublished": "2024" },
-            { "@type": "CreativeWork", "name": "AI Citation Freshness Analysis", "author": "Digitaloft", "datePublished": "2025" },
-            { "@type": "CreativeWork", "name": "AI Overview Citation Research", "author": "Seer Interactive", "datePublished": "2025" },
-            { "@type": "CreativeWork", "name": "Structured Content and Citation Rates", "author": "Onely", "datePublished": "2025" },
-            { "@type": "CreativeWork", "name": "Page Speed and AI Citations", "author": "SE Ranking", "datePublished": "2025" },
-          ],
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": "https://georankers.co/ai-content-guide#breadcrumb",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://georankers.co/" },
-            { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://georankers.co/geo-guide" },
-            { "@type": "ListItem", "position": 3, "name": "How to Write Content That AI Actually Cites", "item": "https://georankers.co/ai-content-guide" },
-          ],
-        },
+      "@type": "Article",
+      "headline": "How to Write Content That AI Actually Cites: The Comprehensive Guide for B2B Brands",
+      "description": "A comprehensive guide covering the mechanics of AI content retrieval, extractable assertions, specificity signals, platform-specific citation patterns, and a 4-stage content framework for B2B brands.",
+      "image": { "@type": "ImageObject", "url": "https://georankers.co/og-image.png", "width": 1200, "height": 630 },
+      "inLanguage": "en-US",
+      "author": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.co" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GeoRankers",
+        "url": "https://georankers.co",
+        "logo": { "@type": "ImageObject", "url": "https://georankers.co/og-image.png" },
+      },
+      "datePublished": "2026-04-30",
+      "dateModified": "2026-05-08",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://georankers.co/ai-content-guide" },
+      "articleSection": "AI Search Marketing",
+      "keywords": [
+        "AI content optimization", "write for AI search", "GEO content strategy",
+        "B2B AI citation", "ChatGPT content", "Perplexity SEO",
+        "generative engine optimization", "AI-citable content",
+        "content freshness AI", "extractable assertions",
+      ],
+      "about": [
+        { "@type": "Thing", "name": "Generative Engine Optimization", "description": "Optimizing content to be cited by AI-powered search systems such as ChatGPT, Perplexity, and Gemini" },
+        { "@type": "Thing", "name": "AI Search Citation", "description": "The process by which AI models select and reference source content when generating synthesized answers" },
+      ],
+      "mentions": [
+        { "@type": "Organization", "name": "Gartner" },
+        { "@type": "Organization", "name": "OpenAI" },
+        { "@type": "Organization", "name": "Google" },
+        { "@type": "Organization", "name": "Perplexity" },
+        { "@type": "Organization", "name": "BrightEdge" },
+        { "@type": "Organization", "name": "Digitaloft" },
+        { "@type": "Organization", "name": "Seer Interactive" },
+        { "@type": "Organization", "name": "Onely" },
+        { "@type": "Organization", "name": "SE Ranking" },
+        { "@type": "Organization", "name": "Growth Memo" },
+        { "@type": "Organization", "name": "Stacker" },
+      ],
+      "citation": [
+        { "@type": "CreativeWork", "name": "GEO: Generative Engine Optimization", "author": "Aggarwal et al.", "datePublished": "2024" },
+        { "@type": "CreativeWork", "name": "AI Citation Freshness Analysis", "author": "Digitaloft", "datePublished": "2025" },
+        { "@type": "CreativeWork", "name": "AI Overview Citation Research", "author": "Seer Interactive", "datePublished": "2025" },
+        { "@type": "CreativeWork", "name": "Structured Content and Citation Rates", "author": "Onely", "datePublished": "2025" },
+        { "@type": "CreativeWork", "name": "Page Speed and AI Citations", "author": "SE Ranking", "datePublished": "2025" },
       ],
     },
   });
+
+  // Standalone BreadcrumbList — check-before-create prevents duplication on prerender + hydration
+  useEffect(() => {
+    const ID = 'ai-content-guide-breadcrumb-schema';
+    let el = document.querySelector(`script#${ID}`) as HTMLScriptElement | null;
+    if (!el) {
+      el = document.createElement('script');
+      el.type = 'application/ld+json';
+      el.id = ID;
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://georankers.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://georankers.co/geo-guide" },
+        { "@type": "ListItem", "position": 3, "name": "How to Write Content That AI Actually Cites", "item": "https://georankers.co/ai-content-guide" },
+      ],
+    });
+    return () => { el?.remove(); };
+  }, []);
 
   // Standalone FAQPage — separate script tag avoids Google "Duplicate field FAQ page" error.
   // Uses check-before-create so hydration after prerender does not add a second copy.
