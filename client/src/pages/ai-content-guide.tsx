@@ -91,11 +91,17 @@ export default function AiContentGuide() {
     },
   });
 
-  // Standalone FAQPage — separate script tag avoids Google "Duplicate field FAQ page" error
+  // Standalone FAQPage — separate script tag avoids Google "Duplicate field FAQ page" error.
+  // Uses check-before-create so hydration after prerender does not add a second copy.
   useEffect(() => {
-    const el = document.createElement('script');
-    el.type = 'application/ld+json';
-    el.id = 'ai-content-guide-faq-schema';
+    const ID = 'ai-content-guide-faq-schema';
+    let el = document.querySelector(`script#${ID}`) as HTMLScriptElement | null;
+    if (!el) {
+      el = document.createElement('script');
+      el.type = 'application/ld+json';
+      el.id = ID;
+      document.head.appendChild(el);
+    }
     el.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -107,8 +113,7 @@ export default function AiContentGuide() {
         { "@type": "Question", "name": "What role do community platforms play in AI visibility?", "acceptedAnswer": { "@type": "Answer", "text": "Community platforms play a larger role than most content strategies currently account for. Domains with substantial brand mentions on Quora and Reddit have approximately four times higher citation rates than those with minimal community presence. Perplexity draws roughly 46.7% of its top citations from Reddit alone for certain query types. The mechanism is that AI systems learned from human conversations, and the platforms where those conversations happen in the most candid and detailed form become disproportionately influential in shaping how AI answers describe brands and categories." } },
       ],
     });
-    document.head.appendChild(el);
-    return () => { el.remove(); };
+    return () => { el?.remove(); };
   }, []);
 
   useEffect(() => {

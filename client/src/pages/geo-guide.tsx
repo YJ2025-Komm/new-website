@@ -82,11 +82,17 @@ export default function GeoGuide() {
     },
   });
 
-  // Standalone FAQPage — separate script tag avoids Google "Duplicate field FAQ page" error
+  // Standalone FAQPage — separate script tag avoids Google "Duplicate field FAQ page" error.
+  // Uses check-before-create so hydration after prerender does not add a second copy.
   useEffect(() => {
-    const el = document.createElement('script');
-    el.type = 'application/ld+json';
-    el.id = 'geo-guide-faq-schema';
+    const ID = 'geo-guide-faq-schema';
+    let el = document.querySelector(`script#${ID}`) as HTMLScriptElement | null;
+    if (!el) {
+      el = document.createElement('script');
+      el.type = 'application/ld+json';
+      el.id = ID;
+      document.head.appendChild(el);
+    }
     el.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -99,8 +105,7 @@ export default function GeoGuide() {
         { "@type": "Question", "name": "How long does it take to see GEO results?", "acceptedAnswer": { "@type": "Answer", "text": "GEO operates on two timelines. Training data changes are slow — LLMs retrain on cycles spanning months, so content published today may not influence a model's static knowledge for some time. Real-time retrieval is faster: platforms like Perplexity and ChatGPT's browse mode actively index and cite content within days of publication. Research shows that 76.4% of ChatGPT's most-cited pages were updated within the last 30 days (Digitaloft, 2025), meaning freshness is a continuously-scored signal rather than a one-time win." } },
       ],
     });
-    document.head.appendChild(el);
-    return () => { el.remove(); };
+    return () => { el?.remove(); };
   }, []);
 
   // Set up intersection observer for active section highlighting
