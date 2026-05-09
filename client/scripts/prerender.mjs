@@ -9,8 +9,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const distPath = resolve(__dirname, "../dist");
 const PORT = 5173;
 
+// "/" MUST be last — rendering it first overwrites dist/index.html with home page
+// schemas (faq-schema, org-schema, etc.) which then bleed into all subsequent renders
+// since they use index.html as their starting base.
 const routes = [
-  "/",
   "/geo-guide",
   "/pricing",
   "/features",
@@ -18,6 +20,7 @@ const routes = [
   "/free-geo-tools/geo-audit",
   "/free-geo-tools/visibility-score",
   "/ai-content-guide",
+  "/",
 ];
 
 const app = express();
