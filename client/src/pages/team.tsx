@@ -2,6 +2,7 @@ import { useSEO } from "@/hooks/useSEO";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { SiLinkedin } from "react-icons/si";
+import { Heart, Eye, Zap, Shield } from "lucide-react";
 
 const founders = [
   {
@@ -46,8 +47,8 @@ const teamMembers = [
 
 export default function Team() {
   useSEO({
-    title: "About Us — GeoRankers",
-    description: "Meet the team behind GeoRankers, the AI Search Visibility Intelligence Platform for B2B SaaS teams.",
+    title: "About Us — The GeoRankers Team | AI Search Visibility",
+    description: "Meet the founders, engineers, and advisors building GeoRankers — the AI Search Visibility Intelligence Platform helping B2B SaaS teams understand and improve how AI systems discover them.",
     canonical: "https://georankers.co/team",
     schemaId: "schema-team",
     schema: {
@@ -57,12 +58,24 @@ export default function Team() {
           "@type": "AboutPage",
           "name": "About GeoRankers",
           "url": "https://georankers.co/team",
-          "description": "Meet the team behind GeoRankers, the AI Search Visibility Intelligence Platform for B2B SaaS teams.",
+          "description": "Meet the founders, engineers, and advisors building GeoRankers — the AI Search Visibility Intelligence Platform helping B2B SaaS teams understand and improve how AI systems discover them.",
           "publisher": {
             "@type": "Organization",
             "name": "GeoRankers",
             "url": "https://georankers.co",
             "sameAs": ["https://www.linkedin.com/company/georankers/"]
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Yogesh Joshi",
+          "jobTitle": "CEO & Founder",
+          "url": "https://georankers.co/team",
+          "sameAs": "https://www.linkedin.com/in/yogesh-joshi-5ba94b18/",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "GeoRankers",
+            "url": "https://georankers.co"
           }
         },
         {
@@ -109,6 +122,74 @@ export default function Team() {
                 className="w-full h-72 sm:h-80 lg:h-96 object-cover rounded-xl"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-100 via-blue-50/60 to-violet-100 border-t border-slate-100">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 shadow-sm mb-7">
+            <span className="text-xs font-black uppercase tracking-widest text-blue-500">Our Mission</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] text-slate-900 mb-8">
+            Turning AI Visibility from a Black Box into a Growth Lever
+          </h2>
+          <p className="text-lg text-slate-500 leading-relaxed mb-5">
+            AI search is changing how people discover and choose businesses, but for most companies, it still feels confusing and impossible to measure. We want to simplify that.
+          </p>
+          <p className="text-lg text-slate-500 leading-relaxed">
+            Our mission is to help businesses clearly understand how AI systems perceive them and give them a practical path from insight to action. Instead of treating AI visibility like a black box, we want to make it something every team can understand, improve, and grow from.
+          </p>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">How We Work</p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.15] text-slate-900">
+              Our Core Values
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                Icon: Heart,
+                title: "People First",
+                body: "Technology will evolve, but trust will remain foundational. We build for people first — customers, teams, and partners alike.",
+              },
+              {
+                Icon: Eye,
+                title: "Transparency",
+                body: "In a world increasingly shaped by AI, clarity and honesty matter more than ever. We believe trust is built through openness and explainability.",
+              },
+              {
+                Icon: Zap,
+                title: "Innovation",
+                body: "We question assumptions, adapt quickly, and build for where technology is going — not where it has been.",
+              },
+              {
+                Icon: Shield,
+                title: "Be Responsible",
+                body: "AI will influence how businesses are discovered, trusted, and understood. We are committed to building with accountability, integrity, and long-term thinking.",
+              },
+            ].map(({ Icon, title, body }) => (
+              <div
+                key={title}
+                className="bg-white rounded-2xl border border-slate-100 shadow-sm p-7 flex flex-col"
+              >
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
+                  style={{ background: "linear-gradient(135deg, #2994FF, #7575FF)" }}
+                >
+                  <Icon className="w-5 h-5 text-white" />
+                </div>
+                <p className="font-bold text-slate-900 text-base mb-3 leading-snug">{title}</p>
+                <p className="text-sm text-slate-500 leading-relaxed">{body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -200,13 +281,15 @@ export default function Team() {
       </section>
 
       {/* We're hiring */}
-      <section className="py-14 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-100">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-3">We're Hiring</p>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight leading-[1.15] text-slate-900 mb-4">
-            Want to join the team?
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-100/50 via-blue-50/20 to-violet-100/50 border-t border-slate-100">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 shadow-sm mb-7">
+            <span className="text-xs font-black uppercase tracking-widest text-blue-500">We're Hiring</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] text-slate-900 mb-8">
+            Want to Join the Team?
           </h2>
-          <p className="text-slate-500 leading-relaxed">
+          <p className="text-lg text-slate-500 leading-relaxed">
             We are a small, ambitious team building the future of AI search visibility. If that excites you, write to us at{" "}
             <a href="mailto:hello@georankers.co" className="text-blue-500 font-semibold hover:underline">
               hello@georankers.co
