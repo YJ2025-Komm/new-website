@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Mail } from "lucide-react";
-import { SiLinkedin } from "react-icons/si";
+import { SiLinkedin, SiFacebook, SiX } from "react-icons/si";
 
 export default function Footer() {
   return (
@@ -18,14 +18,35 @@ export default function Footer() {
             <p className="text-white/60 text-sm leading-relaxed mb-6">
               AI Search Visibility Platform for B2B SaaS Teams
             </p>
-            <a
-              href="https://www.linkedin.com/company/georankers/posts/?feedView=all"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-            >
-              <SiLinkedin className="w-5 h-5 text-white" />
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.linkedin.com/company/georankers/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GeoRankers on LinkedIn"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                <SiLinkedin className="w-5 h-5 text-white" />
+              </a>
+              <a
+                href="https://x.com/georankers"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GeoRankers on X"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                <SiX className="w-5 h-5 text-white" />
+              </a>
+              <a
+                href="https://www.facebook.com/people/GeoRankers/61588912087425/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GeoRankers on Facebook"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                <SiFacebook className="w-5 h-5 text-white" />
+              </a>
+            </div>
             <div className="mt-6">
               <p className="text-xs font-semibold text-white/60 mb-2">Recognized by</p>
               <div className="inline-block bg-white rounded-md px-3 py-1.5">

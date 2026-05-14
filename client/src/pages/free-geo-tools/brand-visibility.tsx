@@ -29,7 +29,7 @@ const presenceMeta = {
 export default function BrandVisibilityPage() {
   useSEO({
     title: "AI Brand Visibility Snapshot — Free GEO Tool | GeoRankers",
-    description: "Enter your website URL to see how AI search engines currently describe your brand. Free AI presence snapshot.",
+    description: "Enter your website URL to see how AI search engines like ChatGPT, Perplexity, and Gemini currently describe your brand. Free instant AI presence snapshot — no sign-up required.",
     canonical: "https://georankers.co/free-geo-tools/brand-visibility",
     schemaId: "schema-brand-visibility",
     schema: {
