@@ -444,11 +444,11 @@ export default function Home() {
   useSEO({
     title: "GeoRankers — AI Search Intelligence Platform for B2B SaaS",
     description:
-      "GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build brand authority to get visible in AI search across ChatGPT, Gemini, Perplexity, and Claude.",
+      "GeoRankers helps B2B SaaS companies track and optimize brand visibility across ChatGPT and Gemini — the AI search intelligence platform.",
     canonical: "https://georankers.co/",
     ogTitle: "GeoRankers — AI Search Intelligence Platform",
     ogDescription:
-      "Track, optimize, and build brand authority to get visible in AI search across ChatGPT, Gemini, Perplexity, and Claude.",
+      "Track, optimize, and build brand authority to get visible in AI search across ChatGPT and Gemini.",
     ogUrl: "https://georankers.co/",
   });
 

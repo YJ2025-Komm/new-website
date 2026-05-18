@@ -11,9 +11,9 @@ export default function GeoGuide() {
   const [activeSection, setActiveSection] = useState('');
 
   useSEO({
-    title: "GEO Playbook — Master AI Search Optimization for B2B SaaS | GeoRankers",
+    title: "GEO Playbook — AI Search Optimization for B2B SaaS | GeoRankers",
     description:
-      "Proven GEO tactics for B2B SaaS brands. Learn how to get cited in ChatGPT, Gemini, and Perplexity — covering content strategy, authority building, and community signals.",
+      "Proven GEO tactics for B2B SaaS. Get cited in ChatGPT, Gemini, and Perplexity — covering content strategy, authority building, and community signals.",
     canonical: "https://georankers.co/geo-guide",
     ogTitle: "The Complete GEO Playbook — Master AI Search Optimization",
     ogDescription:

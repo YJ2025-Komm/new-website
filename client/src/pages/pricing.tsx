@@ -20,7 +20,7 @@ export default function Pricing() {
   useSEO({
     title: "Pricing — AI Search Visibility Plans | GeoRankers",
     description:
-      "Transparent pricing for every stage of growth. GeoRankers plans include AI mention monitoring, competitor benchmarking, and content recommendations — starting free.",
+      "Transparent pricing for every growth stage. GeoRankers plans include AI mention monitoring, competitor benchmarking, and content recommendations — start free.",
     canonical: "https://georankers.co/pricing",
     ogTitle: "GeoRankers Pricing — AI Search Visibility Plans",
     ogDescription:
