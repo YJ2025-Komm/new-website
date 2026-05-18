@@ -22,7 +22,7 @@ const sections = [
 
 export default function Terms() {
   useSEO({
-    title: "Terms of Service | GeoRankers",
+    title: "GeoRankers Terms of Service — Subscription & Usage",
     description:
       "Review the GeoRankers Terms of Service governing your use of the AI search visibility platform, including subscriptions, data usage, and acceptable use policy.",
     canonical: "https://georankers.co/terms",

@@ -24,7 +24,7 @@ const sections = [
 
 export default function Privacy() {
   useSEO({
-    title: "Privacy Policy | GeoRankers",
+    title: "GeoRankers Privacy Policy — Data Protection & Usage",
     description:
       "Read the GeoRankers Privacy Policy to understand how we collect, use, and protect your data when you use our AI search visibility platform.",
     canonical: "https://georankers.co/privacy",

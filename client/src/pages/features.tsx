@@ -193,7 +193,7 @@ export default function Features() {
   useSEO({
     title: "Features — AI Search Tracking & GEO Analytics | GeoRankers",
     description:
-      "Explore GeoRankers' full feature set: AI mention monitoring, competitive benchmarking, content gap analysis, and real-time visibility scoring across ChatGPT, Gemini, Perplexity, and Claude.",
+      "GeoRankers features: AI mention monitoring, competitor benchmarking, content gap analysis, and visibility scoring across ChatGPT and Gemini.",
     canonical: "https://georankers.co/features",
     ogTitle: "GeoRankers Features — AI Search Tracking & GEO Analytics",
     ogDescription:

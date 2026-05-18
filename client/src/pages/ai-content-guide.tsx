@@ -12,7 +12,7 @@ export default function AiContentGuide() {
   useSEO({
     title: "How to Write Content AI Actually Cites — B2B Guide | GeoRankers",
     description:
-      "Write B2B content that earns AI citations. Covers extractable assertions, specificity signals, platform differences, freshness, and a practical 4-stage framework for ChatGPT, Gemini, and Perplexity.",
+      "Write B2B content that earns AI citations. Learn extractable assertions, specificity signals, and a 4-stage framework for ChatGPT, Gemini, and Perplexity.",
     canonical: "https://georankers.co/ai-content-guide",
     ogTitle: "How to Write Content That AI Actually Cites: The B2B Brand Guide",
     ogDescription:

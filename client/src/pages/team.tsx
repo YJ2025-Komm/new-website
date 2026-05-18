@@ -48,7 +48,7 @@ const teamMembers = [
 export default function Team() {
   useSEO({
     title: "About Us — The GeoRankers Team | AI Search Visibility",
-    description: "Meet the founders, engineers, and advisors building GeoRankers — the AI Search Visibility Intelligence Platform helping B2B SaaS teams understand and improve how AI systems discover them.",
+    description: "Meet the founders, engineers, and advisors behind GeoRankers — the AI visibility platform helping B2B SaaS teams improve how AI systems discover them.",
     canonical: "https://georankers.co/team",
     schemaId: "schema-team",
     schema: {
