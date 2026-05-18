@@ -19,7 +19,7 @@ export default function WebsiteAnalysis() {
   useSEO({
     title: "Free AI Search Readiness Analyzer | GeoRankers",
     description:
-      "Audit your website AI search visibility. Get a free GEO score, identify crawl issues, and compare against competitors in ChatGPT, Gemini, and Perplexity.",
+      "Audit your website's AI search visibility. Get a free GEO score, identify crawl issues, and compare against competitors in ChatGPT, Gemini, and Perplexity.",
     canonical: "https://georankers.co/website-analysis",
     ogTitle: "Free AI Search Readiness Analyzer — GeoRankers",
     ogDescription:
