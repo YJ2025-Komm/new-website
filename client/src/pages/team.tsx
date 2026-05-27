@@ -76,9 +76,12 @@ export default function Team() {
               "url": "https://georankers.co/team",
               "sameAs": "https://www.linkedin.com/in/yogesh-joshi-5ba94b18/"
             },
+            "award": "DPIIT Startup India Recognition",
             "sameAs": [
               "https://blog.georankers.co",
-              "https://www.linkedin.com/company/georankers/"
+              "https://www.linkedin.com/company/georankers/",
+              "https://x.com/georankers",
+              "https://www.facebook.com/people/GeoRankers/61588912087425/"
             ]
           }
         },
@@ -123,7 +126,7 @@ export default function Team() {
               GeoRankers was born from a simple frustration — B2B SaaS and enterprise teams were drowning in data from SEO and analytics tools, but had no clear direction on what to actually do with it. Teams were left spending hours piecing together insights, with little clarity on what would move the needle.
             </p>
             <p className="text-lg text-slate-500 leading-relaxed mb-5">
-              As search shifts to AI platforms like ChatGPT, Perplexity, and Gemini, this problem has only compounded. Instead of optimizing for one platform, teams now have to understand and influence how multiple AI models perceive and recommend their brand.
+              As search shifts to AI platforms like ChatGPT, Google AI Mode, and Google AI Overviews, this problem has only compounded. Instead of optimizing for one platform, teams now have to understand and influence how AI models perceive and recommend their brand.
             </p>
             <p className="text-lg text-slate-500 leading-relaxed">
               We built GeoRankers to solve this — to give teams clear visibility into how they show up in AI generated answers, and more importantly, what actions they need to take to improve it.

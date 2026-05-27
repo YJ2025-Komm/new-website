@@ -517,7 +517,7 @@ export default function Home() {
     {
       question: "Which AI platforms does GeoRankers monitor?",
       answer:
-        "GeoRankers tracks brand visibility across major AI platforms including ChatGPT, Google Gemini, Perplexity, Claude, and other leading AI models. We monitor how often your brand appears in AI-generated responses, the context of mentions, and your competitive positioning across these platforms.",
+        "GeoRankers tracks brand visibility across ChatGPT, Google AI Mode, and Google AI Overviews. We monitor how often your brand appears in AI-generated responses, the context of mentions, and your competitive positioning across these platforms.",
     },
     {
       question: "How long does it take to see results from AI search optimization?",
@@ -653,9 +653,12 @@ export default function Home() {
         "url": "https://georankers.co/team",
         "sameAs": "https://www.linkedin.com/in/yogesh-joshi-5ba94b18/"
       },
+      "award": "DPIIT Startup India Recognition",
       "sameAs": [
         "https://blog.georankers.co",
-        "https://www.linkedin.com/company/georankers/"
+        "https://www.linkedin.com/company/georankers/",
+        "https://x.com/georankers",
+        "https://www.facebook.com/people/GeoRankers/61588912087425/"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
@@ -677,7 +680,7 @@ export default function Home() {
       "@type": "WebSite",
       "name": "GeoRankers",
       "url": "https://georankers.co",
-      "description": "AI Search Optimization Platform for B2B SaaS - Track and optimize your brand visibility across ChatGPT, Gemini, Perplexity, and Claude",
+      "description": "AI Search Optimization Platform for B2B SaaS - Track and optimize your brand visibility across ChatGPT, Google AI Mode, and Google AI Overviews",
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://georankers.co/?q={search_term_string}",
@@ -1155,11 +1158,10 @@ export default function Home() {
                       <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 mt-0.5" />
                     )}
                   </button>
-                  {openFAQ === index && (
-                    <div className="px-6 pb-6">
-                      <div className="text-sm text-slate-600 leading-relaxed">{faq.answer}</div>
-                    </div>
-                  )}
+                  {/* Answer always rendered in DOM for AI/crawler visibility; CSS-hidden when collapsed */}
+                  <div className={`px-6 pb-6 ${openFAQ === index ? '' : 'hidden'}`}>
+                    <div className="text-sm text-slate-600 leading-relaxed">{faq.answer}</div>
+                  </div>
                 </CardContent>
               </Card>
             ))}
