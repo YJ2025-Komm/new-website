@@ -191,23 +191,40 @@ function IntelligenceLoopSection() {
 
 export default function Features() {
   useSEO({
-    title: "Features — AI Search Tracking & GEO Analytics | GeoRankers",
+    title: "GeoRankers Features — AI Search Visibility Platform",
     description:
-      "Track AI brand visibility with GeoRankers — mention monitoring, competitor benchmarking, content gap analysis, and scoring across ChatGPT and Gemini.",
+      "Track how your brand appears in ChatGPT, Google AI Mode, Gemini, and Perplexity. See citation share, competitor visibility, and prompt-level AI responses in one platform.",
     canonical: "https://georankers.co/features",
-    ogTitle: "GeoRankers Features — AI Search Tracking & GEO Analytics",
+    ogTitle: "GeoRankers Features — AI Search Visibility Platform",
     ogDescription:
-      "Monitor your brand across every major AI model, benchmark against competitors, and get actionable content recommendations — all in one platform.",
+      "Track how your brand appears in ChatGPT, Google AI Mode, Gemini, and Perplexity. See citation share, competitor visibility, and prompt-level AI responses in one platform.",
     ogUrl: "https://georankers.co/features",
     schemaId: "features-schema",
     schema: {
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "GeoRankers Features",
+      "@type": "SoftwareApplication",
+      "name": "GeoRankers",
       "url": "https://georankers.co/features",
-      "description":
-        "AI search tracking, competitive intelligence, and GEO analytics features for B2B SaaS companies.",
-      "isPartOf": { "@type": "WebSite", "url": "https://georankers.co" },
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "GeoRankers is an AI search visibility platform (GEO tool) for B2B SaaS marketers, SEO teams, and agencies. It tracks brand mentions, citation share, and competitive positioning across ChatGPT, Google AI Mode, Google AI Overviews, Gemini, and Perplexity — and provides actionable recommendations to improve AI search presence.",
+      "featureList": [
+        "AI brand visibility tracking across ChatGPT, Google AI Mode, Google AI Overviews, Gemini, and Perplexity",
+        "Prompt-level AI response monitoring",
+        "Citation share and mention rate analysis",
+        "Competitor AI visibility benchmarking",
+        "Content gap identification for AI search",
+        "AI visibility scoring",
+        "Buyer-intent prompt simulation",
+        "Prescriptive action recommendations"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free trial available — no credit card required"
+      },
+      "isPartOf": { "@type": "WebSite", "url": "https://georankers.co" }
     },
   });
 

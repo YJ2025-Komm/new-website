@@ -11,13 +11,17 @@ const PORT = 5173;
 
 const routes = [
   "/",
-  "/geo-guide",
-  "/pricing",
   "/features",
+  "/geo-guide",
+  "/ai-content-guide",
   "/free-geo-tools/brand-visibility",
   "/free-geo-tools/geo-audit",
   "/free-geo-tools/visibility-score",
-  "/ai-content-guide",
+  "/team",
+  "/help",
+  "/privacy",
+  "/terms",
+  "/pricing",
 ];
 
 const app = express();
