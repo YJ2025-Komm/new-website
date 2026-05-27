@@ -835,15 +835,15 @@ export default function Home() {
             <div>
               {/* Headline */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-slate-900 mb-6">
-                Your Buyers Choose Vendors Inside{' '}
+                Is Your Brand Invisible in{' '}
                 <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
-                  AI Answers
+                  AI Search?
                 </span>
               </h1>
 
               {/* Sub-headline */}
               <p className="text-base sm:text-lg font-normal text-slate-600 mb-7 leading-relaxed">
-                Most brands are invisible in AI answers and don't even know it. GeoRankers shows you where you stand — and exactly what to fix.
+                GeoRankers is the AI search visibility platform that fixes that — tracking your brand across ChatGPT, Google AI Mode, Google AI Overviews, Gemini so you know exactly where you stand and what to do.
               </p>
 
               {/* CTAs */}
