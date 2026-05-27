@@ -63,7 +63,23 @@ export default function Team() {
             "@type": "Organization",
             "name": "GeoRankers",
             "url": "https://georankers.co",
-            "sameAs": ["https://www.linkedin.com/company/georankers/"]
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://georankers.co/georankers-logo.svg",
+              "contentUrl": "https://georankers.co/georankers-logo.svg"
+            },
+            "foundingDate": "2026",
+            "founder": {
+              "@type": "Person",
+              "name": "Yogesh Joshi",
+              "jobTitle": "CEO & Founder",
+              "url": "https://georankers.co/team",
+              "sameAs": "https://www.linkedin.com/in/yogesh-joshi-5ba94b18/"
+            },
+            "sameAs": [
+              "https://blog.georankers.co",
+              "https://www.linkedin.com/company/georankers/"
+            ]
           }
         },
         {
@@ -75,7 +91,8 @@ export default function Team() {
           "worksFor": {
             "@type": "Organization",
             "name": "GeoRankers",
-            "url": "https://georankers.co"
+            "url": "https://georankers.co",
+            "foundingDate": "2026"
           }
         },
         {

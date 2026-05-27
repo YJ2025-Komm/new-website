@@ -639,10 +639,23 @@ export default function Home() {
       "@type": "Organization",
       "name": "GeoRankers",
       "url": "https://georankers.co",
-      "logo": "https://georankers.co/logo.png",
-      "description": "GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build brand authority in AI search across ChatGPT, Gemini, Perplexity, and Claude.",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://georankers.co/georankers-logo.svg",
+        "contentUrl": "https://georankers.co/georankers-logo.svg"
+      },
+      "description": "GeoRankers is the AI search intelligence platform that helps B2B SaaS companies track, optimize, and build brand authority to get visible in ChatGPT, Google AI Mode, and Google AI Overviews.",
+      "foundingDate": "2026",
+      "founder": {
+        "@type": "Person",
+        "name": "Yogesh Joshi",
+        "jobTitle": "CEO & Founder",
+        "url": "https://georankers.co/team",
+        "sameAs": "https://www.linkedin.com/in/yogesh-joshi-5ba94b18/"
+      },
       "sameAs": [
-        "https://blog.georankers.co"
+        "https://blog.georankers.co",
+        "https://www.linkedin.com/company/georankers/"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
