@@ -10,9 +10,9 @@ export default function AiContentGuide() {
   const [activeSection, setActiveSection] = useState('');
 
   useSEO({
-    title: "How to Write Content AI Actually Cites — B2B Guide | GeoRankers",
+    title: "How to Write Content AI Actually Cites — 2026 B2B Guide | GeoRankers",
     description:
-      "Write B2B content that earns AI citations. Learn extractable assertions, specificity signals, and a 4-stage framework for ChatGPT, Gemini, and Perplexity.",
+      "Learn how to write B2B content that earns AI citations in 2026. Extractable assertions, specificity signals, and a 4-stage framework for ChatGPT, Google AI Mode, and Gemini.",
     canonical: "https://georankers.co/ai-content-guide",
     ogTitle: "How to Write Content That AI Actually Cites: The B2B Brand Guide",
     ogDescription:
@@ -112,6 +112,10 @@ export default function AiContentGuide() {
         { "@type": "Question", "name": "How often should content be updated for AI visibility?", "acceptedAnswer": { "@type": "Answer", "text": "Research shows that 76.4% of ChatGPT's most-cited pages were updated within the last 30 days, and the majority of AI Overview citations come from content published within the last two years. For content in fast-moving categories, meaningful updates every three to six months are worth considering for high-priority pieces. The update should reflect genuinely new data, examples, or framing rather than cosmetic changes to a publication date." } },
         { "@type": "Question", "name": "Does schema markup help with AI citation?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, though the relationship is stronger for some platforms than others. Gemini shows a pronounced preference for structured, schema-marked content on brand-owned domains. Research suggests that products with comprehensive schema markup appear in AI recommendations three to five times more frequently than those without it. For ChatGPT and Perplexity, the effect is less direct but still meaningful in that schema markup contributes to the overall authority and crawlability signals those platforms factor into source selection." } },
         { "@type": "Question", "name": "What role do community platforms play in AI visibility?", "acceptedAnswer": { "@type": "Answer", "text": "Community platforms play a larger role than most content strategies currently account for. Domains with substantial brand mentions on Quora and Reddit have approximately four times higher citation rates than those with minimal community presence. Perplexity draws roughly 46.7% of its top citations from Reddit alone for certain query types. The mechanism is that AI systems learned from human conversations, and the platforms where those conversations happen in the most candid and detailed form become disproportionately influential in shaping how AI answers describe brands and categories." } },
+        { "@type": "Question", "name": "What types of content does AI cite most?", "acceptedAnswer": { "@type": "Answer", "text": "AI systems disproportionately cite content that is specific, structured, and sourced. Research-backed content with named statistics is cited 22% more frequently than generic claims (Aggarwal et al., 2024). Content containing direct quotes from named experts sees a 37% higher citation rate. Structured formats — tables, numbered lists, FAQ sections — are cited 2.5x more often than unstructured prose (Onely, 2025). Content that defines terms clearly, answers questions directly, and front-loads its key claims in the first 30% of the page consistently outperforms longer, less structured alternatives." } },
+        { "@type": "Question", "name": "How do I write content that gets cited in ChatGPT?", "acceptedAnswer": { "@type": "Answer", "text": "To get cited in ChatGPT in 2026, focus on four things: (1) Write extractable assertions — every section should contain a specific, self-contained claim supported by evidence. (2) Use structure AI can parse — headers, bullet points, numbered lists, and FAQ sections signal retrievable content. (3) Build domain authority — ChatGPT shows a 3.5x citation lift for domains with 32,000+ referring domains. (4) Keep content fresh — 76.4% of ChatGPT's most-cited pages were updated within the last 30 days (Digitaloft, 2025). Combine these with FAQPage and Article schema markup to maximize extractability." } },
+        { "@type": "Question", "name": "What is an extractable assertion?", "acceptedAnswer": { "@type": "Answer", "text": "An extractable assertion is a self-contained sentence or passage that AI systems can lift directly from your content and use as part of a synthesized answer — without needing surrounding context to make sense. It combines a specific claim, supporting evidence or a named source, and enough context to stand alone. Every section of AI-optimized content should contain at least one extractable assertion." } },
+        { "@type": "Question", "name": "How do I structure B2B content for AI search?", "acceptedAnswer": { "@type": "Answer", "text": "Structure B2B content for AI search by treating each section as an independent answer unit. Start with a clear H2 or H3 that names the topic explicitly. Open the section with your strongest, most specific claim. Support that claim with a named statistic or sourced evidence. Use bullet points or numbered lists for multi-part answers. Add a FAQ section at the bottom of long-form content to capture question-based queries. Implement Article and FAQPage schema markup so AI systems can identify the content type and extract it more reliably." } },
       ],
     });
     return () => { el?.remove(); };
@@ -167,14 +171,15 @@ export default function AiContentGuide() {
             {/* Left */}
             <div>
               <div className="text-sm text-blue-600 font-medium mb-4 uppercase tracking-wide">
-                Comprehensive Guide · 2026
+                Strategic Guide
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 mb-6 leading-[1.1]">
                 How to Write Content That AI Actually Cites
               </h1>
-              <h2 className="text-xl md:text-2xl text-gray-700 mb-8 font-medium">
+              <h2 className="text-xl md:text-2xl text-gray-700 mb-4 font-medium">
                 The Comprehensive Guide for B2B Brands
               </h2>
+              <p className="text-xs text-gray-400 mb-8 font-medium">Last updated: May 2026 | GeoRankers — AI search visibility platform for B2B SaaS teams</p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
                 AI chatbots now synthesize answers from thousands of sources — and most B2B content is
                 structurally invisible to them. This guide explains the mechanics, the signals, and the
@@ -1862,6 +1867,22 @@ export default function AiContentGuide() {
                 {
                   q: 'What role do community platforms play in AI visibility?',
                   a: 'Community platforms play a larger role than most content strategies currently account for. Domains with substantial brand mentions on Quora and Reddit have approximately four times higher citation rates than those with minimal community presence. Perplexity draws roughly 46.7% of its top citations from Reddit alone for certain query types. The mechanism is that AI systems learned from human conversations, and the platforms where those conversations happen in the most candid and detailed form become disproportionately influential in shaping how AI answers describe brands and categories.',
+                },
+                {
+                  q: 'What types of content does AI cite most?',
+                  a: 'AI systems disproportionately cite content that is specific, structured, and sourced. Research-backed content with named statistics is cited 22% more frequently than generic claims (Aggarwal et al., 2024). Content containing direct quotes from named experts sees a 37% higher citation rate. Structured formats — tables, numbered lists, FAQ sections — are cited 2.5x more often than unstructured prose (Onely, 2025). Content that defines terms clearly, answers questions directly, and front-loads its key claims in the first 30% of the page consistently outperforms longer, less structured alternatives.',
+                },
+                {
+                  q: 'How do I write content that gets cited in ChatGPT?',
+                  a: 'To get cited in ChatGPT in 2026, focus on four things: (1) Write extractable assertions — every section should contain a specific, self-contained claim supported by evidence that can be lifted verbatim. (2) Use structure AI can parse — headers, bullet points, numbered lists, and FAQ sections signal retrievable content. (3) Build domain authority — ChatGPT shows a 3.5x citation lift for domains with 32,000+ referring domains, so third-party mentions matter. (4) Keep content fresh — 76.4% of ChatGPT\'s most-cited pages were updated within the last 30 days (Digitaloft, 2025). Combine these with FAQPage and Article schema markup to maximize extractability.',
+                },
+                {
+                  q: 'What is an extractable assertion?',
+                  a: 'An extractable assertion is a self-contained sentence or passage that AI systems can lift directly from your content and use as part of a synthesized answer — without needing surrounding context to make sense. It combines a specific claim, supporting evidence or a named source, and enough context to stand alone. For example: "Companies that publish original research with named statistics see 22% higher AI citation rates than those that do not (Aggarwal et al., 2024)" is an extractable assertion. "Content quality matters for AI" is not — it is too generic to be cited. Every section of AI-optimized content should contain at least one extractable assertion.',
+                },
+                {
+                  q: 'How do I structure B2B content for AI search?',
+                  a: 'Structure B2B content for AI search by treating each section as an independent answer unit. Start with a clear H2 or H3 that names the topic explicitly. Open the section with your strongest, most specific claim rather than building to it. Support that claim with a named statistic or sourced evidence. Use bullet points or numbered lists for multi-part answers — AI systems retrieve lists cleanly. Add a summary sentence at the end of complex sections. Include a FAQ section at the bottom of long-form content to capture question-based queries directly. Finally, implement Article and FAQPage schema markup so AI systems can identify the content type and extract it more reliably.',
                 },
               ].map(({ q, a }, i) => (
                 <div key={i} className="mb-6 border border-gray-200 rounded-xl overflow-hidden">
