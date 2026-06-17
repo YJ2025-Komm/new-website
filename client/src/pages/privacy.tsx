@@ -27,14 +27,14 @@ export default function Privacy() {
     title: "GeoRankers Privacy Policy — Data Protection & Usage",
     description:
       "Read the GeoRankers Privacy Policy to understand how we collect, use, and protect your data when you use our AI search visibility platform.",
-    canonical: "https://georankers.co/privacy",
+    canonical: "https://georankers.ai/privacy",
     schemaId: "privacy-schema",
     schema: {
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "Privacy Policy",
-      "url": "https://georankers.co/privacy",
-      "isPartOf": { "@type": "WebSite", "url": "https://georankers.co" },
+      "url": "https://georankers.ai/privacy",
+      "isPartOf": { "@type": "WebSite", "url": "https://georankers.ai" },
     },
   });
 
@@ -78,7 +78,7 @@ export default function Privacy() {
             <div className="prose prose-slate max-w-none prose-headings:font-semibold prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-li:text-slate-600 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline">
 
               <p>
-                This Privacy Policy explains how Apex Intelligence Private Limited ("Company," "we," "us," or "our"), the company behind GeoRankers, collects, uses, stores, and protects your personal data when you visit our website at georankers.co, sign up for our platform, or interact with our services.
+                This Privacy Policy explains how Apex Intelligence Private Limited ("Company," "we," "us," or "our"), the company behind GeoRankers, collects, uses, stores, and protects your personal data when you visit our website at georankers.ai, sign up for our platform, or interact with our services.
               </p>
               <p>
                 We are committed to protecting your privacy and handling your data in a transparent, lawful manner. By using GeoRankers, you agree to the practices described in this Privacy Policy.
@@ -269,7 +269,7 @@ export default function Privacy() {
                   Karnataka, India
                 </p>
                 <p>Email: <a href="mailto:hello@georankers.co">hello@georankers.co</a></p>
-                <p>Website: <a href="https://georankers.co">georankers.co</a></p>
+                <p>Website: <a href="https://georankers.ai">georankers.co</a></p>
                 <p>We aim to respond to all privacy-related requests within 30 days.</p>
               </section>
 

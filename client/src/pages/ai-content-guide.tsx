@@ -13,29 +13,29 @@ export default function AiContentGuide() {
     title: "How to Write Content AI Actually Cites — 2026 B2B Guide | GeoRankers",
     description:
       "Learn how to write B2B content that earns AI citations in 2026. Extractable assertions, specificity signals, and a 4-stage framework for ChatGPT, Google AI Mode, and Gemini.",
-    canonical: "https://georankers.co/ai-content-guide",
+    canonical: "https://georankers.ai/ai-content-guide",
     ogTitle: "How to Write Content That AI Actually Cites: The B2B Brand Guide",
     ogDescription:
       "The complete guide to writing B2B content that earns citations in AI-generated answers. Learn the mechanics behind ChatGPT, Perplexity, and Gemini — and how to optimize every section for extraction.",
-    ogUrl: "https://georankers.co/ai-content-guide",
+    ogUrl: "https://georankers.ai/ai-content-guide",
     schemaId: "ai-content-guide-schema",
     schema: {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "How to Write Content That AI Actually Cites: The Comprehensive Guide for B2B Brands",
       "description": "A comprehensive guide covering the mechanics of AI content retrieval, extractable assertions, specificity signals, platform-specific citation patterns, and a 4-stage content framework for B2B brands.",
-      "image": { "@type": "ImageObject", "url": "https://georankers.co/og-image.png", "width": 1200, "height": 630 },
+      "image": { "@type": "ImageObject", "url": "https://georankers.ai/og-image.png", "width": 1200, "height": 630 },
       "inLanguage": "en-US",
-      "author": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.co" },
+      "author": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.ai" },
       "publisher": {
         "@type": "Organization",
         "name": "GeoRankers",
-        "url": "https://georankers.co",
-        "logo": { "@type": "ImageObject", "url": "https://georankers.co/og-image.png" },
+        "url": "https://georankers.ai",
+        "logo": { "@type": "ImageObject", "url": "https://georankers.ai/og-image.png" },
       },
       "datePublished": "2026-04-30",
       "dateModified": "2026-05-08",
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://georankers.co/ai-content-guide" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://georankers.ai/ai-content-guide" },
       "articleSection": "AI Search Marketing",
       "keywords": [
         "AI content optimization", "write for AI search", "GEO content strategy",
@@ -84,9 +84,9 @@ export default function AiContentGuide() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://georankers.co/" },
-        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://georankers.co/geo-guide" },
-        { "@type": "ListItem", "position": 3, "name": "How to Write Content That AI Actually Cites", "item": "https://georankers.co/ai-content-guide" },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://georankers.ai/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://georankers.ai/geo-guide" },
+        { "@type": "ListItem", "position": 3, "name": "How to Write Content That AI Actually Cites", "item": "https://georankers.ai/ai-content-guide" },
       ],
     });
     return () => { el?.remove(); };

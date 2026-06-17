@@ -499,7 +499,7 @@ Respond ONLY with valid JSON in this exact format:
   // Dynamic sitemap.xml endpoint - fetches blog posts from WordPress RSS feed
   app.get("/sitemap.xml", async (req, res) => {
     try {
-      const baseUrl = "https://georankers.co";
+      const baseUrl = "https://georankers.ai";
       
       // Main pages with current date
       const today = new Date().toISOString().split('T')[0];

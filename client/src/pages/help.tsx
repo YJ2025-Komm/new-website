@@ -398,11 +398,11 @@ export default function Help() {
     title: "Help & FAQs — GeoRankers AI Search Platform",
     description:
       "Find answers to common questions about GeoRankers: getting started, setting up your first analysis, understanding your AI visibility score, billing, and more.",
-    canonical: "https://georankers.co/help",
+    canonical: "https://georankers.ai/help",
     ogTitle: "GeoRankers Help & FAQs",
     ogDescription:
       "Everything you need to get the most out of GeoRankers — setup guides, feature explanations, and billing FAQs.",
-    ogUrl: "https://georankers.co/help",
+    ogUrl: "https://georankers.ai/help",
     schemaId: "help-schema",
     schema: {
       "@context": "https://schema.org",

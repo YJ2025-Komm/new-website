@@ -30,7 +30,7 @@ export default function BrandVisibilityPage() {
   useSEO({
     title: "AI Brand Visibility Snapshot — Free GEO Tool | GeoRankers",
     description: "See how ChatGPT and Gemini describe your brand. Free instant AI presence snapshot — no sign-up required.",
-    canonical: "https://georankers.co/free-geo-tools/brand-visibility",
+    canonical: "https://georankers.ai/free-geo-tools/brand-visibility",
     schemaId: "schema-brand-visibility",
     schema: {
       "@context": "https://schema.org",
@@ -38,22 +38,22 @@ export default function BrandVisibilityPage() {
         {
           "@type": "WebApplication",
           "name": "AI Brand Visibility Snapshot",
-          "url": "https://georankers.co/free-geo-tools/brand-visibility",
+          "url": "https://georankers.ai/free-geo-tools/brand-visibility",
           "description": "Free tool that analyzes how often your brand appears in AI-generated answers across ChatGPT, Gemini, Perplexity, and Claude. Enter your website URL to get an instant AI presence snapshot.",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Web",
           "isAccessibleForFree": true,
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "provider": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.co" },
+          "provider": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.ai" },
           "featureList": ["AI brand presence scoring", "Competitor benchmark", "Visibility improvement recommendations"],
           "audience": { "@type": "Audience", "audienceType": "B2B SaaS marketers, Content teams, SEO professionals" }
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "GeoRankers", "item": "https://georankers.co" },
+            { "@type": "ListItem", "position": 1, "name": "GeoRankers", "item": "https://georankers.ai" },
             { "@type": "ListItem", "position": 2, "name": "Free GEO Tools" },
-            { "@type": "ListItem", "position": 3, "name": "AI Brand Visibility Snapshot", "item": "https://georankers.co/free-geo-tools/brand-visibility" }
+            { "@type": "ListItem", "position": 3, "name": "AI Brand Visibility Snapshot", "item": "https://georankers.ai/free-geo-tools/brand-visibility" }
           ]
         }
       ]

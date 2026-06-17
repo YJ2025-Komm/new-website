@@ -1,15 +1,15 @@
 const STATIC_PAGES = [
-  { url: "https://georankers.co/",                                lastmod: "2026-04-06", priority: "1.0", changefreq: "weekly"  },
-  { url: "https://georankers.co/features",                        lastmod: "2026-04-06", priority: "0.9", changefreq: "monthly" },
-  { url: "https://georankers.co/geo-guide",                       lastmod: "2026-05-09", priority: "0.9", changefreq: "monthly" },
-  { url: "https://georankers.co/ai-content-guide",                lastmod: "2026-05-09", priority: "0.9", changefreq: "monthly" },
-  { url: "https://georankers.co/free-geo-tools/brand-visibility", lastmod: "2026-04-28", priority: "0.8", changefreq: "monthly" },
-  { url: "https://georankers.co/free-geo-tools/geo-audit",        lastmod: "2026-04-28", priority: "0.8", changefreq: "monthly" },
-  { url: "https://georankers.co/free-geo-tools/visibility-score", lastmod: "2026-04-28", priority: "0.8", changefreq: "monthly" },
-  { url: "https://georankers.co/help",                            lastmod: "2026-04-06", priority: "0.6", changefreq: "monthly" },
-  { url: "https://georankers.co/team",                            lastmod: "2026-04-13", priority: "0.7", changefreq: "monthly" },
-  { url: "https://georankers.co/privacy",                         lastmod: "2026-04-06", priority: "0.4", changefreq: "yearly"  },
-  { url: "https://georankers.co/terms",                           lastmod: "2026-04-06", priority: "0.4", changefreq: "yearly"  },
+  { url: "https://georankers.ai/",                                lastmod: "2026-04-06", priority: "1.0", changefreq: "weekly"  },
+  { url: "https://georankers.ai/features",                        lastmod: "2026-04-06", priority: "0.9", changefreq: "monthly" },
+  { url: "https://georankers.ai/geo-guide",                       lastmod: "2026-05-09", priority: "0.9", changefreq: "monthly" },
+  { url: "https://georankers.ai/ai-content-guide",                lastmod: "2026-05-09", priority: "0.9", changefreq: "monthly" },
+  { url: "https://georankers.ai/free-geo-tools/brand-visibility", lastmod: "2026-04-28", priority: "0.8", changefreq: "monthly" },
+  { url: "https://georankers.ai/free-geo-tools/geo-audit",        lastmod: "2026-04-28", priority: "0.8", changefreq: "monthly" },
+  { url: "https://georankers.ai/free-geo-tools/visibility-score", lastmod: "2026-04-28", priority: "0.8", changefreq: "monthly" },
+  { url: "https://georankers.ai/help",                            lastmod: "2026-04-06", priority: "0.6", changefreq: "monthly" },
+  { url: "https://georankers.ai/team",                            lastmod: "2026-04-13", priority: "0.7", changefreq: "monthly" },
+  { url: "https://georankers.ai/privacy",                         lastmod: "2026-04-06", priority: "0.4", changefreq: "yearly"  },
+  { url: "https://georankers.ai/terms",                           lastmod: "2026-04-06", priority: "0.4", changefreq: "yearly"  },
 ];
 
 function parseRss(xml) {

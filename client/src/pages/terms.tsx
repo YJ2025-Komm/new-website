@@ -25,14 +25,14 @@ export default function Terms() {
     title: "GeoRankers Terms of Service — Subscription & Usage",
     description:
       "Review the GeoRankers Terms of Service governing your use of the AI search visibility platform, including subscriptions, data usage, and acceptable use policy.",
-    canonical: "https://georankers.co/terms",
+    canonical: "https://georankers.ai/terms",
     schemaId: "terms-schema",
     schema: {
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "Terms of Service",
-      "url": "https://georankers.co/terms",
-      "isPartOf": { "@type": "WebSite", "url": "https://georankers.co" },
+      "url": "https://georankers.ai/terms",
+      "isPartOf": { "@type": "WebSite", "url": "https://georankers.ai" },
     },
   });
 

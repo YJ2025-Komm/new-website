@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { request } from 'node:https';
 
 const KEY = 'FB80C6F0068F7B558C85580C784BA9EB';
-const HOST = 'georankers.co';
+const HOST = 'georankers.ai';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 
 const sitemap = readFileSync('dist/sitemap.xml', 'utf8');

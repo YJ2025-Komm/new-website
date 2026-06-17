@@ -20,17 +20,17 @@ export default function WebsiteAnalysis() {
     title: "Free AI Search Readiness Analyzer | GeoRankers",
     description:
       "Audit your website's AI search visibility. Get a free GEO score, identify crawl issues, and compare against competitors in ChatGPT, Gemini, and Perplexity.",
-    canonical: "https://georankers.co/website-analysis",
+    canonical: "https://georankers.ai/website-analysis",
     ogTitle: "Free AI Search Readiness Analyzer — GeoRankers",
     ogDescription:
       "Paste your URL and get an instant GEO audit: schema check, robots.txt analysis, AI mention score, and actionable recommendations.",
-    ogUrl: "https://georankers.co/website-analysis",
+    ogUrl: "https://georankers.ai/website-analysis",
     schemaId: "website-analysis-schema",
     schema: {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "GeoRankers AI Search Readiness Analyzer",
-      "url": "https://georankers.co/website-analysis",
+      "url": "https://georankers.ai/website-analysis",
       "description":
         "Free tool to audit your website's AI search visibility and GEO readiness.",
       "applicationCategory": "BusinessApplication",

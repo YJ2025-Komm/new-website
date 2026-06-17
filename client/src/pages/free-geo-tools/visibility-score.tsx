@@ -51,7 +51,7 @@ export default function QueryOpportunityPage() {
   useSEO({
     title: "AI Query Opportunity Finder — Free GEO Tool | GeoRankers",
     description: "Discover the top AI queries in your category, where your brand is missing, and which competitors dominate. Free tool.",
-    canonical: "https://georankers.co/free-geo-tools/visibility-score",
+    canonical: "https://georankers.ai/free-geo-tools/visibility-score",
     schemaId: "schema-query-opportunities",
     schema: {
       "@context": "https://schema.org",
@@ -59,22 +59,22 @@ export default function QueryOpportunityPage() {
         {
           "@type": "WebApplication",
           "name": "AI Query Opportunity Finder",
-          "url": "https://georankers.co/free-geo-tools/visibility-score",
+          "url": "https://georankers.ai/free-geo-tools/visibility-score",
           "description": "Free tool that maps the top AI queries buyers ask in your category, identifies where your brand is absent, and shows which competitors dominate — with specific fixes for each gap.",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Web",
           "isAccessibleForFree": true,
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "provider": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.co" },
+          "provider": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.ai" },
           "featureList": ["Top AI query mapping", "Brand opportunity gap analysis", "Competitor dominance breakdown", "Content fix recommendations"],
           "audience": { "@type": "Audience", "audienceType": "B2B SaaS marketers, Demand generation teams, SEO professionals" }
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "GeoRankers", "item": "https://georankers.co" },
+            { "@type": "ListItem", "position": 1, "name": "GeoRankers", "item": "https://georankers.ai" },
             { "@type": "ListItem", "position": 2, "name": "Free GEO Tools" },
-            { "@type": "ListItem", "position": 3, "name": "AI Query Opportunity Finder", "item": "https://georankers.co/free-geo-tools/visibility-score" }
+            { "@type": "ListItem", "position": 3, "name": "AI Query Opportunity Finder", "item": "https://georankers.ai/free-geo-tools/visibility-score" }
           ]
         }
       ]

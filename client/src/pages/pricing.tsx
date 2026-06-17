@@ -21,19 +21,19 @@ export default function Pricing() {
     title: "Pricing — AI Search Visibility Plans | GeoRankers",
     description:
       "Transparent pricing for every growth stage. GeoRankers plans include AI mention monitoring, competitor benchmarking, and content recommendations — start free.",
-    canonical: "https://georankers.co/pricing",
+    canonical: "https://georankers.ai/pricing",
     ogTitle: "GeoRankers Pricing — AI Search Visibility Plans",
     ogDescription:
       "Start free and scale as you grow. Flexible plans for startups, growth teams, and agencies.",
-    ogUrl: "https://georankers.co/pricing",
+    ogUrl: "https://georankers.ai/pricing",
     schemaId: "pricing-schema",
     schema: {
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "GeoRankers Pricing",
-      "url": "https://georankers.co/pricing",
+      "url": "https://georankers.ai/pricing",
       "description": "Pricing plans for GeoRankers AI search visibility platform.",
-      "isPartOf": { "@type": "WebSite", "url": "https://georankers.co" },
+      "isPartOf": { "@type": "WebSite", "url": "https://georankers.ai" },
     },
   });
 

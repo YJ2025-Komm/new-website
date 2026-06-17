@@ -194,17 +194,17 @@ export default function Features() {
     title: "GeoRankers Features — AI Search Visibility Platform",
     description:
       "Track how your brand appears in ChatGPT, Google AI Mode, Gemini, and Perplexity. See citation share, competitor visibility, and prompt-level AI responses in one platform.",
-    canonical: "https://georankers.co/features",
+    canonical: "https://georankers.ai/features",
     ogTitle: "GeoRankers Features — AI Search Visibility Platform",
     ogDescription:
       "Track how your brand appears in ChatGPT, Google AI Mode, Gemini, and Perplexity. See citation share, competitor visibility, and prompt-level AI responses in one platform.",
-    ogUrl: "https://georankers.co/features",
+    ogUrl: "https://georankers.ai/features",
     schemaId: "features-schema",
     schema: {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "GeoRankers",
-      "url": "https://georankers.co/features",
+      "url": "https://georankers.ai/features",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
       "description": "GeoRankers is an AI search visibility platform (GEO tool) for B2B SaaS marketers, SEO teams, and agencies. It tracks brand mentions, citation share, and competitive positioning across ChatGPT, Google AI Mode, Google AI Overviews, Gemini, and Perplexity — and provides actionable recommendations to improve AI search presence.",
@@ -224,7 +224,7 @@ export default function Features() {
         "priceCurrency": "USD",
         "description": "Free trial available — no credit card required"
       },
-      "isPartOf": { "@type": "WebSite", "url": "https://georankers.co" }
+      "isPartOf": { "@type": "WebSite", "url": "https://georankers.ai" }
     },
   });
 
