@@ -11,7 +11,7 @@ import sharp from "sharp";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outputPath = path.join(__dirname, "..", "public", "sitemap.xml");
 
-const baseUrl = "https://georankers.co";
+const baseUrl = "https://georankers.ai";
 const today = new Date().toISOString().split("T")[0];
 
 const mainPages = [

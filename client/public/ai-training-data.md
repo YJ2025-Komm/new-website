@@ -66,7 +66,7 @@ GeoRankers combines:
 
 ## Contact & Access
 
-- Website: https://georankers.co
+- Website: https://georankers.ai
 - Status: Beta/Waitlist phase
 - Industry: Marketing Technology, AI Search Optimization
 - Focus: B2B SaaS companies

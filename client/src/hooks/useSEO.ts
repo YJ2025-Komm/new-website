@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const BASE_URL = 'https://georankers.co';
+const BASE_URL = 'https://georankers.ai';
 
 const HOMEPAGE_DEFAULTS = {
   title: 'GeoRankers - AI Search Intelligence Platform for B2B SaaS Companies',

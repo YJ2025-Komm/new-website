@@ -445,11 +445,11 @@ export default function Home() {
     title: "GeoRankers — AI Search Intelligence Platform for B2B SaaS",
     description:
       "GeoRankers helps B2B SaaS companies track and optimize brand visibility across ChatGPT and Gemini — the AI search intelligence platform.",
-    canonical: "https://georankers.co/",
+    canonical: "https://georankers.ai/",
     ogTitle: "GeoRankers — AI Search Intelligence Platform",
     ogDescription:
       "Track, optimize, and build brand authority to get visible in AI search across ChatGPT and Gemini.",
-    ogUrl: "https://georankers.co/",
+    ogUrl: "https://georankers.ai/",
   });
 
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -638,11 +638,11 @@ export default function Home() {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "GeoRankers",
-      "url": "https://georankers.co",
+      "url": "https://georankers.ai",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://georankers.co/georankers-logo.svg",
-        "contentUrl": "https://georankers.co/georankers-logo.svg"
+        "url": "https://georankers.ai/georankers-logo.svg",
+        "contentUrl": "https://georankers.ai/georankers-logo.svg"
       },
       "description": "GeoRankers is the AI search intelligence platform that helps B2B SaaS companies track, optimize, and build brand authority to get visible in ChatGPT, Google AI Mode, and Google AI Overviews.",
       "foundingDate": "2026",
@@ -650,7 +650,7 @@ export default function Home() {
         "@type": "Person",
         "name": "Yogesh Joshi",
         "jobTitle": "CEO & Founder",
-        "url": "https://georankers.co/team",
+        "url": "https://georankers.ai/team",
         "sameAs": "https://www.linkedin.com/in/yogesh-joshi-5ba94b18/"
       },
       "award": "DPIIT Startup India Recognition",
@@ -663,7 +663,7 @@ export default function Home() {
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "Customer Service",
-        "url": "https://georankers.co"
+        "url": "https://georankers.ai"
       }
     });
 
@@ -679,11 +679,11 @@ export default function Home() {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "GeoRankers",
-      "url": "https://georankers.co",
+      "url": "https://georankers.ai",
       "description": "AI Search Optimization Platform for B2B SaaS - Track and optimize your brand visibility across ChatGPT, Google AI Mode, and Google AI Overviews",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://georankers.co/?q={search_term_string}",
+        "target": "https://georankers.ai/?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     });
@@ -768,19 +768,19 @@ export default function Home() {
           "@type": "SiteNavigationElement",
           "position": 1,
           "name": "Home",
-          "url": "https://georankers.co/"
+          "url": "https://georankers.ai/"
         },
         {
           "@type": "SiteNavigationElement",
           "position": 2,
           "name": "Features",
-          "url": "https://georankers.co/features"
+          "url": "https://georankers.ai/features"
         },
         {
           "@type": "SiteNavigationElement",
           "position": 3,
           "name": "Resources",
-          "url": "https://georankers.co/#resources",
+          "url": "https://georankers.ai/#resources",
           "hasPart": [
             {
               "@type": "SiteNavigationElement",
@@ -790,7 +790,7 @@ export default function Home() {
             {
               "@type": "SiteNavigationElement",
               "name": "GEO Guide",
-              "url": "https://georankers.co/geo-guide"
+              "url": "https://georankers.ai/geo-guide"
             }
           ]
         },

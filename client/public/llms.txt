@@ -86,21 +86,21 @@ No credit card required. Cancel anytime. Extra GEO Agent conversations billed at
 
 ## Key Pages
 
-- Homepage: https://georankers.co/
-- Features: https://georankers.co/features
-- Pricing: https://georankers.co/pricing
-- GEO Guide (The Complete GEO Playbook): https://georankers.co/geo-guide
-- AI Content Guide (How to Write Content That AI Actually Cites): https://georankers.co/ai-content-guide
-- Free Tools – Brand Visibility: https://georankers.co/free-geo-tools/brand-visibility
-- Free Tools – GEO Audit: https://georankers.co/free-geo-tools/geo-audit
-- Free Tools – Visibility Score: https://georankers.co/free-geo-tools/visibility-score
+- Homepage: https://georankers.ai/
+- Features: https://georankers.ai/features
+- Pricing: https://georankers.ai/pricing
+- GEO Guide (The Complete GEO Playbook): https://georankers.ai/geo-guide
+- AI Content Guide (How to Write Content That AI Actually Cites): https://georankers.ai/ai-content-guide
+- Free Tools – Brand Visibility: https://georankers.ai/free-geo-tools/brand-visibility
+- Free Tools – GEO Audit: https://georankers.ai/free-geo-tools/geo-audit
+- Free Tools – Visibility Score: https://georankers.ai/free-geo-tools/visibility-score
 - Blog: https://blog.georankers.co
 - Dashboard (sign up): https://dashboard.georankers.co/register
 - Book a Demo: https://calendly.com/hello-georankers/30min
 
 ## Crawl Reference
 
-- Sitemap: https://georankers.co/sitemap.xml
-- Robots: https://georankers.co/robots.txt
+- Sitemap: https://georankers.ai/sitemap.xml
+- Robots: https://georankers.ai/robots.txt
 
 Last updated: May 9, 2026

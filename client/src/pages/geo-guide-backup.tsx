@@ -17,7 +17,7 @@ export default function GeoGuide() {
     // Update canonical URL
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
-      canonical.setAttribute('href', 'https://georankers.co/geo-guide');
+      canonical.setAttribute('href', 'https://georankers.ai/geo-guide');
     }
 
     // Cleanup on unmount
@@ -27,7 +27,7 @@ export default function GeoGuide() {
         metaDescription.setAttribute('content', 'GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build brand authority to get visible in AI search across ChatGPT, Gemini, Perplexity, and Claude.');
       }
       if (canonical) {
-        canonical.setAttribute('href', 'https://georankers.co/');
+        canonical.setAttribute('href', 'https://georankers.ai/');
       }
     };
   }, []);

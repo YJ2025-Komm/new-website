@@ -14,29 +14,29 @@ export default function GeoGuide() {
     title: "GEO Playbook 2026 — AI Search Optimization for B2B SaaS | GeoRankers",
     description:
       "Learn how to optimize for AI search visibility in 2026. GEO strategies for B2B SaaS teams to get cited in ChatGPT, Google AI Mode, Gemini, and Perplexity.",
-    canonical: "https://georankers.co/geo-guide",
+    canonical: "https://georankers.ai/geo-guide",
     ogTitle: "The Complete GEO Playbook — Master AI Search Optimization",
     ogDescription:
       "Learn proven Generative Engine Optimization strategies to boost your brand visibility in AI search results across ChatGPT, Gemini, and other LLMs.",
-    ogUrl: "https://georankers.co/geo-guide",
+    ogUrl: "https://georankers.ai/geo-guide",
     schemaId: "geo-guide-schema",
     schema: {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "The Complete GEO Playbook — Master AI Search Optimization for B2B & SaaS",
       "description": "Master Generative Engine Optimization (GEO) with our complete strategic guide. Learn proven tactics to optimize your B2B and SaaS brand visibility in ChatGPT, Gemini, Perplexity, and Claude AI search results.",
-      "image": { "@type": "ImageObject", "url": "https://georankers.co/og-image.png", "width": 1200, "height": 630 },
+      "image": { "@type": "ImageObject", "url": "https://georankers.ai/og-image.png", "width": 1200, "height": 630 },
       "inLanguage": "en-US",
-      "author": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.co" },
+      "author": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.ai" },
       "publisher": {
         "@type": "Organization",
         "name": "GeoRankers",
-        "url": "https://georankers.co",
-        "logo": { "@type": "ImageObject", "url": "https://georankers.co/og-image.png" },
+        "url": "https://georankers.ai",
+        "logo": { "@type": "ImageObject", "url": "https://georankers.ai/og-image.png" },
       },
       "datePublished": "2025-01-07",
       "dateModified": "2026-05-09",
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://georankers.co/geo-guide" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://georankers.ai/geo-guide" },
       "articleSection": "AI Search Marketing",
       "keywords": [
         "GEO", "generative engine optimization", "AI search optimization",
@@ -83,8 +83,8 @@ export default function GeoGuide() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://georankers.co/" },
-        { "@type": "ListItem", "position": 2, "name": "The Complete GEO Playbook", "item": "https://georankers.co/geo-guide" },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://georankers.ai/" },
+        { "@type": "ListItem", "position": 2, "name": "The Complete GEO Playbook", "item": "https://georankers.ai/geo-guide" },
       ],
     });
     return () => { el?.remove(); };

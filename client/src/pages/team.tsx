@@ -49,7 +49,7 @@ export default function Team() {
   useSEO({
     title: "About Us — The GeoRankers Team | AI Search Visibility",
     description: "Meet the founders, engineers, and advisors behind GeoRankers — the AI visibility platform helping B2B SaaS teams improve how AI systems discover them.",
-    canonical: "https://georankers.co/team",
+    canonical: "https://georankers.ai/team",
     schemaId: "schema-team",
     schema: {
       "@context": "https://schema.org",
@@ -57,23 +57,23 @@ export default function Team() {
         {
           "@type": "AboutPage",
           "name": "About GeoRankers",
-          "url": "https://georankers.co/team",
+          "url": "https://georankers.ai/team",
           "description": "Meet the founders, engineers, and advisors building GeoRankers — the AI Search Visibility Intelligence Platform helping B2B SaaS teams understand and improve how AI systems discover them.",
           "publisher": {
             "@type": "Organization",
             "name": "GeoRankers",
-            "url": "https://georankers.co",
+            "url": "https://georankers.ai",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://georankers.co/georankers-logo.svg",
-              "contentUrl": "https://georankers.co/georankers-logo.svg"
+              "url": "https://georankers.ai/georankers-logo.svg",
+              "contentUrl": "https://georankers.ai/georankers-logo.svg"
             },
             "foundingDate": "2026",
             "founder": {
               "@type": "Person",
               "name": "Yogesh Joshi",
               "jobTitle": "CEO & Founder",
-              "url": "https://georankers.co/team",
+              "url": "https://georankers.ai/team",
               "sameAs": "https://www.linkedin.com/in/yogesh-joshi-5ba94b18/"
             },
             "award": "DPIIT Startup India Recognition",
@@ -89,20 +89,20 @@ export default function Team() {
           "@type": "Person",
           "name": "Yogesh Joshi",
           "jobTitle": "CEO & Founder",
-          "url": "https://georankers.co/team",
+          "url": "https://georankers.ai/team",
           "sameAs": "https://www.linkedin.com/in/yogesh-joshi-5ba94b18/",
           "worksFor": {
             "@type": "Organization",
             "name": "GeoRankers",
-            "url": "https://georankers.co",
+            "url": "https://georankers.ai",
             "foundingDate": "2026"
           }
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "GeoRankers", "item": "https://georankers.co" },
-            { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://georankers.co/team" }
+            { "@type": "ListItem", "position": 1, "name": "GeoRankers", "item": "https://georankers.ai" },
+            { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://georankers.ai/team" }
           ]
         }
       ]

@@ -18,17 +18,17 @@ const WP_API = "https://blog.georankers.co/wp-json/wp/v2/posts";
 
 // ─── Static marketing-site pages ─────────────────────────────────────────────
 const STATIC_PAGES = [
-  { loc: "https://georankers.co/",                                lastmod: "2026-04-06", changefreq: "weekly",  priority: "1.0" },
-  { loc: "https://georankers.co/features",                        lastmod: "2026-04-06", changefreq: "monthly", priority: "0.9" },
-  { loc: "https://georankers.co/geo-guide",                       lastmod: "2026-05-09", changefreq: "monthly", priority: "0.9" },
-  { loc: "https://georankers.co/ai-content-guide",                lastmod: "2026-05-09", changefreq: "monthly", priority: "0.9" },
-  { loc: "https://georankers.co/free-geo-tools/brand-visibility", lastmod: "2026-04-28", changefreq: "monthly", priority: "0.8" },
-  { loc: "https://georankers.co/free-geo-tools/geo-audit",        lastmod: "2026-04-28", changefreq: "monthly", priority: "0.8" },
-  { loc: "https://georankers.co/free-geo-tools/visibility-score", lastmod: "2026-04-28", changefreq: "monthly", priority: "0.8" },
-  { loc: "https://georankers.co/help",                            lastmod: "2026-04-06", changefreq: "monthly", priority: "0.6" },
-  { loc: "https://georankers.co/team",                            lastmod: "2026-04-13", changefreq: "monthly", priority: "0.7" },
-  { loc: "https://georankers.co/privacy",                         lastmod: "2026-04-06", changefreq: "yearly",  priority: "0.4" },
-  { loc: "https://georankers.co/terms",                           lastmod: "2026-04-06", changefreq: "yearly",  priority: "0.4" },
+  { loc: "https://georankers.ai/",                                lastmod: "2026-04-06", changefreq: "weekly",  priority: "1.0" },
+  { loc: "https://georankers.ai/features",                        lastmod: "2026-04-06", changefreq: "monthly", priority: "0.9" },
+  { loc: "https://georankers.ai/geo-guide",                       lastmod: "2026-05-09", changefreq: "monthly", priority: "0.9" },
+  { loc: "https://georankers.ai/ai-content-guide",                lastmod: "2026-05-09", changefreq: "monthly", priority: "0.9" },
+  { loc: "https://georankers.ai/free-geo-tools/brand-visibility", lastmod: "2026-04-28", changefreq: "monthly", priority: "0.8" },
+  { loc: "https://georankers.ai/free-geo-tools/geo-audit",        lastmod: "2026-04-28", changefreq: "monthly", priority: "0.8" },
+  { loc: "https://georankers.ai/free-geo-tools/visibility-score", lastmod: "2026-04-28", changefreq: "monthly", priority: "0.8" },
+  { loc: "https://georankers.ai/help",                            lastmod: "2026-04-06", changefreq: "monthly", priority: "0.6" },
+  { loc: "https://georankers.ai/team",                            lastmod: "2026-04-13", changefreq: "monthly", priority: "0.7" },
+  { loc: "https://georankers.ai/privacy",                         lastmod: "2026-04-06", changefreq: "yearly",  priority: "0.4" },
+  { loc: "https://georankers.ai/terms",                           lastmod: "2026-04-06", changefreq: "yearly",  priority: "0.4" },
 ];
 
 // ─── Fetch all blog posts (paginated) ─────────────────────────────────────────

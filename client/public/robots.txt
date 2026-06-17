@@ -66,4 +66,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://georankers.co/sitemap.xml
+Sitemap: https://georankers.ai/sitemap.xml

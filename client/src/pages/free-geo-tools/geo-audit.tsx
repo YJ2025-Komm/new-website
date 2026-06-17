@@ -79,7 +79,7 @@ export default function GeoAuditPage() {
   useSEO({
     title: "GEO Content Audit — Free Tool | GeoRankers",
     description: "Paste your URL for a free GEO content audit. See missing entities, weak AI signals, and prioritized fixes to improve AI readability.",
-    canonical: "https://georankers.co/free-geo-tools/geo-audit",
+    canonical: "https://georankers.ai/free-geo-tools/geo-audit",
     schemaId: "schema-geo-audit",
     schema: {
       "@context": "https://schema.org",
@@ -87,22 +87,22 @@ export default function GeoAuditPage() {
         {
           "@type": "WebApplication",
           "name": "GEO Content Audit",
-          "url": "https://georankers.co/free-geo-tools/geo-audit",
+          "url": "https://georankers.ai/free-geo-tools/geo-audit",
           "description": "Free GEO (Generative Engine Optimization) content audit tool. Paste any URL to get an AI readiness score, missing entity analysis, and a prioritized list of fixes to improve your page's visibility in AI-generated answers.",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Web",
           "isAccessibleForFree": true,
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "provider": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.co" },
+          "provider": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.ai" },
           "featureList": ["GEO readiness score", "8-point signal checklist", "Missing entity detection", "Prioritized fixes with impact/effort ratings"],
           "audience": { "@type": "Audience", "audienceType": "B2B SaaS marketers, Content strategists, SEO professionals" }
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "GeoRankers", "item": "https://georankers.co" },
+            { "@type": "ListItem", "position": 1, "name": "GeoRankers", "item": "https://georankers.ai" },
             { "@type": "ListItem", "position": 2, "name": "Free GEO Tools" },
-            { "@type": "ListItem", "position": 3, "name": "GEO Content Audit", "item": "https://georankers.co/free-geo-tools/geo-audit" }
+            { "@type": "ListItem", "position": 3, "name": "GEO Content Audit", "item": "https://georankers.ai/free-geo-tools/geo-audit" }
           ]
         }
       ]

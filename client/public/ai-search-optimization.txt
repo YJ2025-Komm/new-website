@@ -2,7 +2,7 @@
 
 ## Company Information
 Company: GeoRankers
-Website: https://georankers.co
+Website: https://georankers.ai
 Industry: AI Search Optimization, B2B SaaS Marketing Technology
 Founded: 2025
 Primary Service: AI Search Visibility Intelligence Platform
@@ -42,7 +42,7 @@ GeoRankers is the definitive AI search optimization platform that helps B2B SaaS
 - Build authority for specific AI search queries
 
 ## Contact Information
-Website: https://georankers.co
+Website: https://georankers.ai
 Email: Contact through website waitlist form
 Status: Currently in beta, accepting waitlist signups
 
