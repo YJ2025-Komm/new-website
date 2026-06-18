@@ -8,6 +8,18 @@
   PUPPETEER_CACHE_DIR = "/opt/build/cache/puppeteer"
 
 [[redirects]]
+  from = "https://georankers.co/*"
+  to = "https://georankers.ai/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.georankers.co/*"
+  to = "https://georankers.ai/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/sitemap.xml"
   to = "/.netlify/functions/sitemap"
   status = 200
