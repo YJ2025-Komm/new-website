@@ -1,4 +1,6 @@
+http://georankers.co/* https://georankers.ai/:splat 301!
 https://georankers.co/* https://georankers.ai/:splat 301!
+http://www.georankers.co/* https://georankers.ai/:splat 301!
 https://www.georankers.co/* https://georankers.ai/:splat 301!
 /api/* https://new-website-r4rq.onrender.com/api/:splat 200
 /* /index.html 200
