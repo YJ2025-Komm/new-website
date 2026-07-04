@@ -101,8 +101,7 @@ export default function GeoAuditPage() {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "GeoRankers", "item": "https://georankers.ai" },
-            { "@type": "ListItem", "position": 2, "name": "Free GEO Tools" },
-            { "@type": "ListItem", "position": 3, "name": "GEO Content Audit", "item": "https://georankers.ai/free-geo-tools/geo-audit" }
+            { "@type": "ListItem", "position": 2, "name": "GEO Content Audit", "item": "https://georankers.ai/free-geo-tools/geo-audit" }
           ]
         }
       ]

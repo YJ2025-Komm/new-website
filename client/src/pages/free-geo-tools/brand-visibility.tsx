@@ -52,8 +52,7 @@ export default function BrandVisibilityPage() {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "GeoRankers", "item": "https://georankers.ai" },
-            { "@type": "ListItem", "position": 2, "name": "Free GEO Tools" },
-            { "@type": "ListItem", "position": 3, "name": "AI Brand Visibility Snapshot", "item": "https://georankers.ai/free-geo-tools/brand-visibility" }
+            { "@type": "ListItem", "position": 2, "name": "AI Brand Visibility Snapshot", "item": "https://georankers.ai/free-geo-tools/brand-visibility" }
           ]
         }
       ]

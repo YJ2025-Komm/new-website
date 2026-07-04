@@ -73,8 +73,7 @@ export default function QueryOpportunityPage() {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "GeoRankers", "item": "https://georankers.ai" },
-            { "@type": "ListItem", "position": 2, "name": "Free GEO Tools" },
-            { "@type": "ListItem", "position": 3, "name": "AI Query Opportunity Finder", "item": "https://georankers.ai/free-geo-tools/visibility-score" }
+            { "@type": "ListItem", "position": 2, "name": "AI Query Opportunity Finder", "item": "https://georankers.ai/free-geo-tools/visibility-score" }
           ]
         }
       ]
