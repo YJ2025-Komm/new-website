@@ -249,7 +249,7 @@ export default function Team() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-600 text-sm font-medium transition-all duration-200"
                   >
-                    <SiLinkedin className="w-4 h-4" />
+                    <SiLinkedin aria-hidden="true" className="w-4 h-4" />
                     LinkedIn
                   </a>
                 </div>
@@ -290,7 +290,7 @@ export default function Team() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-600 text-sm font-medium transition-all duration-200 mt-auto"
                   >
-                    <SiLinkedin className="w-4 h-4" />
+                    <SiLinkedin aria-hidden="true" className="w-4 h-4" />
                     LinkedIn
                   </a>
                 )}
