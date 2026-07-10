@@ -26,7 +26,7 @@ export default function Footer() {
                 aria-label="GeoRankers on LinkedIn"
                 className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
               >
-                <SiLinkedin className="w-5 h-5 text-white" />
+                <SiLinkedin aria-hidden="true" className="w-5 h-5 text-white" />
               </a>
               <a
                 href="https://x.com/georankers"
@@ -35,7 +35,7 @@ export default function Footer() {
                 aria-label="GeoRankers on X"
                 className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
               >
-                <SiX className="w-5 h-5 text-white" />
+                <SiX aria-hidden="true" className="w-5 h-5 text-white" />
               </a>
               <a
                 href="https://www.facebook.com/people/GeoRankers/61588912087425/"
@@ -44,7 +44,7 @@ export default function Footer() {
                 aria-label="GeoRankers on Facebook"
                 className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
               >
-                <SiFacebook className="w-5 h-5 text-white" />
+                <SiFacebook aria-hidden="true" className="w-5 h-5 text-white" />
               </a>
             </div>
             <div className="mt-6">

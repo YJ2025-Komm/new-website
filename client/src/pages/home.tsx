@@ -1297,6 +1297,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       data-testid={`link-blog-post-${post.id}`}
+                      aria-label={`Read more: ${post.title.rendered.replace(/<[^>]+>/g, "")}`}
                       className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-violet-600 transition-colors duration-300"
                     >
                       Read More
