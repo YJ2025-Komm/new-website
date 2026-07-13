@@ -193,11 +193,11 @@ export default function Features() {
   useSEO({
     title: "GeoRankers Features — AI Search Visibility Platform",
     description:
-      "Track how your brand appears in ChatGPT, Google AI Mode, Gemini, and Perplexity. See citation share, competitor visibility, and prompt-level AI responses in one platform.",
+      "Track how your brand appears in ChatGPT, Google AI Search, Gemini, and Perplexity. See citation share, competitor visibility, and prompt-level AI responses in one platform.",
     canonical: "https://georankers.ai/features",
     ogTitle: "GeoRankers Features — AI Search Visibility Platform",
     ogDescription:
-      "Track how your brand appears in ChatGPT, Google AI Mode, Gemini, and Perplexity. See citation share, competitor visibility, and prompt-level AI responses in one platform.",
+      "Track how your brand appears in ChatGPT, Google AI Search, Gemini, and Perplexity. See citation share, competitor visibility, and prompt-level AI responses in one platform.",
     ogUrl: "https://georankers.ai/features",
     schemaId: "features-schema",
     schema: {
@@ -207,9 +207,9 @@ export default function Features() {
       "url": "https://georankers.ai/features",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
-      "description": "GeoRankers is an AI search visibility platform (GEO tool) for B2B SaaS marketers, SEO teams, and agencies. It tracks brand mentions, citation share, and competitive positioning across ChatGPT, Google AI Mode, Google AI Overviews, Gemini, and Perplexity — and provides actionable recommendations to improve AI search presence.",
+      "description": "GeoRankers is an AI search visibility platform (GEO tool) for B2B SaaS marketers, SEO teams, and agencies. It tracks brand mentions, citation share, and competitive positioning across ChatGPT, Google AI Search, Gemini, and Perplexity — and provides actionable recommendations to improve AI search presence.",
       "featureList": [
-        "AI brand visibility tracking across ChatGPT, Google AI Mode, Google AI Overviews, Gemini, and Perplexity",
+        "AI brand visibility tracking across ChatGPT, Google AI Search, Gemini, and Perplexity",
         "Prompt-level AI response monitoring",
         "Citation share and mention rate analysis",
         "Competitor AI visibility benchmarking",
@@ -324,7 +324,7 @@ export default function Features() {
                 <span className="font-bold text-slate-700 text-sm">ChatGPT</span>
               </div>
 
-              {/* Google AI Overview */}
+              {/* Google AI Search */}
               <div className="flex items-center gap-3 hover:scale-105 transition-transform duration-200">
                 <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center shadow-sm">
                   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
@@ -334,7 +334,7 @@ export default function Features() {
                     <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
                   </svg>
                 </div>
-                <span className="font-bold text-slate-700 text-sm">Google AI Overview</span>
+                <span className="font-bold text-slate-700 text-sm">Google AI Search</span>
               </div>
 
               {/* Gemini */}
@@ -444,7 +444,7 @@ export default function Features() {
                     See Where Your Brand Shows Up in AI Answers
                   </p>
                   <p className="text-base text-slate-500 mb-6 leading-relaxed">
-                    Unified visibility scoring across ChatGPT, Google AI Mode, and AI Overviews. Instantly see whether your brand appears, where it ranks, and how often AI models recommend you.
+                    Unified visibility scoring across ChatGPT, Google AI Search, and Perplexity. Instantly see whether your brand appears, where it ranks, and how often AI models recommend you.
                   </p>
                   <ul className="space-y-3">
                     <li className="flex items-start">
@@ -634,7 +634,7 @@ export default function Features() {
                     </li>
                     <li className="flex items-start">
                       <Check className="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-slate-700">ChatGPT, Google AI Mode & AI Overview tracking</span>
+                      <span className="text-slate-700">ChatGPT & Google AI Search tracking</span>
                     </li>
                     <li className="flex items-start">
                       <Check className="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" />

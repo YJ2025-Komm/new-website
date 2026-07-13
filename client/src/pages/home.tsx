@@ -517,7 +517,7 @@ export default function Home() {
     {
       question: "Which AI platforms does GeoRankers monitor?",
       answer:
-        "GeoRankers tracks brand visibility across ChatGPT, Google AI Mode, and Google AI Overviews. We monitor how often your brand appears in AI-generated responses, the context of mentions, and your competitive positioning across these platforms.",
+        "GeoRankers tracks brand visibility across ChatGPT, Google AI Search, and Perplexity. We monitor how often your brand appears in AI-generated responses, the context of mentions, and your competitive positioning across these platforms.",
     },
     {
       question: "How long does it take to see results from AI search optimization?",
@@ -644,7 +644,7 @@ export default function Home() {
         "url": "https://georankers.ai/georankers-logo.svg",
         "contentUrl": "https://georankers.ai/georankers-logo.svg"
       },
-      "description": "GeoRankers is the AI search intelligence platform that helps B2B SaaS companies track, optimize, and build brand authority to get visible in ChatGPT, Google AI Mode, and Google AI Overviews.",
+      "description": "GeoRankers is the AI search intelligence platform that helps B2B SaaS companies track, optimize, and build brand authority to get visible in ChatGPT, Google AI Search, and Perplexity.",
       "foundingDate": "2026",
       "founder": {
         "@type": "Person",
@@ -680,7 +680,7 @@ export default function Home() {
       "@type": "WebSite",
       "name": "GeoRankers",
       "url": "https://georankers.ai",
-      "description": "AI Search Optimization Platform for B2B SaaS - Track and optimize your brand visibility across ChatGPT, Google AI Mode, and Google AI Overviews",
+      "description": "AI Search Optimization Platform for B2B SaaS - Track and optimize your brand visibility across ChatGPT, Google AI Search, and Perplexity",
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://georankers.ai/?q={search_term_string}",
@@ -843,7 +843,7 @@ export default function Home() {
 
               {/* Sub-headline */}
               <p className="text-base sm:text-lg font-normal text-slate-600 mb-7 leading-relaxed">
-                GeoRankers is the AI search visibility platform that fixes that — tracking your brand across ChatGPT, Google AI Mode, Google AI Overviews, Gemini so you know exactly where you stand and what to do.
+                GeoRankers is the AI search visibility platform that fixes that — tracking your brand across ChatGPT, Google AI Search, Gemini, and Perplexity so you know exactly where you stand and what to do.
               </p>
 
               {/* CTAs */}
@@ -888,7 +888,7 @@ export default function Home() {
                 <span className="font-bold text-slate-700 text-sm">ChatGPT</span>
               </div>
 
-              {/* Google AI Overview */}
+              {/* Google AI Search */}
               <div className="flex items-center gap-3 hover:scale-105 transition-transform duration-200">
                 <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center shadow-sm">
                   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
@@ -898,7 +898,7 @@ export default function Home() {
                     <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
                   </svg>
                 </div>
-                <span className="font-bold text-slate-700 text-sm">Google AI Overview</span>
+                <span className="font-bold text-slate-700 text-sm">Google AI Search</span>
               </div>
 
               {/* Gemini */}

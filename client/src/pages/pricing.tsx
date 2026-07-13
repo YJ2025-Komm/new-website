@@ -56,21 +56,25 @@ export default function Pricing() {
         {
           title: "Core Features",
           items: [
-            "3 Seed Prompts",
-            "Up to 30 AI Prompts Tracked",
-            "ChatGPT, Google AI Mode, Perplexity* (Coming Soon)",
-            "3 Competitors Tracked",
+            "3 Seed Topics",
+            "450+ AI Answers Analyzed",
+            "ChatGPT, Google AI Search, Perplexity",
+            "5 Competitors Tracked",
             "1 Seat",
-            "Daily Run Available (Every 24 Hours)",
+            "Weekly Scheduled Runs + 1 On-Demand Run/month",
           ],
         },
         {
-          title: "GEO Agent Intelligence",
+          title: "GEO Agent (AI Assistant)",
           items: ["10 conversations/user/day"],
         },
         {
-          title: "Analytics History",
-          items: ["Last 5 Runs"],
+          title: "Historical Run Access",
+          items: ["Last 5 Runs", "30-Day Visibility Trend"],
+        },
+        {
+          title: "Alerts & Notifications",
+          items: ["Email"],
         },
         {
           title: "Support",
@@ -93,25 +97,29 @@ export default function Pricing() {
         {
           title: "Core Features",
           items: [
-            "10 Seed Prompts",
-            "Up to 100 AI Prompts Tracked",
-            "ChatGPT, Google AI Mode, Perplexity* (Coming Soon)",
-            "5 Competitors Tracked",
+            "10 Seed Topics",
+            "2,100+ AI Answers Analyzed",
+            "ChatGPT, Google AI Search, Perplexity",
+            "10 Competitors Tracked",
             "3 Seats",
-            "Daily Run Available (Every 24 Hours)",
+            "Weekly Scheduled Runs + 3 On-Demand Runs/month",
           ],
         },
         {
-          title: "GEO Agent Intelligence",
+          title: "GEO Agent (AI Assistant)",
           items: ["20 conversations/user/day"],
         },
         {
-          title: "Analytics History",
-          items: ["Last 10 Runs"],
+          title: "Historical Run Access",
+          items: ["Last 10 Runs", "60-Day Visibility Trend"],
+        },
+        {
+          title: "Alerts & Notifications",
+          items: ["Email, Slack (Roadmap)"],
         },
         {
           title: "Integrations",
-          items: ["Google Analytics (Coming Soon)", "Google Search Console (Coming Soon)"],
+          items: ["Report Export", "Google Analytics (Roadmap)", "Google Search Console (Roadmap)"],
         },
         {
           title: "Support",
@@ -134,25 +142,34 @@ export default function Pricing() {
         {
           title: "Core Features",
           items: [
-            "Custom Seed Prompts",
-            "Custom AI Prompts Tracked",
-            "ChatGPT, Google AI Mode, Perplexity* (Coming Soon)",
+            "Custom Seed Topics",
+            "Custom AI Answers Analyzed",
+            "ChatGPT, Google AI Search, Perplexity",
             "Custom Competitor Tracking",
             "Custom Seats",
-            "Daily Run Available (Every 24 Hours)",
+            "Custom Scheduled + On-Demand Runs",
           ],
         },
         {
-          title: "GEO Agent Intelligence",
+          title: "GEO Agent (AI Assistant)",
           items: ["Custom Volume"],
         },
         {
-          title: "Analytics History",
-          items: ["Custom History"],
+          title: "Historical Run Access",
+          items: ["Custom History", "Custom Visibility Trend"],
+        },
+        {
+          title: "Alerts & Notifications",
+          items: ["Email, Slack (Roadmap)"],
         },
         {
           title: "Integrations",
-          items: ["Google Analytics (Coming Soon)", "Google Search Console (Coming Soon)"],
+          items: [
+            "Report Export",
+            "Google Analytics (Roadmap)",
+            "Google Search Console (Roadmap)",
+            "Agent-Ready API (MCP-compatible)",
+          ],
         },
         {
           title: "Support",
@@ -165,45 +182,69 @@ export default function Pricing() {
     },
   ];
 
-  const comparisonRows = [
-    { label: "Seed Prompts", launch: "3", grow: "10", enterprise: "Custom" },
-    { label: "AI Prompts Tracked", launch: "Up to 30", grow: "Up to 100", enterprise: "Custom" },
-    { label: "LLMs Tracked", launch: "ChatGPT, Google AI Mode, Perplexity*", grow: "ChatGPT, Google AI Mode, Perplexity*", enterprise: "ChatGPT, Google AI Mode, Perplexity*" },
-    { label: "Competitors Tracked", launch: "3", grow: "5", enterprise: "Custom" },
-    { label: "Prompt Run", launch: "Daily (Every 24 Hours)", grow: "Daily (Every 24 Hours)", enterprise: "Daily (Every 24 Hours)" },
-    { label: "Seats", launch: "1", grow: "3", enterprise: "Custom" },
-    { label: "GEO Agent Intelligence", launch: "10 conversations/user/day", grow: "20 conversations/user/day", enterprise: "Custom" },
-    { label: "Analytics History", launch: "Last 5 Runs", grow: "Last 10 Runs", enterprise: "Custom" },
-    { label: "Report Export", launch: "no", grow: "yes", enterprise: "yes" },
-    { label: "Integrations", launch: "no", grow: "Google Analytics, Google Search Console*", enterprise: "Google Analytics, Google Search Console*" },
-    { label: "Support SLA", launch: "24 Hours", grow: "12 Hours", enterprise: "4 Hours" },
-    { label: "Dedicated Account Manager", launch: "no", grow: "no", enterprise: "yes" },
+  const comparisonGroups = [
+    {
+      title: null,
+      rows: [
+        { label: "LLMs Tracked", launch: "ChatGPT, Google AI Search, Perplexity", grow: "ChatGPT, Google AI Search, Perplexity", enterprise: "ChatGPT, Google AI Search, Perplexity" },
+        { label: "Seed Topics", launch: "3", grow: "10", enterprise: "Custom" },
+        { label: "AI Answers Analyzed", launch: "450+", grow: "2,100+", enterprise: "Custom" },
+        { label: "Competitors Tracked", launch: "5", grow: "10", enterprise: "Custom" },
+        { label: "Scheduled Runs", launch: "Weekly", grow: "Weekly", enterprise: "Custom" },
+        { label: "On-Demand Runs", launch: "1/month", grow: "3/month", enterprise: "Custom" },
+        { label: "GEO Agent (AI Assistant)", launch: "10 conversations/user/day", grow: "20 conversations/user/day", enterprise: "Custom" },
+        { label: "Historical Run Access", launch: "Last 5 Runs", grow: "Last 10 Runs", enterprise: "Custom" },
+        { label: "Visibility Trend Chart", launch: "30 Days", grow: "60 Days", enterprise: "Custom" },
+        { label: "Alerts & Notifications", launch: "Email", grow: "Email, Slack (Roadmap)", enterprise: "Email, Slack (Roadmap)" },
+        { label: "Report Export", launch: "no", grow: "yes", enterprise: "yes" },
+        { label: "Google Analytics (Roadmap)", launch: "no", grow: "yes", enterprise: "yes" },
+        { label: "Google Search Console (Roadmap)", launch: "no", grow: "yes", enterprise: "yes" },
+        { label: "API Access (Roadmap)", launch: "no", grow: "no", enterprise: "Agent-Ready API (MCP-compatible)" },
+        { label: "Seats", launch: "1", grow: "3", enterprise: "Custom" },
+        { label: "Support SLA", launch: "24 Hours", grow: "12 Hours", enterprise: "4 Hours" },
+        { label: "Dedicated Account Manager", launch: "no", grow: "no", enterprise: "yes" },
+      ],
+    },
+    {
+      title: "Included in Every Plan",
+      rows: [
+        { label: "Brand Mention Monitoring", launch: "yes", grow: "yes", enterprise: "yes" },
+        { label: "Keyword Search Volume", launch: "yes", grow: "yes", enterprise: "yes" },
+        { label: "AI Recommendations", launch: "yes", grow: "yes", enterprise: "yes" },
+        { label: "Visibility Dashboard", launch: "yes", grow: "yes", enterprise: "yes" },
+        { label: "Competitor Tracking", launch: "yes", grow: "yes", enterprise: "yes" },
+        { label: "Sources Tracking", launch: "yes", grow: "yes", enterprise: "yes" },
+        { label: "AI Reading Checker", launch: "yes", grow: "yes", enterprise: "yes" },
+        { label: "AI Sentiment Tracking", launch: "yes", grow: "yes", enterprise: "yes" },
+        { label: "Content Hub", launch: "yes", grow: "yes", enterprise: "yes" },
+      ],
+    },
   ];
 
   const faqs = [
     {
-      question: "What is a Seed Prompt?",
+      question: "What is a Seed Topic?",
       answer: (
         <span>
-          A Seed Prompt is a core buying query that reflects how customers explore your category. GeoRankers runs structured variations of these prompts across AI models to measure your visibility where it matters most. Learn more about{" "}
-          <Link href="/geo-guide" className="text-blue-600 hover:underline font-medium">what seed prompts are in the GEO Playbook</Link>.
+          A Seed Topic is a core buying query that reflects how customers explore your category. GeoRankers runs structured variations of these topics across AI models to measure your visibility where it matters most. Learn more about{" "}
+          <Link href="/geo-guide" className="text-blue-600 hover:underline font-medium">what seed topics are in the GEO Playbook</Link>.
         </span>
       ),
     },
     {
-      question: "What does \"AI Prompts Tracked\" mean?",
-      answer: "This refers to the total number of structured prompt variations we execute and monitor across AI platforms. It includes comparison queries, best tool queries, use case queries, and category queries.",
+      question: "What does \"AI Answers Analyzed\" mean?",
+      answer: "This refers to the total number of individual AI-generated answers we capture and analyze across models and prompt variations for your seed topics — including comparison, best-tool, use-case, and category queries.",
     },
     {
       question: "How often are visibility runs executed?",
-      answer: "Tracking frequency depends on your plan. Launch plans update every 48 hours, Grow plans update every 24 hours, and Enterprise plans can customize frequency. Each run captures fresh AI responses and updates your visibility signals.",
+      answer: "All plans run on a weekly schedule by default. You can also trigger on-demand runs whenever you want fresh data outside the weekly cycle — 1 per month on Launch, 3 per month on Grow, and a custom allowance on Enterprise. Each run captures fresh AI responses and updates your visibility signals.",
     },
     {
       question: "What AI models are supported?",
-      answer: "The Launch plan tracks ChatGPT. Grow plans include ChatGPT and Gemini, with AIO coming soon. Enterprise plans offer customised LLM tracking. We continuously expand model coverage as AI search evolves.",
+      answer: "All plans track ChatGPT, Google AI Search, and Perplexity. We continuously expand model coverage as AI search evolves.",
     },
     {
-      question: "What is GEO Agent Intelligence?",
+      question: "What is GEO Agent (AI Assistant)?",
       answer: "GEO Agent is your conversational visibility assistant. It allows you to ask visibility questions, compare competitors, understand citation sources, and explore narrative gaps. Each conversation includes one user message and one system response. Additional usage is billed at $0.01 per conversation.",
     },
     {
@@ -242,58 +283,53 @@ export default function Pricing() {
   ];
 
   return (
-    <div className="min-h-screen text-slate-900 overflow-x-hidden">
+    <div className="min-h-screen text-slate-900 overflow-x-clip">
       <Navbar />
       <main id="main-content">
 
       {/* Hero Section */}
-      <section className="relative pt-36 pb-28 sm:pt-48 sm:pb-36 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-32 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 lg:px-8">
         <div className="hero-gradient absolute inset-0 z-0"></div>
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
 
         <div className="hidden sm:block absolute inset-0 z-[5] overflow-hidden pointer-events-none" aria-hidden="true">
-          {/* Top — left */}
-          <div className="absolute top-20 sm:top-24 left-[12%] sm:left-[15%] animate-logo-drift" style={{ animationDelay: '0s' }}>
+          <div className="absolute top-28 sm:top-32 left-[3%] sm:left-[6%] animate-logo-drift" style={{ animationDelay: '0s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <SiOpenai className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-slate-700" />
             </div>
           </div>
-          {/* Top — right */}
-          <div className="absolute top-20 sm:top-24 right-[12%] sm:right-[15%] animate-logo-drift" style={{ animationDelay: '1s' }}>
+          <div className="absolute top-32 sm:top-36 right-[4%] sm:right-[7%] animate-logo-drift" style={{ animationDelay: '1s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <SiGooglegemini className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-blue-500" />
             </div>
           </div>
-          {/* Middle — left */}
-          <div className="absolute top-52 sm:top-60 left-[6%] sm:left-[8%] animate-logo-drift" style={{ animationDelay: '2s' }}>
+          <div className="absolute top-[55%] left-[2%] sm:left-[5%] animate-logo-drift" style={{ animationDelay: '2s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <SiPerplexity className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-slate-700" />
             </div>
           </div>
-          {/* Middle — right */}
-          <div className="absolute top-52 sm:top-60 right-[6%] sm:right-[8%] animate-logo-drift" style={{ animationDelay: '3s' }}>
+          <div className="absolute top-[50%] right-[3%] sm:right-[6%] animate-logo-drift" style={{ animationDelay: '3s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <SiClaude className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-orange-500" />
             </div>
           </div>
-          {/* Bottom — right */}
-          <div className="absolute top-80 sm:top-96 right-[12%] sm:right-[15%] animate-logo-drift" style={{ animationDelay: '4s' }}>
+          <div className="absolute bottom-10 sm:bottom-14 left-[10%] sm:left-[14%] animate-logo-drift" style={{ animationDelay: '4s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
               <img src="/grok-logo.png" alt="Grok" className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" style={{ filter: 'invert(1)' }} loading="lazy" />
             </div>
           </div>
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-4 sm:mb-6">
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-slate-900 mb-5">
             Start Tracking Your{" "}
             <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">AI Visibility Today</span>
           </h1>
-          <p className="text-lg sm:text-xl text-slate-500 max-w-2xl mx-auto mb-3">
+          <p className="text-lg sm:text-xl font-medium text-slate-600 max-w-2xl mx-auto mb-5 leading-relaxed">
             Know where your brand stands across AI answers and what needs to change to improve it.
           </p>
-          <p className="text-sm text-slate-400 mb-10">
+          <p className="text-sm text-slate-400 mb-6">
             No credit card required. Cancel anytime.
           </p>
 
@@ -411,16 +447,16 @@ export default function Pricing() {
 
           {/* Desktop Table */}
           <div className="hidden lg:block">
-            <Card className="glass rounded-3xl border-0 shadow-xl overflow-hidden">
+            <Card className="glass rounded-3xl border-0 shadow-xl">
               <CardContent className="p-0">
-                <div className="grid grid-cols-4 border-b border-slate-200/50 bg-slate-50/80">
+                <div className="sticky top-16 z-10 grid grid-cols-4 border-b border-slate-200/50 bg-slate-50 rounded-t-3xl shadow-sm">
                   <div className="p-6 flex items-center">
                     <span className="text-sm font-semibold text-slate-700">Feature</span>
                   </div>
                   <div className="p-6 text-center border-l border-slate-200/50">
                     <span className="text-sm font-bold text-slate-900">Launch</span>
                   </div>
-                  <div className="p-6 text-center border-l border-slate-200/50 bg-violet-50/50">
+                  <div className="p-6 text-center border-l border-slate-200/50 bg-violet-50">
                     <span className="text-sm font-bold text-slate-900">Grow</span>
                   </div>
                   <div className="p-6 text-center border-l border-slate-200/50">
@@ -428,31 +464,43 @@ export default function Pricing() {
                   </div>
                 </div>
 
-                {comparisonRows.map((row, i) => {
-                  const renderCell = (value: string) => {
-                    if (value === "yes") return <Check className="w-5 h-5 text-green-500 mx-auto" />;
-                    if (value === "no") return <span className="text-slate-300">—</span>;
-                    return <span className="text-slate-700 text-sm">{value}</span>;
-                  };
-                  return (
-                    <div key={i} className={`grid grid-cols-4 ${i % 2 === 0 ? "bg-slate-50/50" : ""} ${i < comparisonRows.length - 1 ? "border-b border-slate-100" : ""}`}>
-                      <div className="px-6 py-4 flex items-center">
-                        <span className="text-sm font-medium text-slate-700">{row.label}</span>
+                {comparisonGroups.map((group, gIdx) => (
+                  <div key={gIdx}>
+                    {group.title && (
+                      <div className="grid grid-cols-4 border-b border-slate-200/50 bg-blue-50/60">
+                        <div className="px-6 py-3 col-span-4">
+                          <span className="text-xs font-bold uppercase tracking-wider text-blue-600">{group.title}</span>
+                        </div>
                       </div>
-                      <div className="px-6 py-4 text-center border-l border-slate-100 flex items-center justify-center">
-                        {renderCell(row.launch)}
-                      </div>
-                      <div className="px-6 py-4 text-center border-l border-slate-100 flex items-center justify-center bg-violet-50/30">
-                        {renderCell(row.grow)}
-                      </div>
-                      <div className="px-6 py-4 text-center border-l border-slate-100 flex items-center justify-center">
-                        {renderCell(row.enterprise)}
-                      </div>
-                    </div>
-                  );
-                })}
+                    )}
+                    {group.rows.map((row, i) => {
+                      const renderCell = (value: string) => {
+                        if (value === "yes") return <Check className="w-5 h-5 text-green-500 mx-auto" />;
+                        if (value === "no") return <span className="text-slate-300">—</span>;
+                        return <span className="text-slate-700 text-sm">{value}</span>;
+                      };
+                      const isLastRow = gIdx === comparisonGroups.length - 1 && i === group.rows.length - 1;
+                      return (
+                        <div key={i} className={`grid grid-cols-4 ${i % 2 === 0 ? "bg-slate-50/50" : ""} ${!isLastRow ? "border-b border-slate-100" : ""}`}>
+                          <div className="px-6 py-4 flex items-center">
+                            <span className="text-sm font-medium text-slate-700">{row.label}</span>
+                          </div>
+                          <div className="px-6 py-4 text-center border-l border-slate-100 flex items-center justify-center">
+                            {renderCell(row.launch)}
+                          </div>
+                          <div className="px-6 py-4 text-center border-l border-slate-100 flex items-center justify-center bg-violet-50/30">
+                            {renderCell(row.grow)}
+                          </div>
+                          <div className="px-6 py-4 text-center border-l border-slate-100 flex items-center justify-center">
+                            {renderCell(row.enterprise)}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ))}
 
-                <div className="grid grid-cols-4 border-t border-slate-200/50 bg-slate-50/30">
+                <div className="grid grid-cols-4 border-t border-slate-200/50 bg-slate-50/30 rounded-b-3xl overflow-hidden">
                   <div className="p-6"></div>
                   <div className="p-6 text-center border-l border-slate-200/50">
                     <a href="https://dashboard.georankers.co/register" className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-300 transition-colors">
@@ -477,47 +525,59 @@ export default function Pricing() {
           {/* Mobile: Scrollable comparison */}
           <div className="lg:hidden overflow-x-auto -mx-4 px-4">
             <div className="min-w-[600px]">
-              <Card className="glass rounded-2xl border-0 shadow-lg overflow-hidden">
+              <Card className="glass rounded-2xl border-0 shadow-lg">
                 <CardContent className="p-0">
-                  <div className="grid grid-cols-4 border-b border-slate-200/50 bg-slate-50/80">
+                  <div className="sticky top-16 z-10 grid grid-cols-4 border-b border-slate-200/50 bg-slate-50 rounded-t-2xl shadow-sm">
                     <div className="p-4">
                       <span className="text-xs font-semibold text-slate-700">Feature</span>
                     </div>
                     <div className="p-4 text-center border-l border-slate-200/50">
                       <span className="text-xs font-bold text-slate-900">Launch</span>
                     </div>
-                    <div className="p-4 text-center border-l border-slate-200/50 bg-violet-50/50">
+                    <div className="p-4 text-center border-l border-slate-200/50 bg-violet-50">
                       <span className="text-xs font-bold text-slate-900">Grow</span>
                     </div>
                     <div className="p-4 text-center border-l border-slate-200/50">
                       <span className="text-xs font-bold text-slate-900">Enterprise</span>
                     </div>
                   </div>
-                  {comparisonRows.map((row, i) => {
-                    const renderCell = (value: string) => {
-                      if (value === "yes") return <Check className="w-4 h-4 text-green-500 mx-auto" />;
-                      if (value === "no") return <span className="text-slate-300">—</span>;
-                      return <span className="text-slate-700 text-xs">{value}</span>;
-                    };
-                    return (
-                      <div key={i} className={`grid grid-cols-4 ${i % 2 === 0 ? "bg-slate-50/50" : ""} ${i < comparisonRows.length - 1 ? "border-b border-slate-100" : ""}`}>
-                        <div className="px-4 py-3 flex items-center">
-                          <span className="text-xs font-medium text-slate-700">{row.label}</span>
+                  {comparisonGroups.map((group, gIdx) => (
+                    <div key={gIdx}>
+                      {group.title && (
+                        <div className="grid grid-cols-4 border-b border-slate-200/50 bg-blue-50/60">
+                          <div className="p-4 col-span-4">
+                            <span className="text-[11px] font-bold uppercase tracking-wider text-blue-600">{group.title}</span>
+                          </div>
                         </div>
-                        <div className="px-4 py-3 text-center border-l border-slate-100 flex items-center justify-center">
-                          {renderCell(row.launch)}
-                        </div>
-                        <div className="px-4 py-3 text-center border-l border-slate-100 flex items-center justify-center bg-violet-50/30">
-                          {renderCell(row.grow)}
-                        </div>
-                        <div className="px-4 py-3 text-center border-l border-slate-100 flex items-center justify-center">
-                          {renderCell(row.enterprise)}
-                        </div>
-                      </div>
-                    );
-                  })}
+                      )}
+                      {group.rows.map((row, i) => {
+                        const renderCell = (value: string) => {
+                          if (value === "yes") return <Check className="w-4 h-4 text-green-500 mx-auto" />;
+                          if (value === "no") return <span className="text-slate-300">—</span>;
+                          return <span className="text-slate-700 text-xs">{value}</span>;
+                        };
+                        const isLastRow = gIdx === comparisonGroups.length - 1 && i === group.rows.length - 1;
+                        return (
+                          <div key={i} className={`grid grid-cols-4 ${i % 2 === 0 ? "bg-slate-50/50" : ""} ${!isLastRow ? "border-b border-slate-100" : ""}`}>
+                            <div className="px-4 py-3 flex items-center">
+                              <span className="text-xs font-medium text-slate-700">{row.label}</span>
+                            </div>
+                            <div className="px-4 py-3 text-center border-l border-slate-100 flex items-center justify-center">
+                              {renderCell(row.launch)}
+                            </div>
+                            <div className="px-4 py-3 text-center border-l border-slate-100 flex items-center justify-center bg-violet-50/30">
+                              {renderCell(row.grow)}
+                            </div>
+                            <div className="px-4 py-3 text-center border-l border-slate-100 flex items-center justify-center">
+                              {renderCell(row.enterprise)}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ))}
 
-                  <div className="grid grid-cols-4 border-t border-slate-200/50 bg-slate-50/30">
+                  <div className="grid grid-cols-4 border-t border-slate-200/50 bg-slate-50/30 rounded-b-2xl overflow-hidden">
                     <div className="p-4"></div>
                     <div className="p-4 text-center border-l border-slate-200/50">
                       <a href="https://dashboard.georankers.co/register" className="block w-full py-2 rounded-lg text-xs font-semibold bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-300 transition-colors">
