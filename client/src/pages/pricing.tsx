@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
@@ -34,8 +34,92 @@ export default function Pricing() {
       "url": "https://georankers.ai/pricing",
       "description": "Pricing plans for GeoRankers AI search visibility platform.",
       "isPartOf": { "@type": "WebSite", "url": "https://georankers.ai" },
+      "mainEntity": {
+        "@type": "Product",
+        "name": "GeoRankers",
+        "description": "AI search visibility platform that tracks brand mentions, citation share, and competitive positioning across ChatGPT, Google AI Search, and Perplexity.",
+        "brand": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.ai" },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Launch",
+            "price": "41",
+            "priceCurrency": "USD",
+            "url": "https://georankers.ai/pricing",
+            "description": "Billed quarterly ($49/mo billed monthly). For early teams starting to measure AI visibility.",
+          },
+          {
+            "@type": "Offer",
+            "name": "Grow",
+            "price": "129",
+            "priceCurrency": "USD",
+            "url": "https://georankers.ai/pricing",
+            "description": "Billed quarterly ($159/mo billed monthly). For growth teams optimizing AI category position.",
+          },
+          {
+            "@type": "Offer",
+            "name": "Enterprise",
+            "priceCurrency": "USD",
+            "url": "https://georankers.ai/pricing",
+            "description": "Custom pricing for teams making AI visibility a strategic KPI.",
+          },
+        ],
+      },
     },
   });
+
+  // Standalone BreadcrumbList — check-before-create prevents duplication on prerender + hydration
+  useEffect(() => {
+    const ID = 'pricing-breadcrumb-schema';
+    let el = document.querySelector(`script#${ID}`) as HTMLScriptElement | null;
+    if (!el) {
+      el = document.createElement('script');
+      el.type = 'application/ld+json';
+      el.id = ID;
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://georankers.ai/" },
+        { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://georankers.ai/pricing" },
+      ],
+    });
+    return () => { el?.remove(); };
+  }, []);
+
+  // Standalone FAQPage — separate script tag avoids Google "Duplicate field FAQ page" error.
+  // Uses check-before-create so hydration after prerender does not add a second copy.
+  useEffect(() => {
+    const ID = 'pricing-faq-schema';
+    let el = document.querySelector(`script#${ID}`) as HTMLScriptElement | null;
+    if (!el) {
+      el = document.createElement('script');
+      el.type = 'application/ld+json';
+      el.id = ID;
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is a Seed Topic?", "acceptedAnswer": { "@type": "Answer", "text": "A Seed Topic is a core buying query that reflects how customers explore your category. GeoRankers runs structured variations of these topics across AI models to measure your visibility where it matters most. Learn more about what seed topics are in the GEO Playbook." } },
+        { "@type": "Question", "name": "What does \"AI Answers Analyzed\" mean?", "acceptedAnswer": { "@type": "Answer", "text": "This refers to the total number of individual AI-generated answers we capture and analyze across models and prompt variations for your seed topics — including comparison, best-tool, use-case, and category queries." } },
+        { "@type": "Question", "name": "How often are visibility runs executed?", "acceptedAnswer": { "@type": "Answer", "text": "All plans run on a weekly schedule by default. You can also trigger on-demand runs whenever you want fresh data outside the weekly cycle — 1 per month on Launch, 3 per month on Grow, and a custom allowance on Enterprise. Each run captures fresh AI responses and updates your visibility signals." } },
+        { "@type": "Question", "name": "What AI models are supported?", "acceptedAnswer": { "@type": "Answer", "text": "All plans track ChatGPT, Google AI Search, and Perplexity. We continuously expand model coverage as AI search evolves." } },
+        { "@type": "Question", "name": "What is GEO Agent (AI Assistant)?", "acceptedAnswer": { "@type": "Answer", "text": "GEO Agent is your conversational visibility assistant. It allows you to ask visibility questions, compare competitors, understand citation sources, and explore narrative gaps. Each conversation includes one user message and one system response. Additional usage is billed at $0.01 per conversation." } },
+        { "@type": "Question", "name": "How is this different from traditional SEO tools?", "acceptedAnswer": { "@type": "Answer", "text": "Traditional tools measure rankings and traffic. GeoRankers measures how AI models interpret, select, and cite your brand inside generated answers. We focus on visibility signals, citation patterns, and prescriptive actions tied to AI behavior — see the full feature breakdown for details." } },
+        { "@type": "Question", "name": "What does \"Competitors Tracked\" include?", "acceptedAnswer": { "@type": "Answer", "text": "You can define key competitors per plan. GeoRankers monitors how often they are mentioned, how they are positioned, and which sources strengthen their visibility across AI models." } },
+        { "@type": "Question", "name": "Can I export reports?", "acceptedAnswer": { "@type": "Answer", "text": "Report export is available in Grow and Enterprise plans. Enterprise plans can customize reporting formats." } },
+        { "@type": "Question", "name": "What happens if I exceed my GEO Agent conversation limit?", "acceptedAnswer": { "@type": "Answer", "text": "Additional conversations are billed at $0.01 per conversation. You can upgrade anytime if usage consistently exceeds your plan limit." } },
+        { "@type": "Question", "name": "Is Enterprise required for larger teams?", "acceptedAnswer": { "@type": "Answer", "text": "Enterprise is recommended if you need custom prompt volume, higher run frequency, dedicated support, extended analytics history, or custom integrations." } },
+        { "@type": "Question", "name": "Can I upgrade or downgrade my plan?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can change plans at any time. Billing adjustments are prorated based on your subscription cycle." } },
+        { "@type": "Question", "name": "Do you offer pilots or custom onboarding?", "acceptedAnswer": { "@type": "Answer", "text": "Enterprise customers receive dedicated onboarding and a GEO specialist. If you are evaluating at scale, contact us for a structured visibility pilot." } },
+      ],
+    });
+    return () => { el?.remove(); };
+  }, []);
 
   const [annual, setAnnual] = useState(true);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -353,6 +437,7 @@ export default function Pricing() {
       {/* Pricing Cards */}
       <section className="relative z-10 px-4 sm:px-6 lg:px-8 -mt-4 pb-16 sm:pb-20">
         <div className="max-w-6xl mx-auto">
+          <h2 className="sr-only">Pricing Plans</h2>
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {plans.map((plan, planIndex) => {
               const Icon = plan.icon;
