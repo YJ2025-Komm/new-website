@@ -35,8 +35,11 @@ export default function Pricing() {
       "description": "Pricing plans for GeoRankers AI search visibility platform.",
       "isPartOf": { "@type": "WebSite", "url": "https://georankers.ai" },
       "mainEntity": {
-        "@type": "Product",
+        "@type": "SoftwareApplication",
         "name": "GeoRankers",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "image": "https://georankers.ai/og-image.png",
         "description": "AI search visibility platform that tracks brand mentions, citation share, and competitive positioning across ChatGPT, Google AI Search, and Perplexity.",
         "brand": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.ai" },
         "offers": [
@@ -45,6 +48,7 @@ export default function Pricing() {
             "name": "Launch",
             "price": "41",
             "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
             "url": "https://georankers.ai/pricing",
             "description": "Billed quarterly ($49/mo billed monthly). For early teams starting to measure AI visibility.",
           },
@@ -53,6 +57,7 @@ export default function Pricing() {
             "name": "Grow",
             "price": "129",
             "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
             "url": "https://georankers.ai/pricing",
             "description": "Billed quarterly ($159/mo billed monthly). For growth teams optimizing AI category position.",
           },
@@ -60,6 +65,7 @@ export default function Pricing() {
             "@type": "Offer",
             "name": "Enterprise",
             "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
             "url": "https://georankers.ai/pricing",
             "description": "Custom pricing for teams making AI visibility a strategic KPI.",
           },
@@ -458,7 +464,7 @@ export default function Pricing() {
                   <CardContent className={`p-6 sm:p-8 ${plan.highlighted ? "pt-10" : ""}`}>
                     <div className="flex items-center gap-3 mb-2">
                       <div className={`w-10 h-10 bg-gradient-to-r ${plan.iconGradient} rounded-xl flex items-center justify-center`}>
-                        <Icon className="w-5 h-5 text-white" />
+                        <Icon aria-hidden="true" className="w-5 h-5 text-white" />
                       </div>
                       <h3 className="text-2xl font-bold text-slate-900">{plan.name}</h3>
                     </div>
