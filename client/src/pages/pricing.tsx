@@ -434,7 +434,7 @@ export default function Pricing() {
             </button>
             <span className={`text-sm font-medium ${annual ? "text-slate-900" : "text-slate-500"}`}>
               Quarterly
-              <span className="ml-2 text-xs text-green-600 bg-green-100 px-2 py-0.5 rounded-full">Save up to 19%</span>
+              <span className="ml-2 text-xs text-green-600 bg-green-100 px-2 py-0.5 rounded-full">Save 16%+</span>
             </span>
           </div>
         </div>
