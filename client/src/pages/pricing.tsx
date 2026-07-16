@@ -420,7 +420,7 @@ export default function Pricing() {
             Know where your brand stands across AI answers and what needs to change to improve it.
           </p>
           <p className="text-sm text-slate-400 mb-6">
-            No credit card required. Cancel anytime.
+            7-Day Free Trial. No credit card required. Cancel anytime
           </p>
 
           {/* Billing Toggle */}
@@ -458,7 +458,7 @@ export default function Pricing() {
                 >
                   {plan.highlighted && (
                     <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-500 to-violet-500 text-white text-center text-xs font-semibold py-1.5">
-                      Most Popular
+                      Recommended
                     </div>
                   )}
                   <CardContent className={`p-6 sm:p-8 ${plan.highlighted ? "pt-10" : ""}`}>

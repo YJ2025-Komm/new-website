@@ -20,6 +20,7 @@ const WP_API = "https://blog.georankers.co/wp-json/wp/v2/posts";
 const STATIC_PAGES = [
   { loc: "https://georankers.ai/",                                lastmod: "2026-04-06", changefreq: "weekly",  priority: "1.0" },
   { loc: "https://georankers.ai/features",                        lastmod: "2026-04-06", changefreq: "monthly", priority: "0.9" },
+  { loc: "https://georankers.ai/pricing",                         lastmod: "2026-07-16", changefreq: "monthly", priority: "0.9" },
   { loc: "https://georankers.ai/geo-guide",                       lastmod: "2026-05-09", changefreq: "monthly", priority: "0.9" },
   { loc: "https://georankers.ai/ai-content-guide",                lastmod: "2026-05-09", changefreq: "monthly", priority: "0.9" },
   { loc: "https://georankers.ai/free-geo-tools/brand-visibility", lastmod: "2026-04-28", changefreq: "monthly", priority: "0.8" },

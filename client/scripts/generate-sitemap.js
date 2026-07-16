@@ -17,6 +17,7 @@ const today = new Date().toISOString().split("T")[0];
 const mainPages = [
   { url: `${baseUrl}/`, priority: "1.0", changefreq: "weekly" },
   { url: `${baseUrl}/features`, priority: "0.9", changefreq: "monthly" },
+  { url: `${baseUrl}/pricing`, priority: "0.9", changefreq: "monthly" },
   { url: `${baseUrl}/geo-guide`, priority: "0.9", changefreq: "monthly" },
   { url: `${baseUrl}/ai-content-guide`, priority: "0.9", changefreq: "monthly" },
   { url: `${baseUrl}/free-geo-tools/brand-visibility`, priority: "0.8", changefreq: "monthly" },
