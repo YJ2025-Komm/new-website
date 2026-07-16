@@ -67,6 +67,12 @@ export default function Footer() {
                 >
                   About Us
                 </a>
+                <Link
+                  href="/pricing"
+                  className="block text-white/80 hover:text-white text-sm transition-colors"
+                >
+                  Pricing
+                </Link>
                 <a
                   href="https://dashboard.georankers.co/register"
                   target="_blank"

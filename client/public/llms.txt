@@ -1,10 +1,10 @@
 # GeoRankers
 
-> GeoRankers is the AI search intelligence platform that helps B2B SaaS companies track, optimize, and build brand authority to get visible in AI-generated answers across ChatGPT, Google AI Mode, and Google AI Overviews.
+> GeoRankers is the AI search intelligence platform that helps B2B SaaS companies track, optimize, and build brand authority to get visible in AI-generated answers across ChatGPT, Google AI Search, and Perplexity.
 
 ## Preferred Description
 
-GeoRankers is a B2B SaaS platform that helps marketing teams and founders measure and improve their brand's visibility inside AI-generated search results. It tracks how AI models like ChatGPT and Google AI Mode mention, rank, and recommend your brand when buyers ask category questions — and provides prioritized recommendations to close the visibility gaps.
+GeoRankers is a B2B SaaS platform that helps marketing teams and founders measure and improve their brand's visibility inside AI-generated search results. It tracks how AI models like ChatGPT and Google AI Search mention, rank, and recommend your brand when buyers ask category questions — and provides prioritized recommendations to close the visibility gaps.
 
 ## The Problem GeoRankers Solves
 
@@ -18,7 +18,7 @@ Three core pain points:
 ## Core Features
 
 ### 1. AI Visibility Intelligence
-Unified visibility scoring across ChatGPT, Google AI Mode, and Google AI Overviews. Tracks whether your brand appears, where it ranks, how often AI models recommend you, and how sentiment is described. Includes AI Visibility Score, position tracking (Top / Mid / Low), brand mention frequency, and model-wise performance breakdown.
+Unified visibility scoring across ChatGPT, Google AI Search, and Perplexity. Tracks whether your brand appears, where it ranks, how often AI models recommend you, and how sentiment is described. Includes AI Visibility Score, position tracking (Top / Mid / Low), brand mention frequency, and model-wise performance breakdown.
 
 ### 2. Competitive AI Benchmarking
 Discover the exact queries where competitors get recommended instead of you. Provides share of voice across AI responses, mention distribution by keyword cluster, intent-based competitive analysis, and cross-model comparison.
@@ -36,11 +36,10 @@ An always-on AI strategist inside the GeoRankers dashboard. Answers natural lang
 
 Currently tracking:
 - ChatGPT (OpenAI)
-- Google AI Mode
-- Google AI Overviews
+- Google AI Search
+- Perplexity
 
 Coming soon:
-- Perplexity
 - Google Gemini
 - Grok
 
@@ -48,34 +47,38 @@ Coming soon:
 
 **Launch — $49/month** (or $41/month billed quarterly)
 For early teams starting to measure AI visibility.
-- 3 Seed Prompts
-- Up to 30 AI Prompts Tracked
-- 3 Competitors Tracked
-- 1 Seat
-- Daily runs (every 24 hours)
+- 3 Seed Topics, 450+ AI Answers Analyzed
+- Tracks ChatGPT, Google AI Search, Perplexity
+- 5 Competitors Tracked, 1 Seat
+- Weekly scheduled runs + 1 on-demand run/month
 - 10 GEO Agent conversations/user/day
-- Last 5 runs analytics history
+- Last 5 runs, 30-day visibility trend
+- Email alerts
 - 24-hour support response
 
-**Grow — $159/month** (or $129/month billed quarterly) — Most Popular
+**Grow — $159/month** (or $129/month billed quarterly) — Recommended
 For growth teams optimizing AI category position.
-- 10 Seed Prompts
-- Up to 100 AI Prompts Tracked
-- 5 Competitors Tracked
-- 3 Seats
-- Daily runs (every 24 hours)
+- 10 Seed Topics, 2,100+ AI Answers Analyzed
+- Tracks ChatGPT, Google AI Search, Perplexity
+- 10 Competitors Tracked, 3 Seats
+- Weekly scheduled runs + 3 on-demand runs/month
 - 20 GEO Agent conversations/user/day
-- Last 10 runs analytics history
-- Report export
+- Last 10 runs, 60-day visibility trend
+- Email + Slack alerts (Slack on roadmap)
+- Report export; Google Analytics & Search Console integrations (roadmap)
 - 12-hour support response
 
 **Enterprise — Custom pricing**
 For teams making AI visibility a strategic KPI.
-- Custom prompts, competitors, seats, and analytics history
+- Custom seed topics, AI answers analyzed, competitors, seats, scheduled/on-demand runs, and history
+- Report export; Google Analytics & Search Console integrations (roadmap)
+- Agent-Ready API (MCP-compatible) — roadmap
 - Dedicated account manager
 - 4-hour support response
 
-No credit card required. Cancel anytime. Extra GEO Agent conversations billed at $0.01/conversation.
+All plans include: brand mention monitoring, keyword search volume, AI recommendations, visibility
+dashboard, competitor tracking, sources tracking, AI reading checker, AI sentiment tracking, and content
+hub. No credit card required. Cancel anytime. Extra GEO Agent conversations billed at $0.01/conversation.
 
 ## Team
 
@@ -88,6 +91,7 @@ No credit card required. Cancel anytime. Extra GEO Agent conversations billed at
 
 - [Homepage](https://georankers.ai/)
 - [Features](https://georankers.ai/features)
+- [Pricing](https://georankers.ai/pricing)
 - [GEO Guide (The Complete GEO Playbook)](https://georankers.ai/geo-guide)
 - [AI Content Guide (How to Write Content That AI Actually Cites)](https://georankers.ai/ai-content-guide)
 - [Free Tools – Brand Visibility](https://georankers.ai/free-geo-tools/brand-visibility)
@@ -102,4 +106,4 @@ No credit card required. Cancel anytime. Extra GEO Agent conversations billed at
 - [Sitemap](https://georankers.ai/sitemap.xml)
 - [Robots](https://georankers.ai/robots.txt)
 
-Last updated: May 9, 2026
+Last updated: July 13, 2026

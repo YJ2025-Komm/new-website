@@ -1,6 +1,7 @@
 const STATIC_PAGES = [
   { url: "https://georankers.ai/",                                lastmod: "2026-04-06", priority: "1.0", changefreq: "weekly"  },
   { url: "https://georankers.ai/features",                        lastmod: "2026-04-06", priority: "0.9", changefreq: "monthly" },
+  { url: "https://georankers.ai/pricing",                         lastmod: "2026-07-14", priority: "0.9", changefreq: "monthly" },
   { url: "https://georankers.ai/geo-guide",                       lastmod: "2026-05-09", priority: "0.9", changefreq: "monthly" },
   { url: "https://georankers.ai/ai-content-guide",                lastmod: "2026-05-09", priority: "0.9", changefreq: "monthly" },
   { url: "https://georankers.ai/free-geo-tools/brand-visibility", lastmod: "2026-04-28", priority: "0.8", changefreq: "monthly" },

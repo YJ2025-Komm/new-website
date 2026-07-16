@@ -16,7 +16,7 @@ const sections: { id: string; icon: typeof BookOpen; color: string; title: strin
     items: [
       {
         q: "What is GeoRankers?",
-        a: "GeoRankers measures how visible your brand is in AI-generated search results — across platforms like ChatGPT, Gemini, and Google AI Overviews. It shows you where you appear, where you don't, and what to do about it.",
+        a: "GeoRankers measures how visible your brand is in AI-generated search results — across platforms like ChatGPT, Gemini, and Google AI Search. It shows you where you appear, where you don't, and what to do about it.",
       },
       {
         q: "Who is GeoRankers for?",
@@ -272,7 +272,7 @@ const sections: { id: string; icon: typeof BookOpen; color: string; title: strin
                   ["Chatbot conv./user/day", "10", "20", "50", "50"],
                   ["Analyses stored", "2", "5", "50", "50"],
                   ["Report export (PDF)", "No", "Yes", "Yes", "Yes"],
-                  ["AI platforms", "ChatGPT only", "ChatGPT, Google AI Mode, Google AI Overview, Perplexity*", "ChatGPT, Google AI Mode, Google AI Overview, Perplexity*", "ChatGPT, Google AI Mode, Google AI Overview, Perplexity*"],
+                  ["AI platforms", "ChatGPT only", "ChatGPT, Google AI Search, Perplexity*", "ChatGPT, Google AI Search, Perplexity*", "ChatGPT, Google AI Search, Perplexity*"],
                 ].map(([feature, ...vals]) => (
                   <tr key={feature} className="text-slate-600">
                     <td className="px-3 py-2 font-medium text-slate-700">{feature}</td>
@@ -321,8 +321,8 @@ const sections: { id: string; icon: typeof BookOpen; color: string; title: strin
           <span>
             <ul className="list-disc pl-5 space-y-1">
               <li><strong>Launch Plan:</strong> ChatGPT only</li>
-              <li><strong>Grow Plan:</strong> ChatGPT + Google AI Overviews + Google AI Mode</li>
-              <li><strong>Enterprise / Agency:</strong> All four platforms (ChatGPT, Google AI Overviews, Google AI Mode, Perplexity*)</li>
+              <li><strong>Grow Plan:</strong> ChatGPT + Google AI Search</li>
+              <li><strong>Enterprise / Agency:</strong> All three platforms (ChatGPT, Google AI Search, Perplexity*)</li>
             </ul>
             <p className="mt-2 text-slate-400 text-xs">* Perplexity coming soon</p>
             <p className="mt-1">You can toggle individual platforms on or off for future runs in the Company settings tab.</p>
@@ -413,7 +413,7 @@ export default function Help() {
           "name": "What is GeoRankers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "GeoRankers measures how visible your brand is in AI-generated search results — across platforms like ChatGPT, Gemini, and Google AI Overviews. It shows you where you appear, where you don't, and what to do about it.",
+            "text": "GeoRankers measures how visible your brand is in AI-generated search results — across platforms like ChatGPT, Gemini, and Google AI Search. It shows you where you appear, where you don't, and what to do about it.",
           },
         },
         {
