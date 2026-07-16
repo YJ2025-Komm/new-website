@@ -3,8 +3,6 @@ import { createServer, type Server } from "http";
 import { websiteAnalysisRequestSchema } from "@shared/schema";
 import { z } from "zod";
 import { registerAdminRoutes } from "./admin-routes";
-import axios from "axios";
-import * as cheerio from "cheerio";
 import OpenAI from "openai";
 import { discoverPages, scrapeMultiplePages, analyzeRobotsTxt, analyzeSitemap, analyzeKeyPages, analyzeTechnicalFoundation, scrapePageContent } from "./web-crawler";
 import rateLimit from "express-rate-limit";
@@ -496,114 +494,8 @@ Respond ONLY with valid JSON in this exact format:
     }
   });
 
-  // Dynamic sitemap.xml endpoint - fetches blog posts from WordPress RSS feed
-  app.get("/sitemap.xml", async (req, res) => {
-    try {
-      const baseUrl = "https://georankers.ai";
-      
-      // Main pages with current date
-      const today = new Date().toISOString().split('T')[0];
-      const mainPages = [
-        { url: `${baseUrl}/`, priority: "1.0", changefreq: "weekly" },
-        { url: `${baseUrl}/features`, priority: "0.9", changefreq: "monthly" },
-        { url: `${baseUrl}/pricing`, priority: "0.9", changefreq: "monthly" },
-        { url: `${baseUrl}/geo-guide`, priority: "0.9", changefreq: "monthly" },
-        { url: `${baseUrl}/help`, priority: "0.6", changefreq: "monthly" },
-        // /team hidden until page is complete
-        { url: `${baseUrl}/free-geo-tools/brand-visibility`, priority: "0.8", changefreq: "monthly" },
-        { url: `${baseUrl}/free-geo-tools/geo-audit`, priority: "0.8", changefreq: "monthly" },
-        { url: `${baseUrl}/free-geo-tools/visibility-score`, priority: "0.8", changefreq: "monthly" },
-        { url: `${baseUrl}/privacy`, priority: "0.4", changefreq: "yearly" },
-        { url: `${baseUrl}/terms`, priority: "0.4", changefreq: "yearly" },
-      ];
-      
-      // Fetch blog posts from WordPress RSS feed (multiple pages to get all posts)
-      let blogPosts: { url: string; lastmod: string; priority: string; changefreq: string }[] = [];
-      
-      const parseRssFeed = async (feedUrl: string) => {
-        try {
-          const rssResponse = await axios.get(feedUrl, {
-            timeout: 10000,
-            headers: {
-              'User-Agent': 'GeoRankers-Sitemap-Generator/1.0'
-            }
-          });
-          
-          const $ = cheerio.load(rssResponse.data, { xmlMode: true });
-          
-          $('item').each((_, item) => {
-            const link = $(item).find('link').text().trim();
-            const pubDate = $(item).find('pubDate').text().trim();
-            
-            if (link) {
-              // Parse the publication date
-              let lastmod = today;
-              if (pubDate) {
-                try {
-                  lastmod = new Date(pubDate).toISOString().split('T')[0];
-                } catch (e) {
-                  // Use today's date if parsing fails
-                }
-              }
-              
-              blogPosts.push({
-                url: link,
-                lastmod,
-                priority: "0.8",
-                changefreq: "monthly"
-              });
-            }
-          });
-        } catch (rssError) {
-          console.error(`Failed to fetch RSS feed from ${feedUrl}:`, rssError);
-        }
-      };
-      
-      // Fetch multiple pages of the RSS feed to get all posts
-      await Promise.all([
-        parseRssFeed("https://blog.georankers.co/feed/"),
-        parseRssFeed("https://blog.georankers.co/feed/?paged=2"),
-        parseRssFeed("https://blog.georankers.co/feed/?paged=3"),
-      ]);
-      
-      // Remove duplicates (in case of overlap between pages)
-      const uniqueUrls = new Set<string>();
-      blogPosts = blogPosts.filter(post => {
-        if (uniqueUrls.has(post.url)) return false;
-        uniqueUrls.add(post.url);
-        return true;
-      });
-      
-      // Sort by date (newest first)
-      blogPosts.sort((a, b) => new Date(b.lastmod).getTime() - new Date(a.lastmod).getTime());
-      
-      console.log(`Sitemap: Found ${blogPosts.length} blog posts from RSS feed`);
-      
-      // Generate sitemap XML
-      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${mainPages.map(page => `  <url>
-    <loc>${page.url}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>${page.changefreq}</changefreq>
-    <priority>${page.priority}</priority>
-  </url>`).join('\n')}
-${blogPosts.map(post => `  <url>
-    <loc>${post.url}</loc>
-    <lastmod>${post.lastmod}</lastmod>
-    <changefreq>${post.changefreq}</changefreq>
-    <priority>${post.priority}</priority>
-  </url>`).join('\n')}
-</urlset>`;
-      
-      res.set('Content-Type', 'application/xml');
-      res.send(sitemap);
-      
-    } catch (error) {
-      console.error("Error generating sitemap:", error);
-      res.status(500).send("Error generating sitemap");
-    }
-  });
+  // Note: the public sitemap.xml is served by netlify/functions/sitemap.js
+  // (via a force redirect in netlify.toml), not from this Express server.
 
   // ─── FREE GEO TOOLS ────────────────────────────────────────────────────────
 
