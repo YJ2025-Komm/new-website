@@ -47,7 +47,7 @@ Coming soon:
 
 **Launch — $49/month** (or $41/month billed quarterly)
 For early teams starting to measure AI visibility.
-- 3 Seed Topics, 450+ AI Answers Analyzed
+- 450+ AI Answers Analyzed, Keyword Recommendations
 - Tracks ChatGPT, Google AI Search, Perplexity
 - 5 Competitors Tracked, 1 Seat
 - Weekly scheduled runs + 1 on-demand run/month
@@ -58,7 +58,7 @@ For early teams starting to measure AI visibility.
 
 **Grow — $159/month** (or $129/month billed quarterly) — Recommended
 For growth teams optimizing AI category position.
-- 10 Seed Topics, 2,100+ AI Answers Analyzed
+- 1,100+ AI Answers Analyzed, Keyword Recommendations
 - Tracks ChatGPT, Google AI Search, Perplexity
 - 10 Competitors Tracked, 3 Seats
 - Weekly scheduled runs + 3 on-demand runs/month
@@ -70,7 +70,7 @@ For growth teams optimizing AI category position.
 
 **Enterprise — Custom pricing**
 For teams making AI visibility a strategic KPI.
-- Custom seed topics, AI answers analyzed, competitors, seats, scheduled/on-demand runs, and history
+- Custom AI answers analyzed, competitors, seats, scheduled/on-demand runs, and history; Keyword Recommendations
 - Report export; Google Analytics & Search Console integrations (roadmap)
 - Agent-Ready API (MCP-compatible) — roadmap
 - Dedicated account manager
