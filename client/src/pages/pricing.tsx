@@ -110,7 +110,7 @@ export default function Pricing() {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "What is a Seed Topic?", "acceptedAnswer": { "@type": "Answer", "text": "A Seed Topic is a core buying query that reflects how customers explore your category. GeoRankers runs structured variations of these topics across AI models to measure your visibility where it matters most. Learn more about what seed topics are in the GEO Playbook." } },
+        { "@type": "Question", "name": "What are Keyword Recommendations?", "acceptedAnswer": { "@type": "Answer", "text": "Keyword Recommendations are the core buying queries and category keywords GeoRankers identifies for your business, each paired with search volume so you can prioritize by demand. GeoRankers runs structured variations of these keywords across AI models to measure your visibility where it matters most." } },
         { "@type": "Question", "name": "What does \"AI Answers Analyzed\" mean?", "acceptedAnswer": { "@type": "Answer", "text": "This refers to the total number of individual AI-generated answers we capture and analyze across models and prompt variations for your seed topics — including comparison, best-tool, use-case, and category queries." } },
         { "@type": "Question", "name": "How often are visibility runs executed?", "acceptedAnswer": { "@type": "Answer", "text": "All plans run on a weekly schedule by default. You can also trigger on-demand runs whenever you want fresh data outside the weekly cycle — 1 per month on Launch, 3 per month on Grow, and a custom allowance on Enterprise. Each run captures fresh AI responses and updates your visibility signals." } },
         { "@type": "Question", "name": "What AI models are supported?", "acceptedAnswer": { "@type": "Answer", "text": "All plans track ChatGPT, Google AI Search, and Perplexity. We continuously expand model coverage as AI search evolves." } },
@@ -146,10 +146,10 @@ export default function Pricing() {
         {
           title: "Core Features",
           items: [
-            "3 Seed Topics",
             "450+ AI Answers Analyzed",
             "ChatGPT, Google AI Search, Perplexity",
             "5 Competitors Tracked",
+            "Keyword Recommendations",
             "1 Seat",
             "Weekly Scheduled Runs + 1 On-Demand Run/month",
           ],
@@ -187,10 +187,10 @@ export default function Pricing() {
         {
           title: "Core Features",
           items: [
-            "10 Seed Topics",
-            "2,100+ AI Answers Analyzed",
+            "1,100+ AI Answers Analyzed",
             "ChatGPT, Google AI Search, Perplexity",
             "10 Competitors Tracked",
+            "Keyword Recommendations",
             "3 Seats",
             "Weekly Scheduled Runs + 3 On-Demand Runs/month",
           ],
@@ -232,10 +232,10 @@ export default function Pricing() {
         {
           title: "Core Features",
           items: [
-            "Custom Seed Topics",
             "Custom AI Answers Analyzed",
             "ChatGPT, Google AI Search, Perplexity",
             "Custom Competitor Tracking",
+            "Keyword Recommendations",
             "Custom Seats",
             "Custom Scheduled + On-Demand Runs",
           ],
@@ -277,8 +277,7 @@ export default function Pricing() {
       title: null,
       rows: [
         { label: "LLMs Tracked", launch: "ChatGPT, Google AI Search, Perplexity", grow: "ChatGPT, Google AI Search, Perplexity", enterprise: "ChatGPT, Google AI Search, Perplexity" },
-        { label: "Seed Topics", launch: "3", grow: "10", enterprise: "Custom" },
-        { label: "AI Answers Analyzed", launch: "450+", grow: "2,100+", enterprise: "Custom" },
+        { label: "AI Answers Analyzed", launch: "450+", grow: "1,100+", enterprise: "Custom" },
         { label: "Competitors Tracked", launch: "5", grow: "10", enterprise: "Custom" },
         { label: "Scheduled Runs", launch: "Weekly", grow: "Weekly", enterprise: "Custom" },
         { label: "On-Demand Runs", launch: "1/month", grow: "3/month", enterprise: "Custom" },
@@ -313,11 +312,11 @@ export default function Pricing() {
 
   const faqs = [
     {
-      question: "What is a Seed Topic?",
+      question: "What are Keyword Recommendations?",
       answer: (
         <span>
-          A Seed Topic is a core buying query that reflects how customers explore your category. GeoRankers runs structured variations of these topics across AI models to measure your visibility where it matters most. Learn more about{" "}
-          <Link href="/geo-guide" className="text-blue-600 hover:underline font-medium">what seed topics are in the GEO Playbook</Link>.
+          Keyword Recommendations are the core buying queries and category keywords GeoRankers identifies for your business, each paired with search volume so you can prioritize by demand. GeoRankers runs structured variations of these keywords across AI models to measure your visibility where it matters most. Learn more about{" "}
+          <Link href="/geo-guide" className="text-blue-600 hover:underline font-medium">how buyer queries shape AI visibility in the GEO Playbook</Link>.
         </span>
       ),
     },
