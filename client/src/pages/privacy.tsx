@@ -195,7 +195,7 @@ export default function Privacy() {
                   <li>Regular security reviews of our systems and infrastructure.</li>
                   <li>Use of reputable, certified cloud infrastructure providers.</li>
                 </ul>
-                <p>In the event of a data breach that is likely to adversely affect you, we will notify you as required under the Digital Personal Data Protection Act, 2023 (DPDPA).</p>
+                <p>In the event of a security incident that is likely to adversely affect you, our team will investigate and contain the issue as soon as it is identified. If the incident constitutes a data breach affecting your personal data, we will notify you by email within 72 hours of confirming the breach, describing what happened, what data was affected, and the steps we are taking in response, consistent with our obligations under the Digital Personal Data Protection Act, 2023 (DPDPA).</p>
               </section>
 
               <hr className="my-8 border-slate-100" />
