@@ -35,7 +35,7 @@ export default function GeoGuide() {
         "logo": { "@type": "ImageObject", "url": "https://georankers.ai/og-image.png" },
       },
       "datePublished": "2025-01-07",
-      "dateModified": "2026-05-09",
+      "dateModified": "2026-07-26",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://georankers.ai/geo-guide" },
       "articleSection": "AI Search Marketing",
       "keywords": [
@@ -915,7 +915,7 @@ export default function GeoGuide() {
 
             <p className="mb-6">
               AI Overviews now appear in more than half of all Google searches. Ahrefs researchers found that AI summaries reduce click-through rate by around 34%. For informational queries — the type most common in B2B research — AI Overviews appear in roughly 58% of results. For tactical guidance on optimizing specifically for Google's AI surfaces, see{' '}
-              <a href="https://blog.georankers.co/2026/02/27/how-to-optimize-content-for-ai-overviews-aio-in-2026/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">How to Optimize Content for Google AI Overviews in 2026</a>.
+              <a href="https://blog.georankers.co/how-to-optimize-content-for-ai-overviews-aio-in-2026/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">How to Optimize Content for Google AI Overviews in 2026</a>.
             </p>
 
             <p className="mb-6">
@@ -1093,7 +1093,7 @@ export default function GeoGuide() {
 
             <p className="mb-6">
               Thank customers publicly if they write about your product, and ask them if you can share their feedback. Over time, you will build up a collection of endorsements from other people that models can see. For a detailed look at how community conversations directly shape what AI systems say about brands, read{' '}
-              <a href="https://blog.georankers.co/2026/01/29/how-communities-shape-ai-search/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">How Communities Shape AI Search</a>.
+              <a href="https://blog.georankers.co/how-communities-shape-ai-search/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">How Communities Shape AI Search</a>.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Publish Research and Thought Leadership</h3>
@@ -1484,7 +1484,7 @@ export default function GeoGuide() {
 
             <p className="mb-6 font-medium">
               If you are not sure, now is the time to start your GEO journey. Read how{' '}
-              <a href="https://blog.georankers.co/2026/03/01/b2b-saas-ai-visiblity-optimisation/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">AI visibility is becoming the primary growth channel for B2B SaaS companies in 2026</a>{' '}
+              <a href="https://blog.georankers.co/b2b-saas-ai-visiblity-optimisation/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">AI visibility is becoming the primary growth channel for B2B SaaS companies in 2026</a>{' '}
               — and what the leading brands are doing differently.
             </p>
           </section>
@@ -1555,7 +1555,7 @@ export default function GeoGuide() {
                 <li className="flex items-start gap-3">
                   <span className="mt-0.5 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
                   <div>
-                    <a href="https://blog.georankers.co/2026/01/29/how-communities-shape-ai-search/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                    <a href="https://blog.georankers.co/how-communities-shape-ai-search/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
                       How Communities Shape AI Search: The New Battleground for Brand Discovery
                     </a>
                     <p className="text-sm text-gray-500 mt-0.5">Why Reddit, Hacker News, and Quora threads are the hidden layer of AI search authority — and how to build presence there without being promotional.</p>
@@ -1564,7 +1564,7 @@ export default function GeoGuide() {
                 <li className="flex items-start gap-3">
                   <span className="mt-0.5 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
                   <div>
-                    <a href="https://blog.georankers.co/2026/02/27/how-to-optimize-content-for-ai-overviews-aio-in-2026/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                    <a href="https://blog.georankers.co/how-to-optimize-content-for-ai-overviews-aio-in-2026/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
                       How to Optimize Content for Google AI Overviews (AIO) in 2026
                     </a>
                     <p className="text-sm text-gray-500 mt-0.5">Tactical guide to structuring content for Gemini's AI Overviews — the fastest-growing citation surface for brand-owned domains.</p>
@@ -1573,7 +1573,7 @@ export default function GeoGuide() {
                 <li className="flex items-start gap-3">
                   <span className="mt-0.5 w-2 h-2 rounded-full bg-amber-500 flex-shrink-0"></span>
                   <div>
-                    <a href="https://blog.georankers.co/2026/01/21/ai-discovery-metrics-llm-analytics/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                    <a href="https://blog.georankers.co/ai-discovery-metrics-llm-analytics/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
                       The Hidden Metrics Behind AI Discovery That SEO Tools Cannot Show You
                     </a>
                     <p className="text-sm text-gray-500 mt-0.5">Why standard analytics miss how AI systems evaluate your brand — and the metrics that actually predict citation probability.</p>
@@ -1582,7 +1582,7 @@ export default function GeoGuide() {
                 <li className="flex items-start gap-3">
                   <span className="mt-0.5 w-2 h-2 rounded-full bg-violet-500 flex-shrink-0"></span>
                   <div>
-                    <a href="https://blog.georankers.co/2026/03/01/b2b-saas-ai-visiblity-optimisation/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                    <a href="https://blog.georankers.co/b2b-saas-ai-visiblity-optimisation/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
                       AI Visibility: The New Growth Channel for B2B SaaS in 2026
                     </a>
                     <p className="text-sm text-gray-500 mt-0.5">How leading B2B SaaS brands are shifting budget and strategy toward AI search visibility — and what separates those winning citations from those being ignored.</p>
@@ -1591,7 +1591,7 @@ export default function GeoGuide() {
                 <li className="flex items-start gap-3">
                   <span className="mt-0.5 w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></span>
                   <div>
-                    <a href="https://blog.georankers.co/2026/02/18/how-to-choose-the-right-ai-search-visibility-platform-b2b-guide/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                    <a href="https://blog.georankers.co/how-to-choose-the-right-ai-search-visibility-platform-b2b-guide/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
                       How to Choose the Right AI Search Visibility Platform in 2026
                     </a>
                     <p className="text-sm text-gray-500 mt-0.5">A practical evaluation framework for B2B teams comparing GEO monitoring tools — what to look for, what to avoid, and how to assess fit for your category.</p>

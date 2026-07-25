@@ -34,7 +34,7 @@ export default function AiContentGuide() {
         "logo": { "@type": "ImageObject", "url": "https://georankers.ai/og-image.png" },
       },
       "datePublished": "2026-04-30",
-      "dateModified": "2026-05-08",
+      "dateModified": "2026-07-26",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://georankers.ai/ai-content-guide" },
       "articleSection": "AI Search Marketing",
       "keywords": [
@@ -1240,7 +1240,7 @@ export default function AiContentGuide() {
                 citations from brand-owned websites. If your website clearly answers the questions your buyers
                 ask, with properly structured HTML and semantic markup, Gemini is most likely to surface that
                 content. For a tactical breakdown of optimizing specifically for Google's AI systems, see{' '}
-                <a href="https://blog.georankers.co/2026/02/27/how-to-optimize-content-for-ai-overviews-aio-in-2026/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">How to Optimize Content for Google AI Overviews</a>.
+                <a href="https://blog.georankers.co/how-to-optimize-content-for-ai-overviews-aio-in-2026/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">How to Optimize Content for Google AI Overviews</a>.
               </p>
               <p className="mb-6">
                 ChatGPT's approach is considerably different. When operating without its browse function, it
@@ -1612,7 +1612,7 @@ export default function AiContentGuide() {
                 eventually reflect. Promotional framing is easy to detect and dismiss, and communities are
                 quick to sense when someone is there to distribute links rather than contribute. For a deeper
                 look at how community conversations directly shape AI search outcomes, read{' '}
-                <a href="https://blog.georankers.co/2026/01/29/how-communities-shape-ai-search/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">How Communities Shape AI Search: The New Battleground for Brand Discovery</a>.
+                <a href="https://blog.georankers.co/how-communities-shape-ai-search/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">How Communities Shape AI Search: The New Battleground for Brand Discovery</a>.
               </p>
               <p className="mb-6">
                 Earned media on third-party publications with genuine domain authority serves a compound purpose
@@ -1822,7 +1822,7 @@ export default function AiContentGuide() {
                   is shaping the way AI systems describe you. If that kind of clarity matters to your team,{' '}
                   <Link href="/features" className="text-blue-600 hover:text-blue-800 underline">see what GeoRankers tracks</Link>{' '}
                   or read how{' '}
-                  <a href="https://blog.georankers.co/2026/03/01/b2b-saas-ai-visiblity-optimisation/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">AI visibility is becoming the new growth channel for B2B SaaS in 2026</a>.
+                  <a href="https://blog.georankers.co/b2b-saas-ai-visiblity-optimisation/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">AI visibility is becoming the new growth channel for B2B SaaS in 2026</a>.
                 </p>
               </div>
             </section>
@@ -1909,7 +1909,7 @@ export default function AiContentGuide() {
                   <li className="flex items-start gap-3">
                     <span className="mt-0.5 w-2 h-2 rounded-full bg-violet-500 flex-shrink-0"></span>
                     <div>
-                      <a href="https://blog.georankers.co/2026/01/29/how-communities-shape-ai-search/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                      <a href="https://blog.georankers.co/how-communities-shape-ai-search/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
                         How Communities Shape AI Search: The New Battleground for Brand Discovery
                       </a>
                       <p className="text-sm text-gray-500 mt-0.5">How Reddit, Hacker News, and Quora threads are shaping what AI models say about brands — and what to do about it.</p>
@@ -1918,7 +1918,7 @@ export default function AiContentGuide() {
                   <li className="flex items-start gap-3">
                     <span className="mt-0.5 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
                     <div>
-                      <a href="https://blog.georankers.co/2026/02/27/how-to-optimize-content-for-ai-overviews-aio-in-2026/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                      <a href="https://blog.georankers.co/how-to-optimize-content-for-ai-overviews-aio-in-2026/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
                         How to Optimize Content for Google AI Overviews (AIO) in 2026
                       </a>
                       <p className="text-sm text-gray-500 mt-0.5">Tactical guide to structuring content for Gemini's AI Overviews — the fastest-growing citation surface for brand-owned domains.</p>
@@ -1927,7 +1927,7 @@ export default function AiContentGuide() {
                   <li className="flex items-start gap-3">
                     <span className="mt-0.5 w-2 h-2 rounded-full bg-amber-500 flex-shrink-0"></span>
                     <div>
-                      <a href="https://blog.georankers.co/2026/01/21/ai-discovery-metrics-llm-analytics/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                      <a href="https://blog.georankers.co/ai-discovery-metrics-llm-analytics/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
                         The Hidden Metrics Behind AI Discovery That SEO Tools Cannot Show You
                       </a>
                       <p className="text-sm text-gray-500 mt-0.5">Why standard analytics miss how AI systems perceive your brand — and the metrics that actually predict citation probability.</p>
@@ -1936,7 +1936,7 @@ export default function AiContentGuide() {
                   <li className="flex items-start gap-3">
                     <span className="mt-0.5 w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></span>
                     <div>
-                      <a href="https://blog.georankers.co/2026/03/01/b2b-saas-ai-visiblity-optimisation/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                      <a href="https://blog.georankers.co/b2b-saas-ai-visiblity-optimisation/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
                         AI Visibility: The New Growth Channel for B2B SaaS in 2026
                       </a>
                       <p className="text-sm text-gray-500 mt-0.5">How leading B2B SaaS brands are shifting strategy toward AI search visibility — and what separates those earning consistent citations from those being ignored.</p>

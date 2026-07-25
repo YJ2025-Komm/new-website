@@ -454,13 +454,13 @@ export default function Home() {
 
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
-  // Static blog posts data to ensure immediate display
+  // Fallback blog posts shown until the live WordPress fetch resolves (or if it fails)
   const staticBlogPosts: WordPressBlogPost[] = [
     {
       id: 1,
       title: { rendered: "Strategic Imperatives for Marketing Leaders, Product Teams, and Founders in the Age of AI Search" },
       excerpt: { rendered: "Essential strategic frameworks for leadership teams navigating the fundamental shift from traditional search to AI-powered discovery." },
-      link: "https://blog.georankers.co/2025/08/19/strategic-imperatives-for-marketing-leaders-product-teams-and-founders-in-the-age-of-ai-search/",
+      link: "https://blog.georankers.co/strategic-imperatives-for-marketing-leaders-product-teams-and-founders-in-the-age-of-ai-search/",
       date: "2025-08-19T00:00:00",
       categories: [1],
       featured_media: 1,
@@ -470,7 +470,7 @@ export default function Home() {
       id: 2,
       title: { rendered: "Generative Engine Optimization: Building Blocks of AI‑Ready Content" },
       excerpt: { rendered: "Master the fundamental building blocks that make your content discoverable and recommendable by AI engines." },
-      link: "https://blog.georankers.co/2025/08/15/generative-engine-optimization-building-blocks-of-ai%e2%80%91ready-content/",
+      link: "https://blog.georankers.co/generative-engine-optimization-building-blocks-of-ai%e2%80%91ready-content/",
       date: "2025-08-15T00:00:00",
       categories: [2],
       featured_media: 2,
@@ -480,7 +480,7 @@ export default function Home() {
       id: 3,
       title: { rendered: "GEO vs SEO: What is Real, What is Hype, and What You Actually Need to Track" },
       excerpt: { rendered: "Cut through the noise and understand the practical differences between traditional SEO and generative engine optimization." },
-      link: "https://blog.georankers.co/2025/08/08/hello-world/",
+      link: "https://blog.georankers.co/hello-world/",
       date: "2025-08-08T00:00:00",
       categories: [2],
       featured_media: 3,
@@ -493,11 +493,53 @@ export default function Home() {
     { id: 2, name: "AI Search & GEO", slug: "ai-search-geo" }
   ];
 
-  // Use static data to ensure reliable display
-  const blogPosts = staticBlogPosts;
-  const categories = staticCategories;
-  const postsLoading = false;
+  const [blogPosts, setBlogPosts] = useState<WordPressBlogPost[]>(staticBlogPosts);
+  const [postsLoading, setPostsLoading] = useState(true);
+  const [categories, setCategories] = useState<WordPressCategory[]>(staticCategories);
   const postsError = null;
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/blog/categories")
+      .then((res) => {
+        if (!res.ok) throw new Error(`${res.status}`);
+        return res.json();
+      })
+      .then((data: WordPressCategory[]) => {
+        if (!cancelled && Array.isArray(data) && data.length > 0) {
+          setCategories(data);
+        }
+      })
+      .catch(() => {
+        // Keep the static fallback categories already set above
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/blog/posts")
+      .then((res) => {
+        if (!res.ok) throw new Error(`${res.status}`);
+        return res.json();
+      })
+      .then((data: WordPressBlogPost[]) => {
+        if (!cancelled && Array.isArray(data) && data.length > 0) {
+          setBlogPosts(data);
+        }
+      })
+      .catch(() => {
+        // Keep the static fallback posts already set above
+      })
+      .finally(() => {
+        if (!cancelled) setPostsLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const homeFaqs = [
     {
@@ -556,16 +598,27 @@ export default function Home() {
     },
   ];
 
+  // Helper function to decode HTML entities WordPress leaves in text fields (e.g. "&amp;")
+  const decodeHtmlEntities = (text: string): string => {
+    const el = document.createElement('textarea');
+    el.innerHTML = text;
+    return el.value;
+  };
+
   // Helper function to get category name
   const getCategoryName = (categoryIds: number[]): string => {
     if (!categories || !categoryIds.length) return 'Blog';
     const category = categories.find(cat => categoryIds.includes(cat.id));
-    return category?.name || 'Blog';
+    return category?.name ? decodeHtmlEntities(category.name) : 'Blog';
   };
 
-  // Helper function to clean HTML from excerpt
-  const cleanExcerpt = (excerpt: string): string => {
-    return excerpt.replace(/<[^>]*>/g, '').replace(/\[&hellip;\]/, '...').trim();
+  // Helper function to clean HTML from excerpt and cap it to a consistent length across cards
+  const cleanExcerpt = (excerpt: string, maxLength = 150): string => {
+    const cleaned = decodeHtmlEntities(
+      excerpt.replace(/<[^>]*>/g, '').replace(/\[&hellip;\]/, '').trim()
+    );
+    if (cleaned.length <= maxLength) return cleaned;
+    return cleaned.slice(0, cleaned.lastIndexOf(' ', maxLength)).trim() + '...';
   };
 
   // Helper function to format date
@@ -1258,7 +1311,7 @@ export default function Home() {
                     {(post as any).featured_image_url ? (
                       <img
                         src={(post as any).featured_image_url}
-                        alt={post.title.rendered}
+                        alt={decodeHtmlEntities(post.title.rendered)}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         loading="lazy"
                       />
@@ -1287,7 +1340,7 @@ export default function Home() {
                       <span>{formatDate(post.date)}</span>
                     </div>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors duration-300">
-                      {post.title.rendered}
+                      {decodeHtmlEntities(post.title.rendered)}
                     </h3>
                     <p className="text-slate-600 text-sm sm:text-base mb-6 leading-relaxed">
                       {cleanExcerpt(post.excerpt.rendered)}
@@ -1297,7 +1350,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       data-testid={`link-blog-post-${post.id}`}
-                      aria-label={`Read more: ${post.title.rendered.replace(/<[^>]+>/g, "")}`}
+                      aria-label={`Read more: ${decodeHtmlEntities(post.title.rendered.replace(/<[^>]+>/g, ""))}`}
                       className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-violet-600 transition-colors duration-300"
                     >
                       Read More
