@@ -13,58 +13,43 @@ const STATIC_PAGES = [
   { url: "https://georankers.ai/terms",                           lastmod: "2026-04-06", priority: "0.4", changefreq: "yearly"  },
 ];
 
-function parseRss(xml) {
+function parseUrlset(xml) {
   const posts = [];
-  const itemRegex = /<item>([\s\S]*?)<\/item>/g;
-  const linkRegex = /<link>(.*?)<\/link>/;
-  const dateRegex = /<pubDate>(.*?)<\/pubDate>/;
+  const urlRegex = /<url>([\s\S]*?)<\/url>/g;
+  const locRegex = /<loc>(.*?)<\/loc>/;
+  const lastmodRegex = /<lastmod>(.*?)<\/lastmod>/;
 
   let match;
-  while ((match = itemRegex.exec(xml)) !== null) {
-    const itemXml = match[1];
-    const linkMatch = linkRegex.exec(itemXml);
-    const dateMatch = dateRegex.exec(itemXml);
-    if (!linkMatch) continue;
+  while ((match = urlRegex.exec(xml)) !== null) {
+    const urlXml = match[1];
+    const locMatch = locRegex.exec(urlXml);
+    const lastmodMatch = lastmodRegex.exec(urlXml);
+    if (!locMatch) continue;
+
+    const loc = locMatch[1].trim();
+    if (loc.replace(/\/$/, "") === "https://blog.georankers.co") continue;
 
     let lastmod = new Date().toISOString().split("T")[0];
-    if (dateMatch) {
-      try { lastmod = new Date(dateMatch[1]).toISOString().split("T")[0]; } catch (_) {}
+    if (lastmodMatch) {
+      try { lastmod = new Date(lastmodMatch[1]).toISOString().split("T")[0]; } catch (_) {}
     }
-    posts.push({ url: linkMatch[1].trim(), lastmod, priority: "0.8", changefreq: "monthly" });
+    posts.push({ url: loc, lastmod, priority: "0.8", changefreq: "monthly" });
   }
   return posts;
 }
 
 async function fetchBlogPosts() {
-  const posts = [];
-  const seen = new Set();
-
-  for (let page = 1; page <= 20; page++) {
-    const feedUrl = page === 1
-      ? "https://blog.georankers.co/feed/"
-      : `https://blog.georankers.co/feed/?paged=${page}`;
-
-    let xml;
-    try {
-      const res = await fetch(feedUrl, {
-        headers: { "User-Agent": "GeoRankers-Sitemap/2.0" },
-        signal: AbortSignal.timeout(5000),
-      });
-      if (!res.ok) break;
-      xml = await res.text();
-    } catch (_) {
-      break;
-    }
-
-    const pagePosts = parseRss(xml);
-    if (pagePosts.length === 0) break;
-
-    for (const p of pagePosts) {
-      if (!seen.has(p.url)) { seen.add(p.url); posts.push(p); }
-    }
+  try {
+    const res = await fetch("https://blog.georankers.co/post-sitemap.xml", {
+      headers: { "User-Agent": "GeoRankers-Sitemap/2.0" },
+      signal: AbortSignal.timeout(5000),
+    });
+    if (!res.ok) return [];
+    const xml = await res.text();
+    return parseUrlset(xml).sort((a, b) => new Date(b.lastmod) - new Date(a.lastmod));
+  } catch (_) {
+    return [];
   }
-
-  return posts.sort((a, b) => new Date(b.lastmod) - new Date(a.lastmod));
 }
 
 function buildXml(staticPages, blogPosts) {

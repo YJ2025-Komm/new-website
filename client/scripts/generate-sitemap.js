@@ -41,27 +41,29 @@ function fetchUrl(url) {
   });
 }
 
-function parseRss(xml) {
+function parseUrlset(xml) {
   const posts = [];
-  const itemRegex = /<item>([\s\S]*?)<\/item>/g;
-  const linkRegex = /<link>(.*?)<\/link>/;
-  const dateRegex = /<pubDate>(.*?)<\/pubDate>/;
+  const urlRegex = /<url>([\s\S]*?)<\/url>/g;
+  const locRegex = /<loc>(.*?)<\/loc>/;
+  const lastmodRegex = /<lastmod>(.*?)<\/lastmod>/;
 
   let match;
-  while ((match = itemRegex.exec(xml)) !== null) {
-    const itemXml = match[1];
-    const linkMatch = linkRegex.exec(itemXml);
-    const dateMatch = dateRegex.exec(itemXml);
+  while ((match = urlRegex.exec(xml)) !== null) {
+    const urlXml = match[1];
+    const locMatch = locRegex.exec(urlXml);
+    const lastmodMatch = lastmodRegex.exec(urlXml);
+    if (!locMatch) continue;
 
-    if (linkMatch) {
-      let lastmod = today;
-      if (dateMatch) {
-        try {
-          lastmod = new Date(dateMatch[1]).toISOString().split("T")[0];
-        } catch (_) {}
-      }
-      posts.push({ url: linkMatch[1].trim(), lastmod, priority: "0.8", changefreq: "monthly" });
+    const loc = locMatch[1].trim();
+    if (loc.replace(/\/$/, "") === "https://blog.georankers.co") continue;
+
+    let lastmod = today;
+    if (lastmodMatch) {
+      try {
+        lastmod = new Date(lastmodMatch[1]).toISOString().split("T")[0];
+      } catch (_) {}
     }
+    posts.push({ url: loc, lastmod, priority: "0.8", changefreq: "monthly" });
   }
   return posts;
 }
@@ -71,38 +73,12 @@ async function generate() {
 
   let blogPosts = [];
 
-  // Fetch all RSS pages until WordPress returns no more posts
-  let page = 1;
-  while (true) {
-    const feedUrl =
-      page === 1
-        ? "https://blog.georankers.co/feed/"
-        : `https://blog.georankers.co/feed/?paged=${page}`;
-    try {
-      const xml = await fetchUrl(feedUrl);
-      const posts = parseRss(xml);
-      if (posts.length === 0) {
-        console.log(`  No more posts at page ${page}, stopping.`);
-        break;
-      }
-      blogPosts.push(...posts);
-      console.log(`  Page ${page}: fetched ${posts.length} posts`);
-      page++;
-    } catch (err) {
-      console.warn(`  Warning: Could not fetch page ${page} (${feedUrl}): ${err.message}`);
-      break;
-    }
+  try {
+    const xml = await fetchUrl("https://blog.georankers.co/post-sitemap.xml");
+    blogPosts = parseUrlset(xml).sort((a, b) => new Date(b.lastmod) - new Date(a.lastmod));
+  } catch (err) {
+    console.warn(`  Warning: Could not fetch post-sitemap.xml: ${err.message}`);
   }
-
-  // Deduplicate and sort newest first
-  const seen = new Set();
-  blogPosts = blogPosts
-    .filter((p) => {
-      if (seen.has(p.url)) return false;
-      seen.add(p.url);
-      return true;
-    })
-    .sort((a, b) => new Date(b.lastmod) - new Date(a.lastmod));
 
   console.log(`  Total blog posts: ${blogPosts.length}`);
 
