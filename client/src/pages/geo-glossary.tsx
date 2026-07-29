@@ -125,9 +125,9 @@ export default function GeoGlossary() {
               </span>
             </h1>
             <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto">
-              AI search introduced a new vocabulary, and most of it is explained using more jargon than the
-              thing it is trying to clarify. This glossary explains every term in plain language first — the
-              way you would explain it to a colleague who has never heard it before.
+              AI search comes with a whole new vocabulary. This glossary cuts through the jargon and gives
+              practical explanations of the terms shaping how brands are discovered, understood, and
+              recommended by AI.
             </p>
             <div className="relative max-w-xl mx-auto">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
