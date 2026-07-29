@@ -20,6 +20,7 @@ const routes = [
   "/free-geo-tools/geo-audit",
   "/free-geo-tools/visibility-score",
   "/ai-content-guide",
+  "/geo-glossary",
   "/team",
   "/help",
   "/privacy",

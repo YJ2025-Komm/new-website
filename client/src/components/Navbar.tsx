@@ -74,6 +74,13 @@ export default function Navbar() {
                   </Link>
                   <div className="mx-4 my-1.5 border-t border-slate-100" />
                   <Link
+                    href="/geo-glossary"
+                    className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
+                    data-testid="link-geo-glossary"
+                  >
+                    AI Search &amp; GEO Glossary
+                  </Link>
+                  <Link
                     href="/help"
                     className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
                     data-testid="link-help"
@@ -83,7 +90,7 @@ export default function Navbar() {
                 </div>
               )}
             </div>
-            <a 
+            <a
               href="https://dashboard.georankers.co/login"
               className="text-slate-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium"
               data-testid="link-login-nav"
@@ -208,8 +215,16 @@ export default function Navbar() {
                     AI Content Guide
                   </Link>
                   <Link
-                    href="/help"
+                    href="/geo-glossary"
                     className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1 mt-1"
+                    onClick={() => setMobileMenuOpen(false)}
+                    data-testid="mobile-link-geo-glossary"
+                  >
+                    AI Search &amp; GEO Glossary
+                  </Link>
+                  <Link
+                    href="/help"
+                    className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
                     onClick={() => setMobileMenuOpen(false)}
                     data-testid="mobile-link-help"
                   >
