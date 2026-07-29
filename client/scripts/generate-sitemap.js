@@ -20,6 +20,7 @@ const mainPages = [
   { url: `${baseUrl}/pricing`, priority: "0.9", changefreq: "monthly" },
   { url: `${baseUrl}/geo-guide`, priority: "0.9", changefreq: "monthly" },
   { url: `${baseUrl}/ai-content-guide`, priority: "0.9", changefreq: "monthly" },
+  { url: `${baseUrl}/geo-glossary`, priority: "0.9", changefreq: "monthly" },
   { url: `${baseUrl}/free-geo-tools/brand-visibility`, priority: "0.8", changefreq: "monthly" },
   { url: `${baseUrl}/free-geo-tools/geo-audit`, priority: "0.8", changefreq: "monthly" },
   { url: `${baseUrl}/free-geo-tools/visibility-score`, priority: "0.8", changefreq: "monthly" },

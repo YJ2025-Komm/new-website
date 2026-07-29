@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import GeoGuide from "@/pages/geo-guide";
 import AiContentGuide from "@/pages/ai-content-guide";
+import GeoGlossary from "@/pages/geo-glossary";
 import Pricing from "@/pages/pricing";
 import Features from "@/pages/features";
 import Privacy from "@/pages/privacy";
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/geo-guide" component={GeoGuide} />
       <Route path="/ai-content-guide" component={AiContentGuide} />
+      <Route path="/geo-glossary" component={GeoGlossary} />
       <Route path="/pricing" component={Pricing} />
       <Route path="/features" component={Features} />
       <Route path="/privacy" component={Privacy} />

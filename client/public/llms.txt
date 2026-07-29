@@ -94,6 +94,7 @@ hub. No credit card required. Cancel anytime. Extra GEO Agent conversations bill
 - [Pricing](https://georankers.ai/pricing)
 - [GEO Guide (The Complete GEO Playbook)](https://georankers.ai/geo-guide)
 - [AI Content Guide (How to Write Content That AI Actually Cites)](https://georankers.ai/ai-content-guide)
+- [AI Search & GEO Glossary (Key Terms Explained)](https://georankers.ai/geo-glossary)
 - [Free Tools – Brand Visibility](https://georankers.ai/free-geo-tools/brand-visibility)
 - [Free Tools – GEO Audit](https://georankers.ai/free-geo-tools/geo-audit)
 - [Free Tools – Visibility Score](https://georankers.ai/free-geo-tools/visibility-score)
@@ -106,4 +107,4 @@ hub. No credit card required. Cancel anytime. Extra GEO Agent conversations bill
 - [Sitemap](https://georankers.ai/sitemap.xml)
 - [Robots](https://georankers.ai/robots.txt)
 
-Last updated: July 13, 2026
+Last updated: July 29, 2026

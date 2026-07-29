@@ -484,13 +484,20 @@ export default function Help() {
       <main id="main-content">
 
       {/* Hero */}
-      <div className="mt-16 bg-gradient-to-br from-slate-900 via-blue-950 to-violet-950 pt-12 sm:pt-16 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">Help Center</p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] text-white mb-4">
-            How can we help?
+      <section className="relative pt-32 pb-14 sm:pt-36 sm:pb-20 overflow-hidden">
+        <div className="hero-gradient absolute inset-0 z-0"></div>
+        <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
+
+        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+          <p className="text-sm text-blue-600 font-semibold mb-4 uppercase tracking-widest">Help Center</p>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-[1.1]">
+            How can we{" "}
+            <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
+              help?
+            </span>
           </h1>
-          <p className="text-slate-400 text-lg mb-8">
+          <p className="text-lg text-slate-600 mb-8">
             Everything you need to get the most out of GeoRankers.
           </p>
           <div className="relative max-w-xl mx-auto">
@@ -500,11 +507,11 @@ export default function Help() {
               placeholder="Search documentation..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent text-sm backdrop-blur-sm"
+              className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent text-sm shadow-md"
             />
           </div>
         </div>
-      </div>
+      </section>
 
 
       {/* Main layout */}
