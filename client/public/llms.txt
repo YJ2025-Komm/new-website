@@ -91,6 +91,7 @@ hub. No credit card required. Cancel anytime. Extra GEO Agent conversations bill
 
 - [Homepage](https://georankers.ai/)
 - [Features](https://georankers.ai/features)
+- [AI Models Tracked (How GeoRankers Tracks ChatGPT, Google AI Search & Perplexity)](https://georankers.ai/features/ai-models-tracked)
 - [Pricing](https://georankers.ai/pricing)
 - [GEO Guide (The Complete GEO Playbook)](https://georankers.ai/geo-guide)
 - [AI Content Guide (How to Write Content That AI Actually Cites)](https://georankers.ai/ai-content-guide)
