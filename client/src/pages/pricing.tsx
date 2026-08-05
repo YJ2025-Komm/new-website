@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { DesignPartnersRow } from "@/components/DesignPartners";
 import { SiOpenai, SiGooglegemini, SiPerplexity, SiClaude } from "react-icons/si";
 
 export default function Pricing() {
@@ -721,6 +722,11 @@ export default function Pricing() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Design Partners strip */}
+      <section className="pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
+        <DesignPartnersRow className="max-w-5xl mx-auto" />
       </section>
 
       {/* FAQ Section */}
