@@ -78,7 +78,7 @@ export default function Team() {
             },
             "award": "DPIIT Startup India Recognition",
             "sameAs": [
-              "https://blog.georankers.co",
+              "https://blog.georankers.ai",
               "https://www.linkedin.com/company/georankers/",
               "https://x.com/georankers",
               "https://www.facebook.com/people/GeoRankers/61588912087425/"

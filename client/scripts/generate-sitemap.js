@@ -57,7 +57,7 @@ function parseUrlset(xml) {
     if (!locMatch) continue;
 
     const loc = locMatch[1].trim();
-    if (loc.replace(/\/$/, "") === "https://blog.georankers.co") continue;
+    if (loc.replace(/\/$/, "") === "https://blog.georankers.ai") continue;
 
     let lastmod = today;
     if (lastmodMatch) {
@@ -76,7 +76,7 @@ async function generate() {
   let blogPosts = [];
 
   try {
-    const xml = await fetchUrl("https://blog.georankers.co/post-sitemap.xml");
+    const xml = await fetchUrl("https://blog.georankers.ai/post-sitemap.xml");
     blogPosts = parseUrlset(xml).sort((a, b) => new Date(b.lastmod) - new Date(a.lastmod));
   } catch (err) {
     console.warn(`  Warning: Could not fetch post-sitemap.xml: ${err.message}`);

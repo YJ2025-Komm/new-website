@@ -29,7 +29,7 @@ function parseUrlset(xml) {
     if (!locMatch) continue;
 
     const loc = locMatch[1].trim();
-    if (loc.replace(/\/$/, "") === "https://blog.georankers.co") continue;
+    if (loc.replace(/\/$/, "") === "https://blog.georankers.ai") continue;
 
     let lastmod = new Date().toISOString().split("T")[0];
     if (lastmodMatch) {
@@ -42,7 +42,7 @@ function parseUrlset(xml) {
 
 async function fetchBlogPosts() {
   try {
-    const res = await fetch("https://blog.georankers.co/post-sitemap.xml", {
+    const res = await fetch("https://blog.georankers.ai/post-sitemap.xml", {
       headers: { "User-Agent": "GeoRankers-Sitemap/2.0" },
       signal: AbortSignal.timeout(5000),
     });

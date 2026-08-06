@@ -36,7 +36,7 @@ const FALLBACK_BLOG_POSTS = [
     id: 1,
     title: { rendered: "Strategic Imperatives for Marketing Leaders, Product Teams, and Founders in the Age of AI Search" },
     excerpt: { rendered: "Essential strategic frameworks for leadership teams navigating the fundamental shift from traditional search to AI-powered discovery." },
-    link: "https://blog.georankers.co/strategic-imperatives-for-marketing-leaders-product-teams-and-founders-in-the-age-of-ai-search/",
+    link: "https://blog.georankers.ai/strategic-imperatives-for-marketing-leaders-product-teams-and-founders-in-the-age-of-ai-search/",
     date: "2025-08-19T00:00:00",
     categories: [1],
     featured_media: 0,
@@ -46,7 +46,7 @@ const FALLBACK_BLOG_POSTS = [
     id: 2,
     title: { rendered: "Generative Engine Optimization: Building Blocks of AI‑Ready Content" },
     excerpt: { rendered: "Master the fundamental building blocks that make your content discoverable and recommendable by AI engines." },
-    link: "https://blog.georankers.co/generative-engine-optimization-building-blocks-of-ai%e2%80%91ready-content/",
+    link: "https://blog.georankers.ai/generative-engine-optimization-building-blocks-of-ai%e2%80%91ready-content/",
     date: "2025-08-15T00:00:00",
     categories: [2],
     featured_media: 0,
@@ -56,7 +56,7 @@ const FALLBACK_BLOG_POSTS = [
     id: 3,
     title: { rendered: "GEO vs SEO: What is Real, What is Hype, and What You Actually Need to Track" },
     excerpt: { rendered: "Cut through the noise and understand the practical differences between traditional SEO and generative engine optimization." },
-    link: "https://blog.georankers.co/hello-world/",
+    link: "https://blog.georankers.ai/hello-world/",
     date: "2025-08-08T00:00:00",
     categories: [2],
     featured_media: 0,
@@ -69,7 +69,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/blog/posts", async (req, res) => {
     try {
       const response = await fetch(
-        'https://blog.georankers.co/wp-json/wp/v2/posts?per_page=3&_embed=wp:featuredmedia'
+        'https://blog.georankers.ai/wp-json/wp/v2/posts?per_page=3&_embed=wp:featuredmedia'
       );
 
       if (!response.ok) {
@@ -110,7 +110,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Blog categories proxy endpoint
   app.get("/api/blog/categories", async (req, res) => {
     try {
-      const response = await fetch('https://blog.georankers.co/wp-json/wp/v2/categories?_fields=id,name,slug');
+      const response = await fetch('https://blog.georankers.ai/wp-json/wp/v2/categories?_fields=id,name,slug');
 
       if (!response.ok) {
         return res.json(FALLBACK_CATEGORIES);

@@ -97,7 +97,7 @@ export default function Footer() {
             <div>
               <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Resources</p>
               <div className="space-y-3">
-                <a href="https://blog.georankers.co/" className="block text-white/80 hover:text-white text-sm transition-colors">
+                <a href="https://blog.georankers.ai/" className="block text-white/80 hover:text-white text-sm transition-colors">
                   Blog
                 </a>
                 <Link href="/geo-guide" className="block text-white/80 hover:text-white text-sm transition-colors">

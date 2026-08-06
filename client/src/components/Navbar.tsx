@@ -50,7 +50,7 @@ export default function Navbar() {
               {resourcesOpen && (
                 <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50">
                   <a
-                    href="https://blog.georankers.co/"
+                    href="https://blog.georankers.ai/"
                     className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
                     data-testid="link-blog"
                   >
@@ -192,7 +192,7 @@ export default function Navbar() {
               {resourcesOpen && (
                 <div className="pl-4 space-y-1 mt-2">
                   <a
-                    href="https://blog.georankers.co/"
+                    href="https://blog.georankers.ai/"
                     className="block text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm py-1"
                     onClick={() => setMobileMenuOpen(false)}
                   >
