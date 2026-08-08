@@ -13,6 +13,8 @@ import AiModelsTracked from "@/pages/features/ai-models-tracked";
 import Privacy from "@/pages/privacy";
 import Terms from "@/pages/terms";
 import Help from "@/pages/help";
+import Changelog from "@/pages/changelog";
+import ChangelogEntry from "@/pages/changelog-entry";
 import NotFound from "@/pages/not-found";
 import Team from "@/pages/team";
 import ScrollManager from "@/components/ScrollManager";
@@ -33,6 +35,8 @@ function Router() {
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
       <Route path="/help" component={Help} />
+      <Route path="/changelog" component={Changelog} />
+      <Route path="/changelog/:slug" component={ChangelogEntry} />
       <Route path="/team" component={Team} />
       <Route path="/free-geo-tools/brand-visibility" component={BrandVisibilityPage} />
       <Route path="/free-geo-tools/geo-audit" component={GeoAuditPage} />

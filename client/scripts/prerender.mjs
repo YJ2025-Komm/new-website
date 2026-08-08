@@ -24,6 +24,8 @@ const routes = [
   "/geo-glossary",
   "/team",
   "/help",
+  "/changelog",
+  "/changelog/june-2026-product-update",
   "/privacy",
   "/terms",
   "/",
