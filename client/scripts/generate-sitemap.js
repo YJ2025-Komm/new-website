@@ -29,6 +29,7 @@ const mainPages = [
   { url: `${baseUrl}/changelog`, priority: "0.6", changefreq: "weekly" },
   { url: `${baseUrl}/changelog/june-2026-product-update`, priority: "0.5", changefreq: "monthly" },
   { url: `${baseUrl}/changelog/july-2026-product-update`, priority: "0.5", changefreq: "monthly" },
+  { url: `${baseUrl}/changelog/august-2026-product-update`, priority: "0.5", changefreq: "monthly" },
   { url: `${baseUrl}/privacy`, priority: "0.4", changefreq: "yearly" },
   { url: `${baseUrl}/terms`, priority: "0.4", changefreq: "yearly" },
 ];

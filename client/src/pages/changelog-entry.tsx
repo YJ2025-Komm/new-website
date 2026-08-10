@@ -5,7 +5,7 @@ import { useSEO } from "@/hooks/useSEO";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NotFound from "@/pages/not-found";
-import { changelogEntries, TAG_STYLES } from "@/data/changelog";
+import { changelogEntries, TAG_STYLES, SectionImage, truncateForMeta } from "@/data/changelog";
 
 function formatDate(iso: string) {
   return new Date(`${iso}T00:00:00`).toLocaleDateString("en-US", {
@@ -22,12 +22,18 @@ export default function ChangelogEntry() {
 
   // Hooks must run unconditionally on every render (Rules of Hooks) — the
   // "entry not found" case is handled in the JSX below, not via early return.
+  // The full entry.summary is kept for the visible card + JSON-LD description
+  // (structured data isn't truncated by search snippets the way a <meta> tag
+  // is) — only the literal <meta name="description">/OG/Twitter content gets
+  // trimmed to ~155 chars so Google doesn't cut it off mid-sentence.
+  const metaDescription = entry ? truncateForMeta(entry.summary) : "GeoRankers changelog entry.";
+
   useSEO({
     title: entry ? `${entry.title} | GeoRankers Changelog` : "Changelog | GeoRankers",
-    description: entry?.summary ?? "GeoRankers changelog entry.",
+    description: metaDescription,
     canonical,
     ogTitle: entry?.title,
-    ogDescription: entry?.summary,
+    ogDescription: metaDescription,
     ogUrl: canonical,
     schemaId: entry ? "changelog-entry-schema" : undefined,
     schema: entry
@@ -147,29 +153,24 @@ export default function ChangelogEntry() {
                   </h2>
                   <div className="text-slate-600 leading-relaxed">{section.body}</div>
                 </div>
-                {section.images?.map((img, i) => (
-                  // Consistent card (background/border/padding), but NOT a fixed
-                  // height — screenshots range from wide full-dashboard views to
-                  // tall narrow panel crops, and forcing them into one box height
-                  // shrinks the narrow ones down to near-illegible. Capping only
-                  // max-height (not height) lets each image keep its own aspect
-                  // ratio at a readable size instead of being squashed to fit.
-                  // Sections with two images (a "where to find it" nav shot
-                  // followed by the feature itself) render in array order.
-                  <div
-                    key={img.src}
-                    className={`flex justify-center rounded-[1.5rem] border border-blue-200 bg-gradient-to-br from-blue-100 to-violet-100 shadow-lg shadow-blue-100/60 p-4 sm:p-6 ${
-                      i === 0 ? "mt-6" : "mt-4"
-                    }`}
-                  >
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      loading="lazy"
-                      className="max-w-full max-h-[36rem] w-auto h-auto object-contain rounded-lg"
-                    />
-                  </div>
-                ))}
+                {section.images && section.images.length > 0 && (
+                  section.imagesLayout === "row" ? (
+                    // Side by side — for a pair of images meant to be compared
+                    // together (e.g. trigger a run → confirm it), not read as a
+                    // top-to-bottom sequence.
+                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {section.images.map((img) => (
+                        <SectionImage key={img.src} {...img} />
+                      ))}
+                    </div>
+                  ) : (
+                    section.images.map((img, i) => (
+                      <div key={img.src} className={i === 0 ? "mt-6" : "mt-4"}>
+                        <SectionImage {...img} />
+                      </div>
+                    ))
+                  )
+                )}
               </section>
             ))}
           </div>

@@ -85,6 +85,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://georankers.ai/changelog/august-2026-product-update</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://georankers.ai/privacy</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>yearly</changefreq>

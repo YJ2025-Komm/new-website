@@ -1,5 +1,18 @@
 import type { ReactNode } from "react";
 
+// `summary` does double duty as the visible list-card teaser AND the literal
+// <meta name="description"> content — those have different ideal lengths (a
+// card can run long; a meta description gets hard-truncated by Google around
+// ~155-160 chars). Use this when passing a description to useSEO so the
+// visible card can stay descriptive while the <meta> tag doesn't get cut off
+// mid-sentence with "...".
+export function truncateForMeta(text: string, maxLength = 155): string {
+  if (text.length <= maxLength) return text;
+  const cut = text.slice(0, maxLength);
+  const lastSpace = cut.lastIndexOf(" ");
+  return `${cut.slice(0, lastSpace > 0 ? lastSpace : maxLength)}…`;
+}
+
 export type ChangelogTag = "Feature" | "Improvement" | "Fix" | "AI" | "Content";
 
 // Same hue family already used for pills elsewhere in the app
@@ -49,10 +62,67 @@ export function ReleaseDetail({
 // obvious from the body copy alone. Order matters: images render in array order.
 export type ChangelogSectionImage = { src: string; alt: string };
 
+// Consistent card (background/border/padding), but NOT a fixed height —
+// screenshots range from wide full-dashboard views to tall narrow panel
+// crops, and forcing them into one box height shrinks the narrow ones down
+// to near-illegible. Capping only max-height (not height) lets each image
+// keep its own aspect ratio at a readable size instead of being squashed.
+// Exported so both the section-level image list (below) and inline images
+// inside a section's body (e.g. TrendsFeature) render identically.
+export function SectionImage({ src, alt }: ChangelogSectionImage) {
+  return (
+    <div className="flex justify-center rounded-[1.5rem] border border-blue-200 bg-gradient-to-br from-blue-100 to-violet-100 shadow-lg shadow-blue-100/60 p-4 sm:p-6">
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        className="max-w-full max-h-[36rem] w-auto h-auto object-contain rounded-lg"
+      />
+    </div>
+  );
+}
+
+// Sub-feature block for a section that bundles multiple related capabilities
+// under one heading with one shared "How to use it" (e.g. the Trends tab's
+// nine cards) — each sub-feature only gets "What it is" / "How it works", plus
+// its own inline image right after the text (not bundled with the other
+// sub-features' images at the end of the section — with 8+ screenshots for
+// one heading, images must sit next to the text they illustrate or the
+// pairing is unreadable).
+function TrendsFeature({
+  heading,
+  what,
+  how,
+  image,
+}: {
+  heading: string;
+  what: ReactNode;
+  how: ReactNode;
+  image?: ChangelogSectionImage;
+}) {
+  return (
+    <div className="mt-8">
+      <h3 className="text-lg font-semibold text-slate-900 mb-2">{heading}</h3>
+      <p className="mb-2">
+        <span className="font-semibold text-slate-900">What it is:</span> {what}
+      </p>
+      <p className={image ? "mb-4" : ""}>
+        <span className="font-semibold text-slate-900">How it works:</span> {how}
+      </p>
+      {image && <SectionImage {...image} />}
+    </div>
+  );
+}
+
 export type ChangelogSection = {
   heading: string;
   body: ReactNode;
   images?: ChangelogSectionImage[];
+  // "stack" (default): each image full-width, one below the next. "row": all
+  // images sit side by side in one row (e.g. a before/after pair like the
+  // On-Demand Run trigger + confirmation dialog) — only use this when the
+  // images are meant to be compared together, not read as a sequence.
+  imagesLayout?: "stack" | "row";
 };
 
 export type ChangelogEntry = {
@@ -408,6 +478,230 @@ export const changelogEntries: ChangelogEntry[] = [
               <>
                 Go to the Prompts tab and look for the 🔥 Highest Priority badge next to a prompt;
                 hover it to see exactly why it was flagged.
+              </>
+            }
+          />
+        ),
+      },
+    ],
+    cta: { label: "Go to Dashboard", href: "https://dashboard.georankers.co/login" },
+  },
+  {
+    slug: "august-2026-product-update",
+    date: "2026-08-05",
+    title: "August 2026 Product Update",
+    cardHeadline: "Trends Section, Perplexity Tracking & On-Demand Runs",
+    tags: ["Feature", "Improvement", "AI"],
+    summary:
+      "Trends brings a run-over-run view of your visibility, models, competitors, sentiment, and citations across a 15/30/45/60-day window. Plus Perplexity is now tracked, Google AI Mode and AI Overview are consolidated into Google AI Search, and on-demand runs let you trigger a fresh analysis without waiting for the schedule.",
+    image: "/changelog/august-2026/trends-kpi.png",
+    imageAlt: "Trend KPI summary showing Period Start, Latest, and Best Visibility plus Current Sentiment",
+    intro: (
+      <>
+        Here's what shipped in August 2026. This release launches Trends — a run-over-run view of
+        how your visibility, models, competitors, sentiment, and citations change over time — adds
+        Perplexity as a tracked model, consolidates Google AI Mode and AI Overview into a single
+        Google AI Search platform, and adds on-demand runs so you can trigger a fresh analysis
+        whenever you need one.
+      </>
+    ),
+    sections: [
+      {
+        heading: "Trends Section Launch",
+        body: (
+          <>
+            <p className="mb-4">
+              Trends is your run-over-run view of GeoRankers — instead of looking at a single
+              analysis in isolation, it shows how your visibility score, model performance,
+              competitors, sentiment, negative framing, signals, and citations have changed across
+              your recent runs. You can view this over a 15/30/45/60-day window (Free and Launch
+              plans see up to 30 days).
+            </p>
+
+            <TrendsFeature
+              heading="Trend KPI Summary"
+              what="A top-line snapshot of your visibility trajectory for the selected window."
+              how={
+                <>
+                  Shows Period Start Visibility, Latest Visibility (with the change vs. the prior
+                  run), Best Visibility, and Current Sentiment, so you get the headline movement
+                  before scrolling into the detailed cards.
+                </>
+              }
+              image={{ src: "/changelog/august-2026/trends-kpi.png", alt: "Trend KPI summary showing Period Start, Latest, and Best Visibility plus Current Sentiment" }}
+            />
+            <TrendsFeature
+              heading="Visibility Trend Chart"
+              what="A line chart of your brand's visibility score and mention count over time, with optional overlay lines for up to 3 competitors."
+              how={
+                <>
+                  Plots your score and mentions per run, and lets you toggle competitors on/off
+                  from a dropdown to see how your trend compares to theirs run over run.
+                </>
+              }
+              image={{ src: "/changelog/august-2026/trends-visibility-trend.png", alt: "Visibility Trend chart showing score and mentions over time with competitor overlay" }}
+            />
+            <TrendsFeature
+              heading="Model Performance Trend"
+              what="A breakdown of how your visibility score trends separately on each AI model you track."
+              how={
+                <>
+                  Plots a separate trend line per model (ChatGPT, Google AI Mode, Google AI
+                  Overview, Perplexity, etc.) and summarizes each model's placement quality as a
+                  top/mid/low tier bar, so you can see which model is improving and which is
+                  falling behind.
+                </>
+              }
+              image={{ src: "/changelog/august-2026/trends-model-performance.png", alt: "Model Performance Trend showing a trend line and tier per AI model" }}
+            />
+            <TrendsFeature
+              heading="Competitor Movement"
+              what="A run-over-run view of how you and your competitors are gaining or losing ground."
+              how={
+                <>
+                  Shows each competitor's score change since the last run (up/down/no change)
+                  alongside their current value, so movement — not just the current snapshot — is
+                  the first thing you see.
+                </>
+              }
+              image={{ src: "/changelog/august-2026/trends-competitor-movement.png", alt: "Competitor Movement showing AI visibility and mention change since the last run" }}
+            />
+            <TrendsFeature
+              heading="Sentiment History"
+              what="A heatmap of how AI sentiment toward your brand (Positive/Neutral/Negative) has shifted run over run."
+              how={
+                <>
+                  Colors each run's cell by the dominant sentiment level, with intensity scaled to
+                  that run's visibility score, so you can spot both sentiment shifts and their
+                  strength at a glance.
+                </>
+              }
+              image={{ src: "/changelog/august-2026/trends-sentiment-history.png", alt: "Sentiment History heatmap showing dominant sentiment per run" }}
+            />
+            <TrendsFeature
+              heading="Negative AI Framing Over Time"
+              what="A running log of every instance where AI answers described your brand negatively, across the runs in your selected window."
+              how={
+                <>
+                  Lists each occurrence with its date, the framing phrase, severity
+                  (high/moderate), and source, and collapses repeated occurrences of the same
+                  phrase so you can expand to see every instance if needed.
+                </>
+              }
+              image={{ src: "/changelog/august-2026/trends-negative-ai-framing.png", alt: "Negative AI Framing log showing date, framing phrase, and source per instance" }}
+            />
+            <TrendsFeature
+              heading="Signal Activity Log"
+              what="A history of your tracked recommendation signals and whether they're being seen across recent runs."
+              how={
+                <>
+                  Lists each tracked signal with its status (Consistently Seen, Seen Recently, Seen
+                  Occasionally, Not Seen Yet), tracked runs, mention count, and last-seen date,
+                  filtered to your selected trend window.
+                </>
+              }
+              image={{ src: "/changelog/august-2026/trends-signal-activity.png", alt: "Signal Activity log showing tracked signals, status, and last-seen date" }}
+            />
+            <TrendsFeature
+              heading="Your Pages Trend"
+              what="A run-by-run view of how many of your own pages are being cited in AI responses."
+              how={
+                <>
+                  Plots cited-page count per run as a clickable line chart — click any point to see
+                  exactly which of your pages were cited in that run.
+                </>
+              }
+              image={{ src: "/changelog/august-2026/trends-your-pages.png", alt: "Your Pages Trend chart showing cited page count per run" }}
+            />
+            <TrendsFeature
+              heading="Source Platforms"
+              what="A breakdown of which domains/platforms AI responses cite most often as sources."
+              how={
+                <>
+                  Bar chart of total citations per platform across your selected window; click a
+                  bar to see the specific pages cited from that platform.
+                </>
+              }
+              image={{ src: "/changelog/august-2026/trends-source-platforms.png", alt: "Source Platforms bar chart showing total citations per domain across the selected window" }}
+            />
+
+            <p className="mt-6">
+              <span className="font-semibold text-slate-900">How to use it:</span> Open the Trends
+              tab from the main navigation, alongside Overview, Performance Insights, and Action
+              Center. Use the 15/30/45/60-day selector at the top to change the window.
+            </p>
+          </>
+        ),
+      },
+      {
+        heading: "Added Perplexity Model Tracking",
+        images: [
+          { src: "/changelog/august-2026/perplexity-model-tracking.png", alt: "Model-Wise Visibility showing Perplexity alongside ChatGPT and Google AI Search" },
+        ],
+        body: (
+          <ReleaseDetail
+            what="Perplexity is now tracked as one of the AI platforms in your visibility analysis, alongside ChatGPT and Google AI."
+            how={
+              <>
+                Your prompts are run against Perplexity on the same schedule as your other tracked
+                models, and its results feed into your mention rate, rank, and Model-Wise
+                Visibility breakdown just like the rest.
+              </>
+            }
+            use={
+              <>
+                No setup needed — Perplexity results appear automatically anywhere model-level data
+                is shown (Overview, Prompts, Model-Wise Visibility).
+              </>
+            }
+          />
+        ),
+      },
+      {
+        heading: "Consolidation of Google AI Mode and AI Overview to Google AI Search",
+        body: (
+          <ReleaseDetail
+            what={<>Google AI Mode and Google AI Overview are now tracked together under a single "Google AI Search" platform.</>}
+            how={
+              <>
+                Following Google's own consolidation at Google I/O (Gemini 3.5 Flash becoming the
+                default model powering AI Mode in Google Search worldwide), we're aligning our
+                tracking to match — reflecting how Google itself now unifies these surfaces.
+              </>
+            }
+            use={
+              <>
+                You'll see "Google AI Search" wherever you previously saw AI Mode / AI Overview as
+                separate platforms — no action needed on your end.
+              </>
+            }
+          />
+        ),
+      },
+      {
+        heading: "On-Demand Run Capability with Limits",
+        // Side by side, not stacked — these two read as one before/after pair
+        // (trigger it → confirm it), not a sequence of separate screenshots.
+        images: [
+          { src: "/changelog/august-2026/on-demand-run-1.png", alt: "Trigger Run button in Past Runs showing remaining runs this month" },
+          { src: "/changelog/august-2026/on-demand-run-2.png", alt: "Trigger Immediate Run confirmation dialog showing runs remaining" },
+        ],
+        imagesLayout: "row",
+        body: (
+          <ReleaseDetail
+            what="The ability to trigger a fresh analysis run whenever you need one, without waiting for the next scheduled run."
+            how={
+              <>
+                Each plan gets a monthly on-demand run allowance (Launch: 1/month, Grow/Enterprise/Agency:
+                3/month). Runs count against this cap, and the allowance resets on the 1st of each
+                month.
+              </>
+            }
+            use={
+              <>
+                Click "Trigger Run" in the results header — it shows your remaining runs for the
+                month (e.g. "Trigger Run (2/3)"). Once your limit is reached, you'll need to wait
+                for the monthly reset.
               </>
             }
           />
