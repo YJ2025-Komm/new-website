@@ -147,22 +147,29 @@ export default function ChangelogEntry() {
                   </h2>
                   <div className="text-slate-600 leading-relaxed">{section.body}</div>
                 </div>
-                {section.image && (
+                {section.images?.map((img, i) => (
                   // Consistent card (background/border/padding), but NOT a fixed
                   // height — screenshots range from wide full-dashboard views to
                   // tall narrow panel crops, and forcing them into one box height
                   // shrinks the narrow ones down to near-illegible. Capping only
                   // max-height (not height) lets each image keep its own aspect
                   // ratio at a readable size instead of being squashed to fit.
-                  <div className="mt-6 flex justify-center rounded-[1.5rem] border border-blue-200 bg-gradient-to-br from-blue-100 to-violet-100 shadow-lg shadow-blue-100/60 p-4 sm:p-6">
+                  // Sections with two images (a "where to find it" nav shot
+                  // followed by the feature itself) render in array order.
+                  <div
+                    key={img.src}
+                    className={`flex justify-center rounded-[1.5rem] border border-blue-200 bg-gradient-to-br from-blue-100 to-violet-100 shadow-lg shadow-blue-100/60 p-4 sm:p-6 ${
+                      i === 0 ? "mt-6" : "mt-4"
+                    }`}
+                  >
                     <img
-                      src={section.image}
-                      alt={section.imageAlt ?? section.heading}
+                      src={img.src}
+                      alt={img.alt}
                       loading="lazy"
                       className="max-w-full max-h-[36rem] w-auto h-auto object-contain rounded-lg"
                     />
                   </div>
-                )}
+                ))}
               </section>
             ))}
           </div>

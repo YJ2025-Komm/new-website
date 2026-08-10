@@ -26,6 +26,7 @@ const routes = [
   "/help",
   "/changelog",
   "/changelog/june-2026-product-update",
+  "/changelog/july-2026-product-update",
   "/privacy",
   "/terms",
   "/",

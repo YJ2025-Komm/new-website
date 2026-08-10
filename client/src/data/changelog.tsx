@@ -42,13 +42,17 @@ export function ReleaseDetail({
 
 // A detail page's body is composed of one or more named sections,
 // mirroring how real release notes are written (e.g. "Content Hub launches
-// in Action Center"). Each section carries its own screenshot — the detail
-// page shows one image per feature, not a single hero.
+// in Action Center"). Each section carries its own screenshot(s) — the detail
+// page shows images per feature, not a single hero. Most sections need just
+// one (the feature itself); some need two — a "where to find it" nav
+// screenshot first, then the feature screenshot — when the location isn't
+// obvious from the body copy alone. Order matters: images render in array order.
+export type ChangelogSectionImage = { src: string; alt: string };
+
 export type ChangelogSection = {
   heading: string;
   body: ReactNode;
-  image?: string;
-  imageAlt?: string;
+  images?: ChangelogSectionImage[];
 };
 
 export type ChangelogEntry = {
@@ -96,8 +100,9 @@ export const changelogEntries: ChangelogEntry[] = [
     sections: [
       {
         heading: "Content Hub launches in Action Center",
-        image: "/changelog/june-2026/content-hub.png",
-        imageAlt: "Content Hub showing Content Opportunities and Content Optimizer tools",
+        images: [
+          { src: "/changelog/june-2026/content-hub.png", alt: "Content Hub showing Content Opportunities and Content Optimizer tools" },
+        ],
         body: (
           <ReleaseDetail
             what="A dedicated space that turns AI visibility gaps into ready-to-write content, and turns existing content into a scored improvement plan."
@@ -124,8 +129,9 @@ export const changelogEntries: ChangelogEntry[] = [
       },
       {
         heading: "Raw Evidence Modal",
-        image: "/changelog/june-2026/raw-evidence-modal.png",
-        imageAlt: "Raw Evidence modal showing the captured AI response behind a visibility score",
+        images: [
+          { src: "/changelog/june-2026/raw-evidence-modal.png", alt: "Raw Evidence modal showing the captured AI response behind a visibility score" },
+        ],
         body: (
           <ReleaseDetail
             what="A way to see the exact AI response behind any score on your dashboard."
@@ -148,8 +154,9 @@ export const changelogEntries: ChangelogEntry[] = [
       },
       {
         heading: "Product Walkthrough",
-        image: "/changelog/june-2026/product-walkthrough.png",
-        imageAlt: "Guided product walkthrough tour for new GeoRankers accounts",
+        images: [
+          { src: "/changelog/june-2026/product-walkthrough.png", alt: "Guided product walkthrough tour for new GeoRankers accounts" },
+        ],
         body: (
           <ReleaseDetail
             what="A guided first-run tour for new accounts."
@@ -171,8 +178,9 @@ export const changelogEntries: ChangelogEntry[] = [
       },
       {
         heading: "Your Pages in AI Responses",
-        image: "/changelog/june-2026/your-pages.png",
-        imageAlt: "Your Pages in AI Responses module listing cited pages and triggering prompts",
+        images: [
+          { src: "/changelog/june-2026/your-pages.png", alt: "Your Pages in AI Responses module listing cited pages and triggering prompts" },
+        ],
         body: (
           <ReleaseDetail
             what="A live view of exactly which of your own URLs are showing up as sources in AI-generated answers."
@@ -194,8 +202,9 @@ export const changelogEntries: ChangelogEntry[] = [
       },
       {
         heading: "GEO Agent launches",
-        image: "/changelog/june-2026/geo-agent.png",
-        imageAlt: "GEO Agent chat assistant answering a question about brand AI visibility",
+        images: [
+          { src: "/changelog/june-2026/geo-agent.png", alt: "GEO Agent chat assistant answering a question about brand AI visibility" },
+        ],
         body: (
           <ReleaseDetail
             what="A chat assistant that answers questions about your brand's AI visibility using your own tracked data."
@@ -207,6 +216,200 @@ export const changelogEntries: ChangelogEntry[] = [
               </>
             }
             use={<>Click "Ask GEO Agent" in the top bar from anywhere in the dashboard.</>}
+          />
+        ),
+      },
+    ],
+    cta: { label: "Go to Dashboard", href: "https://dashboard.georankers.co/login" },
+  },
+  {
+    slug: "july-2026-product-update",
+    date: "2026-07-07",
+    title: "July 2026 Product Update",
+    cardHeadline: "Model-Wise Visibility, Automated Weekly Runs & Highest Priority Prompts",
+    tags: ["Feature", "Improvement", "AI"],
+    summary:
+      "See visibility broken out per AI model instead of one blended score, get automated weekly prompt runs, surface Negative AI Framing with raw evidence, spot your Highest Priority prompts to target, audit any page with the AI Readiness Checker, track specific signals over time, and invite teammates with role-based access.",
+    image: "/changelog/july-2026/model-wise-visibility.png",
+    imageAlt: "Model-Wise Visibility breakdown showing mention rate and rank per AI platform",
+    intro: (
+      <>
+        Here's what shipped in July 2026. This release breaks your visibility data out per AI
+        model, automates prompt runs on a weekly cadence, surfaces Negative AI Framing with raw
+        evidence, flags your Highest Priority prompts to target, adds a standalone AI Readiness
+        Checker, brings Signal Tracker into Recommendations, and lets you invite teammates with
+        role-based access.
+      </>
+    ),
+    sections: [
+      {
+        heading: "Model-Wise Visibility Breakdown",
+        images: [
+          { src: "/changelog/july-2026/model-wise-visibility.png", alt: "Model-Wise Visibility breakdown showing mention rate and rank per AI platform" },
+        ],
+        body: (
+          <ReleaseDetail
+            what="A per-model view of how your brand performs across each AI platform individually, instead of one blended score."
+            how={
+              <>
+                Breaks out mention rate, prompts run, and rank separately for ChatGPT, Google AI
+                Mode, and Google AI Overview — plus which competitor is winning each model and
+                their top-cited domains — so you can see if you're strong on one platform and
+                invisible on another.
+              </>
+            }
+            use={
+              <>
+                Find the Model-Wise Visibility card on the Overview page, or the full breakdown
+                under Performance Insights.
+              </>
+            }
+          />
+        ),
+      },
+      {
+        heading: "Automated Prompt Runs",
+        images: [
+          { src: "/changelog/july-2026/automated-prompt-runs.png", alt: "Tracking setup panel with seed prompts, AI models, and Save Tracking Setup button" },
+        ],
+        body: (
+          <ReleaseDetail
+            what="Scheduled analysis now runs on a weekly cadence."
+            how={
+              <>
+                Once your tracking setup is saved, GeoRankers runs your prompts against all
+                enabled AI models automatically every week — no manual trigger required to keep
+                your visibility data current.
+              </>
+            }
+            use={
+              <>
+                Update your competitors, seed prompts, or tracked models anytime inside Edit
+                Tracking Setup. We use your last saved configuration for the next scheduled run —
+                check Previous Analytics to see your run history.
+              </>
+            }
+          />
+        ),
+      },
+      {
+        heading: "Negative AI Framing Surfaced",
+        images: [
+          { src: "/changelog/july-2026/negative-ai-framing.png", alt: "Negative AI Framing view showing raw evidence and severity per instance" },
+        ],
+        body: (
+          <ReleaseDetail
+            what="A dedicated view of moments where AI-generated answers describe your brand negatively, weakly, or as a worse fit than competitors."
+            how={
+              <>
+                Scans tracked AI responses for negative or unfavorable framing of your brand
+                specifically and surfaces each instance with the raw evidence and severity, so you
+                know exactly where the negative narrative is coming from instead of only seeing an
+                aggregate sentiment score.
+              </>
+            }
+            use={<>Find "Negative AI Framing" inside Executive Summary.</>}
+          />
+        ),
+      },
+      {
+        heading: "AI Readiness Checker",
+        images: [
+          { src: "/changelog/july-2026/ai-readiness-checker.png", alt: "AI Readiness Checker showing pass/fail results for a checked URL" },
+        ],
+        body: (
+          <ReleaseDetail
+            what="A tool that audits whether a specific page on your site is technically structured well enough to be cited by AI platforms."
+            how={
+              <>
+                Enter any URL and run a check against core technical requirements plus content
+                intelligence factors (entity definition, category anchoring, terminology) — you
+                get a pass/fail on core checks and a list of any gaps holding the page back from
+                citation.
+              </>
+            }
+            use={
+              <>
+                Go to Action Center → AI Readiness Checker, paste in a URL, and click Run Check.
+              </>
+            }
+          />
+        ),
+      },
+      {
+        heading: "Signal Tracker in Recommendations",
+        images: [
+          { src: "/changelog/july-2026/signal-tracker.png", alt: "Signal Tracker showing whether a tagged success signal appears across recent runs" },
+        ],
+        body: (
+          <ReleaseDetail
+            what="A way to track whether a specific action you've taken is actually showing up in AI responses over time."
+            how={
+              <>
+                Tag a success signal — a specific mention, ranking, or citation you're trying to
+                achieve — and Signal Tracker checks for it across your last 10 runs, showing
+                whether it's being consistently seen, seen occasionally, or not yet appearing.
+              </>
+            }
+            use={
+              <>
+                Go to Action Center → Recommendations → Signal Tracker. Signals are attached
+                directly to specific recommendations, so you can see if the action you took
+                actually moved the needle.
+              </>
+            }
+          />
+        ),
+      },
+      {
+        heading: "Invite Your Team",
+        images: [
+          { src: "/changelog/july-2026/invite-team.png", alt: "Team Members panel showing Admin, Editor, and Viewer role options" },
+        ],
+        body: (
+          <ReleaseDetail
+            what="The ability to add teammates directly to your GeoRankers account with role-based access."
+            how={
+              <>
+                Invited teammates can be added as Admin (full control — billing, users, and all
+                analysis/reporting features), Editor (can run analysis and manage content —
+                competitors, keywords, reports), or Viewer (read-only access to dashboards and
+                reports).
+              </>
+            }
+            use={
+              <>
+                Click your account menu and select Teams, then enter your teammate's email along
+                with their role. They'll receive a link on their email using which they can join
+                the team and start using GeoRankers.
+              </>
+            }
+          />
+        ),
+      },
+      {
+        heading: "Highest Priority Tags in Prompts",
+        images: [
+          { src: "/changelog/july-2026/highest-priority-tags.png", alt: "Highest Priority badge on a prompt in the Prompts tab, with tooltip explaining the flag" },
+        ],
+        body: (
+          <ReleaseDetail
+            what={<>A "🔥 Highest Priority" badge that flags the prompts where you most urgently need to get cited.</>}
+            how={
+              <>
+                GeoRankers evaluates each prompt based on how your competitors are performing
+                against you — complete gaps, unstable visibility across platforms, high-intent
+                comparison/pricing/trust/use-case queries where competitors show up and you don't,
+                or negative framing tied to that query — and tags the highest-impact ones with
+                specific reasons in a tooltip.
+              </>
+            }
+            use={
+              <>
+                Go to the Prompts tab and look for the 🔥 Highest Priority badge next to a prompt;
+                hover it to see exactly why it was flagged.
+              </>
+            }
           />
         ),
       },
