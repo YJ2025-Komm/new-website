@@ -60,7 +60,13 @@ export function ReleaseDetail({
 // one (the feature itself); some need two — a "where to find it" nav
 // screenshot first, then the feature screenshot — when the location isn't
 // obvious from the body copy alone. Order matters: images render in array order.
-export type ChangelogSectionImage = { src: string; alt: string };
+// width/height are the source PNG's actual pixel dimensions (not the
+// rendered size) — passing them as native <img> attributes lets the browser
+// reserve the correct aspect-ratio space before the image downloads, which
+// prevents layout shift (CLS). Optional so authoring a new entry still works
+// without them, but include them when possible: check dimensions with
+// `node -e` reading the PNG's IHDR chunk (bytes 16-24), or any image tool.
+export type ChangelogSectionImage = { src: string; alt: string; width?: number; height?: number };
 
 // Consistent card (background/border/padding), but NOT a fixed height —
 // screenshots range from wide full-dashboard views to tall narrow panel
@@ -69,12 +75,14 @@ export type ChangelogSectionImage = { src: string; alt: string };
 // keep its own aspect ratio at a readable size instead of being squashed.
 // Exported so both the section-level image list (below) and inline images
 // inside a section's body (e.g. TrendsFeature) render identically.
-export function SectionImage({ src, alt }: ChangelogSectionImage) {
+export function SectionImage({ src, alt, width, height }: ChangelogSectionImage) {
   return (
     <div className="flex justify-center rounded-[1.5rem] border border-blue-200 bg-gradient-to-br from-blue-100 to-violet-100 shadow-lg shadow-blue-100/60 p-4 sm:p-6">
       <img
         src={src}
         alt={alt}
+        width={width}
+        height={height}
         loading="lazy"
         className="max-w-full max-h-[36rem] w-auto h-auto object-contain rounded-lg"
       />
@@ -171,7 +179,7 @@ export const changelogEntries: ChangelogEntry[] = [
       {
         heading: "Content Hub launches in Action Center",
         images: [
-          { src: "/changelog/june-2026/content-hub.png", alt: "Content Hub showing Content Opportunities and Content Optimizer tools" },
+          { src: "/changelog/june-2026/content-hub.png", alt: "Content Hub showing Content Opportunities and Content Optimizer tools", width: 1857, height: 738 },
         ],
         body: (
           <ReleaseDetail
@@ -200,7 +208,7 @@ export const changelogEntries: ChangelogEntry[] = [
       {
         heading: "Raw Evidence Modal",
         images: [
-          { src: "/changelog/june-2026/raw-evidence-modal.png", alt: "Raw Evidence modal showing the captured AI response behind a visibility score" },
+          { src: "/changelog/june-2026/raw-evidence-modal.png", alt: "Raw Evidence modal showing the captured AI response behind a visibility score", width: 786, height: 736 },
         ],
         body: (
           <ReleaseDetail
@@ -225,7 +233,7 @@ export const changelogEntries: ChangelogEntry[] = [
       {
         heading: "Product Walkthrough",
         images: [
-          { src: "/changelog/june-2026/product-walkthrough.png", alt: "Guided product walkthrough tour for new GeoRankers accounts" },
+          { src: "/changelog/june-2026/product-walkthrough.png", alt: "Guided product walkthrough tour for new GeoRankers accounts", width: 322, height: 316 },
         ],
         body: (
           <ReleaseDetail
@@ -249,7 +257,7 @@ export const changelogEntries: ChangelogEntry[] = [
       {
         heading: "Your Pages in AI Responses",
         images: [
-          { src: "/changelog/june-2026/your-pages.png", alt: "Your Pages in AI Responses module listing cited pages and triggering prompts" },
+          { src: "/changelog/june-2026/your-pages.png", alt: "Your Pages in AI Responses module listing cited pages and triggering prompts", width: 1160, height: 620 },
         ],
         body: (
           <ReleaseDetail
@@ -273,7 +281,7 @@ export const changelogEntries: ChangelogEntry[] = [
       {
         heading: "GEO Agent launches",
         images: [
-          { src: "/changelog/june-2026/geo-agent.png", alt: "GEO Agent chat assistant answering a question about brand AI visibility" },
+          { src: "/changelog/june-2026/geo-agent.png", alt: "GEO Agent chat assistant answering a question about brand AI visibility", width: 379, height: 811 },
         ],
         body: (
           <ReleaseDetail
@@ -315,7 +323,7 @@ export const changelogEntries: ChangelogEntry[] = [
       {
         heading: "Model-Wise Visibility Breakdown",
         images: [
-          { src: "/changelog/july-2026/model-wise-visibility.png", alt: "Model-Wise Visibility breakdown showing mention rate and rank per AI platform" },
+          { src: "/changelog/july-2026/model-wise-visibility.png", alt: "Model-Wise Visibility breakdown showing mention rate and rank per AI platform", width: 888, height: 366 },
         ],
         body: (
           <ReleaseDetail
@@ -340,7 +348,7 @@ export const changelogEntries: ChangelogEntry[] = [
       {
         heading: "Automated Prompt Runs",
         images: [
-          { src: "/changelog/july-2026/automated-prompt-runs.png", alt: "Tracking setup panel with seed prompts, AI models, and Save Tracking Setup button" },
+          { src: "/changelog/july-2026/automated-prompt-runs.png", alt: "Tracking setup panel with seed prompts, AI models, and Save Tracking Setup button", width: 754, height: 848 },
         ],
         body: (
           <ReleaseDetail
@@ -365,7 +373,7 @@ export const changelogEntries: ChangelogEntry[] = [
       {
         heading: "Negative AI Framing Surfaced",
         images: [
-          { src: "/changelog/july-2026/negative-ai-framing.png", alt: "Negative AI Framing view showing raw evidence and severity per instance" },
+          { src: "/changelog/july-2026/negative-ai-framing.png", alt: "Negative AI Framing view showing raw evidence and severity per instance", width: 1869, height: 385 },
         ],
         body: (
           <ReleaseDetail
@@ -385,7 +393,7 @@ export const changelogEntries: ChangelogEntry[] = [
       {
         heading: "AI Readiness Checker",
         images: [
-          { src: "/changelog/july-2026/ai-readiness-checker.png", alt: "AI Readiness Checker showing pass/fail results for a checked URL" },
+          { src: "/changelog/july-2026/ai-readiness-checker.png", alt: "AI Readiness Checker showing pass/fail results for a checked URL", width: 1876, height: 517 },
         ],
         body: (
           <ReleaseDetail
@@ -409,7 +417,7 @@ export const changelogEntries: ChangelogEntry[] = [
       {
         heading: "Signal Tracker in Recommendations",
         images: [
-          { src: "/changelog/july-2026/signal-tracker.png", alt: "Signal Tracker showing whether a tagged success signal appears across recent runs" },
+          { src: "/changelog/july-2026/signal-tracker.png", alt: "Signal Tracker showing whether a tagged success signal appears across recent runs", width: 1863, height: 730 },
         ],
         body: (
           <ReleaseDetail
@@ -434,7 +442,7 @@ export const changelogEntries: ChangelogEntry[] = [
       {
         heading: "Invite Your Team",
         images: [
-          { src: "/changelog/july-2026/invite-team.png", alt: "Team Members panel showing Admin, Editor, and Viewer role options" },
+          { src: "/changelog/july-2026/invite-team.png", alt: "Team Members panel showing Admin, Editor, and Viewer role options", width: 1662, height: 672 },
         ],
         body: (
           <ReleaseDetail
@@ -460,7 +468,7 @@ export const changelogEntries: ChangelogEntry[] = [
       {
         heading: "Highest Priority Tags in Prompts",
         images: [
-          { src: "/changelog/july-2026/highest-priority-tags.png", alt: "Highest Priority badge on a prompt in the Prompts tab, with tooltip explaining the flag" },
+          { src: "/changelog/july-2026/highest-priority-tags.png", alt: "Highest Priority badge on a prompt in the Prompts tab, with tooltip explaining the flag", width: 996, height: 405 },
         ],
         body: (
           <ReleaseDetail
@@ -528,7 +536,7 @@ export const changelogEntries: ChangelogEntry[] = [
                   before scrolling into the detailed cards.
                 </>
               }
-              image={{ src: "/changelog/august-2026/trends-kpi.png", alt: "Trend KPI summary showing Period Start, Latest, and Best Visibility plus Current Sentiment" }}
+              image={{ src: "/changelog/august-2026/trends-kpi.png", alt: "Trend KPI summary showing Period Start, Latest, and Best Visibility plus Current Sentiment", width: 1867, height: 238 }}
             />
             <TrendsFeature
               heading="Visibility Trend Chart"
@@ -539,7 +547,7 @@ export const changelogEntries: ChangelogEntry[] = [
                   from a dropdown to see how your trend compares to theirs run over run.
                 </>
               }
-              image={{ src: "/changelog/august-2026/trends-visibility-trend.png", alt: "Visibility Trend chart showing score and mentions over time with competitor overlay" }}
+              image={{ src: "/changelog/august-2026/trends-visibility-trend.png", alt: "Visibility Trend chart showing score and mentions over time with competitor overlay", width: 1858, height: 375 }}
             />
             <TrendsFeature
               heading="Model Performance Trend"
@@ -552,7 +560,7 @@ export const changelogEntries: ChangelogEntry[] = [
                   falling behind.
                 </>
               }
-              image={{ src: "/changelog/august-2026/trends-model-performance.png", alt: "Model Performance Trend showing a trend line and tier per AI model" }}
+              image={{ src: "/changelog/august-2026/trends-model-performance.png", alt: "Model Performance Trend showing a trend line and tier per AI model", width: 921, height: 549 }}
             />
             <TrendsFeature
               heading="Competitor Movement"
@@ -564,7 +572,7 @@ export const changelogEntries: ChangelogEntry[] = [
                   the first thing you see.
                 </>
               }
-              image={{ src: "/changelog/august-2026/trends-competitor-movement.png", alt: "Competitor Movement showing AI visibility and mention change since the last run" }}
+              image={{ src: "/changelog/august-2026/trends-competitor-movement.png", alt: "Competitor Movement showing AI visibility and mention change since the last run", width: 903, height: 505 }}
             />
             <TrendsFeature
               heading="Sentiment History"
@@ -576,7 +584,7 @@ export const changelogEntries: ChangelogEntry[] = [
                   strength at a glance.
                 </>
               }
-              image={{ src: "/changelog/august-2026/trends-sentiment-history.png", alt: "Sentiment History heatmap showing dominant sentiment per run" }}
+              image={{ src: "/changelog/august-2026/trends-sentiment-history.png", alt: "Sentiment History heatmap showing dominant sentiment per run", width: 922, height: 369 }}
             />
             <TrendsFeature
               heading="Negative AI Framing Over Time"
@@ -588,7 +596,7 @@ export const changelogEntries: ChangelogEntry[] = [
                   phrase so you can expand to see every instance if needed.
                 </>
               }
-              image={{ src: "/changelog/august-2026/trends-negative-ai-framing.png", alt: "Negative AI Framing log showing date, framing phrase, and source per instance" }}
+              image={{ src: "/changelog/august-2026/trends-negative-ai-framing.png", alt: "Negative AI Framing log showing date, framing phrase, and source per instance", width: 912, height: 400 }}
             />
             <TrendsFeature
               heading="Signal Activity Log"
@@ -600,7 +608,7 @@ export const changelogEntries: ChangelogEntry[] = [
                   filtered to your selected trend window.
                 </>
               }
-              image={{ src: "/changelog/august-2026/trends-signal-activity.png", alt: "Signal Activity log showing tracked signals, status, and last-seen date" }}
+              image={{ src: "/changelog/august-2026/trends-signal-activity.png", alt: "Signal Activity log showing tracked signals, status, and last-seen date", width: 1836, height: 454 }}
             />
             <TrendsFeature
               heading="Your Pages Trend"
@@ -611,7 +619,7 @@ export const changelogEntries: ChangelogEntry[] = [
                   exactly which of your pages were cited in that run.
                 </>
               }
-              image={{ src: "/changelog/august-2026/trends-your-pages.png", alt: "Your Pages Trend chart showing cited page count per run" }}
+              image={{ src: "/changelog/august-2026/trends-your-pages.png", alt: "Your Pages Trend chart showing cited page count per run", width: 904, height: 537 }}
             />
             <TrendsFeature
               heading="Source Platforms"
@@ -622,7 +630,7 @@ export const changelogEntries: ChangelogEntry[] = [
                   bar to see the specific pages cited from that platform.
                 </>
               }
-              image={{ src: "/changelog/august-2026/trends-source-platforms.png", alt: "Source Platforms bar chart showing total citations per domain across the selected window" }}
+              image={{ src: "/changelog/august-2026/trends-source-platforms.png", alt: "Source Platforms bar chart showing total citations per domain across the selected window", width: 897, height: 552 }}
             />
 
             <p className="mt-6">
@@ -636,7 +644,7 @@ export const changelogEntries: ChangelogEntry[] = [
       {
         heading: "Added Perplexity Model Tracking",
         images: [
-          { src: "/changelog/august-2026/perplexity-model-tracking.png", alt: "Model-Wise Visibility showing Perplexity alongside ChatGPT and Google AI Search" },
+          { src: "/changelog/august-2026/perplexity-model-tracking.png", alt: "Model-Wise Visibility showing Perplexity alongside ChatGPT and Google AI Search", width: 925, height: 397 },
         ],
         body: (
           <ReleaseDetail
@@ -683,8 +691,8 @@ export const changelogEntries: ChangelogEntry[] = [
         // Side by side, not stacked — these two read as one before/after pair
         // (trigger it → confirm it), not a sequence of separate screenshots.
         images: [
-          { src: "/changelog/august-2026/on-demand-run-1.png", alt: "Trigger Run button in Past Runs showing remaining runs this month" },
-          { src: "/changelog/august-2026/on-demand-run-2.png", alt: "Trigger Immediate Run confirmation dialog showing runs remaining" },
+          { src: "/changelog/august-2026/on-demand-run-1.png", alt: "Trigger Run button in Past Runs showing remaining runs this month", width: 384, height: 355 },
+          { src: "/changelog/august-2026/on-demand-run-2.png", alt: "Trigger Immediate Run confirmation dialog showing runs remaining", width: 661, height: 457 },
         ],
         imagesLayout: "row",
         body: (
