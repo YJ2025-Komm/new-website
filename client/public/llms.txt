@@ -108,5 +108,6 @@ hub. No credit card required. Cancel anytime. Extra GEO Agent conversations bill
 
 - [Sitemap](https://georankers.ai/sitemap.xml)
 - [Robots](https://georankers.ai/robots.txt)
+- [Changelog Feed (JSON)](https://georankers.ai/changelog.json)
 
 Last updated: August 10, 2026

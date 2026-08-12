@@ -1,0 +1,11 @@
+# Netlify static-asset headers. Vite copies everything in client/public/ into
+# the publish dir verbatim, so this file ships as-is at the site root.
+
+# CORS for the changelog JSON feed — consumed cross-origin by the product
+# dashboard's notification bell (dashboard.georankers.co polling
+# georankers.ai/changelog.json). Add more origins below if the dashboard is
+# ever served from a staging/dev domain too.
+/changelog.json
+  Access-Control-Allow-Origin: https://dashboard.georankers.co
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=300
