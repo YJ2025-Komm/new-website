@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "august-2026-product-update",
+    "date": "2026-08-05",
+    "title": "August 2026 Product Update",
+    "summary": "Trends brings a run-over-run view of your visibility, models, competitors, sentiment, and citations across a 15/30/45/60-day window. Plus Perplexity is now tracked, Google AI Mode and AI Overview are consolidated into Google AI Search, and on-demand runs let you trigger a fresh analysis without waiting for the schedule.",
+    "tags": [
+      "Feature",
+      "Improvement",
+      "AI"
+    ],
+    "url": "https://georankers.ai/changelog/august-2026-product-update"
+  },
+  {
+    "slug": "july-2026-product-update",
+    "date": "2026-07-07",
+    "title": "July 2026 Product Update",
+    "summary": "See visibility broken out per AI model instead of one blended score, get automated weekly prompt runs, surface Negative AI Framing with raw evidence, spot your Highest Priority prompts to target, audit any page with the AI Readiness Checker, track specific signals over time, and invite teammates with role-based access.",
+    "tags": [
+      "Feature",
+      "Improvement",
+      "AI"
+    ],
+    "url": "https://georankers.ai/changelog/july-2026-product-update"
+  },
+  {
+    "slug": "june-2026-product-update",
+    "date": "2026-06-03",
+    "title": "June 2026 Product Update",
+    "summary": "Content Hub turns visibility gaps into ready-to-write content, a Raw Evidence Modal shows the exact AI response behind every score, plus a guided product walkthrough, Your Pages in AI Responses, and GEO Agent — a chat assistant with memory of your last 5 runs.",
+    "tags": [
+      "Feature",
+      "AI",
+      "Content"
+    ],
+    "url": "https://georankers.ai/changelog/june-2026-product-update"
+  }
+]
