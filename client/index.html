@@ -55,6 +55,11 @@
     <meta property="twitter:image:alt" content="GeoRankers - AI Search Intelligence Platform" />
     
     <!-- Structured Data for AI/LLM Understanding -->
+    <!-- The Organization referenced below by @id ("https://georankers.ai/#organization") is
+         canonically defined in client/src/data/organization.ts and rendered in full on / and
+         /team. Referencing it here by @id (rather than redeclaring name/sameAs/etc.) keeps
+         this shell — which every prerendered page starts from — from carrying a divergent,
+         partial copy of the same entity. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -66,11 +71,7 @@
       "operatingSystem": "Web",
       "provider": {
         "@type": "Organization",
-        "name": "GeoRankers",
-        "url": "https://georankers.ai",
-        "sameAs": [
-          "https://blog.georankers.ai"
-        ]
+        "@id": "https://georankers.ai/#organization"
       },
       "offers": {
         "@type": "Offer",
@@ -94,8 +95,7 @@
         "description": "Expert insights, strategies, and case studies on AI search optimization for B2B SaaS companies",
         "publisher": {
           "@type": "Organization",
-          "name": "GeoRankers",
-          "url": "https://georankers.ai"
+          "@id": "https://georankers.ai/#organization"
         },
         "inLanguage": "en-US",
         "genre": "AI Search Optimization, B2B Marketing, SaaS Growth"
