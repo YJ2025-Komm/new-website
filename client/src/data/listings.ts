@@ -79,7 +79,7 @@ export const LISTINGS: Listing[] = [
   {
     name: "Findly.tools",
     description: "A discovery directory for AI and software tools, organized so people can browse by category.",
-    badgeSrc: "https://findly.tools/badges/findly-tools-badge-light.svg",
+    badgeSrc: "/listings/findly.svg",
     badgeWidth: 139,
     badgeHeight: 44,
     href: "https://findly.tools",
