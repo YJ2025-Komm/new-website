@@ -20,7 +20,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://www.linkedin.com/company/georankers/posts/?feedView=all"
+                href="https://www.linkedin.com/company/georankers/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GeoRankers on LinkedIn"
@@ -49,9 +49,9 @@ export default function Footer() {
             </div>
             <div className="mt-6">
               <p className="text-xs font-semibold text-white/60 mb-2">Recognized by</p>
-              <div className="inline-block bg-white rounded-md px-3 py-1.5">
+              <Link href="/recognition" className="inline-block bg-white rounded-md px-3 py-1.5">
                 <img src="/startup-india.png" alt="DPIIT Startup India" className="h-12 w-auto block" loading="lazy" />
-              </div>
+              </Link>
             </div>
           </div>
 
@@ -72,6 +72,12 @@ export default function Footer() {
                   className="block text-white/80 hover:text-white text-sm transition-colors"
                 >
                   Pricing
+                </Link>
+                <Link
+                  href="/recognition"
+                  className="block text-white/80 hover:text-white text-sm transition-colors"
+                >
+                  Recognition
                 </Link>
                 <a
                   href="https://dashboard.georankers.co/register"

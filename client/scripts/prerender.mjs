@@ -23,6 +23,7 @@ const routes = [
   "/ai-content-guide",
   "/geo-glossary",
   "/team",
+  "/recognition",
   "/help",
   "/changelog",
   "/changelog/june-2026-product-update",
