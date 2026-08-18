@@ -55,6 +55,13 @@
     <meta property="twitter:image:alt" content="GeoRankers - AI Search Intelligence Platform" />
     
     <!-- Structured Data for AI/LLM Understanding -->
+    <!-- The Organization below (@id "https://georankers.ai/#organization") is the canonical
+         definition, mirrored from client/src/data/organization.ts — this file is plain HTML
+         and can't import that module, so IF YOU EDIT organization.ts, UPDATE THIS BLOCK TOO.
+         It's declared in full here (not just referenced by @id) because this shell is the only
+         structured data present on every page except / and /team; a bare @id reference would be
+         unresolvable in-document on pages that don't also render the full node. "mainEntity.publisher"
+         below safely references it by @id since that's within this same JSON-LD document. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -66,11 +73,35 @@
       "operatingSystem": "Web",
       "provider": {
         "@type": "Organization",
+        "@id": "https://georankers.ai/#organization",
         "name": "GeoRankers",
         "url": "https://georankers.ai",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://georankers.ai/georankers-logo.svg",
+          "contentUrl": "https://georankers.ai/georankers-logo.svg"
+        },
+        "description": "GeoRankers is the AI search intelligence platform that helps B2B SaaS companies track, optimize, and build brand authority to get visible in ChatGPT, Google AI Search, and Perplexity.",
+        "foundingDate": "2026",
+        "founder": {
+          "@type": "Person",
+          "name": "Yogesh Joshi",
+          "jobTitle": "CEO & Founder",
+          "url": "https://georankers.ai/team",
+          "sameAs": "https://www.linkedin.com/in/yogesh-joshi-5ba94b18/"
+        },
+        "award": "DPIIT Startup India Recognition",
         "sameAs": [
-          "https://blog.georankers.ai"
-        ]
+          "https://blog.georankers.ai",
+          "https://www.linkedin.com/company/georankers/",
+          "https://x.com/georankers",
+          "https://www.facebook.com/people/GeoRankers/61588912087425/"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Service",
+          "url": "https://georankers.ai"
+        }
       },
       "offers": {
         "@type": "Offer",
@@ -79,7 +110,7 @@
       },
       "featureList": [
         "Predictive AI Search Forecasting",
-        "Real-time AI Mention Monitoring", 
+        "Real-time AI Mention Monitoring",
         "Competitive AI Intelligence",
         "Content Strategy Optimization"
       ],
@@ -94,8 +125,7 @@
         "description": "Expert insights, strategies, and case studies on AI search optimization for B2B SaaS companies",
         "publisher": {
           "@type": "Organization",
-          "name": "GeoRankers",
-          "url": "https://georankers.ai"
+          "@id": "https://georankers.ai/#organization"
         },
         "inLanguage": "en-US",
         "genre": "AI Search Optimization, B2B Marketing, SaaS Growth"

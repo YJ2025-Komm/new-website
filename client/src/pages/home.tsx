@@ -23,6 +23,7 @@ import {
 import { SiOpenai, SiGooglegemini, SiPerplexity, SiClaude, SiGithubcopilot } from "react-icons/si";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ORGANIZATION_SCHEMA } from "@/data/organization";
 import geminiLogo from "@assets/Gemini_1753958628531.png";
 import grokLogo from "@assets/Grok_1753958628535.png";
 import openaiLogo from "@assets/Open Ai_1753958628536.png";
@@ -690,35 +691,7 @@ export default function Home() {
     }
     orgSchema.textContent = JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "GeoRankers",
-      "url": "https://georankers.ai",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://georankers.ai/georankers-logo.svg",
-        "contentUrl": "https://georankers.ai/georankers-logo.svg"
-      },
-      "description": "GeoRankers is the AI search intelligence platform that helps B2B SaaS companies track, optimize, and build brand authority to get visible in ChatGPT, Google AI Search, and Perplexity.",
-      "foundingDate": "2026",
-      "founder": {
-        "@type": "Person",
-        "name": "Yogesh Joshi",
-        "jobTitle": "CEO & Founder",
-        "url": "https://georankers.ai/team",
-        "sameAs": "https://www.linkedin.com/in/yogesh-joshi-5ba94b18/"
-      },
-      "award": "DPIIT Startup India Recognition",
-      "sameAs": [
-        "https://blog.georankers.ai",
-        "https://www.linkedin.com/company/georankers/",
-        "https://x.com/georankers",
-        "https://www.facebook.com/people/GeoRankers/61588912087425/"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Customer Service",
-        "url": "https://georankers.ai"
-      }
+      ...ORGANIZATION_SCHEMA,
     });
 
     // WebSite Schema

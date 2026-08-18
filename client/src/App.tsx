@@ -17,6 +17,7 @@ import Changelog from "@/pages/changelog";
 import ChangelogEntry from "@/pages/changelog-entry";
 import NotFound from "@/pages/not-found";
 import Team from "@/pages/team";
+import Recognition from "@/pages/recognition";
 import ScrollManager from "@/components/ScrollManager";
 import BrandVisibilityPage from "@/pages/free-geo-tools/brand-visibility";
 import GeoAuditPage from "@/pages/free-geo-tools/geo-audit";
@@ -38,6 +39,7 @@ function Router() {
       <Route path="/changelog" component={Changelog} />
       <Route path="/changelog/:slug" component={ChangelogEntry} />
       <Route path="/team" component={Team} />
+      <Route path="/recognition" component={Recognition} />
       <Route path="/free-geo-tools/brand-visibility" component={BrandVisibilityPage} />
       <Route path="/free-geo-tools/geo-audit" component={GeoAuditPage} />
       <Route path="/free-geo-tools/visibility-score" component={QueryOpportunityPage} />
