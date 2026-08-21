@@ -19,7 +19,7 @@ export default function GeoGuideSimple() {
         <div className="max-w-4xl mx-auto px-6 py-4">
           <a href="/" className="flex items-center gap-2 text-xl font-bold text-gray-900">
             <div className="h-9 w-9 rounded-md overflow-hidden flex-shrink-0">
-              <img src="/georankers-icon.png" alt="GeoRankers icon" className="w-full h-full object-cover scale-[1.5] origin-center" />
+              <img src="/georankers-icon.png" alt="GeoRankers icon" width={128} height={85} className="w-full h-full object-cover scale-[1.5] origin-center" />
             </div>
             GeoRankers
           </a>

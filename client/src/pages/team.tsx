@@ -13,6 +13,8 @@ const founders = [
     tagline: "B2B SaaS growth leader with 10+ years of experience, focused on organic growth and GTM. Prior to GeoRankers, he led growth at Kommunicate, building SEO and content-led engines that drove high-intent pipeline and enterprise revenue. In his spare time, Yogesh enjoys running marathons and is deeply into meditation and yoga.",
     linkedin: "https://www.linkedin.com/in/yogesh-joshi-5ba94b18/",
     photo: "/yogesh-joshi.jpg",
+    photoW: 355,
+    photoH: 393,
     gradient: "from-blue-500 to-violet-600",
   },
 ];
@@ -24,6 +26,8 @@ const teamMembers = [
     role: "Advisor — AI & Machine Learning",
     bio: "Sahil Maheshwari is a senior AI and ML leader with 12+ years of experience across Hunch, Sixt, and ThoughtWorks. He specializes in large language models, including fine tuning, RAG, and agentic AI systems, and has built high performing data science teams while actively exploring AI driven information discovery.",
     photo: "/sahil-maheshwari.jpg",
+    photoW: 1024,
+    photoH: 1536,
     linkedin: "https://www.linkedin.com/in/maheshwarisahil/",
     gradient: "from-cyan-500 to-blue-500",
   },
@@ -33,6 +37,8 @@ const teamMembers = [
     role: "Frontend Lead",
     bio: "A Computer Science graduate specialising in AI and Machine Learning with research across adversarial learning and generative models. Published in leading journals including IJMLC by Springer Nature. In his spare time, he enjoys travelling and trying out different cuisines.",
     photo: "/gaurav.jpg",
+    photoW: 896,
+    photoH: 1195,
     photoScale: "scale-100",
     gradient: "from-violet-500 to-pink-500",
   },
@@ -42,6 +48,8 @@ const teamMembers = [
     role: "Full Stack Engineer",
     bio: "A full stack engineer with a strong track record in optimizing data pipelines and building AI driven products. Currently focused on advancing AI capabilities using agentic workflows and LangGraph, with a deep interest in building intuitive, user friendly products.",
     photo: "/melvin-rex.jpg",
+    photoW: 2707,
+    photoH: 3395,
     gradient: "from-orange-500 to-rose-500",
   },
 ];
@@ -112,6 +120,8 @@ export default function Team() {
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80&auto=format&fit=crop"
                 alt="GeoRankers team"
+                width={800}
+                height={534}
                 className="w-full h-72 sm:h-80 lg:h-96 object-cover rounded-xl"
               />
             </div>
@@ -205,6 +215,8 @@ export default function Team() {
                   <img
                     src={f.photo}
                     alt={f.name}
+                    width={f.photoW}
+                    height={f.photoH}
                     className="w-44 h-44 rounded-2xl object-cover flex-shrink-0 shadow-md"
                   />
                 ) : (
@@ -243,6 +255,8 @@ export default function Team() {
                     <img
                       src={m.photo}
                       alt={m.name}
+                      width={m.photoW}
+                      height={m.photoH}
                       className={`w-full h-full object-cover object-top ${m.photoScale ?? "scale-125"} origin-top`}
                     />
                   </div>

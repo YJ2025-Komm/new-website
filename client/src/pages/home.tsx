@@ -55,6 +55,11 @@ interface WordPressBlogPost {
   categories: number[];
   featured_media: number;
   featured_image_url?: string;
+  // Only known for the static fallback posts below (real intrinsic pixel dims of the
+  // imported asset) — live WordPress posts fetched at runtime don't carry these, so the
+  // <img> just omits width/height for those, same as before.
+  featured_image_width?: number;
+  featured_image_height?: number;
 }
 
 interface WordPressCategory {
@@ -249,21 +254,25 @@ function VisibilityGapSection() {
 const dashboardSlides = [
   {
     image: dashImg1,
+    w: 927, h: 515,
     alt: "GeoRankers Competitive Landscape — bar chart and radar chart showing brand positioning vs competitors",
     caption: "See how you stack up against competitors in AI search results",
   },
   {
     image: dashImg2,
+    w: 942, h: 514,
     alt: "GeoRankers AI Prompts & Query Analysis — keyword groups with brand mention scores",
     caption: "Discover the exact prompts AI is answering about your industry",
   },
   {
     image: dashImg3,
+    w: 1167, h: 643,
     alt: "GeoRankers Strategic Recommendations — actionable insights with impact levels",
     caption: "Get data-driven actions prioritized by impact to boost your AI presence",
   },
   {
     image: dashImg4,
+    w: 1263, h: 533,
     alt: "GeoRankers Overall Insights — AI Visibility Score and brand mention breakdown",
     caption: "Track your AI Visibility Score and brand mention share across LLMs",
   },
@@ -310,6 +319,8 @@ function DashboardCarousel() {
               <img
                 src={slide.image}
                 alt={slide.alt}
+                width={slide.w}
+                height={slide.h}
                 className="w-full h-auto"
               />
             </div>
@@ -359,16 +370,19 @@ function DashboardCarousel() {
 const screenshotSlides = [
   {
     src: screenshotInsights,
+    w: 1400, h: 544,
     label: "Overall Insights",
     caption: "AI visibility score, brand mentions, sentiment, competitive landscape and mention distribution — all at a glance.",
   },
   {
     src: screenshotPrompts,
+    w: 1400, h: 490,
     label: "AI Prompts & Query Analysis",
     caption: "See the exact prompts AI is answering about your industry and where your brand appears — or doesn't.",
   },
   {
     src: screenshotRecommendations,
+    w: 1400, h: 507,
     label: "Strategic Recommendations",
     caption: "Data-driven actions prioritized by impact to boost your AI presence, with clear steps to execute each one.",
   },
@@ -430,6 +444,8 @@ function ScreenshotCarousel() {
         <img
           src={slide.src}
           alt={slide.label}
+          width={slide.w}
+          height={slide.h}
           className="w-full block"
         />
       </div>
@@ -466,7 +482,9 @@ export default function Home() {
       date: "2025-08-19T00:00:00",
       categories: [1],
       featured_media: 1,
-      featured_image_url: strategicImage
+      featured_image_url: strategicImage,
+      featured_image_width: 1400,
+      featured_image_height: 764
     },
     {
       id: 2,
@@ -476,7 +494,9 @@ export default function Home() {
       date: "2025-08-15T00:00:00",
       categories: [2],
       featured_media: 2,
-      featured_image_url: buildingBlocksImage
+      featured_image_url: buildingBlocksImage,
+      featured_image_width: 1400,
+      featured_image_height: 764
     },
     {
       id: 3,
@@ -486,7 +506,9 @@ export default function Home() {
       date: "2025-08-08T00:00:00",
       categories: [2],
       featured_media: 3,
-      featured_image_url: geoVsSeoImage
+      featured_image_url: geoVsSeoImage,
+      featured_image_width: 1400,
+      featured_image_height: 764
     }
   ];
 
@@ -1242,6 +1264,8 @@ export default function Home() {
                       <img
                         src={(post as any).featured_image_url}
                         alt={decodeHtmlEntities(post.title.rendered)}
+                        width={(post as any).featured_image_width}
+                        height={(post as any).featured_image_height}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         loading="lazy"
                       />
