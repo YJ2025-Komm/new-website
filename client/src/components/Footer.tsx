@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Mail } from "lucide-react";
 import { SiLinkedin, SiFacebook, SiX } from "react-icons/si";
+import { LISTINGS } from "@/data/listings";
 
 export default function Footer() {
   return (
@@ -11,7 +12,7 @@ export default function Footer() {
           <div className="lg:w-64 flex-shrink-0">
             <div className="flex items-center gap-2 mb-4">
               <div className="h-10 w-10 rounded-md overflow-hidden flex-shrink-0">
-                <img src="/georankers-icon.png" alt="GeoRankers icon" className="w-full h-full object-cover scale-[1.5] origin-center" loading="lazy" />
+                <img src="/georankers-icon.png" alt="GeoRankers icon" width={128} height={85} className="w-full h-full object-cover scale-[1.5] origin-center" loading="lazy" />
               </div>
               <span className="text-2xl font-black bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">GeoRankers</span>
             </div>
@@ -46,12 +47,6 @@ export default function Footer() {
               >
                 <SiFacebook aria-hidden="true" className="w-5 h-5 text-white" />
               </a>
-            </div>
-            <div className="mt-6">
-              <p className="text-xs font-semibold text-white/60 mb-2">Recognized by</p>
-              <Link href="/recognition" className="inline-block bg-white rounded-md px-3 py-1.5">
-                <img src="/startup-india.png" alt="DPIIT Startup India" className="h-12 w-auto block" loading="lazy" />
-              </Link>
             </div>
           </div>
 
@@ -154,11 +149,43 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-blue-200/60 text-xs">
+        <div className="border-t border-white/10 pt-8 flex flex-col lg:flex-row items-center justify-between gap-6">
+          <p className="text-blue-200/60 text-xs order-3 lg:order-1">
             © {new Date().getFullYear()} GeoRankers. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+
+          {/* Recognized by — DPIIT + any listing that specifically asked for homepage
+              placement (Footer renders on every page, so this satisfies that). Every
+              badge gets the same neutral white plate regardless of its own native
+              design, so the row reads as one consistent shelf rather than mismatched
+              chips. */}
+          <div className="flex flex-wrap items-center justify-center gap-2 order-1 lg:order-2">
+            <span className="text-[10px] font-semibold text-white/40 uppercase tracking-wider mr-1">Recognized by</span>
+            <Link href="/recognition" className="inline-flex items-center justify-center bg-white rounded-md w-28 h-10 p-1">
+              <img src="/startup-india.png" alt="DPIIT Startup India" width={492} height={234} className="max-h-full max-w-full object-contain block" loading="lazy" />
+            </Link>
+            {LISTINGS.filter((l) => l.featuredBadge).map((listing) => (
+              <a
+                key={listing.name}
+                href={listing.href}
+                target="_blank"
+                rel="noopener"
+                aria-label={`GeoRankers on ${listing.name}`}
+                className="inline-flex items-center justify-center bg-white rounded-md w-28 h-10 p-1"
+              >
+                <img
+                  src={listing.badgeSrc}
+                  width={listing.badgeWidth}
+                  height={listing.badgeHeight}
+                  alt={`${listing.name} badge`}
+                  loading="lazy"
+                  className="max-h-full max-w-full object-contain block"
+                />
+              </a>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-6 order-2 lg:order-3">
             <Link href="/terms" className="text-blue-200/60 hover:text-white text-xs transition-colors">Terms of Service</Link>
             <Link href="/privacy" className="text-blue-200/60 hover:text-white text-xs transition-colors">Privacy Policy</Link>
           </div>

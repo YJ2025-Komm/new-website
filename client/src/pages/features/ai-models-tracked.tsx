@@ -238,9 +238,9 @@ const FAQS = [
 
 export default function AiModelsTracked() {
   useSEO({
-    title: "AI Models GeoRankers Tracks: ChatGPT, Google AI Search & Perplexity",
+    title: "AI Models GeoRankers Tracks — ChatGPT & Perplexity",
     description:
-      "See how GeoRankers tracks brand visibility across ChatGPT, Google AI Search, and Perplexity — retrieval methods, citation sources, and model-wise scoring explained.",
+      "See how GeoRankers tracks brand visibility across ChatGPT, Google AI Search, and Perplexity — retrieval methods, citations, and model-wise scoring explained.",
     canonical: "https://georankers.ai/features/ai-models-tracked",
     ogTitle: "How GeoRankers Tracks AI Models — ChatGPT, Google AI Search & Perplexity",
     ogDescription:

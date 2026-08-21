@@ -16,7 +16,7 @@ export default function GeoGlossary() {
   const [activeLetter, setActiveLetter] = useState<string | null>(null);
 
   useSEO({
-    title: "AI Search & GEO Glossary: Key Terms Explained | GeoRankers",
+    title: "AI Search & GEO Glossary: Key Terms | GeoRankers",
     description: GLOSSARY_META_DESCRIPTION,
     canonical: "https://georankers.ai/geo-glossary",
     ogTitle: "AI Search & GEO Glossary: Key Terms Explained",

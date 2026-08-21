@@ -194,7 +194,7 @@ export default function Features() {
   useSEO({
     title: "GeoRankers Features — AI Search Visibility Platform",
     description:
-      "Track how your brand appears in ChatGPT, Google AI Search, Gemini, and Perplexity. See citation share, competitor visibility, and prompt-level AI responses in one platform.",
+      "Track how your brand appears in ChatGPT, Google AI Search, Gemini, and Perplexity — citation share, competitor visibility, and AI responses in one platform.",
     canonical: "https://georankers.ai/features",
     ogTitle: "GeoRankers Features — AI Search Visibility Platform",
     ogDescription:
@@ -263,7 +263,7 @@ export default function Features() {
           </div>
           <div className="absolute bottom-10 sm:bottom-14 left-[10%] sm:left-[14%] animate-logo-drift" style={{ animationDelay: '4s' }}>
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center">
-              <img src="/grok-logo.png" alt="Grok" className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" style={{ filter: 'invert(1)' }} loading="lazy" />
+              <img src="/grok-logo.png" alt="Grok" width={500} height={465} className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" style={{ filter: 'invert(1)' }} loading="lazy" />
             </div>
           </div>
         </div>

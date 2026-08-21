@@ -14,6 +14,8 @@ export function MonoLogo({
   widthClass,
   fillClass = "bg-slate-400",
   zoom = false,
+  intrinsicWidth,
+  intrinsicHeight,
 }: {
   src: string;
   alt: string;
@@ -24,6 +26,10 @@ export function MonoLogo({
   /** Crops out empty padding in a source image by scaling it to cover a smaller fixed-width
    * box (anchored left) instead of shrinking the whole (mostly empty) image to fit. */
   zoom?: boolean;
+  /** Real source pixel dimensions — purely a CLS hint on the (opacity-0) <img>; the visible
+   * mono silhouette is sized entirely by heightClass/widthClass via the mask, unaffected. */
+  intrinsicWidth?: number;
+  intrinsicHeight?: number;
 }) {
   const maskStyle: CSSProperties = {
     WebkitMaskImage: `url(${src})`,
@@ -40,6 +46,8 @@ export function MonoLogo({
       <img
         src={src}
         alt={alt}
+        width={intrinsicWidth}
+        height={intrinsicHeight}
         className={`h-full ${widthClass ? "w-full" : "w-auto"} ${zoom ? "object-cover object-left" : "object-contain"} opacity-0`}
         loading="lazy"
       />
@@ -56,11 +64,11 @@ export function MonoLogo({
 // similar-weight logos sit adjacent, and the row closes on a bold mark instead of fading
 // out on the faintest one.
 const DESIGN_PARTNERS = [
-  { name: "MoEngage", src: "/partners/MoEngage.svg", heightClass: "h-5 sm:h-6", fillClass: "bg-slate-400" },
-  { name: "TeamLease", src: "/partners/teamlease-logo.png", fillClass: "bg-slate-500" },
-  { name: "SellerApp", src: "/partners/sellerapp.svg", heightClass: "h-5 sm:h-6", fillClass: "bg-slate-400" },
-  { name: "Kommunicate", src: "/partners/Kommunicate_Logo_dark_new.png", heightClass: "h-6 sm:h-8", fillClass: "bg-slate-400" },
-  { name: "Liminal", src: "/partners/liminal-logo.svg", heightClass: "h-5 sm:h-6", fillClass: "bg-slate-400" },
+  { name: "MoEngage", src: "/partners/MoEngage.svg", heightClass: "h-5 sm:h-6", fillClass: "bg-slate-400", w: 180, h: 28 },
+  { name: "TeamLease", src: "/partners/teamlease-logo.png", fillClass: "bg-slate-500", w: 1634, h: 522 },
+  { name: "SellerApp", src: "/partners/sellerapp.svg", heightClass: "h-5 sm:h-6", fillClass: "bg-slate-400", w: 136, h: 30 },
+  { name: "Kommunicate", src: "/partners/Kommunicate_Logo_dark_new.png", heightClass: "h-6 sm:h-8", fillClass: "bg-slate-400", w: 7255, h: 1884 },
+  { name: "Liminal", src: "/partners/liminal-logo.svg", heightClass: "h-5 sm:h-6", fillClass: "bg-slate-400", w: 197, h: 36 },
 ];
 
 /** "Design Partners" label + logo row, ready to drop into any page section. */
@@ -78,6 +86,8 @@ export function DesignPartnersRow({ className = "" }: { className?: string }) {
             alt={partner.name}
             fillClass={partner.fillClass}
             heightClass={partner.heightClass}
+            intrinsicWidth={partner.w}
+            intrinsicHeight={partner.h}
           />
         ))}
       </div>

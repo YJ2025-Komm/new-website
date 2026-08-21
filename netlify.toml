@@ -1,6 +1,6 @@
 [build]
   base = "client"
-  command = "npm install && node scripts/generate-sitemap.js && npx tsx scripts/generate-changelog-feed.ts && npx vite build && npx puppeteer browsers install chrome && node scripts/prerender.mjs && node scripts/indexnow.js"
+  command = "npm install && node scripts/generate-sitemap.js && npx tsx scripts/generate-changelog-feed.ts && npx vite build && npx puppeteer browsers install chrome && node scripts/prerender.mjs && node scripts/check-seo.mjs && node scripts/indexnow.js"
   publish = "dist"
 
 [build.environment]
