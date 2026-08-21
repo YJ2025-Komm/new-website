@@ -162,7 +162,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-2 order-1 lg:order-2">
             <span className="text-[10px] font-semibold text-white/40 uppercase tracking-wider mr-1">Recognized by</span>
             <Link href="/recognition" className="inline-flex items-center justify-center bg-white rounded-md w-28 h-10 p-1">
-              <img src="/startup-india.png" alt="DPIIT Startup India" className="max-h-full max-w-full object-contain block" loading="lazy" />
+              <img src="/startup-india.png" alt="DPIIT Startup India" width={492} height={234} className="max-h-full max-w-full object-contain block" loading="lazy" />
             </Link>
             {LISTINGS.filter((l) => l.featuredBadge).map((listing) => (
               <a
