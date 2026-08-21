@@ -11,7 +11,7 @@ export default function GeoGuide() {
   const [activeSection, setActiveSection] = useState('');
 
   useSEO({
-    title: "GEO Playbook 2026 — AI Search Optimization for B2B SaaS | GeoRankers",
+    title: "GEO Playbook 2026 — AI Search Optimization | GeoRankers",
     description:
       "Learn how to optimize for AI search visibility in 2026. GEO strategies for B2B SaaS teams to get cited in ChatGPT, Google AI Mode, Gemini, and Perplexity.",
     canonical: "https://georankers.ai/geo-guide",
@@ -714,6 +714,8 @@ export default function GeoGuide() {
               <img
                 src={aiAdoptionChart}
                 alt="Estimated Adoption of AI Search Among U.S. Adults (Millions) - A line graph showing growth from 13 million users in 2023 to projected 90 million users by 2027"
+                width={576}
+                height={409}
                 className="max-w-full h-auto rounded-lg shadow-md border border-gray-200"
                 loading="lazy"
               />
@@ -741,6 +743,8 @@ export default function GeoGuide() {
               <img
                 src={aiImpactChart}
                 alt="Impact of AI Overviews and Summaries on Search Traffic - A bar chart showing Zero-Click Searches at 60%, AI Overviews Share at 47%, and Traffic Reduction at 20%"
+                width={576}
+                height={396}
                 className="max-w-full h-auto rounded-lg shadow-md border border-gray-200"
                 loading="lazy"
               />
