@@ -19,6 +19,11 @@ export interface Listing {
   badgeHeight: number;
   href: string;
   profileUrl: string | null;
+  // Platforms that specifically asked for their badge on the homepage. Since
+  // Footer.tsx renders on every page, putting the badge there (next to DPIIT,
+  // in the bottom bar) satisfies that on the homepage without a dedicated
+  // homepage-only section. Full card still appears on /recognition regardless.
+  featuredBadge?: boolean;
 }
 
 export const LISTINGS: Listing[] = [
@@ -39,6 +44,7 @@ export const LISTINGS: Listing[] = [
     badgeHeight: 54,
     href: "https://startupfa.me/s/georankers",
     profileUrl: "https://startupfa.me/s/georankers",
+    featuredBadge: true,
   },
   {
     name: "Dang AI",
@@ -102,5 +108,6 @@ export const LISTINGS: Listing[] = [
     badgeHeight: 54,
     href: "https://acidtools.com",
     profileUrl: "https://acidtools.com/ai/georankers",
+    featuredBadge: true,
   },
 ];
