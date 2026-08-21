@@ -161,8 +161,8 @@ export default function Footer() {
               chips. */}
           <div className="flex flex-wrap items-center justify-center gap-2 order-1 lg:order-2">
             <span className="text-[10px] font-semibold text-white/40 uppercase tracking-wider mr-1">Recognized by</span>
-            <Link href="/recognition" className="inline-flex items-center bg-white rounded-md px-1.5 py-0.5">
-              <img src="/startup-india.png" alt="DPIIT Startup India" className="h-8 w-auto block" loading="lazy" />
+            <Link href="/recognition" className="inline-flex items-center justify-center bg-white rounded-md w-28 h-10 p-1">
+              <img src="/startup-india.png" alt="DPIIT Startup India" className="max-h-full max-w-full object-contain block" loading="lazy" />
             </Link>
             {LISTINGS.filter((l) => l.featuredBadge).map((listing) => (
               <a
@@ -171,7 +171,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener"
                 aria-label={`GeoRankers on ${listing.name}`}
-                className="inline-flex items-center bg-white rounded-md px-1.5 py-0.5"
+                className="inline-flex items-center justify-center bg-white rounded-md w-28 h-10 p-1"
               >
                 <img
                   src={listing.badgeSrc}
@@ -179,7 +179,7 @@ export default function Footer() {
                   height={listing.badgeHeight}
                   alt={`${listing.name} badge`}
                   loading="lazy"
-                  className="h-8 w-auto block"
+                  className="max-h-full max-w-full object-contain block"
                 />
               </a>
             ))}
