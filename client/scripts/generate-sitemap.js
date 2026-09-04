@@ -30,6 +30,7 @@ const mainPages = [
   { url: `${baseUrl}/changelog/june-2026-product-update`, priority: "0.5", changefreq: "monthly" },
   { url: `${baseUrl}/changelog/july-2026-product-update`, priority: "0.5", changefreq: "monthly" },
   { url: `${baseUrl}/changelog/august-2026-product-update`, priority: "0.5", changefreq: "monthly" },
+  { url: `${baseUrl}/changelog/september-2026-product-update`, priority: "0.5", changefreq: "monthly" },
   { url: `${baseUrl}/team`, priority: "0.7", changefreq: "monthly" },
   { url: `${baseUrl}/recognition`, priority: "0.6", changefreq: "monthly" },
   { url: `${baseUrl}/privacy`, priority: "0.4", changefreq: "yearly" },
