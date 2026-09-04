@@ -168,11 +168,12 @@ export const changelogEntries: ChangelogEntry[] = [
     imageAlt: "Content Hub showing Content Opportunities and Content Optimizer tools",
     intro: (
       <>
-        Here's what shipped in June 2026. This release introduces the Content Hub for turning AI
-        visibility gaps into ready-to-write content, a Raw Evidence Modal so every score on your
-        dashboard traces back to the literal AI response behind it, a guided Product Walkthrough for
-        new accounts, the Your Pages in AI Responses module, and GEO Agent — a chat assistant that
-        answers questions about your brand's AI visibility using your own tracked data.
+        Over the past month, we launched the Content Hub, turning AI visibility gaps into
+        ready-to-write content, added a Raw Evidence Modal so every score on your dashboard traces
+        back to the literal AI response behind it, introduced a guided Product Walkthrough for new
+        accounts, added the Your Pages in AI Responses module, and rolled out GEO Agent, a chat
+        assistant that answers questions about your brand's AI visibility using your own tracked
+        data.
       </>
     ),
     sections: [
@@ -312,11 +313,10 @@ export const changelogEntries: ChangelogEntry[] = [
     imageAlt: "Model-Wise Visibility breakdown showing mention rate and rank per AI platform",
     intro: (
       <>
-        Here's what shipped in July 2026. This release breaks your visibility data out per AI
-        model, automates prompt runs on a weekly cadence, surfaces Negative AI Framing with raw
-        evidence, flags your Highest Priority prompts to target, adds a standalone AI Readiness
-        Checker, brings Signal Tracker into Recommendations, and lets you invite teammates with
-        role-based access.
+        This past month brought a per-model breakdown of your visibility data, automated weekly
+        prompt runs, Negative AI Framing surfaced with raw evidence, Highest Priority prompts
+        flagged for you to target, a standalone AI Readiness Checker, Signal Tracker built into
+        Recommendations, and the ability to invite teammates with role-based access.
       </>
     ),
     sections: [
@@ -506,10 +506,10 @@ export const changelogEntries: ChangelogEntry[] = [
     imageAlt: "Trend KPI summary showing Period Start, Latest, and Best Visibility plus Current Sentiment",
     intro: (
       <>
-        Here's what shipped in August 2026. This release launches Trends — a run-over-run view of
-        how your visibility, models, competitors, sentiment, and citations change over time — adds
-        Perplexity as a tracked model, consolidates Google AI Mode and AI Overview into a single
-        Google AI Search platform, and adds on-demand runs so you can trigger a fresh analysis
+        Last month's biggest addition was Trends, giving you a run-over-run view of how your
+        visibility, models, competitors, sentiment, and citations change over time. We also added
+        Perplexity as a tracked model, consolidated Google AI Mode and AI Overview into a single
+        Google AI Search platform, and added on-demand runs so you can trigger a fresh analysis
         whenever you need one.
       </>
     ),
@@ -713,6 +713,182 @@ export const changelogEntries: ChangelogEntry[] = [
               </>
             }
           />
+        ),
+      },
+    ],
+    cta: { label: "Go to Dashboard", href: "https://dashboard.georankers.co/login" },
+  },
+  {
+    slug: "september-2026-product-update",
+    date: "2026-09-03",
+    title: "September 2026 Product Update",
+    cardHeadline: "New UI, Market & Country Grounding, and Reliability Fixes",
+    tags: ["Feature", "AI", "Improvement", "Fix"],
+    summary:
+      "A new sidebar navigation refreshes the look of every page in the app, Market & Country Grounding tailors your AI visibility results to a specific country, plus fixes to billing, comparative claims accuracy, onboarding access, and Trends/Results display.",
+    image: "/changelog/september-2026/new-sidebar-navigation.png",
+    imageAlt: "GeoRankers Overview page showing the new left sidebar with Dashboard, Trends, Performance Insights, and Action Center links",
+    intro: (
+      <>
+        We spent the past month redesigning the app around a new left-hand sidebar with a
+        refreshed look across every page, adding Market &amp; Country Grounding so your AI
+        visibility results reflect a specific country's questions and answers, and fixing issues
+        across billing, comparative claims accuracy, onboarding access, and Trends/Results
+        display.
+      </>
+    ),
+    sections: [
+      {
+        heading: "New Sidebar Navigation & Refreshed UI",
+        body: (
+          <>
+            <p className="mb-4">
+              GeoRankers has a new look, built around a left-hand sidebar and a single, consistent
+              design system across every page you use.
+            </p>
+
+            <TrendsFeature
+              heading="New Left Sidebar"
+              what="A left-hand sidebar for one-click access to Dashboard, Results, Trends, and Settings from anywhere in the app."
+              how={
+                <>
+                  Every page, including Dashboard, Onboarding, Billing, and all Results tabs
+                  (Overview, Trends, Prompts, Sources, Recommendations, Content Hub), shares a
+                  consistent, refreshed look, and chart colors on Overview and Trends have been
+                  updated to be easier to read.
+                </>
+              }
+              image={{ src: "/changelog/september-2026/new-sidebar-navigation.png", alt: "GeoRankers Overview page showing the new left sidebar with Dashboard, Trends, Performance Insights, and Action Center links", width: 1080, height: 915 }}
+            />
+            <TrendsFeature
+              heading="Rebuilt Product Tour"
+              what="The in-app guided product tour has been rebuilt around the new sidebar layout."
+              how={
+                <>
+                  Walks new users through Overview, Trends, Performance Insights, and Action
+                  Center using the new sidebar layout, so the tour matches what is on screen.
+                </>
+              }
+              image={{ src: "/changelog/september-2026/product-tour-rebuilt.png", alt: "Rebuilt in-app product tour tooltip guiding a user through the AI Perception panel under the new sidebar layout", width: 1894, height: 762 }}
+            />
+
+            <p className="mt-6">
+              <span className="font-semibold text-slate-900">How to use it:</span> Nothing to turn
+              on. It is just there when you log in. Use the sidebar to navigate the app.
+            </p>
+          </>
+        ),
+      },
+      {
+        heading: "Market & Country Grounding",
+        body: (
+          <>
+            <p className="mb-4">
+              Your AI visibility results can now be grounded to the market that matters to you.
+              This is not just a label on your results. The actual questions asked to ChatGPT,
+              Google AI, and Perplexity, and the AI responses you are scored against, are
+              tailored to that country, so what you see reflects how your brand actually shows up
+              to someone searching from that market.
+            </p>
+
+            <TrendsFeature
+              heading="Choose Your Market During Onboarding"
+              what="A target country you pick while setting up your brand."
+              how={
+                <>
+                  Search and select any country as part of onboarding. This becomes your default
+                  market for scheduled and future analysis runs.
+                </>
+              }
+              image={{ src: "/changelog/september-2026/country-selection-onboarding.png", alt: "Onboarding Target Market step showing a country search dropdown while setting up brand details", width: 1197, height: 744 }}
+            />
+            <TrendsFeature
+              heading="Change It Anytime from Tracking Set-up"
+              what="A way to update your target market later without redoing onboarding."
+              how={
+                <>
+                  Open Tracking Set-up and pick a new country. It applies to your next scheduled
+                  run (a one-time run override will not change this default).
+                </>
+              }
+              image={{ src: "/changelog/september-2026/country-tracking-setup.png", alt: "Target Market selector inside Tracking Set-up, defaulting scheduled and future analysis runs to United States", width: 1078, height: 483 }}
+            />
+            <TrendsFeature
+              heading="Switch Markets on Results"
+              what="A country selector in the Results header for flipping between markets you have analyzed."
+              how={
+                <>
+                  Each market shows only its own runs, for example United States vs. Worldwide,
+                  and Previous Analytics updates to match whichever you pick.
+                </>
+              }
+              image={{ src: "/changelog/september-2026/country-selector-results.png", alt: "Analytics market selector in the Results header, switching between United States and Worldwide runs", width: 1884, height: 261 }}
+            />
+            <TrendsFeature
+              heading="Per-Country Trends"
+              what="Run-over-run performance broken down separately for each country you track."
+              how={
+                <>
+                  Use the country selector alongside the date-range filter on Trends to compare
+                  how your visibility shifts market by market.
+                </>
+              }
+              image={{ src: "/changelog/september-2026/country-trends-breakdown.png", alt: "Trends page with a country selector alongside the date-range filter, showing per-country visibility KPIs", width: 1623, height: 388 }}
+            />
+
+            <p className="mt-6">
+              <span className="font-semibold text-slate-900">How to use it:</span> Set your
+              market once during onboarding, then adjust it anytime from Tracking Set-up, Results,
+              or Trends. Each view remembers the market you have selected.
+            </p>
+          </>
+        ),
+      },
+      {
+        heading: "Bug Fixes & Reliability",
+        body: (
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Billing</h3>
+              <p>
+                Some users ran into errors while entering payment details or renewing their plan,
+                sometimes leaving the payment stuck without confirming. Checkout and renewal now
+                complete reliably.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Comparative Claims Accuracy</h3>
+              <p>
+                When your brand had no visibility or was tied with a competitor, the AI would
+                sometimes still describe you as "ahead of" or "behind" them, a claim that was not
+                actually true. Comparisons like this are now only shown when there is real data to
+                back them up.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Onboarding Access</h3>
+              <p>
+                Users whose free trial expired before they finished setting up their product would
+                land on a blank page with no way forward. They are now taken to a screen that
+                explains what happened and how to continue.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Trends &amp; Results Display</h3>
+              <p>
+                On some Trends and Results tables, scrolling would cause the header row to overlap
+                with the data underneath, making it hard to read. Headers now stay fixed and
+                readable while you scroll.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">AI Assistant Responses</h3>
+              <p>
+                The in-app chat assistant would sometimes cut answers short or leave out relevant
+                detail. Responses are now more complete and useful.
+              </p>
+            </div>
+          </div>
         ),
       },
     ],
