@@ -116,6 +116,9 @@ export default function Footer() {
                 <Link href="/changelog" className="block text-white/80 hover:text-white text-sm transition-colors">
                   Changelog
                 </Link>
+                <Link href="/alternatives" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  Alternatives
+                </Link>
               </div>
             </div>
 
