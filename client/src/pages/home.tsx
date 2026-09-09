@@ -915,7 +915,48 @@ export default function Home() {
                   Book a Demo
                 </a>
               </div>
-              <p className="text-sm font-medium text-slate-400">No credit card required</p>
+              <p className="text-sm text-slate-400">7-Day Free Trial &middot; No credit card required</p>
+
+              {/* Product Hunt + PeerPush badges — official live embeds,
+                  shown plainly. Both badges already carry their own box/
+                  border, so no extra wrapper here (that created a
+                  double-border look). */}
+              <div className="flex flex-wrap items-center gap-3 mt-3">
+                <a
+                  href="https://www.producthunt.com/products/georankers/reviews?utm_source=badge-product_rating&utm_medium=badge&utm_source=badge-georankers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <img
+                    src="https://api.producthunt.com/widgets/embed-image/v1/product_rating.svg?product_id=1285731&theme=light"
+                    alt="GeoRankers rated 5.0 on Product Hunt"
+                    width={242}
+                    height={108}
+                    loading="lazy"
+                    className="h-11 w-auto object-contain"
+                  />
+                </a>
+                <a
+                  href="https://peerpush.com/p/georankers"
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-block"
+                >
+                  {/* Cropped locally to trim the excess right-side whitespace
+                      and the arrow icon from PeerPush's badge, with a fresh
+                      border redrawn on top so the box still closes cleanly.
+                      Content (icon, "Trending Now", wordmark) is untouched. */}
+                  <img
+                    src="/peerpush-badge.png"
+                    alt="GeoRankers on PeerPush"
+                    width={390}
+                    height={130}
+                    loading="lazy"
+                    className="h-11 w-auto object-contain"
+                  />
+                </a>
+              </div>
             </div>
 
             {/* Right col: Dashboard Carousel */}

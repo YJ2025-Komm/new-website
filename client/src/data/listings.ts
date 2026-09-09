@@ -108,6 +108,15 @@ export const LISTINGS: Listing[] = [
     badgeHeight: 54,
     href: "https://acidtools.com",
     profileUrl: "https://acidtools.com/ai/georankers",
+  },
+  {
+    name: "Product Hunt",
+    description: "A launch platform where new products are discovered, discussed, and followed by early adopters and the tech community.",
+    badgeSrc: "https://api.producthunt.com/widgets/embed-image/v1/follow.svg?product_id=1285731&theme=light",
+    badgeWidth: 250,
+    badgeHeight: 54,
+    href: "https://www.producthunt.com/products/georankers?utm_source=badge-follow&utm_medium=badge&utm_source=badge-georankers",
+    profileUrl: "https://www.producthunt.com/products/georankers",
     featuredBadge: true,
   },
 ];
