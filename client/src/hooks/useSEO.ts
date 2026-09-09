@@ -5,11 +5,11 @@ const BASE_URL = 'https://georankers.ai';
 const HOMEPAGE_DEFAULTS = {
   title: 'GeoRankers - AI Search Intelligence Platform for B2B SaaS Companies',
   description:
-    'GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build brand authority to get visible in AI search across ChatGPT, Gemini, Perplexity, and Claude.',
+    'GeoRankers is the definitive AI search optimization platform that helps B2B SaaS companies track, optimize, and build brand authority to get visible in AI search across ChatGPT, Google AI Search, and Perplexity.',
   canonical: `${BASE_URL}/`,
   ogTitle: 'GeoRankers - AI Search Intelligence Platform',
   ogDescription:
-    'The definitive AI search optimization platform for B2B SaaS companies. Track and optimize your brand visibility across ChatGPT, Gemini, Perplexity, and Claude.',
+    'The definitive AI search optimization platform for B2B SaaS companies. Track and optimize your brand visibility across ChatGPT, Google AI Search, and Perplexity.',
   ogUrl: `${BASE_URL}/`,
 };
 

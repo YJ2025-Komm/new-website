@@ -8,7 +8,7 @@ GeoRankers is a B2B SaaS platform that helps marketing teams and founders measur
 
 ## The Problem GeoRankers Solves
 
-Buyers no longer browse links — they ask AI for vendor recommendations. AI answers summarize entire product categories, compare multiple vendors instantly, and decide which brands get considered before prospects ever visit a website. Most B2B SaaS brands are invisible in these answers and don't know it.
+Buyers no longer browse links — they ask AI for vendor recommendations. AI answers summarize entire product categories, compare multiple vendors instantly, and decide which brands get considered before prospects ever visit a website. Most B2B SaaS brands are invisible in these answers and do not know it.
 
 Three core pain points:
 - Missing from high-intent prompts where purchase decisions are made
@@ -20,17 +20,23 @@ Three core pain points:
 ### 1. AI Visibility Intelligence
 Unified visibility scoring across ChatGPT, Google AI Search, and Perplexity. Tracks whether your brand appears, where it ranks, how often AI models recommend you, and how sentiment is described. Includes AI Visibility Score, position tracking (Top / Mid / Low), brand mention frequency, and model-wise performance breakdown.
 
-### 2. Competitive AI Benchmarking
+### 2. AI Competitor Benchmarking
 Discover the exact queries where competitors get recommended instead of you. Provides share of voice across AI responses, mention distribution by keyword cluster, intent-based competitive analysis, and cross-model comparison.
 
-### 3. Prompt Intelligence Engine
+### 3. Prompt Intelligence
 Tracks real prompts AI is answering in your category and monitors whether your brand is included. Covers Discovery, Use Case, and Trust intent. Maps keywords to prompts and logs brand mention detection per AI model.
 
-### 4. AI Authority Optimization Engine
+### 4. Prioritized Recommendations & Signal Tracking
 Converts AI visibility gaps into prioritized, high-impact execution plans. Each recommendation is tagged by effort vs. impact (High / Medium / Quick Win) with content authority suggestions and success signal tracking.
 
-### 5. GEO Agent (Dashboard Intelligence Chatbot)
+### 5. Content Hub
+Turns AI visibility gaps into ready-to-write content. Identifies content opportunities across blogs, guides, and webpages, generates content outlines based on visibility and competitive gaps, and analyzes existing content for AI-search suitability with specific optimization recommendations.
+
+### 6. GEO Agent (AI Assistant)
 An always-on AI strategist inside the GeoRankers dashboard. Answers natural language questions about your visibility data, surfaces competitive gaps on demand, and helps prioritize content strategy.
+
+### 7. Country-Specific AI Tracking
+Runs AI visibility analysis grounded to a specific country, so brand, competitor, citation, and recommendation results reflect how AI models answer in that market. Supports comparing visibility trends across multiple countries over time.
 
 ## AI Platforms Tracked
 
@@ -49,6 +55,7 @@ Coming soon:
 For early teams starting to measure AI visibility.
 - 450+ AI Answers Analyzed, Keyword Recommendations
 - Tracks ChatGPT, Google AI Search, Perplexity
+- Country-Specific AI Tracking
 - 5 Competitors Tracked, 1 Seat
 - Weekly scheduled runs + 1 on-demand run/month
 - 10 GEO Agent conversations/user/day
@@ -60,6 +67,7 @@ For early teams starting to measure AI visibility.
 For growth teams optimizing AI category position.
 - 1,100+ AI Answers Analyzed, Keyword Recommendations
 - Tracks ChatGPT, Google AI Search, Perplexity
+- Country-Specific AI Tracking
 - 10 Competitors Tracked, 3 Seats
 - Weekly scheduled runs + 3 on-demand runs/month
 - 20 GEO Agent conversations/user/day
@@ -71,14 +79,16 @@ For growth teams optimizing AI category position.
 **Enterprise — Custom pricing**
 For teams making AI visibility a strategic KPI.
 - Custom AI answers analyzed, competitors, seats, scheduled/on-demand runs, and history; Keyword Recommendations
+- Country-Specific AI Tracking
 - Report export; Google Analytics & Search Console integrations (roadmap)
 - Agent-Ready API (MCP-compatible) — roadmap
 - Dedicated account manager
 - 4-hour support response
 
 All plans include: brand mention monitoring, keyword search volume, AI recommendations, visibility
-dashboard, competitor tracking, sources tracking, AI reading checker, AI sentiment tracking, and content
-hub. No credit card required. Cancel anytime. Extra GEO Agent conversations billed at $0.01/conversation.
+dashboard, competitor tracking, sources tracking, AI reading checker, AI sentiment tracking, Content Hub,
+Model-Wise Visibility, Signal Tracker, Raw Evidence Modal, and Custom Prompt Tracking. No
+credit card required. Cancel anytime. Extra GEO Agent conversations billed at $0.01/conversation.
 
 ## Team
 
@@ -100,6 +110,12 @@ hub. No credit card required. Cancel anytime. Extra GEO Agent conversations bill
 - [Free Tools – GEO Audit](https://georankers.ai/free-geo-tools/geo-audit)
 - [Free Tools – Visibility Score](https://georankers.ai/free-geo-tools/visibility-score)
 - [Changelog (Monthly Product Release Notes)](https://georankers.ai/changelog)
+- [Alternatives (Best AI Search Visibility Tool Alternatives)](https://georankers.ai/alternatives)
+- [Best Otterly.AI Alternatives](https://georankers.ai/alternatives/otterly-ai)
+- [Best Rankshift Alternatives](https://georankers.ai/alternatives/rankshift)
+- [Best Peec AI Alternatives](https://georankers.ai/alternatives/peec-ai)
+- [Best Profound Alternatives](https://georankers.ai/alternatives/profound)
+- [Best Scrunch AI Alternatives](https://georankers.ai/alternatives/scrunch-ai)
 - [Recognition (Directory Listings & Badges)](https://georankers.ai/recognition)
 - [Blog](https://blog.georankers.ai)
 - [Dashboard (sign up)](https://dashboard.georankers.co/register)
@@ -111,4 +127,4 @@ hub. No credit card required. Cancel anytime. Extra GEO Agent conversations bill
 - [Robots](https://georankers.ai/robots.txt)
 - [Changelog Feed (JSON)](https://georankers.ai/changelog.json)
 
-Last updated: August 18, 2026
+Last updated: September 10, 2026

@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NotFound from "@/pages/not-found";
 import { alternativesEntries, truncateForMeta } from "@/data/alternatives";
+import { ORG_ID } from "@/data/organization";
 
 function slugify(name: string) {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -37,13 +38,8 @@ export default function AlternativesEntry() {
           "image": "https://georankers.ai/og-image.png",
           "datePublished": entry.publishedDate,
           "dateModified": entry.publishedDate,
-          "author": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.ai" },
-          "publisher": {
-            "@type": "Organization",
-            "name": "GeoRankers",
-            "url": "https://georankers.ai",
-            "logo": { "@type": "ImageObject", "url": "https://georankers.ai/og-image.png" },
-          },
+          "author": { "@id": ORG_ID },
+          "publisher": { "@id": ORG_ID },
           "mainEntityOfPage": { "@type": "WebPage", "@id": canonical },
         }
       : undefined,
@@ -344,6 +340,14 @@ export default function AlternativesEntry() {
                       </div>
                     </div>
                   )}
+
+                  {option.name === "GeoRankers" && (
+                    <p className="mt-4">
+                      <Link href="/features" className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline underline-offset-2">
+                        See the full GeoRankers feature breakdown <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </p>
+                  )}
                 </div>
               ))}
             </section>
@@ -482,7 +486,7 @@ export default function AlternativesEntry() {
               {entry.ctaHeading ?? "See how GeoRankers tracks your AI search visibility"}
             </h2>
             <p className="text-white/80 mb-6 max-w-lg mx-auto">
-              Track brand visibility, competitors, citations and sentiment across ChatGPT, Gemini, and Perplexity.
+              Track brand visibility, competitors, citations and sentiment across ChatGPT, Google AI Search, and Perplexity.
             </p>
             <a
               href="https://dashboard.georankers.co/register"

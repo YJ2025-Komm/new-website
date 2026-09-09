@@ -94,7 +94,7 @@ function AlternativeCard({ entry, accent }: { entry: AlternativeEntry; accent: t
 }
 
 const ALTERNATIVES_META_DESCRIPTION =
-  "The best alternatives to popular AI search visibility and GEO tools, so you can pick the right platform for tracking your brand in ChatGPT, Gemini, Perplexity, and Claude.";
+  "The best alternatives to popular AI search visibility and GEO tools, so you can pick the right platform for your brand in ChatGPT, Google AI Search, and Perplexity.";
 
 export default function Alternatives() {
   useSEO({
@@ -179,8 +179,8 @@ export default function Alternatives() {
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
               A factual look at the best alternatives to other AI search visibility and GEO tools,
-              so you can choose the right platform for tracking your brand across ChatGPT, Gemini,
-              Perplexity, and Claude.
+              so you can choose the right platform for tracking your brand across ChatGPT, Google AI Search,
+              and Perplexity.
             </p>
           </div>
         </section>
@@ -224,6 +224,11 @@ export default function Alternatives() {
                 </div>
               ))}
             </div>
+            <p className="text-center mt-8">
+              <Link href="/pricing" className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline underline-offset-2">
+                See GeoRankers pricing and plans <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </p>
           </div>
         </section>
 
@@ -236,7 +241,7 @@ export default function Alternatives() {
               See how GeoRankers tracks your AI search visibility
             </h2>
             <p className="text-white/80 mb-6 max-w-lg mx-auto">
-              Track brand visibility, competitors, citations and sentiment across ChatGPT, Gemini, and Perplexity.
+              Track brand visibility, competitors, citations and sentiment across ChatGPT, Google AI Search, and Perplexity.
             </p>
             <a
               href="https://dashboard.georankers.co/register"

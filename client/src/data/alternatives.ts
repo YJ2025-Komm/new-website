@@ -446,7 +446,7 @@ export const alternativesEntries: AlternativeEntry[] = [
         name: "Ahrefs",
         bestFor: "SEO teams that want broad AI visibility intelligence backed by a large search and web dataset",
         website: "https://ahrefs.com/",
-        screenshot: { src: "/alternatives/ahrefs.png", width: 781, height: 492, alt: "Ahrefs Brand Radar dashboard" },
+        screenshot: { src: "/alternatives/ahrefs.png", width: 1369, height: 892, alt: "Ahrefs Brand Radar dashboard" },
         keyPoints: ["Large AI visibility prompt database", "Strong search-demand and backlink intelligence", "AI visibility connected with broader web and SEO data"],
         body: [
           "Ahrefs approaches AI visibility through Brand Radar.",
@@ -622,7 +622,7 @@ export const alternativesEntries: AlternativeEntry[] = [
         name: "Ahrefs",
         bestFor: "SEO teams that want AI visibility backed by strong search, backlink and web intelligence",
         website: "https://ahrefs.com/",
-        screenshot: { src: "/alternatives/ahrefs.png", width: 781, height: 492, alt: "Ahrefs Brand Radar dashboard" },
+        screenshot: { src: "/alternatives/ahrefs.png", width: 1369, height: 892, alt: "Ahrefs Brand Radar dashboard" },
         keyPoints: ["Strong backlink and search intelligence", "AI visibility connected with broader web data", "Useful for large-scale brand and competitor discovery"],
         body: [
           "Ahrefs extends its established SEO dataset into AI visibility through Brand Radar and AI prompt tracking.",

@@ -14,6 +14,8 @@ import {
   X,
   ArrowRight,
   Rocket,
+  Globe,
+  FileText,
 } from "lucide-react";
 import { SiOpenai, SiGooglegemini, SiPerplexity, SiClaude } from "react-icons/si";
 import Navbar from "@/components/Navbar";
@@ -52,7 +54,7 @@ function IntelligenceLoopSection() {
     {
       label: "Multi Model Capture",
       shortLabel: "Multi Model\nCapture",
-      description: "Track how ChatGPT, Gemini, Perplexity, and other assistants surface your brand.",
+      description: "Track how ChatGPT, Google AI Search, and Perplexity surface your brand.",
       startAngle: -18,
       endAngle: 54,
     },
@@ -194,11 +196,11 @@ export default function Features() {
   useSEO({
     title: "GeoRankers Features — AI Search Visibility Platform",
     description:
-      "Track how your brand appears in ChatGPT, Google AI Search, Gemini, and Perplexity — citation share, competitor visibility, and AI responses in one platform.",
+      "Track how your brand appears in ChatGPT, Google AI Search, and Perplexity — citation share, competitor visibility, and AI responses in one platform.",
     canonical: "https://georankers.ai/features",
     ogTitle: "GeoRankers Features — AI Search Visibility Platform",
     ogDescription:
-      "Track how your brand appears in ChatGPT, Google AI Search, Gemini, and Perplexity. See citation share, competitor visibility, and prompt-level AI responses in one platform.",
+      "Track how your brand appears in ChatGPT, Google AI Search, and Perplexity. See citation share, competitor visibility, and prompt-level AI responses in one platform.",
     ogUrl: "https://georankers.ai/features",
     schemaId: "features-schema",
     schema: {
@@ -208,16 +210,18 @@ export default function Features() {
       "url": "https://georankers.ai/features",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
-      "description": "GeoRankers is an AI search visibility platform (GEO tool) for B2B SaaS marketers, SEO teams, and agencies. It tracks brand mentions, citation share, and competitive positioning across ChatGPT, Google AI Search, Gemini, and Perplexity — and provides actionable recommendations to improve AI search presence.",
+      "description": "GeoRankers is an AI search visibility platform (GEO tool) for B2B SaaS marketers, SEO teams, and agencies. It tracks brand mentions, citation share, and competitive positioning across ChatGPT, Google AI Search, and Perplexity — and provides actionable recommendations to improve AI search presence.",
       "featureList": [
-        "AI brand visibility tracking across ChatGPT, Google AI Search, Gemini, and Perplexity",
+        "AI brand visibility tracking across ChatGPT, Google AI Search, and Perplexity",
         "Prompt-level AI response monitoring",
         "Citation share and mention rate analysis",
         "Competitor AI visibility benchmarking",
         "Content gap identification for AI search",
         "AI visibility scoring",
         "Buyer-intent prompt simulation",
-        "Prescriptive action recommendations"
+        "Prescriptive action recommendations",
+        "Content Hub for AI-search content optimization",
+        "Country-specific AI visibility tracking"
       ],
       "offers": {
         "@type": "Offer",
@@ -444,7 +448,7 @@ export default function Features() {
                       </div>
                       <div className="text-center p-3 bg-gradient-to-br from-purple-500/10 to-violet-500/10 rounded-lg border border-purple-500/20">
                         <div className="text-lg font-black text-purple-600">Mid</div>
-                        <div className="text-xs text-slate-500">Gemini</div>
+                        <div className="text-xs text-slate-500">Google AI Search</div>
                       </div>
                       <div className="text-center p-3 bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-lg border border-orange-500/20">
                         <div className="text-lg font-black text-orange-600">Top</div>
@@ -465,7 +469,7 @@ export default function Features() {
             </CardContent>
           </Card>
 
-          {/* Feature 2: Competitive AI Benchmarking — Image Left */}
+          {/* Feature 2: AI Competitor Benchmarking — Image Left */}
           <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
@@ -517,7 +521,7 @@ export default function Features() {
                           <div className="text-sm font-black text-blue-600">#1</div>
                         </div>
                         <div className="p-2 bg-purple-50 rounded-lg">
-                          <div className="text-xs text-slate-500">Gemini</div>
+                          <div className="text-xs text-slate-500">Google AI Search</div>
                           <div className="text-sm font-black text-purple-600">#2</div>
                         </div>
                         <div className="p-2 bg-orange-50 rounded-lg">
@@ -533,13 +537,13 @@ export default function Features() {
                     <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-pink-500 rounded-[1.5rem] flex items-center justify-center mr-4">
                       <BarChart3 className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Competitive AI Benchmarking</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">AI Competitor Benchmarking</h3>
                   </div>
                   <p className="text-lg font-medium text-slate-600 mb-2">
                     Discover the Exact Queries Where Competitors Get Recommended Instead of You
                   </p>
                   <p className="text-base text-slate-500 mb-6 leading-relaxed">
-                    Understand which competitors AI models prefer and where you're losing authority.
+                    Understand which competitors AI models prefer and where you are losing authority.
                   </p>
                   <ul className="space-y-3">
                     <li className="flex items-start">
@@ -568,7 +572,7 @@ export default function Features() {
             </CardContent>
           </Card>
 
-          {/* Feature 3: Prompt Intelligence Engine — Image Right */}
+          {/* Feature 3: Prompt Intelligence — Image Right */}
           <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
@@ -577,7 +581,7 @@ export default function Features() {
                     <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-red-500 rounded-[1.5rem] flex items-center justify-center mr-4">
                       <MessageSquare className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Prompt Intelligence Engine</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Prompt Intelligence</h3>
                   </div>
                   <p className="text-lg font-medium text-slate-600 mb-2">
                     Discover the Exact Queries Where Competitors Get Recommended Instead of You
@@ -615,7 +619,7 @@ export default function Features() {
                       <div className="text-sm font-medium text-slate-800 mb-2">"Best CRM for B2B startups"</div>
                       <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full flex items-center"><Check className="w-3 h-3 mr-1" />ChatGPT</span>
-                        <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full flex items-center"><Check className="w-3 h-3 mr-1" />Gemini</span>
+                        <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full flex items-center"><Check className="w-3 h-3 mr-1" />Google AI Search</span>
                         <span className="text-xs px-2 py-1 bg-red-100 text-red-600 rounded-full flex items-center"><X className="w-3 h-3 mr-1" />Perplexity</span>
                       </div>
                     </div>
@@ -623,7 +627,7 @@ export default function Features() {
                       <div className="text-sm font-medium text-slate-800 mb-2">"Top marketing automation tools 2025"</div>
                       <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full flex items-center"><Check className="w-3 h-3 mr-1" />ChatGPT</span>
-                        <span className="text-xs px-2 py-1 bg-red-100 text-red-600 rounded-full flex items-center"><X className="w-3 h-3 mr-1" />Gemini</span>
+                        <span className="text-xs px-2 py-1 bg-red-100 text-red-600 rounded-full flex items-center"><X className="w-3 h-3 mr-1" />Google AI Search</span>
                         <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full flex items-center"><Check className="w-3 h-3 mr-1" />Perplexity</span>
                       </div>
                     </div>
@@ -631,7 +635,7 @@ export default function Features() {
                       <div className="text-sm font-medium text-slate-800 mb-2">"Which SaaS has best integrations"</div>
                       <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-xs px-2 py-1 bg-red-100 text-red-600 rounded-full flex items-center"><X className="w-3 h-3 mr-1" />ChatGPT</span>
-                        <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full flex items-center"><Check className="w-3 h-3 mr-1" />Gemini</span>
+                        <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full flex items-center"><Check className="w-3 h-3 mr-1" />Google AI Search</span>
                         <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full flex items-center"><Check className="w-3 h-3 mr-1" />Perplexity</span>
                       </div>
                     </div>
@@ -641,7 +645,7 @@ export default function Features() {
             </CardContent>
           </Card>
 
-          {/* Feature 4: AI Authority Optimization Engine — Image Left */}
+          {/* Feature 4: Prioritized Recommendations & Signal Tracking — Image Left */}
           <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
@@ -694,7 +698,7 @@ export default function Features() {
                     <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-[1.5rem] flex items-center justify-center mr-4">
                       <Zap className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">AI Authority Optimization Engine</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Prioritized Recommendations & Signal Tracking</h3>
                   </div>
                   <p className="text-lg font-medium text-slate-600 mb-2">
                     Get Prioritized Actions to Earn a Spot in AI Recommendations
@@ -729,16 +733,90 @@ export default function Features() {
             </CardContent>
           </Card>
 
-          {/* Feature 5: Dashboard Intelligence Chatbot — Image Right */}
+          {/* Feature 5: Content Hub — Image Right */}
           <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div>
                   <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-[1.5rem] flex items-center justify-center mr-4">
+                      <FileText className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Content Hub</h3>
+                  </div>
+                  <p className="text-lg font-medium text-slate-600 mb-2">
+                    Turn AI Visibility Gaps Into Better Content
+                  </p>
+                  <p className="text-base text-slate-500 mb-6 leading-relaxed">
+                    Use your AI-search data to identify what content to create next and improve the content you already have. Content Hub connects visibility gaps with actionable content opportunities, then helps you optimize existing pages for stronger AI-search relevance.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-orange-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Identify content opportunities across blogs, guides, webpages, and other formats</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-orange-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Generate detailed content outlines based on visibility and competitive gaps</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-orange-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Analyze existing content for AI-search suitability</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-orange-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">See where content may be weak, incomplete, or difficult for AI engines to use</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-orange-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Get specific optimization recommendations to improve AI-search visibility</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="glass-strong rounded-2xl p-6">
+                  <h4 className="font-bold mb-4 text-slate-900">Content Opportunities</h4>
+                  <div className="space-y-3">
+                    <div className="p-3 bg-white/60 rounded-lg border border-slate-200/50">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-sm font-medium text-slate-800">"Best AI visibility tools for SaaS"</span>
+                        <span className="text-xs text-red-600 bg-red-100 px-2 py-1 rounded-full whitespace-nowrap">Content Gap</span>
+                      </div>
+                      <span className="text-xs text-slate-500">No page currently covers this topic</span>
+                    </div>
+                    <div className="p-3 bg-white/60 rounded-lg border border-slate-200/50">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-sm font-medium text-slate-800">Pricing Page</span>
+                        <span className="text-xs text-yellow-700 bg-yellow-100 px-2 py-1 rounded-full whitespace-nowrap">Needs Optimization</span>
+                      </div>
+                      <span className="text-xs text-slate-500">Missing structured FAQ for AI citation</span>
+                    </div>
+                    <div className="p-3 bg-white/60 rounded-lg border border-slate-200/50">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-sm font-medium text-slate-800">Integrations Guide</span>
+                        <span className="text-xs text-green-700 bg-green-100 px-2 py-1 rounded-full whitespace-nowrap">Strong</span>
+                      </div>
+                      <span className="text-xs text-slate-500">Well cited across ChatGPT and Perplexity</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 p-3 bg-orange-50 rounded-lg border border-orange-200/50 flex items-center">
+                    <CheckCircle className="w-4 h-4 text-orange-500 mr-2 flex-shrink-0" />
+                    <span className="text-xs text-orange-700">12 content opportunities identified this month</span>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Feature 6: GEO Agent (AI Assistant) — Image Left */}
+          <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
+            <CardContent className="pt-0">
+              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+                <div className="order-1 lg:order-2">
+                  <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-[1.5rem] flex items-center justify-center mr-4">
                       <Bot className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Dashboard Intelligence Chatbot</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">GEO Agent (AI Assistant)</h3>
                   </div>
                   <p className="text-lg font-medium text-slate-600 mb-2">
                     Ask Anything About Your AI Visibility
@@ -769,7 +847,7 @@ export default function Features() {
                     </li>
                   </ul>
                 </div>
-                <div className="glass-strong rounded-2xl p-6">
+                <div className="order-2 lg:order-1 glass-strong rounded-2xl p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <Bot className="w-5 h-5 text-cyan-500" />
                     <h4 className="font-bold text-slate-900">GeoRankers AI</h4>
@@ -778,12 +856,12 @@ export default function Features() {
                   <div className="space-y-3 mb-4">
                     <div className="flex justify-end">
                       <div className="bg-gradient-to-r from-blue-500 to-violet-500 text-white text-sm px-4 py-2.5 rounded-2xl rounded-br-sm max-w-[85%]">
-                        Why is our visibility dropping on Gemini this week?
+                        Why is our visibility dropping on Google AI Search this week?
                       </div>
                     </div>
                     <div className="flex justify-start">
                       <div className="bg-white/80 border border-slate-200/50 text-slate-700 text-sm px-4 py-2.5 rounded-2xl rounded-bl-sm max-w-[85%]">
-                        Your Gemini visibility dropped 12% due to Competitor A publishing 3 new comparison pages. I recommend creating a detailed feature comparison and updating your integrations page.
+                        Your Google AI Search visibility dropped 12% due to Competitor A publishing 3 new comparison pages. I recommend creating a detailed feature comparison and updating your integrations page.
                       </div>
                     </div>
                     <div className="flex justify-end">
@@ -803,6 +881,109 @@ export default function Features() {
                       <Send className="w-4 h-4 text-white" />
                     </div>
                   </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Feature 7: Country-Specific AI Tracking — Image Right */}
+          <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
+            <CardContent className="pt-0">
+              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+                <div className="order-2">
+                  <div className="glass-strong rounded-2xl p-6">
+                    <h4 className="font-bold mb-4 text-slate-900">AI Visibility by Country</h4>
+                    <div className="space-y-3">
+                      <div>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-sm text-slate-700 flex items-center gap-1.5"><img src="/flags/us.png" srcSet="/flags/us@2x.png 2x" width={20} height={15} alt="" className="rounded-sm" loading="lazy" /> United States</span>
+                          <span className="text-sm font-black text-blue-600">74</span>
+                        </div>
+                        <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full" style={{width: '74%'}}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-sm text-slate-700 flex items-center gap-1.5"><img src="/flags/gb.png" srcSet="/flags/gb@2x.png 2x" width={20} height={15} alt="" className="rounded-sm" loading="lazy" /> United Kingdom</span>
+                          <span className="text-sm font-black text-indigo-600">61</span>
+                        </div>
+                        <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="h-full bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full" style={{width: '61%'}}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-sm text-slate-700 flex items-center gap-1.5"><img src="/flags/in.png" srcSet="/flags/in@2x.png 2x" width={20} height={15} alt="" className="rounded-sm" loading="lazy" /> India</span>
+                          <span className="text-sm font-black text-violet-600">52</span>
+                        </div>
+                        <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="h-full bg-gradient-to-r from-violet-500 to-purple-500 rounded-full" style={{width: '52%'}}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-sm text-slate-700 flex items-center gap-1.5"><img src="/flags/de.png" srcSet="/flags/de@2x.png 2x" width={20} height={15} alt="" className="rounded-sm" loading="lazy" /> Germany</span>
+                          <span className="text-sm font-black text-slate-500">45</span>
+                        </div>
+                        <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="h-full bg-slate-300 rounded-full" style={{width: '45%'}}></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-4 border-t border-slate-200/50">
+                      <div className="grid grid-cols-3 gap-2 text-center">
+                        <div className="p-2 bg-blue-50 rounded-lg">
+                          <div className="text-xs text-slate-500">ChatGPT</div>
+                          <div className="text-sm font-black text-blue-600 flex items-center justify-center gap-1"><img src="/flags/us.png" srcSet="/flags/us@2x.png 2x" width={20} height={15} alt="" className="rounded-sm" loading="lazy" /> US</div>
+                        </div>
+                        <div className="p-2 bg-purple-50 rounded-lg">
+                          <div className="text-xs text-slate-500">Google AI Search</div>
+                          <div className="text-sm font-black text-purple-600 flex items-center justify-center gap-1"><img src="/flags/gb.png" srcSet="/flags/gb@2x.png 2x" width={20} height={15} alt="" className="rounded-sm" loading="lazy" /> UK</div>
+                        </div>
+                        <div className="p-2 bg-orange-50 rounded-lg">
+                          <div className="text-xs text-slate-500">Perplexity</div>
+                          <div className="text-sm font-black text-orange-600 flex items-center justify-center gap-1"><img src="/flags/in.png" srcSet="/flags/in@2x.png 2x" width={20} height={15} alt="" className="rounded-sm" loading="lazy" /> IN</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="order-1">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-[1.5rem] flex items-center justify-center mr-4">
+                      <Globe className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Country-Specific AI Tracking</h3>
+                  </div>
+                  <p className="text-lg font-medium text-slate-600 mb-2">
+                    See How Your Brand Appears Across Markets
+                  </p>
+                  <p className="text-base text-slate-500 mb-6 leading-relaxed">
+                    Track AI visibility with responses grounded to the country you care about. Compare how your brand, competitors, citations, and recommendations change across different markets.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-indigo-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Country-grounded AI responses</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-indigo-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Market-specific brand visibility tracking</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-indigo-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Competitor performance by country</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-indigo-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Country-level citation and source analysis</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-indigo-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">Compare visibility trends across markets</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </CardContent>
