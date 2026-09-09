@@ -386,7 +386,7 @@ export default function Features() {
             Everything You Need to Win in AI Search
           </h2>
 
-          {/* Feature 1: AI Visibility Intelligence â€” Image Right */}
+          {/* Feature 1: AI Visibility Intelligence — Image Right */}
           <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
@@ -465,13 +465,13 @@ export default function Features() {
             </CardContent>
           </Card>
 
-          {/* Feature 2: Competitive AI Benchmarking â€” Image Left */}
+          {/* Feature 2: Competitive AI Benchmarking — Image Left */}
           <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <div className="order-2 lg:order-1">
                   <div className="glass-strong rounded-2xl p-6">
-                    <h4 className="font-bold mb-4 text-slate-900">Share of Voice â€” AI Responses</h4>
+                    <h4 className="font-bold mb-4 text-slate-900">Share of Voice in AI Responses</h4>
                     <div className="space-y-3">
                       <div>
                         <div className="flex items-center justify-between mb-1">
@@ -568,7 +568,7 @@ export default function Features() {
             </CardContent>
           </Card>
 
-          {/* Feature 3: Prompt Intelligence Engine â€” Image Right */}
+          {/* Feature 3: Prompt Intelligence Engine — Image Right */}
           <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
@@ -641,7 +641,7 @@ export default function Features() {
             </CardContent>
           </Card>
 
-          {/* Feature 4: AI Authority Optimization Engine â€” Image Left */}
+          {/* Feature 4: AI Authority Optimization Engine — Image Left */}
           <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
@@ -656,7 +656,7 @@ export default function Features() {
                         </div>
                         <div className="flex items-center gap-2 mt-2">
                           <span className="text-xs text-slate-500">Effort: Medium</span>
-                          <span className="text-xs text-slate-400">â€¢</span>
+                          <span className="text-xs text-slate-400">&bull;</span>
                           <span className="text-xs text-slate-500">Impact: High</span>
                         </div>
                       </div>
@@ -667,7 +667,7 @@ export default function Features() {
                         </div>
                         <div className="flex items-center gap-2 mt-2">
                           <span className="text-xs text-slate-500">Effort: Low</span>
-                          <span className="text-xs text-slate-400">â€¢</span>
+                          <span className="text-xs text-slate-400">&bull;</span>
                           <span className="text-xs text-slate-500">Impact: Medium</span>
                         </div>
                       </div>
@@ -678,7 +678,7 @@ export default function Features() {
                         </div>
                         <div className="flex items-center gap-2 mt-2">
                           <span className="text-xs text-slate-500">Effort: High</span>
-                          <span className="text-xs text-slate-400">â€¢</span>
+                          <span className="text-xs text-slate-400">&bull;</span>
                           <span className="text-xs text-slate-500">Impact: High</span>
                         </div>
                       </div>
@@ -729,7 +729,7 @@ export default function Features() {
             </CardContent>
           </Card>
 
-          {/* Feature 5: Dashboard Intelligence Chatbot â€” Image Right */}
+          {/* Feature 5: Dashboard Intelligence Chatbot — Image Right */}
           <Card className="glass rounded-[2.5rem] p-4 sm:p-8 lg:p-10 mb-6 sm:mb-8 border-0">
             <CardContent className="pt-0">
               <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
@@ -744,7 +744,7 @@ export default function Features() {
                     Ask Anything About Your AI Visibility
                   </p>
                   <p className="text-base text-slate-500 mb-6 leading-relaxed">
-                    Your always-on AI strategist inside the dashboard. Ask questions about your data, get instant optimization ideas, and uncover hidden insights â€” all through a simple chat interface.
+                    Your always-on AI strategist inside the dashboard. Ask questions about your data, get instant optimization ideas, and uncover hidden insights, all through a simple chat interface.
                   </p>
                   <ul className="space-y-3">
                     <li className="flex items-start">
