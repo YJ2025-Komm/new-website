@@ -94,6 +94,22 @@ export default function Footer() {
               </div>
             </div>
 
+            {/* Free GEO Tools */}
+            <div>
+              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Free GEO Tools</p>
+              <div className="space-y-3">
+                <Link href="/free-geo-tools/brand-visibility" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  AI Brand Snapshot
+                </Link>
+                <Link href="/free-geo-tools/geo-audit" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  GEO Content Audit
+                </Link>
+                <Link href="/free-geo-tools/visibility-score" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  AI Query Opportunities
+                </Link>
+              </div>
+            </div>
+
             {/* Resources */}
             <div>
               <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Resources</p>
@@ -117,23 +133,7 @@ export default function Footer() {
                   Changelog
                 </Link>
                 <Link href="/alternatives" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  Alternatives
-                </Link>
-              </div>
-            </div>
-
-            {/* Free GEO Tools */}
-            <div>
-              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Free GEO Tools</p>
-              <div className="space-y-3">
-                <Link href="/free-geo-tools/brand-visibility" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  AI Brand Snapshot
-                </Link>
-                <Link href="/free-geo-tools/geo-audit" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  GEO Content Audit
-                </Link>
-                <Link href="/free-geo-tools/visibility-score" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  AI Query Opportunities
+                  AI Search Monitoring Alternatives
                 </Link>
               </div>
             </div>
