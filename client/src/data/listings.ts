@@ -117,6 +117,5 @@ export const LISTINGS: Listing[] = [
     badgeHeight: 54,
     href: "https://www.producthunt.com/products/georankers?utm_source=badge-follow&utm_medium=badge&utm_source=badge-georankers",
     profileUrl: "https://www.producthunt.com/products/georankers",
-    featuredBadge: true,
   },
 ];

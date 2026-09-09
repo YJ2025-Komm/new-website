@@ -159,14 +159,20 @@ export default function Footer() {
 
           {/* Recognized by — DPIIT + any listing that specifically asked for homepage
               placement (Footer renders on every page, so this satisfies that). Every
-              badge gets the same neutral white plate at the original w-28 box size;
-              Product Hunt alone gets a wider box (its badge is a much wider 250x54
-              aspect ratio than the others, so w-28 was squeezing it down small). */}
+              badge gets the same neutral white plate regardless of its own native
+              design, so the row reads as one consistent shelf rather than mismatched
+              chips. */}
           <div className="flex flex-wrap items-center justify-center gap-2 order-1 lg:order-2">
             <span className="text-[10px] font-semibold text-white/40 uppercase tracking-wider mr-1">Recognized by</span>
-            <Link href="/recognition" className="inline-flex items-center justify-center bg-white rounded-md w-28 h-10 p-1">
+            <a
+              href="https://www.startupindia.gov.in/content/sih/en/profile.Startup.69d7a72de4b086835f217c4b.html"
+              target="_blank"
+              rel="noopener"
+              aria-label="GeoRankers on Startup India"
+              className="inline-flex items-center justify-center bg-white rounded-md w-28 h-10 p-1"
+            >
               <img src="/startup-india.png" alt="DPIIT Startup India" width={492} height={234} className="max-h-full max-w-full object-contain block" loading="lazy" />
-            </Link>
+            </a>
             {LISTINGS.filter((l) => l.featuredBadge).map((listing) => (
               <a
                 key={listing.name}
@@ -174,7 +180,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener"
                 aria-label={`GeoRankers on ${listing.name}`}
-                className={`inline-flex items-center justify-center bg-white rounded-md h-10 p-1 ${listing.name === "Product Hunt" ? "w-40" : "w-28"}`}
+                className="inline-flex items-center justify-center bg-white rounded-md w-28 h-10 p-1"
               >
                 <img
                   src={listing.badgeSrc}
