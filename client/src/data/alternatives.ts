@@ -334,7 +334,7 @@ export const alternativesEntries: AlternativeEntry[] = [
     summary:
       "Compare GeoRankers, Rankshift, Otterly.AI, Profound, Semrush and Ahrefs as alternatives to Peec AI, with pricing and feature breakdowns for each.",
     publishedDate: "2026-09-08",
-    highlights: ["Built around B2B buyer-intent analysis", "Analytics-grounded impact and effort prioritization", "Raw-response transparency and Signal Tracker"],
+    highlights: ["Recommendation context on competitor wins", "B2B decision-journey workflow", "Signal Tracker verifies post-action improvement"],
 
     overview: [
       "Peec AI has grown into a broad AI search analytics platform. It combines visibility and competitor monitoring with Brand Perception, prompt and intent analysis, citation intelligence, source classification, optimization Actions, Agent Analytics and multi-country capabilities.",
@@ -717,7 +717,7 @@ export const alternativesEntries: AlternativeEntry[] = [
     summary:
       "Compare GeoRankers, Scrunch AI, AthenaHQ, Conductor, Amplitude and Evertune as alternatives to Profound, with pricing and feature breakdowns for each.",
     publishedDate: "2026-09-08",
-    highlights: ["Built for growing B2B SaaS and growth teams", "Analytics-grounded recommendations prioritized by impact and effort", "Raw-response transparency and Signal Tracker"],
+    highlights: ["Model-wise, buyer-intent visibility breakdown", "Diagnosis-to-action workflow, no enterprise complexity", "Signal Tracker without the full AEO stack"],
 
     overview: [
       "Profound is one of the more comprehensive platforms in AI search optimization. It combines AI visibility measurement, real-user prompt intelligence, crawler and referral analytics, page-level analysis, and automated execution workflows.",
@@ -919,7 +919,7 @@ export const alternativesEntries: AlternativeEntry[] = [
     summary:
       "Compare GeoRankers, Profound, AthenaHQ, Conductor, Bluefish AI and AirOps as alternatives to Scrunch AI, with pricing and feature breakdowns for each.",
     publishedDate: "2026-09-08",
-    highlights: ["Designed for growing B2B SaaS and growth teams", "Analytics-grounded impact and effort prioritization", "Raw-response verification and Signal Tracker"],
+    highlights: ["Analytics-first alternative to agent-experience tooling", "Prioritized actions without agent infrastructure", "Transparent post-action tracking"],
 
     overview: [
       "Scrunch AI combines AI-search monitoring with a distinctive infrastructure approach. Its platform tracks brand presence, competitors, citations, sentiment, sources, site readiness, and AI-agent traffic, while its Enterprise offering adds the Agent Experience Platform, or AXP.",

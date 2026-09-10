@@ -133,7 +133,7 @@ export default function Footer() {
                   Changelog
                 </Link>
                 <Link href="/alternatives" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  AI Search Monitoring Tools Alternatives
+                  Alternatives to AI Visibility Tools
                 </Link>
               </div>
             </div>
