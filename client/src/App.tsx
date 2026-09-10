@@ -15,6 +15,8 @@ import Terms from "@/pages/terms";
 import Help from "@/pages/help";
 import Changelog from "@/pages/changelog";
 import ChangelogEntry from "@/pages/changelog-entry";
+import Alternatives from "@/pages/alternatives";
+import AlternativesEntry from "@/pages/alternatives-entry";
 import NotFound from "@/pages/not-found";
 import Team from "@/pages/team";
 import Recognition from "@/pages/recognition";
@@ -38,6 +40,8 @@ function Router() {
       <Route path="/help" component={Help} />
       <Route path="/changelog" component={Changelog} />
       <Route path="/changelog/:slug" component={ChangelogEntry} />
+      <Route path="/alternatives" component={Alternatives} />
+      <Route path="/alternatives/:slug" component={AlternativesEntry} />
       <Route path="/team" component={Team} />
       <Route path="/recognition" component={Recognition} />
       <Route path="/free-geo-tools/brand-visibility" component={BrandVisibilityPage} />

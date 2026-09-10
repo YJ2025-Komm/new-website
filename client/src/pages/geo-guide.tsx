@@ -13,7 +13,7 @@ export default function GeoGuide() {
   useSEO({
     title: "GEO Playbook 2026 — AI Search Optimization | GeoRankers",
     description:
-      "Learn how to optimize for AI search visibility in 2026. GEO strategies for B2B SaaS teams to get cited in ChatGPT, Google AI Mode, Gemini, and Perplexity.",
+      "Learn how to optimize for AI search visibility in 2026. GEO strategies for B2B SaaS teams to get cited in ChatGPT, Google AI Search, and Perplexity.",
     canonical: "https://georankers.ai/geo-guide",
     ogTitle: "The Complete GEO Playbook — Master AI Search Optimization",
     ogDescription:
@@ -24,7 +24,7 @@ export default function GeoGuide() {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "The Complete GEO Playbook — Master AI Search Optimization for B2B & SaaS",
-      "description": "Master Generative Engine Optimization (GEO) with our complete strategic guide. Learn proven tactics to optimize your B2B and SaaS brand visibility in ChatGPT, Gemini, Perplexity, and Claude AI search results.",
+      "description": "Master Generative Engine Optimization (GEO) with our complete strategic guide. Learn proven tactics to optimize your B2B and SaaS brand visibility in ChatGPT, Google AI Search, and Perplexity AI search results.",
       "image": { "@type": "ImageObject", "url": "https://georankers.ai/og-image.png", "width": 1200, "height": 630 },
       "inLanguage": "en-US",
       "author": { "@type": "Organization", "name": "GeoRankers", "url": "https://georankers.ai" },
@@ -40,13 +40,13 @@ export default function GeoGuide() {
       "articleSection": "AI Search Marketing",
       "keywords": [
         "GEO", "generative engine optimization", "AI search optimization",
-        "ChatGPT visibility", "Gemini SEO", "Perplexity SEO",
+        "ChatGPT visibility", "Google AI Search visibility", "Perplexity SEO",
         "B2B AI marketing", "SaaS content strategy", "AI citation",
         "LLM visibility", "AI search ranking", "GEO vs SEO",
         "zero click search", "AI Overviews optimization",
       ],
       "about": [
-        { "@type": "Thing", "name": "Generative Engine Optimization", "description": "The practice of optimizing brand presence and content to appear in AI-generated answers across ChatGPT, Gemini, and Perplexity" },
+        { "@type": "Thing", "name": "Generative Engine Optimization", "description": "The practice of optimizing brand presence and content to appear in AI-generated answers across ChatGPT, Google AI Search, and Perplexity" },
         { "@type": "Thing", "name": "AI Search Marketing", "description": "Marketing strategies focused on earning citations in AI-generated responses across large language models and generative search platforms" },
         { "@type": "Thing", "name": "Zero Click Search", "description": "Search queries that are fully answered on the results page without the user clicking through to a website, increasingly common with AI Overviews" },
       ],
@@ -111,8 +111,8 @@ export default function GeoGuide() {
         { "@type": "Question", "name": "How do I measure my brand's AI search visibility?", "acceptedAnswer": { "@type": "Answer", "text": "Manual testing — searching your category queries across ChatGPT, Gemini, and Perplexity — provides a direct baseline. Note whether your brand is mentioned, how it is described, and which sources are cited. For systematic ongoing tracking, platforms like GeoRankers monitor your citation share across AI platforms automatically, showing how models describe your brand and which content is driving or blocking citations. Traditional SEO metrics like organic traffic do not capture AI citation activity, so dedicated GEO measurement is needed." } },
         { "@type": "Question", "name": "What content changes have the biggest impact on AI citation rates?", "acceptedAnswer": { "@type": "Answer", "text": "Research consistently identifies named statistics with sourced attribution (+22% AI visibility, Aggarwal et al. 2024), direct quotations from credible named sources (+37% citation rate), and structured formats like tables (2.5x citation rate vs unstructured text, Onely 2025) as the highest-impact changes. Front-loading specific claims in the first 30% of content is also critical — 44.2% of all AI citations come from the opening third of an article (Growth Memo). AI systems retrieve at the passage level, so every section should be self-contained and extractable." } },
         { "@type": "Question", "name": "How long does it take to see GEO results?", "acceptedAnswer": { "@type": "Answer", "text": "GEO operates on two timelines. Training data changes are slow — LLMs retrain on cycles spanning months, so content published today may not influence a model's static knowledge for some time. Real-time retrieval is faster: platforms like Perplexity and ChatGPT's browse mode actively index and cite content within days of publication. Research shows that 76.4% of ChatGPT's most-cited pages were updated within the last 30 days (Digitaloft, 2025), meaning freshness is a continuously-scored signal rather than a one-time win." } },
-        { "@type": "Question", "name": "How do I optimize for AI search visibility?", "acceptedAnswer": { "@type": "Answer", "text": "In 2026, AI search optimization requires four parallel workstreams: (1) Structure your content so AI systems can extract clean, self-contained passages — use headers, bullet points, and FAQs. (2) Build topical authority by publishing research-backed content with named statistics and cited sources. (3) Expand your brand footprint across third-party sources — review platforms, community forums, and industry publications that AI models draw from. (4) Monitor your citation share across ChatGPT, Google AI Mode, and Gemini so you can measure what is working and adjust. Content freshness matters — pages updated in the last 30 days are disproportionately cited." } },
-        { "@type": "Question", "name": "What is citation share?", "acceptedAnswer": { "@type": "Answer", "text": "Citation share is the percentage of AI-generated responses in your category that include a mention of your brand. If ten AI answers are generated about 'AI search tools' and your brand appears in four of them, your citation share is 40%. It is the primary GEO performance metric — the AI equivalent of share of voice. Citation share varies by platform, query type, and competitor activity, which is why tracking it systematically across ChatGPT, Google AI Mode, and Gemini is essential." } },
+        { "@type": "Question", "name": "How do I optimize for AI search visibility?", "acceptedAnswer": { "@type": "Answer", "text": "In 2026, AI search optimization requires four parallel workstreams: (1) Structure your content so AI systems can extract clean, self-contained passages — use headers, bullet points, and FAQs. (2) Build topical authority by publishing research-backed content with named statistics and cited sources. (3) Expand your brand footprint across third-party sources — review platforms, community forums, and industry publications that AI models draw from. (4) Monitor your citation share across ChatGPT, Google AI Search, and Perplexity so you can measure what is working and adjust. Content freshness matters — pages updated in the last 30 days are disproportionately cited." } },
+        { "@type": "Question", "name": "What is citation share?", "acceptedAnswer": { "@type": "Answer", "text": "Citation share is the percentage of AI-generated responses in your category that include a mention of your brand. If ten AI answers are generated about 'AI search tools' and your brand appears in four of them, your citation share is 40%. It is the primary GEO performance metric — the AI equivalent of share of voice. Citation share varies by platform, query type, and competitor activity, which is why tracking it systematically across ChatGPT, Google AI Search, and Perplexity is essential." } },
         { "@type": "Question", "name": "How do I get my brand cited in ChatGPT and Google AI answers?", "acceptedAnswer": { "@type": "Answer", "text": "Getting cited in ChatGPT and Google AI answers requires three things: presence, structure, and authority. Presence means your brand is mentioned across sources that AI models draw from — your website, third-party reviews, community discussions, and industry publications. Structure means your content is formatted so AI systems can extract clean passages — clear definitions, numbered lists, FAQ sections, and schema markup all help. Authority means your content is cited by others and your domain has established trust signals. Named statistics and direct quotes from credible sources increase citation rates by 22–37% (Aggarwal et al., 2024)." } },
       ],
     });
@@ -242,7 +242,7 @@ export default function GeoGuide() {
                       <span className="font-semibold text-green-600">+40%</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-600">Gemini</span>
+                      <span className="text-gray-600">Google AI Search</span>
                       <span className="font-semibold text-blue-600">+35%</span>
                     </div>
                     <div className="flex justify-between text-sm">
@@ -671,7 +671,7 @@ export default function GeoGuide() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Tracking and Feedback Loops</h3>
             <p className="mb-6">
               Regularly test AI assistants with queries relevant to your category. Note whether and how your brand is mentioned and which sources the models cite. Adjust your content strategy based on what you observe. Traditional SEO tools like Ahrefs and Semrush track rankings and backlinks but do not reliably show how ChatGPT or Gemini describe your brand in synthesized answers — that requires dedicated GEO monitoring.{' '}
-              <Link href="/features" className="text-blue-600 hover:text-blue-800 underline">GeoRankers tracks your citation share across ChatGPT, Gemini, and Perplexity</Link>{' '}
+              <Link href="/features" className="text-blue-600 hover:text-blue-800 underline">GeoRankers tracks your citation share across ChatGPT, Google AI Search, and Perplexity</Link>{' '}
               automatically, so you can see which content is working, which queries your brand appears in, and how models describe you — updated daily.
             </p>
 
@@ -1145,7 +1145,7 @@ export default function GeoGuide() {
             <p className="mb-6">
               For teams that need systematic tracking at scale,{' '}
               <Link href="/features" className="text-blue-600 hover:text-blue-800 underline">GeoRankers</Link>{' '}
-              automates this process — monitoring citation share across ChatGPT, Gemini, and Perplexity daily, so you always have a current picture of where your brand stands in AI-generated answers.
+              automates this process — monitoring citation share across ChatGPT, Google AI Search, and Perplexity daily, so you always have a current picture of where your brand stands in AI-generated answers.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Ask for Reviews and Testimonials</h3>
@@ -1201,7 +1201,7 @@ export default function GeoGuide() {
             <div className="absolute bottom-0 right-0 w-56 h-56 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
             <div className="relative z-10">
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Put These Best Practices to Work</h3>
-              <p className="text-white/80 mb-6 max-w-xl mx-auto">GeoRankers tracks your brand across ChatGPT, Gemini, and Perplexity — so you always know where you stand and what to do next.</p>
+              <p className="text-white/80 mb-6 max-w-xl mx-auto">GeoRankers tracks your brand across ChatGPT, Google AI Search, and Perplexity — so you always know where you stand and what to do next.</p>
               <a href="https://dashboard.georankers.co/register" className="inline-flex items-center bg-white text-blue-700 hover:bg-blue-50 px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
                 <Rocket className="w-4 h-4 mr-2" />
                 Try for Free
@@ -1524,11 +1524,11 @@ export default function GeoGuide() {
               },
               {
                 q: 'How do I optimize for AI search visibility?',
-                a: 'In 2026, AI search optimization requires four parallel workstreams: (1) Structure your content so AI systems can extract clean, self-contained passages — use headers, bullet points, and FAQs. (2) Build topical authority by publishing research-backed content with named statistics and cited sources. (3) Expand your brand footprint across third-party sources — review platforms, community forums, and industry publications that AI models draw from. (4) Monitor your citation share across ChatGPT, Google AI Mode, and Gemini so you can measure what is working and adjust. Content freshness matters — pages updated in the last 30 days are disproportionately cited.',
+                a: 'In 2026, AI search optimization requires four parallel workstreams: (1) Structure your content so AI systems can extract clean, self-contained passages — use headers, bullet points, and FAQs. (2) Build topical authority by publishing research-backed content with named statistics and cited sources. (3) Expand your brand footprint across third-party sources — review platforms, community forums, and industry publications that AI models draw from. (4) Monitor your citation share across ChatGPT, Google AI Search, and Perplexity so you can measure what is working and adjust. Content freshness matters — pages updated in the last 30 days are disproportionately cited.',
               },
               {
                 q: 'What is citation share?',
-                a: 'Citation share is the percentage of AI-generated responses in your category that include a mention of your brand. If ten AI answers are generated about "AI search tools" and your brand appears in four of them, your citation share is 40%. It is the primary GEO performance metric — the AI equivalent of share of voice. Citation share varies by platform, query type, and competitor activity, which is why tracking it systematically across ChatGPT, Google AI Mode, and Gemini is essential rather than relying on manual spot checks.',
+                a: 'Citation share is the percentage of AI-generated responses in your category that include a mention of your brand. If ten AI answers are generated about "AI search tools" and your brand appears in four of them, your citation share is 40%. It is the primary GEO performance metric — the AI equivalent of share of voice. Citation share varies by platform, query type, and competitor activity, which is why tracking it systematically across ChatGPT, Google AI Search, and Perplexity is essential rather than relying on manual spot checks.',
               },
               {
                 q: 'How do I get my brand cited in ChatGPT and Google AI answers?',
@@ -1571,7 +1571,7 @@ export default function GeoGuide() {
                     <a href="https://blog.georankers.ai/how-to-optimize-content-for-ai-overviews-aio-in-2026/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
                       How to Optimize Content for Google AI Overviews (AIO) in 2026
                     </a>
-                    <p className="text-sm text-gray-500 mt-0.5">Tactical guide to structuring content for Gemini's AI Overviews — the fastest-growing citation surface for brand-owned domains.</p>
+                    <p className="text-sm text-gray-500 mt-0.5">Tactical guide to structuring content for Google's AI Overviews — the fastest-growing citation surface for brand-owned domains.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">

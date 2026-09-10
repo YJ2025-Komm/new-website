@@ -462,11 +462,11 @@ export default function Home() {
   useSEO({
     title: "GeoRankers — AI Search Intelligence Platform for B2B SaaS",
     description:
-      "GeoRankers helps B2B SaaS companies track and optimize brand visibility across ChatGPT and Gemini — the AI search intelligence platform.",
+      "GeoRankers helps B2B SaaS companies track and optimize brand visibility across ChatGPT and Google AI Search — the AI search intelligence platform.",
     canonical: "https://georankers.ai/",
     ogTitle: "GeoRankers — AI Search Intelligence Platform",
     ogDescription:
-      "Track, optimize, and build brand authority to get visible in AI search across ChatGPT and Gemini.",
+      "Track, optimize, and build brand authority to get visible in AI search across ChatGPT and Google AI Search.",
     ogUrl: "https://georankers.ai/",
   });
 
@@ -569,7 +569,7 @@ export default function Home() {
     {
       question: "What is AI search optimization and why do I need it?",
       answer:
-        "AI search optimization ensures your brand appears when users ask AI models like ChatGPT, Gemini, or Claude for recommendations in your industry. Unlike traditional SEO that targets Google, AI search optimization focuses on how large language models surface and recommend content. As more people use AI for discovery and decision-making, being invisible in AI results means losing potential customers to competitors.",
+        "AI search optimization ensures your brand appears when users ask AI models like ChatGPT, Google AI Search, or Perplexity for recommendations in your industry. Unlike traditional SEO that targets Google, AI search optimization focuses on how large language models surface and recommend content. As more people use AI for discovery and decision-making, being invisible in AI results means losing potential customers to competitors.",
     },
     {
       question: "How is AI search different from Google SEO?",
@@ -754,7 +754,7 @@ export default function Home() {
           "name": "What is GeoRankers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "GeoRankers is an AI search optimization platform specifically designed for B2B and SaaS companies. We help brands track, analyze, and improve their visibility in AI-generated search results across platforms like ChatGPT, Google Gemini, Perplexity, and Claude. Unlike traditional SEO tools, we focus on how AI models understand and recommend your brand."
+            "text": "GeoRankers is an AI search optimization platform specifically designed for B2B and SaaS companies. We help brands track, analyze, and improve their visibility in AI-generated search results across platforms like ChatGPT, Google AI Search, and Perplexity. Unlike traditional SEO tools, we focus on how AI models understand and recommend your brand."
           }
         },
         {
@@ -770,7 +770,7 @@ export default function Home() {
           "name": "Which AI platforms does GeoRankers monitor?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "GeoRankers tracks brand visibility across major AI platforms including ChatGPT, Google Gemini, Perplexity, Claude, and other leading AI models. We monitor how often your brand appears in AI-generated responses, the context of mentions, and your competitive positioning across these platforms."
+            "text": "GeoRankers tracks brand visibility across major AI platforms including ChatGPT, Google AI Search, and Perplexity. We monitor how often your brand appears in AI-generated responses, the context of mentions, and your competitive positioning across these platforms."
           }
         },
         {
@@ -892,7 +892,7 @@ export default function Home() {
 
               {/* Sub-headline */}
               <p className="text-base sm:text-lg font-normal text-slate-600 mb-7 leading-relaxed">
-                GeoRankers is the AI search visibility platform that fixes that — tracking your brand across ChatGPT, Google AI Search, Gemini, and Perplexity so you know exactly where you stand and what to do.
+                GeoRankers is the AI search visibility platform that fixes that — tracking your brand across ChatGPT, Google AI Search, and Perplexity so you know exactly where you stand and what to do.
               </p>
 
               {/* CTAs */}
@@ -915,7 +915,48 @@ export default function Home() {
                   Book a Demo
                 </a>
               </div>
-              <p className="text-sm font-medium text-slate-400">No credit card required</p>
+              <p className="text-sm text-slate-400">7-Day Free Trial &middot; No credit card required</p>
+
+              {/* Product Hunt + PeerPush badges — custom-built to a shared
+                  220x64 card template (same box size, same icon-left/
+                  three-text-row layout) so the pair reads as one designed
+                  set instead of two mismatched third-party embeds. Ratings/
+                  copy are static, not live-updating — refresh manually if
+                  the Product Hunt review count or PeerPush status changes. */}
+              <div className="flex flex-wrap items-center gap-4 mt-5">
+                <a
+                  href="https://www.producthunt.com/products/georankers/reviews?utm_source=badge-product_rating&utm_medium=badge&utm_source=badge-georankers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <img
+                    src="/producthunt-badge.png"
+                    srcSet="/producthunt-badge@2x.png 2x"
+                    alt="GeoRankers rated 5.0 on Product Hunt"
+                    width={220}
+                    height={64}
+                    loading="lazy"
+                    className="h-14 w-auto object-contain"
+                  />
+                </a>
+                <a
+                  href="https://peerpush.com/p/georankers"
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-block"
+                >
+                  <img
+                    src="/peerpush-badge-v2.png"
+                    srcSet="/peerpush-badge-v2@2x.png 2x"
+                    alt="GeoRankers featured on PeerPush"
+                    width={220}
+                    height={64}
+                    loading="lazy"
+                    className="h-14 w-auto object-contain"
+                  />
+                </a>
+              </div>
             </div>
 
             {/* Right col: Dashboard Carousel */}
@@ -936,7 +977,7 @@ export default function Home() {
               <p className="text-white font-bold text-lg sm:text-xl leading-snug">
                 Your buyers are asking AI — <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">is your brand in the answer?</span>
               </p>
-              <p className="text-slate-400 text-sm mt-1">Track AI visibility across ChatGPT, Gemini, and Perplexity in one dashboard.</p>
+              <p className="text-slate-400 text-sm mt-1">Track AI visibility across ChatGPT, Google AI Search, and Perplexity in one dashboard.</p>
             </div>
             <div className="flex items-center gap-3 flex-shrink-0">
               <a href="https://dashboard.georankers.co/register" className="gradient-cta text-white px-5 py-2.5 rounded-xl font-black text-sm hover:opacity-90 transition-all whitespace-nowrap">Try for Free</a>
@@ -1102,7 +1143,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-stretch gap-0">
             {[
               { num: "01", title: "Simulate buyer queries", desc: "We model discovery, comparison, pricing, and trust prompts across your category." },
-              { num: "02", title: "Capture AI responses", desc: "Track how platforms like ChatGPT, Gemini, and Perplexity present your category." },
+              { num: "02", title: "Capture AI responses", desc: "Track how platforms like ChatGPT, Google AI Search, and Perplexity present your category." },
               { num: "03", title: "Identify gaps and actions", desc: "Highlight where your brand is missing and what needs to improve." },
             ].map((step, i) => (
               <>
@@ -1216,7 +1257,7 @@ export default function Home() {
               <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI Search Insights</span>
             </h2>
             <p className="text-lg sm:text-xl font-medium text-slate-600 max-w-3xl mx-auto">
-              Discover proven strategies and frameworks to dominate AI search across ChatGPT, Gemini, and Perplexity
+              Discover proven strategies and frameworks to dominate AI search across ChatGPT, Google AI Search, and Perplexity
             </p>
           </div>
 

@@ -39,6 +39,9 @@ export const ORGANIZATION_SCHEMA = {
     "https://www.linkedin.com/company/georankers/",
     "https://x.com/georankers",
     "https://www.facebook.com/people/GeoRankers/61588912087425/",
+    "https://www.startupindia.gov.in/content/sih/en/profile.Startup.69d7a72de4b086835f217c4b.html",
+    "https://www.producthunt.com/products/georankers",
+    "https://peerpush.com/p/georankers",
   ],
   "contactPoint": {
     "@type": "ContactPoint",

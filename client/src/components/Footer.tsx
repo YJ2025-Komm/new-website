@@ -94,6 +94,22 @@ export default function Footer() {
               </div>
             </div>
 
+            {/* Free GEO Tools */}
+            <div>
+              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Free GEO Tools</p>
+              <div className="space-y-3">
+                <Link href="/free-geo-tools/brand-visibility" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  AI Brand Snapshot
+                </Link>
+                <Link href="/free-geo-tools/geo-audit" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  GEO Content Audit
+                </Link>
+                <Link href="/free-geo-tools/visibility-score" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  AI Query Opportunities
+                </Link>
+              </div>
+            </div>
+
             {/* Resources */}
             <div>
               <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Resources</p>
@@ -116,21 +132,8 @@ export default function Footer() {
                 <Link href="/changelog" className="block text-white/80 hover:text-white text-sm transition-colors">
                   Changelog
                 </Link>
-              </div>
-            </div>
-
-            {/* Free GEO Tools */}
-            <div>
-              <p className="text-xs font-black text-blue-200/70 uppercase tracking-widest mb-4">Free GEO Tools</p>
-              <div className="space-y-3">
-                <Link href="/free-geo-tools/brand-visibility" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  AI Brand Snapshot
-                </Link>
-                <Link href="/free-geo-tools/geo-audit" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  GEO Content Audit
-                </Link>
-                <Link href="/free-geo-tools/visibility-score" className="block text-white/80 hover:text-white text-sm transition-colors">
-                  AI Query Opportunities
+                <Link href="/alternatives" className="block text-white/80 hover:text-white text-sm transition-colors">
+                  Alternatives to AI Visibility Tools
                 </Link>
               </div>
             </div>
@@ -161,9 +164,15 @@ export default function Footer() {
               chips. */}
           <div className="flex flex-wrap items-center justify-center gap-2 order-1 lg:order-2">
             <span className="text-[10px] font-semibold text-white/40 uppercase tracking-wider mr-1">Recognized by</span>
-            <Link href="/recognition" className="inline-flex items-center justify-center bg-white rounded-md w-28 h-10 p-1">
+            <a
+              href="https://www.startupindia.gov.in/content/sih/en/profile.Startup.69d7a72de4b086835f217c4b.html"
+              target="_blank"
+              rel="noopener"
+              aria-label="GeoRankers on Startup India"
+              className="inline-flex items-center justify-center bg-white rounded-md w-28 h-10 p-1"
+            >
               <img src="/startup-india.png" alt="DPIIT Startup India" width={492} height={234} className="max-h-full max-w-full object-contain block" loading="lazy" />
-            </Link>
+            </a>
             {LISTINGS.filter((l) => l.featuredBadge).map((listing) => (
               <a
                 key={listing.name}

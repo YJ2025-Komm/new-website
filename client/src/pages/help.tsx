@@ -16,7 +16,7 @@ const sections: { id: string; icon: typeof BookOpen; color: string; title: strin
     items: [
       {
         q: "What is GeoRankers?",
-        a: "GeoRankers measures how visible your brand is in AI-generated search results — across platforms like ChatGPT, Gemini, and Google AI Search. It shows you where you appear, where you don't, and what to do about it.",
+        a: "GeoRankers measures how visible your brand is in AI-generated search results — across platforms like ChatGPT, Google AI Search, and Perplexity. It shows you where you appear, where you don't, and what to do about it.",
       },
       {
         q: "Who is GeoRankers for?",
@@ -101,7 +101,7 @@ const sections: { id: string; icon: typeof BookOpen; color: string; title: strin
       },
       {
         q: "Why does my score differ across AI platforms?",
-        a: "Each AI platform has its own training data, sources, and ranking logic. You may appear consistently on Gemini but be absent from ChatGPT entirely. The LLM Visibility table in the Overview tab breaks this down per platform.",
+        a: "Each AI platform has its own training data, sources, and ranking logic. You may appear consistently on Google AI Search but be absent from ChatGPT entirely. The LLM Visibility table in the Overview tab breaks this down per platform.",
       },
       {
         q: "What are T1, T2, and T3 mentions?",
@@ -413,7 +413,7 @@ export default function Help() {
           "name": "What is GeoRankers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "GeoRankers measures how visible your brand is in AI-generated search results — across platforms like ChatGPT, Gemini, and Google AI Search. It shows you where you appear, where you don't, and what to do about it.",
+            "text": "GeoRankers measures how visible your brand is in AI-generated search results — across platforms like ChatGPT, Google AI Search, and Perplexity. It shows you where you appear, where you don't, and what to do about it.",
           },
         },
         {
