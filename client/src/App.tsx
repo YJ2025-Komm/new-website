@@ -11,6 +11,7 @@ import Pricing from "@/pages/pricing";
 import Features from "@/pages/features";
 import AiModelsTracked from "@/pages/features/ai-models-tracked";
 import AiCompetitorBenchmarking from "@/pages/features/ai-competitor-benchmarking";
+import PromptIntelligence from "@/pages/features/prompt-intelligence";
 import Privacy from "@/pages/privacy";
 import Terms from "@/pages/terms";
 import Help from "@/pages/help";
@@ -37,6 +38,7 @@ function Router() {
       <Route path="/features" component={Features} />
       <Route path="/features/ai-models-tracked" component={AiModelsTracked} />
       <Route path="/features/ai-competitor-benchmarking" component={AiCompetitorBenchmarking} />
+      <Route path="/features/prompt-intelligence" component={PromptIntelligence} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
       <Route path="/help" component={Help} />

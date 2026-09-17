@@ -616,6 +616,11 @@ export default function Features() {
                       <span className="text-slate-700">Model-wise appearance logs</span>
                     </li>
                   </ul>
+                  <p className="text-sm text-slate-500 mt-4">
+                    <Link href="/features/prompt-intelligence" className="text-blue-600 hover:text-blue-800 underline">
+                      See how prompt tracking works →
+                    </Link>
+                  </p>
                 </div>
                 <div className="glass-strong rounded-2xl p-6">
                   <h4 className="font-bold mb-4 text-slate-900">Prompt Tracking</h4>

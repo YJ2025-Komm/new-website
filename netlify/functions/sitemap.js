@@ -3,6 +3,7 @@ const STATIC_PAGES = [
   { url: "https://georankers.ai/features",                        lastmod: "2026-04-06", priority: "0.9", changefreq: "monthly" },
   { url: "https://georankers.ai/features/ai-models-tracked",      lastmod: "2026-08-05", priority: "0.8", changefreq: "monthly" },
   { url: "https://georankers.ai/features/ai-competitor-benchmarking", lastmod: "2026-09-17", priority: "0.8", changefreq: "monthly" },
+  { url: "https://georankers.ai/features/prompt-intelligence",       lastmod: "2026-09-17", priority: "0.8", changefreq: "monthly" },
   { url: "https://georankers.ai/pricing",                         lastmod: "2026-07-14", priority: "0.9", changefreq: "monthly" },
   { url: "https://georankers.ai/geo-guide",                       lastmod: "2026-05-09", priority: "0.9", changefreq: "monthly" },
   { url: "https://georankers.ai/ai-content-guide",                lastmod: "2026-05-09", priority: "0.9", changefreq: "monthly" },

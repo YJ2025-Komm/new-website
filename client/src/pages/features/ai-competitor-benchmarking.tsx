@@ -646,9 +646,9 @@ export default function AiCompetitorBenchmarking() {
           schemaId="ai-competitor-benchmarking-faq-schema"
           footer={
             <>
-              See how each model retrieves and cites sources in{" "}
-              <Link href="/features/ai-models-tracked" className="text-blue-600 hover:text-blue-800 underline">
-                AI Models Tracked
+              See the exact prompts your rivals are winning with{" "}
+              <Link href="/features/prompt-intelligence" className="text-blue-600 hover:text-blue-800 underline">
+                Prompt Intelligence
               </Link>
               , or{" "}
               <Link href="/features" className="text-blue-600 hover:text-blue-800 underline">

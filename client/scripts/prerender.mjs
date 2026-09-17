@@ -18,6 +18,7 @@ const routes = [
   "/features",
   "/features/ai-models-tracked",
   "/features/ai-competitor-benchmarking",
+  "/features/prompt-intelligence",
   "/free-geo-tools/brand-visibility",
   "/free-geo-tools/geo-audit",
   "/free-geo-tools/visibility-score",
