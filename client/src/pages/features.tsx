@@ -567,6 +567,11 @@ export default function Features() {
                       <span className="text-slate-700">Cross-model comparison</span>
                     </li>
                   </ul>
+                  <p className="text-sm text-slate-500 mt-4">
+                    <Link href="/features/ai-competitor-benchmarking" className="text-blue-600 hover:text-blue-800 underline">
+                      See how AI competitor tracking works →
+                    </Link>
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -584,7 +589,7 @@ export default function Features() {
                     <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Prompt Intelligence</h3>
                   </div>
                   <p className="text-lg font-medium text-slate-600 mb-2">
-                    Discover the Exact Queries Where Competitors Get Recommended Instead of You
+                    See the Real Questions Buyers Ask AI About Your Category
                   </p>
                   <p className="text-base text-slate-500 mb-6 leading-relaxed">
                     Track real prompts AI is answering and monitor whether your brand is included in those responses.

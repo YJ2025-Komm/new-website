@@ -17,6 +17,7 @@ const routes = [
   "/pricing",
   "/features",
   "/features/ai-models-tracked",
+  "/features/ai-competitor-benchmarking",
   "/free-geo-tools/brand-visibility",
   "/free-geo-tools/geo-audit",
   "/free-geo-tools/visibility-score",
