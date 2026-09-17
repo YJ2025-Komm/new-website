@@ -22,7 +22,7 @@ const STATIC_PAGES = [
   { url: "https://georankers.ai/alternatives/profound",           lastmod: "2026-09-09", priority: "0.6", changefreq: "monthly" },
   { url: "https://georankers.ai/alternatives/scrunch-ai",         lastmod: "2026-09-09", priority: "0.6", changefreq: "monthly" },
   { url: "https://georankers.ai/team",                            lastmod: "2026-04-13", priority: "0.7", changefreq: "monthly" },
-  { url: "https://georankers.ai/recognition",                     lastmod: "2026-08-18", priority: "0.6", changefreq: "monthly" },
+  { url: "https://georankers.ai/recognition",                     lastmod: "2026-09-17", priority: "0.6", changefreq: "monthly" },
   { url: "https://georankers.ai/privacy",                         lastmod: "2026-04-06", priority: "0.4", changefreq: "yearly"  },
   { url: "https://georankers.ai/terms",                           lastmod: "2026-04-06", priority: "0.4", changefreq: "yearly"  },
 ];
