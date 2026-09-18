@@ -2,6 +2,9 @@ const STATIC_PAGES = [
   { url: "https://georankers.ai/",                                lastmod: "2026-04-06", priority: "1.0", changefreq: "weekly"  },
   { url: "https://georankers.ai/features",                        lastmod: "2026-04-06", priority: "0.9", changefreq: "monthly" },
   { url: "https://georankers.ai/features/ai-models-tracked",      lastmod: "2026-08-05", priority: "0.8", changefreq: "monthly" },
+  { url: "https://georankers.ai/features/ai-competitor-benchmarking", lastmod: "2026-09-17", priority: "0.8", changefreq: "monthly" },
+  { url: "https://georankers.ai/features/prompt-intelligence",       lastmod: "2026-09-17", priority: "0.8", changefreq: "monthly" },
+  { url: "https://georankers.ai/features/ai-recommendations",        lastmod: "2026-09-17", priority: "0.8", changefreq: "monthly" },
   { url: "https://georankers.ai/pricing",                         lastmod: "2026-07-14", priority: "0.9", changefreq: "monthly" },
   { url: "https://georankers.ai/geo-guide",                       lastmod: "2026-05-09", priority: "0.9", changefreq: "monthly" },
   { url: "https://georankers.ai/ai-content-guide",                lastmod: "2026-05-09", priority: "0.9", changefreq: "monthly" },
@@ -22,7 +25,7 @@ const STATIC_PAGES = [
   { url: "https://georankers.ai/alternatives/profound",           lastmod: "2026-09-09", priority: "0.6", changefreq: "monthly" },
   { url: "https://georankers.ai/alternatives/scrunch-ai",         lastmod: "2026-09-09", priority: "0.6", changefreq: "monthly" },
   { url: "https://georankers.ai/team",                            lastmod: "2026-04-13", priority: "0.7", changefreq: "monthly" },
-  { url: "https://georankers.ai/recognition",                     lastmod: "2026-08-18", priority: "0.6", changefreq: "monthly" },
+  { url: "https://georankers.ai/recognition",                     lastmod: "2026-09-17", priority: "0.6", changefreq: "monthly" },
   { url: "https://georankers.ai/privacy",                         lastmod: "2026-04-06", priority: "0.4", changefreq: "yearly"  },
   { url: "https://georankers.ai/terms",                           lastmod: "2026-04-06", priority: "0.4", changefreq: "yearly"  },
 ];

@@ -567,6 +567,11 @@ export default function Features() {
                       <span className="text-slate-700">Cross-model comparison</span>
                     </li>
                   </ul>
+                  <p className="text-sm text-slate-500 mt-4">
+                    <Link href="/features/ai-competitor-benchmarking" className="text-blue-600 hover:text-blue-800 underline">
+                      See how AI competitor tracking works →
+                    </Link>
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -584,7 +589,7 @@ export default function Features() {
                     <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Prompt Intelligence</h3>
                   </div>
                   <p className="text-lg font-medium text-slate-600 mb-2">
-                    Discover the Exact Queries Where Competitors Get Recommended Instead of You
+                    See the Real Questions Buyers Ask AI About Your Category
                   </p>
                   <p className="text-base text-slate-500 mb-6 leading-relaxed">
                     Track real prompts AI is answering and monitor whether your brand is included in those responses.
@@ -611,6 +616,11 @@ export default function Features() {
                       <span className="text-slate-700">Model-wise appearance logs</span>
                     </li>
                   </ul>
+                  <p className="text-sm text-slate-500 mt-4">
+                    <Link href="/features/prompt-intelligence" className="text-blue-600 hover:text-blue-800 underline">
+                      See how prompt tracking works →
+                    </Link>
+                  </p>
                 </div>
                 <div className="glass-strong rounded-2xl p-6">
                   <h4 className="font-bold mb-4 text-slate-900">Prompt Tracking</h4>
@@ -717,7 +727,7 @@ export default function Features() {
                     </li>
                     <li className="flex items-start">
                       <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-slate-700">High / Medium / Quick Win tagging</span>
+                      <span className="text-slate-700">High Impact / Medium Impact / Quick Win tagging</span>
                     </li>
                     <li className="flex items-start">
                       <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
@@ -728,6 +738,11 @@ export default function Features() {
                       <span className="text-slate-700">Success signal tracking</span>
                     </li>
                   </ul>
+                  <p className="text-sm text-slate-500 mt-4">
+                    <Link href="/features/ai-recommendations" className="text-blue-600 hover:text-blue-800 underline">
+                      See how recommendations are scored →
+                    </Link>
+                  </p>
                 </div>
               </div>
             </CardContent>
