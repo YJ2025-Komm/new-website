@@ -137,9 +137,9 @@ const FAQS: FAQ[] = [
       "A keyword is a short search term. A prompt is the longer, conversational question a buyer actually types into an AI assistant. The same keyword can expand into very different prompts depending on intent, which is why prompt tracking and keyword tracking measure different things.",
   },
   {
-    question: "Why can the same prompt return a different answer on a different day?",
+    question: "Why can the same prompt return a different answer on a different run?",
     answer:
-      "AI answers draw on live retrieval, and a run can happen at most once every 24 hours, so the underlying web content, your competitors' content, and the model itself can all change between runs. A shifting answer is expected behavior, not a tracking error.",
+      "AI answers draw on live retrieval, and GeoRankers runs on a weekly schedule by default, with on-demand runs available depending on your plan. Between runs, the underlying web content, your competitors' content, and the model itself can all change, so a shifting answer between runs is expected behavior, not a tracking error.",
   },
   {
     question: "Are prompts tracked separately for each market I track?",
@@ -659,7 +659,7 @@ export default function PromptIntelligence() {
           schemaId="prompt-intelligence-faq-schema"
           footer={
             <>
-              See how your brand stacks up against rivals on these same prompts with{" "}
+              See how your brand stacks up against competitors on these same prompts with{" "}
               <Link href="/features/ai-competitor-benchmarking" className="text-blue-600 hover:text-blue-800 underline">
                 AI Competitor Benchmarking
               </Link>

@@ -39,9 +39,9 @@ const SCOREBOARD = [
 ];
 
 const PER_MODEL = [
-  { model: "ChatGPT", icon: <SiOpenai className="w-3.5 h-3.5 text-slate-700" />, you: 24, rival: 18, leader: "You" },
-  { model: "Google AI Search", icon: <GeminiSparkle className="w-3.5 h-3.5" />, you: 11, rival: 27, leader: "Competitor A" },
-  { model: "Perplexity", icon: <SiPerplexity className="w-3.5 h-3.5 text-slate-700" />, you: 19, rival: 9, leader: "You" },
+  { model: "ChatGPT", icon: <SiOpenai className="w-3.5 h-3.5 text-slate-700" />, you: 24, competitor: 18, leader: "You" },
+  { model: "Google AI Search", icon: <GeminiSparkle className="w-3.5 h-3.5" />, you: 11, competitor: 27, leader: "Competitor A" },
+  { model: "Perplexity", icon: <SiPerplexity className="w-3.5 h-3.5 text-slate-700" />, you: 19, competitor: 9, leader: "You" },
 ];
 
 const TOPICS = [
@@ -88,7 +88,7 @@ const FAQS: FAQ[] = [
       "Yes. You can swap competitors in and out as your market shifts. Historical runs keep the competitor set they were measured with, so past results stay accurate rather than being retroactively rewritten.",
   },
   {
-    question: "Why does a rival beat me on one model and not another?",
+    question: "Why does a competitor beat me on one model and not another?",
     answer:
       "Each model retrieves from a different index and weighs different signals. A competitor with strong structured data and entity clarity tends to do well on Google AI Search, while one with widely cited third-party coverage tends to do well on Perplexity. This is why a blended score hides more than it shows.",
   },
@@ -100,17 +100,17 @@ const FAQS: FAQ[] = [
   {
     question: "How often does the competitor comparison refresh?",
     answer:
-      "Results refresh with each run, and you can run once every 24 hours. Free and Launch keep your last 5 runs, Grow keeps the last 10, and Enterprise keeps the last 50, so you can see how the gap between you and each rival moves over time.",
+      "Results refresh with each run, and runs happen on a weekly schedule by default, with on-demand runs available depending on your plan. Free and Launch keep your last 5 runs, Grow keeps the last 10, and Enterprise keeps the last 50, so you can see how the gap between you and each competitor moves over time.",
   },
   {
     question: "Can I see which sources are citing my competitors?",
     answer:
-      "Yes. For every tracked brand you can see the domains that AI models drew from when naming them. That list is usually the most actionable output on the page, because it shows exactly where a rival earned the authority that put them in the answer.",
+      "Yes. For every tracked brand you can see the domains that AI models drew from when naming them. That list is usually the most actionable output on the page, because it shows exactly where a competitor earned the authority that put them in the answer.",
   },
   {
     question: "Does GeoRankers capture how AI describes each brand?",
     answer:
-      "Where the model provides it, yes. You see the language AI uses about each brand in its own words, which often explains a score gap better than the numbers do. A rival described as the category standard is winning something that a mention count alone will not show.",
+      "Where the model provides it, yes. You see the language AI uses about each brand in its own words, which often explains a score gap better than the numbers do. A competitor described as the category standard is winning something that a mention count alone will not show.",
   },
   {
     question: "How is AI competitor tracking different from traditional SEO competitor analysis?",
@@ -128,9 +128,9 @@ export default function AiCompetitorBenchmarking() {
   useSEO({
     title: "AI Competitor Tracking: Compare Brands in AI Answers",
     description:
-      "AI competitor tracking that scores your brand and rivals from the same answers. Compare visibility and position across ChatGPT, Google AI Search, and Perplexity.",
+      "AI competitor tracking that scores your brand and competitors from the same answers. Compare visibility and position on ChatGPT, Google AI Search, and Perplexity.",
     canonical: PAGE_URL,
-    ogTitle: "AI Competitor Tracking: Compare Your Brand to Rivals in AI Answers",
+    ogTitle: "AI Competitor Tracking: Compare Your Brand to Competitors in AI Answers",
     ogDescription:
       "Compare visibility scores, mention counts, and position against your competitors across ChatGPT, Google AI Search, and Perplexity.",
     ogUrl: PAGE_URL,
@@ -141,7 +141,7 @@ export default function AiCompetitorBenchmarking() {
       "name": "AI Competitor Tracking and Benchmarking Across AI Answers",
       "url": PAGE_URL,
       "description":
-        "AI competitor tracking that scores your brand and rivals from the same answers. Compare visibility and position across ChatGPT, Google AI Search, and Perplexity.",
+        "AI competitor tracking that scores your brand and competitors from the same answers. Compare visibility and position on ChatGPT, Google AI Search, and Perplexity.",
       "isPartOf": { "@type": "WebSite", "name": "GeoRankers", "url": "https://georankers.ai" },
       "about": { "@type": "SoftwareApplication", "name": "GeoRankers", "url": "https://georankers.ai" },
     },
@@ -398,13 +398,13 @@ export default function AiCompetitorBenchmarking() {
                               {row.icon}
                               <span className="text-xs font-bold text-slate-900">{row.model}</span>
                               <span className={`text-[10px] px-2 py-0.5 rounded-full ml-auto ${row.leader === "You" ? "bg-green-100 text-green-700" : "bg-amber-100 text-amber-700"}`}>
-                                {row.leader === "You" ? "You lead" : "Rival leads"}
+                                {row.leader === "You" ? "You lead" : "Competitor leads"}
                               </span>
                             </div>
                             <div className="flex items-center gap-3 text-[11px] text-slate-600">
                               <span>You <span className="font-black text-slate-900">{row.you}</span></span>
                               <span className="text-slate-300">|</span>
-                              <span>Competitor A <span className="font-black text-slate-900">{row.rival}</span></span>
+                              <span>Competitor A <span className="font-black text-slate-900">{row.competitor}</span></span>
                             </div>
                           </div>
                         ))}
@@ -434,7 +434,7 @@ export default function AiCompetitorBenchmarking() {
                     </div>
                     <p className="text-base text-slate-500 mb-4 leading-relaxed">
                       The same competitor set is scored separately for ChatGPT, Google AI Search, and Perplexity,
-                      because a rival that is named often on one platform may not appear on another at all.
+                      because a competitor that is named often on one platform may not appear on another at all.
                     </p>
                     <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-6">
                       <p className="text-sm text-slate-700 leading-relaxed">
@@ -500,7 +500,7 @@ export default function AiCompetitorBenchmarking() {
                       </li>
                       <li className="flex items-start">
                         <Check className="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-700">The sources each rival is cited from</span>
+                        <span className="text-slate-700">The sources each competitor is cited from</span>
                       </li>
                       <li className="flex items-start">
                         <Check className="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" />
@@ -527,12 +527,12 @@ export default function AiCompetitorBenchmarking() {
                           <div className="flex items-center gap-3 text-[11px] text-slate-600">
                             <span>You <span className="font-black text-slate-900">{row.you}</span></span>
                             <span className="text-slate-300">|</span>
-                            <span>Best rival <span className="font-black text-slate-900">{row.best}</span></span>
+                            <span>Best competitor <span className="font-black text-slate-900">{row.best}</span></span>
                           </div>
                         </div>
                       ))}
                     </div>
-                    <p className="text-xs font-black uppercase tracking-widest text-slate-500 mb-2">Sources citing your rivals</p>
+                    <p className="text-xs font-black uppercase tracking-widest text-slate-500 mb-2">Sources citing your competitors</p>
                     <div className="flex flex-wrap gap-2">
                       {["g2.com", "reddit.com", "capterra.com", "techcrunch.com"].map((d) => (
                         <span key={d} className="text-xs px-2.5 py-1 bg-pink-50 text-pink-700 rounded-full border border-pink-100">{d}</span>
@@ -646,7 +646,7 @@ export default function AiCompetitorBenchmarking() {
           schemaId="ai-competitor-benchmarking-faq-schema"
           footer={
             <>
-              See the exact prompts your rivals are winning with{" "}
+              See the exact prompts your competitors are winning with{" "}
               <Link href="/features/prompt-intelligence" className="text-blue-600 hover:text-blue-800 underline">
                 Prompt Intelligence
               </Link>

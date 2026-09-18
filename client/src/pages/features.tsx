@@ -727,7 +727,7 @@ export default function Features() {
                     </li>
                     <li className="flex items-start">
                       <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-slate-700">High / Medium / Quick Win tagging</span>
+                      <span className="text-slate-700">High Impact / Medium Impact / Quick Win tagging</span>
                     </li>
                     <li className="flex items-start">
                       <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
@@ -738,6 +738,11 @@ export default function Features() {
                       <span className="text-slate-700">Success signal tracking</span>
                     </li>
                   </ul>
+                  <p className="text-sm text-slate-500 mt-4">
+                    <Link href="/features/ai-recommendations" className="text-blue-600 hover:text-blue-800 underline">
+                      See how recommendations are scored →
+                    </Link>
+                  </p>
                 </div>
               </div>
             </CardContent>

@@ -152,7 +152,7 @@ const FAQS: FAQ[] = [
   {
     question: "Is ChatGPT search the same as regular ChatGPT?",
     answer:
-      "No. Regular ChatGPT answers from training data alone. ChatGPT search mode adds live web retrieval via OAI-SearchBot, pulling current information and citing sources — which is the surface GeoRankers tracks.",
+      "No. Regular ChatGPT answers from training data alone. ChatGPT search mode adds live web retrieval via OAI-SearchBot, pulling current information and citing sources, which is the surface GeoRankers tracks.",
   },
   {
     question: "Does Google AI Search use the same index as Google Search results?",
@@ -162,42 +162,42 @@ const FAQS: FAQ[] = [
   {
     question: "Does Perplexity have its own crawler, or does it rely on Google/Bing?",
     answer:
-      "Perplexity runs its own crawler, PerplexityBot, and maintains its own retrieval and indexing systems rather than simply reproducing Google or Bing rankings — which is why its citation patterns often differ from the other two models.",
+      "Perplexity runs its own crawler, PerplexityBot, and maintains its own retrieval and indexing systems rather than simply reproducing Google or Bing rankings, which is why its citation patterns often differ from the other two models.",
   },
   {
     question: "Why does my brand show up on one AI model but not another?",
     answer:
-      "Each model retrieves from a different index and weighs different signals — schema and entity clarity matter more to Google AI Search, while citation-worthy content matters more to Perplexity. A gap on one model doesn't mean a gap on all of them.",
+      "Each model retrieves from a different index and weighs different signals. Schema and entity clarity matter more to Google AI Search, while citation-worthy content matters more to Perplexity. A gap on one model does not mean a gap on all of them.",
   },
   {
     question: "How often does GeoRankers re-check my visibility on these models?",
     answer:
-      "All plans run on a weekly schedule by default, with on-demand runs available depending on your plan — so you get fresh ChatGPT, Google AI Search, and Perplexity data without waiting for a full weekly cycle.",
+      "All plans run on a weekly schedule by default, with on-demand runs available depending on your plan, so you get fresh ChatGPT, Google AI Search, and Perplexity data without waiting for a full weekly cycle.",
   },
   {
     question: "What counts as a \"citation source domain\"?",
     answer:
-      "Any domain an AI model references or draws from when generating its answer — review sites, documentation, forums, comparison pages, and your own website all count. GeoRankers tracks which domains show up most often alongside your brand on each model.",
+      "Any domain an AI model references or draws from when generating its answer. Review sites, documentation, forums, comparison pages, and your own website all count. GeoRankers tracks which domains show up most often alongside your brand on each model.",
   },
   {
     question: "What does \"position and framing\" actually measure?",
     answer:
-      "It's how prominently and positively your brand is presented inside an AI answer — whether you're actively recommended, simply mentioned in a list, or absent entirely — not just whether your name appears somewhere in the response.",
+      "How prominently and positively your brand is presented inside an AI answer, whether you are actively recommended, simply mentioned in a list, or absent entirely, not just whether your name appears somewhere in the response.",
   },
   {
     question: "Can I track specific competitors across these three models?",
     answer:
-      "Yes. You can define competitors and GeoRankers shows how they're mentioned, positioned, and cited across ChatGPT, Google AI Search, and Perplexity side by side with your own brand.",
+      "Yes. You can define competitors and GeoRankers shows how they are mentioned, positioned, and cited across ChatGPT, Google AI Search, and Perplexity side by side with your own brand.",
   },
   {
     question: "Does GeoRankers track Google Gemini separately, or is it part of Google AI Search?",
     answer:
-      "Google AI Search tracking already covers both AI Overview and AI Mode — the same Gemini-powered surfaces that generate Google's AI answers. A standalone Gemini app/API integration is on the roadmap, but the underlying model is already part of what we track today through Google AI Search.",
+      "Google AI Search tracking already covers both AI Overview and AI Mode, the same Gemini-powered surfaces that generate Google's AI answers. GeoRankers tracks Gemini through Google AI Search only, and does not plan a separate, standalone Gemini integration.",
   },
   {
     question: "Do all three models get equal weight in my overall Visibility Score?",
     answer:
-      "No — GeoRankers reports each model separately and also combines them into a single weighted AI Visibility Score, so you can see both the blended number and the per-model breakdown side by side, without one strong model masking a weak one.",
+      "No. GeoRankers reports each model separately and also combines them into a single weighted AI Visibility Score, so you can see both the blended number and the per-model breakdown side by side, without one strong model masking a weak one.",
   },
 ];
 
