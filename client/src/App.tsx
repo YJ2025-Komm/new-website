@@ -13,6 +13,9 @@ import AiModelsTracked from "@/pages/features/ai-models-tracked";
 import AiCompetitorBenchmarking from "@/pages/features/ai-competitor-benchmarking";
 import PromptIntelligence from "@/pages/features/prompt-intelligence";
 import AiRecommendations from "@/pages/features/ai-recommendations";
+import ContentHub from "@/pages/features/content-hub";
+import GeoAgent from "@/pages/features/geo-agent";
+import CountrySpecificAiTracking from "@/pages/features/country-specific-ai-tracking";
 import Privacy from "@/pages/privacy";
 import Terms from "@/pages/terms";
 import Help from "@/pages/help";
@@ -41,6 +44,9 @@ function Router() {
       <Route path="/features/ai-competitor-benchmarking" component={AiCompetitorBenchmarking} />
       <Route path="/features/prompt-intelligence" component={PromptIntelligence} />
       <Route path="/features/ai-recommendations" component={AiRecommendations} />
+      <Route path="/features/content-hub" component={ContentHub} />
+      <Route path="/features/geo-agent" component={GeoAgent} />
+      <Route path="/features/country-specific-ai-tracking" component={CountrySpecificAiTracking} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
       <Route path="/help" component={Help} />

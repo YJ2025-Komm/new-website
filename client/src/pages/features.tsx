@@ -787,6 +787,11 @@ export default function Features() {
                       <span className="text-slate-700">Get specific optimization recommendations to improve AI-search visibility</span>
                     </li>
                   </ul>
+                  <p className="text-sm text-slate-500 mt-4">
+                    <Link href="/features/content-hub" className="text-blue-600 hover:text-blue-800 underline">
+                      See how content gaps become outlines →
+                    </Link>
+                  </p>
                 </div>
                 <div className="glass-strong rounded-2xl p-6">
                   <h4 className="font-bold mb-4 text-slate-900">Content Opportunities</h4>
@@ -861,6 +866,11 @@ export default function Features() {
                       <span className="text-slate-700">Instant answers from your dashboard data</span>
                     </li>
                   </ul>
+                  <p className="text-sm text-slate-500 mt-4">
+                    <Link href="/features/geo-agent" className="text-blue-600 hover:text-blue-800 underline">
+                      See the kinds of questions GEO Agent answers →
+                    </Link>
+                  </p>
                 </div>
                 <div className="order-2 lg:order-1 glass-strong rounded-2xl p-6">
                   <div className="flex items-center gap-2 mb-4">
@@ -999,6 +1009,11 @@ export default function Features() {
                       <span className="text-slate-700">Compare visibility trends across markets</span>
                     </li>
                   </ul>
+                  <p className="text-sm text-slate-500 mt-4">
+                    <Link href="/features/country-specific-ai-tracking" className="text-blue-600 hover:text-blue-800 underline">
+                      See what changes when you switch markets →
+                    </Link>
+                  </p>
                 </div>
               </div>
             </CardContent>
