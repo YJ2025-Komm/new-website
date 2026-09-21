@@ -163,7 +163,7 @@ function VisibilityGapSection() {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50/80 via-white to-violet-50/80">
+    <section ref={sectionRef} className="py-14 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50/80 via-white to-violet-50/80">
       <div className="max-w-6xl mx-auto">
         {/* Centered header */}
         <div
@@ -988,7 +988,7 @@ export default function Home() {
       </section>
 
       {/* Why This Matters Section */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Left: copy */}
@@ -1045,7 +1045,7 @@ export default function Home() {
       <VisibilityGapSection />
 
       {/* Visibility Signals Section */}
-      <section className="py-20 sm:py-24 bg-gradient-to-b from-slate-50 to-white">
+      <section className="py-14 sm:py-16 bg-gradient-to-b from-slate-50 to-white">
         <div className="px-4 sm:px-6 lg:px-8 text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] text-slate-900 mb-5">
             Turn AI Answers Into{" "}
@@ -1063,7 +1063,7 @@ export default function Home() {
       </section>
 
       {/* What You Get Section */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">What You Get</p>
@@ -1128,7 +1128,7 @@ export default function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50/50">
+      <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 bg-slate-50/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">How It Works</p>
@@ -1176,7 +1176,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-white">
+      <section id="faq" className="py-12 sm:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 sm:mb-12">
             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
@@ -1217,7 +1217,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA — full-width gradient */}
-      <section className="gradient-cta py-20 sm:py-28 px-4 sm:px-6 lg:px-8">
+      <section className="gradient-cta py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xs font-black uppercase tracking-widest text-white/60 mb-4">GET STARTED</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] text-white mb-5">
