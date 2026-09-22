@@ -52,9 +52,10 @@ interface WordPressBlogPost {
   categories: number[];
   featured_media: number;
   featured_image_url?: string;
-  // Only known for the static fallback posts below (real intrinsic pixel dims of the
-  // imported asset) — live WordPress posts fetched at runtime don't carry these, so the
-  // <img> just omits width/height for those, same as before.
+  // Set for both the static fallback posts (intrinsic dims of the imported
+  // asset) and live WordPress posts, where /api/blog/posts returns the dims
+  // of whichever registered size it picked, so the <img> can always reserve
+  // space and avoid layout shift.
   featured_image_width?: number;
   featured_image_height?: number;
 }
