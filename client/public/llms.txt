@@ -34,7 +34,7 @@ Converts AI visibility gaps into one combined, scored action plan built from you
 
 ### 5. Content Hub
 Details: https://georankers.ai/features/content-hub
-Turns AI visibility gaps into ready-to-write content. Identifies content opportunities across blogs, guides, and webpages, generates content outlines based on visibility and competitive gaps, and analyzes existing content for AI-search suitability with specific optimization recommendations. Every tracked page is statused Content Gap, Needs Optimization, or Strong.
+Turns AI visibility gaps into ready-to-write content. Identifies content opportunities across blogs, guides, and webpages, generates content outlines based on visibility and competitive gaps, and analyzes existing content for AI-search suitability with specific optimization recommendations. Every tracked page is statused Content Gap, Needs Optimization, or Strong. Content Hub does not re-scan published pages automatically; to check whether new or updated content gets cited, add the published URL to Signal Tracker.
 
 ### 6. GEO Agent (AI Assistant)
 Details: https://georankers.ai/features/geo-agent
@@ -42,7 +42,7 @@ An always-on AI strategist inside the GeoRankers dashboard. Answers natural lang
 
 ### 7. Country-Specific AI Tracking
 Details: https://georankers.ai/features/country-specific-ai-tracking
-Runs AI visibility analysis grounded to a specific country, so brand, competitor, citation, and recommendation results reflect how AI models answer in that market. Supports comparing visibility trends across multiple countries over time.
+Runs AI visibility analysis grounded to a specific country, so brand, competitor, citation, and recommendation results reflect how AI models answer in that market. Each run is grounded to the one country selected at that time, not several at once; the selected country can be changed before the next run, and visibility shifts for a given market are compared over time in the Trends section.
 
 ## AI Platforms Tracked
 
@@ -139,4 +139,4 @@ credit card required. Cancel anytime. Extra GEO Agent conversations billed at $0
 - [Robots](https://georankers.ai/robots.txt)
 - [Changelog Feed (JSON)](https://georankers.ai/changelog.json)
 
-Last updated: September 10, 2026
+Last updated: September 22, 2026

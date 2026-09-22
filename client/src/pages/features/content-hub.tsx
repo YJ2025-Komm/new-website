@@ -119,7 +119,7 @@ export default function ContentHub() {
   useSEO({
     title: "Content Hub: AI-Search Content Gaps & Outlines",
     description:
-      "Identify AI-search content gaps across blogs, guides, and webpages, generate outlines from competitor gaps, and analyze existing content for AI-search suitability.",
+      "Find AI-search content gaps across blogs, guides, and webpages, generate outlines from competitor gaps, and analyze existing pages for AI-search suitability.",
     canonical: PAGE_URL,
     ogTitle: "Content Hub: Turn AI Visibility Gaps Into Better Content",
     ogDescription:

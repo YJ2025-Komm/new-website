@@ -174,7 +174,7 @@ export default function GeoAgent() {
   useSEO({
     title: "GEO Agent: AI Assistant for AI Visibility Data",
     description:
-      "Ask GEO Agent questions about your AI visibility data in plain language. Get answers grounded in your tracked runs, competitor gaps, and current recommendations.",
+      "Ask GEO Agent about your AI visibility data in plain language. Get answers grounded in your tracked runs, competitor gaps, and current recommendations.",
     canonical: PAGE_URL,
     ogTitle: "GEO Agent: Ask Anything About Your AI Visibility",
     ogDescription:

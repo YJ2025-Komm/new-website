@@ -36,7 +36,7 @@ import screenshotModelPerformance from "@assets/model-performance.png";
 import strategicImage from '@assets/generated_images/Strategic_AI_search_leadership_2959319a.png';
 import buildingBlocksImage from '@assets/generated_images/AI_content_building_blocks_237b4917.png';
 import geoVsSeoImage from '@assets/generated_images/GEO_vs_SEO_comparison_96025f03.png';
-import heroDashboardImg from '@assets/hero-dashboard-transparent.png';
+import heroDashboardImg from '@assets/hero-dashboard.webp';
 
 // WordPress API types
 interface WordPressBlogPost {
@@ -273,24 +273,28 @@ const screenshotSlides = [
     src: screenshotInsights,
     w: 1400, h: 544,
     label: "Overall Insights",
+    alt: "GeoRankers Overall Insights dashboard showing AI visibility score, brand mentions, sentiment, and competitive landscape",
     caption: "AI visibility score, brand mentions, sentiment, competitive landscape, and mention distribution, all at a glance.",
   },
   {
     src: screenshotPrompts,
     w: 1400, h: 490,
     label: "AI Prompts & Query Analysis",
+    alt: "GeoRankers AI Prompts and Query Analysis view listing tracked buyer prompts and brand mention scores",
     caption: "See the exact prompts AI is answering about your industry and where your brand appears, or does not.",
   },
   {
     src: screenshotRecommendations,
     w: 1400, h: 568,
     label: "Strategic Recommendations",
+    alt: "GeoRankers Strategic Recommendations list with impact, confidence, and effort scores on each suggested action",
     caption: "Data-driven actions prioritized by impact to boost your AI presence, with clear steps to execute each one.",
   },
   {
     src: screenshotModelPerformance,
     w: 1249, h: 744,
     label: "Model-Wise Performance",
+    alt: "GeoRankers Model Performance Trend chart comparing average mention rate and rank across ChatGPT, Google AI Search, and Perplexity",
     caption: "Compare average mention rate, mentions, and rank per AI model over time to see where visibility is shifting.",
   },
 ];
@@ -350,7 +354,7 @@ function ScreenshotCarousel() {
         {/* Image — natural width, no cropping */}
         <img
           src={slide.src}
-          alt={slide.label}
+          alt={slide.alt}
           width={slide.w}
           height={slide.h}
           className="w-full block"

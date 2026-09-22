@@ -90,9 +90,9 @@ const FAQS: FAQ[] = [
       "Yes. You can compare how your visibility, competitor mentions, and citations trend over time in one country against another, not just a single snapshot.",
   },
   {
-    question: "Does this replace the need to track my default market?",
+    question: "Can I track more than one country at the same time?",
     answer:
-      "No. Your default tracked results still apply, and country-specific tracking is an additional layer that lets you see how those same results shift when responses are grounded to a different market.",
+      "Each run is grounded to the one country you have selected at that time, not multiple countries at once. You can change the selected country before your next run, and compare how your visibility in a given market has shifted over time in the Trends section.",
   },
 ];
 
@@ -188,12 +188,11 @@ export default function CountrySpecificAiTracking() {
               <div className="lg:col-span-7">
                 <Card className="glass rounded-[2rem] border-0">
                   <CardContent className="p-4 sm:p-5">
-                    <p className="text-[10px] text-slate-400 italic mb-2">Illustrative example, not your account data.</p>
                     <div className="space-y-1.5">
                       {LOOP_STAGES.map((stage, i) => (
                         <div key={stage.label}>
                           <div className="rounded-xl border border-slate-200 bg-white px-3.5 py-2.5">
-                            <div className="flex items-center gap-2 mb-1">
+                            <div className="flex items-center justify-center gap-2 mb-1">
                               <span className="w-4 h-4 rounded-full bg-gradient-to-r from-indigo-500 to-blue-500 text-white text-[9px] font-black flex items-center justify-center flex-shrink-0">
                                 {i + 1}
                               </span>
@@ -201,7 +200,7 @@ export default function CountrySpecificAiTracking() {
                                 {stage.label}
                               </p>
                             </div>
-                            <p className="text-[11px] text-slate-500 leading-snug pl-6">{stage.detail}</p>
+                            <p className="text-[11px] text-slate-500 leading-snug text-center">{stage.detail}</p>
                           </div>
                           {i < LOOP_STAGES.length - 1 && (
                             <div className="flex justify-center py-0.5">
