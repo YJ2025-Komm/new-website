@@ -84,16 +84,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.json(FALLBACK_BLOG_POSTS);
       }
 
-      const normalized = posts.map((post: any) => ({
-        id: post.id,
-        title: post.title,
-        excerpt: post.excerpt,
-        link: post.link,
-        date: post.date,
-        categories: post.categories,
-        featured_media: post.featured_media,
-        featured_image_url: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || null
-      }));
+      const normalized = posts.map((post: any) => {
+        const media = post._embedded?.['wp:featuredmedia']?.[0];
+        // WordPress's own `source_url` is the full-size original the author
+        // uploaded (often 500KB+). The homepage renders these in a ~384px
+        // card, so serve the closest registered size instead — medium_large
+        // (768px) covers that at 2x density. Falling back up the chain keeps
+        // this working if a size was never generated for a given upload.
+        const sizes = media?.media_details?.sizes;
+        const preferred =
+          sizes?.medium_large ?? sizes?.large ?? sizes?.full ?? null;
+
+        return {
+          id: post.id,
+          title: post.title,
+          excerpt: post.excerpt,
+          link: post.link,
+          date: post.date,
+          categories: post.categories,
+          featured_media: post.featured_media,
+          featured_image_url: preferred?.source_url || media?.source_url || null,
+          featured_image_width: preferred?.width ?? media?.media_details?.width ?? null,
+          featured_image_height: preferred?.height ?? media?.media_details?.height ?? null,
+        };
+      });
 
       res.json(normalized);
     } catch (error) {

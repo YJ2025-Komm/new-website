@@ -128,7 +128,7 @@ export default function AiCompetitorBenchmarking() {
   useSEO({
     title: "AI Competitor Tracking: Compare Brands in AI Answers",
     description:
-      "AI competitor tracking that scores your brand and competitors from the same answers. Compare visibility and position on ChatGPT, Google AI Search, and Perplexity.",
+      "AI competitor tracking that scores your brand and rivals from the same answers. Compare visibility and position on ChatGPT, Google AI Search, and Perplexity.",
     canonical: PAGE_URL,
     ogTitle: "AI Competitor Tracking: Compare Your Brand to Competitors in AI Answers",
     ogDescription:
@@ -141,7 +141,7 @@ export default function AiCompetitorBenchmarking() {
       "name": "AI Competitor Tracking and Benchmarking Across AI Answers",
       "url": PAGE_URL,
       "description":
-        "AI competitor tracking that scores your brand and competitors from the same answers. Compare visibility and position on ChatGPT, Google AI Search, and Perplexity.",
+        "AI competitor tracking that scores your brand and rivals from the same answers. Compare visibility and position on ChatGPT, Google AI Search, and Perplexity.",
       "isPartOf": { "@type": "WebSite", "name": "GeoRankers", "url": "https://georankers.ai" },
       "about": { "@type": "SoftwareApplication", "name": "GeoRankers", "url": "https://georankers.ai" },
     },

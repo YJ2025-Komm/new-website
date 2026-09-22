@@ -76,7 +76,7 @@ export function DesignPartnersRow({ className = "" }: { className?: string }) {
   return (
     <div className={className}>
       <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-slate-500 text-center mb-8">
-        Design Partners
+        Trusted By The Best Teams
       </p>
       <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-12">
         {DESIGN_PARTNERS.map((partner) => (

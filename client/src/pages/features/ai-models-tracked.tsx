@@ -38,7 +38,7 @@ function ModelIntegrationDiagram() {
             </h2>
             <p className="text-base text-slate-500 leading-relaxed">
               Each model runs its own retrieval-to-citation pipeline, and GeoRankers captures every stage
-              separately — visibility is never blended into one score. Recommendations then combine what's
+              separately, and visibility is never blended into one score. Recommendations then combine what is
               found across all three models into a single prioritized action plan.
             </p>
           </div>
@@ -74,7 +74,7 @@ function ModelIntegrationDiagram() {
                     GeoRankers Data Capture Layer
                   </p>
                   <p className="text-slate-500 text-[10px] sm:text-xs mt-0.5">
-                    Every model captured and tracked separately — no blended visibility score
+                    Every model captured and tracked separately, with no blended visibility score
                   </p>
                 </div>
 
@@ -115,7 +115,7 @@ function ModelIntegrationDiagram() {
             </div>
 
             <p className="text-xs text-slate-400 text-center mt-6 italic">
-              Pipeline stages are illustrative — GeoRankers captures signals after each model's citation
+              Pipeline stages are illustrative. GeoRankers captures signals after each model's citation
               decision, tracked separately per model, then combines them into one action plan.
             </p>
           </CardContent>
@@ -203,13 +203,13 @@ const FAQS: FAQ[] = [
 
 export default function AiModelsTracked() {
   useSEO({
-    title: "AI Models GeoRankers Tracks — ChatGPT & Perplexity",
+    title: "AI Models GeoRankers Tracks: ChatGPT & Perplexity",
     description:
-      "See how GeoRankers tracks brand visibility across ChatGPT, Google AI Search, and Perplexity — retrieval methods, citations, and model-wise scoring explained.",
+      "See how GeoRankers tracks brand visibility across ChatGPT, Google AI Search, and Perplexity: retrieval methods, citations, and model-wise scoring explained.",
     canonical: "https://georankers.ai/features/ai-models-tracked",
-    ogTitle: "How GeoRankers Tracks AI Models — ChatGPT, Google AI Search & Perplexity",
+    ogTitle: "How GeoRankers Tracks AI Models: ChatGPT, Google AI Search & Perplexity",
     ogDescription:
-      "See how GeoRankers tracks brand visibility across ChatGPT, Google AI Search, and Perplexity — retrieval methods, citation sources, and model-wise scoring explained.",
+      "See how GeoRankers tracks brand visibility across ChatGPT, Google AI Search, and Perplexity: retrieval methods, citation sources, and model-wise scoring explained.",
     ogUrl: "https://georankers.ai/features/ai-models-tracked",
     schemaId: "ai-models-tracked-schema",
     schema: {
@@ -218,7 +218,7 @@ export default function AiModelsTracked() {
       "name": "AI Models GeoRankers Tracks: ChatGPT, Google AI Search & Perplexity",
       "url": "https://georankers.ai/features/ai-models-tracked",
       "description":
-        "See how GeoRankers tracks brand visibility across ChatGPT, Google AI Search, and Perplexity — retrieval methods, citation sources, and model-wise scoring explained.",
+        "See how GeoRankers tracks brand visibility across ChatGPT, Google AI Search, and Perplexity: retrieval methods, citation sources, and model-wise scoring explained.",
       "isPartOf": { "@type": "WebSite", "name": "GeoRankers", "url": "https://georankers.ai" },
       "about": { "@type": "SoftwareApplication", "name": "GeoRankers", "url": "https://georankers.ai" },
     },
@@ -252,7 +252,7 @@ export default function AiModelsTracked() {
             </h1>
             <p className="text-lg sm:text-xl font-medium text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
               Every AI platform retrieves, ranks, and cites information differently. GeoRankers shows where
-              your brand appears, how it's positioned, and which sources influence each answer.
+              your brand appears, how it is positioned, and which sources influence each answer.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
@@ -339,7 +339,7 @@ export default function AiModelsTracked() {
                     <div className="p-3 bg-white/70 rounded-lg border border-slate-200/50 mb-4">
                       <p className="text-sm font-medium text-slate-800 mb-1">"Best AI visibility tool for B2B SaaS"</p>
                       <p className="text-xs text-slate-500 leading-relaxed">
-                        "...for tracking brand presence across AI answers, <span className="font-semibold text-blue-600">GeoRankers</span> is purpose-built for this — it monitors..."
+                        "...for tracking brand presence across AI answers, <span className="font-semibold text-blue-600">GeoRankers</span> is purpose-built for this, it monitors..."
                       </p>
                     </div>
                     <p className="text-xs font-black uppercase tracking-widest text-slate-500 mb-2">Framing</p>
@@ -420,8 +420,8 @@ export default function AiModelsTracked() {
                       </div>
                     </div>
                     <p className="text-base text-slate-500 mb-4 leading-relaxed">
-                      Covers both AI Overview and AI Mode — Google's Gemini-powered AI-generated answer
-                      surfaces — drawing on Google's own live index and Knowledge Graph. Structured data,
+                      Covers both AI Overview and AI Mode, Google's Gemini-powered AI-generated answer
+                      surfaces, drawing on Google's own live index and Knowledge Graph. Structured data,
                       schema, and entity clarity influence this model more heavily than raw content volume.
                     </p>
                     <div className="bg-violet-50 border border-violet-100 rounded-xl p-4 mb-6">
@@ -469,7 +469,7 @@ export default function AiModelsTracked() {
                     </div>
                     <p className="text-base text-slate-500 mb-4 leading-relaxed">
                       Perplexity uses its own crawler and retrieval systems to find and cite sources, rather
-                      than simply reproducing Google rankings — prioritizing source recency and diversity over
+                      than simply reproducing Google rankings, prioritizing source recency and diversity over
                       any single ranking system.
                     </p>
                     <div className="bg-pink-50 border border-pink-100 rounded-xl p-4 mb-6">
@@ -619,7 +619,7 @@ export default function AiModelsTracked() {
               </h2>
               <p className="text-lg font-medium text-white/80 mb-8 max-w-xl mx-auto leading-relaxed">
                 A blended score hides the real problem. GeoRankers breaks down Visibility Score, Position,
-                and Share of Voice model by model, so you fix the actual gap — not the average.
+                and Share of Voice model by model, so you fix the actual gap, not the average.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a

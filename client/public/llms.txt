@@ -33,13 +33,16 @@ Details: https://georankers.ai/features/ai-recommendations
 Converts AI visibility gaps into one combined, scored action plan built from your tracked runs over the last 30 days, across all three tracked models. Each recommendation carries an impact score, a confidence score, and an effort level, and is tagged High Impact, Quick Win, or Medium Impact. The finding, score, and action are determined by rules applied to tracked data; AI is only used to phrase the recommendation text. Recommended actions include creating or improving content and contributing to relevant discussions cited in tracked AI answers, with disclosure required for the latter. Use Signal Tracker to monitor a recommendation's defined success metric by adding the published URL; whether and when it gets cited depends on the AI model's own recrawl timing. Recommendations have no fixed count; GeoRankers generates one whenever it identifies a real opportunity, and archived recommendations are replaced as new opportunities are found.
 
 ### 5. Content Hub
-Turns AI visibility gaps into ready-to-write content. Identifies content opportunities across blogs, guides, and webpages, generates content outlines based on visibility and competitive gaps, and analyzes existing content for AI-search suitability with specific optimization recommendations.
+Details: https://georankers.ai/features/content-hub
+Turns AI visibility gaps into ready-to-write content. Identifies content opportunities across blogs, guides, and webpages, generates content outlines based on visibility and competitive gaps, and analyzes existing content for AI-search suitability with specific optimization recommendations. Every tracked page is statused Content Gap, Needs Optimization, or Strong. Content Hub does not re-scan published pages automatically; to check whether new or updated content gets cited, add the published URL to Signal Tracker.
 
 ### 6. GEO Agent (AI Assistant)
-An always-on AI strategist inside the GeoRankers dashboard. Answers natural language questions about your visibility data, surfaces competitive gaps on demand, and helps prioritize content strategy.
+Details: https://georankers.ai/features/geo-agent
+An always-on AI strategist inside the GeoRankers dashboard. Answers natural language questions about your visibility data, surfaces competitive gaps on demand, and helps prioritize content strategy. Grounded in the account's own tracked data; it does not publish content or take actions on its own. Launch includes 10 GEO Agent conversations/user/day, Grow 20, Enterprise custom; extra conversations billed at $0.01 each.
 
 ### 7. Country-Specific AI Tracking
-Runs AI visibility analysis grounded to a specific country, so brand, competitor, citation, and recommendation results reflect how AI models answer in that market. Supports comparing visibility trends across multiple countries over time.
+Details: https://georankers.ai/features/country-specific-ai-tracking
+Runs AI visibility analysis grounded to a specific country, so brand, competitor, citation, and recommendation results reflect how AI models answer in that market. Each run is grounded to the one country selected at that time, not several at once; the selected country can be changed before the next run, and visibility shifts for a given market are compared over time in the Trends section.
 
 ## AI Platforms Tracked
 
@@ -108,6 +111,9 @@ credit card required. Cancel anytime. Extra GEO Agent conversations billed at $0
 - [AI Competitor Tracking (Compare Your Brand to Competitors in AI Answers)](https://georankers.ai/features/ai-competitor-benchmarking)
 - [Prompt Intelligence (Track the AI Prompts About You)](https://georankers.ai/features/prompt-intelligence)
 - [AI Recommendations (Prioritized Visibility Actions)](https://georankers.ai/features/ai-recommendations)
+- [Content Hub (AI-Search Content Gaps & Outlines)](https://georankers.ai/features/content-hub)
+- [GEO Agent (AI Assistant for Visibility Data)](https://georankers.ai/features/geo-agent)
+- [Country-Specific AI Tracking (Visibility By Market)](https://georankers.ai/features/country-specific-ai-tracking)
 - [Pricing](https://georankers.ai/pricing)
 - [GEO Guide (The Complete GEO Playbook)](https://georankers.ai/geo-guide)
 - [AI Content Guide (How to Write Content That AI Actually Cites)](https://georankers.ai/ai-content-guide)
@@ -133,4 +139,4 @@ credit card required. Cancel anytime. Extra GEO Agent conversations billed at $0
 - [Robots](https://georankers.ai/robots.txt)
 - [Changelog Feed (JSON)](https://georankers.ai/changelog.json)
 
-Last updated: September 10, 2026
+Last updated: September 22, 2026
