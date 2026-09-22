@@ -255,7 +255,12 @@ function VisibilityGapSection() {
 // old rotating screenshot carousel.
 function HeroDashboard() {
   return (
-    <div className="w-full mt-4 sm:mt-6">
+    // The floating Priority Actions card occupies the top 6.6% of the image,
+    // so the browser window's own top edge starts below it. Pulling the image
+    // up by that much lines the window up with the headline. The image renders
+    // at 0.69x its width, and percentage margins resolve against width, so
+    // 6.6% of height is 4.6% of width and stays correct as the layout scales.
+    <div className="w-full relative lg:mt-[-4.6%]">
       <img
         src={heroDashboardImg}
         alt="GeoRankers dashboard showing AI Visibility Trend across ChatGPT, Google AI Search, and Perplexity, an AI Visibility Score of 68, and prioritized Strategic Recommendations"
@@ -265,6 +270,25 @@ function HeroDashboard() {
         fetchPriority="high"
         className="w-full h-auto"
       />
+
+      {/* Handwritten aside, dropped into the empty sidebar space below Reports
+          and pointing up at the recommendations panel. Positioned in percentages
+          so it tracks the image as it scales, and hidden below lg where the
+          image is too small for it to sit cleanly. */}
+      {/* Sat level with the Strategic Recommendations heading so the arrow can
+          be a short nudge to the right, instead of a long curve sweeping up
+          across the rows of the panel. */}
+      <div className="hidden lg:flex absolute left-[8%] bottom-[24%] items-center gap-1.5 pointer-events-none">
+        <span className="font-handwritten text-lg xl:text-xl text-violet-400 leading-[1.15] whitespace-nowrap">
+          From visibility
+          <br />
+          to action
+        </span>
+        <svg width="46" height="26" viewBox="0 0 46 26" fill="none" className="text-violet-300 flex-shrink-0" aria-hidden="true">
+          <path d="M2 20C14 18 28 14 40 6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+          <path d="M40 6l-10 1M40 6l0 9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+        </svg>
+      </div>
     </div>
   );
 }
@@ -789,6 +813,14 @@ export default function Home() {
         <div className="hero-gradient absolute inset-0 z-0"></div>
 
         <div className="relative z-10 max-w-[100rem] mx-auto">
+          {/* Positioning line, sits above the fold opposite the logo */}
+          <div className="hidden lg:flex items-center justify-end gap-3 mb-12">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+              AI Search Visibility for Growth Teams
+            </span>
+            <span className="w-10 h-px bg-slate-300" aria-hidden="true" />
+          </div>
+
           <div className="grid lg:grid-cols-[35%_65%] gap-10 lg:gap-8 items-start mb-10 sm:mb-14">
             {/* Left col: text */}
             <div>
