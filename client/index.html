@@ -21,7 +21,19 @@
     <link rel="icon" type="image/png" href="/georankers-icon.png" />
     <link rel="shortcut icon" href="/georankers-icon.png" />
     <link rel="apple-touch-icon" href="/georankers-icon.png" />
-    
+
+    <!-- Fonts: preconnected + loaded as a stylesheet link rather than a CSS
+         @import, so the browser discovers and fetches them in parallel with
+         the rest of the page instead of only after index.css is parsed. That
+         serial @import path widens the window where text renders in a
+         fallback font before swapping to Plus Jakarta Sans / Caveat. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Primary Meta Tags -->
     <title>GeoRankers - AI Search Intelligence Platform for B2B SaaS Companies</title>
     <meta name="title" content="GeoRankers - AI Search Intelligence Platform for B2B SaaS Companies" />
