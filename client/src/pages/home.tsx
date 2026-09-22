@@ -29,7 +29,8 @@ import openaiLogo from "@assets/Open Ai_1753958628536.png";
 import perplexityLogo from "@assets/Perplexity_1753958628538.png";
 import screenshotInsights from "@assets/image_1775465238496.png";
 import screenshotPrompts from "@assets/image_1775465155621.png";
-import screenshotRecommendations from "@assets/image_1775465178832.png";
+import screenshotRecommendations from "@assets/recommendations-section.png";
+import screenshotModelPerformance from "@assets/model-performance.png";
 
 // Featured blog images
 import strategicImage from '@assets/generated_images/Strategic_AI_search_leadership_2959319a.png';
@@ -282,9 +283,15 @@ const screenshotSlides = [
   },
   {
     src: screenshotRecommendations,
-    w: 1400, h: 507,
+    w: 1400, h: 568,
     label: "Strategic Recommendations",
     caption: "Data-driven actions prioritized by impact to boost your AI presence, with clear steps to execute each one.",
+  },
+  {
+    src: screenshotModelPerformance,
+    w: 1249, h: 744,
+    label: "Model-Wise Performance",
+    caption: "Compare average mention rate, mentions, and rank per AI model over time to see where visibility is shifting.",
   },
 ];
 
@@ -304,7 +311,7 @@ function ScreenshotCarousel() {
   const slide = screenshotSlides[active];
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-4xl mx-auto">
       {/* Tab pills */}
       <div className="flex flex-wrap justify-center gap-2 mb-8">
         {screenshotSlides.map((s, i) => (
