@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
@@ -17,7 +17,6 @@ import {
   ChevronUp,
   ClipboardCheck,
   HelpCircle,
-  ChevronLeft,
   ChevronRight,
 } from "lucide-react";
 import { SiOpenai, SiGooglegemini, SiPerplexity, SiClaude, SiGithubcopilot } from "react-icons/si";
@@ -36,10 +35,7 @@ import screenshotRecommendations from "@assets/image_1775465178832.png";
 import strategicImage from '@assets/generated_images/Strategic_AI_search_leadership_2959319a.png';
 import buildingBlocksImage from '@assets/generated_images/AI_content_building_blocks_237b4917.png';
 import geoVsSeoImage from '@assets/generated_images/GEO_vs_SEO_comparison_96025f03.png';
-import dashImg1 from '@assets/gr1_1772251203326.png';
-import dashImg2 from '@assets/gr2_1772251203323.png';
-import dashImg3 from '@assets/gr3_1772251203321.png';
-import dashImg4 from '@assets/gr4_1772251203317.png';
+import heroDashboardImg from '@assets/hero-dashboard-transparent.png';
 
 // WordPress API types
 interface WordPressBlogPost {
@@ -85,9 +81,9 @@ function VisibilityGapSection() {
 
   const problems = [
     {
-      label: "PROBLEM 01 — HIGH INTENT PROMPTS",
+      label: "PROBLEM 01: HIGH INTENT PROMPTS",
       title: "Missing from high intent prompts",
-      description: "You do not appear when buyers ask for the best tools in your category. These high-intent moments are where purchase decisions are made — before a prospect ever visits your website.",
+      description: "You do not appear when buyers ask for the best tools in your category. These high-intent moments are where purchase decisions are made, before a prospect ever visits your website.",
       visual: (
         <div className="bg-slate-900 rounded-xl p-5 font-mono">
           <div className="flex gap-1.5 mb-3">
@@ -99,22 +95,22 @@ function VisibilityGapSection() {
           <div className="space-y-2.5">
             <div className="flex items-center gap-3">
               <span className="text-emerald-400 text-xs font-bold">✓</span>
-              <span className="text-emerald-400 text-xs">Competitor A — mentioned 4 times</span>
+              <span className="text-emerald-400 text-xs">Competitor A: mentioned 4 times</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-emerald-400 text-xs font-bold">✓</span>
-              <span className="text-emerald-400 text-xs">Competitor B — mentioned 2 times</span>
+              <span className="text-emerald-400 text-xs">Competitor B: mentioned 2 times</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-red-400 text-xs font-bold">✗</span>
-              <span className="text-red-400 text-xs">Your Brand — not found in response</span>
+              <span className="text-red-400 text-xs">Your Brand: not found in response</span>
             </div>
           </div>
         </div>
       ),
     },
     {
-      label: "PROBLEM 02 — COMPETITIVE SIGNALS",
+      label: "PROBLEM 02: COMPETITIVE SIGNALS",
       title: "Competitors dominate recommendations",
       description: "AI models rely on repeated signals across content and citations, often reinforcing the same vendors. Brands that appear consistently across authoritative sources get recommended first.",
       visual: (
@@ -143,7 +139,7 @@ function VisibilityGapSection() {
       ),
     },
     {
-      label: "PROBLEM 03 — BRAND PERCEPTION",
+      label: "PROBLEM 03: BRAND PERCEPTION",
       title: "Positioning is inconsistent",
       description: "Your product may be described incorrectly, placed in the wrong category, or ranked below where it should be. AI positioning distorts buyer perception before they ever reach you.",
       visual: (
@@ -251,118 +247,22 @@ function VisibilityGapSection() {
   );
 }
 
-const dashboardSlides = [
-  {
-    image: dashImg1,
-    w: 927, h: 515,
-    alt: "GeoRankers Competitive Landscape — bar chart and radar chart showing brand positioning vs competitors",
-    caption: "See how you stack up against competitors in AI search results",
-  },
-  {
-    image: dashImg2,
-    w: 942, h: 514,
-    alt: "GeoRankers AI Prompts & Query Analysis — keyword groups with brand mention scores",
-    caption: "Discover the exact prompts AI is answering about your industry",
-  },
-  {
-    image: dashImg3,
-    w: 1167, h: 643,
-    alt: "GeoRankers Strategic Recommendations — actionable insights with impact levels",
-    caption: "Get data-driven actions prioritized by impact to boost your AI presence",
-  },
-  {
-    image: dashImg4,
-    w: 1263, h: 533,
-    alt: "GeoRankers Overall Insights — AI Visibility Score and brand mention breakdown",
-    caption: "Track your AI Visibility Score and brand mention share across LLMs",
-  },
-];
-
-function DashboardCarousel() {
-  const [current, setCurrent] = useState(0);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const startTimer = useCallback(() => {
-    if (timerRef.current) clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % dashboardSlides.length);
-    }, 4000);
-  }, []);
-
-  useEffect(() => {
-    startTimer();
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, [startTimer]);
-
-  const goTo = (index: number) => {
-    setCurrent(index);
-    startTimer();
-  };
-
-  const prev = () => goTo((current - 1 + dashboardSlides.length) % dashboardSlides.length);
-  const next = () => goTo((current + 1) % dashboardSlides.length);
-
+// Static hero visual: a single pre-composed dashboard image (base Trends
+// view with the AI Visibility, Priority Actions, Brand Mentions, and
+// Strategic Recommendations cards already overlapping it), replacing the
+// old rotating screenshot carousel.
+function HeroDashboard() {
   return (
-    <div className="max-w-6xl mx-auto mt-4 sm:mt-6">
-      <div className="relative group">
-        <div className="rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200/60 relative bg-white">
-          {dashboardSlides.map((slide, i) => (
-            <div
-              key={i}
-              className={i === 0 ? 'relative' : 'absolute inset-0'}
-              style={{
-                opacity: current === i ? 1 : 0,
-                transition: 'opacity 0.6s ease-in-out',
-                pointerEvents: current === i ? 'auto' : 'none',
-              }}
-            >
-              <img
-                src={slide.image}
-                alt={slide.alt}
-                width={slide.w}
-                height={slide.h}
-                className="w-full h-auto"
-              />
-            </div>
-          ))}
-        </div>
-
-        <button
-          onClick={prev}
-          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg border border-slate-200 flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 hover:bg-white z-10"
-          aria-label="Previous screenshot"
-        >
-          <ChevronLeft className="w-5 h-5 text-slate-600" />
-        </button>
-        <button
-          onClick={next}
-          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg border border-slate-200 flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 hover:bg-white z-10"
-          aria-label="Next screenshot"
-        >
-          <ChevronRight className="w-5 h-5 text-slate-600" />
-        </button>
-      </div>
-
-      <div className="mt-4 text-center">
-        <p className="inline-block text-sm sm:text-lg lg:text-xl font-medium text-slate-800 mb-3 px-4 sm:px-5 py-1.5 sm:py-2 bg-slate-100/80 rounded-xl sm:rounded-full transition-all duration-300 max-w-[90vw]">
-          {dashboardSlides[current].caption}
-        </p>
-        <div className="flex items-center justify-center gap-2">
-          {dashboardSlides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              className={`h-2.5 rounded-full transition-all duration-300 ${
-                i === current
-                  ? 'w-8'
-                  : 'w-2.5 bg-slate-300 hover:bg-slate-400'
-              }`}
-              style={i === current ? { background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)' } : {}}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
-        </div>
-      </div>
+    <div className="w-full mt-4 sm:mt-6">
+      <img
+        src={heroDashboardImg}
+        alt="GeoRankers dashboard showing AI Visibility Score, Brand Mentions, Visibility Trend, and Strategic Recommendations"
+        width={1458}
+        height={896}
+        // @ts-ignore -- fetchPriority is valid on <img> but missing from this React/DOM type version
+        fetchPriority="high"
+        className="w-full h-auto"
+      />
     </div>
   );
 }
@@ -372,13 +272,13 @@ const screenshotSlides = [
     src: screenshotInsights,
     w: 1400, h: 544,
     label: "Overall Insights",
-    caption: "AI visibility score, brand mentions, sentiment, competitive landscape and mention distribution — all at a glance.",
+    caption: "AI visibility score, brand mentions, sentiment, competitive landscape, and mention distribution, all at a glance.",
   },
   {
     src: screenshotPrompts,
     w: 1400, h: 490,
     label: "AI Prompts & Query Analysis",
-    caption: "See the exact prompts AI is answering about your industry and where your brand appears — or doesn't.",
+    caption: "See the exact prompts AI is answering about your industry and where your brand appears, or does not.",
   },
   {
     src: screenshotRecommendations,
@@ -460,11 +360,11 @@ function ScreenshotCarousel() {
 
 export default function Home() {
   useSEO({
-    title: "GeoRankers — AI Search Intelligence Platform for B2B SaaS",
+    title: "GeoRankers: AI Search Intelligence Platform for B2B SaaS",
     description:
-      "GeoRankers helps B2B SaaS companies track and optimize brand visibility across ChatGPT and Google AI Search — the AI search intelligence platform.",
+      "GeoRankers helps B2B SaaS companies track and optimize brand visibility across ChatGPT and Google AI Search, the AI search intelligence platform.",
     canonical: "https://georankers.ai/",
-    ogTitle: "GeoRankers — AI Search Intelligence Platform",
+    ogTitle: "GeoRankers: AI Search Intelligence Platform",
     ogDescription:
       "Track, optimize, and build brand authority to get visible in AI search across ChatGPT and Google AI Search.",
     ogUrl: "https://georankers.ai/",
@@ -875,16 +775,17 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-12">
         <div className="hero-gradient absolute inset-0 z-0"></div>
-        <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/10 rounded-full blur-3xl animate-pulse-soft"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-violet-400/20 to-pink-400/10 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-10 sm:mb-14">
+        <div className="relative z-10 max-w-[100rem] mx-auto">
+          <div className="grid lg:grid-cols-[35%_65%] gap-10 lg:gap-8 items-start mb-10 sm:mb-14">
             {/* Left col: text */}
             <div>
               {/* Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-slate-900 mb-6">
-                Is Your Brand Invisible in{' '}
+              <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.1] text-slate-900 mb-6">
+                Is Your Brand
+                <br />
+                Invisible in
+                <br />
                 <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
                   AI Search?
                 </span>
@@ -892,7 +793,7 @@ export default function Home() {
 
               {/* Sub-headline */}
               <p className="text-base sm:text-lg font-normal text-slate-600 mb-7 leading-relaxed">
-                GeoRankers is the AI search visibility platform that fixes that — tracking your brand across ChatGPT, Google AI Search, and Perplexity so you know exactly where you stand and what to do.
+                GeoRankers is the AI search visibility platform that fixes that, tracking your brand across ChatGPT, Google AI Search, and Perplexity so you know exactly where you stand and what to do.
               </p>
 
               {/* CTAs */}
@@ -961,7 +862,7 @@ export default function Home() {
 
             {/* Right col: Dashboard Carousel */}
             <div className="w-full">
-              <DashboardCarousel />
+              <HeroDashboard />
             </div>
           </div>
 
@@ -975,7 +876,7 @@ export default function Home() {
           <div className="bg-slate-900 rounded-[2rem] px-8 sm:px-10 py-7 flex flex-col sm:flex-row items-center justify-between gap-5">
             <div>
               <p className="text-white font-bold text-lg sm:text-xl leading-snug">
-                Your buyers are asking AI — <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">is your brand in the answer?</span>
+                Your buyers are asking AI: <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">is your brand in the answer?</span>
               </p>
               <p className="text-slate-400 text-sm mt-1">Track AI visibility across ChatGPT, Google AI Search, and Perplexity in one dashboard.</p>
             </div>
@@ -1015,9 +916,9 @@ export default function Home() {
 
               <div className="space-y-5">
                 {[
-                  { icon: Eye, label: "AI answers summarize entire categories", desc: "AI tools generate single answers covering entire software categories — one mention defines the shortlist." },
-                  { icon: BarChart3, label: "Multiple vendors are compared instantly", desc: "Buyers get ranked comparisons in seconds. If you're not in that list, you're not in the conversation." },
-                  { icon: Brain, label: "Visibility depends on how AI interprets your brand", desc: "The signals AI uses to understand your brand — citations, content, authority — are invisible in standard analytics." },
+                  { icon: Eye, label: "AI answers summarize entire categories", desc: "AI tools generate single answers covering entire software categories. One mention defines the shortlist." },
+                  { icon: BarChart3, label: "Multiple vendors are compared instantly", desc: "Buyers get ranked comparisons in seconds. If you are not in that list, you are not in the conversation." },
+                  { icon: Brain, label: "Visibility depends on how AI interprets your brand", desc: "The signals AI uses to understand your brand (citations, content, authority) are invisible in standard analytics." },
                 ].map((item, i) => {
                   const Icon = item.icon;
                   return (
