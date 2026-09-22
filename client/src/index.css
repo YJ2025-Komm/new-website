@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap');
+/* Font request moved to a <link rel="preconnect"> + <link rel="stylesheet">
+   pair in index.html, so it loads in parallel with the page instead of only
+   after this file is fetched and parsed. Do not re-add an @import here. */
 
 @tailwind base;
 @tailwind components;

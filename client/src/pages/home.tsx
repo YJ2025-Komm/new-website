@@ -809,7 +809,13 @@ export default function Home() {
       <main id="main-content">
 
       {/* Hero Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-8">
+      {/* 2xl padding is deliberately larger and more symmetric than the base
+          values: on big monitors the (wider, top-aligned) image column runs
+          taller than the text column, and asymmetric padding here just makes
+          that height difference read as a bigger dead zone at the bottom.
+          Shifting the whole block down with matching top/bottom space instead
+          splits the extra room rather than dumping it all below the text. */}
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 2xl:pt-28 pb-8 2xl:pb-20">
         <div className="hero-gradient absolute inset-0 z-0"></div>
 
         <div className="relative z-10 max-w-[100rem] mx-auto">
