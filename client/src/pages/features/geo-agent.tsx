@@ -1,40 +1,116 @@
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { useBreadcrumbSchema, FEATURES_CRUMBS } from "@/hooks/useBreadcrumbSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import FAQSection, { type FAQ } from "@/components/FAQSection";
-import { ArrowDown, Bot, Check, MessageCircle, Rocket, Send, Target } from "lucide-react";
+import { Bot, Check, MessageCircle, Rocket, Send, Target } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const PAGE_URL = "https://georankers.ai/features/geo-agent";
 
-// The three stages in the How It Works diagram, modeled on the actual chat
-// flow: a question in plain language, an answer grounded in the account's
+// The scripted back-and-forth the animated chat demo plays through, on a
+// loop: a question in plain language, an answer grounded in the account's
 // own tracked data, and a follow-up question that narrows further, since the
 // agent is meant for back-and-forth rather than a single lookup.
-const LOOP_STAGES = [
-  {
-    label: "You Ask",
-    kind: "question" as const,
-    detail: "Why is our visibility dropping on Google AI Search this week?",
-  },
-  {
-    label: "Agent Answers",
-    kind: "answer" as const,
-    detail: "Your Google AI Search visibility dropped 12% because Competitor A published 3 new comparison pages. I recommend creating a detailed feature comparison and updating your integrations page.",
-  },
-  {
-    label: "You Follow Up",
-    kind: "question" as const,
-    detail: "What quick wins can I act on today?",
-  },
-  {
-    label: "Agent Narrows It Down",
-    kind: "answer" as const,
-    detail: "3 quick wins found: add FAQ schema to your pricing page, update your G2 profile, and respond to 2 Reddit threads mentioning your category.",
-  },
+const CHAT_SCRIPT = [
+  { role: "user" as const, text: "Why is our visibility dropping on Google AI Search this week?" },
+  { role: "agent" as const, text: "Your Google AI Search visibility dropped 12% because Competitor A published 3 new comparison pages. I recommend creating a detailed feature comparison and updating your integrations page." },
+  { role: "user" as const, text: "What quick wins can I act on today?" },
+  { role: "agent" as const, text: "3 quick wins found: add FAQ schema to your pricing page, update your G2 profile, and respond to 2 Reddit threads mentioning your category." },
 ];
+
+// Animated stand-in for a real product recording: plays CHAT_SCRIPT one
+// message at a time with a typing pause before each agent reply, then
+// resets and loops. Built from markup rather than a captured GIF so it
+// stays crisp at any size and never goes stale if the script changes.
+function LiveChatDemo() {
+  const [visibleCount, setVisibleCount] = useState(0);
+  const [typing, setTyping] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    const after = (ms: number, fn: () => void) => {
+      const t = setTimeout(() => {
+        if (!cancelled) fn();
+      }, ms);
+      timers.push(t);
+    };
+
+    function step(index: number) {
+      // Plays through once on mount and stops with the full conversation
+      // left on screen, rather than resetting and looping.
+      if (index >= CHAT_SCRIPT.length) {
+        return;
+      }
+      const isAgent = CHAT_SCRIPT[index].role === "agent";
+      if (isAgent) {
+        setTyping(true);
+        after(1100, () => {
+          setTyping(false);
+          setVisibleCount(index + 1);
+          after(1500, () => step(index + 1));
+        });
+      } else {
+        after(700, () => {
+          setVisibleCount(index + 1);
+          after(900, () => step(index + 1));
+        });
+      }
+    }
+
+    step(0);
+    return () => {
+      cancelled = true;
+      timers.forEach(clearTimeout);
+    };
+  }, []);
+
+  return (
+    <div className="glass-strong rounded-2xl p-5 sm:p-6 max-w-sm mx-auto lg:mx-0">
+      <div className="flex items-center gap-2 mb-4">
+        <div className="w-7 h-7 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center flex-shrink-0">
+          <Bot className="w-4 h-4 text-white" />
+        </div>
+        <div className="min-w-0">
+          <p className="font-bold text-slate-900 text-sm leading-tight">GEO Agent</p>
+          <p className="text-[10px] text-slate-400 leading-tight">Illustrative demo, not your account data</p>
+        </div>
+        <span className="ml-auto inline-flex items-center gap-1 text-[10px] font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded-full flex-shrink-0">
+          <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+          Online
+        </span>
+      </div>
+
+      <div className="space-y-2.5 min-h-[210px] sm:min-h-[190px]">
+        {CHAT_SCRIPT.slice(0, visibleCount).map((m, i) => (
+          <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
+            <div
+              className={
+                m.role === "user"
+                  ? "bg-gradient-to-r from-blue-500 to-violet-500 text-white text-xs sm:text-sm px-3.5 py-2 rounded-2xl rounded-br-sm max-w-[85%] leading-snug"
+                  : "bg-white border border-slate-200/70 text-slate-700 text-xs sm:text-sm px-3.5 py-2 rounded-2xl rounded-bl-sm max-w-[85%] leading-snug"
+              }
+            >
+              {m.text}
+            </div>
+          </div>
+        ))}
+        {typing && (
+          <div className="flex justify-start">
+            <div className="bg-white border border-slate-200/70 px-3.5 py-2.5 rounded-2xl rounded-bl-sm flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "0ms" }} />
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "150ms" }} />
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "300ms" }} />
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 // The three broad question types the agent handles, matching the actual
 // examples shown in the chat preview: a diagnostic question about a change,
@@ -172,7 +248,7 @@ export default function GeoAgent() {
         <section className="py-10 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 bg-slate-50/60 overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-              <div className="lg:col-span-5">
+              <div className="lg:col-span-7">
                 <p className="text-xs font-black uppercase tracking-widest text-cyan-600 mb-3">How It Works</p>
                 <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.15] text-slate-900 mb-4">
                   A Conversation, Not a Single Lookup
@@ -184,34 +260,8 @@ export default function GeoAgent() {
                 </p>
               </div>
 
-              <div className="lg:col-span-7">
-                <Card className="glass rounded-[2rem] border-0">
-                  <CardContent className="p-4 sm:p-5">
-                    <p className="text-[10px] text-slate-400 italic mb-2">Illustrative example, not your account data.</p>
-                    <div className="space-y-1.5">
-                      {LOOP_STAGES.map((stage, i) => (
-                        <div key={stage.label}>
-                          <div className="rounded-xl border border-slate-200 bg-white px-3.5 py-2.5">
-                            <div className="flex items-center gap-2 mb-1">
-                              <span className="w-4 h-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-[9px] font-black flex items-center justify-center flex-shrink-0">
-                                {i + 1}
-                              </span>
-                              <p className="text-slate-900 font-black text-[11px] sm:text-xs uppercase tracking-wide">
-                                {stage.label}
-                              </p>
-                            </div>
-                            <p className="text-[11px] text-slate-500 leading-snug pl-6">{stage.detail}</p>
-                          </div>
-                          {i < LOOP_STAGES.length - 1 && (
-                            <div className="flex justify-center py-0.5">
-                              <ArrowDown className="w-3.5 h-3.5 text-cyan-500" strokeWidth={2.5} />
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+              <div className="lg:col-span-5">
+                <LiveChatDemo />
               </div>
             </div>
           </div>

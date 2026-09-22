@@ -13,30 +13,38 @@ const PAGE_URL = "https://georankers.ai/features/content-hub";
 // gap becomes an outline, the outline becomes a published or updated page,
 // and that page is analyzed again once it exists, closing the loop back to
 // visibility data rather than treating content work as a one-off task.
+// Every stage shares one shape (label, optional tag, detail) so the boxes
+// render at a consistent height regardless of which stage it is — an
+// earlier version put the tag on its own row only for some stages, which
+// threw off the vertical rhythm of the whole diagram.
 const LOOP_STAGES = [
   {
-    label: "Gap Found",
-    kind: "evidence" as const,
+    label: "Answers Analyzed",
+    detail: "GeoRankers analyzes your last 30 days of tracked AI answers to identify content opportunities.",
+  },
+  {
+    label: "Opportunity Found",
+    tag: "Content Gap",
+    tagClass: "bg-red-100 text-red-700",
     detail: "No tracked page currently covers \"affordable AI visibility tools for startups.\"",
   },
   {
-    label: "Outline Generated",
-    kind: "outline" as const,
-    detail: "A detailed content outline is generated from the gap and the competitor pages already winning it.",
+    label: "Outline or Analysis",
+    tag: "Your Choice",
+    tagClass: "bg-blue-100 text-blue-700",
+    detail: "Generate a content outline for the gap, or get a content score and optimization recommendations for an existing page.",
   },
   {
     label: "Published or Updated",
-    kind: "action" as const,
     tag: "Content Creation",
     tagClass: "bg-orange-100 text-orange-700",
-    detail: "You publish the new page, or update an existing one using the outline.",
+    detail: "You publish the new page, or update an existing one using the outline or recommendations.",
   },
   {
-    label: "Re-Analyzed",
-    kind: "result" as const,
-    status: "Strong",
-    statusClass: "bg-green-100 text-green-700",
-    detail: "Content Hub re-checks the page for AI-search suitability once it is live.",
+    label: "Tracked in Signal Tracker",
+    tag: "Tracking",
+    tagClass: "bg-slate-100 text-slate-600",
+    detail: "Add the published URL to Signal Tracker to see if it gets cited in future AI answers.",
   },
 ];
 
@@ -78,7 +86,7 @@ const FAQS: FAQ[] = [
   {
     question: "Does Content Hub write the content for me?",
     answer:
-      "No. It identifies opportunities and generates outlines, but you or your team write and publish the actual content. Content Hub then analyzes what you publish for AI-search suitability.",
+      "No. It identifies opportunities and generates outlines, but you or your team write and publish the actual content. You can run Content Hub's analysis on that page any time to check it for AI-search suitability, and add it to Signal Tracker to see whether it gets cited.",
   },
   {
     question: "What does it check when it analyzes existing content?",
@@ -98,7 +106,7 @@ const FAQS: FAQ[] = [
   {
     question: "Does Content Hub tell me when a page becomes Strong?",
     answer:
-      "Yes. Once you publish or update a page, Content Hub re-analyzes it, and its status updates once it is well cited across your tracked AI models.",
+      "Content Hub does not re-scan your content automatically. To see whether a published or updated page gets cited, add its URL to Signal Tracker, which checks your future tracked runs and reports back once it picks up a citation.",
   },
   {
     question: "How is this different from Prioritized Recommendations?",
@@ -193,8 +201,8 @@ export default function ContentHub() {
                 </h2>
                 <p className="text-base text-slate-500 leading-relaxed">
                   A content gap is turned into a detailed outline built from the competitor pages already
-                  winning it. Once you publish or update the page, Content Hub re-analyzes it for AI-search
-                  suitability.
+                  winning it. Once you publish or update the page, add the URL to Signal Tracker to see
+                  whether it gets cited in future AI answers.
                 </p>
               </div>
 
@@ -210,32 +218,14 @@ export default function ContentHub() {
                               <span className="w-4 h-4 rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-white text-[9px] font-black flex items-center justify-center flex-shrink-0">
                                 {i + 1}
                               </span>
-                              <p className="text-slate-900 font-black text-[11px] sm:text-xs uppercase tracking-wide">
+                              <p className="text-slate-900 font-black text-[11px] sm:text-xs uppercase tracking-wide flex-1">
                                 {stage.label}
                               </p>
+                              {stage.tag && (
+                                <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0 ${stage.tagClass}`}>{stage.tag}</span>
+                              )}
                             </div>
-
-                            {stage.kind === "evidence" && (
-                              <p className="text-[11px] text-slate-500 leading-snug pl-6">{stage.detail}</p>
-                            )}
-
-                            {stage.kind === "outline" && (
-                              <p className="text-[11px] text-slate-500 leading-snug pl-6">{stage.detail}</p>
-                            )}
-
-                            {stage.kind === "action" && (
-                              <div className="pl-6">
-                                <span className={`inline-block text-[9px] font-bold px-1.5 py-0.5 rounded-full mb-0.5 ${stage.tagClass}`}>{stage.tag}</span>
-                                <p className="text-[11px] text-slate-600 leading-snug">{stage.detail}</p>
-                              </div>
-                            )}
-
-                            {stage.kind === "result" && (
-                              <div className="pl-6">
-                                <span className={`inline-block text-[9px] font-bold px-1.5 py-0.5 rounded-full mb-0.5 ${stage.statusClass}`}>{stage.status}</span>
-                                <p className="text-[11px] text-slate-500 leading-snug">{stage.detail}</p>
-                              </div>
-                            )}
+                            <p className="text-[11px] text-slate-500 leading-snug pl-6">{stage.detail}</p>
                           </div>
                           {i < LOOP_STAGES.length - 1 && (
                             <div className="flex justify-center py-0.5">
