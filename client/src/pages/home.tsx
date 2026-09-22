@@ -258,9 +258,9 @@ function HeroDashboard() {
     <div className="w-full mt-4 sm:mt-6">
       <img
         src={heroDashboardImg}
-        alt="GeoRankers dashboard showing AI Visibility Score, Brand Mentions, Visibility Trend, and Strategic Recommendations"
-        width={1458}
-        height={896}
+        alt="GeoRankers dashboard showing AI Visibility Trend across ChatGPT, Google AI Search, and Perplexity, an AI Visibility Score of 68, and prioritized Strategic Recommendations"
+        width={1417}
+        height={980}
         // @ts-ignore -- fetchPriority is valid on <img> but missing from this React/DOM type version
         fetchPriority="high"
         className="w-full h-auto"
