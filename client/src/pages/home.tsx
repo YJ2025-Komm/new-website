@@ -33,9 +33,9 @@ import screenshotRecommendations from "@assets/recommendations-section.png";
 import screenshotModelPerformance from "@assets/model-performance.png";
 
 // Featured blog images
-import strategicImage from '@assets/generated_images/Strategic_AI_search_leadership_2959319a.png';
-import buildingBlocksImage from '@assets/generated_images/AI_content_building_blocks_237b4917.png';
-import geoVsSeoImage from '@assets/generated_images/GEO_vs_SEO_comparison_96025f03.png';
+import strategicImage from '@assets/generated_images/Strategic_AI_search_leadership_2959319a.webp';
+import buildingBlocksImage from '@assets/generated_images/AI_content_building_blocks_237b4917.webp';
+import geoVsSeoImage from '@assets/generated_images/GEO_vs_SEO_comparison_96025f03.webp';
 import heroDashboardImg from '@assets/hero-dashboard.webp';
 
 // WordPress API types
