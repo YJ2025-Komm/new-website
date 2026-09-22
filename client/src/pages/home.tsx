@@ -809,12 +809,15 @@ export default function Home() {
       <main id="main-content">
 
       {/* Hero Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-12">
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-8">
         <div className="hero-gradient absolute inset-0 z-0"></div>
 
         <div className="relative z-10 max-w-[100rem] mx-auto">
           {/* Positioning line, sits above the fold opposite the logo */}
-          <div className="hidden lg:flex items-center justify-end gap-3 mb-12">
+          {/* mb here is load-bearing: the image below is pulled up 4.6% and its
+              floating Priority Actions card rises into this row's space, so
+              trimming this much further will collide with the label. */}
+          <div className="hidden lg:flex items-center justify-end gap-3 mb-8">
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
               AI Search Visibility for Growth Teams
             </span>
@@ -837,7 +840,7 @@ export default function Home() {
 
               {/* Sub-headline */}
               <p className="text-base sm:text-lg font-normal text-slate-600 mb-7 leading-relaxed">
-                GeoRankers is the AI search visibility platform that fixes that, tracking your brand across ChatGPT, Google AI Search, and Perplexity so you know exactly where you stand and what to do.
+                GeoRankers is the AI search visibility platform that fixes that - tracking your brand across ChatGPT, Google AI Search, and Perplexity so you know exactly where you stand and what to do.
               </p>
 
               {/* CTAs */}
