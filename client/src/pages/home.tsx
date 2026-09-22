@@ -292,10 +292,10 @@ const screenshotSlides = [
   },
   {
     src: screenshotModelPerformance,
-    w: 1249, h: 744,
+    w: 1249, h: 460,
     label: "Model-Wise Performance",
-    alt: "GeoRankers Model Performance Trend chart comparing average mention rate and rank across ChatGPT, Google AI Search, and Perplexity",
-    caption: "Compare average mention rate, mentions, and rank per AI model over time to see where visibility is shifting.",
+    alt: "GeoRankers Model Performance Trend chart plotting visibility over time for ChatGPT, Google AI Search, and Perplexity",
+    caption: "Track performance per AI model over time to see which model your visibility is rising or falling on.",
   },
 ];
 
