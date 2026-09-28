@@ -7,6 +7,13 @@
   NODE_VERSION = "18"
   PUPPETEER_CACHE_DIR = "/opt/build/cache/puppeteer"
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
 [[redirects]]
   from = "/sitemap.xml"
   to = "/.netlify/functions/sitemap"
