@@ -4,7 +4,46 @@ import { useSEO } from "@/hooks/useSEO";
 import { ArrowRight, Rocket } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FAQSection, { type FAQ } from "@/components/FAQSection";
 
+const faqs: FAQ[] = [
+  {
+    question: 'What is the difference between writing for SEO and writing for AI search?',
+    answer: 'Traditional SEO optimizes pages to rank for specific keywords in a list of results. Writing for AI search requires creating content that can be extracted, synthesized, and cited as part of a single coherent answer. The core difference is that AI systems retrieve at the passage level rather than the page level, which means every section of a piece of content needs to be able to stand alone as a useful, specific answer to a real question.',
+  },
+  {
+    question: 'Does content length matter for AI citation?',
+    answer: 'Content depth matters more than raw word count. Long-form content of 2,000 words or more is cited more frequently than short content, but only when it maintains specificity and depth throughout rather than padding to hit a length target. The more useful measure is whether each major section contains at least one specific, extractable assertion supported by evidence. A 2,500-word piece with 10 citable sections will consistently outperform a 5,000-word piece with two.',
+  },
+  {
+    question: 'How often should content be updated for AI visibility?',
+    answer: 'Research shows that 76.4% of ChatGPT\'s most-cited pages were updated within the last 30 days, and the majority of AI Overview citations come from content published within the last two years. For content in fast-moving categories, meaningful updates every three to six months are worth considering for high-priority pieces. The update should reflect genuinely new data, examples, or framing rather than cosmetic changes to a publication date.',
+  },
+  {
+    question: 'Does schema markup help with AI citation?',
+    answer: 'Yes, though the relationship is stronger for some platforms than others. Gemini shows a pronounced preference for structured, schema-marked content on brand-owned domains. Research suggests that products with comprehensive schema markup appear in AI recommendations three to five times more frequently than those without it. For ChatGPT and Perplexity, the effect is less direct but still meaningful in that schema markup contributes to the overall authority and crawlability signals those platforms factor into source selection.',
+  },
+  {
+    question: 'What role do community platforms play in AI visibility?',
+    answer: 'Community platforms play a larger role than most content strategies currently account for. Domains with substantial brand mentions on Quora and Reddit have approximately four times higher citation rates than those with minimal community presence. Perplexity draws roughly 46.7% of its top citations from Reddit alone for certain query types. The mechanism is that AI systems learned from human conversations, and the platforms where those conversations happen in the most candid and detailed form become disproportionately influential in shaping how AI answers describe brands and categories.',
+  },
+  {
+    question: 'What types of content does AI cite most?',
+    answer: 'AI systems disproportionately cite content that is specific, structured, and sourced. Research-backed content with named statistics is cited 25–41% more frequently than generic claims (Aggarwal et al., 2024). Content containing direct quotes from named experts sees a 28–41% higher citation rate. Structured formats — tables, numbered lists, FAQ sections — are cited 2.5x more often than unstructured prose (Onely, 2025). Content that defines terms clearly, answers questions directly, and front-loads its key claims in the first 30% of the page consistently outperforms longer, less structured alternatives.',
+  },
+  {
+    question: 'How do I write content that gets cited in ChatGPT?',
+    answer: 'To get cited in ChatGPT in 2026, focus on four things: (1) Write extractable assertions — every section should contain a specific, self-contained claim supported by evidence that can be lifted verbatim. (2) Use structure AI can parse — headers, bullet points, numbered lists, and FAQ sections signal retrievable content. (3) Build domain authority — ChatGPT shows a 3.5x citation lift for domains with 32,000+ referring domains, so third-party mentions matter. (4) Keep content fresh — 76.4% of ChatGPT\'s most-cited pages were updated within the last 30 days (Digitaloft, 2025). Combine these with FAQPage and Article schema markup to maximize extractability.',
+  },
+  {
+    question: 'What is an extractable assertion?',
+    answer: 'An extractable assertion is a self-contained sentence or passage that AI systems can lift directly from your content and use as part of a synthesized answer — without needing surrounding context to make sense. It combines a specific claim, supporting evidence or a named source, and enough context to stand alone. For example: "Companies that publish original research with named statistics see 25–41% higher AI citation rates than those that do not (Aggarwal et al., 2024)" is an extractable assertion. "Content quality matters for AI" is not — it is too generic to be cited. Every section of AI-optimized content should contain at least one extractable assertion.',
+  },
+  {
+    question: 'How do I structure B2B content for AI search?',
+    answer: 'Structure B2B content for AI search by treating each section as an independent answer unit. Start with a clear H2 or H3 that names the topic explicitly. Open the section with your strongest, most specific claim rather than building to it. Support that claim with a named statistic or sourced evidence. Use bullet points or numbered lists for multi-part answers — AI systems retrieve lists cleanly. Add a summary sentence at the end of complex sections. Include a FAQ section at the bottom of long-form content to capture question-based queries directly. Finally, implement Article and FAQPage schema markup so AI systems can identify the content type and extract it more reliably.',
+  },
+];
 
 export default function AiContentGuide() {
   const [activeSection, setActiveSection] = useState('');
@@ -12,11 +51,11 @@ export default function AiContentGuide() {
   useSEO({
     title: "How to Write Content AI Actually Cites | GeoRankers",
     description:
-      "Learn how to write B2B content that earns AI citations in 2026 — extractable assertions, specificity signals, and a 4-stage framework for ChatGPT, Gemini.",
+      "Learn how to write B2B content that earns AI citations in 2026 — extractable assertions, specificity signals, and a 4-stage framework for AI search.",
     canonical: "https://georankers.ai/ai-content-guide",
     ogTitle: "How to Write Content That AI Actually Cites: The B2B Brand Guide",
     ogDescription:
-      "The complete guide to writing B2B content that earns citations in AI-generated answers. Learn the mechanics behind ChatGPT, Perplexity, and Gemini — and how to optimize every section for extraction.",
+      "The complete guide to writing B2B content that earns citations in AI-generated answers. Learn the mechanics behind ChatGPT, Google AI Search, and Perplexity — and how to optimize every section for extraction.",
     ogUrl: "https://georankers.ai/ai-content-guide",
     schemaId: "ai-content-guide-schema",
     schema: {
@@ -34,7 +73,7 @@ export default function AiContentGuide() {
         "logo": { "@type": "ImageObject", "url": "https://georankers.ai/og-image.png" },
       },
       "datePublished": "2026-04-30",
-      "dateModified": "2026-07-26",
+      "dateModified": "2026-09-28",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://georankers.ai/ai-content-guide" },
       "articleSection": "AI Search Marketing",
       "keywords": [
@@ -44,7 +83,7 @@ export default function AiContentGuide() {
         "content freshness AI", "extractable assertions",
       ],
       "about": [
-        { "@type": "Thing", "name": "Generative Engine Optimization", "description": "Optimizing content to be cited by AI-powered search systems such as ChatGPT, Perplexity, and Gemini" },
+        { "@type": "Thing", "name": "Generative Engine Optimization", "description": "Optimizing content to be cited by AI-powered search systems such as ChatGPT, Google AI Search, and Perplexity" },
         { "@type": "Thing", "name": "AI Search Citation", "description": "The process by which AI models select and reference source content when generating synthesized answers" },
       ],
       "mentions": [
@@ -92,34 +131,6 @@ export default function AiContentGuide() {
     return () => { el?.remove(); };
   }, []);
 
-  // Standalone FAQPage — separate script tag avoids Google "Duplicate field FAQ page" error.
-  // Uses check-before-create so hydration after prerender does not add a second copy.
-  useEffect(() => {
-    const ID = 'ai-content-guide-faq-schema';
-    let el = document.querySelector(`script#${ID}`) as HTMLScriptElement | null;
-    if (!el) {
-      el = document.createElement('script');
-      el.type = 'application/ld+json';
-      el.id = ID;
-      document.head.appendChild(el);
-    }
-    el.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "What is the difference between writing for SEO and writing for AI search?", "acceptedAnswer": { "@type": "Answer", "text": "Traditional SEO optimizes pages to rank for specific keywords in a list of results. Writing for AI search requires creating content that can be extracted, synthesized, and cited as part of a single coherent answer. The core difference is that AI systems retrieve at the passage level rather than the page level, which means every section of a piece of content needs to be able to stand alone as a useful, specific answer to a real question." } },
-        { "@type": "Question", "name": "Does content length matter for AI citation?", "acceptedAnswer": { "@type": "Answer", "text": "Content depth matters more than raw word count. Long-form content of 2,000 words or more is cited more frequently than short content, but only when it maintains specificity and depth throughout rather than padding to hit a length target. The more useful measure is whether each major section contains at least one specific, extractable assertion supported by evidence. A 2,500-word piece with 10 citable sections will consistently outperform a 5,000-word piece with two." } },
-        { "@type": "Question", "name": "How often should content be updated for AI visibility?", "acceptedAnswer": { "@type": "Answer", "text": "Research shows that 76.4% of ChatGPT's most-cited pages were updated within the last 30 days, and the majority of AI Overview citations come from content published within the last two years. For content in fast-moving categories, meaningful updates every three to six months are worth considering for high-priority pieces. The update should reflect genuinely new data, examples, or framing rather than cosmetic changes to a publication date." } },
-        { "@type": "Question", "name": "Does schema markup help with AI citation?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, though the relationship is stronger for some platforms than others. Gemini shows a pronounced preference for structured, schema-marked content on brand-owned domains. Research suggests that products with comprehensive schema markup appear in AI recommendations three to five times more frequently than those without it. For ChatGPT and Perplexity, the effect is less direct but still meaningful in that schema markup contributes to the overall authority and crawlability signals those platforms factor into source selection." } },
-        { "@type": "Question", "name": "What role do community platforms play in AI visibility?", "acceptedAnswer": { "@type": "Answer", "text": "Community platforms play a larger role than most content strategies currently account for. Domains with substantial brand mentions on Quora and Reddit have approximately four times higher citation rates than those with minimal community presence. Perplexity draws roughly 46.7% of its top citations from Reddit alone for certain query types. The mechanism is that AI systems learned from human conversations, and the platforms where those conversations happen in the most candid and detailed form become disproportionately influential in shaping how AI answers describe brands and categories." } },
-        { "@type": "Question", "name": "What types of content does AI cite most?", "acceptedAnswer": { "@type": "Answer", "text": "AI systems disproportionately cite content that is specific, structured, and sourced. Research-backed content with named statistics is cited 22% more frequently than generic claims (Aggarwal et al., 2024). Content containing direct quotes from named experts sees a 37% higher citation rate. Structured formats — tables, numbered lists, FAQ sections — are cited 2.5x more often than unstructured prose (Onely, 2025). Content that defines terms clearly, answers questions directly, and front-loads its key claims in the first 30% of the page consistently outperforms longer, less structured alternatives." } },
-        { "@type": "Question", "name": "How do I write content that gets cited in ChatGPT?", "acceptedAnswer": { "@type": "Answer", "text": "To get cited in ChatGPT in 2026, focus on four things: (1) Write extractable assertions — every section should contain a specific, self-contained claim supported by evidence. (2) Use structure AI can parse — headers, bullet points, numbered lists, and FAQ sections signal retrievable content. (3) Build domain authority — ChatGPT shows a 3.5x citation lift for domains with 32,000+ referring domains. (4) Keep content fresh — 76.4% of ChatGPT's most-cited pages were updated within the last 30 days (Digitaloft, 2025). Combine these with FAQPage and Article schema markup to maximize extractability." } },
-        { "@type": "Question", "name": "What is an extractable assertion?", "acceptedAnswer": { "@type": "Answer", "text": "An extractable assertion is a self-contained sentence or passage that AI systems can lift directly from your content and use as part of a synthesized answer — without needing surrounding context to make sense. It combines a specific claim, supporting evidence or a named source, and enough context to stand alone. Every section of AI-optimized content should contain at least one extractable assertion." } },
-        { "@type": "Question", "name": "How do I structure B2B content for AI search?", "acceptedAnswer": { "@type": "Answer", "text": "Structure B2B content for AI search by treating each section as an independent answer unit. Start with a clear H2 or H3 that names the topic explicitly. Open the section with your strongest, most specific claim. Support that claim with a named statistic or sourced evidence. Use bullet points or numbered lists for multi-part answers. Add a FAQ section at the bottom of long-form content to capture question-based queries. Implement Article and FAQPage schema markup so AI systems can identify the content type and extract it more reliably." } },
-      ],
-    });
-    return () => { el?.remove(); };
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -179,11 +190,11 @@ export default function AiContentGuide() {
               <h2 className="text-xl md:text-2xl text-gray-700 mb-4 font-medium">
                 The Comprehensive Guide for B2B Brands
               </h2>
-              <p className="text-xs text-gray-400 mb-8 font-medium">Last updated: May 2026 | GeoRankers — AI search visibility platform for B2B SaaS teams</p>
+              <p className="text-xs text-gray-400 mb-8 font-medium">Last updated: September 2026 | GeoRankers — AI search visibility platform for B2B SaaS teams</p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
                 AI chatbots now synthesize answers from thousands of sources — and most B2B content is
                 structurally invisible to them. This guide explains the mechanics, the signals, and the
-                four-stage framework for writing content that earns citations across ChatGPT, Gemini,
+                four-stage framework for writing content that earns citations across ChatGPT, Google AI Search,
                 and Perplexity.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -227,19 +238,19 @@ export default function AiContentGuide() {
 
                 {/* Citation stats card */}
                 <div className="absolute top-4 right-0 bg-white rounded-lg shadow-xl p-4 transform -rotate-3 hover:rotate-0 transition-transform duration-300 w-52 border border-gray-200">
-                  <div className="text-xs text-gray-500 mb-2">AI Citation Rates</div>
+                  <div className="text-xs text-gray-500 mb-2">AI Citation Rates <span className="italic">(illustrative)</span></div>
                   <div className="space-y-2">
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-600">Structured content</span>
-                      <span className="font-semibold text-green-600">+40%</span>
+                      <span className="font-semibold text-green-600">+41%</span>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-600">Named statistics</span>
-                      <span className="font-semibold text-blue-600">+22%</span>
+                      <span className="font-semibold text-blue-600">+25–41%</span>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-600">Direct quotes</span>
-                      <span className="font-semibold text-purple-600">+37%</span>
+                      <span className="font-semibold text-purple-600">+28–41%</span>
                     </div>
                   </div>
                   <div className="mt-3 h-2 bg-gray-100 rounded-full overflow-hidden">
@@ -307,6 +318,17 @@ export default function AiContentGuide() {
 
             {/* ── Introduction ─────────────────────────────────────────────── */}
             <section className="mb-12">
+              <div className="not-prose bg-blue-50/60 border border-blue-100 rounded-2xl p-6 sm:p-8 mb-8">
+                <div className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-3">Key Takeaway</div>
+                <p className="text-lg text-gray-800 leading-relaxed m-0">
+                  AI systems cite content at the level of the extractable assertion — a self-contained sentence or
+                  passage that can be lifted directly from your content and used in a synthesized answer without
+                  needing surrounding context to make sense. This guide covers how AI systems retrieve and cite
+                  content, what makes a sentence extractable, how specificity and authority signals affect citation
+                  rates, how ChatGPT, Google AI Search, and Perplexity cite differently, and a 4-stage framework for
+                  writing B2B content built to be cited.
+                </p>
+              </div>
               <p className="text-xl text-gray-700 leading-relaxed mb-6">
                 There is a quiet change happening inside the B2B buying journey that most content teams have not
                 fully accounted for yet. A founder searching for the right project management tool no longer types
@@ -320,7 +342,7 @@ export default function AiContentGuide() {
                 This is not a small shift at the edges of search behavior. The numbers make the direction clear:
               </p>
               <ul className="mb-8 space-y-2">
-                <li>Gartner predicted traditional search engine volume will drop 25% by 2026 as AI chatbots function as substitute answer engines</li>
+                <li>Gartner projected traditional search engine volume would drop 25% by 2026 as AI chatbots function as substitute answer engines</li>
                 <li>ChatGPT now processes roughly 2.5 billion prompts each day</li>
                 <li>Google's AI Overviews appear in more than half of all search results</li>
                 <li>AI-referred sessions grew 527% year over year between early 2024 and early 2025</li>
@@ -519,7 +541,7 @@ export default function AiContentGuide() {
             {/* ── CTA 1 ────────────────────────────────────────────────────── */}
             <div className="my-12 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 rounded-2xl p-6 sm:p-8 text-center">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Is Your Brand Showing Up in AI Answers?</h3>
-              <p className="text-gray-600 mb-6">Check your AI Brand Snapshot in seconds — see exactly how ChatGPT, Gemini, and Perplexity describe your brand right now. Free, no sign-up required.</p>
+              <p className="text-gray-600 mb-6">Check your AI Brand Snapshot in seconds — see exactly how ChatGPT, Google AI Search, and Perplexity describe your brand right now. Free, no sign-up required.</p>
               <Link href="/free-geo-tools/brand-visibility" className="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg no-underline">
                 <ArrowRight className="w-4 h-4 mr-2" />
                 Try AI Brand Snapshot — Free
@@ -536,8 +558,9 @@ export default function AiContentGuide() {
               </p>
               <p className="mb-6">
                 When someone asks ChatGPT or Perplexity a question, the system does not simply retrieve the
-                top-ranked page and summarize it. It runs what Google's Head of Search, Elizabeth Reid, described
-                at Google I/O 2025 as "query fan-out" — breaking the original question into multiple sub-queries
+                top-ranked page and summarize it. It runs what Google's Head of Search, Elizabeth Reid,{' '}
+                <a href="https://blog.google/products/search/google-search-ai-mode-update/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">described at Google I/O 2025</a>{' '}
+                as "query fan-out" — breaking the original question into multiple sub-queries
                 and running them simultaneously across a wide range of sources. The model then synthesizes the
                 results, compressing them into a single narrative designed to feel coherent and complete.
                 Critically, the content that most closely aligns semantically with the query influences the tone,
@@ -671,14 +694,16 @@ export default function AiContentGuide() {
               <p className="mb-6">
                 Tracking which of your pages are actually being retrieved — and from which sections — requires
                 visibility into AI-generated answers that traditional analytics cannot provide.{' '}
-                <Link href="/features" className="text-blue-600 hover:text-blue-800 underline">GeoRankers monitors this automatically</Link>{' '}
-                across ChatGPT, Gemini, and Perplexity.
+                <Link href="/features" className="text-blue-600 hover:text-blue-800 underline">GeoRankers monitors this</Link>{' '}
+                across ChatGPT, Google AI Search, and Perplexity on a weekly schedule, with on-demand runs available.
               </p>
               <p className="mb-6">
                 The retrieval layer also behaves differently depending on whether the model is drawing from
                 training data or performing a real-time web search. Models like Perplexity and ChatGPT's Browse
                 mode actively search the web to construct answers, which means freshness matters in ways it never
-                quite did for pure SEO. Research from Digitaloft found that URLs cited in AI results are on
+                quite did for pure SEO. Research from{' '}
+                <a href="https://digitaloft.co.uk/ai-in-seo-statistics/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Digitaloft</a>{' '}
+                found that URLs cited in AI results are on
                 average 25.7% fresher than those appearing in traditional search results. If your content is not
                 being regularly refreshed, it is competing against a structural disadvantage regardless of its
                 original quality.
@@ -714,8 +739,9 @@ export default function AiContentGuide() {
                 alone, is exactly what a retrieval system can use.
               </p>
               <p className="mb-4">
-                Research data reinforces this point with unusual precision. An analysis by Growth Memo found a
-                clear distribution in where AI citations actually come from within a piece of content:
+                Research data reinforces this point with unusual precision. An analysis by{' '}
+                <a href="https://library.growth-memo.com/p/citation-rate" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Growth Memo</a>{' '}
+                found a clear distribution in where AI citations actually come from within a piece of content:
               </p>
 
               <div className="overflow-x-auto mb-8">
@@ -846,9 +872,11 @@ export default function AiContentGuide() {
                 difference is large enough to treat as a genuine strategic signal.
               </p>
               <p className="mb-6">
-                Research on GEO strategies, including foundational work by Aggarwal et al. that benchmarked
+                Research on GEO strategies, including foundational work by{' '}
+                <a href="https://arxiv.org/pdf/2311.09735" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Aggarwal et al.</a>{' '}
+                that benchmarked
                 multiple optimization approaches, found that GEO-specific techniques could boost content
-                visibility within AI-generated responses by up to 40%. Content that reads as though it has been
+                visibility within AI-generated responses by up to 41%, depending on the technique. Content that reads as though it has been
                 carefully evidenced performs better across AI platforms than content that makes the same claims
                 without substantiation — not because AI systems run fact-checks on every sentence, but because
                 the linguistic patterns associated with evidenced writing correlate with the training data those
@@ -856,8 +884,8 @@ export default function AiContentGuide() {
               </p>
               <p className="mb-4 font-medium text-gray-800">The specificity signals that move the needle most are:</p>
               <ul className="mb-8 space-y-3">
-                <li><strong>Named statistics with sourced attribution</strong> — adding statistics to content increases AI visibility by 22% (Aggarwal et al.)</li>
-                <li><strong>Direct quotations from named sources</strong> — increases AI citation rates by 37% compared to unattributed claims</li>
+                <li><strong>Named statistics with sourced attribution</strong> — adding statistics to content increases AI visibility by 25–41% (Aggarwal et al.)</li>
+                <li><strong>Direct quotations from named sources</strong> — increases AI citation rates by 28–41% compared to unattributed claims</li>
                 <li><strong>Named tools, vendors, and use cases</strong> — generic category descriptions have lower retrieval weight than content that names specific products and outcomes</li>
                 <li><strong>Institutional framing</strong> — "A 2025 analysis by BrightEdge" reads differently to a retrieval system than "studies show"</li>
               </ul>
@@ -871,12 +899,12 @@ export default function AiContentGuide() {
                   aria-labelledby="ch4Title ch4Desc"
                 >
                   <title id="ch4Title">The Specificity Gap: What AI Retrieves vs. What It Ignores</title>
-                  <desc id="ch4Desc">Side-by-side comparison showing three generic, vague claims on the left that AI models ignore, versus three specific, data-backed claims on the right that earn citations. Specific claims with named sources and exact numbers increase AI citation rates by 22–37%.</desc>
+                  <desc id="ch4Desc">Side-by-side comparison showing three generic, vague claims on the left that AI models ignore, versus three specific, data-backed claims on the right that earn citations. Specific claims with named sources and exact numbers increase AI citation rates by 25–41%.</desc>
                   <rect width="800" height="310" rx="12" fill="white" />
 
                   {/* Header */}
                   <text x="400" y="30" fontSize="15" fontWeight="700" fill="#111827" textAnchor="middle">The Specificity Gap: What AI Retrieves vs. What It Ignores</text>
-                  <text x="400" y="49" fontSize="11" fill="#6b7280" textAnchor="middle">Adding named statistics increases AI visibility 22%; direct quotes from named sources increase citation rates 37% · Aggarwal et al., 2024</text>
+                  <text x="400" y="49" fontSize="11" fill="#6b7280" textAnchor="middle">Adding named statistics increases AI visibility 25–41%; direct quotes from named sources increase citation rates 28–41% · Aggarwal et al., 2024</text>
 
                   {/* ── Left panel: NOT citable ── */}
                   <rect x="20" y="62" width="368" height="222" rx="10" fill="#fef2f2" stroke="#fca5a5" strokeWidth="1.5" />
@@ -908,11 +936,11 @@ export default function AiContentGuide() {
                   {/* Claim rows right */}
                   <rect x="426" y="114" width="340" height="44" rx="6" fill="white" stroke="#86efac" strokeWidth="1" />
                   <text x="438" y="131" fontSize="9.5" fill="#374151">"68% of B2B buyers begin research on AI</text>
-                  <text x="438" y="146" fontSize="9.5" fill="#374151">platforms before visiting a vendor site (BrightEdge, 2025)."</text>
+                  <text x="438" y="146" fontSize="9.5" fill="#374151">platforms before visiting a vendor site (illustrative example)."</text>
 
                   <rect x="426" y="168" width="340" height="44" rx="6" fill="white" stroke="#86efac" strokeWidth="1" />
                   <text x="438" y="185" fontSize="9.5" fill="#374151">"Adding statistics to content increases AI</text>
-                  <text x="438" y="200" fontSize="9.5" fill="#374151">visibility by 22% (Aggarwal et al., 2024)."</text>
+                  <text x="438" y="200" fontSize="9.5" fill="#374151">visibility by 25–41% (Aggarwal et al., 2024)."</text>
 
                   <rect x="426" y="222" width="340" height="44" rx="6" fill="white" stroke="#86efac" strokeWidth="1" />
                   <text x="438" y="239" fontSize="9.5" fill="#374151">"Sites with FCP under 0.4s average 6.7 AI</text>
@@ -920,14 +948,14 @@ export default function AiContentGuide() {
 
                   {/* Impact stats between panels */}
                   <rect x="372" y="125" width="56" height="22" rx="5" fill="#eff6ff" stroke="#bfdbfe" strokeWidth="1" />
-                  <text x="400" y="140" fontSize="9" fill="#1d4ed8" textAnchor="middle" fontWeight="600">+22% ↑</text>
+                  <text x="400" y="140" fontSize="9" fill="#1d4ed8" textAnchor="middle" fontWeight="600">example</text>
                   <rect x="372" y="179" width="56" height="22" rx="5" fill="#eff6ff" stroke="#bfdbfe" strokeWidth="1" />
-                  <text x="400" y="194" fontSize="9" fill="#1d4ed8" textAnchor="middle" fontWeight="600">+37% ↑</text>
+                  <text x="400" y="194" fontSize="9" fill="#1d4ed8" textAnchor="middle" fontWeight="600">+25–41% ↑</text>
                   <rect x="372" y="233" width="56" height="22" rx="5" fill="#eff6ff" stroke="#bfdbfe" strokeWidth="1" />
                   <text x="400" y="248" fontSize="9" fill="#1d4ed8" textAnchor="middle" fontWeight="600">3x gap</text>
                 </svg>
                 <p className="text-xs text-center text-gray-400 mt-2">
-                  Citation uplift data from Aggarwal et al. (2024) GEO study and SE Ranking 2025 page-speed citation analysis.
+                  Citation uplift data from Aggarwal et al. (2024) GEO study and SE Ranking 2025 page-speed citation analysis. The BrightEdge-style buyer-research example is illustrative, not a verified statistic.
                 </p>
               </div>
 
@@ -1290,7 +1318,7 @@ export default function AiContentGuide() {
 
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Tables and structured comparisons</h3>
               <ul className="mb-6 space-y-2">
-                <li><strong>Tables increase citation rates 2.5x compared to unstructured text</strong> covering the same information (Onely, 2025)</li>
+                <li><strong>Tables increase citation rates 2.5x compared to unstructured text</strong> covering the same information (<a href="https://www.onely.com/blog/llm-friendly-content/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Onely, 2025</a>)</li>
                 <li>Listicle formats account for 50% of top AI citations, though pure list content often sacrifices the analytical depth that earns credibility</li>
                 <li>Key findings and comparisons should be given structural expression rather than remaining embedded only in prose</li>
               </ul>
@@ -1306,7 +1334,7 @@ export default function AiContentGuide() {
               <ul className="mb-6 space-y-2">
                 <li>ChatGPT's user-agent bot does not render JavaScript, meaning pages relying on client-side rendering are effectively invisible to it</li>
                 <li>Pre-rendered HTML is a basic crawlability requirement, not an optional enhancement</li>
-                <li><strong>Pages with first contentful paint under 0.4 seconds average 6.7 citations; pages above 1.13 seconds average only 2.1</strong> — a threefold gap (SE Ranking, 2025)</li>
+                <li><strong>Pages with first contentful paint under 0.4 seconds average 6.7 citations; pages above 1.13 seconds average only 2.1</strong> — a threefold gap (<a href="https://seranking.com/blog/how-to-optimize-for-ai-mode/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">SE Ranking, 2025</a>)</li>
                 <li>Products with comprehensive schema markup appear in AI recommendations 3 to 5x more frequently than those without it</li>
               </ul>
             </section>
@@ -1396,7 +1424,7 @@ export default function AiContentGuide() {
                 matters, and what it is based on. If the sentence requires the surrounding paragraph to make
                 sense, it is not extractable.
               </p>
-              <p className="mb-4 font-medium text-gray-800">The characteristics of sentences that consistently earn AI citations versus those that do not:</p>
+              <p className="mb-4 font-medium text-gray-800">The characteristics of sentences that consistently earn AI citations versus those that do not (the left-column examples below illustrate structure and specificity — they are not all verified statistics):</p>
 
               <div className="overflow-x-auto mb-8">
                 <table className="w-full text-sm border-collapse">
@@ -1409,11 +1437,11 @@ export default function AiContentGuide() {
                   <tbody>
                     {[
                       [
-                        '"A 2025 BrightEdge study found that 68% of B2B buyers begin research on AI platforms before visiting a vendor site."',
+                        '"A 2025 study found that 68% of B2B buyers begin research on AI platforms before visiting a vendor site." (illustrative example)',
                         '"Research shows that buyers increasingly use AI tools."',
                       ],
                       [
-                        '"Adding statistics to content increases AI visibility by 22% (Aggarwal et al., 2024)."',
+                        '"Adding statistics to content increases AI visibility by 25–41% (Aggarwal et al., 2024)."',
                         '"Content with data tends to perform better in AI search."',
                       ],
                       [
@@ -1495,6 +1523,9 @@ export default function AiContentGuide() {
                   </tbody>
                 </table>
               </div>
+              <p className="text-xs text-gray-500 -mt-6 mb-8">
+                Original research distribution figure: <a href="https://stacker.com/blog/how-earned-media-distribution-expands-ai-visibility-first-look-at-citation-lift" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Stacker, 2025</a>.
+              </p>
 
               {/* ── Chart 7: Multi-Surface Tile Grid ─────────────────────── */}
               <div className="my-8 not-prose">
@@ -1666,7 +1697,7 @@ export default function AiContentGuide() {
                   <text x="42" y="87" fontSize="13" fontWeight="800" fill="white" textAnchor="middle">1</text>
                   <text x="66" y="87" fontSize="11" fontWeight="700" fill="#1d4ed8">Topic Selection</text>
                   <line x1="26" y1="99" x2="190" y2="99" stroke="#bfdbfe" strokeWidth="1" />
-                  <text x="26" y="115" fontSize="9" fill="#374151">• Search ChatGPT, Gemini, Perplexity</text>
+                  <text x="26" y="115" fontSize="9" fill="#374151">• Search ChatGPT, Google AI Search, Perplexity</text>
                   <text x="26" y="130" fontSize="9" fill="#374151">  for citation gaps in your category</text>
                   <text x="26" y="149" fontSize="9" fill="#374151">• Prioritize narrow, specific questions</text>
                   <text x="26" y="164" fontSize="9" fill="#374151">  over broad definitional topics</text>
@@ -1727,7 +1758,7 @@ export default function AiContentGuide() {
                 keyword research that may not reflect conversational queries.
               </p>
               <ul className="mb-8 space-y-2">
-                <li>Search your category in ChatGPT, Gemini, and Perplexity and note which sources are cited and what framing is used</li>
+                <li>Search your category in ChatGPT, Google AI Search, and Perplexity and note which sources are cited and what framing is used</li>
                 <li>Identify questions the current answers address poorly or incompletely — those are the citation gaps</li>
                 <li>Prioritize narrow, specific questions over broad definitional topics</li>
                 <li>Avoid topics where your answer would be identical to every other piece in the category</li>
@@ -1776,6 +1807,10 @@ export default function AiContentGuide() {
                 <li>Add new sections when questions arise that the original piece did not address</li>
                 <li>Monitor what AI platforms are citing in your category and identify where fresh content would improve representation</li>
               </ul>
+              <p className="mb-6">
+                Teams comparing platforms for this kind of tracking can start with our{' '}
+                <a href="https://blog.georankers.ai/how-to-choose-the-right-ai-search-visibility-platform-b2b-guide/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">comparison of the best AI visibility tools for B2B SaaS</a>.
+              </p>
             </section>
 
             {/* ── Section 11: What This Means ──────────────────────────────── */}
@@ -1818,7 +1853,7 @@ export default function AiContentGuide() {
               <div className="p-6 bg-blue-50 border border-blue-200 rounded-xl">
                 <p className="text-gray-700 leading-relaxed">
                   <strong>GeoRankers</strong> tracks how your brand appears in AI-generated answers across ChatGPT,
-                  Gemini, and Perplexity, giving you the visibility to understand where you stand and what content
+                  Google AI Search, and Perplexity, giving you the visibility to understand where you stand and what content
                   is shaping the way AI systems describe you. If that kind of clarity matters to your team,{' '}
                   <Link href="/features" className="text-blue-600 hover:text-blue-800 underline">see what GeoRankers tracks</Link>{' '}
                   or read how{' '}
@@ -1844,53 +1879,9 @@ export default function AiContentGuide() {
             </div>
 
             {/* ── FAQ ──────────────────────────────────────────────────────── */}
-            <section id="faq" className="mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Frequently Asked Questions</h2>
-
-              {[
-                {
-                  q: 'What is the difference between writing for SEO and writing for AI search?',
-                  a: 'Traditional SEO optimizes pages to rank for specific keywords in a list of results. Writing for AI search requires creating content that can be extracted, synthesized, and cited as part of a single coherent answer. The core difference is that AI systems retrieve at the passage level rather than the page level, which means every section of a piece of content needs to be able to stand alone as a useful, specific answer to a real question.',
-                },
-                {
-                  q: 'Does content length matter for AI citation?',
-                  a: 'Content depth matters more than raw word count. Long-form content of 2,000 words or more is cited more frequently than short content, but only when it maintains specificity and depth throughout rather than padding to hit a length target. The more useful measure is whether each major section contains at least one specific, extractable assertion supported by evidence. A 2,500-word piece with 10 citable sections will consistently outperform a 5,000-word piece with two.',
-                },
-                {
-                  q: 'How often should content be updated for AI visibility?',
-                  a: 'Research shows that 76.4% of ChatGPT\'s most-cited pages were updated within the last 30 days, and the majority of AI Overview citations come from content published within the last two years. For content in fast-moving categories, meaningful updates every three to six months are worth considering for high-priority pieces. The update should reflect genuinely new data, examples, or framing rather than cosmetic changes to a publication date.',
-                },
-                {
-                  q: 'Does schema markup help with AI citation?',
-                  a: 'Yes, though the relationship is stronger for some platforms than others. Gemini shows a pronounced preference for structured, schema-marked content on brand-owned domains. Research suggests that products with comprehensive schema markup appear in AI recommendations three to five times more frequently than those without it. For ChatGPT and Perplexity, the effect is less direct but still meaningful in that schema markup contributes to the overall authority and crawlability signals those platforms factor into source selection.',
-                },
-                {
-                  q: 'What role do community platforms play in AI visibility?',
-                  a: 'Community platforms play a larger role than most content strategies currently account for. Domains with substantial brand mentions on Quora and Reddit have approximately four times higher citation rates than those with minimal community presence. Perplexity draws roughly 46.7% of its top citations from Reddit alone for certain query types. The mechanism is that AI systems learned from human conversations, and the platforms where those conversations happen in the most candid and detailed form become disproportionately influential in shaping how AI answers describe brands and categories.',
-                },
-                {
-                  q: 'What types of content does AI cite most?',
-                  a: 'AI systems disproportionately cite content that is specific, structured, and sourced. Research-backed content with named statistics is cited 22% more frequently than generic claims (Aggarwal et al., 2024). Content containing direct quotes from named experts sees a 37% higher citation rate. Structured formats — tables, numbered lists, FAQ sections — are cited 2.5x more often than unstructured prose (Onely, 2025). Content that defines terms clearly, answers questions directly, and front-loads its key claims in the first 30% of the page consistently outperforms longer, less structured alternatives.',
-                },
-                {
-                  q: 'How do I write content that gets cited in ChatGPT?',
-                  a: 'To get cited in ChatGPT in 2026, focus on four things: (1) Write extractable assertions — every section should contain a specific, self-contained claim supported by evidence that can be lifted verbatim. (2) Use structure AI can parse — headers, bullet points, numbered lists, and FAQ sections signal retrievable content. (3) Build domain authority — ChatGPT shows a 3.5x citation lift for domains with 32,000+ referring domains, so third-party mentions matter. (4) Keep content fresh — 76.4% of ChatGPT\'s most-cited pages were updated within the last 30 days (Digitaloft, 2025). Combine these with FAQPage and Article schema markup to maximize extractability.',
-                },
-                {
-                  q: 'What is an extractable assertion?',
-                  a: 'An extractable assertion is a self-contained sentence or passage that AI systems can lift directly from your content and use as part of a synthesized answer — without needing surrounding context to make sense. It combines a specific claim, supporting evidence or a named source, and enough context to stand alone. For example: "Companies that publish original research with named statistics see 22% higher AI citation rates than those that do not (Aggarwal et al., 2024)" is an extractable assertion. "Content quality matters for AI" is not — it is too generic to be cited. Every section of AI-optimized content should contain at least one extractable assertion.',
-                },
-                {
-                  q: 'How do I structure B2B content for AI search?',
-                  a: 'Structure B2B content for AI search by treating each section as an independent answer unit. Start with a clear H2 or H3 that names the topic explicitly. Open the section with your strongest, most specific claim rather than building to it. Support that claim with a named statistic or sourced evidence. Use bullet points or numbered lists for multi-part answers — AI systems retrieve lists cleanly. Add a summary sentence at the end of complex sections. Include a FAQ section at the bottom of long-form content to capture question-based queries directly. Finally, implement Article and FAQPage schema markup so AI systems can identify the content type and extract it more reliably.',
-                },
-              ].map(({ q, a }, i) => (
-                <div key={i} className="mb-6 border border-gray-200 rounded-xl overflow-hidden">
-                  <h3 className="text-lg font-semibold text-gray-900 bg-gray-50 px-6 py-4 m-0">{q}</h3>
-                  <p className="px-6 py-4 text-gray-700 leading-relaxed m-0">{a}</p>
-                </div>
-              ))}
-            </section>
+            <div id="faq" className="not-prose">
+              <FAQSection faqs={faqs} schemaId="ai-content-guide-faq-schema" />
+            </div>
 
             {/* ── Related Reading ──────────────────────────────────────── */}
             <section className="mb-12 not-prose">
@@ -1898,7 +1889,7 @@ export default function AiContentGuide() {
                 <h3 className="text-lg font-bold text-gray-900 mb-4">Related Reading</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <span className="mt-0.5 w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></span>
+                    <span className="mt-3 w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></span>
                     <div>
                       <Link href="/geo-guide" className="text-blue-600 hover:text-blue-800 font-medium underline">
                         The Complete GEO Playbook — Master AI Search Optimization for B2B &amp; SaaS
@@ -1907,7 +1898,7 @@ export default function AiContentGuide() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="mt-0.5 w-2 h-2 rounded-full bg-violet-500 flex-shrink-0"></span>
+                    <span className="mt-3 w-2 h-2 rounded-full bg-violet-500 flex-shrink-0"></span>
                     <div>
                       <a href="https://blog.georankers.ai/how-communities-shape-ai-search/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
                         How Communities Shape AI Search: The New Battleground for Brand Discovery
@@ -1916,7 +1907,7 @@ export default function AiContentGuide() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="mt-0.5 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
+                    <span className="mt-3 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
                     <div>
                       <a href="https://blog.georankers.ai/how-to-optimize-content-for-ai-overviews-aio-in-2026/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
                         How to Optimize Content for Google AI Overviews (AIO) in 2026
@@ -1925,7 +1916,7 @@ export default function AiContentGuide() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="mt-0.5 w-2 h-2 rounded-full bg-amber-500 flex-shrink-0"></span>
+                    <span className="mt-3 w-2 h-2 rounded-full bg-amber-500 flex-shrink-0"></span>
                     <div>
                       <a href="https://blog.georankers.ai/ai-discovery-metrics-llm-analytics/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
                         The Hidden Metrics Behind AI Discovery That SEO Tools Cannot Show You
@@ -1934,7 +1925,7 @@ export default function AiContentGuide() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="mt-0.5 w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></span>
+                    <span className="mt-3 w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></span>
                     <div>
                       <a href="https://blog.georankers.ai/b2b-saas-ai-visiblity-optimisation/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium underline">
                         AI Visibility: The New Growth Channel for B2B SaaS in 2026

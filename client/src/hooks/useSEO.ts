@@ -78,6 +78,7 @@ export function useSEO(config: SEOConfig) {
     } = config;
 
     document.title = title;
+    setMeta('meta[name="title"]', 'content', title);
     setMeta('meta[name="description"]', 'content', description);
     setLink('canonical', canonical);
     setMeta('meta[property="og:title"]', 'content', ogTitle ?? title);
@@ -94,6 +95,7 @@ export function useSEO(config: SEOConfig) {
     return () => {
       // Restore homepage defaults when leaving the page
       document.title = HOMEPAGE_DEFAULTS.title;
+      setMeta('meta[name="title"]', 'content', HOMEPAGE_DEFAULTS.title);
       setMeta('meta[name="description"]', 'content', HOMEPAGE_DEFAULTS.description);
       setLink('canonical', HOMEPAGE_DEFAULTS.canonical);
       setMeta('meta[property="og:title"]', 'content', HOMEPAGE_DEFAULTS.ogTitle);
