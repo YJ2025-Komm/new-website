@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
 import { URL } from "url";
-import { assertPublicHttpUrl, beforeRedirect } from "./url-safety";
+import { assertPublicHttpUrl, beforeRedirect, asUrlSafetyError } from "./url-safety";
 
 interface CrawlResult {
   pages: string[];
@@ -132,8 +132,9 @@ export async function discoverPages(
       
     } catch (error) {
       // URL-safety rejections should always surface, not just for the base URL.
-      if (error instanceof Error && /^(BLOCKED_URL|INVALID_URL):/.test(error.message)) {
-        throw error;
+      const safetyError = asUrlSafetyError(error);
+      if (safetyError) {
+        throw safetyError;
       }
 
       // If this is the base URL (first page) and it fails, throw a specific error
@@ -249,6 +250,14 @@ export async function scrapePageContent(url: string) {
       schemaCount: schemaScripts.length
     };
   } catch (error) {
+    // A blocked-for-safety rejection is not an ordinary scrape failure —
+    // let it surface as a real error instead of silently degrading to a
+    // URL-text guess (which would otherwise mask that the target was an
+    // SSRF attempt behind a plausible-looking result).
+    const safetyError = asUrlSafetyError(error);
+    if (safetyError) {
+      throw safetyError;
+    }
     console.error(`Failed to scrape ${url}:`, error);
     return null;
   }

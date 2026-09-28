@@ -104,3 +104,26 @@ export function beforeRedirect(_options: unknown, responseDetails: { headers: Re
     throw new Error("BLOCKED_URL:This URL cannot be analyzed.");
   }
 }
+
+const SAFETY_ERROR_PREFIX = /(BLOCKED_URL|INVALID_URL):/;
+
+// axios/follow-redirects wraps whatever `beforeRedirect` throws inside a new
+// error (message like "Redirected request failed: BLOCKED_URL:...", with the
+// original as `.cause`) — so a plain `message.startsWith(...)` check misses
+// it once it's been through a redirect hop. This unwraps both cases and
+// returns a clean, normalized error, or null if it's not one of ours.
+export function asUrlSafetyError(error: unknown): Error | null {
+  if (!(error instanceof Error)) return null;
+
+  const cause = (error as Error & { cause?: unknown }).cause;
+  if (cause instanceof Error && SAFETY_ERROR_PREFIX.test(cause.message)) {
+    return cause;
+  }
+
+  const match = error.message.match(SAFETY_ERROR_PREFIX);
+  if (match) {
+    return new Error(error.message.slice(match.index));
+  }
+
+  return null;
+}

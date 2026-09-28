@@ -5,6 +5,7 @@ import { z } from "zod";
 import { registerAdminRoutes } from "./admin-routes";
 import OpenAI from "openai";
 import { discoverPages, scrapeMultiplePages, analyzeRobotsTxt, analyzeSitemap, analyzeKeyPages, analyzeTechnicalFoundation, scrapePageContent } from "./web-crawler";
+import { assertPublicHttpUrl } from "./url-safety";
 import rateLimit from "express-rate-limit";
 import fs from "fs";
 import path from "path";
@@ -494,6 +495,7 @@ Respond ONLY with valid JSON in this exact format:
     const schema = z.object({ url: z.string().url() });
     try {
       const { url } = schema.parse(req.body);
+      await assertPublicHttpUrl(url);
       const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
       const page = await scrapePageContent(url);
@@ -616,6 +618,7 @@ Return ONLY valid JSON:
     const schema = z.object({ url: z.string().url() });
     try {
       const { url } = schema.parse(req.body);
+      await assertPublicHttpUrl(url);
 
       const page = await scrapePageContent(url);
       if (!page) return res.status(422).json({ message: "We couldn't read that page — it may block automated access. Try your homepage or a specific product/feature page." });
@@ -683,6 +686,7 @@ strengths: 2-3 items. missingEntities: 3-5 items. priorityFixes: 5-6 items order
     const schema = z.object({ url: z.string().url() });
     try {
       const { url } = schema.parse(req.body);
+      await assertPublicHttpUrl(url);
       const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
       const page = await scrapePageContent(url);
