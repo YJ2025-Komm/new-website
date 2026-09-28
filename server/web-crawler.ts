@@ -1,6 +1,7 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
 import { URL } from "url";
+import { assertPublicHttpUrl, beforeRedirect } from "./url-safety";
 
 interface CrawlResult {
   pages: string[];
@@ -67,12 +68,14 @@ export async function discoverPages(
     
     try {
       // Fetch the page
+      await assertPublicHttpUrl(currentUrl);
       const response = await axios.get(currentUrl, {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         },
         timeout: 8000,
         maxRedirects: 3,
+        beforeRedirect,
         validateStatus: (status) => status < 400, // Only follow successful responses
       });
       
@@ -128,6 +131,11 @@ export async function discoverPages(
       console.log(`Crawled: ${currentUrl} (found ${links.length} links)`);
       
     } catch (error) {
+      // URL-safety rejections should always surface, not just for the base URL.
+      if (error instanceof Error && /^(BLOCKED_URL|INVALID_URL):/.test(error.message)) {
+        throw error;
+      }
+
       // If this is the base URL (first page) and it fails, throw a specific error
       if (currentUrl === baseUrl && axios.isAxiosError(error)) {
         const statusCode = error.response?.status;
@@ -205,12 +213,14 @@ export async function scrapeMultiplePages(urls: string[], concurrency: number = 
 
 export async function scrapePageContent(url: string) {
   try {
+    await assertPublicHttpUrl(url);
     const response = await axios.get(url, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
       },
       timeout: 8000,
-      maxRedirects: 3
+      maxRedirects: 3,
+      beforeRedirect,
     });
     
     const $ = cheerio.load(response.data);
@@ -248,8 +258,11 @@ export async function scrapePageContent(url: string) {
 export async function analyzeRobotsTxt(baseUrl: string): Promise<RobotsTxtAnalysis> {
   try {
     const robotsUrl = new URL('/robots.txt', baseUrl).href;
+    await assertPublicHttpUrl(robotsUrl);
     const response = await axios.get(robotsUrl, {
       timeout: 5000,
+      maxRedirects: 3,
+      beforeRedirect,
       validateStatus: (status) => status === 200
     });
 
@@ -329,8 +342,11 @@ export async function analyzeRobotsTxt(baseUrl: string): Promise<RobotsTxtAnalys
 export async function analyzeSitemap(baseUrl: string): Promise<SitemapAnalysis> {
   try {
     const sitemapUrl = new URL('/sitemap.xml', baseUrl).href;
+    await assertPublicHttpUrl(sitemapUrl);
     const response = await axios.get(sitemapUrl, {
       timeout: 5000,
+      maxRedirects: 3,
+      beforeRedirect,
       validateStatus: (status) => status === 200
     });
 
@@ -392,9 +408,11 @@ export async function analyzeTechnicalFoundation(baseUrl: string): Promise<Techn
     const urlObj = new URL(baseUrl);
     const isHttps = urlObj.protocol === 'https:';
 
+    await assertPublicHttpUrl(baseUrl);
     const response = await axios.get(baseUrl, {
       timeout: 5000,
-      maxRedirects: 3
+      maxRedirects: 3,
+      beforeRedirect,
     });
 
     const hasSecurityHeaders = !!(

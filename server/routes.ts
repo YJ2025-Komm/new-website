@@ -145,7 +145,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Website analysis endpoint - Multi-page crawler (up to 50 pages)
-  app.post("/api/analyze-website", async (req, res) => {
+  app.post("/api/analyze-website", freeToolsLimiter, async (req, res) => {
     try {
       // Validate request body
       const validatedData = websiteAnalysisRequestSchema.parse(req.body);
@@ -415,7 +415,17 @@ Respond ONLY with valid JSON in this exact format:
         const [errorType, ...messageParts] = error.message.split(':');
         const errorMessage = messageParts.join(':').trim();
         
-        if (errorType === 'BLOCKED') {
+        if (errorType === 'BLOCKED_URL') {
+          return res.status(400).json({
+            errorType: 'blocked_url',
+            message: errorMessage
+          });
+        } else if (errorType === 'INVALID_URL') {
+          return res.status(400).json({
+            errorType: 'invalid_url',
+            message: errorMessage
+          });
+        } else if (errorType === 'BLOCKED') {
           return res.status(403).json({
             errorType: 'blocked',
             message: errorMessage
@@ -593,7 +603,7 @@ Return ONLY valid JSON:
       if (error instanceof Error && error.message.includes(':')) {
         const [errorType, ...parts] = error.message.split(':');
         const msg = parts.join(':').trim();
-        if (['BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION'].includes(errorType)) {
+        if (['BLOCKED_URL','INVALID_URL','BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION'].includes(errorType)) {
           return res.status(422).json({ message: msg });
         }
       }
@@ -660,7 +670,7 @@ strengths: 2-3 items. missingEntities: 3-5 items. priorityFixes: 5-6 items order
       if (error instanceof Error && error.message.includes(':')) {
         const [errorType, ...parts] = error.message.split(':');
         const msg = parts.join(':').trim();
-        if (['BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION'].includes(errorType)) {
+        if (['BLOCKED_URL','INVALID_URL','BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION'].includes(errorType)) {
           return res.status(422).json({ message: msg });
         }
       }
@@ -727,7 +737,7 @@ topQueries: exactly 8. opportunityGaps: exactly 3. competitorDominatedQueries: 2
       if (error instanceof Error && error.message.includes(':')) {
         const [errorType, ...parts] = error.message.split(':');
         const msg = parts.join(':').trim();
-        if (['BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION'].includes(errorType)) {
+        if (['BLOCKED_URL','INVALID_URL','BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION'].includes(errorType)) {
           return res.status(422).json({ message: msg });
         }
       }
