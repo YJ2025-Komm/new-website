@@ -86,11 +86,13 @@ export default function FAQSection({
                     <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0 mt-0.5" />
                   )}
                 </button>
-                {openFAQ === index && (
-                  <div className="px-6 pb-6">
-                    <div className="text-slate-600 leading-relaxed text-sm sm:text-[15px]">{faq.answer}</div>
-                  </div>
-                )}
+                {/* Always rendered (not conditionally mounted) so every answer
+                    exists in the raw HTML for crawlers/LLM agents that read
+                    page text rather than parsing the FAQPage JSON-LD — only
+                    the CSS visibility toggles with openFAQ. */}
+                <div className={openFAQ === index ? "px-6 pb-6" : "hidden"}>
+                  <div className="text-slate-600 leading-relaxed text-sm sm:text-[15px]">{faq.answer}</div>
+                </div>
               </CardContent>
             </Card>
           ))}
