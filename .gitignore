@@ -6,3 +6,8 @@ server/public
 vite.config.ts.*
 *.tar.gz
 tool-leads.jsonl
+
+# Unused scratch screenshots dropped into attached_assets/ (not wired into any page)
+attached_assets/New Hero Image.png
+attached_assets/country.png
+attached_assets/web1.png
