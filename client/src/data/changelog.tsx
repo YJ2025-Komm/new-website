@@ -144,7 +144,14 @@ export type ChangelogEntry = {
   // what shipped instead. Falls back to `title` if omitted.
   cardHeadline?: string;
   tags: ChangelogTag[];
-  summary: string; // meta description + list-card teaser
+  summary: string; // list-card teaser + JSON-LD description (long-form is fine here)
+  // A purpose-written, complete sentence for the literal <meta name="description">
+  // tag — distinct from `summary`, which is longer narrative copy meant for the
+  // visible card. Write this to already fit within Google's ~155-160 char SERP
+  // display budget so it never needs trimming (a deliberately short, complete
+  // sentence reads better in search results than a long one truncated with "…").
+  // Falls back to `truncateForMeta(summary)` if omitted.
+  metaDescription?: string;
   // List-card thumbnail — any one image from this month's release (often
   // reused from one of the sections below). This is the only image shown
   // on /changelog; the detail page's own images live per-section.
@@ -164,6 +171,8 @@ export const changelogEntries: ChangelogEntry[] = [
     tags: ["Feature", "AI", "Content"],
     summary:
       "Content Hub turns visibility gaps into ready-to-write content, a Raw Evidence Modal shows the exact AI response behind every score, plus a guided product walkthrough, Your Pages in AI Responses, and GEO Agent — a chat assistant with memory of your last 5 runs.",
+    metaDescription:
+      "GeoRankers June 2026 release: Content Hub, a Raw Evidence Modal, Your Pages in AI Responses, and GEO Agent, an AI visibility chat assistant.",
     image: "/changelog/june-2026/content-hub.png",
     imageAlt: "Content Hub showing Content Opportunities and Content Optimizer tools",
     intro: (
@@ -309,6 +318,8 @@ export const changelogEntries: ChangelogEntry[] = [
     tags: ["Feature", "Improvement", "AI"],
     summary:
       "See visibility broken out per AI model instead of one blended score, get automated weekly prompt runs, surface Negative AI Framing with raw evidence, spot your Highest Priority prompts to target, audit any page with the AI Readiness Checker, track specific signals over time, and invite teammates with role-based access.",
+    metaDescription:
+      "GeoRankers July 2026 release: Model-Wise Visibility, Automated Weekly Runs, an AI Readiness Checker, Signal Tracker, and team invites.",
     image: "/changelog/july-2026/model-wise-visibility.png",
     imageAlt: "Model-Wise Visibility breakdown showing mention rate and rank per AI platform",
     intro: (
@@ -502,6 +513,8 @@ export const changelogEntries: ChangelogEntry[] = [
     tags: ["Feature", "Improvement", "AI"],
     summary:
       "Trends brings a run-over-run view of your visibility, models, competitors, sentiment, and citations across a 15/30/45/60-day window. Plus Perplexity is now tracked, Google AI Mode and AI Overview are consolidated into Google AI Search, and on-demand runs let you trigger a fresh analysis without waiting for the schedule.",
+    metaDescription:
+      "GeoRankers August 2026 release: Trends, Perplexity tracking, Google AI Search consolidation, and on-demand analysis runs.",
     image: "/changelog/august-2026/trends-kpi.png",
     imageAlt: "Trend KPI summary showing Period Start, Latest, and Best Visibility plus Current Sentiment",
     intro: (
@@ -726,6 +739,8 @@ export const changelogEntries: ChangelogEntry[] = [
     tags: ["Feature", "AI", "Improvement", "Fix"],
     summary:
       "A new sidebar navigation refreshes the look of every page in the app, Market & Country Grounding tailors your AI visibility results to a specific country, plus fixes to billing, comparative claims accuracy, onboarding access, and Trends/Results display.",
+    metaDescription:
+      "GeoRankers September 2026 release: a new sidebar UI, Market & Country Grounding, and fixes to billing and claims accuracy.",
     image: "/changelog/september-2026/new-sidebar-navigation.png",
     imageAlt: "GeoRankers Overview page showing the new left sidebar with Dashboard, Trends, Performance Insights, and Action Center links",
     intro: (
@@ -886,6 +901,232 @@ export const changelogEntries: ChangelogEntry[] = [
               <p>
                 The in-app chat assistant would sometimes cut answers short or leave out relevant
                 detail. Responses are now more complete and useful.
+              </p>
+            </div>
+          </div>
+        ),
+      },
+    ],
+    cta: { label: "Go to Dashboard", href: "https://dashboard.georankers.co/login" },
+  },
+  {
+    slug: "october-2026-product-update",
+    date: "2026-10-05",
+    title: "October 2026 Product Update",
+    cardHeadline: "Recommendation Engine, Sitemap AI Readiness Checker & MCP Connect",
+    tags: ["Feature", "AI", "Improvement", "Fix"],
+    summary:
+      "A smarter Recommendation Engine groups action items by category with evidence behind each one, a new Sitemap AI Readiness Checker scores every page on your site, Developer API & MCP Connect brings GeoRankers data into Claude and other AI tools, prompts are now fully editable, and the dashboard works properly on mobile.",
+    metaDescription:
+      "GeoRankers October 2026 release: a category-based Recommendation Engine, Sitemap AI Readiness Checker, Developer API & MCP Connect, and editable prompts.",
+    image: "/changelog/october-2026/recommendation-engine.png",
+    imageAlt: "Recommendation Snapshot and category filters above a list of recommendations",
+    intro: (
+      <>
+        Here is what we shipped last month. A smarter Recommendation Engine now groups your
+        action items by category with the evidence behind each one, a new Sitemap AI Readiness
+        Checker scores every page on your site for AI readability, Developer API &amp; MCP Connect
+        lets you bring GeoRankers data into Claude and other AI tools, Prompt Editing gives you
+        direct control over your topics and prompts, and the entire dashboard has been overhauled
+        for mobile and tablet use.
+      </>
+    ),
+    sections: [
+      {
+        heading: "Recommendation Engine",
+        body: (
+          <>
+            <p className="mb-4">
+              <span className="font-semibold text-slate-900">What it is:</span> A smarter
+              recommendation system that organizes your action items by category, pulled from your
+              last 30 days of analytics, and shows the evidence behind each one.
+            </p>
+            <p className="mb-4">
+              <span className="font-semibold text-slate-900">How it works:</span> Recommendations
+              are now grouped into five categories — Content Creation, Backlink and Distribution,
+              YouTube, Community Engagement, and Review Platforms — based on gaps and
+              opportunities detected across your last 30 days of analysis runs.
+            </p>
+            <p className="mb-4">
+              A new Recommendation Snapshot at the top of the page shows your progress at a
+              glance — total recommendations, how many are not started vs. in progress, and how
+              many have tracking enabled.
+            </p>
+            <div className="mb-4">
+              <SectionImage
+                src="/changelog/october-2026/recommendation-engine.png"
+                alt="Recommendation Snapshot and category filters above a list of recommendations"
+                width={1615}
+                height={568}
+              />
+            </div>
+            <p className="mb-4">
+              Open any recommendation and you'll see the evidence behind it: the actual AI
+              responses, sources, and signals that triggered it, so you know exactly why it was
+              recommended.
+            </p>
+            <div className="mb-4">
+              <SectionImage
+                src="/changelog/october-2026/recommendation-engine-brief.png"
+                alt="Evidence-backed action brief for a single recommendation, showing what the data shows and an execution checklist"
+                width={640}
+                height={895}
+              />
+            </div>
+            <p>
+              <span className="font-semibold text-slate-900">How to use it:</span> Open the
+              Recommendations tab, filter by category to focus on one type of action, click into
+              any recommendation to see its supporting evidence, and check the Snapshot panel
+              anytime to see where you stand.
+            </p>
+          </>
+        ),
+      },
+      {
+        heading: "Sitemap AI Readiness Checker",
+        images: [
+          { src: "/changelog/october-2026/sitemap-ai-readiness-checker.png", alt: "Sitemap Health Check showing AI Readiness scores, citations, and priority for every page", width: 1443, height: 760 },
+        ],
+        body: (
+          <>
+            <p className="mb-4">
+              <span className="font-semibold text-slate-900">What it is:</span> A checker that
+              scans your entire sitemap and scores how AI-readable each page is. This is separate
+              from the Recommendation Engine.
+            </p>
+            <p className="mb-4">
+              <span className="font-semibold text-slate-900">How it works:</span> Every analysis
+              run automatically scans the URLs in your sitemap and checks each page against a set
+              of technical and structural signals: accessibility (page reachability, HTTPS,
+              robots.txt/crawler access, no-index or no-AI tags, login walls), content availability
+              (enough indexable text on the page), on-page signals (title and meta tags, H1
+              heading, schema/structured data markup, canonical URL), and encoding issues that
+              could break how AI crawlers parse the page.
+            </p>
+            <p className="mb-4">This gives you a readiness view across your whole site.</p>
+            <p className="mb-4">
+              From there, you can choose to "go deeper" on specific pages that matter most — this
+              runs a second, deeper scan of that single page's actual content to identify gaps:
+              whether the page clearly defines what the entity/brand is, whether it's clearly
+              anchored to its category, whether the use case is clear, the quality of its summary,
+              and whether terminology is used consistently.
+            </p>
+            <p>
+              <span className="font-semibold text-slate-900">How to use it:</span> Go to the
+              Sitemap tab to see the readiness scan for every page (it reruns automatically with
+              each analysis). Click into any page and select "Go deeper" to run the content-gap
+              scan on it — deep checks are limited per month based on your plan.
+            </p>
+          </>
+        ),
+      },
+      {
+        heading: "Developer API & MCP Connect (Claude, etc.)",
+        images: [
+          { src: "/changelog/october-2026/developer-api-mcp-connect.png", alt: "Developers & AI Connectors page showing Personal Access Token generation for ChatGPT and Claude", width: 1093, height: 628 },
+        ],
+        body: (
+          <ReleaseDetail
+            what="A way to connect GeoRankers data directly into AI tools like Claude via MCP (Model Context Protocol), using your own API key."
+            how={
+              <>
+                A secured auth layer issues personal access tokens (PATs) scoped to your account,
+                so external AI agents can query your GeoRankers data without sharing your main
+                credentials.
+              </>
+            }
+            use={
+              <>
+                Go to Settings &gt; Developer API, generate a personal access token, and use it to
+                connect GeoRankers to Claude or any other MCP-compatible tool.
+              </>
+            }
+          />
+        ),
+      },
+      {
+        heading: "Prompt Editing — More Control Over Your Topics",
+        body: (
+          <>
+            <p className="mb-4">
+              Two separate upgrades give you direct control over the prompts run against your
+              brand, instead of only the ones GeoRankers generates automatically.
+            </p>
+
+            <TrendsFeature
+              heading="Edit existing prompts within a topic"
+              what="The ability to edit the actual wording of prompts GeoRankers already generated for an existing topic."
+              how={
+                <>
+                  Prompts have always been classified into intent types (Discovery, Trust,
+                  Pricing, Use Case, Comparison) — that hasn't changed. What's new is you can now
+                  open any topic and rewrite its prompts directly, instead of being stuck with the
+                  auto-generated wording.
+                </>
+              }
+              image={{ src: "/changelog/october-2026/edit-existing-prompts.png", alt: "Seed Prompts panel showing an existing prompt being edited in place within a tracked keyword", width: 1074, height: 438 }}
+            />
+            <TrendsFeature
+              heading="Add your own topic and prompts"
+              what="The ability to create an entirely new topic from scratch and supply your own prompts for it."
+              how={
+                <>
+                  You're no longer limited to the topics GeoRankers suggests — you can add a new
+                  topic and bring your own set of prompts for it, including uploading them in bulk
+                  via CSV.
+                </>
+              }
+              image={{ src: "/changelog/october-2026/add-topic-and-prompts.png", alt: "Add a keyword panel with auto-generate, add manually, and upload your own prompt source options", width: 666, height: 429 }}
+            />
+
+            <p className="mt-6">
+              <span className="font-semibold text-slate-900">How to use it:</span> Open the
+              Prompts tab, select a topic, and edit any prompt in place — your edits are saved and
+              used in future runs for that topic. Or choose to add a new topic and either type in
+              your own prompts or upload a CSV with your prompt list.
+            </p>
+          </>
+        ),
+      },
+      {
+        heading: "Mobile Responsiveness Overhaul",
+        images: [
+          { src: "/changelog/october-2026/mobile-responsiveness.png", alt: "GeoRankers Trends page shown on a mobile phone with a collapsed navigation menu", width: 406, height: 802 },
+        ],
+        body: (
+          <ReleaseDetail
+            what="A full pass to make the dashboard and results pages usable on phones and tablets, not just desktop."
+            how={
+              <>
+                Tables that used to squeeze or truncate now scroll horizontally, navigation
+                collapses into a proper mobile menu, and pages like Tracking Setup and Team are now
+                readable and usable on small screens.
+              </>
+            }
+            use={<>No action needed — just open georankers.ai on your phone or tablet and the layout adapts automatically.</>}
+          />
+        ),
+      },
+      {
+        heading: "Bug Fixes & Reliability",
+        body: (
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Prompt Generation</h3>
+              <p>
+                Improved accuracy and consistency of generated prompts, so they better reflect your
+                brand every time.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Chatbot</h3>
+              <p>Suggested questions in the chatbot now load more reliably.</p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Tracking Prompts on On-Demand Runs</h3>
+              <p>
+                Improved reliability of on-demand analysis runs so your saved tracking prompts stay
+                intact.
               </p>
             </div>
           </div>

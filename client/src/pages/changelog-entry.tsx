@@ -24,9 +24,13 @@ export default function ChangelogEntry() {
   // "entry not found" case is handled in the JSX below, not via early return.
   // The full entry.summary is kept for the visible card + JSON-LD description
   // (structured data isn't truncated by search snippets the way a <meta> tag
-  // is) — only the literal <meta name="description">/OG/Twitter content gets
-  // trimmed to ~155 chars so Google doesn't cut it off mid-sentence.
-  const metaDescription = entry ? truncateForMeta(entry.summary) : "GeoRankers changelog entry.";
+  // is). The literal <meta name="description">/OG/Twitter content prefers a
+  // purpose-written `entry.metaDescription` (a complete sentence that already
+  // fits the SERP budget); falling back to truncating `summary` only for older
+  // entries that don't have one yet.
+  const metaDescription = entry
+    ? entry.metaDescription ?? truncateForMeta(entry.summary)
+    : "GeoRankers changelog entry.";
 
   useSEO({
     title: entry ? `${entry.title} | GeoRankers Changelog` : "Changelog | GeoRankers",

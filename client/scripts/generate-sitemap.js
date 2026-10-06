@@ -37,6 +37,7 @@ const mainPages = [
   { url: `${baseUrl}/changelog/july-2026-product-update`, priority: "0.5", changefreq: "monthly" },
   { url: `${baseUrl}/changelog/august-2026-product-update`, priority: "0.5", changefreq: "monthly" },
   { url: `${baseUrl}/changelog/september-2026-product-update`, priority: "0.5", changefreq: "monthly" },
+  { url: `${baseUrl}/changelog/october-2026-product-update`, priority: "0.5", changefreq: "monthly" },
   { url: `${baseUrl}/alternatives`, priority: "0.6", changefreq: "weekly" },
   { url: `${baseUrl}/alternatives/otterly-ai`, priority: "0.6", changefreq: "monthly" },
   { url: `${baseUrl}/alternatives/rankshift`, priority: "0.6", changefreq: "monthly" },
