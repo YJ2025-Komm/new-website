@@ -36,6 +36,7 @@ const routes = [
   "/changelog/july-2026-product-update",
   "/changelog/august-2026-product-update",
   "/changelog/september-2026-product-update",
+  "/changelog/october-2026-product-update",
   "/alternatives",
   "/alternatives/otterly-ai",
   "/alternatives/rankshift",
