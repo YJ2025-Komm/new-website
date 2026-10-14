@@ -2,6 +2,9 @@ import OpenAI from "openai";
 import { z } from "zod";
 import { zodResponseFormat } from "openai/helpers/zod";
 import { scrapePageContent } from "./web-crawler";
+import { TtlCache, SEVEN_DAYS_MS } from "./cache";
+
+export { TtlCache };
 
 export const BRAND_VISIBILITY_MODEL = "gpt-6-luna";
 
@@ -231,68 +234,10 @@ export function cacheKeyFor(url: string): string {
 }
 
 // ─── In-memory cache with TTL + concurrent-request dedup (Step 9) ─────────
+// TtlCache itself lives in ./cache so every free tool shares the same
+// implementation — see that file for the dedup/TTL mechanics.
 
-interface CacheEntry<T> {
-  data: T;
-  expiresAt: number;
-  generatedAt: string;
-}
-
-export class TtlCache<T> {
-  private store = new Map<string, CacheEntry<T>>();
-  private inFlight = new Map<string, Promise<T>>();
-
-  constructor(private ttlMs: number) {}
-
-  private peek(key: string): CacheEntry<T> | undefined {
-    const entry = this.store.get(key);
-    if (!entry) return undefined;
-    if (Date.now() > entry.expiresAt) {
-      this.store.delete(key);
-      return undefined;
-    }
-    return entry;
-  }
-
-  size(): number {
-    return this.store.size;
-  }
-
-  /**
-   * Returns the cached value if fresh; otherwise runs `compute()` — sharing
-   * a single in-flight promise across concurrent callers for the same key
-   * so simultaneous requests for the same domain don't each trigger the
-   * full OpenAI pipeline.
-   */
-  async getOrCompute(
-    key: string,
-    compute: () => Promise<T>
-  ): Promise<{ data: T; generatedAt: string; fromCache: boolean }> {
-    const cached = this.peek(key);
-    if (cached) return { data: cached.data, generatedAt: cached.generatedAt, fromCache: true };
-
-    const existing = this.inFlight.get(key);
-    if (existing) {
-      const data = await existing;
-      const entry = this.peek(key);
-      return { data, generatedAt: entry?.generatedAt ?? new Date().toISOString(), fromCache: true };
-    }
-
-    const generatedAt = new Date().toISOString();
-    const promise = compute();
-    this.inFlight.set(key, promise);
-    try {
-      const data = await promise;
-      this.store.set(key, { data, expiresAt: Date.now() + this.ttlMs, generatedAt });
-      return { data, generatedAt, fromCache: false };
-    } finally {
-      this.inFlight.delete(key);
-    }
-  }
-}
-
-export const CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
-export const brandVisibilityCache = new TtlCache<BrandVisibilityResult>(CACHE_TTL_MS);
+export const brandVisibilityCache = new TtlCache<BrandVisibilityResult>(SEVEN_DAYS_MS);
 
 // ─── OpenAI call schemas & orchestration (Steps 1, 2, 5, 7) ───────────────
 

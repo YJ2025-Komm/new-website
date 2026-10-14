@@ -7,6 +7,7 @@ import OpenAI from "openai";
 import { discoverPages, scrapeMultiplePages, analyzeRobotsTxt, analyzeSitemap, analyzeKeyPages, analyzeTechnicalFoundation, scrapePageContent } from "./web-crawler";
 import { assertPublicHttpUrl } from "./url-safety";
 import { runBrandVisibilityPipeline, brandVisibilityCache, cacheKeyFor } from "./brand-visibility";
+import { runGeoAuditPipeline, geoAuditCache, cacheKeyForAudit } from "./geo-audit";
 import rateLimit from "express-rate-limit";
 import fs from "fs";
 import path from "path";
@@ -526,61 +527,22 @@ Respond ONLY with valid JSON in this exact format:
     try {
       const { url } = schema.parse(req.body);
       await assertPublicHttpUrl(url);
-
-      const page = await scrapePageContent(url);
-      if (!page) return res.status(422).json({ message: "We couldn't read that page — it may block automated access. Try your homepage or a specific product/feature page." });
-
-      const contentPreview = `Title: ${page.title}\nMeta: ${page.metaDescription}\nH1: ${page.h1Tags}\nH2: ${page.h2Tags}\n\n${page.bodyText.substring(0, 3000)}`;
       const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-      const completion = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        messages: [
-          {
-            role: "system",
-            content: `You are a GEO (Generative Engine Optimization) expert auditing a B2B SaaS webpage for AI search readiness. Be specific and actionable.
+      const cacheKey = cacheKeyForAudit(url);
+      const { data, generatedAt } = await geoAuditCache.getOrCompute(cacheKey, () =>
+        runGeoAuditPipeline(openai, url)
+      );
 
-Return ONLY valid JSON:
-{
-  "brand": "detected company name",
-  "score": 0-100,
-  "strengths": ["specific thing the page does well for AI visibility"],
-  "checks": {
-    "categoryMentioned": true,
-    "faqsPresent": false,
-    "headingStructure": "strong|moderate|weak",
-    "trustSignals": "present|partial|missing",
-    "schemaMarkup": true,
-    "clearValueProp": true,
-    "authoritySignals": true,
-    "numericalData": false
-  },
-  "missingEntities": ["important topic or entity absent from the page"],
-  "priorityFixes": [
-    { "fix": "specific actionable improvement", "impact": "high|medium|low", "effort": "low|medium|high", "why": "why this matters for AI visibility" }
-  ],
-  "summary": ["insight about where the page currently stands","insight about what is holding it back","insight about what to fix first"]
-}
-strengths: 2-3 items. missingEntities: 3-5 items. priorityFixes: 5-6 items ordered by impact descending.`,
-          },
-          { role: "user", content: `Audit this page for GEO readiness:\n\n${contentPreview}` },
-        ],
-        response_format: { type: "json_object" },
-        max_tokens: 1200,
-      });
-
-      const result = JSON.parse(completion.choices[0]?.message?.content ?? "{}");
-      // Override schemaMarkup with the factual scraped value — don't trust GPT's inference
-      if (result.checks) result.checks.schemaMarkup = page.hasSchema;
       logLead("geo-audit", url);
-      res.json(result);
+      res.json({ ...data, generatedAt });
     } catch (error) {
       if (error instanceof z.ZodError) return res.status(400).json({ message: "Invalid URL", errors: error.errors });
       console.error("geo-audit error:", error instanceof Error ? error.message : error);
       if (error instanceof Error && error.message.includes(':')) {
         const [errorType, ...parts] = error.message.split(':');
         const msg = parts.join(':').trim();
-        if (['BLOCKED_URL','INVALID_URL','BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION'].includes(errorType)) {
+        if (['BLOCKED_URL','INVALID_URL','BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION','ANALYSIS_FAILED'].includes(errorType)) {
           return res.status(422).json({ message: msg });
         }
       }
