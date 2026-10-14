@@ -5,6 +5,7 @@ import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Loader2, XCircle, ExternalLink, Zap, TrendingUp, AlertTriangle, Info } from "lucide-react";
+import { withMinDelay } from "@/lib/utils";
 
 interface TopQuery {
   query: string;
@@ -110,7 +111,7 @@ export default function QueryOpportunityPage() {
     setResult(null);
     setError(null);
     try {
-      const data = await runFetch();
+      const data = await withMinDelay(runFetch(), 2500);
       setResult(data);
     } catch {
       setRetrying(true);
@@ -176,16 +177,9 @@ export default function QueryOpportunityPage() {
             <div className="max-w-4xl mx-auto space-y-6">
               {/* Detected brand + category */}
               <div className="space-y-1">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-xs bg-slate-100 border border-slate-200 rounded-full px-3 py-1 text-slate-600">
-                    Brand: <span className="text-slate-900 font-semibold">{result.brand}</span>
-                  </span>
-                  {result.generatedAt && (
-                    <span className="text-xs text-slate-400">
-                      Snapshot generated: {new Date(result.generatedAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })}
-                    </span>
-                  )}
-                </div>
+                <span className="text-xs bg-slate-100 border border-slate-200 rounded-full px-3 py-1 text-slate-600">
+                  Brand: <span className="text-slate-900 font-semibold">{result.brand}</span>
+                </span>
                 {result.category && <p className="text-xs text-slate-500">{result.category}</p>}
               </div>
 

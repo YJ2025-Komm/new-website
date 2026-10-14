@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Loader2, XCircle, ExternalLink, AlertTriangle, Zap, CheckCircle2, Info, Check, X } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { withMinDelay } from "@/lib/utils";
 
 interface Competitor {
   name: string;
@@ -116,7 +117,7 @@ export default function BrandVisibilityPage() {
     setResult(null);
     setError(null);
     try {
-      const data = await runFetch();
+      const data = await withMinDelay(runFetch(), 2500);
       setResult(data);
     } catch {
       setRetrying(true);
@@ -136,9 +137,6 @@ export default function BrandVisibilityPage() {
 
   const meta = presenceMeta[result?.presenceLevel ?? "low"];
   const awareness = awarenessMeta[result?.awareness ?? "not_assessed"];
-  const generatedLabel = result?.generatedAt
-    ? new Date(result.generatedAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })
-    : "";
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
@@ -216,9 +214,6 @@ export default function BrandVisibilityPage() {
                 <span className="text-xs bg-slate-100 border border-slate-200 rounded-full px-3 py-1 text-slate-600">
                   Category: <span className="text-slate-900 font-semibold">{result.category}</span>
                 </span>
-                {generatedLabel && (
-                  <span className="text-xs text-slate-400">Snapshot generated: {generatedLabel}</span>
-                )}
               </div>
 
               {/* Limited-data notice */}
@@ -246,7 +241,7 @@ export default function BrandVisibilityPage() {
                     <div className={`h-2 rounded-full transition-all duration-700 ${meta.bar}`} style={{ width: `${Math.max(result.presencePercent, 2)}%` }} />
                   </div>
                   <p className="text-slate-400 text-xs italic">
-                    Directional snapshot based on {result.successful} sampled AI-generated answers. Results are directional and may vary between runs.
+                    Directional snapshot based on {result.successful} sampled AI-generated answers.
                   </p>
                 </div>
 
