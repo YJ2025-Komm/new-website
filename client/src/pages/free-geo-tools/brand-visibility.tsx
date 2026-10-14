@@ -240,7 +240,7 @@ export default function BrandVisibilityPage() {
                     <div className={`h-2 rounded-full transition-all duration-700 ${meta.bar}`} style={{ width: `${Math.max(result.presencePercent, 2)}%` }} />
                   </div>
                   <p className="text-slate-400 text-xs italic">
-                    Directional snapshot based on {result.successful} sampled AI-generated answers. Results are directional and may vary between runs.
+                    Directional snapshot based on {result.successful} sampled AI-generated answers.
                   </p>
                 </div>
 
