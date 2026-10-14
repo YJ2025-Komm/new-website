@@ -4,10 +4,11 @@ import { websiteAnalysisRequestSchema } from "@shared/schema";
 import { z } from "zod";
 import { registerAdminRoutes } from "./admin-routes";
 import OpenAI from "openai";
-import { discoverPages, scrapeMultiplePages, analyzeRobotsTxt, analyzeSitemap, analyzeKeyPages, analyzeTechnicalFoundation, scrapePageContent } from "./web-crawler";
+import { discoverPages, scrapeMultiplePages, analyzeRobotsTxt, analyzeSitemap, analyzeKeyPages, analyzeTechnicalFoundation } from "./web-crawler";
 import { assertPublicHttpUrl } from "./url-safety";
 import { runBrandVisibilityPipeline, brandVisibilityCache, cacheKeyFor } from "./brand-visibility";
 import { runGeoAuditPipeline, geoAuditCache, cacheKeyForAudit } from "./geo-audit";
+import { runQueryOpportunitiesPipeline, queryOpportunitiesCache, cacheKeyForQueryOpportunities } from "./query-opportunities";
 import rateLimit from "express-rate-limit";
 import fs from "fs";
 import path from "path";
@@ -468,30 +469,6 @@ Respond ONLY with valid JSON in this exact format:
 
   // ─── FREE GEO TOOLS ────────────────────────────────────────────────────────
 
-  // Shared helper: extract brand + category — uses page content if available, falls back to domain
-  async function extractBrandAndCategory(openai: OpenAI, urlOrContent: string, isUrl = false): Promise<{ brand: string; category: string }> {
-    const prompt = isUrl
-      ? `The website URL is: ${urlOrContent}\nBased on the domain name alone, infer the company/brand name and likely product category.`
-      : urlOrContent.substring(0, 1500);
-    const completion = await openai.chat.completions.create({
-      model: "gpt-6-luna", // aligned with the model used by the other two free tools
-      messages: [
-        {
-          role: "system",
-          content: `Extract or infer the brand/company name and product category. Return ONLY valid JSON: {"brand": "CompanyName", "category": "product category (e.g. CRM software, email marketing platform)"}`,
-        },
-        { role: "user", content: prompt },
-      ],
-      response_format: { type: "json_object" },
-      max_tokens: 100,
-    });
-    const parsed = JSON.parse(completion.choices[0]?.message?.content ?? "{}");
-    return {
-      brand: parsed.brand ?? "Unknown Brand",
-      category: parsed.category ?? "software",
-    };
-  }
-
   // Tool 1: AI Brand Visibility Snapshot
   app.post("/api/tools/brand-visibility", freeToolsLimiter, async (req: Request, res: Response) => {
     const schema = z.object({ url: z.string().url() });
@@ -558,59 +535,20 @@ Respond ONLY with valid JSON in this exact format:
       await assertPublicHttpUrl(url);
       const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-      const page = await scrapePageContent(url);
-      let brand: string, category: string;
-      if (page) {
-        const pageContent = `Title: ${page.title}\nMeta: ${page.metaDescription}\nH1: ${page.h1Tags}\n${page.bodyText}`;
-        ({ brand, category } = await extractBrandAndCategory(openai, pageContent));
-      } else {
-        ({ brand, category } = await extractBrandAndCategory(openai, url, true));
-      }
+      const cacheKey = cacheKeyForQueryOpportunities(url);
+      const { data, generatedAt } = await queryOpportunitiesCache.getOrCompute(cacheKey, () =>
+        runQueryOpportunitiesPipeline(openai, url)
+      );
 
-      const completion = await openai.chat.completions.create({
-        model: "gpt-6-luna", // aligned with the model used by the other two free tools
-        messages: [
-          {
-            role: "system",
-            content: `You are an AI search behavior analyst specializing in B2B SaaS. Generate realistic queries that buyers ask AI assistants when evaluating ${category} tools, then analyze the competitive landscape specifically for "${brand}".
-
-Be brand-specific: explain exactly why "${brand}" would or would not appear for each gap, and what specific content changes would help.
-
-IMPORTANT: The current year is 2026. All queries must be timeless or relevant to 2026. Do NOT include year-specific queries like "best tool in 2023", "top platforms 2024", etc. Generate evergreen queries that buyers ask today.
-
-Return ONLY valid JSON:
-{
-  "category": "...",
-  "brand": "...",
-  "topQueries": [
-    { "query": "exact question a buyer would ask an AI assistant", "intent": "evaluation|comparison|how-to|definition", "opportunity": "high|medium|low" }
-  ],
-  "opportunityGaps": [
-    { "query": "query where brand is absent but could rank", "whyBrandMisses": "specific reason brand doesn't appear for this query", "whatToFix": "concrete content or positioning change that would help" }
-  ],
-  "competitorDominatedQueries": [
-    { "query": "query text", "dominatedBy": "CompetitorName", "whyTheyWin": "specific reason this competitor dominates this query" }
-  ],
-  "summary": ["insight about where the brand stands in AI queries","insight about what is holding it back","insight about the highest-impact query to target first"]
-}
-topQueries: exactly 8. opportunityGaps: exactly 3. competitorDominatedQueries: 2-3.`,
-          },
-          { role: "user", content: `Brand: "${brand}"\nCategory: "${category}"\n\nGenerate AI query opportunities and competitive gaps for this brand.` },
-        ],
-        response_format: { type: "json_object" },
-        max_tokens: 1200,
-      });
-
-      const result = JSON.parse(completion.choices[0]?.message?.content ?? "{}");
       logLead("query-opportunities", url);
-      res.json({ brand, category, ...result });
+      res.json({ ...data, generatedAt });
     } catch (error) {
       if (error instanceof z.ZodError) return res.status(400).json({ message: "Invalid URL", errors: error.errors });
       console.error("query-opportunities error:", error instanceof Error ? error.message : error);
       if (error instanceof Error && error.message.includes(':')) {
         const [errorType, ...parts] = error.message.split(':');
         const msg = parts.join(':').trim();
-        if (['BLOCKED_URL','INVALID_URL','BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION'].includes(errorType)) {
+        if (['BLOCKED_URL','INVALID_URL','BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION','INSUFFICIENT_DATA','EXTRACTION_FAILED','ANALYSIS_FAILED'].includes(errorType)) {
           return res.status(422).json({ message: msg });
         }
       }

@@ -321,7 +321,7 @@ Rules for the queries:
   return { profile, confidence: page ? "full" : "limited" };
 }
 
-async function runOneQuery(
+export async function runOneQuery(
   openai: OpenAI,
   query: string
 ): Promise<z.infer<typeof QueryAnswerSchema> | null> {
