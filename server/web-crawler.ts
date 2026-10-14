@@ -3,6 +3,12 @@ import * as cheerio from "cheerio";
 import { URL } from "url";
 import { assertPublicHttpUrl, beforeRedirect, asUrlSafetyError } from "./url-safety";
 
+// A current browser UA — an outdated one (e.g. Chrome/91, from 2021) gets
+// fingerprinted and challenge-blocked by Cloudflare/bot-management on many
+// sites even though a real browser or AI crawler loads the same page fine.
+const SCRAPER_USER_AGENT =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
+
 interface CrawlResult {
   pages: string[];
   totalFound: number;
@@ -71,7 +77,7 @@ export async function discoverPages(
       await assertPublicHttpUrl(currentUrl);
       const response = await axios.get(currentUrl, {
         headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+          'User-Agent': SCRAPER_USER_AGENT
         },
         timeout: 8000,
         maxRedirects: 3,
@@ -217,7 +223,7 @@ export async function scrapePageContent(url: string) {
     await assertPublicHttpUrl(url);
     const response = await axios.get(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        'User-Agent': SCRAPER_USER_AGENT
       },
       timeout: 8000,
       maxRedirects: 3,

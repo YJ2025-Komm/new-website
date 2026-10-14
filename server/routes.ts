@@ -6,6 +6,7 @@ import { registerAdminRoutes } from "./admin-routes";
 import OpenAI from "openai";
 import { discoverPages, scrapeMultiplePages, analyzeRobotsTxt, analyzeSitemap, analyzeKeyPages, analyzeTechnicalFoundation, scrapePageContent } from "./web-crawler";
 import { assertPublicHttpUrl } from "./url-safety";
+import { runBrandVisibilityPipeline, brandVisibilityCache, cacheKeyFor } from "./brand-visibility";
 import rateLimit from "express-rate-limit";
 import fs from "fs";
 import path from "path";
@@ -498,114 +499,20 @@ Respond ONLY with valid JSON in this exact format:
       await assertPublicHttpUrl(url);
       const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-      const page = await scrapePageContent(url);
-      let brand: string, category: string;
-      if (page) {
-        const pageContent = `Title: ${page.title}\nMeta: ${page.metaDescription}\nH1: ${page.h1Tags}\n${page.bodyText}`;
-        ({ brand, category } = await extractBrandAndCategory(openai, pageContent));
-      } else {
-        ({ brand, category } = await extractBrandAndCategory(openai, url, true));
-      }
-
-      // 3 parallel presence-check prompts — each asks specifically about the brand
-      const presencePrompts = [
-        `What tools do experts recommend for ${category}? List the top 5-6 options. Would "${brand}" be among them?`,
-        `Which ${category} platform is best for a B2B SaaS company? Is "${brand}" typically recommended alongside other options?`,
-        `Compare the leading ${category} solutions available today. Does "${brand}" feature in AI-generated comparisons?`,
-      ];
-
-      const [presenceResults, analysisResult] = await Promise.all([
-        // Parallel presence checks
-        Promise.all(
-          presencePrompts.map((p) =>
-            openai.chat.completions.create({
-              model: "gpt-4o-mini",
-              messages: [
-                {
-                  role: "system",
-                  content: `You are a knowledgeable software analyst. Answer honestly and specifically about the brand mentioned. Return ONLY valid JSON: {"brandMentioned": true, "competitors": ["name1","name2","name3","name4"], "snippet": "1-2 sentence excerpt describing the category landscape"}`,
-                },
-                { role: "user", content: p },
-              ],
-              response_format: { type: "json_object" },
-              max_tokens: 300,
-            })
-          )
-        ),
-        // Deep analysis: why visible or not, what to do
-        openai.chat.completions.create({
-          model: "gpt-4o-mini",
-          messages: [
-            {
-              role: "system",
-              content: `You are an AI search visibility analyst with deep knowledge of B2B SaaS markets. Be specific and honest — if a brand is niche or little-known to AI, say so clearly.
-
-You MUST explain in concrete terms why "${brand}" does or does not commonly appear in AI-generated answers for ${category}, focusing on: positioning clarity, content signals, brand awareness, and citation presence.
-
-Return ONLY valid JSON:
-{
-  "presenceLevel": "high|medium|low|minimal",
-  "topCompetitors": ["name1","name2","name3","name4"],
-  "whyNotVisible": ["specific reason 1","specific reason 2","specific reason 3"],
-  "whatToImprove": ["concrete action 1","concrete action 2","concrete action 3"],
-  "summary": ["insight about where the brand currently stands","insight about what is holding them back","insight about what to fix first"]
-}`,
-            },
-            { role: "user", content: `Brand: "${brand}"\nCategory: "${category}"\n\nProvide a detailed AI visibility analysis for this brand.` },
-          ],
-          response_format: { type: "json_object" },
-          max_tokens: 600,
-        }),
-      ]);
-
-      let mentionedCount = 0;
-      const allCompetitors = new Set<string>();
-      const snippets: string[] = [];
-
-      for (const r of presenceResults) {
-        const parsed = JSON.parse(r.choices[0]?.message?.content ?? "{}");
-        if (parsed.brandMentioned === true) mentionedCount++;
-        (parsed.competitors as string[] ?? []).forEach((c: string) => {
-          if (c.toLowerCase() !== brand.toLowerCase()) allCompetitors.add(c);
-        });
-        if (parsed.snippet) snippets.push(parsed.snippet);
-      }
-
-      const analysis = JSON.parse(analysisResult.choices[0]?.message?.content ?? "{}");
-      // Merge competitor lists — prefer analysis competitors as more reliable
-      const finalCompetitors = [
-        ...(analysis.topCompetitors ?? []),
-        ...Array.from(allCompetitors),
-      ].filter((c, i, arr) => arr.findIndex(x => x.toLowerCase() === c.toLowerCase()) === i).slice(0, 6);
+      const cacheKey = cacheKeyFor(url);
+      const { data, generatedAt } = await brandVisibilityCache.getOrCompute(cacheKey, () =>
+        runBrandVisibilityPipeline(openai, url)
+      );
 
       logLead("brand-visibility", url);
-
-      const presencePercent = Math.round((mentionedCount / presencePrompts.length) * 100);
-      // Derive presenceLevel from the actual measured percent — never trust GPT's self-reported level
-      const presenceLevel =
-        presencePercent >= 67 ? "high" :
-        presencePercent >= 34 ? "medium" :
-        presencePercent > 0   ? "low" : "minimal";
-
-      res.json({
-        brand,
-        category,
-        presencePercent,
-        promptsChecked: presencePrompts.length,
-        presenceLevel,
-        topCompetitors: finalCompetitors,
-        snippets: snippets.slice(0, 2),
-        whyNotVisible: (analysis.whyNotVisible as string[] ?? []).slice(0, 3),
-        whatToImprove: (analysis.whatToImprove as string[] ?? []).slice(0, 3),
-        summary: (analysis.summary as string[] ?? []).slice(0, 3),
-      });
+      res.json({ ...data, generatedAt });
     } catch (error) {
       if (error instanceof z.ZodError) return res.status(400).json({ message: "Invalid URL", errors: error.errors });
       console.error("brand-visibility error:", error instanceof Error ? error.message : error);
       if (error instanceof Error && error.message.includes(':')) {
         const [errorType, ...parts] = error.message.split(':');
         const msg = parts.join(':').trim();
-        if (['BLOCKED_URL','INVALID_URL','BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION'].includes(errorType)) {
+        if (['BLOCKED_URL','INVALID_URL','BLOCKED','TEMPORARY','TIMEOUT','HTTP_ERROR','CONNECTION','INSUFFICIENT_DATA','EXTRACTION_FAILED','ANALYSIS_FAILED'].includes(errorType)) {
           return res.status(422).json({ message: msg });
         }
       }
