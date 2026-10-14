@@ -474,7 +474,7 @@ Respond ONLY with valid JSON in this exact format:
       ? `The website URL is: ${urlOrContent}\nBased on the domain name alone, infer the company/brand name and likely product category.`
       : urlOrContent.substring(0, 1500);
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "gpt-6-luna", // aligned with the model used by the other two free tools
       messages: [
         {
           role: "system",
@@ -568,7 +568,7 @@ Respond ONLY with valid JSON in this exact format:
       }
 
       const completion = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
+        model: "gpt-6-luna", // aligned with the model used by the other two free tools
         messages: [
           {
             role: "system",
