@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Loader2, CheckCircle2, XCircle, AlertCircle, ExternalLink, Zap, Info } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { withMinDelay } from "@/lib/utils";
 
 interface PriorityFix {
   fix: string;
@@ -168,7 +169,7 @@ export default function GeoAuditPage() {
     setResult(null);
     setError(null);
     try {
-      const data = await runFetch();
+      const data = await withMinDelay(runFetch(), 2500);
       setResult(data);
     } catch {
       setRetrying(true);

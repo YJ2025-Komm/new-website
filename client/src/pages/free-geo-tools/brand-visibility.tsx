@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Loader2, XCircle, ExternalLink, AlertTriangle, Zap, CheckCircle2, Info, Check, X } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { withMinDelay } from "@/lib/utils";
 
 interface Competitor {
   name: string;
@@ -116,7 +117,7 @@ export default function BrandVisibilityPage() {
     setResult(null);
     setError(null);
     try {
-      const data = await runFetch();
+      const data = await withMinDelay(runFetch(), 2500);
       setResult(data);
     } catch {
       setRetrying(true);

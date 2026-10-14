@@ -5,6 +5,7 @@ import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Loader2, XCircle, ExternalLink, Zap, TrendingUp, AlertTriangle, Info } from "lucide-react";
+import { withMinDelay } from "@/lib/utils";
 
 interface TopQuery {
   query: string;
@@ -110,7 +111,7 @@ export default function QueryOpportunityPage() {
     setResult(null);
     setError(null);
     try {
-      const data = await runFetch();
+      const data = await withMinDelay(runFetch(), 2500);
       setResult(data);
     } catch {
       setRetrying(true);
