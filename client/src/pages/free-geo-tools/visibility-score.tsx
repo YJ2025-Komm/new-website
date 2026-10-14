@@ -176,16 +176,9 @@ export default function QueryOpportunityPage() {
             <div className="max-w-4xl mx-auto space-y-6">
               {/* Detected brand + category */}
               <div className="space-y-1">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-xs bg-slate-100 border border-slate-200 rounded-full px-3 py-1 text-slate-600">
-                    Brand: <span className="text-slate-900 font-semibold">{result.brand}</span>
-                  </span>
-                  {result.generatedAt && (
-                    <span className="text-xs text-slate-400">
-                      Snapshot generated: {new Date(result.generatedAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })}
-                    </span>
-                  )}
-                </div>
+                <span className="text-xs bg-slate-100 border border-slate-200 rounded-full px-3 py-1 text-slate-600">
+                  Brand: <span className="text-slate-900 font-semibold">{result.brand}</span>
+                </span>
                 {result.category && <p className="text-xs text-slate-500">{result.category}</p>}
               </div>
 

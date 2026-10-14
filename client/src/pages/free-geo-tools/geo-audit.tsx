@@ -226,11 +226,6 @@ export default function GeoAuditPage() {
         {result && (
           <section className="pb-20 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto space-y-5">
-              {result.generatedAt && (
-                <p className="text-xs text-slate-400">
-                  Snapshot generated: {new Date(result.generatedAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })}
-                </p>
-              )}
               {/* Score + brand */}
               <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-6 flex items-center gap-6">
                 <ScoreBadge score={result.score ?? 0} />

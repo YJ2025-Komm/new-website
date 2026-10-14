@@ -136,9 +136,6 @@ export default function BrandVisibilityPage() {
 
   const meta = presenceMeta[result?.presenceLevel ?? "low"];
   const awareness = awarenessMeta[result?.awareness ?? "not_assessed"];
-  const generatedLabel = result?.generatedAt
-    ? new Date(result.generatedAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })
-    : "";
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
@@ -216,9 +213,6 @@ export default function BrandVisibilityPage() {
                 <span className="text-xs bg-slate-100 border border-slate-200 rounded-full px-3 py-1 text-slate-600">
                   Category: <span className="text-slate-900 font-semibold">{result.category}</span>
                 </span>
-                {generatedLabel && (
-                  <span className="text-xs text-slate-400">Snapshot generated: {generatedLabel}</span>
-                )}
               </div>
 
               {/* Limited-data notice */}
