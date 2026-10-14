@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Loader2, XCircle, ExternalLink, Zap, TrendingUp, AlertTriangle } from "lucide-react";
+import { Loader2, XCircle, ExternalLink, Zap, TrendingUp, AlertTriangle, Info } from "lucide-react";
 
 interface TopQuery {
   query: string;
@@ -24,10 +24,14 @@ interface CompetitorQuery {
 interface QueryOpportunityResult {
   brand: string;
   category: string;
+  confidence?: "full" | "limited";
+  successful?: number;
+  attempted?: number;
   topQueries: TopQuery[];
   opportunityGaps: OpportunityGap[];
   competitorDominatedQueries: CompetitorQuery[];
   summary: string[];
+  generatedAt?: string;
 }
 
 const intentMeta: Record<string, { label: string; color: string }> = {
@@ -170,15 +174,29 @@ export default function QueryOpportunityPage() {
         {result && (
           <section className="pb-20 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto space-y-6">
-              {/* Detected pills */}
-              <div className="flex gap-2 flex-wrap">
-                <span className="text-xs bg-slate-100 border border-slate-200 rounded-full px-3 py-1 text-slate-600">
-                  Brand: <span className="text-slate-900 font-semibold">{result.brand}</span>
-                </span>
-                <span className="text-xs bg-slate-100 border border-slate-200 rounded-full px-3 py-1 text-slate-600">
-                  Category: <span className="text-slate-900 font-semibold">{result.category}</span>
-                </span>
+              {/* Detected brand + category */}
+              <div className="space-y-1">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-xs bg-slate-100 border border-slate-200 rounded-full px-3 py-1 text-slate-600">
+                    Brand: <span className="text-slate-900 font-semibold">{result.brand}</span>
+                  </span>
+                  {result.generatedAt && (
+                    <span className="text-xs text-slate-400">
+                      Snapshot generated: {new Date(result.generatedAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })}
+                    </span>
+                  )}
+                </div>
+                {result.category && <p className="text-xs text-slate-500">{result.category}</p>}
               </div>
+
+              {(result.confidence === "limited" || (result.successful !== undefined && result.successful < 5)) && (
+                <div className="flex items-start gap-2 text-amber-700 bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm">
+                  <Info className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                  {result.confidence === "limited"
+                    ? "Limited data: we couldn't fully read this page, so results may be less accurate."
+                    : `Limited data: based on ${result.successful} of ${result.attempted} sampled AI answers.`}
+                </div>
+              )}
 
               {/* Top Queries grid */}
               {result.topQueries?.length > 0 && (

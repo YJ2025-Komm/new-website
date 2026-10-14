@@ -3,6 +3,12 @@ import * as cheerio from "cheerio";
 import { URL } from "url";
 import { assertPublicHttpUrl, beforeRedirect, asUrlSafetyError } from "./url-safety";
 
+// A current browser UA — an outdated one (e.g. Chrome/91, from 2021) gets
+// fingerprinted and challenge-blocked by Cloudflare/bot-management on many
+// sites even though a real browser or AI crawler loads the same page fine.
+const SCRAPER_USER_AGENT =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
+
 interface CrawlResult {
   pages: string[];
   totalFound: number;
@@ -71,7 +77,7 @@ export async function discoverPages(
       await assertPublicHttpUrl(currentUrl);
       const response = await axios.get(currentUrl, {
         headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+          'User-Agent': SCRAPER_USER_AGENT
         },
         timeout: 8000,
         maxRedirects: 3,
@@ -212,12 +218,43 @@ export async function scrapeMultiplePages(urls: string[], concurrency: number = 
   return results;
 }
 
+// Extracts every "@type" declared across one or more JSON-LD scripts,
+// including types nested under "@graph" arrays (a common pattern for sites
+// that bundle Organization + WebPage + FAQPage etc. into one script tag).
+function parseSchemaTypes(schemaScripts: (string | null)[]): string[] {
+  const types = new Set<string>();
+
+  const collectFrom = (node: any) => {
+    if (!node || typeof node !== "object") return;
+    if (Array.isArray(node)) {
+      node.forEach(collectFrom);
+      return;
+    }
+    const t = node["@type"];
+    if (typeof t === "string") types.add(t);
+    else if (Array.isArray(t)) t.forEach((x) => typeof x === "string" && types.add(x));
+    if (Array.isArray(node["@graph"])) node["@graph"].forEach(collectFrom);
+  };
+
+  for (const script of schemaScripts) {
+    if (!script) continue;
+    try {
+      collectFrom(JSON.parse(script));
+    } catch {
+      // Malformed JSON-LD is common enough on real sites; skip it rather
+      // than letting one bad script tag fail the whole scrape.
+    }
+  }
+
+  return Array.from(types);
+}
+
 export async function scrapePageContent(url: string) {
   try {
     await assertPublicHttpUrl(url);
     const response = await axios.get(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        'User-Agent': SCRAPER_USER_AGENT
       },
       timeout: 8000,
       maxRedirects: 3,
@@ -225,29 +262,45 @@ export async function scrapePageContent(url: string) {
     });
     
     const $ = cheerio.load(response.data);
-    
+
+    // Extract schema BEFORE removing <script> tags below — otherwise every
+    // <script type="application/ld+json"> has already been deleted from the
+    // tree by the time this selector runs, and schema detection silently
+    // and permanently returns nothing for every page.
+    const schemaScripts = $('script[type="application/ld+json"]').map((_, el) => $(el).html()).get();
+    const schemaTypes = parseSchemaTypes(schemaScripts);
+
     // Remove noise
     $('script, style, noscript, iframe, nav, footer, header').remove();
-    
+
     // Extract content
     const title = $('title').text().trim() || '';
     const metaDescription = $('meta[name="description"]').attr('content') || '';
-    const h1Tags = $('h1').map((_, el) => $(el).text().trim()).get().join(', ');
-    const h2Tags = $('h2').map((_, el) => $(el).text().trim()).get().slice(0, 3).join(', ');
-    const bodyText = $('body').text().trim().replace(/\s+/g, ' ').substring(0, 1500);
-    
-    // Check for schema markup
-    const schemaScripts = $('script[type="application/ld+json"]').map((_, el) => $(el).html()).get();
-    
+    const h1List = $('h1').map((_, el) => $(el).text().trim()).get();
+    const h2List = $('h2').map((_, el) => $(el).text().trim()).get();
+    const h3List = $('h3').map((_, el) => $(el).text().trim()).get();
+    const h1Tags = h1List.join(', ');
+    const h2Tags = h2List.slice(0, 15).join(', ');
+    const h3Tags = h3List.slice(0, 15).join(', ');
+    // 6000 chars (~1000 words) instead of 1500 — a content audit that judges
+    // FAQ presence, stats, and missing topics needs more than the first
+    // couple hundred words, where most of that content lives below the fold.
+    const bodyText = $('body').text().trim().replace(/\s+/g, ' ').substring(0, 6000);
+
     return {
       url,
       title,
       metaDescription,
       h1Tags,
+      h1Count: h1List.length,
       h2Tags,
+      h2Count: h2List.length,
+      h3Tags,
+      h3Count: h3List.length,
       bodyText,
       hasSchema: schemaScripts.length > 0,
-      schemaCount: schemaScripts.length
+      schemaCount: schemaScripts.length,
+      schemaTypes,
     };
   } catch (error) {
     // A blocked-for-safety rejection is not an ordinary scrape failure —

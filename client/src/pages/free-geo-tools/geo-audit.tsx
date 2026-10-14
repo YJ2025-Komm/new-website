@@ -4,7 +4,8 @@ import Footer from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Loader2, CheckCircle2, XCircle, AlertCircle, ExternalLink, Zap } from "lucide-react";
+import { Loader2, CheckCircle2, XCircle, AlertCircle, ExternalLink, Zap, Info } from "lucide-react";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
 interface PriorityFix {
   fix: string;
@@ -15,6 +16,7 @@ interface PriorityFix {
 
 interface GeoAuditResult {
   brand?: string;
+  category?: string;
   score: number;
   strengths: string[];
   checks: {
@@ -30,23 +32,55 @@ interface GeoAuditResult {
   missingEntities: string[];
   priorityFixes: PriorityFix[];
   summary: string[];
+  generatedAt?: string;
 }
 
-function CheckRow({ label, value }: { label: string; value: boolean | string }) {
-  const positive = value === true || value === "strong" || value === "present";
-  const neutral = value === "moderate" || value === "partial";
-  const icon = positive
-    ? <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-    : neutral
-    ? <AlertCircle className="w-4 h-4 text-yellow-500" />
-    : <XCircle className="w-4 h-4 text-red-500" />;
-  const color = positive ? "text-emerald-600" : neutral ? "text-yellow-600" : "text-red-600";
-  const bg = positive ? "bg-emerald-50" : neutral ? "bg-yellow-50" : "bg-red-50";
-  const display = typeof value === "boolean" ? (value ? "Yes" : "No") : value.charAt(0).toUpperCase() + value.slice(1);
+// Every check — whether it's naturally a boolean or a 3-level enum in the
+// API response — collapses onto the same 3-tier scale, so colors/icons stay
+// consistent. But the WORDING differs by what's actually being measured:
+// most checks ask "does X exist on the page" (Present/Not Present fits),
+// while heading structure asks "how good is the structure that's already
+// there" — a quality judgment, not a presence check — so it keeps its own
+// Strong/Moderate/Weak wording instead of being forced into "Present."
+type CheckTier = "strong" | "partial" | "missing";
+type CheckVocabulary = "presence" | "quality";
+
+function toTier(value: boolean | string): CheckTier {
+  if (value === true || value === "strong" || value === "present") return "strong";
+  if (value === "moderate" || value === "partial") return "partial";
+  return "missing"; // false, "weak", or "missing"
+}
+
+const TIER_LABELS: Record<CheckVocabulary, Record<CheckTier, string>> = {
+  presence: { strong: "Present", partial: "Partial", missing: "Not Present" },
+  quality: { strong: "Strong", partial: "Moderate", missing: "Weak" },
+};
+
+const TIER_STYLE: Record<CheckTier, { color: string; bg: string; Icon: typeof CheckCircle2 }> = {
+  strong: { color: "text-emerald-600", bg: "bg-emerald-50", Icon: CheckCircle2 },
+  partial: { color: "text-yellow-600", bg: "bg-yellow-50", Icon: AlertCircle },
+  missing: { color: "text-red-600", bg: "bg-red-50", Icon: XCircle },
+};
+
+function CheckRow({ label, value, vocabulary = "presence", hint }: { label: string; value: boolean | string; vocabulary?: CheckVocabulary; hint?: string }) {
+  const tier = toTier(value);
+  const display = TIER_LABELS[vocabulary][tier];
+  const { color, bg, Icon } = TIER_STYLE[tier];
   return (
     <div className="flex items-center justify-between py-2.5 border-b border-slate-100 last:border-0">
-      <span className="text-slate-700 text-sm">{label}</span>
-      <span className={`flex items-center gap-1.5 text-xs font-semibold px-2 py-0.5 rounded-full ${bg} ${color}`}>{icon}{display}</span>
+      {hint ? (
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <span className="text-slate-700 text-sm underline decoration-dotted decoration-slate-400 underline-offset-4 cursor-help">{label}</span>
+          </TooltipTrigger>
+          <TooltipContent side="top" className="max-w-xs text-xs">{hint}</TooltipContent>
+        </Tooltip>
+      ) : (
+        <span className="text-slate-700 text-sm">{label}</span>
+      )}
+      <span className={`flex items-center gap-1.5 text-xs font-semibold px-2 py-0.5 rounded-full ${bg} ${color}`}>
+        <Icon className="w-4 h-4" />{display}
+      </span>
     </div>
   );
 }
@@ -192,12 +226,34 @@ export default function GeoAuditPage() {
         {result && (
           <section className="pb-20 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto space-y-5">
+              {result.generatedAt && (
+                <p className="text-xs text-slate-400">
+                  Snapshot generated: {new Date(result.generatedAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })}
+                </p>
+              )}
               {/* Score + brand */}
               <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-6 flex items-center gap-6">
                 <ScoreBadge score={result.score ?? 0} />
-                <div>
-                  {result.brand && <p className="text-slate-500 text-xs mb-1">Analyzing: <span className="font-semibold text-slate-700">{result.brand}</span></p>}
-                  <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">GEO Readiness Score</p>
+                <div className="space-y-2.5">
+                  <div className="flex items-center gap-1.5">
+                    <p className="text-xs font-bold text-blue-600 uppercase tracking-widest">GEO Readiness Score</p>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <button type="button" aria-label="How this score is calculated" className="text-slate-400 hover:text-blue-600">
+                          <Info className="w-3.5 h-3.5" />
+                        </button>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+The sum of the 8 checks below. Each check is worth a fixed number of points (10 or 15), so the total adds up to 100.
+                      </TooltipContent>
+                    </Tooltip>
+                  </div>
+                  {(result.brand || result.category) && (
+                    <div className="text-xs text-slate-500 space-y-1">
+                      {result.brand && <p>Analyzing: <span className="font-semibold text-slate-700">{result.brand}</span></p>}
+                      {result.category && <p className="text-slate-400">{result.category}</p>}
+                    </div>
+                  )}
                   <p className="text-slate-600 text-sm">
                     {(result.score ?? 0) >= 70
                       ? "Your page has solid AI visibility foundations. Focus on the priority fixes below to push further."
@@ -224,14 +280,47 @@ export default function GeoAuditPage() {
                 )}
                 <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-6">
                   <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">GEO Signal Checks</p>
-                  <CheckRow label="Category clearly mentioned" value={result.checks?.categoryMentioned ?? false} />
-                  <CheckRow label="FAQ section present" value={result.checks?.faqsPresent ?? false} />
-                  <CheckRow label="Heading structure" value={result.checks?.headingStructure ?? "weak"} />
-                  <CheckRow label="Trust signals" value={result.checks?.trustSignals ?? "missing"} />
-                  <CheckRow label="Schema / structured data" value={result.checks?.schemaMarkup ?? false} />
-                  <CheckRow label="Clear value proposition" value={result.checks?.clearValueProp ?? false} />
-                  <CheckRow label="Authority signals" value={result.checks?.authoritySignals ?? false} />
-                  <CheckRow label="Numerical data / stats" value={result.checks?.numericalData ?? false} />
+                  <CheckRow
+                    label="Category clearly mentioned"
+                    value={result.checks?.categoryMentioned ?? false}
+                    hint="Checks if a key category word shows up in your page's title, H1, or meta description."
+                  />
+                  <CheckRow
+                    label="FAQ section present"
+                    value={result.checks?.faqsPresent ?? false}
+                    hint="Checks for FAQ structured data, or an actual FAQ / 'Frequently Asked Questions' heading or text on the page."
+                  />
+                  <CheckRow
+                    label="Heading structure"
+                    value={result.checks?.headingStructure ?? "weak"}
+                    vocabulary="quality"
+                    hint="Checks whether the page has exactly one H1 with two or more H2 subheadings — a clear hierarchy AI parsers can follow."
+                  />
+                  <CheckRow
+                    label="Trust signals"
+                    value={result.checks?.trustSignals ?? "missing"}
+                    hint="Checks for certifications, reviews, or phrases like 'trusted by' and 'case studies' anywhere on the page."
+                  />
+                  <CheckRow
+                    label="Schema / structured data"
+                    value={result.checks?.schemaMarkup ?? false}
+                    hint="Checks whether the page includes any JSON-LD structured data (schema.org markup)."
+                  />
+                  <CheckRow
+                    label="Clear value proposition"
+                    value={result.checks?.clearValueProp ?? false}
+                    hint="AI's judgment on whether the page clearly explains what the product does and who it's for."
+                  />
+                  <CheckRow
+                    label="Authority signals"
+                    value={result.checks?.authoritySignals ?? false}
+                    hint="AI's judgment on whether the page demonstrates credibility — expertise, data, or recognition."
+                  />
+                  <CheckRow
+                    label="Numerical data / stats"
+                    value={result.checks?.numericalData ?? false}
+                    hint="Checks for percentages, prices, or stats like '500+ customers' anywhere on the page."
+                  />
                 </div>
               </div>
 
