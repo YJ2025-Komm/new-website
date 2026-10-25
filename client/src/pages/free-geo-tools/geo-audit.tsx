@@ -7,6 +7,9 @@ import { Input } from "@/components/ui/input";
 import { Loader2, CheckCircle2, XCircle, AlertCircle, ExternalLink, Zap, Info } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { withMinDelay } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
+
+const TOOL = "geo_audit";
 
 interface PriorityFix {
   fix: string;
@@ -164,6 +167,7 @@ export default function GeoAuditPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    trackEvent("tool_run", { tool: TOOL });
     setLoading(true);
     setRetrying(false);
     setResult(null);
@@ -171,13 +175,16 @@ export default function GeoAuditPage() {
     try {
       const data = await withMinDelay(runFetch(), 2500);
       setResult(data);
+      trackEvent("tool_result", { tool: TOOL, status: "success", retried: 0 });
     } catch {
       setRetrying(true);
       await new Promise(r => setTimeout(r, 5000));
       try {
         const data = await runFetch();
         setResult(data);
+        trackEvent("tool_result", { tool: TOOL, status: "success", retried: 1 });
       } catch (err: any) {
+        trackEvent("tool_result", { tool: TOOL, status: "error", retried: 1 });
         setError(err.message ?? "Server is taking too long to respond. Please try again in a moment.");
       } finally {
         setRetrying(false);

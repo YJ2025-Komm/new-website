@@ -62,6 +62,7 @@ For early teams starting to measure AI visibility.
 - 450+ AI Answers Analyzed, Keyword Recommendations
 - Tracks ChatGPT, Google AI Search, Perplexity
 - Country-Specific AI Tracking
+- Sitemap Health Check for up to 100 pages
 - 5 Competitors Tracked, 1 Seat
 - Weekly scheduled runs + 1 on-demand run/month
 - 10 GEO Agent conversations/user/day
@@ -74,6 +75,7 @@ For growth teams optimizing AI category position.
 - 1,100+ AI Answers Analyzed, Keyword Recommendations
 - Tracks ChatGPT, Google AI Search, Perplexity
 - Country-Specific AI Tracking
+- Sitemap Health Check for up to 500 pages
 - 10 Competitors Tracked, 3 Seats
 - Weekly scheduled runs + 3 on-demand runs/month
 - 20 GEO Agent conversations/user/day
@@ -86,13 +88,14 @@ For growth teams optimizing AI category position.
 For teams making AI visibility a strategic KPI.
 - Custom AI answers analyzed, competitors, seats, scheduled/on-demand runs, and history; Keyword Recommendations
 - Country-Specific AI Tracking
+- Custom Sitemap Health Check page limit
 - Report export; Google Analytics & Search Console integrations (roadmap)
-- Agent-Ready API (MCP-compatible) — roadmap
+- MCP Connector: read-only, token-based access to your GeoRankers analytics inside Claude or ChatGPT
 - Dedicated account manager
 - 4-hour support response
 
 All plans include: brand mention monitoring, keyword search volume, AI recommendations, visibility
-dashboard, competitor tracking, sources tracking, AI reading checker, AI sentiment tracking, Content Hub,
+dashboard, competitor tracking, sources tracking, AI sentiment tracking, Content Hub,
 Model-Wise Visibility, Signal Tracker, Raw Evidence Modal, and Custom Prompt Tracking. No
 credit card required. Cancel anytime. Extra GEO Agent conversations billed at $0.01/conversation.
 

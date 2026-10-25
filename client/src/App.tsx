@@ -27,6 +27,7 @@ import NotFound from "@/pages/not-found";
 import Team from "@/pages/team";
 import Recognition from "@/pages/recognition";
 import ScrollManager from "@/components/ScrollManager";
+import CtaClickTracker from "@/components/CtaClickTracker";
 import BrandVisibilityPage from "@/pages/free-geo-tools/brand-visibility";
 import GeoAuditPage from "@/pages/free-geo-tools/geo-audit";
 import QueryOpportunityPage from "@/pages/free-geo-tools/visibility-score";
@@ -70,6 +71,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <ScrollManager />
+        <CtaClickTracker />
         <Router />
       </TooltipProvider>
     </QueryClientProvider>

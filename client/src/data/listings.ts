@@ -76,11 +76,11 @@ export const LISTINGS: Listing[] = [
   {
     name: "LaunchNest",
     description: "A launch directory where early-stage products are featured for founders and early adopters tracking new releases.",
-    badgeSrc: "https://launchnest.io/badge/georankers.svg?variant=featured&theme=light",
+    badgeSrc: "https://launchnest.io/badge/georankers-2.svg?variant=featured&theme=light",
     badgeWidth: 590,
     badgeHeight: 150,
-    href: "https://launchnest.io",
-    profileUrl: "https://launchnest.io/p/georankers",
+    href: "https://launchnest.io/p/georankers-2",
+    profileUrl: "https://launchnest.io/p/georankers-2",
   },
   {
     name: "Tools Cafe",
@@ -88,8 +88,8 @@ export const LISTINGS: Listing[] = [
     badgeSrc: "https://tools.cafe/b/light.svg",
     badgeWidth: 256,
     badgeHeight: 80,
-    href: "https://tools.cafe",
-    profileUrl: null,
+    href: "https://tools.cafe/p/georankers",
+    profileUrl: "https://tools.cafe/p/georankers",
   },
   {
     name: "Lifto",
@@ -115,8 +115,8 @@ export const LISTINGS: Listing[] = [
     badgeSrc: "https://tooltrim.com/tooltrim-badge.svg",
     badgeWidth: 216,
     badgeHeight: 54,
-    href: "https://tooltrim.com/?utm_source=georankers&utm_medium=badge&utm_campaign=tool_submission",
-    profileUrl: null,
+    href: "https://tooltrim.com/en/tool/georankers",
+    profileUrl: "https://tooltrim.com/en/tool/georankers",
   },
   {
     name: "Product Hunt",

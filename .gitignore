@@ -7,6 +7,9 @@ vite.config.ts.*
 *.tar.gz
 tool-leads.jsonl
 
+# Generated at deploy time by client/scripts/generate-changelog-feed.ts (see netlify.toml)
+client/public/changelog.json
+
 # Unused scratch screenshots dropped into attached_assets/ (not wired into any page)
 attached_assets/New Hero Image.png
 attached_assets/country.png
