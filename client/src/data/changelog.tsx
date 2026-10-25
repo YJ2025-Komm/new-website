@@ -913,19 +913,19 @@ export const changelogEntries: ChangelogEntry[] = [
     slug: "october-2026-product-update",
     date: "2026-10-05",
     title: "October 2026 Product Update",
-    cardHeadline: "Recommendation Engine, Sitemap AI Readiness Checker & MCP Connect",
+    cardHeadline: "Recommendation Engine, Sitemap Health Check & MCP Connector",
     tags: ["Feature", "AI", "Improvement", "Fix"],
     summary:
-      "A smarter Recommendation Engine groups action items by category with evidence behind each one, a new Sitemap AI Readiness Checker scores every page on your site, Developer API & MCP Connect brings GeoRankers data into Claude and other AI tools, prompts are now fully editable, and the dashboard works properly on mobile.",
+      "A smarter Recommendation Engine groups action items by category with evidence behind each one, a new Sitemap Health Check scores every page on your site for AI readiness, Developer API & MCP Connector brings GeoRankers data into Claude and other AI tools, prompts are now fully editable, and the dashboard works properly on mobile.",
     metaDescription:
-      "GeoRankers October 2026 release: a category-based Recommendation Engine, Sitemap AI Readiness Checker, Developer API & MCP Connect, and editable prompts.",
+      "GeoRankers October 2026 release: a category-based Recommendation Engine, Sitemap Health Check, Developer API & MCP Connector, and editable prompts.",
     image: "/changelog/october-2026/recommendation-engine.png",
     imageAlt: "Recommendation Snapshot and category filters above a list of recommendations",
     intro: (
       <>
         Here is what we shipped last month. A smarter Recommendation Engine now groups your
-        action items by category with the evidence behind each one, a new Sitemap AI Readiness
-        Checker scores every page on your site for AI readability, Developer API &amp; MCP Connect
+        action items by category with the evidence behind each one, a new Sitemap Health Check
+        scores every page on your site for AI readiness, Developer API &amp; MCP Connector
         lets you bring GeoRankers data into Claude and other AI tools, Prompt Editing gives you
         direct control over your topics and prompts, and the entire dashboard has been overhauled
         for mobile and tablet use.
@@ -983,7 +983,7 @@ export const changelogEntries: ChangelogEntry[] = [
         ),
       },
       {
-        heading: "Sitemap AI Readiness Checker",
+        heading: "Sitemap Health Check",
         images: [
           { src: "/changelog/october-2026/sitemap-ai-readiness-checker.png", alt: "Sitemap Health Check showing AI Readiness scores, citations, and priority for every page", width: 1443, height: 760 },
         ],
@@ -1021,7 +1021,7 @@ export const changelogEntries: ChangelogEntry[] = [
         ),
       },
       {
-        heading: "Developer API & MCP Connect (Claude, etc.)",
+        heading: "Developer API & MCP Connector (Claude, etc.)",
         images: [
           { src: "/changelog/october-2026/developer-api-mcp-connect.png", alt: "Developers & AI Connectors page showing Personal Access Token generation for ChatGPT and Claude", width: 1093, height: 628 },
         ],
