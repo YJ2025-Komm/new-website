@@ -19,11 +19,11 @@ import { SiOpenai, SiGooglegemini, SiPerplexity, SiClaude } from "react-icons/si
 
 export default function Pricing() {
   useSEO({
-    title: "Pricing — AI Search Visibility Plans | GeoRankers",
+    title: "Pricing: AI Search Visibility Plans | GeoRankers",
     description:
-      "Transparent pricing for every growth stage. GeoRankers plans include AI mention monitoring, competitor benchmarking, and content recommendations — start free.",
+      "Transparent pricing for every growth stage. GeoRankers plans include AI mention monitoring, competitor benchmarking, and content recommendations. Start free.",
     canonical: "https://georankers.ai/pricing",
-    ogTitle: "GeoRankers Pricing — AI Search Visibility Plans",
+    ogTitle: "GeoRankers Pricing: AI Search Visibility Plans",
     ogDescription:
       "Start free and scale as you grow. Flexible plans for startups, growth teams, and agencies.",
     ogUrl: "https://georankers.ai/pricing",
@@ -112,12 +112,13 @@ export default function Pricing() {
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "What are Keyword Recommendations?", "acceptedAnswer": { "@type": "Answer", "text": "Keyword Recommendations are the core buying queries and category keywords GeoRankers identifies for your business, each paired with search volume so you can prioritize by demand. GeoRankers runs structured variations of these keywords across AI models to measure your visibility where it matters most." } },
-        { "@type": "Question", "name": "What does \"AI Answers Analyzed\" mean?", "acceptedAnswer": { "@type": "Answer", "text": "This refers to the total number of individual AI-generated answers we capture and analyze across models and prompt variations for your seed topics — including comparison, best-tool, use-case, and category queries." } },
-        { "@type": "Question", "name": "How often are visibility runs executed?", "acceptedAnswer": { "@type": "Answer", "text": "All plans run on a weekly schedule by default. You can also trigger on-demand runs whenever you want fresh data outside the weekly cycle — 1 per month on Launch, 3 per month on Grow, and a custom allowance on Enterprise. Each run captures fresh AI responses and updates your visibility signals." } },
+        { "@type": "Question", "name": "What does \"AI Answers Analyzed\" mean?", "acceptedAnswer": { "@type": "Answer", "text": "This refers to the total number of individual AI-generated answers we capture and analyze across models and prompt variations for your seed topics, including comparison, best-tool, use-case, and category queries." } },
+        { "@type": "Question", "name": "How often are visibility runs executed?", "acceptedAnswer": { "@type": "Answer", "text": "All plans run on a weekly schedule by default. You can also trigger on-demand runs whenever you want fresh data outside the weekly cycle: 1 per month on Launch, 3 per month on Grow, and a custom allowance on Enterprise. Each run captures fresh AI responses and updates your visibility signals." } },
         { "@type": "Question", "name": "What AI models are supported?", "acceptedAnswer": { "@type": "Answer", "text": "All plans track ChatGPT, Google AI Search, and Perplexity. We continuously expand model coverage as AI search evolves." } },
         { "@type": "Question", "name": "What is GEO Agent (AI Assistant)?", "acceptedAnswer": { "@type": "Answer", "text": "GEO Agent is your conversational visibility assistant. It allows you to ask visibility questions, compare competitors, understand citation sources, and explore narrative gaps. Each conversation includes one user message and one system response. Additional usage is billed at $0.01 per conversation." } },
-        { "@type": "Question", "name": "How is this different from traditional SEO tools?", "acceptedAnswer": { "@type": "Answer", "text": "Traditional tools measure rankings and traffic. GeoRankers measures how AI models interpret, select, and cite your brand inside generated answers. We focus on visibility signals, citation patterns, and prescriptive actions tied to AI behavior — see the full feature breakdown for details." } },
+        { "@type": "Question", "name": "How is this different from traditional SEO tools?", "acceptedAnswer": { "@type": "Answer", "text": "Traditional tools measure rankings and traffic. GeoRankers measures how AI models interpret, select, and cite your brand inside generated answers. We focus on visibility signals, citation patterns, and prescriptive actions tied to AI behavior. See the full feature breakdown for details." } },
         { "@type": "Question", "name": "What does \"Competitors Tracked\" include?", "acceptedAnswer": { "@type": "Answer", "text": "You can define key competitors per plan. GeoRankers monitors how often they are mentioned, how they are positioned, and which sources strengthen their visibility across AI models." } },
+        { "@type": "Question", "name": "Do mentions under a product name or other brand names count?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. AI answers often use a product name instead of the company name. You can add other names for your brand and for each competitor, and GeoRankers counts a mention under any of them." } },
         { "@type": "Question", "name": "Can I export reports?", "acceptedAnswer": { "@type": "Answer", "text": "Report export is available in Grow and Enterprise plans. Enterprise plans can customize reporting formats." } },
         { "@type": "Question", "name": "What happens if I exceed my GEO Agent conversation limit?", "acceptedAnswer": { "@type": "Answer", "text": "Additional conversations are billed at $0.01 per conversation. You can upgrade anytime if usage consistently exceeds your plan limit." } },
         { "@type": "Question", "name": "Is Enterprise required for larger teams?", "acceptedAnswer": { "@type": "Answer", "text": "Enterprise is recommended if you need custom prompt volume, higher run frequency, dedicated support, extended analytics history, or custom integrations." } },
@@ -152,6 +153,7 @@ export default function Pricing() {
             "5 Competitors Tracked",
             "Keyword Recommendations",
             "Country-Specific AI Tracking",
+            "Sitemap Health Check (up to 100 pages)",
             "1 Seat",
             "Weekly Scheduled Runs + 1 On-Demand Run/month",
           ],
@@ -194,6 +196,7 @@ export default function Pricing() {
             "10 Competitors Tracked",
             "Keyword Recommendations",
             "Country-Specific AI Tracking",
+            "Sitemap Health Check (up to 500 pages)",
             "3 Seats",
             "Weekly Scheduled Runs + 3 On-Demand Runs/month",
           ],
@@ -240,6 +243,7 @@ export default function Pricing() {
             "Custom Competitor Tracking",
             "Keyword Recommendations",
             "Country-Specific AI Tracking",
+            "Custom Sitemap Health Check",
             "Custom Seats",
             "Custom Scheduled + On-Demand Runs",
           ],
@@ -262,7 +266,7 @@ export default function Pricing() {
             "Report Export",
             "Google Analytics (Roadmap)",
             "Google Search Console (Roadmap)",
-            "Agent-Ready API (MCP-compatible)",
+            "MCP Connector (Claude, ChatGPT)",
           ],
         },
         {
@@ -288,11 +292,12 @@ export default function Pricing() {
         { label: "GEO Agent (AI Assistant)", launch: "10 conversations/user/day", grow: "20 conversations/user/day", enterprise: "Custom" },
         { label: "Historical Run Access", launch: "Last 5 Runs", grow: "Last 10 Runs", enterprise: "Custom" },
         { label: "Visibility Trend Chart", launch: "30 Days", grow: "60 Days", enterprise: "Custom" },
+        { label: "Sitemap Health Check", description: "Automatic AI readiness scan of your sitemap on every run", launch: "Up to 100 pages", grow: "Up to 500 pages", enterprise: "Custom" },
         { label: "Alerts & Notifications", launch: "Email", grow: "Email, Slack (Roadmap)", enterprise: "Email, Slack (Roadmap)" },
         { label: "Report Export", launch: "no", grow: "yes", enterprise: "yes" },
         { label: "Google Analytics (Roadmap)", launch: "no", grow: "yes", enterprise: "yes" },
         { label: "Google Search Console (Roadmap)", launch: "no", grow: "yes", enterprise: "yes" },
-        { label: "API Access (Roadmap)", launch: "no", grow: "no", enterprise: "Agent-Ready API (MCP-compatible)" },
+        { label: "MCP Connector", description: "Read your GeoRankers analytics inside Claude or ChatGPT. Read-only, token-based access.", launch: "no", grow: "no", enterprise: "yes" },
         { label: "Seats", launch: "1", grow: "3", enterprise: "Custom" },
         { label: "Support SLA", launch: "24 Hours", grow: "12 Hours", enterprise: "4 Hours" },
         { label: "Dedicated Account Manager", launch: "no", grow: "no", enterprise: "yes" },
@@ -303,17 +308,16 @@ export default function Pricing() {
       rows: [
         { label: "Brand Mention Monitoring", launch: "yes", grow: "yes", enterprise: "yes" },
         { label: "Keyword Search Volume", launch: "yes", grow: "yes", enterprise: "yes" },
-        { label: "AI Recommendations", launch: "yes", grow: "yes", enterprise: "yes" },
+        { label: "AI Recommendations", description: "Prioritized actions across content, community, review platforms, backlinks and YouTube, sent straight to Content Hub", launch: "yes", grow: "yes", enterprise: "yes" },
         { label: "Visibility Dashboard", launch: "yes", grow: "yes", enterprise: "yes" },
         { label: "Competitor Tracking", launch: "yes", grow: "yes", enterprise: "yes" },
         { label: "Sources Tracking", launch: "yes", grow: "yes", enterprise: "yes" },
-        { label: "AI Reading Checker", launch: "yes", grow: "yes", enterprise: "yes" },
         { label: "AI Sentiment Tracking", launch: "yes", grow: "yes", enterprise: "yes" },
-        { label: "Content Hub", launch: "yes", grow: "yes", enterprise: "yes" },
+        { label: "Content Hub", description: "Optimize existing content: paste it or upload a .docx or .pdf", launch: "yes", grow: "yes", enterprise: "yes" },
         { label: "AI Visibility by Platform", launch: "yes", grow: "yes", enterprise: "yes" },
-        { label: "Action Impact Tracking", launch: "yes", grow: "yes", enterprise: "yes" },
+        { label: "Signal Tracker", description: "See whether pages you care about, on your site or on Reddit, Wikipedia, LinkedIn and more, get cited in AI answers", launch: "yes", grow: "yes", enterprise: "yes" },
         { label: "Raw AI Responses", launch: "yes", grow: "yes", enterprise: "yes" },
-        { label: "Custom Prompt Tracking", launch: "yes", grow: "yes", enterprise: "yes" },
+        { label: "Custom Prompt Tracking", description: "Edit prompts or upload your own by CSV", launch: "yes", grow: "yes", enterprise: "yes" },
       ],
     },
   ];
@@ -330,11 +334,11 @@ export default function Pricing() {
     },
     {
       question: "What does \"AI Answers Analyzed\" mean?",
-      answer: "This refers to the total number of individual AI-generated answers we capture and analyze across models and prompt variations for your seed topics — including comparison, best-tool, use-case, and category queries.",
+      answer: "This refers to the total number of individual AI-generated answers we capture and analyze across models and prompt variations for your seed topics, including comparison, best-tool, use-case, and category queries.",
     },
     {
       question: "How often are visibility runs executed?",
-      answer: "All plans run on a weekly schedule by default. You can also trigger on-demand runs whenever you want fresh data outside the weekly cycle — 1 per month on Launch, 3 per month on Grow, and a custom allowance on Enterprise. Each run captures fresh AI responses and updates your visibility signals.",
+      answer: "All plans run on a weekly schedule by default. You can also trigger on-demand runs whenever you want fresh data outside the weekly cycle: 1 per month on Launch, 3 per month on Grow, and a custom allowance on Enterprise. Each run captures fresh AI responses and updates your visibility signals.",
     },
     {
       question: "What AI models are supported?",
@@ -348,7 +352,7 @@ export default function Pricing() {
       question: "How is this different from traditional SEO tools?",
       answer: (
         <span>
-          Traditional tools measure rankings and traffic. GeoRankers measures how AI models interpret, select, and cite your brand inside generated answers. We focus on visibility signals, citation patterns, and prescriptive actions tied to AI behavior — see the{" "}
+          Traditional tools measure rankings and traffic. GeoRankers measures how AI models interpret, select, and cite your brand inside generated answers. We focus on visibility signals, citation patterns, and prescriptive actions tied to AI behavior. See the{" "}
           <Link href="/features" className="text-blue-600 hover:underline font-medium">full feature breakdown</Link> for details.
         </span>
       ),
@@ -356,6 +360,10 @@ export default function Pricing() {
     {
       question: "What does \"Competitors Tracked\" include?",
       answer: "You can define key competitors per plan. GeoRankers monitors how often they are mentioned, how they are positioned, and which sources strengthen their visibility across AI models.",
+    },
+    {
+      question: "Do mentions under a product name or other brand names count?",
+      answer: "Yes. AI answers often use a product name instead of the company name. You can add other names for your brand and for each competitor, and GeoRankers counts a mention under any of them.",
     },
     {
       question: "Can I export reports?",
@@ -540,7 +548,7 @@ export default function Pricing() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Compare Plans</h2>
-            <p className="text-slate-500 mt-2">See what's included in each plan at a glance.</p>
+            <p className="text-slate-500 mt-2">See what is included in each plan at a glance.</p>
           </div>
 
           {/* Desktop Table */}
@@ -580,8 +588,11 @@ export default function Pricing() {
                       const isLastRow = gIdx === comparisonGroups.length - 1 && i === group.rows.length - 1;
                       return (
                         <div key={i} className={`grid grid-cols-4 ${i % 2 === 0 ? "bg-slate-50/50" : ""} ${!isLastRow ? "border-b border-slate-100" : ""}`}>
-                          <div className="px-6 py-4 flex items-center">
+                          <div className="px-6 py-4 flex flex-col justify-center">
                             <span className="text-sm font-medium text-slate-700">{row.label}</span>
+                            {row.description && (
+                              <span className="text-xs text-slate-500 mt-1 leading-snug">{row.description}</span>
+                            )}
                           </div>
                           <div className="px-6 py-4 text-center border-l border-slate-100 flex items-center justify-center">
                             {renderCell(row.launch)}
@@ -657,8 +668,11 @@ export default function Pricing() {
                         const isLastRow = gIdx === comparisonGroups.length - 1 && i === group.rows.length - 1;
                         return (
                           <div key={i} className={`grid grid-cols-4 ${i % 2 === 0 ? "bg-slate-50/50" : ""} ${!isLastRow ? "border-b border-slate-100" : ""}`}>
-                            <div className="px-4 py-3 flex items-center">
+                            <div className="px-4 py-3 flex flex-col justify-center">
                               <span className="text-xs font-medium text-slate-700">{row.label}</span>
+                              {row.description && (
+                                <span className="text-[11px] text-slate-500 mt-1 leading-snug">{row.description}</span>
+                              )}
                             </div>
                             <div className="px-4 py-3 text-center border-l border-slate-100 flex items-center justify-center">
                               {renderCell(row.launch)}
