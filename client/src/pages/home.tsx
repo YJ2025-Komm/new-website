@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { SiOpenai, SiGooglegemini, SiPerplexity, SiClaude, SiGithubcopilot } from "react-icons/si";
 import Navbar from "@/components/Navbar";
+import ChangelogAnnouncementBar from "@/components/ChangelogAnnouncementBar";
 import Footer from "@/components/Footer";
 import { ORGANIZATION_SCHEMA } from "@/data/organization";
 import geminiLogo from "@assets/Gemini_1753958628531.png";
@@ -815,10 +816,15 @@ export default function Home() {
           that height difference read as a bigger dead zone at the bottom.
           Shifting the whole block down with matching top/bottom space instead
           splits the extra room rather than dumping it all below the text. */}
-      <section className="relative px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 2xl:pt-28 pb-8 2xl:pb-20">
+      {/* Section pt-16 only clears the fixed nav; the rest of the hero's top
+          space lives on the content wrapper, so the announcement bar slots in
+          directly under the nav and dismissing it restores the original layout. */}
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-16 pb-8 2xl:pb-20">
         <div className="hero-gradient absolute inset-0 z-0"></div>
 
-        <div className="relative z-10 max-w-[100rem] mx-auto">
+        <ChangelogAnnouncementBar className="-mx-4 sm:-mx-6 lg:-mx-8" />
+
+        <div className="relative z-10 max-w-[100rem] mx-auto sm:pt-4 2xl:pt-12">
           {/* Positioning line, sits above the fold opposite the logo */}
           {/* mb here is load-bearing: the image below is pulled up 4.6% and its
               floating Priority Actions card rises into this row's space, so
