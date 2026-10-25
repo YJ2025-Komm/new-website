@@ -16,6 +16,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { DesignPartnersRow } from "@/components/DesignPartners";
 import { SiOpenai, SiGooglegemini, SiPerplexity, SiClaude } from "react-icons/si";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Pricing() {
   useSEO({
@@ -131,6 +132,11 @@ export default function Pricing() {
 
   const [annual, setAnnual] = useState(true);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  // Generic CTA clicks are already reported site-wide by CtaClickTracker; this
+  // adds which plan, billing period and spot on the page drove the click.
+  const trackPlanSelect = (plan: string, location: "card" | "compare_table") =>
+    trackEvent("plan_select", { plan, billing: annual ? "quarterly" : "monthly", location });
 
   const plans = [
     {
@@ -442,7 +448,10 @@ export default function Pricing() {
           <div className="flex items-center justify-center gap-4 mb-2">
             <span className={`text-sm font-medium ${!annual ? "text-slate-900" : "text-slate-500"}`}>Monthly</span>
             <button
-              onClick={() => setAnnual(!annual)}
+              onClick={() => {
+                setAnnual(!annual);
+                trackEvent("billing_toggle", { billing: annual ? "monthly" : "quarterly" });
+              }}
               className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${annual ? "bg-gradient-to-r from-blue-500 to-violet-500" : "bg-slate-300"}`}
             >
               <div className={`absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow transition-transform duration-300 ${annual ? "translate-x-7" : ""}`}></div>
@@ -513,6 +522,7 @@ export default function Pricing() {
 
                     <a
                       href={plan.ctaHref}
+                      onClick={() => trackPlanSelect(plan.name, "card")}
                       className={`block w-full py-3 rounded-xl text-sm font-semibold text-center transition-all mb-6 ${plan.ctaStyle}`}
                     >
                       {plan.cta} <ArrowRight className="w-4 h-4 inline-block ml-1" />
@@ -612,17 +622,17 @@ export default function Pricing() {
                 <div className="grid grid-cols-4 border-t border-slate-200/50 bg-slate-50/30 rounded-b-3xl overflow-hidden">
                   <div className="p-6"></div>
                   <div className="p-6 text-center border-l border-slate-200/50">
-                    <a href="https://dashboard.georankers.co/register" className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-300 transition-colors">
+                    <a href="https://dashboard.georankers.co/register" onClick={() => trackPlanSelect("Launch", "compare_table")} className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-300 transition-colors">
                       Get Started <ArrowRight className="w-3.5 h-3.5 inline-block ml-1" />
                     </a>
                   </div>
                   <div className="p-6 text-center border-l border-slate-200/50 bg-violet-50/30">
-                    <a href="https://dashboard.georankers.co/register" className="block w-full py-2.5 rounded-xl text-sm font-semibold gradient-cta hover:opacity-90 text-white shadow-lg transition-all">
+                    <a href="https://dashboard.georankers.co/register" onClick={() => trackPlanSelect("Grow", "compare_table")} className="block w-full py-2.5 rounded-xl text-sm font-semibold gradient-cta hover:opacity-90 text-white shadow-lg transition-all">
                       Get Started <ArrowRight className="w-3.5 h-3.5 inline-block ml-1" />
                     </a>
                   </div>
                   <div className="p-6 text-center border-l border-slate-200/50">
-                    <a href="https://calendly.com/hello-georankers/30min" target="_blank" rel="noopener noreferrer" className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-colors">
+                    <a href="https://calendly.com/hello-georankers/30min" target="_blank" rel="noopener noreferrer" onClick={() => trackPlanSelect("Enterprise", "compare_table")} className="block w-full py-2.5 rounded-xl text-sm font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-colors">
                       Talk to Us <ArrowRight className="w-3.5 h-3.5 inline-block ml-1" />
                     </a>
                   </div>
@@ -692,17 +702,17 @@ export default function Pricing() {
                   <div className="grid grid-cols-4 border-t border-slate-200/50 bg-slate-50/30 rounded-b-2xl overflow-hidden">
                     <div className="p-4"></div>
                     <div className="p-4 text-center border-l border-slate-200/50">
-                      <a href="https://dashboard.georankers.co/register" className="block w-full py-2 rounded-lg text-xs font-semibold bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-300 transition-colors">
+                      <a href="https://dashboard.georankers.co/register" onClick={() => trackPlanSelect("Launch", "compare_table")} className="block w-full py-2 rounded-lg text-xs font-semibold bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-300 transition-colors">
                         Get Started
                       </a>
                     </div>
                     <div className="p-4 text-center border-l border-slate-200/50 bg-violet-50/30">
-                      <a href="https://dashboard.georankers.co/register" className="block w-full py-2 rounded-lg text-xs font-semibold gradient-cta hover:opacity-90 text-white shadow-lg transition-all">
+                      <a href="https://dashboard.georankers.co/register" onClick={() => trackPlanSelect("Grow", "compare_table")} className="block w-full py-2 rounded-lg text-xs font-semibold gradient-cta hover:opacity-90 text-white shadow-lg transition-all">
                         Get Started
                       </a>
                     </div>
                     <div className="p-4 text-center border-l border-slate-200/50">
-                      <a href="https://calendly.com/hello-georankers/30min" target="_blank" rel="noopener noreferrer" className="block w-full py-2 rounded-lg text-xs font-semibold bg-slate-900 text-white transition-colors">
+                      <a href="https://calendly.com/hello-georankers/30min" target="_blank" rel="noopener noreferrer" onClick={() => trackPlanSelect("Enterprise", "compare_table")} className="block w-full py-2 rounded-lg text-xs font-semibold bg-slate-900 text-white transition-colors">
                         Talk to Us
                       </a>
                     </div>

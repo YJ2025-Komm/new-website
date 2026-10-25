@@ -7,6 +7,9 @@ import { Input } from "@/components/ui/input";
 import { Loader2, XCircle, ExternalLink, AlertTriangle, Zap, CheckCircle2, Info, Check, X } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { withMinDelay } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
+
+const TOOL = "brand_visibility";
 
 interface Competitor {
   name: string;
@@ -112,6 +115,7 @@ export default function BrandVisibilityPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    trackEvent("tool_run", { tool: TOOL });
     setLoading(true);
     setRetrying(false);
     setResult(null);
@@ -119,13 +123,16 @@ export default function BrandVisibilityPage() {
     try {
       const data = await withMinDelay(runFetch(), 2500);
       setResult(data);
+      trackEvent("tool_result", { tool: TOOL, status: "success", retried: 0 });
     } catch {
       setRetrying(true);
       await new Promise(r => setTimeout(r, 5000));
       try {
         const data = await runFetch();
         setResult(data);
+        trackEvent("tool_result", { tool: TOOL, status: "success", retried: 1 });
       } catch (err: any) {
+        trackEvent("tool_result", { tool: TOOL, status: "error", retried: 1 });
         setError(err.message ?? "Server is taking too long to respond. Please try again in a moment.");
       } finally {
         setRetrying(false);
