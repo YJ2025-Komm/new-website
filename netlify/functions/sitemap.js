@@ -22,6 +22,7 @@ const STATIC_PAGES = [
   { url: "https://georankers.ai/changelog/august-2026-product-update", lastmod: "2026-08-05", priority: "0.5", changefreq: "monthly" },
   { url: "https://georankers.ai/changelog/september-2026-product-update", lastmod: "2026-09-03", priority: "0.5", changefreq: "monthly" },
   { url: "https://georankers.ai/changelog/october-2026-product-update", lastmod: "2026-10-05", priority: "0.5", changefreq: "monthly" },
+  { url: "https://georankers.ai/changelog/november-2026-product-update", lastmod: "2026-11-04", priority: "0.5", changefreq: "monthly" },
   { url: "https://georankers.ai/alternatives",                    lastmod: "2026-09-08", priority: "0.6", changefreq: "weekly"  },
   { url: "https://georankers.ai/alternatives/otterly-ai",         lastmod: "2026-09-08", priority: "0.6", changefreq: "monthly" },
   { url: "https://georankers.ai/alternatives/rankshift",          lastmod: "2026-09-08", priority: "0.6", changefreq: "monthly" },

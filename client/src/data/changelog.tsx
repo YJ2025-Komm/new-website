@@ -1135,4 +1135,237 @@ export const changelogEntries: ChangelogEntry[] = [
     ],
     cta: { label: "Go to Dashboard", href: "https://dashboard.georankers.co/login" },
   },
+  {
+    slug: "november-2026-product-update",
+    date: "2026-11-04",
+    title: "November 2026 Product Update",
+    cardHeadline: "Guided Onboarding, AI Visibility Score Version 2 & Direct URL Tracking",
+    tags: ["Feature", "AI", "Improvement", "Fix"],
+    summary:
+      "A guided three-step onboarding wizard gets you set up faster, AI Visibility Score Version 2 gives a more accurate and realistic picture of your visibility, alternate names make sure mentions under a different brand name still count, Signal Tracker can now track any URL directly, and a round of improvements refines team access, reports, the Developer API and the product tour.",
+    metaDescription:
+      "GeoRankers November 2026 release: guided onboarding, AI Visibility Score Version 2, alternate brand names, and direct URL tracking in Signal Tracker.",
+    image: "/changelog/november-2026/onboarding-wizard.png",
+    imageAlt: "Analysis Setup wizard showing step 1 of 3, Brand and market, with a website URL field",
+    intro: (
+      <>
+        Here is what we shipped last month. A guided onboarding wizard walks you through your
+        brand, competitors and topics, AI Visibility Score Version 2 gives a more realistic picture,
+        alternate names make sure mentions under a different name still count, and Signal Tracker
+        can now track any URL directly. We also made improvements across team access, reports, the
+        Developer API and the product tour.
+      </>
+    ),
+    sections: [
+      {
+        heading: "Guided Onboarding Wizard",
+        images: [
+          { src: "/changelog/november-2026/onboarding-wizard.png", alt: "Analysis Setup wizard showing step 1 of 3, Brand and market, with a website URL field", width: 1264, height: 604 },
+        ],
+        body: (
+          <ReleaseDetail
+            what="Onboarding is now a three-step wizard: brand, then competitors, then topics."
+            how={
+              <>
+                GeoRankers detects your brand from your website, and you confirm it before moving
+                on. Competitor and topic suggestions arrive pre-filled and ranked by relevance, and
+                you can adjust them or add your own. The website of every competitor you add is
+                checked automatically. The wizard works smoothly on mobile, with clearer guidance and
+                messages at every step.
+              </>
+            }
+            use={
+              <>
+                Sign up and enter your website. Confirm the detected brand, review the suggested
+                competitors, then pick your topics.
+              </>
+            }
+          />
+        ),
+      },
+      {
+        heading: "AI Visibility Score: Version 2",
+        images: [
+          { src: "/changelog/november-2026/ai-visibility-score-version-2.png", alt: "Visibility Overview card showing the AI Visibility score with a confidence tooltip and the top, mid and low position split", width: 501, height: 383 },
+        ],
+        body: (
+          <ReleaseDetail
+            what="A more accurate AI Visibility Score that gives you a more realistic picture of how visible your brand is in AI answers."
+            how={
+              <>
+                The score is a weighted measure of two things: how often your brand is mentioned
+                in each AI model&apos;s answers, and where it appears within them. Every run is
+                scored the same way, from the answers the AI platforms actually gave, and each
+                brand is scored on its own results, so your numbers stay stable and comparable
+                across competitors. Every score comes with a confidence level, reports show clear
+                mention rates, and the trend chart includes your earlier runs. When your tracked
+                topics change, the trend adds a &quot;Set-up changed&quot; note so you can read
+                every movement in context. The same brand matching is used across email,
+                Recommendations and Content Hub.
+              </>
+            }
+            use={
+              <>
+                Open the Overview or Trends page to see your scores, and use the confidence level
+                next to each one to judge how much weight it deserves.
+              </>
+            }
+          />
+        ),
+      },
+      {
+        heading: "Other Names for Brands and Competitors",
+        images: [
+          { src: "/changelog/november-2026/other-names.png", alt: "Tracking Set-up Company Details with the Other names for your brand field highlighted", width: 811, height: 345 },
+        ],
+        body: (
+          <>
+            <p className="mb-4">
+              <span className="font-semibold text-slate-900">What it is:</span> AI models do not
+              always name a brand the way you do. One answer may use your company name, another a
+              product name, a short form or a different spelling. For example, a company called
+              &quot;Acme&quot; might be recommended as &quot;Shieldly&quot;, the name of its
+              product.
+            </p>
+            <p className="mb-4">
+              With Other Names, you tell GeoRankers the other names AI uses for your brand and for
+              each competitor, and every mention under one of those names counts toward that
+              brand&apos;s score, mention rate and position. The result is a complete and fair
+              picture of your visibility and your competitors&apos;.
+            </p>
+            <p className="mb-2">
+              <span className="font-semibold text-slate-900">How it works:</span>
+            </p>
+            <ul className="mb-4 list-disc space-y-2 pl-6">
+              <li>
+                <span className="font-semibold text-slate-900">Setting it up.</span> In
+                onboarding, &quot;Other names (optional)&quot; sits under Brand name. In Tracking
+                Set-up, you will find &quot;Other names for your brand&quot; under Company Details
+                and an &quot;Other names for competitors&quot; panel. Type names one at a time or
+                comma-separated, with up to 10 other names per brand.
+              </li>
+              <li>
+                <span className="font-semibold text-slate-900">Suggestions.</span> Onboarding
+                proposes likely other names from your website, and you choose which to keep. Names
+                that AI used for your brand or a competitor in your latest run are offered too, and
+                a name you remove is not suggested again unless a newer run uses it.
+              </li>
+              <li>
+                <span className="font-semibold text-slate-900">Accurate matching.</span> A name can
+                belong to only one brand, and names that are too short, too generic or the same as
+                another tracked brand are not accepted. Other names only widen name matching, so a
+                website that hosts several products is never treated as your brand&apos;s own.
+              </li>
+              <li>
+                <span className="font-semibold text-slate-900">When changes apply.</span> Changes
+                count from your next run.
+              </li>
+              <li>
+                <span className="font-semibold text-slate-900">Seeing what was counted.</span> A
+                &quot;Mentioned as&quot; info icon shows the names AI used and how many answers
+                used each. You will find it on your brand in Brand Mentions and on every brand in
+                Competitive Landscape.
+              </li>
+              <li>
+                <span className="font-semibold text-slate-900">Trends.</span> If you change your
+                brand&apos;s names, the trend shows &quot;Brand names updated&quot; and flags the
+                set-up change, so you always read the lines in context.
+              </li>
+            </ul>
+            <p className="mb-4">
+              <span className="font-semibold text-slate-900">Related improvements:</span> Websites
+              that do not exist are ignored and the name is used instead, so mentions are credited
+              accurately. Suggested competitors and topics are saved per product and market, so
+              your first Tracking Set-up shows the same suggestions as onboarding.
+            </p>
+            <p>
+              <span className="font-semibold text-slate-900">How to use it:</span> Open Tracking
+              Set-up, choose your brand or a competitor, and add the other names people and AI use
+              for it, such as a product name, a short name or an alternate spelling.
+            </p>
+          </>
+        ),
+      },
+      {
+        heading: "Signal Tracker: Direct URL Tracking",
+        images: [
+          { src: "/changelog/november-2026/signal-tracker-add-url.png", alt: "Signal Tracker header with the Track a URL button and active signals count", width: 1014, height: 104 },
+          { src: "/changelog/november-2026/signal-tracker-details.png", alt: "Track a URL dialog with a URL field for any page, including third-party and competitor pages", width: 501, height: 331 },
+        ],
+        body: (
+          <ReleaseDetail
+            what="You can now track any URL directly, without waiting for a recommendation to suggest it."
+            how={
+              <>
+                Paste a URL and it becomes a tracked signal. Duplicate URLs are rejected, signals
+                can be archived when you no longer need them, and a details sheet shows everything
+                about each one.
+              </>
+            }
+            use={
+              <>
+                Open Signal Tracker, add the URL you want to follow, and open its details sheet at
+                any time. Archive the signal when you are done.
+              </>
+            }
+          />
+        ),
+      },
+      {
+        heading: "More Improvements",
+        body: (
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Team Access</h3>
+              <p>
+                Invited Editors and Viewers now go straight to their products, and logging in opens
+                the right workspace automatically.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Developer API and MCP</h3>
+              <p>
+                Personal access tokens now offer a &quot;Never expires&quot; option, and the Claude
+                connection instructions use the current MCP URL (/mcp).
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Downloaded Reports</h3>
+              <p>
+                Downloaded reports are now more consistent with the Overview page, with cleaner
+                formatting and clearer brand summaries, such as &quot;Scored 42%&quot;.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Run Usage</h3>
+              <p>
+                Your remaining on-demand runs always reflect your current allowance.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Product Tour</h3>
+              <p>
+                The product tour is smoother and now also covers Sitemap, Tracking and MCP.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Account Protection</h3>
+              <p>
+                Stronger sign-up and account protection, including blocked disposable email
+                sign-ups and a current-password requirement for password changes.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Smaller Fixes</h3>
+              <p>
+                A sharper brand logo on the results overview and improved source search on the
+                Sources page.
+              </p>
+            </div>
+          </div>
+        ),
+      },
+    ],
+    cta: { label: "Go to Dashboard", href: "https://dashboard.georankers.co/login" },
+  },
 ];
