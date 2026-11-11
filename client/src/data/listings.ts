@@ -127,4 +127,13 @@ export const LISTINGS: Listing[] = [
     href: "https://www.producthunt.com/products/georankers?utm_source=badge-follow&utm_medium=badge&utm_source=badge-georankers",
     profileUrl: "https://www.producthunt.com/products/georankers",
   },
+  {
+    name: "PostYourStartup",
+    description: "A startup directory where new products are posted and featured for founders and early adopters looking for tools to try.",
+    badgeSrc: "https://postyourstartup.com/api/badge/georankers-ai?theme=light",
+    badgeWidth: 212,
+    badgeHeight: 55,
+    href: "https://postyourstartup.com/startup/georankers-ai?ref=badge",
+    profileUrl: "https://postyourstartup.com/startup/georankers-ai",
+  },
 ];
